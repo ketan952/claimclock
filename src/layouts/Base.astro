@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+const { title = 'ClaimClock — a clock on your side', description = 'Keep a cashless insurance timeline, ask for written acknowledgement, and prepare your next message. Free and private.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} /><meta name="theme-color" content="#183f35" />
+  <title>{title}</title><link rel="icon" href="/icon.svg" type="image/svg+xml" /><link rel="manifest" href="/manifest.webmanifest" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content / सीधे मुख्य भाग पर जाएँ</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="/" aria-label="ClaimClock home"><img src="/icon.svg" width="31" height="31" alt="" />Claim<span>Clock</span><span class="beta">BETA</span></a>
+    <nav aria-label="Main"><a href="/" data-i18n="nav.hospital">At the hospital</a><a href="/deductions/" data-i18n="nav.deductions">Paid less?</a><a href="/index/" data-i18n="nav.index">The Delay Index</a></nav>
+    <div class="language" aria-label="Language / भाषा"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="hi" aria-pressed="false">हिन्दी</button></div>
+  </div></header>
+  <div id="offline-status" class="offline-status" role="status" hidden data-i18n="status.offline">You're offline. Your clock and saved messages still work.</div>
+  <main id="main"><slot /></main>
+  <footer class="site-footer"><div><a class="brand small" href="/">ClaimClock</a><p data-i18n="footer.built">Made for the wait. Built for your privacy.</p></div><div class="footer-links"><a href="/about/" data-i18n="nav.about">How it works</a><a href="/privacy/" data-i18n="privacy.link">Privacy & data</a><a href="https://github.com/ketan952/claimclock" data-i18n="footer.source">Open source · AGPL-3.0</a></div><p class="disclaimer" data-i18n="footer.disclaimer">Information, not legal advice. ClaimClock does not file complaints or guarantee a claim outcome.</p></footer>
+  <div id="print-root" aria-hidden="true"></div>
+  <script>
+    import {initI18n} from '../lib/i18n';
+    initI18n();
+    const offline=document.querySelector<HTMLElement>('#offline-status')!;
+    const connectivity=()=>offline.hidden=navigator.onLine;
+    window.addEventListener('online',connectivity);window.addEventListener('offline',connectivity);connectivity();
+    if('serviceWorker' in navigator && import.meta.env.PROD) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+    document.querySelectorAll('nav a').forEach(a=>{if(new URL((a as HTMLAnchorElement).href).pathname===location.pathname)a.setAttribute('aria-current','page')});
+  </script>
+</body>
+</html>

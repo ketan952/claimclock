@@ -1,0 +1,363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ketan952/claimclock/blob/main/data/schemas.json",
+  "$defs": {
+    "Timeline": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "insurerId": {
+          "type": "string"
+        },
+        "tpaId": {
+          "type": "string"
+        },
+        "hospital": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "requestType": {
+          "enum": [
+            "preauth",
+            "enhancement",
+            "discharge"
+          ]
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "type": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "at",
+              "type",
+              "note"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "decidedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "outcome": {
+          "enum": [
+            "approved",
+            "partial",
+            "rejected"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "insurerId",
+        "hospital",
+        "city",
+        "requestType",
+        "submittedAt",
+        "events"
+      ],
+      "additionalProperties": true
+    },
+    "Deduction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "category": {
+          "enum": [
+            "room-rent",
+            "consumable",
+            "sub-limit",
+            "co-pay",
+            "reasonable-customary",
+            "package",
+            "unrelated",
+            "unexplained"
+          ]
+        },
+        "status": {
+          "enum": [
+            "likely valid",
+            "challengeable",
+            "no reason given"
+          ]
+        },
+        "policyClause": {
+          "type": "string"
+        },
+        "ruleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "explanation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "amount",
+        "category",
+        "status",
+        "ruleIds",
+        "explanation"
+      ],
+      "additionalProperties": true
+    },
+    "Letter": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "language": {
+          "enum": [
+            "en",
+            "hi"
+          ]
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "ruleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "language",
+        "generatedAt",
+        "subject",
+        "body",
+        "ruleIds"
+      ],
+      "additionalProperties": true
+    },
+    "NL48Row": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "insurer_id": {
+          "type": "string"
+        },
+        "insurer": {
+          "type": "string"
+        },
+        "tpa": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string"
+        },
+        "request_type": {
+          "enum": [
+            "preauth",
+            "discharge"
+          ]
+        },
+        "policy_type": {
+          "enum": [
+            "individual",
+            "group"
+          ]
+        },
+        "unit": {
+          "enum": [
+            "percent",
+            "count"
+          ]
+        },
+        "sample_size": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "retrieved_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "lt1h": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "h1_2": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "h2_6": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "h6_12": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "h12_24": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "gt24h": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "insurer_id",
+        "insurer",
+        "tpa",
+        "period",
+        "request_type",
+        "policy_type",
+        "unit",
+        "sample_size",
+        "source_url",
+        "source_page",
+        "retrieved_on",
+        "lt1h",
+        "h1_2",
+        "h2_6",
+        "h6_12",
+        "h12_24",
+        "gt24h"
+      ],
+      "additionalProperties": true
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "insurer",
+            "tpa"
+          ]
+        },
+        "gro_email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gro_phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "helpline": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verified_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "evidence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "gro_email",
+        "gro_phone",
+        "helpline",
+        "source_url",
+        "verified_on",
+        "evidence"
+      ],
+      "additionalProperties": true
+    }
+  }
+}
