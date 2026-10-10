@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import rows from '../../../data/nl48.json';
+import contacts from '../../../data/contacts.json';
+const insurers=contacts.filter(c=>c.kind==='insurer').map(c=>({...c,rows:rows.filter(r=>r.insurer_id===c.id)})).sort((a,b)=>b.rows.length-a.rows.length||a.name.localeCompare(b.name));
+const covered=new Set(rows.map(r=>r.insurer_id));
+---
+<Base title="Discharge Delay Index — ClaimClock">
+ <div class="wrap"><section class="page-hero"><p class="eyebrow" data-i18n="index.eyebrow">PUBLIC DATA. A CLEARER PICTURE.</p><h1 data-i18n="index.title">The Discharge Delay Index</h1><p class="lead" data-i18n="index.body">What insurers publish about cashless turnaround times — alongside patient reports when there is enough data.</p></section>
+ <p class="notice" data-i18n="index.caution">A 2–6 hour bucket cannot tell us whether the 3-hour rule was met. These are disclosures, not a compliance ranking.</p>
+ <div class="index-summary"><div><strong>{covered.size}</strong><span>insurers with data / बीमा कंपनियाँ</span></div><div><strong>{rows.length}</strong><span>published rows / प्रकाशित पंक्तियाँ</span></div><div><strong>10 Oct 2026</strong><span>retrieved / जाँच की तारीख</span></div></div>
+ <div class="button-row"><a class="button-secondary" href="/data/nl48.csv" download>CSV ↓</a><a class="button-secondary" href="/data/nl48.json" download>JSON ↓</a><a href="/methodology/" data-i18n="index.method">Read the methodology</a></div>
+ <div class="insurer-list">{insurers.map(c=><a class="insurer-row" href={`/index/${c.id}/`}><div><h2>{c.name}</h2><small>{c.rows.length?`${c.rows.length} source rows · ${[...new Set(c.rows.map(r=>r.period))].join(', ')}`:'Verified filing data pending / डेटा अभी उपलब्ध नहीं'}</small></div><span class="badge">{c.rows.length?'SOURCE LINKED':'COVERAGE GAP'}</span><span class="arrow" aria-hidden="true">↗</span></a>)}</div>
+ <p class="fine-print" data-i18n="index.missing">Missing or unparseable filings are listed in the coverage register.</p><div class="button-row"><a href="/data/filings.json">Coverage register / कवरेज रजिस्टर ↗</a></div><div class="empty-note"></div></div>
+</Base>

@@ -1,0 +1,455 @@
+{
+  "checked_on": "2026-10-10",
+  "source_pdfs_checked": 5,
+  "rows_checked": 20,
+  "cells_checked": 120,
+  "transcription_errors": 0,
+  "scope": "Five in-house cashless tables. This spot check is not a claim that every insurer or table has been fully audited.",
+  "checks": [
+    {
+      "insurer_id": "hdfc-ergo",
+      "source_url": "https://customer-portal-assets.hdfcergo.com/documents/InhouseFY26-962262549973.pdf",
+      "source_page": 2,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "hdfc-ergo-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            94,
+            5,
+            1,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            94.0,
+            5.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "hdfc-ergo-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            61,
+            31,
+            8,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            61.0,
+            31.0,
+            8.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "hdfc-ergo-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            94,
+            5,
+            1,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            94.0,
+            5.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "hdfc-ergo-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            59,
+            32,
+            9,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            59.0,
+            32.0,
+            9.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Visual comparison of rendered original PDF table against all four normalized rows; policy/request headers also checked."
+    },
+    {
+      "insurer_id": "universal-sompo",
+      "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+      "source_page": 1,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            99,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            99.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            29,
+            27,
+            43,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            29.0,
+            27.0,
+            43.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            99,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            99.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            33,
+            28,
+            39,
+            0,
+            0,
+            0
+          ],
+          "actual_buckets": [
+            33.0,
+            28.0,
+            39.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Visual comparison of rendered original PDF table against all four normalized rows; policy/request headers also checked."
+    },
+    {
+      "insurer_id": "niva-bupa",
+      "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+      "source_page": 52,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "niva-bupa-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            89,
+            4,
+            7,
+            0,
+            0,
+            null
+          ],
+          "actual_buckets": [
+            89.0,
+            4.0,
+            7.0,
+            0.0,
+            0.0,
+            null
+          ]
+        },
+        {
+          "row_id": "niva-bupa-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            48.57,
+            39.57,
+            10.36,
+            0.88,
+            0.62,
+            null
+          ],
+          "actual_buckets": [
+            48.57,
+            39.57,
+            10.36,
+            0.88,
+            0.62,
+            null
+          ]
+        },
+        {
+          "row_id": "niva-bupa-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            83,
+            5,
+            5,
+            1,
+            6,
+            null
+          ],
+          "actual_buckets": [
+            83.0,
+            5.0,
+            5.0,
+            1.0,
+            6.0,
+            null
+          ]
+        },
+        {
+          "row_id": "niva-bupa-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            38.13,
+            47.83,
+            13.02,
+            0.52,
+            0.5,
+            null
+          ],
+          "actual_buckets": [
+            38.13,
+            47.83,
+            13.02,
+            0.52,
+            0.5,
+            null
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Visual comparison of rendered original PDF table against all four normalized rows; policy/request headers also checked."
+    },
+    {
+      "insurer_id": "bajaj",
+      "source_url": "https://www.bajajgeneralinsurance.com/download-documents/financialinformation_general/2025-26q4/NL-48.pdf",
+      "source_page": 2,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "bajaj-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            88.72,
+            9.74,
+            0.98,
+            0.36,
+            0.14,
+            0.06
+          ],
+          "actual_buckets": [
+            88.72,
+            9.74,
+            0.98,
+            0.36,
+            0.14,
+            0.06
+          ]
+        },
+        {
+          "row_id": "bajaj-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            53.72,
+            36.69,
+            8.96,
+            0.39,
+            0.07,
+            0.17
+          ],
+          "actual_buckets": [
+            53.72,
+            36.69,
+            8.96,
+            0.39,
+            0.07,
+            0.17
+          ]
+        },
+        {
+          "row_id": "bajaj-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            91.9,
+            7.04,
+            0.66,
+            0.38,
+            0.02,
+            0
+          ],
+          "actual_buckets": [
+            91.9,
+            7.04,
+            0.66,
+            0.38,
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "row_id": "bajaj-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            51.23,
+            40.3,
+            7.98,
+            0.44,
+            0.04,
+            0
+          ],
+          "actual_buckets": [
+            51.23,
+            40.3,
+            7.98,
+            0.44,
+            0.04,
+            0.0
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Visual comparison of rendered original PDF table against all four normalized rows; policy/request headers also checked."
+    },
+    {
+      "insurer_id": "digit",
+      "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+      "source_page": 6,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "digit-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            92,
+            4.8,
+            0.6,
+            1,
+            1.6,
+            0
+          ],
+          "actual_buckets": [
+            92.0,
+            4.8,
+            0.6,
+            1.0,
+            1.6,
+            0.0
+          ]
+        },
+        {
+          "row_id": "digit-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            53,
+            39.2,
+            6.8,
+            0.8,
+            0.2,
+            0
+          ],
+          "actual_buckets": [
+            53.0,
+            39.2,
+            6.8,
+            0.8,
+            0.2,
+            0.0
+          ]
+        },
+        {
+          "row_id": "digit-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            96.5,
+            2.1,
+            0.4,
+            0.5,
+            0.5,
+            0
+          ],
+          "actual_buckets": [
+            96.5,
+            2.1,
+            0.4,
+            0.5,
+            0.5,
+            0.0
+          ]
+        },
+        {
+          "row_id": "digit-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            61,
+            32,
+            5.6,
+            0.8,
+            0.5,
+            0
+          ],
+          "actual_buckets": [
+            61.0,
+            32.0,
+            5.6,
+            0.8,
+            0.5,
+            0.0
+          ]
+        }
+      ],
+      "errors": [],
+      "method": "Visual comparison of rendered original PDF table against all four normalized rows; policy/request headers also checked."
+    }
+  ]
+}

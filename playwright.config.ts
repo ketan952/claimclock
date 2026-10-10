@@ -1,0 +1,2 @@
+import {defineConfig,devices} from '@playwright/test';
+export default defineConfig({testDir:'./tests/browser',timeout:30000,fullyParallel:false,workers:1,reporter:[['list'],['json',{outputFile:'qa/browser-results.json'}]],use:{baseURL:process.env.QA_BASE_URL||'http://127.0.0.1:4322',...devices['Pixel 7'],trace:'retain-on-failure'},webServer:process.env.QA_BASE_URL?undefined:{command:'python3 -m http.server 4322 --bind 127.0.0.1 --directory dist',url:'http://127.0.0.1:4322',reuseExistingServer:true}});
