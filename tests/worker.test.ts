@@ -143,7 +143,7 @@ test('AI proxy bounds tokens, redacts obvious identifiers and returns only expla
   const originalFetch = globalThis.fetch;
   let payload: { max_completion_tokens: number; messages: { content: string }[] } | undefined;
   globalThis.fetch = async (_url, options) => {
-    assert.equal(options?.redirect, 'error');
+    assert.equal(options?.redirect, 'manual');
     payload = JSON.parse(String(options?.body));
     return Response.json({ choices: [{ message: { content: '<think>private reasoning</think>Ask for the policy clause.', reasoning: 'never return this' } }] });
   };
@@ -153,7 +153,7 @@ test('AI proxy bounds tokens, redacts obvious identifiers and returns only expla
     const result = await request('/api/explain', 'POST', { lines: 'Name: Jane Doe\nEmail jane@example.com\nPhone 9876543210\nConsumables 400', consent: true }, env);
     assert.equal(result.status, 200);
     assert.deepEqual(await result.json(), { explanation: 'Ask for the policy clause.', advisory_only: true });
-    assert.equal(payload!.max_completion_tokens, 300);
+    assert.equal(payload!.max_completion_tokens, 600);
     assert.doesNotMatch(payload!.messages[1].content, /Jane Doe|jane@example.com|9876543210/);
     assert.match(payload!.messages[1].content, /Consumables 400/);
   } finally { globalThis.fetch = originalFetch; }
@@ -179,5 +179,31 @@ test('unavailable provider does not expose provider error text or fall back', as
   try {
     const result = await request('/api/explain', 'POST', { lines: 'Deduction 400', consent: true }, { DB: new SqliteDB(), LLM_BASE_URL: 'https://api.groq.com/openai/v1', LLM_API_KEY: 'example-not-a-secret', LLM_MODEL: 'openai/gpt-oss-120b', LLM_FREE_TIER_CONFIRMED: 'true' });
     assert.equal(result.status, 503); assert.equal(calls, 1); assert.doesNotMatch(await result.text(), /Private provider/);
+  } finally { globalThis.fetch = originalFetch; }
+});
+test('AI language is an exact optional enum and Hindi requests select Hindi provider instructions', async () => {
+  const originalFetch = globalThis.fetch;
+  let calls = 0;
+  globalThis.fetch = async (_url, options) => {
+    calls++;
+    const payload = JSON.parse(String(options?.body));
+    assert.match(payload.messages[0].content, /Hindi using Devanagari/);
+    return Response.json({ choices: [{ message: { content: 'बीमाकर्ता ने कटौती बताई है। लागू शर्त की पुष्टि आवश्यक है।' } }] });
+  };
+  const env = { DB: new SqliteDB(), LLM_BASE_URL: 'https://api.groq.com/openai/v1', LLM_API_KEY: 'example-not-a-secret', LLM_MODEL: 'openai/gpt-oss-120b', LLM_FREE_TIER_CONFIRMED: 'true' };
+  try {
+    for (const language of [['en'], {}, 'fr', 1, null]) assert.equal((await request('/api/explain','POST',{lines:'Deduction 400',consent:true,language},env)).status,400);
+    assert.equal(calls,0);
+    const result = await request('/api/explain','POST',{lines:'Deduction 400',consent:true,language:'hi'},env);
+    assert.equal(result.status,200);assert.equal(calls,1);
+    assert.match((await result.json() as {explanation:string}).explanation,/बीमाकर्ता/);
+  } finally { globalThis.fetch = originalFetch; }
+});
+test('provider redirects are rejected without following or forwarding authorization', async () => {
+  const originalFetch = globalThis.fetch;let calls=0;
+  globalThis.fetch = async (_url, options) => { calls++;assert.equal(options?.redirect,'manual');return new Response(null,{status:302,headers:{location:'https://other.example/'}}); };
+  try {
+    const result=await request('/api/explain','POST',{lines:'Deduction 400',consent:true},{DB:new SqliteDB(),LLM_BASE_URL:'https://api.groq.com/openai/v1',LLM_API_KEY:'example-not-a-secret',LLM_MODEL:'openai/gpt-oss-120b',LLM_FREE_TIER_CONFIRMED:'true'});
+    assert.equal(result.status,503);assert.equal(calls,1);
   } finally { globalThis.fetch = originalFetch; }
 });

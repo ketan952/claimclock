@@ -25,3 +25,12 @@ playwright-report/
 public/vendor/
 public/data/
 qa/browser-results.json
+
+# deterministic build-time sharing assets
+public/og/
+public/icon-192.png
+public/icon-512.png
+public/apple-touch-icon.png
+public/favicon.ico
+public/sitemap.xml
+public/robots.txt

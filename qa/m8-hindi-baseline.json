@@ -1,0 +1,593 @@
+{
+  "checked_at": "2026-10-10T12:11:22.002Z",
+  "leaks": [
+    {
+      "route": "/",
+      "text": "Claim"
+    },
+    {
+      "route": "/",
+      "text": "Clock"
+    },
+    {
+      "route": "/",
+      "text": "BETA"
+    },
+    {
+      "route": "/",
+      "text": "01 / START HERE"
+    },
+    {
+      "route": "/",
+      "text": "Asia/Calcutta"
+    },
+    {
+      "route": "/",
+      "text": "KNOW YOUR RIGHTS"
+    },
+    {
+      "route": "/",
+      "text": "“immediately but not more than one hour of receipt of request.”"
+    },
+    {
+      "route": "/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 15(b), p.23 ↗"
+    },
+    {
+      "route": "/",
+      "text": "“Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”"
+    },
+    {
+      "route": "/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 16(a), p.23 ↗"
+    },
+    {
+      "route": "/",
+      "text": "“In no case, the policyholder shall be made to wait to be discharged from the Hospital.”"
+    },
+    {
+      "route": "/",
+      "text": "“the additional amount if any charged by the hospital shall be borne by the insurer from shareholder’s fund.”"
+    },
+    {
+      "route": "/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 16(b), p.23 ↗"
+    },
+    {
+      "route": "/",
+      "text": "“Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”"
+    },
+    {
+      "route": "/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 17(c), p.24 ↗"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Claim"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Clock"
+    },
+    {
+      "route": "/privacy/",
+      "text": "BETA"
+    },
+    {
+      "route": "/privacy/",
+      "text": "YOUR RECORD. YOUR CHOICE."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Your hospital timeline is saved in this browser's local storage. Your documents are read on this device. Clearing browser data removes local records; shared-device users may be able to see them. No login, third-party analytics or advertising scripts."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Copy, WhatsApp or email:"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Explain with AI:"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Optional patient reports:"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Cloudflare and your network necessarily process connection metadata to deliver the service. ClaimClock's application logs are disabled. Browser-only storage is not encrypted by ClaimClock."
+    },
+    {
+      "route": "/privacy/",
+      "text": "We publish only grouped cells with at least ten reports. We do not publish exact timestamps, individual cities or hospital names. Closed monthly groups are used to reduce the chance of identifying someone. Erasing a report also withdraws the affected public group; raw reports expire after one year."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Keep the deletion code given after submission. It is the proof needed to erase your report without collecting your identity. If you lose it, we cannot reliably identify the report; the retention period still applies. Erasure cannot recall copies someone already downloaded."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Only five counters: session started, clock-lock copied, escalation copied, delay-charge letter generated, opt-in submitted. No user identifier. Counts expire after 90 days; failed batches are dropped."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Return to your timeline"
+    },
+    {
+      "route": "/privacy/",
+      "text": "to export it or delete it from this device. Closing a deduction page discards document text from the page; selected files are not persisted by the app."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Contact and incidents"
+    },
+    {
+      "route": "/privacy/",
+      "text": "Maintainer: Ketan Gautam. Privacy requests:"
+    },
+    {
+      "route": "/privacy/",
+      "text": ". Send no medical documents. The"
+    },
+    {
+      "route": "/privacy/",
+      "text": "incident procedure"
+    },
+    {
+      "route": "/privacy/",
+      "text": "covers prompt notification, a 72-hour report process, containment and erasure. This is a privacy design, not a certification of DPDP compliance."
+    },
+    {
+      "route": "/privacy/",
+      "text": "Notice version: 2026-10-10. Patient reporting is for adults 18+."
+    },
+    {
+      "route": "/deductions/",
+      "text": "Claim"
+    },
+    {
+      "route": "/deductions/",
+      "text": "Clock"
+    },
+    {
+      "route": "/deductions/",
+      "text": "BETA"
+    },
+    {
+      "route": "/deductions/",
+      "text": "EVERY LINE DESERVES A REASON"
+    },
+    {
+      "route": "/deductions/",
+      "text": "01 / READ ON DEVICE"
+    },
+    {
+      "route": "/deductions/",
+      "text": "02 / CHECK THE LINES"
+    },
+    {
+      "route": "/deductions/",
+      "text": "IRDAI §17(b) ↗"
+    },
+    {
+      "route": "/rejected/",
+      "text": "Claim"
+    },
+    {
+      "route": "/rejected/",
+      "text": "Clock"
+    },
+    {
+      "route": "/rejected/",
+      "text": "BETA"
+    },
+    {
+      "route": "/rejected/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 17(a), p.23; Protection Circular Part B V.3(iii).4, p.121"
+    },
+    {
+      "route": "/rejected/",
+      "text": "“No claim shall be repudiated without the approval of PMC”"
+    },
+    {
+      "route": "/rejected/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+    },
+    {
+      "route": "/rejected/",
+      "text": "“giving reference to the specific terms and conditions of the policy document.”"
+    },
+    {
+      "route": "/rejected/",
+      "text": "Protection of Policyholders’ Interests Master Circular, 5 September 2024, Section 1 Part B VI.2(i), p.123"
+    },
+    {
+      "route": "/rejected/",
+      "text": "“Insurers should provide resolution to the complaint within 14 days”"
+    },
+    {
+      "route": "/death/",
+      "text": "Claim"
+    },
+    {
+      "route": "/death/",
+      "text": "Clock"
+    },
+    {
+      "route": "/death/",
+      "text": "BETA"
+    },
+    {
+      "route": "/death/",
+      "text": "“immediately process the request for claim settlement.”"
+    },
+    {
+      "route": "/death/",
+      "text": "Health Master Circular, 29 May 2024, Chapter I 16(c)(i)-(ii), p.23 ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Claim"
+    },
+    {
+      "route": "/index/",
+      "text": "Clock"
+    },
+    {
+      "route": "/index/",
+      "text": "BETA"
+    },
+    {
+      "route": "/index/",
+      "text": "Acko General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Aditya Birla Health ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Bajaj General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Cholamandalam MS ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Galaxy Health Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Generali Central ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Go Digit General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "HDFC ERGO General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "ICICI Lombard General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "IFFCO Tokio General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "IndusInd General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Liberty General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Magma General Insurance Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Manipal Cigna ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Narayana Health ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "National Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Navi General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Niva Bupa Health Insurance Company Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Prudential HCL Health Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Raheja QBE ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Royal Sundaram General Insurance Co.Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "SBI General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Shriram General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Star Health and Allied ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Tata- AIG General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "The New India Assurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "The Oriental Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "United India Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Universal Sompo General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Zuno General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Zurich Kotak General ↗"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Claim"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Clock"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "BETA"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "DISCHARGE DELAY INDEX"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "FY2025-26 in-house and nine TPA files found and parsed. In-house group discharge <1h is 59%; source period matters when comparing older examples."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Ericson Insurance Tpa Pvt. Ltd."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Source PDF · p. 1 ↗"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Family Health Plan Insurance TPA Ltd"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Source PDF · p. 2 ↗"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Health Assist Insurance TPA Pvt. Ltd"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Health India Tpa Services Pvt. Ltd."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "In-house"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Link-K Insurance TPA Pvt Ltd"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Mdindia Healthcare Services (TPA) Pvt. Ltd."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Medi Assist Insurance TPA Pvt. Ltd."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Vidal Health Insurance TPA Pvt. Ltd."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Volo Health Insurance TPA Pvt. Ltd"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Save the request time. Ask the desk to confirm it in writing."
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "Share this disclosure"
+    },
+    {
+      "route": "/index/hdfc-ergo/",
+      "text": "WhatsApp ↗"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Claim"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Clock"
+    },
+    {
+      "route": "/methodology/",
+      "text": "BETA"
+    },
+    {
+      "route": "/methodology/",
+      "text": "READ THE NUMBERS CAREFULLY"
+    },
+    {
+      "route": "/methodology/",
+      "text": "NL-48 is an insurer's public disclosure of health-service turnaround times. We transcribe the published cashless pre-authorisation and discharge buckets for each TPA and for individual/group policies. These are the insurer's reported figures, not a patient survey or an independent compliance audit."
+    },
+    {
+      "route": "/methodology/",
+      "text": "What this does and does not show"
+    },
+    {
+      "route": "/methodology/",
+      "text": "The 2–6 hour bucket straddles the three-hour discharge deadline. We do not estimate the share decided before or after three hours."
+    },
+    {
+      "route": "/methodology/",
+      "text": "The disclosure clock starts when the TPA receives the discharge bill. Family-entered submission times may capture a different point."
+    },
+    {
+      "route": "/methodology/",
+      "text": "Rows with different TPAs, periods, policy types or units are not combined. Percentages are copied without renormalising rounding."
+    },
+    {
+      "route": "/methodology/",
+      "text": "A sample size is shown only when the exact cashless denominator is identifiable. A missing denominator is not zero."
+    },
+    {
+      "route": "/methodology/",
+      "text": "Missing, scanned, malformed and inconsistent filings are tracked explicitly. Coverage is incomplete and has no market-wide ranking."
+    },
+    {
+      "route": "/methodology/",
+      "text": "Patient reports are voluntary and unverified. Every published cell must contain at least ten reports. Small cells, individual timestamps and hospital names are never displayed."
+    },
+    {
+      "route": "/methodology/",
+      "text": "Audit the dataset"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Each row records its source URL, PDF page, insurer, TPA, period, unit and retrieval date. The repository contains a reproducible transcription pipeline, source hashes, exclusions and spot-check evidence."
+    },
+    {
+      "route": "/methodology/",
+      "text": "Coverage register ↗"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Detailed source methodology and QA ↗"
+    },
+    {
+      "route": "/methodology/",
+      "text": "/s/health-mc-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "/s/pphi-mc-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "sources.health-annexures-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "/s/health-annexures-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Corrections"
+    },
+    {
+      "route": "/methodology/",
+      "text": "Open a source-linked issue in the public repository. Do not put policy numbers, medical records or personal details in public issues. Contact verification means the detail was found on a primary-source page; it does not mean a call was made or an inbox tested."
+    },
+    {
+      "route": "/about/",
+      "text": "Claim"
+    },
+    {
+      "route": "/about/",
+      "text": "Clock"
+    },
+    {
+      "route": "/about/",
+      "text": "BETA"
+    },
+    {
+      "route": "/about/",
+      "text": "CLAIMCLOCK"
+    },
+    {
+      "route": "/about/",
+      "text": "Bima Bharosa"
+    },
+    {
+      "route": "/about/",
+      "text": "Insurance Ombudsman"
+    },
+    {
+      "route": "/about/",
+      "text": "Consumer Commission via e-Jagriti"
+    },
+    {
+      "route": "/about/",
+      "text": "Primary rules and limitations:"
+    },
+    {
+      "route": "/about/",
+      "text": "rules.json"
+    },
+    {
+      "route": "/about/",
+      "text": ". The app does not determine legal eligibility."
+    },
+    {
+      "route": "/offline/",
+      "text": "Claim"
+    },
+    {
+      "route": "/offline/",
+      "text": "Clock"
+    },
+    {
+      "route": "/offline/",
+      "text": "BETA"
+    },
+    {
+      "route": "/offline/",
+      "text": "Your saved clock still works. Return to the hospital page or a previously loaded Index page."
+    }
+  ]
+}

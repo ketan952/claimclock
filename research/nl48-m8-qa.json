@@ -1,0 +1,1983 @@
+{
+  "reviewed_on": "2026-10-10",
+  "pdfs_checked": 29,
+  "cells_checked": 810,
+  "differences": 0,
+  "checks": [
+    {
+      "insurer_id": "star-health",
+      "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+      "pages": [
+        54
+      ],
+      "method": "Visual render against extracted cells; National every cell and blank reviewed across both continuation pages.",
+      "columns": [
+        {
+          "row_id": "star-health-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            62.09,
+            27.36,
+            7.96,
+            1.35,
+            0.8,
+            0.44
+          ]
+        },
+        {
+          "row_id": "star-health-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            87.9,
+            6.82,
+            2.42,
+            0.79,
+            1.14,
+            0.93
+          ]
+        },
+        {
+          "row_id": "star-health-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            41.75,
+            36.82,
+            20.27,
+            0.71,
+            0.44,
+            0.02
+          ]
+        },
+        {
+          "row_id": "star-health-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            75.73,
+            16.33,
+            6.7,
+            0.65,
+            0.54,
+            0.06
+          ]
+        }
+      ]
+    },
+    {
+      "insurer_id": "care",
+      "document_url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2025-26/Qtr%204%2025-26/Public_Disclosure_1780465863.pdf",
+      "pages": [
+        63
+      ],
+      "method": "Visual render against extracted cells; National every cell and blank reviewed across both continuation pages.",
+      "columns": [
+        {
+          "row_id": "care-fy2025-26-consolidated-insurer-disclosure-tpas-listed-group-discharge",
+          "expected_buckets": [
+            59,
+            33,
+            9,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "care-fy2025-26-consolidated-insurer-disclosure-tpas-listed-group-preauth",
+          "expected_buckets": [
+            98,
+            2,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "care-fy2025-26-consolidated-insurer-disclosure-tpas-listed-individual-discharge",
+          "expected_buckets": [
+            38,
+            29,
+            33,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "care-fy2025-26-consolidated-insurer-disclosure-tpas-listed-individual-preauth",
+          "expected_buckets": [
+            85,
+            9,
+            6,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "insurer_id": "aditya-birla",
+      "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+      "pages": [
+        53
+      ],
+      "method": "Visual render against extracted cells; National every cell and blank reviewed across both continuation pages.",
+      "columns": [
+        {
+          "row_id": "aditya-birla-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            36.0,
+            38.0,
+            24.0,
+            1.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "aditya-birla-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            91.0,
+            5.0,
+            3.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "aditya-birla-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            31.0,
+            39.0,
+            27.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "row_id": "aditya-birla-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            90.0,
+            6.0,
+            3.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "insurer_id": "sbi-general",
+      "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+      "pages": [
+        6
+      ],
+      "method": "Visual render against extracted cells; National every cell and blank reviewed across both continuation pages.",
+      "columns": [
+        {
+          "row_id": "sbi-general-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            44.55,
+            47.86,
+            7.6,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "sbi-general-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            99.54,
+            0.22,
+            0.24,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "sbi-general-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            41.41,
+            49.47,
+            9.12,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "sbi-general-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            99.31,
+            0.35,
+            0.34,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "insurer_id": "national",
+      "document_url": "https://nationalinsurance.nic.co.in/sites/default/files/2026-06/Medi%20Assist%20Insurance%20TPA%20Private%20Limited.pdf",
+      "pages": [
+        2,
+        3
+      ],
+      "method": "Visual render against extracted cells; National every cell and blank reviewed across both continuation pages.",
+      "columns": [
+        {
+          "row_id": "national-fy2025-26-medi-assist-insurance-tpa-private-limited-group-discharge",
+          "expected_buckets": [
+            73.5,
+            23.6,
+            2.8,
+            0.1,
+            0.1,
+            null
+          ]
+        },
+        {
+          "row_id": "national-fy2025-26-medi-assist-insurance-tpa-private-limited-group-preauth",
+          "expected_buckets": [
+            99.3,
+            0.6,
+            0.1,
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "row_id": "national-fy2025-26-medi-assist-insurance-tpa-private-limited-individual-discharge",
+          "expected_buckets": [
+            62.6,
+            30.9,
+            6.3,
+            0.1,
+            0.1,
+            null
+          ]
+        },
+        {
+          "row_id": "national-fy2025-26-medi-assist-insurance-tpa-private-limited-individual-preauth",
+          "expected_buckets": [
+            97.9,
+            1.8,
+            0.1,
+            0,
+            0.1,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "generali-central-fy2025-26-generali-fy26-p1",
+      "insurer_id": "generali-central",
+      "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "generali-central-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            62.23,
+            29.26,
+            7.43,
+            0.63,
+            0.27,
+            0.18
+          ]
+        },
+        {
+          "row_id": "generali-central-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            80.92,
+            13.29,
+            3.64,
+            1.15,
+            0.67,
+            0.34
+          ]
+        },
+        {
+          "row_id": "generali-central-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            63.12,
+            28.78,
+            7.59,
+            0.32,
+            0.16,
+            0.03
+          ]
+        },
+        {
+          "row_id": "generali-central-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            82.4,
+            13.76,
+            2.99,
+            0.49,
+            0.27,
+            0.08
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "magma-fy2025-26-magma-5-p3",
+      "insurer_id": "magma",
+      "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/MD+INDIA+Health+Insurance+TPA+Pvt+Ltd.pdf/a8a9a7c8-dfe1-dd9a-cfbb-f398294c0103?t=1785136749350",
+      "pages": [
+        3
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "magma-fy2025-26-md-india-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            74,
+            18,
+            8,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "magma-fy2025-26-md-india-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            80,
+            14,
+            6,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "royal-sundaram-fy2025-26-royal-13-p2",
+      "insurer_id": "royal-sundaram",
+      "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+      "pages": [
+        2
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "royal-sundaram-fy2025-26-medi-assist-insurance-tpa-group-discharge",
+          "expected_buckets": [
+            55.6,
+            35.7,
+            8.5,
+            0.1,
+            0.1,
+            0
+          ]
+        },
+        {
+          "row_id": "royal-sundaram-fy2025-26-medi-assist-insurance-tpa-group-preauth",
+          "expected_buckets": [
+            98.7,
+            0.9,
+            0.2,
+            0.1,
+            0.1,
+            0
+          ]
+        },
+        {
+          "row_id": "royal-sundaram-fy2025-26-medi-assist-insurance-tpa-individual-discharge",
+          "expected_buckets": [
+            52.4,
+            36.9,
+            10.4,
+            0.2,
+            0.1,
+            0
+          ]
+        },
+        {
+          "row_id": "royal-sundaram-fy2025-26-medi-assist-insurance-tpa-individual-preauth",
+          "expected_buckets": [
+            96.7,
+            1.4,
+            0.6,
+            0.3,
+            0.9,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "royal-sundaram-fy2025-26-royal-11-p2",
+      "insurer_id": "royal-sundaram",
+      "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+      "pages": [
+        2
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "royal-sundaram-fy2025-26-mdindia-health-insurance-tpa-group-discharge",
+          "expected_buckets": [
+            73.77,
+            17.6,
+            8.51,
+            0.12,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "royal-sundaram-fy2025-26-mdindia-health-insurance-tpa-group-preauth",
+          "expected_buckets": [
+            85.2,
+            12.2,
+            2.51,
+            0.09,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "shriram-fy2025-26-shriram-fy26-p58",
+      "insurer_id": "shriram",
+      "document_url": "https://cdn.shriramgi.com/webassets/download/2025-2026/2539dd48-dd39-4946-ae4f-66cd3e6e4654_SGI-_Disclosure_-%20IVth%20Qtr%2025-26_11.06.2026_compressed.pdf",
+      "pages": [
+        58
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "shriram-fy2025-26-medi-assist-insurance-tpa-pvt-limited-individual-discharge",
+          "expected_buckets": [
+            27,
+            48,
+            25,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "shriram-fy2025-26-medi-assist-insurance-tpa-pvt-limited-individual-preauth",
+          "expected_buckets": [
+            37,
+            63,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa0-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Genins%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-genins-india-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            85.15,
+            12.3,
+            2.32,
+            0.23,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-genins-india-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            90.02,
+            8.12,
+            1.86,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-genins-india-insurance-tpa-ltd-individual-discharge",
+          "expected_buckets": [
+            85.88,
+            12.09,
+            1.88,
+            0.15,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-genins-india-insurance-tpa-ltd-individual-preauth",
+          "expected_buckets": [
+            89.21,
+            8.25,
+            1.67,
+            0.36,
+            0.07,
+            0.44
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa1-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/GHPL%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-good-health-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            47.96,
+            33.4,
+            17.31,
+            0.34,
+            0.29,
+            0.7
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-good-health-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            83.99,
+            13.07,
+            2.5,
+            0.16,
+            0.16,
+            0.12
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-good-health-insurance-tpa-ltd-individual-discharge",
+          "expected_buckets": [
+            46.77,
+            32.18,
+            19.37,
+            0.25,
+            0.52,
+            0.91
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-good-health-insurance-tpa-ltd-individual-preauth",
+          "expected_buckets": [
+            85.44,
+            12.47,
+            1.58,
+            0.05,
+            0.12,
+            0.34
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa2-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Assist%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            84.53,
+            11.45,
+            3.47,
+            0,
+            0,
+            0.55
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            83.86,
+            13,
+            3.14,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-assist-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            68.31,
+            19.15,
+            12.17,
+            0,
+            0,
+            0.37
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-assist-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            61.68,
+            28.18,
+            10.11,
+            0,
+            0,
+            0.03
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa3-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Ericson%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            47.83,
+            44.43,
+            4.89,
+            0.68,
+            0.95,
+            1.22
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            98.91,
+            0.41,
+            0.14,
+            0,
+            0.27,
+            0.27
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-ericson-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            46.47,
+            45.57,
+            4.99,
+            0.76,
+            0.48,
+            1.73
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-ericson-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            97.65,
+            0.55,
+            0.48,
+            0.14,
+            0.76,
+            0.42
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa4-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/FHPL%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-family-health-plan-insurance-tpa-limited-group-discharge",
+          "expected_buckets": [
+            56.93,
+            36.36,
+            6.24,
+            0.14,
+            0.13,
+            0.2
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-family-health-plan-insurance-tpa-limited-group-preauth",
+          "expected_buckets": [
+            91.76,
+            6.34,
+            1.11,
+            0.12,
+            0.24,
+            0.43
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-family-health-plan-insurance-tpa-limited-individual-discharge",
+          "expected_buckets": [
+            52.32,
+            34.73,
+            12.35,
+            0.35,
+            0.21,
+            0.04
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-family-health-plan-insurance-tpa-limited-individual-preauth",
+          "expected_buckets": [
+            86.05,
+            10.06,
+            3.3,
+            0.21,
+            0.31,
+            0.07
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa5-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Heritage%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            80.71,
+            3.71,
+            3.09,
+            0.95,
+            1.31,
+            10.23
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            67.31,
+            4.18,
+            5.37,
+            1.51,
+            3.33,
+            18.3
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            79.83,
+            4.57,
+            4.67,
+            0.76,
+            1.87,
+            8.3
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            66.11,
+            5.02,
+            7.06,
+            1.36,
+            4.9,
+            15.55
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa6-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Link%20K%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-link-k-insurance-tpa-private-limited-group-discharge",
+          "expected_buckets": [
+            55.56,
+            16.67,
+            16.67,
+            0,
+            11.1,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-link-k-insurance-tpa-private-limited-group-preauth",
+          "expected_buckets": [
+            44.44,
+            16.67,
+            5.56,
+            16.67,
+            5.56,
+            11.1
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa7-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/MD%20India%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            81.26,
+            13.76,
+            4.97,
+            0.01,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            97.86,
+            1.7,
+            0.44,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            78.59,
+            15.61,
+            5.79,
+            0,
+            0,
+            0.01
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            97.27,
+            2.41,
+            0.28,
+            0.01,
+            0.01,
+            0.02
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa8-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-health-insurance-tpa-of-india-ltd-group-discharge",
+          "expected_buckets": [
+            95.52,
+            4,
+            0.48,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-insurance-tpa-of-india-ltd-group-preauth",
+          "expected_buckets": [
+            90.4,
+            9,
+            0.6,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-insurance-tpa-of-india-ltd-individual-discharge",
+          "expected_buckets": [
+            91.45,
+            8,
+            0.55,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-health-insurance-tpa-of-india-ltd-individual-preauth",
+          "expected_buckets": [
+            89.55,
+            10,
+            0.45,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa9-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/HealthIndia%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            53.81,
+            21.42,
+            9.39,
+            0.38,
+            1.02,
+            13.98
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            85.78,
+            9.67,
+            2.92,
+            0.2,
+            0.42,
+            1.01
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            47.32,
+            30.59,
+            9.19,
+            0.37,
+            0.72,
+            11.81
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            81.91,
+            12.98,
+            3.69,
+            0.18,
+            0.36,
+            0.88
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa10-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Paramount%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            56.61,
+            35.04,
+            7.37,
+            0.2,
+            0.36,
+            0.42
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            29.54,
+            10.15,
+            15.6,
+            3.46,
+            16.48,
+            24.77
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            59.74,
+            27.94,
+            8.6,
+            0.63,
+            0.95,
+            2.14
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            24.52,
+            8.37,
+            14.73,
+            3.16,
+            17.82,
+            31.4
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa11-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Vidal%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            74.49,
+            10.44,
+            9.52,
+            0.96,
+            2.24,
+            2.35
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            70.46,
+            5.55,
+            6.93,
+            1.3,
+            7.8,
+            7.96
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            67.07,
+            14.49,
+            11.57,
+            1.08,
+            2.79,
+            3
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            61.12,
+            6.71,
+            8.33,
+            1.54,
+            11.19,
+            11.11
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa12-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Volo%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-group-discharge",
+          "expected_buckets": [
+            64.91,
+            24.69,
+            6.68,
+            0.34,
+            0.76,
+            2.62
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-group-preauth",
+          "expected_buckets": [
+            46.2,
+            12.02,
+            13.38,
+            2.76,
+            12.42,
+            13.22
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-individual-discharge",
+          "expected_buckets": [
+            56.06,
+            16.58,
+            15.72,
+            1.73,
+            3.84,
+            6.07
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-individual-preauth",
+          "expected_buckets": [
+            43.56,
+            7.05,
+            11.51,
+            3.09,
+            13.12,
+            21.67
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa13-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Med%20Save%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-med-save-health-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            87.35,
+            8.57,
+            2.79,
+            0.54,
+            0.41,
+            0.34
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-med-save-health-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            91.84,
+            4.56,
+            1.36,
+            0.27,
+            1.09,
+            0.88
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-med-save-health-insurance-tpa-ltd-individual-discharge",
+          "expected_buckets": [
+            84.37,
+            11.17,
+            2.98,
+            0.22,
+            0.7,
+            0.56
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-med-save-health-insurance-tpa-ltd-individual-preauth",
+          "expected_buckets": [
+            90.13,
+            5.16,
+            1.97,
+            0.52,
+            0.96,
+            1.26
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "united-india-fy2025-26-tpa14-p1",
+      "insurer_id": "united-india",
+      "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Medi%20Assist%20Insurance%20TPA.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Visual render of cashless table against transcribed or text-extracted cells, with identity and period checked.",
+      "columns": [
+        {
+          "row_id": "united-india-fy2025-26-medi-assist-india-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            88.09,
+            7.44,
+            2.78,
+            0.54,
+            0.41,
+            0.74
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-medi-assist-india-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            88.64,
+            1.55,
+            2.51,
+            0.54,
+            3.2,
+            3.56
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-medi-assist-india-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            54.54,
+            21.05,
+            14.97,
+            1.4,
+            2.95,
+            5.09
+          ]
+        },
+        {
+          "row_id": "united-india-fy2025-26-medi-assist-india-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            50.84,
+            6.04,
+            8.99,
+            1.77,
+            13.92,
+            18.44
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "oriental-fy2025-26-1-p1",
+      "insurer_id": "oriental",
+      "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Mediassist_942bdeea29.pdf",
+      "pages": [
+        1
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "oriental-fy2025-26-medi-assist-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            74,
+            23.2,
+            2.7,
+            0,
+            0.1,
+            null
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-medi-assist-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            98.9,
+            1,
+            0.1,
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-medi-assist-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            68.5,
+            25.9,
+            5.5,
+            0,
+            0.1,
+            null
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-medi-assist-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            98,
+            1.8,
+            0.1,
+            0,
+            0,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "oriental-fy2025-26-5-p8",
+      "insurer_id": "oriental",
+      "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/MD_India_9cc59cebaa.pdf",
+      "pages": [
+        8
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "oriental-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            67.87,
+            23.47,
+            8.63,
+            0.03,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            85.36,
+            12.46,
+            2.16,
+            0.02,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            65.31,
+            24.89,
+            9.79,
+            0.01,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "oriental-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            82.13,
+            15.16,
+            2.7,
+            0.01,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p80",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        80
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            66.0,
+            25.0,
+            7.0,
+            0.0,
+            0.0,
+            2.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            91.0,
+            7.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            68.0,
+            23.0,
+            7.0,
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            92.0,
+            6.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p81",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        81
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-volo-health-insurance-tpa-pvt-ltd-formerly-named-east-west-assist-insurance-tpa-private-limited-group-discharge",
+          "expected_buckets": [
+            59.0,
+            30.0,
+            11.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-volo-health-insurance-tpa-pvt-ltd-formerly-named-east-west-assist-insurance-tpa-private-limited-group-preauth",
+          "expected_buckets": [
+            86.0,
+            12.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p82",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        82
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-vidal-health-insurance-tpa-private-limited-group-discharge",
+          "expected_buckets": [
+            91.0,
+            8.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-vidal-health-insurance-tpa-private-limited-group-preauth",
+          "expected_buckets": [
+            95.0,
+            4.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p83",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        83
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-medi-assist-insurance-tpa-p-ltd-group-discharge",
+          "expected_buckets": [
+            71.0,
+            25.0,
+            4.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-medi-assist-insurance-tpa-p-ltd-group-preauth",
+          "expected_buckets": [
+            98.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p84",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        84
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            53.0,
+            36.0,
+            11.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            93.0,
+            4.0,
+            2.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p85",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        85
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            80.0,
+            14.0,
+            6.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-mdindia-health-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            91.0,
+            7.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p86",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        86
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            69.0,
+            25.0,
+            7.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            95.0,
+            4.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p87",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        87
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-good-health-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            97.0,
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-good-health-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p88",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        88
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-family-health-plan-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            66.0,
+            30.0,
+            4.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-family-health-plan-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            95.0,
+            4.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p89",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        89
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            97.0,
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p90",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        90
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-medsave-health-insurance-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            78.0,
+            19.0,
+            4.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-medsave-health-insurance-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            97.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p91",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        91
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-genins-india-tpa-ltd-group-discharge",
+          "expected_buckets": [
+            79.0,
+            21.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-genins-india-tpa-ltd-group-preauth",
+          "expected_buckets": [
+            97.0,
+            3.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p92",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        92
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-linkk-insurance-tpa-group-discharge",
+          "expected_buckets": [
+            94.0,
+            0.0,
+            6.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-linkk-insurance-tpa-group-preauth",
+          "expected_buckets": [
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p93",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        93
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-park-mediclaim-tpa-private-ltd-group-discharge",
+          "expected_buckets": [
+            80.0,
+            20.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-park-mediclaim-tpa-private-ltd-group-preauth",
+          "expected_buckets": [
+            90.0,
+            10.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "liberty-fy2025-26-p94",
+      "insurer_id": "liberty",
+      "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+      "pages": [
+        94
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "liberty-fy2025-26-safeway-tpa-services-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "row_id": "liberty-fy2025-26-safeway-tpa-services-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "navi-fy2025-26-p57",
+      "insurer_id": "navi",
+      "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+      "pages": [
+        57
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "navi-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            91,
+            4,
+            4,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "row_id": "navi-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            68,
+            5,
+            9,
+            2,
+            9,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "navi-fy2025-26-p58",
+      "insurer_id": "navi",
+      "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+      "pages": [
+        58
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": [
+        {
+          "row_id": "navi-fy2025-26-medi-assist-insurance-tpa-individual-preauth",
+          "expected_buckets": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "table_id": "navi-fy2025-26-p59",
+      "insurer_id": "navi",
+      "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+      "pages": [
+        59
+      ],
+      "method": "Every published bucket cell and cashless column header visually checked against PDF; identity and period reviewed.",
+      "columns": []
+    }
+  ]
+}

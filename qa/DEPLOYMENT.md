@@ -1,3 +1,5 @@
+> Current revision evidence: [M7–M9 QA](REPORT.md). The original deployment record below is historical; AI was subsequently enabled in M8 and dataset coverage expanded to 30 insurers.
+
 # Public deployment — 10 October 2026
 
 **Live URL:** https://claimclock.ketan952.workers.dev/

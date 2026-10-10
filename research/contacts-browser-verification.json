@@ -1,0 +1,644 @@
+[
+  {
+    "id": "national",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://nationalinsurance.nic.co.in/key-links/grievance/information-counter",
+    "sources": [
+      {
+        "url": "https://nationalinsurance.nic.co.in/key-links/grievance/information-counter",
+        "method": "browser-dom",
+        "sha256": "20b529d7d91c9b92f3021da3951f7e34b5d314520b251942e163b78ffe65e643",
+        "artifact": ".cache/m8-contacts/national-grievance.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "new-india",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.newindia.co.in/grievance",
+    "sources": [
+      {
+        "url": "https://www.newindia.co.in/grievance",
+        "method": "browser-dom",
+        "sha256": "0a27f36913a824659b256b66c19c70070d0540e8a6db001ab5699faa8ffaefac",
+        "artifact": ".cache/m8-contacts/new-india-grievance.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "oriental",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://orientalinsurance.org.in/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://orientalinsurance.org.in/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "dd1475ec70f2b3c564dbe34b6a111a2809647f3e37e8e26fadc105f61dda0115",
+        "artifact": ".cache/m8-contacts/oriental-grievance.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "united-india",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://uiic.co.in/web/grievance-details",
+    "sources": [
+      {
+        "url": "https://uiic.co.in/web/grievance-details",
+        "method": "browser-dom",
+        "sha256": "70ed5cb3dfba7bab388104626576b0b55b5620c641063d41fa6cc5a0c2c64a85",
+        "artifact": ".cache/m8-contacts/united-india-expanded-1.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 1,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "acko",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.acko.com/gi/customer-service/grievance-redressal/",
+    "sources": [
+      {
+        "url": "https://www.acko.com/gi/customer-service/grievance-redressal/",
+        "method": "browser-dom",
+        "sha256": "be410ff547c91f71a85a692d8a0b98450abc2b674a1522b0a25fdab7e65615b6",
+        "artifact": ".cache/m8-contacts/acko.json"
+      }
+    ],
+    "helpline_scope": "grievance",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "aditya-birla",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+    "sources": [
+      {
+        "url": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+        "method": "browser-pdf",
+        "sha256": "38508d31f2774928a10e65e3a2d03232655e16f2edac5d69375995fcaa977e7b",
+        "artifact": ".cache/m8-contacts/aditya-birla-download.pdf"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "galaxy",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.galaxyhealth.com/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.galaxyhealth.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "6e93d4ca6e477ef3e3b539d440691c469d31286482170190224cc1c739d13044",
+        "artifact": ".cache/m8-contacts/galaxy.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "bajaj",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+    "sources": [
+      {
+        "url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "method": "browser-dom",
+        "sha256": "2f26e45908b236271063edb7ab7f10edd2dc2a8c902bb9e000633745f759319a",
+        "artifact": ".cache/m8-contacts/bajaj.json"
+      },
+      {
+        "url": "https://www.bajajgeneralinsurance.com/health-insurance-plans/health-insurance-claim-process.html",
+        "method": "browser-dom",
+        "sha256": "c977d1012cc7685f1369930258fb8e9ed6491d2099da778dbbf65af404c02064",
+        "artifact": ".cache/m8-contacts/bajaj-claims.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": true,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "chola",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.cholainsurance.com/customer-grievance",
+    "sources": [
+      {
+        "url": "https://www.cholainsurance.com/health-claims",
+        "method": "browser-dom",
+        "sha256": "166c6e40d7b29c09abaacbf3ed6e5d6e3fb3781d756c5ff1c72f2e324d9b8399",
+        "artifact": ".cache/m8-contacts/chola-grievance-claims.json"
+      },
+      {
+        "url": "https://www.cholainsurance.com/customer-grievance",
+        "method": "browser-dom",
+        "sha256": "8bb374a37a3dca2ec9a745b4fb23b3ee65ff2fb3a9ec4ac71d334e72783f2809",
+        "artifact": ".cache/m8-contacts/chola-grievance-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": true,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "navi",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://navi.com/insurance/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://navi.com/insurance/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "8bca5c5f4768a5110484b757b8f89a4e4a5c71de8d73ace2c11930fdaeb30b03",
+        "artifact": ".cache/m8-contacts/navi-grievance-expanded-1.json"
+      },
+      {
+        "url": "https://navi.com/insurance/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "d7a86dd4923cf6e76e128a0981f5d18742f8861f4acb735c65023c83c544e526",
+        "artifact": ".cache/m8-contacts/navi-grievance-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": true,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "zuno",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://cms.hizuno.com/uploads/Service_Parameters_and_Grievance_Mechanism_6_01_26_e2f3f6136c.pdf?updated_at=2026-01-06T06%3A58%3A17.653Z",
+    "sources": [
+      {
+        "url": "https://cms.hizuno.com/uploads/Service_Parameters_and_Grievance_Mechanism_6_01_26_e2f3f6136c.pdf?updated_at=2026-01-06T06%3A58%3A17.653Z",
+        "method": "browser-pdf",
+        "sha256": "5c244374040d13542c17b67321b4db04cb2de4c29acc6cceb669a92f4294053f",
+        "artifact": ".cache/m8-contacts/zuno-grievance-download.pdf"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "generali-central",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "a4f90090adb32e86c413e58eac48194262e0e1ef15b9ed0063f8bd7cb169f1f3",
+        "artifact": ".cache/m8-contacts/generali-central.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "digit",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.godigit.com/claim/grievance-redressal-procedure",
+    "sources": [
+      {
+        "url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "method": "browser-dom",
+        "sha256": "4616f250fd55e279333bd318569020ed60cb626815dba30d53bf92045655376c",
+        "artifact": ".cache/m8-contacts/digit-expanded-1.json"
+      },
+      {
+        "url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "method": "browser-dom",
+        "sha256": "4b35863ffab392471cb332d7d0b836e7fe0d2a1f1ea55c68922bd4b28e09c241",
+        "artifact": ".cache/m8-contacts/digit-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "hdfc-ergo",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.hdfcergo.com/customer-voice/grievances",
+    "sources": [
+      {
+        "url": "https://www.hdfcergo.com/customer-voice/grievances",
+        "method": "browser-dom",
+        "sha256": "5eb3e697876467ee3a998217a7d93f65b9a99294e10076bf9675991fd960bc19",
+        "artifact": ".cache/m8-contacts/hdfc-ergo.json"
+      }
+    ],
+    "helpline_scope": "claims-and-policy",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "icici-lombard",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.icicilombard.com/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.icicilombard.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "dbed759dfde37f0aca2e5b7e5a927ec57e63684734f1d30570d5ae6964d28d98",
+        "artifact": ".cache/m8-contacts/icici-lombard.json"
+      },
+      {
+        "url": "https://www.icicilombard.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "2448c6fdd74eb07087a3a4094abbc4efbddbaaf342c1a1f4c5c5bdfa296c0995",
+        "artifact": ".cache/m8-contacts/icici-lombard-expanded-1.json"
+      },
+      {
+        "url": "https://www.icicilombard.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "4838fa4c5765ca0f0393fb94110514c923206025bd72a0acf3330cf811ac7188",
+        "artifact": ".cache/m8-contacts/icici-lombard-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "iffco-tokio",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.iffcotokio.co.in/contact-us/customer-services/grievance-redressal/grievance-redressal-process",
+    "sources": [
+      {
+        "url": "https://www.iffcotokio.co.in/contact-us/customer-services/grievance-redressal/grievance-redressal-process",
+        "method": "browser-dom",
+        "sha256": "5eb2b8e76d0eb2ad8bd7de8ab8a8f74aa4b8edced8f23b85d280612e3ec34b3d",
+        "artifact": ".cache/m8-contacts/iffco-process.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "zurich-kotak",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://cms.zurichkotak.com/uploads/Grievance_Redressal_v3_0_2_WO_d19be2a73e.pdf?_gl=1*1g6v18t*_gcl_au*MTA3MjQxNDA1Ni4xNzgwMzEzMTQ5",
+    "sources": [
+      {
+        "url": "https://cms.zurichkotak.com/uploads/Grievance_Redressal_v3_0_2_WO_d19be2a73e.pdf?_gl=1*1g6v18t*_gcl_au*MTA3MjQxNDA1Ni4xNzgwMzEzMTQ5",
+        "method": "browser-pdf",
+        "sha256": "03860ccdc4bfe367463a672e0693857e7ca781ac72747070a6df6f89b8ccb89c",
+        "artifact": ".cache/m8-contacts/zurich-policy-download.pdf"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 1,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "liberty",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+    "sources": [
+      {
+        "url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "method": "browser-dom",
+        "sha256": "04d64b39c9e6e1ce63ddcdcfb1c5c5fad8ad1423de0d05ec6d61a03f43c90af6",
+        "artifact": ".cache/m8-contacts/liberty.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 5,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "magma",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.magmainsurance.com/more/contact-us",
+    "sources": [
+      {
+        "url": "https://www.magmainsurance.com/more/contact-us",
+        "method": "browser-dom",
+        "sha256": "70ea180fbc044d919ae02c79b03c8da9ec7e0a67c8f970c3b78dcebe0a73e4b9",
+        "artifact": ".cache/m8-contacts/magma.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "manipalcigna",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.manipalcigna.com/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.manipalcigna.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "e757ec8e7692fe1b902a1ee53fc19cc4dd0a888d2a70442bea45d83126aae6a0",
+        "artifact": ".cache/m8-contacts/manipalcigna.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "niva-bupa",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://transactions.nivabupa.com/pages/grievance-redressal.aspx",
+    "sources": [
+      {
+        "url": "https://transactions.nivabupa.com/pages/grievance-redressal.aspx",
+        "method": "browser-dom",
+        "sha256": "a13a27a0c29185c77b40553d723452d8a1a94d4a7d0daa61890b51dbe0252360",
+        "artifact": ".cache/m8-contacts/niva-bupa.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "raheja-qbe",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.rahejaqbe.com/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.rahejaqbe.com/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "093035b06b65e9e6fc0685e9a1755ce85e1a2ab04533e46cbe407678c573e9b1",
+        "artifact": ".cache/m8-contacts/raheja-qbe.json"
+      },
+      {
+        "url": "https://www.rahejaqbe.com/claims/health-claims",
+        "method": "browser-dom",
+        "sha256": "ae79aef51e6de462583fd06884c5804116bb1d67748b426b1537848af4ce6bdb",
+        "artifact": ".cache/m8-contacts/raheja-qbe-claims.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": true,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "indusind",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "47ddb42519f3ea937c3e6f04618a08c332850863d2df9768ce8e355636021cc5",
+        "artifact": ".cache/m8-contacts/indusind.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "care",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.careinsurance.com/rhicl/customer-grievance-redressal.html",
+    "sources": [
+      {
+        "url": "https://www.careinsurance.com/rhicl/customer-grievance-redressal.html",
+        "method": "browser-dom",
+        "sha256": "75c8ffe68055e6b702b69b2922b387f9bf27fe5e693aff8b33d772a59fa441ce",
+        "artifact": ".cache/m8-contacts/care.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "royal-sundaram",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.royalsundaram.in/customer-service",
+    "sources": [
+      {
+        "url": "https://www.royalsundaram.in/customer-service",
+        "method": "browser-dom",
+        "sha256": "48f72bee513cf4e0767261a80c0be91dcf63b95d5f2fef26683de27087aab972",
+        "artifact": ".cache/m8-contacts/royal-service.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 4,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "sbi-general",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.sbigeneral.in/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.sbigeneral.in/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "6713ce6f6a7af5a8cc302538646d0e82132f2dc6c21f3439e1a5a6776f69dca0",
+        "artifact": ".cache/m8-contacts/sbi-general.json"
+      },
+      {
+        "url": "https://www.sbigeneral.in/claim/health",
+        "method": "browser-dom",
+        "sha256": "d437d5aae359ecd914063aba468e8ab240fb10f8ce1eb8ea48b250315092115d",
+        "artifact": ".cache/m8-contacts/sbi-general-claims.json"
+      }
+    ],
+    "helpline_scope": "health-claims",
+    "claims_email_verified": true,
+    "insurer_stages": 1,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "shriram",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.shriramgi.com/grievance-redressal-mechanism",
+    "sources": [
+      {
+        "url": "https://www.shriramgi.com/grievance-redressal-mechanism",
+        "method": "browser-dom",
+        "sha256": "79871124a46575650a7c8d54204771abc65791947dbbb08540b7885d7d4bbca1",
+        "artifact": ".cache/m8-contacts/shriram-grievance-expanded-1.json"
+      },
+      {
+        "url": "https://www.shriramgi.com/grievance-redressal-mechanism",
+        "method": "browser-dom",
+        "sha256": "d0c34d772a40e0e1f31b3d36ac8c5d76bda651271604f8e12651b02aa25a2765",
+        "artifact": ".cache/m8-contacts/shriram-grievance-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "star-health",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.starhealth.in/grievance-redressal/",
+    "sources": [
+      {
+        "url": "https://www.starhealth.in/grievance-redressal/",
+        "method": "browser-dom",
+        "sha256": "9edb5795b38a8efb4886a31233913a3e6607521a3c5afb5b6461e27a5e2dcc21",
+        "artifact": ".cache/m8-contacts/star-health.json"
+      },
+      {
+        "url": "https://www.starhealth.in/grievance-redressal/",
+        "method": "browser-dom",
+        "sha256": "a805ecbafb0f8c090825f4db62924375d886c31696da611210c40e965f65ed30",
+        "artifact": ".cache/m8-contacts/star-health-expanded-1.json"
+      },
+      {
+        "url": "https://www.starhealth.in/grievance-redressal/",
+        "method": "browser-dom",
+        "sha256": "fb540b45bd47b6829c23fe2178ea9ee52601bfd0d47ef8766865ff95ba6b9f91",
+        "artifact": ".cache/m8-contacts/star-health-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "narayana",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.narayanahealth.insurance/grievance-redressal",
+    "sources": [
+      {
+        "url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "method": "browser-dom",
+        "sha256": "bb1275ce002d0d1733b552db4ae013f4d7ae201acf6d376b8506b5fff0d3aff6",
+        "artifact": ".cache/m8-contacts/narayana.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "tata-aig",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.tataaig.com/grievance-redressal-policy",
+    "sources": [
+      {
+        "url": "https://www.tataaig.com/grievance-redressal-policy",
+        "method": "browser-dom",
+        "sha256": "cac8b54a110168cf0671ae81143858267b91317a0e84e4cccb19c70a793f933f",
+        "artifact": ".cache/m8-contacts/tata-aig.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "universal-sompo",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://www.universalsompo.com/resourse-grievance-redressal/",
+    "sources": [
+      {
+        "url": "https://www.universalsompo.com/resourse-grievance-redressal/",
+        "method": "browser-dom",
+        "sha256": "2c993b277ac1edc995923f8cb4ee76a0c40cdfc20259c86e829c99dcfa7b3da1",
+        "artifact": ".cache/m8-contacts/universal-retry.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": true,
+    "insurer_stages": 2,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  },
+  {
+    "id": "prudential-hcl",
+    "status": "browser-reviewed",
+    "reviewed_on": "2026-10-10",
+    "own_page": "https://prudentialhealth.in/raise-grievance",
+    "sources": [
+      {
+        "url": "https://prudentialhealth.in/raise-grievance",
+        "method": "browser-dom",
+        "sha256": "9a82b821f55a1a7812f2ce60a6c3a38351c8ecf0f79d778207175d7fcb6dd67a",
+        "artifact": ".cache/m8-contacts/prudential-hcl-expanded-2.json"
+      }
+    ],
+    "helpline_scope": "customer-service",
+    "claims_email_verified": false,
+    "insurer_stages": 3,
+    "notes": "No calls, emails or complaint submission. A null is not proof that no such contact exists."
+  }
+]

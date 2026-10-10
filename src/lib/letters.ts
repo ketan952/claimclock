@@ -4,12 +4,14 @@ import { duration, formatTime, windowMinutes } from './clock.ts';
 const sourceBase='https://claimclock.ketan952.workers.dev';
 export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
  const entries=ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r));
- const health=entries.filter(r=>r.id!=='grievance-14-days');
+ const health=entries.filter(r=>!['grievance-14-days','financial-limits-2024'].includes(r.id));
  const result:string[]=[];
  if(health.length){
   const quotations=health.map(r=>`${r.paragraph.match(/Chapter I ([^,;]+)/)?.[1]||r.paragraph}: “${r.quote}”`).join('\n');
   result.push(`${language==='hi'?'स्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024':'Health Insurance Master Circular, 29 May 2024'}\n${quotations}\n${sourceBase}/s/health-mc-2024`);
  }
+ const financial=entries.find(r=>r.id==='financial-limits-2024');
+ if(financial)result.push(`${language==='hi'?'स्वास्थ्य बीमा परिपत्र के अनुबंध, 29 मई 2024':'Annexures to Health Insurance Circular, 29 May 2024'} — ${financial.paragraph}\n“${financial.quote}”\n${sourceBase}/s/health-annexures-2024`);
  const grievance=entries.find(r=>r.id==='grievance-14-days');
  if(grievance)result.push(`${language==='hi'?'पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024':'PPHI Master Circular, 5 September 2024'} — Part B VI.2(i)\n“${grievance.quote}”\n${sourceBase}/s/pphi-mc-2024`);
  return result.join('\n\n');

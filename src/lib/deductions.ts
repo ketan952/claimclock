@@ -1,34 +1,46 @@
-export type Category='room-rent'|'consumable'|'sub-limit'|'co-pay'|'reasonable-customary'|'package'|'unrelated'|'unexplained';
+export type Category='room-rent'|'room-rent-cap'|'implant'|'consumable'|'sub-limit'|'co-pay'|'reasonable-customary'|'package'|'unrelated'|'unexplained';
 export type DeductionStatus='likely valid'|'challengeable'|'no reason given';
 export type DeductionInput={id:string;description:string;amount:number;policyClause?:string;policyCalculationConfirmed?:boolean};
 export type Deduction=DeductionInput&{category:Category;status:DeductionStatus;ruleIds:string[];explanation:string;explanation_hi:string;listNote?:string};
+export function verdictTotals(deductions:Deduction[]):Record<DeductionStatus,number>{
+ const cents:Record<DeductionStatus,number>={'likely valid':0,'challengeable':0,'no reason given':0};
+ for(const d of deductions)cents[d.status]+=Math.round(d.amount*100);
+ return Object.fromEntries(Object.entries(cents).map(([key,value])=>[key,value/100])) as Record<DeductionStatus,number>;
+}
 export function classify(input:DeductionInput):Deduction {
- // Discard explicitly non-deducted context before choosing the deduction category.
+ // Discard explicitly approved context before identifying the reason for the actual deduction.
  const text=input.description.toLowerCase().split(/(?<=[.!?])\s+/).filter(s=>!/\b(?:approved in full|no deduction|not deducted)\b/.test(s)).join(' ');
+ const confirmed=Boolean(input.policyCalculationConfirmed&&input.policyClause?.trim());
  let category:Category='unexplained',status:DeductionStatus='no reason given';
- let explanation='Ask for a line-by-line reason, the exact policy term and the calculation. A label alone does not establish whether the deduction is correct.';
- let explanation_hi='हर मद का कारण, पॉलिसी की सही शर्त और हिसाब माँगें। केवल नाम से कटौती सही साबित नहीं होती।';
+ let explanation='Request the reason for every deducted item, the exact policy clause and the calculation. A generic adjustment does not establish whether the deduction is correct.';
+ let explanation_hi='हर काटी गई मद का कारण, पॉलिसी की सही शर्त और हिसाब माँगें। केवल सामान्य समायोजन लिखने से कटौती सही साबित नहीं होती।';
  const ruleIds=['deduction-reasons'];
- if(/proportion|pro.?rata|room.{0,15}(rent|eligib|categor)|icu.{0,15}(rent|limit)/.test(text)){
-  category='room-rent';status='challengeable';ruleIds.push('room-rent-review');
-  explanation='Ask for room eligibility, the chosen-room ratio, the affected items and the policy clause. Check whether each billed item varies by room category. This is a request for review, not a blanket rule that all such deductions are prohibited.';
-  explanation_hi='कमरे की पात्रता, चुने कमरे का अनुपात, प्रभावित मदें और पॉलिसी की शर्त माँगें। जाँचें कि हर मद का शुल्क कमरे की श्रेणी से बदलता है या नहीं। हर ऐसी कटौती पर पूर्ण रोक का दावा नहीं है।';
- }else if(/co[ -]?pay|coinsurance/.test(text)){
-  category='co-pay';status=input.policyCalculationConfirmed&&input.policyClause?.trim()?'likely valid':'challengeable';
-  explanation=status==='likely valid'?'You confirmed both the policy clause and calculation. The co-pay may apply; check the calculation base and any waiver.':'A co-pay can apply only as provided in the policy. Ask for the percentage, eligible base amount, exact clause and arithmetic.';
-  explanation_hi=status==='likely valid'?'आपने पॉलिसी की शर्त और हिसाब दोनों की पुष्टि की है। सह-भुगतान लागू हो सकता है; आधार राशि और छूट जाँचें।':'सह-भुगतान पॉलिसी के अनुसार ही लागू हो सकता है। प्रतिशत, आधार राशि, सही शर्त और हिसाब माँगें।';
+ if(/proportion|pro.?rata|associated.{0,60}room|room.{0,60}associated/.test(text)){
+  category='room-rent';status='challengeable';ruleIds.push('financial-limits-2024','room-rent-review');
+  explanation='This reduces associated expenses using room eligibility. Request the ratio, affected items, exact policy wording and hospital tariff showing which charges vary by room category. The 2024 customer-information format discloses policy room limits; it does not create a universal ban on these reductions.';
+  explanation_hi='यह कमरे की पात्रता के आधार पर संबंधित खर्चों की कटौती है। अनुपात, प्रभावित मदें, पॉलिसी की सही शर्त और कमरे की श्रेणी से बदलने वाली दरों का अस्पताल विवरण माँगें। 2024 का ग्राहक सूचना प्रारूप पॉलिसी की कमरे संबंधी सीमाएँ दिखाता है; यह ऐसी हर कटौती पर रोक नहीं लगाता।';
+ }else if(/co[ -]?pay|coinsurance|deductible|excess\s+(?:of|amount|per claim)/.test(text)){
+  category='co-pay';status=confirmed?'likely valid':'challengeable';ruleIds.push('financial-limits-2024');
+  explanation=status==='likely valid'?'You confirmed the applicable co-pay or deductible clause and arithmetic. This deduction is likely valid on those details; check the eligible base, percentage or fixed amount, policy-year/per-claim basis and any waiver.':'A co-pay or deductible applies only under the relevant policy terms. Request the clause, percentage or fixed amount, eligible calculation base, policy-year/per-claim basis, prior deductible already met, and arithmetic.';
+  explanation_hi=status==='likely valid'?'आपने लागू सह-भुगतान या डिडक्टिबल की शर्त और हिसाब की पुष्टि की है। इन जानकारियों के अनुसार कटौती संभवतः सही है; आधार राशि, प्रतिशत या तय राशि, साल/दावे का आधार और छूट जाँचें।':'सह-भुगतान या डिडक्टिबल संबंधित पॉलिसी की शर्त से ही लागू होता है। सही शर्त, प्रतिशत या तय राशि, आधार राशि, साल/दावे का आधार, पहले पूरा किया डिडक्टिबल और हिसाब माँगें।';
  }else if(/sub[ -]?limit|disease.{0,8}limit|(?:cataract|maternity).{0,25}(cap|limit|ceiling|allowance)/.test(text)){
-  category='sub-limit';status=input.policyCalculationConfirmed&&input.policyClause?.trim()?'likely valid':'challengeable';
-  explanation=status==='likely valid'?'You confirmed the relevant policy cap and calculation. Check whether the cap applies to this treatment, benefit period and policy version.':'Ask for the exact sub-limit, policy schedule, amount already used and remaining benefit. A sub-limit is policy-specific.';
-  explanation_hi=status==='likely valid'?'आपने संबंधित सीमा और हिसाब की पुष्टि की है। जाँचें कि सीमा इसी इलाज, अवधि और पॉलिसी संस्करण पर लागू है।':'सही उप-सीमा, पॉलिसी अनुसूची, पहले उपयोग की राशि और बचा लाभ माँगें। उप-सीमा पॉलिसी पर निर्भर है।';
- }else if(/reasonable|customary|r\s*&\s*c|r&c|tariff/.test(text)){
-  category='reasonable-customary';status='challengeable';explanation='Ask for the policy clause, the reference tariff or comparison used, and a line-item calculation. The phrase “reasonable and customary” alone does not explain the amount.';explanation_hi='पॉलिसी की शर्त, उपयोग की गई दर या तुलना और मदवार हिसाब माँगें। केवल “उचित और प्रचलित” कहना राशि का कारण नहीं बताता।';
+  category='sub-limit';status=confirmed?'likely valid':'challengeable';ruleIds.push('financial-limits-2024');
+  explanation=status==='likely valid'?'You confirmed the applicable treatment cap and calculation. This deduction is likely valid on those details; check the treatment, policy version, benefit period, prior use and any applicable rider.':'Request the treatment-specific cap, policy schedule, benefit period, prior utilization and remaining benefit calculation. Cataract and maternity limits depend on the policy.';
+  explanation_hi=status==='likely valid'?'आपने इलाज की लागू सीमा और हिसाब की पुष्टि की है। इन जानकारियों के अनुसार कटौती संभवतः सही है; इलाज, पॉलिसी संस्करण, लाभ अवधि, पहले उपयोग और संबंधित ऐड-ऑन जाँचें।':'इलाज की सही सीमा, पॉलिसी अनुसूची, लाभ अवधि, पहले उपयोग और बची राशि का हिसाब माँगें। मोतियाबिंद और मातृत्व की सीमाएँ पॉलिसी पर निर्भर हैं।';
  }else if(/package|double.?count|duplicate/.test(text)){
-  category='package';status='challengeable';explanation='Compare the package agreement and itemised bill. Ask which item was already included and whether the same amount was deducted twice. A package label alone does not establish double-counting.';explanation_hi='पैकेज और मदवार बिल मिलाएँ। पूछें कौन सी मद पहले से शामिल थी और क्या वही राशि दो बार कटी। केवल पैकेज का नाम दोहरी कटौती साबित नहीं करता।';
+  category='package';status='challengeable';explanation='Compare the package agreement, inclusion list and itemised bill. Request each matching entry and calculation, including whether the same charge has been deducted twice. A package inclusion label alone does not prove duplicate billing.';explanation_hi='पैकेज समझौता, शामिल मदों की सूची और मदवार बिल मिलाएँ। हर संबंधित प्रविष्टि और हिसाब माँगें; जाँचें कि वही राशि दो बार तो नहीं काटी गई। केवल पैकेज में शामिल लिखने से दोहरा बिल साबित नहीं होता।';
  }else if(/not related|unrelated|not connected|not pertaining/.test(text)){
-  category='unrelated';status='challengeable';explanation='Ask which item is said to be unrelated, the clinical basis for that view, and the exact policy clause. Obtain the treating hospital’s explanation if needed.';explanation_hi='पूछें कौन सी मद इलाज से असंबंधित मानी गई, उसका चिकित्सा आधार और पॉलिसी की सही शर्त क्या है। ज़रूरत पर अस्पताल का स्पष्टीकरण लें।';
+  category='unrelated';status='challengeable';explanation='Request the item considered unrelated to admission, the clinical record and exact policy clause supporting that view. Obtain the treating hospital’s explanation; admission timing alone does not decide coverage.';explanation_hi='भर्ती से असंबंधित मानी गई मद, उस निष्कर्ष का चिकित्सा रिकॉर्ड और पॉलिसी की सही शर्त माँगें। इलाज करने वाले अस्पताल का स्पष्टीकरण लें; भर्ती का समय अकेले कवर तय नहीं करता।';
+ }else if(/room.{0,20}(rent|eligib|categor|cap|limit|difference)|icu.{0,20}(rent|charge|limit|cap)/.test(text)){
+  category='room-rent-cap';status=confirmed?'likely valid':'challengeable';ruleIds.push('financial-limits-2024');
+  explanation=status==='likely valid'?'You confirmed the policy room cap and the direct room-charge calculation. This difference is likely valid on those details; check the daily rates, eligible days and any room-category waiver. Associated-expense reductions require a separate review.':'This appears to be a direct room-charge difference. Request the applicable policy room cap, allowed and actual daily rates, number of days and calculation. A higher room rate alone does not establish a policy cap or justify reducing other expenses.';
+  explanation_hi=status==='likely valid'?'आपने पॉलिसी की कमरे संबंधी सीमा और केवल कमरे के शुल्क का हिसाब पुष्ट किया है। इन जानकारियों के अनुसार अंतर की कटौती संभवतः सही है; दैनिक दरें, पात्र दिन और छूट जाँचें। संबंधित अन्य खर्चों की कटौती अलग जाँचें।':'यह सीधे कमरे के शुल्क का अंतर लगता है। लागू पॉलिसी सीमा, अनुमत और वास्तविक दैनिक दर, दिनों की संख्या और हिसाब माँगें। महँगा कमरा अकेले पॉलिसी की सीमा या दूसरे खर्चों की कटौती सही साबित नहीं करता।';
+ }else if(/reasonable|customary|r\s*&\s*c|r&c|tariff/.test(text)){
+  category='reasonable-customary';status='challengeable';explanation='Request the exact policy clause, reference tariff or comparable charges, the basis for comparison, and the line-item calculation. The reasonable-and-customary label alone does not explain the amount.';explanation_hi='पॉलिसी की सही शर्त, संदर्भ दर या तुलनीय शुल्क, तुलना का आधार और मदवार हिसाब माँगें। केवल उचित और प्रचलित लिखने से राशि का कारण साफ़ नहीं होता।';
+ }else if(/implant|prosthe|stent|pacemaker|intraocular lens|orthop[ae]edic plate/.test(text)){
+  category='implant';status='challengeable';explanation='An implant or prosthesis is not automatically an excluded consumable. Check the policy’s device coverage, exclusions and any sub-limit; request the device invoice, applicable clause and calculation. Review a blanket non-medical label against the actual coverage.';explanation_hi='इम्प्लांट या कृत्रिम अंग अपने-आप बाहर की गई उपभोग्य सामग्री नहीं है। पॉलिसी में उपकरण का कवर, अपवर्जन और सीमा जाँचें; उपकरण का बिल, लागू शर्त और हिसाब माँगें। सामान्य गैर-चिकित्सकीय लेबल को वास्तविक कवर से मिलाएँ।';
  }else if(/non[ -]?medical|consumable|gloves|syringe|mask|toiletr|attendant|administrat|registration|admission kit|food|water bottle/.test(text)){
-  category='consumable';status='challengeable';explanation='Ask for the exact item, policy exclusion or consumables cover, and whether it was already included in room/procedure/treatment charges. Historical IRDAI list labels do not by themselves decide current coverage.';explanation_hi='सही मद, पॉलिसी का अपवर्जन या उपभोग्य सामग्री कवर और कमरे/प्रक्रिया/इलाज के शुल्क में उसके शामिल होने का हिसाब माँगें। पुरानी IRDAI सूची अकेले मौजूदा कवर तय नहीं करती।';
+  category='consumable';status='challengeable';explanation='Request the exact items, quantities, rates, policy exclusion or consumables rider, and any room/procedure/package inclusion. The historical IRDAI lists are references to check against the policy; they do not establish current coverage or non-payment by themselves.';explanation_hi='सही मदें, मात्रा, दर, पॉलिसी का अपवर्जन या उपभोग्य सामग्री ऐड-ऑन और कमरे/प्रक्रिया/पैकेज में शामिल होने का विवरण माँगें। पुरानी IRDAI सूचियाँ पॉलिसी से मिलाने का संदर्भ हैं; वे अकेले वर्तमान कवर या गैर-भुगतान तय नहीं करतीं।';
  }
  return {...input,category,status,ruleIds,explanation,explanation_hi};
 }

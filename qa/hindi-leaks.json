@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-10T11:35:52.020Z",
+  "checked_at": "2026-10-10T12:11:22.002Z",
   "leaks": [
     {
       "route": "/",
@@ -239,55 +239,131 @@
     },
     {
       "route": "/index/",
-      "text": "10 Oct 2026"
+      "text": "Acko General ↗"
     },
     {
       "route": "/index/",
-      "text": "30 source rows · FY2025-26"
+      "text": "Aditya Birla Health ↗"
     },
     {
       "route": "/index/",
-      "text": "28 source rows · FY2025-26"
+      "text": "Bajaj General ↗"
     },
     {
       "route": "/index/",
-      "text": "24 source rows · FY2025-26"
+      "text": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) ↗"
     },
     {
       "route": "/index/",
-      "text": "22 source rows · FY2025-26"
+      "text": "Cholamandalam MS ↗"
     },
     {
       "route": "/index/",
-      "text": "18 source rows · FY2025-26"
+      "text": "Galaxy Health Insurance ↗"
     },
     {
       "route": "/index/",
-      "text": "14 source rows · FY2025-26"
+      "text": "Generali Central ↗"
     },
     {
       "route": "/index/",
-      "text": "11 source rows · FY2025-26"
+      "text": "Go Digit General ↗"
     },
     {
       "route": "/index/",
-      "text": "10 source rows · FY2025-26"
+      "text": "HDFC ERGO General ↗"
     },
     {
       "route": "/index/",
-      "text": "10 source rows · FY2024-25"
+      "text": "ICICI Lombard General ↗"
     },
     {
       "route": "/index/",
-      "text": "6 source rows · FY2025-26"
+      "text": "IFFCO Tokio General ↗"
     },
     {
       "route": "/index/",
-      "text": "4 source rows · FY2025-26"
+      "text": "IndusInd General Insurance ↗"
     },
     {
       "route": "/index/",
-      "text": "2 source rows · FY2025-26"
+      "text": "Liberty General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Magma General Insurance Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Manipal Cigna ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Narayana Health ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "National Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Navi General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Niva Bupa Health Insurance Company Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Prudential HCL Health Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Raheja QBE ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Royal Sundaram General Insurance Co.Limited ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "SBI General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Shriram General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Star Health and Allied ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Tata- AIG General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "The New India Assurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "The Oriental Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "United India Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Universal Sompo General ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Zuno General Insurance ↗"
+    },
+    {
+      "route": "/index/",
+      "text": "Zurich Kotak General ↗"
     },
     {
       "route": "/index/hdfc-ergo/",
@@ -440,6 +516,14 @@
     {
       "route": "/methodology/",
       "text": "/s/pphi-mc-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "sources.health-annexures-2024"
+    },
+    {
+      "route": "/methodology/",
+      "text": "/s/health-annexures-2024"
     },
     {
       "route": "/methodology/",

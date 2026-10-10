@@ -1,0 +1,28 @@
+{
+  "tested_at": "2026-10-10T11:59:41.931Z",
+  "database": "production D1",
+  "method": "Same application quota function against isolated, prechecked synthetic future-date keys; current-day counters untouched; keys erased in finally.",
+  "daily_limit": 100,
+  "hundredth_permit": true,
+  "hundred_first_permit": false,
+  "minute_limit": 3,
+  "fourth_minute_permit": false,
+  "counters": [
+    {
+      "key": "explain:day:2099-01-01",
+      "count": 100
+    },
+    {
+      "key": "explain:day:2099-01-02",
+      "count": 1
+    },
+    {
+      "key": "explain:minute:67849200",
+      "count": 3
+    },
+    {
+      "key": "explain:minute:67850640",
+      "count": 3
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "checked_on": "2026-10-10",
+  "method": "Fresh isolated headed Chrome contexts via Playwright. No user profile or existing tabs read. Real page navigation, rendered DOM, clicks, selectors and downloads; subsequent PDF extraction/OCR permitted. Native CUA/provider attempts were unavailable or stalled, so headed Chrome fallback was used.",
+  "baseline_numeric_insurers": 17,
+  "final_numeric_insurers": 30,
+  "final_rows": 470,
+  "retry_count": 15,
+  "entries": [
+    {
+      "insurer_id": "national",
+      "source_url": "https://nationalinsurance.nic.co.in/about-us/public-disclosure/disclosure-under-irdai-health-regulations",
+      "status": "partial",
+      "period": "FY2025-26",
+      "published_rows": 4,
+      "steps": "Open annual health disclosure archive; select FY2025-26; inspect 17 TPA PDF links. OCR and visually check Medi Assist pages 1-4, including every bucket and blank on pages 2-3.",
+      "local_evidence": [
+        ".cache/m8-nl48/national-browser.html"
+      ],
+      "notes": [
+        "Browser verified all 17 current FY2025-26 TPA links. The Medi Assist scanned filing was OCR-staged and every bucket cell visually reviewed. The other 16 TPAs remain unreviewed.",
+        "The Medi Assist cashless table spans PDF pages 2-3. All four >24h cells are blank and preserved as null; no cashless denominator is disclosed."
+      ]
+    },
+    {
+      "insurer_id": "oriental",
+      "source_url": "https://orientalinsurance.org.in/tpa-in-house-public-disclosure/FY-2025-26",
+      "status": "partial",
+      "period": "FY2025-26",
+      "published_rows": 8,
+      "steps": "Open homepage, choose Continue in English, then TPA/In House Public Disclosure > FY2025-26; inspect both pagination pages. A deep-link first visit had blank locale and false empty results. Review Medi Assist and rotated MDIndia scans; in-house is Nil.",
+      "local_evidence": [
+        ".cache/m8-nl48/oriental-archive-loaded.html",
+        ".cache/m8-nl48/oriental-fy26-loaded.html",
+        ".cache/m8-nl48/oriental-fy26-page2.html"
+      ],
+      "notes": [
+        "The FY2025\u201326 archive became available after selecting English on the homepage; a direct first visit had sent an empty locale and displayed no data. Browser verified 18 source links.",
+        "Medi Assist and MDIndia scanned cashless cells were visually reviewed. Medi Assist >24h cells are blank and retained as null. In-house cashless cells are Nil and omitted; the other 15 TPAs remain unreviewed. No cashless denominator disclosed."
+      ]
+    },
+    {
+      "insurer_id": "united-india",
+      "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 58,
+      "steps": "Open Public Disclosures > TPA Public Disclosure > FY2025-26. Download and visually review all 15 scans.",
+      "local_evidence": [
+        ".cache/m8-nl48/united-tpa26.html",
+        ".cache/m8-nl48/united-reviewed-notes.md"
+      ],
+      "notes": [
+        "Browser recovered the FY2025-26 TPA archive. All 15 scanned filings, TPA identities, 31 March 2026 headers and 360 bucket cells were visually reviewed.",
+        "All 58 nonzero distributions total 100%. LINK-K individual columns are all zero and omitted. Cashless denominators are absent. Source clocks start at last necessary document receipt or discharge bill receipt; these buckets are not statutory compliance measurements."
+      ]
+    },
+    {
+      "insurer_id": "aditya-birla",
+      "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 26,
+      "steps": "Open downloads > Public Disclosures > Public Disclosures subsection > Q4-FY25-26; capture PDF popup.",
+      "local_evidence": [
+        ".cache/m8-nl48/aditya-public-years.html"
+      ],
+      "notes": [
+        "The FY2025-26 Q4 filing was recovered through Public Disclosures and Q4-FY25-26 browser clicks. Pages 53-64 contain in-house and 11 TPA tables.",
+        "All-zero individual TPA columns are omitted; cashless denominators are not disclosed in the TAT tables."
+      ]
+    },
+    {
+      "insurer_id": "galaxy",
+      "source_url": "https://www.galaxyhealth.com/public-disclosures",
+      "status": "inconsistent",
+      "period": "FY2025-26",
+      "published_rows": 0,
+      "steps": "Open Public Disclosures > Financials > FY2025-26 > Q4 after dismissing quote modal. Also inspect Performance Disclosures. Current Q4 SHA256 matches original excluded PDF; percentage headers still conflict with count-like cells.",
+      "local_evidence": [
+        ".cache/m8-nl48/galaxy-fy26.html",
+        ".cache/m8-nl48/galaxy-performance.html"
+      ],
+      "notes": [
+        "Browser FY2025-26 financial selector still links the same Q4 PDF, confirmed by SHA256. Page 53 labels all cashless columns as percentages while values such as 1662 and 1014 and four-digit totals resemble counts.",
+        "No unit was inferred and no values were published. The annual source remains excluded until a corrected or explicitly labelled cashless table is available."
+      ]
+    },
+    {
+      "insurer_id": "navi",
+      "source_url": "https://navi.com/insurance/corporate-governance/public-disclosure",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 3,
+      "steps": "Open public-disclosure accordion; select FY2025-2026, wait for year request, then Jan-Mar; download Q4. Review pages 57-59.",
+      "local_evidence": [
+        ".cache/m8-nl48/secondary-navi-final.txt"
+      ],
+      "notes": [
+        "Browser FY2025\u201326 Jan\u2013Mar selection recovered the Q4 PDF. Pages 57\u201359 contain in-house, Medi Assist and Paramount NL-48 tables, all visually reviewed.",
+        "Only in-house individual preauthorization/discharge and Medi Assist individual preauthorization have nonzero distributions. Medi Assist reports 100% in >24h, with no disclosed cashless sample size. All-zero columns omitted. Negative group policy/lives figures were not used as denominators."
+      ]
+    },
+    {
+      "insurer_id": "generali-central",
+      "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 22,
+      "steps": "Open financial information archive; locate FY2025-26 Q4 NL-48 link in rendered DOM; download through headed browser context after direct retrieval returned 406.",
+      "local_evidence": [
+        ".cache/m8-nl48/generali-public.html"
+      ],
+      "notes": [
+        "Browser recovered FY2025-26 Q4 NL-48: in-house and nine TPA tables on pages 1-10. Source identities, units and cashless-table placement were reviewed.",
+        "Cashless denominators are absent. Medi Assist page 10 has blank >24h cells, preserved as null; all-zero or absent individual TPA columns are omitted. Source rounding is retained."
+      ]
+    },
+    {
+      "insurer_id": "liberty",
+      "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 32,
+      "steps": "Open IRDAI archive; select FY2025-26 Public Disclosures, then Q4; click PDF download. Review NL-48 pages 80-94. Separate TPA archive only listed FY2024-25.",
+      "local_evidence": [
+        ".cache/m8-nl48/secondary-liberty.html"
+      ],
+      "notes": [
+        "Browser FY2025\u201326 Q4 financial filing contains in-house Health360 and 14 TPA tables on pages 80\u201394. Every cashless header and bucket cell visually checked; all-zero or absent individual TPA columns omitted.",
+        "Cashless denominators absent; source integer rounding retained. Genins page 91 has an unrelated negative covered-lives figure, which was not used as a denominator. Its clearly labelled cashless distribution was reviewed independently. The download URL may expire; use the archive year and quarter selectors if needed."
+      ]
+    },
+    {
+      "insurer_id": "magma",
+      "source_url": "https://www.magmainsurance.com/public-disclosures/tpa-wise-publice-disclosure",
+      "status": "partial",
+      "period": "FY2025-26",
+      "published_rows": 4,
+      "steps": "Open TPA-wise public-disclosure page; recover 14 FY2025-26 PDF links. Visually review Medi Assist, MDIndia and in-house scans.",
+      "local_evidence": [
+        ".cache/m8-nl48/magma-public.html"
+      ],
+      "notes": [
+        "The browser FY2025-26 TPA archive lists 14 source PDFs. Medi Assist and MDIndia scanned cells were visually reviewed; both contain group distributions only. In-house cashless cells are all zero and omitted. The other 11 sources remain unreviewed.",
+        "Coverage is partial. The reviewed tables disclose neither an individual cashless distribution nor cashless denominators."
+      ]
+    },
+    {
+      "insurer_id": "care",
+      "source_url": "https://www.careinsurance.com/public-disclosures.html",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 4,
+      "steps": "Open Public Disclosures; navigate embedded CMS financial archive to FY2025-26 Q4. Browser request retrieves PDF after direct request returned 406. Compare older Other Disclosures health-parameters link, which is FY2024-25.",
+      "local_evidence": [
+        ".cache/m8-nl48/care-disclosure-frame.html"
+      ],
+      "notes": [
+        "The FY2025-26 financial filing was recovered through its rendered embedded CMS archive. The older Other Disclosures link refers to 31 March 2025 and was not substituted.",
+        "One consolidated insurer table appears on page 63, with 12 TPAs listed on page 55. No per-TPA split or cashless denominator is disclosed; the group columns total 101% after source rounding."
+      ]
+    },
+    {
+      "insurer_id": "royal-sundaram",
+      "source_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+      "status": "partial",
+      "period": "FY2025-26",
+      "published_rows": 6,
+      "steps": "Open Public Disclosures > FY2025-2026 > TPA public disclosure > Annual. Click all 15 View actions; save PDF blobs. Visually review Medi Assist, MDIndia and in-house scans.",
+      "local_evidence": [
+        ".cache/m8-nl48/royal-all-browser.html"
+      ],
+      "notes": [
+        "The browser FY2025-26 annual TPA archive lists 15 channels. Medi Assist and MDIndia scanned cells were visually reviewed; in-house cashless cells are all zero and omitted. The other 12 sources remain unreviewed.",
+        "View buttons deliver PDF blobs. Source links open the exact annual archive; select the named TPA. Cached PDF hashes and page numbers are recorded. Cashless denominators are absent."
+      ]
+    },
+    {
+      "insurer_id": "sbi-general",
+      "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+      "status": "partial",
+      "period": "FY2025-26",
+      "published_rows": 22,
+      "steps": "Open public-disclosure archive; select FY2025-2026 then Fourth Quarter, waiting for year response; click NL48 card download icon. Exclude contradictory Volo table.",
+      "local_evidence": [
+        ".cache/m8-nl48/sbi-q4-loaded.html"
+      ],
+      "notes": [
+        "The FY2025-26 Fourth Quarter NL-48 document was downloaded through the browser. Each sample_size is the printed cashless TAT-column total, distinct from payment or repudiation counts.",
+        "Volo TPA page 20 is excluded: group-discharge bucket counts total 6799, while the printed total is 7699; percentages and preauthorization counts also conflict. The other 10 channels retain raw printed percentages and disclosed cashless totals."
+      ]
+    },
+    {
+      "insurer_id": "shriram",
+      "source_url": "https://www.shriramgi.com/download/disclosure",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 2,
+      "steps": "Open disclosure downloads; select Financial Year 2025-2026; download fourth-quarter revised filing; inspect page 58.",
+      "local_evidence": [
+        ".cache/m8-nl48/shriram-fy26-loaded.html"
+      ],
+      "notes": [
+        "The browser financial-year selector recovered the FY2025-26 Q4 filing revised 11 June 2026. Page 58 contains one Medi Assist NL-48 table.",
+        "Individual percentages are labelled in the header; group entries are NA and omitted. No cashless denominators are disclosed."
+      ]
+    },
+    {
+      "insurer_id": "star-health",
+      "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+      "status": "parsed",
+      "period": "FY2025-26",
+      "published_rows": 26,
+      "steps": "Open media centre > Financials > 2025-2026 > Q4. Headless access denied; isolated headed Chrome succeeds. Review annual filing, excluding travel-only page 55.",
+      "local_evidence": [
+        ".cache/m8-nl48/star-fy26.html"
+      ],
+      "notes": [
+        "The FY2025-26 Q4 financial filing contains in-house health and 11 TPA tables on pages 54 and 56-66. Travel-only page 55 is excluded. The separate health-parameters section only listed FY2023-24; the annual financial filing is newer.",
+        "Cashless denominators are absent. All-zero individual TPA columns are omitted; printed rounded percentages are preserved."
+      ]
+    },
+    {
+      "insurer_id": "prudential-hcl",
+      "source_url": "https://prudentialhealth.in/public-disclosures",
+      "status": "not_located",
+      "period": null,
+      "published_rows": 0,
+      "steps": "Open public-disclosures; expand Others. Only Remuneration Policy dated August 2026 is listed; no annual NL-48 located.",
+      "local_evidence": [
+        ".cache/m8-nl48/prudential-others.html"
+      ],
+      "notes": [
+        "Live browser retry of the public-disclosures page and Others accordion exposed a Remuneration Policy dated August 2026. No annual NL-48 was located on that page.",
+        "No reporting obligation or performance conclusion is inferred from this collection gap."
+      ]
+    }
+  ]
+}

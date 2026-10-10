@@ -12,13 +12,18 @@ Where the current provider page has explicit role-specific data, it takes preced
 
 ## Coverage and deliberate gaps
 
-**31 of 32 insurers** have a primary-published GRO email. Prudential HCL’s accessible official grievance page identifies levels but did not expose the Level 3 officer email. Its verified customer-support email, helpline and [official grievance page](https://prudentialhealth.in/raise-grievance) are provided, with `gro_email: null`. The UI should present the official page and ask the user to select the current GRO; it must not generate a guessed recipient.
+**32 of 32 insurer own grievance sources were reviewed through actual browser navigation** for M8. Native Chrome was initially unable to finish loading the sites; fresh isolated Playwright Chromium/Chrome contexts then captured rendered pages, expanded grievance controls, and downloaded the insurer-linked PDFs. No plain HTTP retrieval was relabelled browser verification. [Per-insurer browser audit](contacts-browser-verification.json), [332/332 populated insurer field checks](contacts-browser-check.json).
+
+All 32 insurers now have a published helpline, **6 have an explicitly verified claims email**, and the matrix contains **85 published insurer escalation stages**. A general customer-service line is labelled as a fallback, not a dedicated cashless line. Null claims emails mean no claims-specific email was verified in the reviewed sources; they do not establish absence from every product or TPA document.
+
+All 32 have a published canonical GRO email, including **gro@prudentialhealth.in**, revealed by the live page’s Level 3 accordion. **27** have a national GRO email on the reviewed insurer source. New India, Oriental, ICICI Lombard, Niva Bupa and Tata AIG retain the separately identified IRDAI baseline for the canonical GRO email; their own-page GRO field stays null. Niva’s current July 2026 grievance policy and September 2026 branch list publish form/branch routes, while the regulator still publishes `gro@maxbupa.com`. That is regulator publication, not confirmation by Niva’s current grievance page.
+
+The regulator baseline preserves 31 listed roster rows, including blank Galaxy/Narayana fields. Prudential HCL was not found in the GRO table. United India and Zuno scientific-notation phones are retained only as raw evidence and are never reconstructed or dialled. Source labels are preserved: HDFC publishes two internal stages, SBI one, Liberty five, Royal Sundaram four; no fictitious three-tier sequence is added. Policy-specific branch/regional contacts and form-only contacts retain null phone/email values.
 
 **6 of 17 TPA records** have a verified grievance email (Medi Assist, MDIndia, Paramount, Vidal, Good Health, Ericson). Park has a specifically identified GRO telephone but no plaintext GRO email verified. Other records carry the official registry/provider helpline and any published general support email. A support email is not a confirmed dedicated claims or GRO address; `notes` records this. The user’s insurer remains the relevant formal grievance target, even if a TPA handled cashless processing.
 
 | Missing GRO email | Verified alternative |
 |---|---|
-| Prudential HCL Health Insurance (`prudential-hcl`) | helpline 1800 268 2000; published support customersupport@prudentialhealth.in; [source](https://prudentialhealth.in/raise-grievance) |
 | Heritage Health Insurance TPA Private Limited (`heritage`) | helpline 1800 345 3477; [source](https://irdai.gov.in/list-of-tpas) |
 | Family Health Plan Insurance TPA Limited (`fhpl`) | helpline 1800 102 4033; [source](https://irdai.gov.in/list-of-tpas) |
 | Volo Health Insurance TPA Pvt. Ltd ( Formerly East West Assist Insurance TPA Private Limited) (`volo`) | helpline 011-47222666; published support support@volohealth.in; [source](https://www.volohealth.in/) |
@@ -35,8 +40,8 @@ Where the current provider page has explicit role-specific data, it takes preced
 
 - **Bajaj General**, **Magma General**, **Generali Central**, **IndusInd General** and **Zurich Kotak** use their current published names. Familiar legacy names remain aliases for search.
 - The current Generali Central grievance page uses **GCIGRO@generalicentral.com**; the IndusInd page uses **grievances@indusindinsurance.com**. Old Future Generali/Reliance-domain addresses were not preferred when the current provider supplied the new address.
-- HDFC ERGO’s current provider page identifies **cgo@hdfcergo.com** for the chief escalation; the older regulator address is documented in notes.
-- Zuno’s official January 2026 GRO PDF provides **tarun.mathur@hizuno.com** and **7208001193**. A regulator phone rendered in scientific notation was not converted into a guessed number. United India’s malformed registry GRO phone is left null; its general helpline is separately verified against the live official grievance page.
+- HDFC ERGO’s current provider page identifies **cgo@hdfcergo.com** for the chief escalation; the older regulator address is retained in `irdai_baseline`.
+- Zuno’s current browser-linked January 2026 grievance mechanism provides **grievanceofficer@hizuno.com** and **022-42312022**, replacing the earlier named-officer contact in this snapshot. A regulator phone rendered in scientific notation was not converted into a guessed number. United India’s malformed registry GRO phone is left null; its general helpline is separately verified against the live official grievance page.
 - Narayana’s current published officer is **Bharathi Bai A G**, **gro@narayanahealth.insurance**, **+91 80507 31511**. Its dedicated grievance line is separately sourced.
 - **Paramount** publishes integration with **Medi Assist effective 1 February 2026**. Its legacy record is retained for existing policyholders and marked accordingly; it is not represented as a separate newly active operator. Medi Assist’s aliases include the merged Raksha operation.
 - **Volo** includes former East West Assist, and **Health Assist** includes former Safeway, preserving search usability.
@@ -52,11 +57,11 @@ Where the current provider page has explicit role-specific data, it takes preced
 
 ## Schema and maintenance
 
-`id` is a stable app key; `kind` is `insurer` or `tpa`; `gro_email`, `gro_phone`, `helpline`, and `claims_email` may be null. `escalation_levels` preserves separately verified roles. `field_sources` provides each contact field’s exact URL and evidence excerpt; excerpts may normalize whitespace and separate table cells for readability. `content_sha256` is an evidence/content change aid, not a cryptographic assertion that all fields came from the same full HTTP body. `verified_on` is the content-review date, and `verification_status` explicitly says `published-contact-verified`.
+`id` is a stable app key; `kind` is `insurer` or `tpa`; `gro_email`, `gro_phone`, `helpline`, and `claims_email` may be null. `escalation_levels` preserves separately verified roles. `field_sources` provides each populated contact field’s exact URL, individual `verified_on` date and evidence excerpt; excerpts may normalize whitespace and separate table cells for readability. `content_sha256` is an evidence/content change aid, not a cryptographic assertion that all fields came from the same full HTTP body. `verified_on` is the content-review date, and `verification_status` explicitly says `published-contact-verified`.
 
 Do not describe `claims_email` as a dedicated claims channel when `notes` says it is general support. Do not auto-fill a regulator directory’s CEO/CAO email into a grievance letter. Every unavailable recipient must remain visible as unavailable; provide its official source link, the insurer GRO where known, and IRDAI’s regulator directory fallback.
 
-Automated weekly checks should record response status/content changes under a distinct `last_checked_on`. HTTP success alone must **not** update `verified_on`; only re-review of role, address, phone and evidence can do that. Review redirects and renamed brands before replacing recipients. Preserve null fields when evidence is inconclusive.
+The weekly checker covers canonical fields, each escalation role/email/phone and the regulator baseline. It renews only individually matched values; an entire stage or record renews only when all its fields match. The original `own_page.verified_on` browser audit date is immutable under automated HTTP checks. HTTP success alone never renews any field. Four focused regressions cover per-field source selection, partial renewal, full renewal and email/phone boundary matching. Review redirects and renamed brands before replacing recipients. Preserve null fields when evidence is inconclusive.
 
 ## Stable insurer IDs
 

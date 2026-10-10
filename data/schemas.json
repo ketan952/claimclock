@@ -104,7 +104,9 @@
             "reasonable-customary",
             "package",
             "unrelated",
-            "unexplained"
+            "unexplained",
+            "room-rent-cap",
+            "implant"
           ]
         },
         "status": {
@@ -344,6 +346,268 @@
         },
         "evidence": {
           "type": "string"
+        },
+        "claims_email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "helpline_scope": {
+          "type": "string"
+        },
+        "claims_email_scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "field_sources": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "verified_on": {
+                "type": "string",
+                "format": "date"
+              },
+              "evidence": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "source_sha256": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_url",
+              "verified_on",
+              "evidence"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "escalation_levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "source_label": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "role_hi": {
+                "type": "string"
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "verified_on": {
+                "type": "string",
+                "format": "date"
+              },
+              "field_sources": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "source_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "verified_on": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "evidence": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    },
+                    "source_sha256": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "source_url",
+                    "verified_on",
+                    "evidence"
+                  ],
+                  "additionalProperties": true
+                }
+              }
+            },
+            "required": [
+              "level",
+              "source_label",
+              "role",
+              "role_hi",
+              "email",
+              "phone",
+              "source_url",
+              "verified_on",
+              "field_sources"
+            ],
+            "additionalProperties": true
+          }
+        },
+        "own_page": {
+          "type": "object",
+          "properties": {
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": "string",
+              "format": "date"
+            },
+            "browser_status": {
+              "enum": [
+                "verified"
+              ]
+            },
+            "method": {
+              "type": "string"
+            },
+            "gro_email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "gro_phone": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "source_url",
+            "verified_on",
+            "browser_status",
+            "method",
+            "gro_email",
+            "gro_phone"
+          ],
+          "additionalProperties": true
+        },
+        "irdai_baseline": {
+          "type": "object",
+          "properties": {
+            "gro_email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "gro_phone": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "raw_phone": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "evidence": {
+              "type": "string"
+            },
+            "field_sources": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "source_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "verified_on": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "evidence": {
+                    "type": "string"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "source_sha256": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "source_url",
+                  "verified_on",
+                  "evidence"
+                ],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [
+            "gro_email",
+            "gro_phone",
+            "source_url",
+            "verified_on",
+            "evidence"
+          ],
+          "additionalProperties": true
+        },
+        "helpline_scope_hi": {
+          "type": "string"
+        },
+        "claims_email_scope_hi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gro_source_kind": {
+          "enum": [
+            "insurer-own-page",
+            "irdai-baseline"
+          ]
         }
       },
       "required": [

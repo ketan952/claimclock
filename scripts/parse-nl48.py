@@ -103,15 +103,19 @@ def main():
         print(f"Verified {len(files)} cached source hashes; unhashed web-reader sources are explicitly marked.")
     rows, exclusions = normalize(tables)
     if args.check:
-        qa = json.loads((ROOT / "research/nl48-qa.json").read_text())
         by_id = {row["id"]: row for row in rows}
-        for check in qa["checks"]:
-            for column in check["columns"]:
-                actual = [by_id[column["row_id"]][key] for key in BUCKETS]
-                assert actual == column["expected_buckets"], f"Source spot-check mismatch: {column['row_id']}"
-        print(f"Source spot-check answer key matches {qa['cells_checked']} cells.")
+        for qa_path in sorted((ROOT / "research").glob("nl48*qa.json")):
+            qa = json.loads(qa_path.read_text())
+            checked = 0
+            for check in qa["checks"]:
+                for column in check["columns"]:
+                    actual = [by_id[column["row_id"]][key] for key in BUCKETS]
+                    assert actual == column["expected_buckets"], f"Source spot-check mismatch: {column['row_id']}"
+                    checked += len(BUCKETS)
+            assert checked == qa["cells_checked"], f"Stale QA cell count: {qa_path.name}"
+            print(f"{qa_path.name}: source spot-check answer key matches {checked} cells.")
     output = io.StringIO(newline="")
-    writer = csv.DictWriter(output, fieldnames=FIELDS)
+    writer = csv.DictWriter(output, fieldnames=FIELDS, lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
     artifacts = {"data/nl48.json": json.dumps(rows, indent=2) + "\n", "data/nl48.csv": output.getvalue()}

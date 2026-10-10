@@ -4,16 +4,19 @@
     "insurer": "National Insurance",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://nationalinsurance.nic.co.in/about-us/public-disclosure/disclosure-under-irdai-health-regulations",
-    "status": "scanned",
+    "status": "partial",
     "latest_period_found": "FY2025-26",
-    "published_rows": 0,
+    "published_rows": 4,
     "documents": [
       {
         "document_url": "https://nationalinsurance.nic.co.in/sites/default/files/2026-06/Medi%20Assist%20Insurance%20TPA%20Private%20Limited.pdf",
         "sha256": "7cf0bf79921055b389f8b8295fdecae07fdf2d7ef2636b9eaa599c011e393a30",
         "cached_filename": "national-0.pdf",
-        "status": "scanned",
-        "included_pages": []
+        "status": "parsed",
+        "included_pages": [
+          2,
+          3
+        ]
       },
       {
         "document_url": "https://nationalinsurance.nic.co.in/sites/default/files/2026-06/Medsave%20Health%20Insurance%20TPA%20Limited.pdf",
@@ -129,9 +132,12 @@
       }
     ],
     "notes": [
-      "All 17 current FY2025-26 TPA documents downloaded from the official disclosure page have no extractable text. No OCR-derived numbers published."
+      "Browser verified all 17 current FY2025-26 TPA links. The Medi Assist scanned filing was OCR-staged and every bucket cell visually reviewed. The other 16 TPAs remain unreviewed.",
+      "The Medi Assist cashless table spans PDF pages 2-3. All four >24h cells are blank and preserved as null; no cashless denominator is disclosed."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Continue cell-level review of the remaining 16 scanned TPA sources.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "new-india",
@@ -158,35 +164,308 @@
     "notes": [
       "FY2025-26 document has 191 pages. Reviewed FHPL, Heritage, Health Insurance TPA of India and Park cashless tables included; other TPA tables need layout-specific extraction and review."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "oriental",
     "insurer": "The Oriental Insurance",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://orientalinsurance.org.in/tpa-in-house-public-disclosure",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official disclosure page is a JavaScript shell. A FY2024-25 PDF exists on the insurer-linked media host, but the latest available filing was not established within this collection pass."
+    "disclosure_url": "https://orientalinsurance.org.in/tpa-in-house-public-disclosure/FY-2025-26",
+    "status": "partial",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 8,
+    "documents": [
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Mediassist_942bdeea29.pdf",
+        "sha256": "f73893b12208653554bb1f047f1b7f6b535fe215f29888facf499cafe8880830",
+        "cached_filename": "m8-oriental-1.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/MD_India_9cc59cebaa.pdf",
+        "sha256": "98dc341721c3f5f62b1607502a9f5d84e8c2403906feeeeae0eccdb8c5b710af",
+        "cached_filename": "m8-oriental-5.pdf",
+        "status": "parsed",
+        "included_pages": [
+          8
+        ]
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Genins_8d28455efa.pdf",
+        "sha256": "0d80bb214d7c429ccf495e06a098009fab71f8dff2725f4c3f4e6968096d30c7",
+        "cached_filename": "m8-oriental-0.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Vidal_bcc671901a.pdf",
+        "sha256": "d3dcc413dd3800b396364942966832f57a5bac0283349a70732bc303426a4574",
+        "cached_filename": "m8-oriental-2.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/ericson_d94f61d3ed.pdf",
+        "sha256": "2b863f39680b57f4c0f0dbe91f18aa3031443775512d4908e01612c5a5b1e05e",
+        "cached_filename": "m8-oriental-3.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Heritage_550c853590.pdf",
+        "sha256": "e6ddcd632df2ad928ee9df83b8e0bf7877dbdd16d5e0184923841d8d4433fbfb",
+        "cached_filename": "m8-oriental-4.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Volo_bff0c6a11d.pdf",
+        "sha256": "4694fcc58261168987e3f66fb7fe5f33d5e3f5ffa126779fe6184149c541fce5",
+        "cached_filename": "m8-oriental-6.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Park_41c89ae388.pdf",
+        "sha256": "8cc1a653d30c2cdc27337c1db7e1bd2f8b91a0ac1a4bb9b493cf84d2634f11c1",
+        "cached_filename": "m8-oriental-7.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Paramount_2549967cfd.pdf",
+        "sha256": "1660b0d0b5e7be9ac79c77bd06d3c146267df4638c5f0788970ce25301fe1dd0",
+        "cached_filename": "m8-oriental-8.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/FHPL_3232b8d924.pdf",
+        "sha256": "76ea65e8ef37991306703b2b0c846dfd95101b835f5ae2533a608171637b1a4f",
+        "cached_filename": "m8-oriental-9.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/GHPL_e815c54b87.pdf",
+        "sha256": "101949142f52e1c007b5bcf7480801530bde23d371ded042f0957782c21cf7bf",
+        "cached_filename": "m8-oriental-10.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/HITPA_cfe23a894f.pdf",
+        "sha256": "65d7252b2d4430902779317d035e05e5e89e14d7203adbd6329e2a52e3393b4e",
+        "cached_filename": "m8-oriental-11.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Medsave_9b37ea1914.pdf",
+        "sha256": "bf3ef884c89e4d0c2bd0ad7671a38ed13b82ce8e23d9debc93128200423747c4",
+        "cached_filename": "m8-oriental-12.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Akna_82a99588db.pdf",
+        "sha256": "2b31b3aedf106180b4ddd5fff4bcbe33ddf04ab9368b54f657e7aab3dee9db6d",
+        "cached_filename": "m8-oriental-13.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Link_b728de4609.pdf",
+        "sha256": "7c5b4292da001d19579050ab3c4b9c49e2889654d5c1a7a3f1d0cd2b9965dda3",
+        "cached_filename": "m8-oriental-14.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Health_India_fc960d1fd5.pdf",
+        "sha256": "181ed0d3c724f7e8734713664a1c05fbe0ee5824862f8f9d22cae45bd1ed210f",
+        "cached_filename": "m8-oriental-15.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Health_Assist_3f0c6c6e47.pdf",
+        "sha256": "72fdef28aeac3937b48aa83c76368f343507e1eab0452193ef4b8914156b8e3b",
+        "cached_filename": "m8-oriental-16.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": []
+      },
+      {
+        "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/In_house_compilation_0001_f7b7803198.pdf",
+        "sha256": "41b9d265c67d681be65087a96cb6df914d018a40afae89a72a34baf288f46223",
+        "cached_filename": "m8-oriental-17.pdf",
+        "status": "no_nonzero_cashless_distribution",
+        "included_pages": []
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The FY2025\u201326 archive became available after selecting English on the homepage; a direct first visit had sent an empty locale and displayed no data. Browser verified 18 source links.",
+      "Medi Assist and MDIndia scanned cashless cells were visually reviewed. Medi Assist >24h cells are blank and retained as null. In-house cashless cells are Nil and omitted; the other 15 TPAs remain unreviewed. No cashless denominator disclosed."
+    ],
+    "next_step": "Review the remaining 15 Oriental TPA scans.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "united-india",
     "insurer": "United India Insurance",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://uiic.co.in/web/public-disclosures/corporate",
-    "status": "access_failed",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Public-disclosure URLs returned HTTP errors or timed out. No current NL48 source acquired."
+    "disclosure_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 58,
+    "documents": [
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Genins%20Insurance%20TPA.pdf",
+        "sha256": "863d68f41cd06f004f77333225b1cb4821ec624d6a803b7866396ae2d27887fd",
+        "cached_filename": "m8-united-0.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/GHPL%20Insurance%20TPA.pdf",
+        "sha256": "6891ab47c627415e30c5bfa6609d1948d8b84ca763f2f295b43b04d098245ba9",
+        "cached_filename": "m8-united-1.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Assist%20Insurance%20TPA.pdf",
+        "sha256": "60a25a2ff970087581c9b24552589cb46c38e646c8caf835e26c8bb7f0583790",
+        "cached_filename": "m8-united-2.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Ericson%20Insurance%20TPA.pdf",
+        "sha256": "8a1d594e58c71a2c9e68432af6f7fa53c63b65b6d0aaa13374bdd687c817c417",
+        "cached_filename": "m8-united-3.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/FHPL%20Insurance%20TPA.pdf",
+        "sha256": "6d4e2adb8e52c2020c87b143abefd7d771dbf19b85e2c446b9574b5fbb248159",
+        "cached_filename": "m8-united-4.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Heritage%20Insurance%20TPA.pdf",
+        "sha256": "85928aa62c041d275117360b2adc3b9a99ef7efaa3d8564e9ed5da3328cc561e",
+        "cached_filename": "m8-united-5.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Link%20K%20Insurance%20TPA.pdf",
+        "sha256": "e82606368313004dab6ba42d8ab5375f4d50ede09582214f801e85de00e385d6",
+        "cached_filename": "m8-united-6.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/MD%20India%20Insurance%20TPA.pdf",
+        "sha256": "235f157f9e1143429e39b114910dffa053f96aff51615d1bd380250c917acbde",
+        "cached_filename": "m8-united-7.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Insurance%20TPA.pdf",
+        "sha256": "9099d68e385724d198277d4676294843780dd852a060bc9a78ccbd1249798c10",
+        "cached_filename": "m8-united-8.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/HealthIndia%20Insurance%20TPA.pdf",
+        "sha256": "aef5744c83c865c08f21e8008337ace8a10e6acbf624bd4c01430533178f6cb7",
+        "cached_filename": "m8-united-9.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Paramount%20Insurance%20TPA.pdf",
+        "sha256": "1c85d55a7f540992d1338888d504e4651ecbd599a41e89056a65227c37ca05ef",
+        "cached_filename": "m8-united-10.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Vidal%20Insurance%20TPA.pdf",
+        "sha256": "b5346e1d0fbfa89a8f239933878a6c03ce8d86eaf29ef13318273e6e57ada80b",
+        "cached_filename": "m8-united-11.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Volo%20Insurance%20TPA.pdf",
+        "sha256": "7609049dad61662708409b928775f68eaf11c9193590d0db5fefd89193ef8475",
+        "cached_filename": "m8-united-12.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Med%20Save%20Insurance%20TPA.pdf",
+        "sha256": "ce2cc8a498fd03408229fac08dacd9a07e020b57d2a062b828488b3ec1bef62b",
+        "cached_filename": "m8-united-13.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Medi%20Assist%20Insurance%20TPA.pdf",
+        "sha256": "2e6759387f987c90cdff351b2dca248bfd8c49958b7f52d4117a789826d09f1b",
+        "cached_filename": "m8-united-14.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "Browser recovered the FY2025-26 TPA archive. All 15 scanned filings, TPA identities, 31 March 2026 headers and 360 bucket cells were visually reviewed.",
+      "All 58 nonzero distributions total 100%. LINK-K individual columns are all zero and omitted. Cashless denominators are absent. Source clocks start at last necessary document receipt or discharge bill receipt; these buckets are not statutory compliance measurements."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "acko",
@@ -217,21 +496,45 @@
     "insurer_id": "aditya-birla",
     "insurer": "Aditya Birla Health",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://www.adityabirlacapital.com/healthinsurance/downloads",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official downloads page was reached but the current NL48 PDF could not be resolved. Older search hits were not substituted for an unverified latest period."
+    "disclosure_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 26,
+    "documents": [
+      {
+        "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+        "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+        "cached_filename": "m8-aditya-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The FY2025-26 Q4 filing was recovered through Public Disclosures and Q4-FY25-26 browser clicks. Pages 53-64 contain in-house and 11 TPA tables.",
+      "All-zero individual TPA columns are omitted; cashless denominators are not disclosed in the TAT tables."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "galaxy",
     "insurer": "Galaxy Health Insurance",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://www.galaxyhealth.com/assets/preloaded/Website%2520PD_Q4%2520FY%252025-26%2520-%2520Galaxy_1.pdf",
+    "disclosure_url": "https://www.galaxyhealth.com/public-disclosures",
     "status": "inconsistent",
     "latest_period_found": "FY2025-26",
     "published_rows": 0,
@@ -245,9 +548,12 @@
       }
     ],
     "notes": [
-      "FY2025-26 PDF page 53 labels columns as percentages, while cells such as 1662 and 1014 and four-digit totals resemble counts. No unit inferred and no values published."
+      "Browser FY2025-26 financial selector still links the same Q4 PDF, confirmed by SHA256. Page 53 labels all cashless columns as percentages while values such as 1662 and 1014 and four-digit totals resemble counts.",
+      "No unit was inferred and no values were published. The annual source remains excluded until a corrected or explicitly labelled cashless table is available."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Recheck the official annual filing for a corrected unit label or a separately disclosed cashless table.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; Financials year selector and Performance Disclosures inspected."
   },
   {
     "insurer_id": "bajaj",
@@ -320,7 +626,7 @@
     "notes": [
       "FY2025-26 in-house table included. Seven TPA source files located and downloaded; their varying layouts still need reviewed extraction."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "chola",
@@ -342,7 +648,7 @@
       }
     ],
     "notes": [
-      "FY2025-26 full disclosure pages 102–103 reports consolidated in-house/TPA data, without individual TPA splits. Explicit combined-provider label retained. A separately linked health-service PDF was dated March 2020 and was not used."
+      "FY2025-26 full disclosure pages 102\u2013103 reports consolidated in-house/TPA data, without individual TPA splits. Explicit combined-provider label retained. A separately linked health-service PDF was dated March 2020 and was not used."
     ],
     "next_step": null
   },
@@ -351,14 +657,29 @@
     "insurer": "Navi General Insurance",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://navi.com/insurance/corporate-governance/public-disclosure",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official public-disclosure page reached; year selector is dynamic and a current NL48 PDF was not resolved in this pass."
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 3,
+    "documents": [
+      {
+        "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+        "sha256": "89e1d58833cb4cc3f45c03b5a0e19c16a6c416e02364e421496931e46048cf94",
+        "cached_filename": "m8-navi-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          57,
+          58,
+          59
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "Browser FY2025\u201326 Jan\u2013Mar selection recovered the Q4 PDF. Pages 57\u201359 contain in-house, Medi Assist and Paramount NL-48 tables, all visually reviewed.",
+      "Only in-house individual preauthorization/discharge and Medi Assist individual preauthorization have nonzero distributions. Medi Assist reports 100% in >24h, with no disclosed cashless sample size. All-zero columns omitted. Negative group policy/lives figures were not used as denominators."
+    ],
+    "next_step": "Monitor the next annual filing; preserve source scope and rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "zuno",
@@ -390,21 +711,43 @@
     "notes": [
       "FY2025-26 tables included except Park individual preauth/discharge columns: nonzero buckets contradict blank totals and absent individual policies on page 9. All-zero populations omitted."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "generali-central",
     "insurer": "Generali Central",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official financial-information page reached. Current quarter is visible, but an annual NL48 document was not resolved through the dynamic archive."
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 22,
+    "documents": [
+      {
+        "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+        "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+        "cached_filename": "m8-generali-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "Browser recovered FY2025-26 Q4 NL-48: in-house and nine TPA tables on pages 1-10. Source identities, units and cashless-table placement were reviewed.",
+      "Cashless denominators are absent. Medi Assist page 10 has blank >24h cells, preserved as null; all-zero or absent individual TPA columns are omitted. Source rounding is retained."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "digit",
@@ -561,9 +904,9 @@
       }
     ],
     "notes": [
-      "FY2025-26 11-page official PDF readable through the web PDF reader; direct local requests return HTTP 403. Pages 1–2 (in-house and Medi Assist) included. Remaining TPA pages await extraction; no local source hash available."
+      "FY2025-26 11-page official PDF readable through the web PDF reader; direct local requests return HTTP 403. Pages 1\u20132 (in-house and Medi Assist) included. Remaining TPA pages await extraction; no local source hash available."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "iffco-tokio",
@@ -630,35 +973,180 @@
     "notes": [
       "FY2025-26 six-page filing parsed. Page 2 Medi Assist individual discharge sums to 2% and group discharge to 98%; both columns excluded. Values were not reassigned across columns."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "liberty",
     "insurer": "Liberty General Insurance",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official IRDAI disclosure archive reached; FY2025-26 selector is present but PDF links are loaded dynamically and current NL48 was not resolved."
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 32,
+    "documents": [
+      {
+        "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+        "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+        "cached_filename": "m8-liberty-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "Browser FY2025\u201326 Q4 financial filing contains in-house Health360 and 14 TPA tables on pages 80\u201394. Every cashless header and bucket cell visually checked; all-zero or absent individual TPA columns omitted.",
+      "Cashless denominators absent; source integer rounding retained. Genins page 91 has an unrelated negative covered-lives figure, which was not used as a denominator. Its clearly labelled cashless distribution was reviewed independently. The download URL may expire; use the archive year and quarter selectors if needed."
+    ],
+    "next_step": "Monitor the next annual filing; preserve source scope and rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "magma",
     "insurer": "Magma General Insurance Limited",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://www.magmainsurance.com/public-disclosures",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official disclosure archive reached. No current NL48 document was resolved within this pass."
+    "disclosure_url": "https://www.magmainsurance.com/public-disclosures/tpa-wise-publice-disclosure",
+    "status": "partial",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 4,
+    "documents": [
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/MD+INDIA+Health+Insurance+TPA+Pvt+Ltd.pdf/a8a9a7c8-dfe1-dd9a-cfbb-f398294c0103?t=1785136749350",
+        "sha256": "b0d2bd87911da94d123ce02c2d8a77d1a03f3d32b3a9ac3ad2e79225c6f8fe95",
+        "cached_filename": "m8-magma-5.pdf",
+        "status": "parsed",
+        "included_pages": [
+          3
+        ]
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Medi+Assist+Insurance+TPA+Private+Limited.pdf/a5031cb2-270b-ad04-83c0-c91b98dc94b8?t=1785136749934",
+        "sha256": "d9adc6a83d0f8b4189a78d0c23ea74f7c4aebeadb157447c5d16158b2de5130d",
+        "cached_filename": "m8-magma-6.pdf",
+        "status": "parsed",
+        "included_pages": [
+          1
+        ]
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Good+Health+Insurance+TPA+Ltd.pdf/2f12c23e-c9a5-87d3-d0e5-53c75cd601a8?t=1785136747526",
+        "sha256": "f57cc433e9101816134c563f9f5a4bf650d4a91d386ce18b0db3d9742f357296",
+        "cached_filename": "m8-magma-0.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Good Health Insurance TPA Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Vidal+Health+Insurance+TPA+Pvt+Ltd.pdf/53a259f7-340e-5774-c1fe-0d3046cf14cf?t=1785156916449",
+        "sha256": "ae96e2d171dcfd71778e7450782a1bfeac62cea496e6da37e240999f64f42ad9",
+        "cached_filename": "m8-magma-1.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Vidal Health Insurance TPA Pvt Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Healthindia+Insurance+TPA+services+Pvt+Limited.pdf/0937f00a-b85f-6254-a4b2-defe83231fc0?t=1785136747969",
+        "sha256": "2207062b794778fd97ed3b356fe5d42825aca168d914d5fb2dabf6a7ff238a61",
+        "cached_filename": "m8-magma-2.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Healthindia Insurance TPA services Pvt Limited"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Link+K+Insurance+TPA+Pvt+Ltd.pdf/b8360db8-9712-e626-4130-71354715bfda?t=1785136748444",
+        "sha256": "ce97ed408189eb74561aff729d2e6827854346d10f7cf51c94d840523d380256",
+        "cached_filename": "m8-magma-3.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Link K Insurance TPA Pvt Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Magma+GI+In+house.pdf/101d8cd9-9ee6-b4f3-88eb-569833c16f6d?t=1785136748886",
+        "sha256": "e47a5dbd461bb3380ba467c9b5a4bd42baf9eed124fcb7b425f8f90d854bd0ef",
+        "cached_filename": "m8-magma-4.pdf",
+        "status": "no_nonzero_cashless_distribution",
+        "included_pages": [],
+        "tpa": "Magma GI In house"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Medsave+Health+Insurance+TPA+Ltd.pdf/3fd13ecb-d51f-070e-079d-88e8eeb5f322?t=1785136750405",
+        "sha256": "9c157fbd90a5fde23d1a7c95cab06db5126bf30ece7ef5bbcf66dbecf2ec2b2c",
+        "cached_filename": "m8-magma-7.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Medsave Health Insurance TPA Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Paramount+Health+Services+Insurance+TPA+Pvt+Limited.pdf/301fb442-c427-0eb3-4b22-b95855b0e707?t=1785136750848",
+        "sha256": "19cf0b1ca0e20a5a84706161e134c4bc9298460fe8ac4e5dcf81e55f838c1321",
+        "cached_filename": "m8-magma-8.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Paramount Health Services Insurance TPA Pvt Limited"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Raksha+Health+Insurance+TPA+Pvt+Ltd.pdf/699ca7b4-e879-5603-500d-216d63ffb9a7?t=1785136751316",
+        "sha256": "5c9bd2039d41536ad450b6ec334307154e256ec1b737643b3044b4d9580f7560",
+        "cached_filename": "m8-magma-9.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Raksha Health Insurance TPA Pvt Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Safeway+Insurance+TPA+Pvt+Ltd.pdf/dafa6851-d1d5-2f75-941f-bccf92d1bc74?t=1785136751764",
+        "sha256": "e4c1020e49a36471fb2146f76e84395d275401f424d3806b297ace1aecba852d",
+        "cached_filename": "m8-magma-10.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Safeway Insurance TPA Pvt Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Volo+Health+Insurance+TPA+Pvt+Ltd.pdf/1a90f78f-14b2-2df7-8cc9-190d44c45f47?t=1785136752249",
+        "sha256": "612511353b04eb8a84e7ec920f2ab8fbcf9cf95680972ca39edd7e45b710bcfd",
+        "cached_filename": "m8-magma-11.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Volo Health Insurance TPA Pvt Ltd"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Family+Health+Plan+Insurance+TPA+Limited.pdf/a5fe87cd-ee6f-bef7-26ca-066a51752e0f?t=1785136747001",
+        "sha256": "3654e6eacca813b0f2b3f34d6d8fa99f28bda06c15d15be122e973e75f1fdfac",
+        "cached_filename": "m8-magma-12.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Family Health Plan Insurance TPA Limited"
+      },
+      {
+        "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Ericson+Insurance+TPA+Pvt+Limited.pdf/15b4cf7a-77b9-3d71-a1f5-7c018d07e0c5?t=1785136746527",
+        "sha256": "a727d075302732f605aa167777778cdc21021cff276a392c5975af5dd5afa83a",
+        "cached_filename": "m8-magma-13.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "tpa": "Ericson Insurance TPA Pvt Limited"
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The browser FY2025-26 TPA archive lists 14 source PDFs. Medi Assist and MDIndia scanned cells were visually reviewed; both contain group distributions only. In-house cashless cells are all zero and omitted. The other 11 sources remain unreviewed.",
+      "Coverage is partial. The reviewed tables disclose neither an individual cashless distribution nor cashless denominators."
+    ],
+    "next_step": "Review remaining TPA filings before treating coverage as complete.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "manipalcigna",
@@ -691,7 +1179,7 @@
     "notes": [
       "FY2025-26 59-page disclosure parsed where table headers and numeric columns were extractable. Page 51 requires separate review; all-zero columns omitted."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "niva-bupa",
@@ -715,7 +1203,7 @@
       }
     ],
     "notes": [
-      "FY2025-26 cashless tables on PDF pages 52–54 parsed per named service provider. In-house >24h dashes remain null, never converted to zero."
+      "FY2025-26 cashless tables on PDF pages 52\u201354 parsed per named service provider. In-house >24h dashes remain null, never converted to zero."
     ],
     "next_step": null
   },
@@ -744,7 +1232,7 @@
     "notes": [
       "Latest NL48 located is FY2024-25. The archive exposes FY2025-26 Q4 forms through NL46, but a newer NL48 was not located. Older period is shown explicitly and should not be pooled with FY2025-26."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "indusind",
@@ -783,70 +1271,284 @@
     "insurer": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.)",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://www.careinsurance.com/public-disclosures.html",
-    "status": "access_failed",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official public-disclosures page returned restricted content/HTTP 403 to direct retrieval. Current NL48 source not acquired."
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 4,
+    "documents": [
+      {
+        "document_url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2025-26/Qtr%204%2025-26/Public_Disclosure_1780465863.pdf",
+        "sha256": "85578e83970de18f607b380a3689cec42cedd3b3afb92be776d985b1bb1bbe5f",
+        "cached_filename": "m8-care-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          63
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The FY2025-26 financial filing was recovered through its rendered embedded CMS archive. The older Other Disclosures link refers to 31 March 2025 and was not substituted.",
+      "One consolidated insurer table appears on page 63, with 12 TPAs listed on page 55. No per-TPA split or cashless denominator is disclosed; the group columns total 101% after source rounding."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "royal-sundaram",
     "insurer": "Royal Sundaram General Insurance Co.Limited",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://www.royalsundaram.in/about-us/public-disclosures",
-    "status": "access_failed",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official public-disclosure page returned HTTP 403. Current NL48 source not acquired."
+    "disclosure_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+    "status": "partial",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 6,
+    "documents": [
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "7d48ae2e7278423198b957f35a371f56c2c5e9860c2a13ef9d39c56348a12435",
+        "cached_filename": "m8-royal-13.pdf",
+        "status": "parsed",
+        "included_pages": [
+          2
+        ],
+        "document_selector": "Medi Assist Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "5dff6e48bd544e6c51c3511bff3c75c34cb99a856e29c3ee9ea6e847660cf93c",
+        "cached_filename": "m8-royal-11.pdf",
+        "status": "parsed",
+        "included_pages": [
+          2
+        ],
+        "document_selector": "MDIndia Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "5cf09be055b3fa2f6cf308f56057f7c3837c099fd380be218e9ee2a724b605ce",
+        "cached_filename": "m8-royal-0.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Good Health Insurance TPA",
+        "tpa": "Good Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "18b2aeedbe8ffce85f81399414d6cd2bd51d108de06791da2cf8530f9450a776",
+        "cached_filename": "m8-royal-1.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Genins India Insurance TPA",
+        "tpa": "Genins India Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "32fd44670a3e4524fb0d48f326a398c09b38ae5adff045c094a4bb283624144f",
+        "cached_filename": "m8-royal-2.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Park Mediclaim Insurance TPA",
+        "tpa": "Park Mediclaim Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "9cec576a0b22e2b472cac253d946a9442748729c6c2e0e51aa7ad717db7718b7",
+        "cached_filename": "m8-royal-3.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Vidal Health Insurance TPA",
+        "tpa": "Vidal Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "01eede12d3c53522fcac207d6ccceac03953c343d8262ec311b5fa92be1bee1f",
+        "cached_filename": "m8-royal-4.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Ericson Insurance TPA",
+        "tpa": "Ericson Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "58ea30195f4ece9b85e61909436f984b8976ba7b21b46671116fa503e5d775aa",
+        "cached_filename": "m8-royal-5.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "HealthIndia Insurance TPA",
+        "tpa": "HealthIndia Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "e6d1bf35da9dc88aafd4f708efd690181a280607fb2cb49a3463db5d94ae7a74",
+        "cached_filename": "m8-royal-6.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Family Health Plan Insurance TPA",
+        "tpa": "Family Health Plan Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "b3f285289cf0fafa0cfa5152dc180706298e356f6c507a7d82f90b40939aaf01",
+        "cached_filename": "m8-royal-7.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Heritage Health Insurance TPA",
+        "tpa": "Heritage Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "d1cb843d9132131837375272fc1def93b0bf2822d9fb0f4ba8178751e9557868",
+        "cached_filename": "m8-royal-8.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Paramount Health Services & Insurance TPA",
+        "tpa": "Paramount Health Services & Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "52ffa319025b0a71d3e3adacf672d513781df490010425896054dce256576008",
+        "cached_filename": "m8-royal-9.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Health Assist Insurance TPA",
+        "tpa": "Health Assist Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "34280dfbfb20e8218430b7683eb4c5d9e954ab8b4aff9e868954d502e82adbd7",
+        "cached_filename": "m8-royal-10.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "MedSave Health Insurance TPA",
+        "tpa": "MedSave Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "23131ed52fccfbc0ebf9d6be5535ee972131ac008656669312d9d053fe69701f",
+        "cached_filename": "m8-royal-12.pdf",
+        "status": "scanned_unreviewed",
+        "included_pages": [],
+        "document_selector": "Volo Health Insurance TPA",
+        "tpa": "Volo Health Insurance TPA"
+      },
+      {
+        "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+        "sha256": "8dac00c5ab3cdc8d0a936345e25fb8660114a8177cd686dc571c9dc49b690e82",
+        "cached_filename": "m8-royal-14.pdf",
+        "status": "no_nonzero_cashless_distribution",
+        "included_pages": [],
+        "document_selector": "In-house TPA",
+        "tpa": "In-house TPA"
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The browser FY2025-26 annual TPA archive lists 15 channels. Medi Assist and MDIndia scanned cells were visually reviewed; in-house cashless cells are all zero and omitted. The other 12 sources remain unreviewed.",
+      "View buttons deliver PDF blobs. Source links open the exact annual archive; select the named TPA. Cached PDF hashes and page numbers are recorded. Cashless denominators are absent."
+    ],
+    "next_step": "Review remaining TPA filings before treating coverage as complete.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "sbi-general",
     "insurer": "SBI General",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://www.sbigeneral.in/about-us/public-disclosure",
-    "status": "not_located",
+    "status": "partial",
     "latest_period_found": "FY2025-26",
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official page lists FY2025-26 Fourth-quarter NL48 metadata, but the document URL was not returned in the accessible page data. No numerical source acquired."
+    "published_rows": 22,
+    "documents": [
+      {
+        "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+        "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+        "cached_filename": "m8-sbi-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The FY2025-26 Fourth Quarter NL-48 document was downloaded through the browser. Each sample_size is the printed cashless TAT-column total, distinct from payment or repudiation counts.",
+      "Volo TPA page 20 is excluded: group-discharge bucket counts total 6799, while the printed total is 7699; percentages and preauthorization counts also conflict. The other 10 channels retain raw printed percentages and disclosed cashless totals."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "shriram",
     "insurer": "Shriram General",
     "checked_on": "2026-10-10",
     "disclosure_url": "https://www.shriramgi.com/download/disclosure",
-    "status": "not_located",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official disclosure/download page reached. Dynamic selectors did not expose a current NL48 source during this pass."
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 2,
+    "documents": [
+      {
+        "document_url": "https://cdn.shriramgi.com/webassets/download/2025-2026/2539dd48-dd39-4946-ae4f-66cd3e6e4654_SGI-_Disclosure_-%20IVth%20Qtr%2025-26_11.06.2026_compressed.pdf",
+        "sha256": "140b9356d888a1863f576042a06f7eaa4b1ef4e239b4382cb803f6fc05d892c8",
+        "cached_filename": "m8-shriram-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          58
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The browser financial-year selector recovered the FY2025-26 Q4 filing revised 11 June 2026. Page 58 contains one Medi Assist NL-48 table.",
+      "Individual percentages are labelled in the header; group entries are NA and omitted. No cashless denominators are disclosed."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "star-health",
     "insurer": "Star Health and Allied",
     "checked_on": "2026-10-10",
-    "disclosure_url": "https://www.starhealth.in/media-center/",
-    "status": "access_failed",
-    "latest_period_found": null,
-    "published_rows": 0,
-    "documents": [],
-    "notes": [
-      "Official media/disclosure pages returned restricted content or timed out. Current NL48 source not acquired; older search snippets were not used."
+    "disclosure_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "status": "parsed",
+    "latest_period_found": "FY2025-26",
+    "published_rows": 26,
+    "documents": [
+      {
+        "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+        "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+        "cached_filename": "m8-star-fy26.pdf",
+        "status": "parsed",
+        "included_pages": [
+          54,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66
+        ]
+      }
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "notes": [
+      "The FY2025-26 Q4 financial filing contains in-house health and 11 TPA tables on pages 54 and 56-66. Travel-only page 55 is excluded. The separate health-parameters section only listed FY2023-24; the annual financial filing is newer.",
+      "Cashless denominators are absent. All-zero individual TPA columns are omitted; printed rounded percentages are preserved."
+    ],
+    "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
   },
   {
     "insurer_id": "narayana",
@@ -868,9 +1570,9 @@
       }
     ],
     "notes": [
-      "FY2025-26 PDF pages 53–54 names five TPAs but presents one combined group-policy cashless distribution. Included under an explicit combined-provider label; per-TPA splits unavailable. PDF is hosted on official-page-linked Azure storage."
+      "FY2025-26 PDF pages 53\u201354 names five TPAs but presents one combined group-policy cashless distribution. Included under an explicit combined-provider label; per-TPA splits unavailable. PDF is hosted on official-page-linked Azure storage."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "tata-aig",
@@ -927,7 +1629,7 @@
     "notes": [
       "FY2025-26 page 3 Vidal table contains district names in place of timing-bucket labels. Entire affected table excluded. Other ten named provider tables parsed."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
   },
   {
     "insurer_id": "prudential-hcl",
@@ -939,8 +1641,11 @@
     "published_rows": 0,
     "documents": [],
     "notes": [
-      "Official public-disclosure page reached on 2026-10-10; no annual NL48 link was exposed in readable page content. No assertion is made about a filing obligation or due date."
+      "Live browser retry of the public-disclosures page and Others accordion exposed a Remuneration Policy dated August 2026. No annual NL-48 was located on that page.",
+      "No reporting obligation or performance conclusion is inferred from this collection gap."
     ],
-    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage."
+    "next_step": "Monitor the official disclosure archive for an annual NL-48 source.",
+    "browser_checked_on": "2026-10-10",
+    "browser_method": "Isolated headed Chrome via Playwright; expanded the Others accordion."
   }
 ]

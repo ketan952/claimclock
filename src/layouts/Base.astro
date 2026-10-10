@@ -1,13 +1,20 @@
 ---
 import '../styles/global.css';
 const { title = 'ClaimClock — a clock on your side', description = 'Keep a cashless insurance timeline, ask for written acknowledgement, and prepare your next message. Free and private.' } = Astro.props;
+const origin='https://claimclock.ketan952.workers.dev';
+const canonical=new URL(Astro.url.pathname,origin).href;
+const card=Astro.url.pathname==='/index/'?'index':Astro.url.pathname.match(/^\/index\/([^/]+)\/?$/)?.[1]||'default';
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} /><meta name="theme-color" content="#183f35" />
-  <title>{title}</title><link rel="icon" href="/icon.svg" type="image/svg+xml" /><link rel="manifest" href="/manifest.webmanifest" />
+  <title>{title}</title><link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" /><meta property="og:site_name" content="ClaimClock" /><meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:image" content={`${origin}/og/${card}.png`} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content={title} />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={`${origin}/og/${card}.png`} />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" /><link rel="icon" href="/icon.svg" type="image/svg+xml" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" /><link rel="manifest" href="/manifest.webmanifest" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content / सीधे मुख्य भाग पर जाएँ</a>

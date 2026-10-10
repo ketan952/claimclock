@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "synthetic": true,
   "created_on": "2026-10-10",
   "purpose": "Independent, source-informed test cases for the deterministic local deduction engine. All names, insurer/hospital identities, claim identifiers, amounts and policy clauses are invented. No genuine settlement letter or personal information is reproduced.",
-  "review_basis": "Manually reasoned source review by the build agent; not a lawyer adjudication. Public case links provide issue context only.",
+  "review_basis": "Original ten cases retain their manually reasoned source review. Five additional expected outcomes were specified before the classifier changes and independently reviewed by a second build agent. Not a lawyer adjudication; no genuine claim or personal data. Public case links provide context only.",
   "ai_evaluated": false,
   "ocr_evaluated": false,
   "fixtures": [
@@ -32,7 +32,8 @@
         "rationale": "The description identifies a room-category ratio applied to associated charges. Request the actual clause, affected-item calculation and whether those charges vary by room. Neither the historical 2020 circular nor a ratio alone establishes that the reduction is prohibited.",
         "rule_ids": [
           "room-rent-review",
-          "deduction-reasons"
+          "deduction-reasons",
+          "financial-limits-2024"
         ]
       },
       "primary_sources": [
@@ -45,6 +46,11 @@
           "rule_id": "deduction-reasons",
           "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
           "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
         }
       ],
       "public_case_context": [
@@ -127,7 +133,8 @@
         "status": "likely valid",
         "rationale": "In this synthetic scenario the user confirms the applicable per-eye cap and the arithmetic: 54,500 minus 50,000 is 4,500. Likely valid is conditional, not an adjudication; policy version, utilization and riders still matter. The linked cataract post is only contextual, not evidence this fictional cap exists.",
         "rule_ids": [
-          "deduction-reasons"
+          "deduction-reasons",
+          "financial-limits-2024"
         ]
       },
       "primary_sources": [
@@ -135,6 +142,11 @@
           "rule_id": "deduction-reasons",
           "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
           "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
         }
       ],
       "public_case_context": [
@@ -170,7 +182,8 @@
         "status": "likely valid",
         "rationale": "Both clause applicability and calculation are expressly confirmed by the fixture user. The arithmetic 72,500 x 20% = 14,500 supports the conditional status. Public shortfall reports illustrate confusion about partial approval, not proof of co-pay terms.",
         "rule_ids": [
-          "deduction-reasons"
+          "deduction-reasons",
+          "financial-limits-2024"
         ]
       },
       "primary_sources": [
@@ -178,6 +191,11 @@
           "rule_id": "deduction-reasons",
           "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
           "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
         }
       ],
       "public_case_context": [
@@ -395,7 +413,8 @@
         "status": "challengeable",
         "rationale": "The room charge is explicitly approved; the actual deduction is co-pay. Confirming arithmetic without an applicable policy clause cannot make it likely valid. A first-keyword room-rent match loses the negation and misstates the reason.",
         "rule_ids": [
-          "deduction-reasons"
+          "deduction-reasons",
+          "financial-limits-2024"
         ]
       },
       "primary_sources": [
@@ -403,6 +422,11 @@
           "rule_id": "deduction-reasons",
           "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
           "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
         }
       ],
       "public_case_context": [
@@ -442,6 +466,140 @@
         "status": "challengeable",
         "rationale": "A treatment-specific benefit ceiling is a sub-limit even when the exact label is absent. Verify policy wording, period and prior utilization. The post reference concerns a policy-period dispute and is contextual only; all maternity terms here are synthetic.",
         "rule_ids": [
+          "deduction-reasons",
+          "financial-limits-2024"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-017",
+          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t6c3mo/post_hospitalisation_rejected/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Confirmed direct room-rent cap difference",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Rohan Kulkarni\nPolicy No.: DEMO-POL-260011\nClaim ID: DEMO-CLM-410011\nUHID: DEMO-UH-730011\nBill received: Rs 96,000. Settled: Rs 90,000. Total reduction: Rs 6,000.\nDeduction explanation: Room rent cap difference only: actual Rs 7,000 per day, policy room cap Rs 5,000 per day, three days; (7,000 - 5,000) x 3 = Rs 6,000. Other hospital expenses paid in full.\nPolicy term supplied: DEMO schedule: room rent limited to Rs 5,000 per day; three eligible days; no category waiver.\nThis is a synthetic final payment advice.",
+      "known_identifiers": [
+        "Rohan Kulkarni",
+        "DEMO-POL-260011",
+        "DEMO-CLM-410011",
+        "DEMO-UH-730011"
+      ],
+      "billed_amount": 96000,
+      "paid_amount": 90000,
+      "reviewed_deduction": {
+        "id": "s11",
+        "description": "Room rent cap difference only: actual Rs 7,000 per day, policy room cap Rs 5,000 per day, three days; (7,000 - 5,000) x 3 = Rs 6,000. Other hospital expenses paid in full.",
+        "amount": 6000,
+        "policyClause": "DEMO schedule: room rent limited to Rs 5,000 per day; three eligible days; no category waiver.",
+        "policyCalculationConfirmed": true
+      },
+      "expected": {
+        "category": "room-rent-cap",
+        "status": "likely valid",
+        "rationale": "This is the direct room charge difference, not a ratio applied to surgeon, OT or other expenses. The fixture user confirms the applicable Rs 5,000 daily cap, absence of a waiver and the arithmetic (7,000 - 5,000) x 3 = 6,000. These confirmations support likely valid, while actual policy version and days remain material.",
+        "rule_ids": [
+          "deduction-reasons",
+          "financial-limits-2024"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
+        }
+      ],
+      "public_case_context": []
+    },
+    {
+      "id": "S12",
+      "title": "Confirmed per-claim fixed deductible",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Meera Nair\nPolicy No.: DEMO-POL-260012\nClaim ID: DEMO-CLM-410012\nUHID: DEMO-UH-730012\nBill received: Rs 90,000. Settled: Rs 80,000. Total reduction: Rs 10,000.\nDeduction explanation: Fixed deductible Rs 10,000 per claim deducted from eligible hospital expenses Rs 90,000; insurer payable Rs 80,000.\nPolicy term supplied: DEMO clause 3.1: Rs 10,000 deductible applies once to each hospitalisation claim; no waiver or previous adjustment against this claim.\nThis is a synthetic final payment advice.",
+      "known_identifiers": [
+        "Meera Nair",
+        "DEMO-POL-260012",
+        "DEMO-CLM-410012",
+        "DEMO-UH-730012"
+      ],
+      "billed_amount": 90000,
+      "paid_amount": 80000,
+      "reviewed_deduction": {
+        "id": "s12",
+        "description": "Fixed deductible Rs 10,000 per claim deducted from eligible hospital expenses Rs 90,000; insurer payable Rs 80,000.",
+        "amount": 10000,
+        "policyClause": "DEMO clause 3.1: Rs 10,000 deductible applies once to each hospitalisation claim; no waiver or previous adjustment against this claim.",
+        "policyCalculationConfirmed": true
+      },
+      "expected": {
+        "category": "co-pay",
+        "status": "likely valid",
+        "rationale": "The policy-dependent deductible is a fixed amount rather than a co-pay percentage, but both share this participation category. The user confirms the applicable once-per-claim Rs 10,000 deductible and Rs 90,000 - Rs 10,000 = Rs 80,000 arithmetic; no second application is present. These facts support the conditional likely-valid verdict.",
+        "rule_ids": [
+          "deduction-reasons",
+          "financial-limits-2024"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
+        }
+      ],
+      "public_case_context": []
+    },
+    {
+      "id": "S13",
+      "title": "Implant labelled non-medical despite reported device cover",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Ishan Das\nPolicy No.: DEMO-POL-260013\nClaim ID: DEMO-CLM-410013\nUHID: DEMO-UH-730013\nBill received: Rs 185,000. Settled: Rs 160,000. Total reduction: Rs 25,000.\nDeduction explanation: Knee prosthesis implant invoice Rs 25,000 deducted as non-medical consumables. The policy is reported to cover surgically implanted devices, but no exclusion or device-specific limit is supplied.\nPolicy term supplied: Not supplied for this deduction.\nThis is a synthetic final payment advice.",
+      "known_identifiers": [
+        "Ishan Das",
+        "DEMO-POL-260013",
+        "DEMO-CLM-410013",
+        "DEMO-UH-730013"
+      ],
+      "billed_amount": 185000,
+      "paid_amount": 160000,
+      "reviewed_deduction": {
+        "id": "s13",
+        "description": "Knee prosthesis implant invoice Rs 25,000 deducted as non-medical consumables. The policy is reported to cover surgically implanted devices, but no exclusion or device-specific limit is supplied.",
+        "amount": 25000,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "implant",
+        "status": "challengeable",
+        "rationale": "An implanted knee prosthesis is not established as excluded merely by calling it a non-medical consumable. The reported device coverage makes the blanket rationale a review issue: obtain the policy wording, device invoice and any valid exclusion or sub-limit. This does not establish that every implant is payable or that this fictional claim must be refunded.",
+        "rule_ids": [
           "deduction-reasons"
         ]
       },
@@ -452,13 +610,85 @@
           "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
         }
       ],
-      "public_case_context": [
+      "public_case_context": []
+    },
+    {
+      "id": "S14",
+      "title": "Direct room difference without verified policy cap",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Tara Shah\nPolicy No.: DEMO-POL-260014\nClaim ID: DEMO-CLM-410014\nUHID: DEMO-UH-730014\nBill received: Rs 81,000. Settled: Rs 75,000. Total reduction: Rs 6,000.\nDeduction explanation: Room rent difference: actual room rate Rs 7,000 per day, insurer allowed Rs 5,000 for three days and deducted Rs 6,000. The applicable policy cap was not supplied.\nPolicy term supplied: Not supplied for this deduction.\nThis is a synthetic final payment advice.",
+      "known_identifiers": [
+        "Tara Shah",
+        "DEMO-POL-260014",
+        "DEMO-CLM-410014",
+        "DEMO-UH-730014"
+      ],
+      "billed_amount": 81000,
+      "paid_amount": 75000,
+      "reviewed_deduction": {
+        "id": "s14",
+        "description": "Room rent difference: actual room rate Rs 7,000 per day, insurer allowed Rs 5,000 for three days and deducted Rs 6,000. The applicable policy cap was not supplied.",
+        "amount": 6000,
+        "policyCalculationConfirmed": true
+      },
+      "expected": {
+        "category": "room-rent-cap",
+        "status": "challengeable",
+        "rationale": "The arithmetic of a room difference can be correct while its contractual basis is absent. Without an applicable policy room cap, a confirmed calculation alone does not justify likely valid. Obtain the policy schedule, room-category wording and applicable waiver before accepting the Rs 6,000 deduction.",
+        "rule_ids": [
+          "deduction-reasons",
+          "financial-limits-2024"
+        ]
+      },
+      "primary_sources": [
         {
-          "id": "case-017",
-          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t6c3mo/post_hospitalisation_rejected/",
-          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
         }
-      ]
+      ],
+      "public_case_context": []
+    },
+    {
+      "id": "S15",
+      "title": "Same package item deducted twice",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Devika Sen\nPolicy No.: DEMO-POL-260015\nClaim ID: DEMO-CLM-410015\nUHID: DEMO-UH-730015\nBill received: Rs 64,000. Settled: Rs 60,000. Total reduction: Rs 4,000.\nDeduction explanation: The same surgical tape bill entry Rs 2,000 was deducted once as package inclusion and again as non-medical consumables; total deduction Rs 4,000 for that single billed entry.\nPolicy term supplied: Not supplied for this deduction.\nThis is a synthetic final payment advice.",
+      "known_identifiers": [
+        "Devika Sen",
+        "DEMO-POL-260015",
+        "DEMO-CLM-410015",
+        "DEMO-UH-730015"
+      ],
+      "billed_amount": 64000,
+      "paid_amount": 60000,
+      "reviewed_deduction": {
+        "id": "s15",
+        "description": "The same surgical tape bill entry Rs 2,000 was deducted once as package inclusion and again as non-medical consumables; total deduction Rs 4,000 for that single billed entry.",
+        "amount": 4000,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "package",
+        "status": "challengeable",
+        "rationale": "This explicitly identifies two deductions against the same Rs 2,000 bill entry, not merely a single exclusion because an item is included in a package. Compare package terms and both settlement entries to reconcile the Rs 4,000 deduction with the one billed amount. The evidence request targets apparent duplicate adjustment without independently adjudicating payment.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": []
     }
   ]
 }

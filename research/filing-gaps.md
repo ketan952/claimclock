@@ -1,37 +1,37 @@
 # NL-48 filing gaps
 
-Snapshot: **10 October 2026**. Fifteen of the 32 roster insurers have no publishable numerical rows in this release. These are collection limitations, not conclusions that an insurer failed to publish or complied with a deadline. Status and source notes for every insurer remain in [filings.json](../data/filings.json).
+Snapshot: **10 October 2026**. **470 distributions from 30 of 32 roster insurers** are published. All 15 insurers without numerical rows in the first pass received an actual browser retry; 13 now have verified numbers. The two remaining exclusions are below. Collection status is not a finding about publication obligations or performance.
 
-| Insurer | Collection status | Latest period located | Official disclosure entry |
+| Insurer | Status | Period located | Reason |
 |---|---|---|---|
-| National Insurance | scanned | FY2025-26 | [Source](https://nationalinsurance.nic.co.in/about-us/public-disclosure/disclosure-under-irdai-health-regulations) |
-| The Oriental Insurance | not located | Not established | [Source](https://orientalinsurance.org.in/tpa-in-house-public-disclosure) |
-| United India Insurance | access failed | Not established | [Source](https://uiic.co.in/web/public-disclosures/corporate) |
-| Aditya Birla Health | not located | Not established | [Source](https://www.adityabirlacapital.com/healthinsurance/downloads) |
-| Galaxy Health Insurance | inconsistent | FY2025-26 | [Source](https://www.galaxyhealth.com/assets/preloaded/Website%2520PD_Q4%2520FY%252025-26%2520-%2520Galaxy_1.pdf) |
-| Navi General Insurance | not located | Not established | [Source](https://navi.com/insurance/corporate-governance/public-disclosure) |
-| Generali Central | not located | Not established | [Source](https://www.generalicentralinsurance.com/about-us/financial-information) |
-| Liberty General Insurance | not located | Not established | [Source](https://www.libertyinsurance.in/products/irdai/irdaiindex) |
-| Magma General Insurance Limited | not located | Not established | [Source](https://www.magmainsurance.com/public-disclosures) |
-| Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) | access failed | Not established | [Source](https://www.careinsurance.com/public-disclosures.html) |
-| Royal Sundaram General Insurance Co.Limited | access failed | Not established | [Source](https://www.royalsundaram.in/about-us/public-disclosures) |
-| SBI General | not located | FY2025-26 | [Source](https://www.sbigeneral.in/about-us/public-disclosure) |
-| Shriram General | not located | Not established | [Source](https://www.shriramgi.com/download/disclosure) |
-| Star Health and Allied | access failed | Not established | [Source](https://www.starhealth.in/media-center/) |
-| Prudential HCL Health Insurance | not located | Not established | [Source](https://prudentialhealth.in/public-disclosures) |
+| [Galaxy Health Insurance](https://www.galaxyhealth.com/public-disclosures) | inconsistent | FY2025-26 | Browser FY2025-26 financial selector still links the same Q4 PDF, confirmed by SHA256. Page 53 labels all cashless columns as percentages while values such as 1662 and 1014 and four-digit totals resemble counts. No unit was inferred and no values were published. The annual source remains excluded until a corrected or explicitly labelled cashless table is available. |
+| [Prudential HCL Health Insurance](https://prudentialhealth.in/public-disclosures) | not located | Not established | Live browser retry of the public-disclosures page and Others accordion exposed a Remuneration Policy dated August 2026. No annual NL-48 was located on that page. No reporting obligation or performance conclusion is inferred from this collection gap. |
 
-Scanned National Insurance files need reviewed OCR. Galaxy’s percentage headers conflict with count-like values. Access failures should be retried; they do not establish that a source is absent.
+## Partial or older coverage
 
-## Included filings with limitations
+A represented insurer can still have unreviewed TPAs, missing request categories, absent cashless denominators or an older reporting period. All source-level limitations remain in [filings.json](../data/filings.json).
 
-- **The New India Assurance**: partial; 14 distributions included. See its exact exclusions in the filing register.
-- **Bajaj General**: partial; 4 distributions included. See its exact exclusions in the filing register.
-- **Zuno General Insurance**: partial; 22 distributions included. See its exact exclusions in the filing register.
-- **ICICI Lombard General**: partial; 6 distributions included. See its exact exclusions in the filing register.
-- **Zurich Kotak General**: partial; 11 distributions included. See its exact exclusions in the filing register.
-- **Manipal Cigna**: partial; 22 distributions included. See its exact exclusions in the filing register.
-- **Raheja QBE**: parsed older period; 10 distributions included. See its exact exclusions in the filing register.
-- **Narayana Health**: partial; 2 distributions included. See its exact exclusions in the filing register.
-- **Universal Sompo General**: partial; 24 distributions included. See its exact exclusions in the filing register.
+| Insurer | Rows | Period | Limitation |
+|---|---:|---|---|
+| [National Insurance](https://nationalinsurance.nic.co.in/about-us/public-disclosure/disclosure-under-irdai-health-regulations) | 4 | FY2025-26 | Browser verified all 17 current FY2025-26 TPA links. The Medi Assist scanned filing was OCR-staged and every bucket cell visually reviewed. The other 16 TPAs remain unreviewed. The Medi Assist cashless table spans PDF pages 2-3. All four >24h cells are blank and preserved as null; no cashless denominator is disclosed. |
+| [The New India Assurance](https://www.newindia.co.in/public-disclosure) | 14 | FY2025-26 | FY2025-26 document has 191 pages. Reviewed FHPL, Heritage, Health Insurance TPA of India and Park cashless tables included; other TPA tables need layout-specific extraction and review. |
+| [The Oriental Insurance](https://orientalinsurance.org.in/tpa-in-house-public-disclosure/FY-2025-26) | 8 | FY2025-26 | The FY2025–26 archive became available after selecting English on the homepage; a direct first visit had sent an empty locale and displayed no data. Browser verified 18 source links. Medi Assist and MDIndia scanned cashless cells were visually reviewed. Medi Assist >24h cells are blank and retained as null. In-house cashless cells are Nil and omitted; the other 15 TPAs remain unreviewed. No cashless denominator disclosed. |
+| [Bajaj General](https://www.bajajgeneralinsurance.com/about-us/financial-information.html) | 4 | FY2025-26 | FY2025-26 in-house table included. Seven TPA source files located and downloaded; their varying layouts still need reviewed extraction. |
+| [Zuno General Insurance](https://www.hizuno.com/public-disclosure) | 22 | FY2025-26 | FY2025-26 tables included except Park individual preauth/discharge columns: nonzero buckets contradict blank totals and absent individual policies on page 9. All-zero populations omitted. |
+| [ICICI Lombard General](https://www.icicilombard.com/about-us/public-disclosure) | 6 | FY2025-26 | FY2025-26 11-page official PDF readable through the web PDF reader; direct local requests return HTTP 403. Pages 1–2 (in-house and Medi Assist) included. Remaining TPA pages await extraction; no local source hash available. |
+| [Zurich Kotak General](https://www.zurichkotak.com/public-disclosure) | 11 | FY2025-26 | FY2025-26 six-page filing parsed. Page 2 Medi Assist individual discharge sums to 2% and group discharge to 98%; both columns excluded. Values were not reassigned across columns. |
+| [Magma General Insurance Limited](https://www.magmainsurance.com/public-disclosures/tpa-wise-publice-disclosure) | 4 | FY2025-26 | The browser FY2025-26 TPA archive lists 14 source PDFs. Medi Assist and MDIndia scanned cells were visually reviewed; both contain group distributions only. In-house cashless cells are all zero and omitted. The other 11 sources remain unreviewed. Coverage is partial. The reviewed tables disclose neither an individual cashless distribution nor cashless denominators. |
+| [Manipal Cigna](https://www.manipalcigna.com/disclosures/public-disclosures) | 22 | FY2025-26 | FY2025-26 59-page disclosure parsed where table headers and numeric columns were extractable. Page 51 requires separate review; all-zero columns omitted. |
+| [Raheja QBE](https://www.rahejaqbe.com/public-disclosures) | 10 | FY2024-25 | Latest NL48 located is FY2024-25. The archive exposes FY2025-26 Q4 forms through NL46, but a newer NL48 was not located. Older period is shown explicitly and should not be pooled with FY2025-26. |
+| [Royal Sundaram General Insurance Co.Limited](https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual) | 6 | FY2025-26 | The browser FY2025-26 annual TPA archive lists 15 channels. Medi Assist and MDIndia scanned cells were visually reviewed; in-house cashless cells are all zero and omitted. The other 12 sources remain unreviewed. View buttons deliver PDF blobs. Source links open the exact annual archive; select the named TPA. Cached PDF hashes and page numbers are recorded. Cashless denominators are absent. |
+| [SBI General](https://www.sbigeneral.in/about-us/public-disclosure) | 22 | FY2025-26 | The FY2025-26 Fourth Quarter NL-48 document was downloaded through the browser. Each sample_size is the printed cashless TAT-column total, distinct from payment or repudiation counts. Volo TPA page 20 is excluded: group-discharge bucket counts total 6799, while the printed total is 7699; percentages and preauthorization counts also conflict. The other 10 channels retain raw printed percentages and disclosed cashless totals. |
+| [Narayana Health](https://www.narayanahealth.insurance/disclosures-report) | 2 | FY2025-26 | FY2025-26 PDF pages 53–54 names five TPAs but presents one combined group-policy cashless distribution. Included under an explicit combined-provider label; per-TPA splits unavailable. PDF is hosted on official-page-linked Azure storage. |
+| [Universal Sompo General](https://www.universalsompo.com/public-disclosure/) | 24 | FY2025-26 | FY2025-26 page 3 Vidal table contains district names in place of timing-bucket labels. Entire affected table excluded. Other ten named provider tables parsed. |
 
-Do not interpret partial numeric coverage as complete TPA coverage. The [methodology](nl48-methodology.md) explains omitted distributions, source rounding, null values and the 2–6-hour bucket limitation.
+## Browser retry record
+
+The [15-insurer browser register](nl48-browser-retry.json) records the official entry point, navigation steps, outcome and ignored local evidence paths. All seven priority insurers now have numeric rows: Star Health, Care, Aditya Birla, SBI General, National, United India and Oriental. National and Oriental remain partial TPA coverage.
+
+Sources were found in fresh isolated headed Chrome contexts, without opening existing user tabs or profiles. Royal Sundaram PDF blobs are reached through the named TPA View action in its annual archive; Liberty tokenized download links may expire. The register records these access conditions instead of treating them as missing sources.
+
+The [M8 QA report](nl48-m8-qa.md) describes the added visual checks. Neither source coverage nor visual transcription checks establish insurer-wide compliance with the three-hour rule.

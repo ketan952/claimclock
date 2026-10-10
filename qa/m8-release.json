@@ -1,0 +1,27 @@
+{
+  "milestone": "M8",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "version": "d87a1420-e2dd-41bb-8da1-5793234fedea",
+  "unit_tests_passed": 105,
+  "bilingual_letter_snapshots": 28,
+  "html_pages_csp_checked": 41,
+  "browser_stats": {
+    "startTime": "2026-10-10T12:10:10.034Z",
+    "duration": 89741.62599999999,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "remaining_test": "Hindi leak baseline, explicitly assigned to M9; all15 other scenarios passed including actual Privacy report erasure.",
+  "numeric_rows": 470,
+  "insurers_with_numeric_rows": 30,
+  "insurers_with_individual_discharge_comparisons": 28,
+  "required_seven_present": true,
+  "source_cells_checked": 930,
+  "contacts_field_assertions_matched": 332,
+  "real_provider_explanations_passed": 10,
+  "real_provider_cases": 10,
+  "secret_removed_fallback_and_restoration": "pass",
+  "ai_left_enabled": true
+}

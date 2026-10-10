@@ -13,8 +13,8 @@ test('desktop clock, separate phone links and printable evidence export',async({
  await page.fill('[name=submittedAt]',new Date(past.getTime()-past.getTimezoneOffset()*60000).toISOString().slice(0,16));
  await page.click('#start-form button[type=submit]');
  await expect(page.locator('#clock-next')).toContainText('follow-up');
- await expect(page.locator('#contacts a[href="tel:18001024488"]')).toHaveCount(1);
- await expect(page.locator('#contacts a[href="tel:18001026655"]')).toHaveCount(1);
+ await expect(page.locator('#contacts .contact-baseline a[href="tel:18001024488"]')).toHaveCount(1);
+ await expect(page.locator('#contacts .contact-baseline a[href="tel:18001026655"]')).toHaveCount(1);
  await page.fill('#event-form [name=note]','Written acknowledgement: TEST-001');
  await page.click('#event-form button');
  const downloadPromise=page.waitForEvent('download');

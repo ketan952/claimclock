@@ -6035,5 +6035,5822 @@
     "excluded_columns": {},
     "extraction_method": "Official PDF web text reader; cashless table labels and columns checked",
     "extraction_note": "Local HTTP download returns 403; the official PDF is readable through the web PDF reader. Only pages 1 and 2 are included."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p54",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "In-house",
+    "period": "FY2025-26",
+    "page": 54,
+    "unit": "percent",
+    "values": [
+      [
+        75.73,
+        41.75,
+        87.9,
+        62.09
+      ],
+      [
+        16.33,
+        36.82,
+        6.82,
+        27.36
+      ],
+      [
+        6.7,
+        20.27,
+        2.42,
+        7.96
+      ],
+      [
+        0.65,
+        0.71,
+        0.79,
+        1.35
+      ],
+      [
+        0.54,
+        0.44,
+        1.14,
+        0.8
+      ],
+      [
+        0.06,
+        0.02,
+        0.93,
+        0.44
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p56",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Ericson Insurance TPA Private Limited",
+    "period": "FY2025-26",
+    "page": 56,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        95.68
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.32
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p57",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "period": "FY2025-26",
+    "page": 57,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.95,
+        63.62
+      ],
+      [
+        0.0,
+        0.0,
+        2.11,
+        27.39
+      ],
+      [
+        0.0,
+        0.0,
+        1.97,
+        8.41
+      ],
+      [
+        0.0,
+        0.0,
+        0.42,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.84,
+        0.29
+      ],
+      [
+        0.0,
+        0.0,
+        0.7,
+        0.29
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p58",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Health India Insurance TPA Services Private Limited",
+    "period": "FY2025-26",
+    "page": 58,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        91.17,
+        83.05
+      ],
+      [
+        0.0,
+        0.0,
+        8.83,
+        13.48
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        3.47
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p59",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Heritage Health Insurance TPA Private Limited",
+    "period": "FY2025-26",
+    "page": 59,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.81,
+        94.74
+      ],
+      [
+        0.0,
+        0.0,
+        3.19,
+        3.95
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.32
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p60",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Mdindia Health Insurance TPA Private Limited",
+    "period": "FY2025-26",
+    "page": 60,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        90.79,
+        73.52
+      ],
+      [
+        0.0,
+        0.0,
+        7.53,
+        19.31
+      ],
+      [
+        0.0,
+        0.0,
+        1.67,
+        7.17
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p61",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Medi Assist Insurance Tpa Pvt Ltd",
+    "period": "FY2025-26",
+    "page": 61,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.5,
+        56.68
+      ],
+      [
+        0.0,
+        0.0,
+        2.11,
+        37.59
+      ],
+      [
+        0.0,
+        0.0,
+        0.4,
+        5.73
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p62",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Medsave Health Insurance TPA Limited",
+    "period": "FY2025-26",
+    "page": 62,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.75,
+        84.62
+      ],
+      [
+        0.0,
+        0.0,
+        6.25,
+        15.38
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p63",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Paramount Health Tpa Limited",
+    "period": "FY2025-26",
+    "page": 63,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        95.9,
+        62.69
+      ],
+      [
+        0.0,
+        0.0,
+        2.28,
+        30.88
+      ],
+      [
+        0.0,
+        0.0,
+        1.48,
+        6.43
+      ],
+      [
+        0.0,
+        0.0,
+        0.34,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p64",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Safeway Insurance Tpa Pvt. Ltd",
+    "period": "FY2025-26",
+    "page": 64,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p65",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Vidal Health Insurance Private Limited",
+    "period": "FY2025-26",
+    "page": 65,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        90.54,
+        89.45
+      ],
+      [
+        0.0,
+        0.0,
+        7.09,
+        7.59
+      ],
+      [
+        0.0,
+        0.0,
+        2.36,
+        2.95
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "star-health-fy2025-26-p66",
+    "file": "m8-star-fy26",
+    "insurer_id": "star-health",
+    "insurer": "Star Health and Allied Insurance",
+    "tpa": "Volo Health Insurance Tpa Pvt Ltd",
+    "period": "FY2025-26",
+    "page": 66,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        80.59,
+        39.93
+      ],
+      [
+        0.0,
+        0.0,
+        15.88,
+        40.71
+      ],
+      [
+        0.0,
+        0.0,
+        3.53,
+        19.37
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.starhealth.in/media-center/#public-disclosures",
+    "document_url": "https://d28c6jni2fmamz.cloudfront.net/PD_FY_26_Q4_b6cd5de595.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "721ed8c271d43d8c9dde78188cffa14e2c3041c9e9e44c4dd3a9b1a806f20084",
+    "extraction_method": "PDF text with source-table identity and ordered column review; browser-discovered link (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/star-fy26.html",
+    "notes": "Cashless denominator not disclosed; separate payment/repudiation counts are not cashless denominators. Travel table page55 excluded."
+  },
+  {
+    "table_id": "care-fy2025-26-p63",
+    "file": "m8-care-fy26",
+    "insurer_id": "care",
+    "insurer": "Care Health Insurance",
+    "period": "FY2025-26",
+    "page": 63,
+    "tpa": "Consolidated insurer disclosure (TPAs listed)",
+    "unit": "percent",
+    "values": [
+      [
+        85,
+        38,
+        98,
+        59
+      ],
+      [
+        9,
+        29,
+        2,
+        33
+      ],
+      [
+        6,
+        33,
+        1,
+        9
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://www.careinsurance.com/public-disclosures.html",
+    "document_url": "https://cms.careinsurance.com/cms/public/uploads/uploads/public_disclosure/FY%2025-26/Qtr%204%2025-26/Public_Disclosure_1780465863.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "85578e83970de18f607b380a3689cec42cedd3b3afb92be776d985b1bb1bbe5f",
+    "extraction_method": "PDF text and visual cell review; browser-discovered financial archive (headed isolated Chrome)",
+    "browser_evidence": ".cache/m8-nl48/care-disclosure-frame.html",
+    "notes": "Single consolidated table across listed TPAs, not mislabelled as in-house. Identity/period and TPA list page55, buckets page63. Cashless denominator absent. Group columns sum101 due to source rounding; no normalization."
+  },
+  {
+    "table_id": "national-medi-assist-fy2025-26-p2-3",
+    "file": "national-0",
+    "insurer_id": "national",
+    "insurer": "National Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Medi Assist Insurance TPA Private Limited",
+    "unit": "percent",
+    "values": [
+      [
+        97.9,
+        62.6,
+        99.3,
+        73.5
+      ],
+      [
+        1.8,
+        30.9,
+        0.6,
+        23.6
+      ],
+      [
+        0.1,
+        6.3,
+        0.1,
+        2.8
+      ],
+      [
+        0,
+        0.1,
+        0,
+        0.1
+      ],
+      [
+        0.1,
+        0.1,
+        0,
+        0.1
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "source_url": "https://nationalinsurance.nic.co.in/sites/default/files/2026-06/Medi%20Assist%20Insurance%20TPA%20Private%20Limited.pdf",
+    "document_url": "https://nationalinsurance.nic.co.in/sites/default/files/2026-06/Medi%20Assist%20Insurance%20TPA%20Private%20Limited.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "7cf0bf79921055b389f8b8295fdecae07fdf2d7ef2636b9eaa599c011e393a30",
+    "extraction_method": "Tesseract.js OCR staging plus manual visual review of every bucket cell and all four source pages",
+    "browser_evidence": ".cache/m8-nl48/national-browser.html",
+    "source_pages": [
+      2,
+      3
+    ],
+    "cell_source_pages": [
+      [
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ]
+    ],
+    "notes": "<1h row page2; remaining rows page3. All >24h cells blank, preserved as null. Cashless denominators not disclosed. Partial National coverage; other TPAs still require review."
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p53",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Inhouse Claim Settlement",
+    "page": 53,
+    "values": [
+      [
+        90.0,
+        31.0,
+        91.0,
+        36.0
+      ],
+      [
+        6.0,
+        39.0,
+        5.0,
+        38.0
+      ],
+      [
+        3.0,
+        27.0,
+        3.0,
+        24.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p54",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "HEALTHINDIA INSURANCE TPA SERVICES PVT. LTD.",
+    "page": 54,
+    "values": [
+      [
+        0.0,
+        0.0,
+        95.0,
+        68.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        27.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p55",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Vidal Health Insurance TPA",
+    "page": 55,
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        89.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        8.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p56",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Volo Health Insurance TPA Pvt Ltd",
+    "page": 56,
+    "values": [
+      [
+        0.0,
+        0.0,
+        90.0,
+        55.0
+      ],
+      [
+        0.0,
+        0.0,
+        9.0,
+        33.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p57",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "page": 57,
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        68.7
+      ],
+      [
+        0.0,
+        0.0,
+        3.3,
+        28.4
+      ],
+      [
+        0.0,
+        0.0,
+        0.5,
+        2.8
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p58",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Good Health Insurance TPA Ltd.",
+    "page": 58,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p59",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "MD India",
+    "page": 59,
+    "values": [
+      [
+        0.0,
+        0.0,
+        87.0,
+        77.0
+      ],
+      [
+        0.0,
+        0.0,
+        10.0,
+        16.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p60",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "MEDI ASSIST INSURANCE TPA P LTD",
+    "page": 60,
+    "values": [
+      [
+        0.0,
+        0.0,
+        98.0,
+        71.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        25.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p61",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Health Assist Insurance TPA Pvt. Ltd",
+    "page": 61,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p62",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "MedSave Health Insurance TPA",
+    "page": 62,
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        86.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p63",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "page": 63,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        96.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "aditya-birla-fy2025-26-p64",
+    "file": "m8-aditya-fy26",
+    "insurer_id": "aditya-birla",
+    "insurer": "Aditya Birla Health Insurance",
+    "tpa": "Park Mediclaim Insurance TPA Pvt. Ltd.",
+    "page": 64,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.adityabirlahealthinsurance.com/health-insurance/downloads",
+    "document_url": "https://www.adityabirlahealthinsurance.com/assets/PDF/20260904T074000.pdf",
+    "sha256": "1e4cfdc909f13f1f3534e09d1358380fb66bc410bbe55eec87e7470bc118b59c",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved.",
+    "browser_evidence": ".cache/m8-nl48/aditya-public-years.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p2",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Health India Insurance TPA Private Limited",
+    "page": 2,
+    "values": [
+      [
+        0,
+        0,
+        95.02,
+        63.51
+      ],
+      [
+        0,
+        0,
+        4.98,
+        26.36
+      ],
+      [
+        0,
+        0,
+        0,
+        10.11
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        0,
+        0,
+        4466,
+        2498
+      ],
+      [
+        0,
+        0,
+        234,
+        1037
+      ],
+      [
+        0,
+        0,
+        0,
+        398
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      4700,
+      3933
+    ],
+    "columns": [
+      {
+        "tpa": "Health India Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Health India Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Health India Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 4700
+      },
+      {
+        "tpa": "Health India Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 3933
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p4",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Heritage Health Insurance TPA Private Limited",
+    "page": 4,
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        96.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        219,
+        197
+      ],
+      [
+        null,
+        null,
+        10,
+        6
+      ],
+      [
+        null,
+        null,
+        0,
+        3
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      229,
+      206
+    ],
+    "columns": [
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 229
+      },
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 206
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p6",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "In-house",
+    "page": 6,
+    "values": [
+      [
+        99.31,
+        41.41,
+        99.54,
+        44.55
+      ],
+      [
+        0.35,
+        49.47,
+        0.22,
+        47.86
+      ],
+      [
+        0.34,
+        9.12,
+        0.24,
+        7.6
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        76362,
+        34312,
+        38355,
+        18698
+      ],
+      [
+        269,
+        40998,
+        86,
+        20087
+      ],
+      [
+        262,
+        7558,
+        91,
+        3188
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      76893,
+      82868,
+      38532,
+      41973
+    ],
+    "columns": [
+      {
+        "tpa": "In-house",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 76893
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 82868
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 38532
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 41973
+      }
+    ],
+    "excluded_columns": {},
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p8",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Link-K Insurance TPA Pvt Ltd",
+    "page": 8,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        90.09
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        9.9
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        140,
+        100
+      ],
+      [
+        null,
+        null,
+        0,
+        11
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      140,
+      111
+    ],
+    "columns": [
+      {
+        "tpa": "Link-K Insurance TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Link-K Insurance TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Link-K Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 140
+      },
+      {
+        "tpa": "Link-K Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 111
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p10",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+    "page": 10,
+    "values": [
+      [
+        0.0,
+        0.0,
+        84.7,
+        62.62
+      ],
+      [
+        0.0,
+        0.0,
+        11.15,
+        25.62
+      ],
+      [
+        0.0,
+        0.0,
+        4.15,
+        11.76
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ],
+      [
+        0.0,
+        0.0,
+        0,
+        0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        775,
+        836
+      ],
+      [
+        null,
+        null,
+        102,
+        342
+      ],
+      [
+        null,
+        null,
+        38,
+        157
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      915,
+      1335
+    ],
+    "columns": [
+      {
+        "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 915
+      },
+      {
+        "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 1335
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p12",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Medi Assist Insurance TPA Private Limited",
+    "page": 12,
+    "values": [
+      [
+        0.0,
+        0.0,
+        98.6,
+        69.9
+      ],
+      [
+        0.0,
+        0.0,
+        1.3,
+        26.4
+      ],
+      [
+        0.0,
+        0.0,
+        0.1,
+        3.6
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        67578,
+        52207
+      ],
+      [
+        null,
+        null,
+        873,
+        19704
+      ],
+      [
+        null,
+        null,
+        60,
+        2687
+      ],
+      [
+        null,
+        null,
+        8,
+        31
+      ],
+      [
+        null,
+        null,
+        27,
+        28
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      68546,
+      74657
+    ],
+    "columns": [
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 68546
+      },
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 74657
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p14",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Medsave Health Insurance TPA Limited",
+    "page": 14,
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.39,
+        84.83
+      ],
+      [
+        0.0,
+        0.0,
+        4.62,
+        9.35
+      ],
+      [
+        0.0,
+        0.0,
+        0.66,
+        4.83
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.32
+      ],
+      [
+        0.0,
+        0.0,
+        0.66,
+        0.64
+      ],
+      [
+        0.0,
+        0.0,
+        0.66,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        283,
+        263
+      ],
+      [
+        null,
+        null,
+        14,
+        29
+      ],
+      [
+        null,
+        null,
+        2,
+        15
+      ],
+      [
+        null,
+        null,
+        0,
+        1
+      ],
+      [
+        null,
+        null,
+        2,
+        2
+      ],
+      [
+        null,
+        null,
+        2,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      303,
+      310
+    ],
+    "columns": [
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 303
+      },
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 310
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p16",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Safeway Insurance TPA Private Limited",
+    "page": 16,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        213,
+        204
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ],
+      [
+        null,
+        null,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      213,
+      204
+    ],
+    "columns": [
+      {
+        "tpa": "Safeway Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Safeway Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Safeway Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 213
+      },
+      {
+        "tpa": "Safeway Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 204
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p18",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Vidal Health TPA Pvt Ltd",
+    "page": 18,
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.77,
+        87.13
+      ],
+      [
+        0.0,
+        0.0,
+        4.09,
+        10.23
+      ],
+      [
+        0.0,
+        0.0,
+        1.08,
+        2.6
+      ],
+      [
+        0.0,
+        0.0,
+        0.04,
+        0.02
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        31224,
+        23790
+      ],
+      [
+        null,
+        null,
+        1348,
+        2795
+      ],
+      [
+        null,
+        null,
+        359,
+        711
+      ],
+      [
+        null,
+        null,
+        14,
+        8
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      32945,
+      27304
+    ],
+    "columns": [
+      {
+        "tpa": "Vidal Health TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Vidal Health TPA Pvt Ltd",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Vidal Health TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 32945
+      },
+      {
+        "tpa": "Vidal Health TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 27304
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p20",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Volo Health Insurance TPA Private Limited",
+    "page": 20,
+    "values": [
+      [
+        0,
+        0,
+        86.31,
+        54.88
+      ],
+      [
+        0,
+        0,
+        11.73,
+        33.59
+      ],
+      [
+        0,
+        0,
+        1.95,
+        11.52
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        0,
+        0,
+        6522,
+        3704
+      ],
+      [
+        0,
+        0,
+        904,
+        2297
+      ],
+      [
+        0,
+        0,
+        154,
+        798
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "reported_sample_sizes": [
+      0,
+      0,
+      7580,
+      7699
+    ],
+    "columns": [
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": 0
+      },
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 7580
+      },
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 7699
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero.",
+      "1": "All individual buckets zero.",
+      "2": "Printed bucket counts and percentages conflict; omitted pending correction.",
+      "3": "Counts sum 6799 but printed total7699; percentages also conflict. Omitted pending correction."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "PDF text with reviewed identity, cashless-table placement and ordered columns; actual headed Chrome archive navigation",
+    "table_id": "sbi-general-fy2025-26-p22",
+    "file": "m8-sbi-fy26",
+    "insurer_id": "sbi-general",
+    "insurer": "SBI General Insurance",
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "page": 22,
+    "values": [
+      [
+        null,
+        null,
+        94.92,
+        62.47
+      ],
+      [
+        null,
+        null,
+        3.79,
+        30.91
+      ],
+      [
+        null,
+        null,
+        0.71,
+        6.38
+      ],
+      [
+        null,
+        null,
+        0.08,
+        0.12
+      ],
+      [
+        null,
+        null,
+        0.26,
+        0.05
+      ],
+      [
+        null,
+        null,
+        0.22,
+        0.03
+      ]
+    ],
+    "reported_bucket_counts": [
+      [
+        null,
+        null,
+        30632,
+        18802
+      ],
+      [
+        null,
+        null,
+        1223,
+        9305
+      ],
+      [
+        null,
+        null,
+        232,
+        1920
+      ],
+      [
+        null,
+        null,
+        27,
+        39
+      ],
+      [
+        null,
+        null,
+        84,
+        16
+      ],
+      [
+        null,
+        null,
+        71,
+        12
+      ]
+    ],
+    "reported_sample_sizes": [
+      null,
+      null,
+      32269,
+      30094
+    ],
+    "columns": [
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "preauth",
+        "sample_size": null
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "discharge",
+        "sample_size": null
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth",
+        "sample_size": 32269
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge",
+        "sample_size": 30094
+      }
+    ],
+    "excluded_columns": {
+      "0": "All individual buckets zero or absent.",
+      "1": "All individual buckets zero or absent."
+    },
+    "source_url": "https://www.sbigeneral.in/about-us/public-disclosure",
+    "document_url": "https://content.sbigeneral.in/uploads/NL_48_Disclosure_on_Quantitative_and_Qualitative_parameters_of_health_services_rendered_Annual_Disclosure_6637132993.pdf",
+    "sha256": "9ddc7bded22f223ed786bcc2266fcfb7402e815429d72fa2ab694dc1cb1d82ec",
+    "notes": "Identity/period previous PDF page. Cashless totals printed in the same table. Preserve printed percentages rather than recalculating from counts; percentage rounding/truncation may differ. Volo table excluded for substantive count/percentage inconsistency.",
+    "browser_evidence": ".cache/m8-nl48/sbi-q4-loaded.html"
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p1",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "In-house",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 1,
+    "values": [
+      [
+        82.4,
+        63.12,
+        80.92,
+        62.23
+      ],
+      [
+        13.76,
+        28.78,
+        13.29,
+        29.26
+      ],
+      [
+        2.99,
+        7.59,
+        3.64,
+        7.43
+      ],
+      [
+        0.49,
+        0.32,
+        1.15,
+        0.63
+      ],
+      [
+        0.27,
+        0.16,
+        0.67,
+        0.27
+      ],
+      [
+        0.08,
+        0.03,
+        0.34,
+        0.18
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p2",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 2,
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        69.0
+      ],
+      [
+        0.0,
+        0.0,
+        6.0,
+        28.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p3",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Health India Insurance TPA Services Private Limited",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 3,
+    "values": [
+      [
+        null,
+        null,
+        84.0,
+        49.0
+      ],
+      [
+        null,
+        null,
+        13.0,
+        32.0
+      ],
+      [
+        null,
+        null,
+        3.0,
+        19.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p4",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Paramount Health Services and Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 4,
+    "values": [
+      [
+        0.0,
+        0.0,
+        92.0,
+        52.0
+      ],
+      [
+        0.0,
+        0.0,
+        6.0,
+        37.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p5",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Vidal Health Insurance TPA",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 5,
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.6,
+        90.9
+      ],
+      [
+        0.0,
+        0.0,
+        3.6,
+        7.7
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        1.4
+      ],
+      [
+        0.0,
+        0.0,
+        0.2,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p6",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 6,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        98.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p7",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 7,
+    "values": [
+      [
+        null,
+        null,
+        84.0,
+        64.0
+      ],
+      [
+        null,
+        null,
+        13.0,
+        26.0
+      ],
+      [
+        null,
+        null,
+        3.0,
+        10.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p8",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Health Assist Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 8,
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        98.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p9",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Volo Health Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 9,
+    "values": [
+      [
+        0.0,
+        0.0,
+        87.0,
+        45.0
+      ],
+      [
+        0.0,
+        0.0,
+        10.0,
+        41.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        14.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "generali-central-fy2025-26-generali-fy26-p10",
+    "file": "m8-generali-fy26",
+    "insurer_id": "generali-central",
+    "insurer": "Generali Central Insurance",
+    "tpa": "Medi Assist Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 10,
+    "values": [
+      [
+        null,
+        null,
+        99.0,
+        60.2
+      ],
+      [
+        null,
+        null,
+        0.9,
+        32.4
+      ],
+      [
+        null,
+        null,
+        0.1,
+        7.3
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.1
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/about-us/financial-information",
+    "document_url": "https://www.generalicentralinsurance.com/pdf/investorInformation/publicDisclosure/2025-26/4-th-quarter-(jan%E2%80%93mar)/other-disclosures-(nl-27-to-nl-48)/nl-48-disclosures-on-quantitavive-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "sha256": "3cb1f04fa4cdb818de3890b71e8293f8dd5ca450eb8f0507e4e6c553cae43d7d",
+    "notes": "Cashless denominator absent. Medi Assist page10 blank individual and >24h cells preserved as null; other all-zero individual TPA columns omitted. Source rounding retained.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "table_id": "magma-fy2025-26-magma-5-p3",
+    "file": "m8-magma-5",
+    "insurer_id": "magma",
+    "insurer": "Magma General Insurance",
+    "tpa": "MD INDIA Health Insurance TPA Pvt Ltd",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 3,
+    "values": [
+      [
+        0,
+        0,
+        80,
+        74
+      ],
+      [
+        0,
+        0,
+        14,
+        18
+      ],
+      [
+        0,
+        0,
+        6,
+        8
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://www.magmainsurance.com/public-disclosures/tpa-wise-publice-disclosure",
+    "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/MD+INDIA+Health+Insurance+TPA+Pvt+Ltd.pdf/a8a9a7c8-dfe1-dd9a-cfbb-f398294c0103?t=1785136749350",
+    "sha256": "b0d2bd87911da94d123ce02c2d8a77d1a03f3d32b3a9ac3ad2e79225c6f8fe95",
+    "notes": "Cashless denominators not disclosed; source percentages retained without renormalization.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed.",
+    "identity_page": 1,
+    "browser_evidence": ".cache/m8-nl48/magma-public.html"
+  },
+  {
+    "table_id": "magma-fy2025-26-magma-6-p1",
+    "file": "m8-magma-6",
+    "insurer_id": "magma",
+    "insurer": "Magma General Insurance",
+    "tpa": "Medi Assist Insurance TPA Private Limited",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 1,
+    "values": [
+      [
+        0,
+        0,
+        97,
+        61
+      ],
+      [
+        0,
+        0,
+        3,
+        31
+      ],
+      [
+        0,
+        0,
+        0,
+        8
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://www.magmainsurance.com/public-disclosures/tpa-wise-publice-disclosure",
+    "document_url": "https://www.magmainsurance.com/documents/5553002/38241081/Medi+Assist+Insurance+TPA+Private+Limited.pdf/a5031cb2-270b-ad04-83c0-c91b98dc94b8?t=1785136749934",
+    "sha256": "d9adc6a83d0f8b4189a78d0c23ea74f7c4aebeadb157447c5d16158b2de5130d",
+    "notes": "Cashless denominators not disclosed; source percentages retained without renormalization.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed.",
+    "identity_page": 1,
+    "browser_evidence": ".cache/m8-nl48/magma-public.html"
+  },
+  {
+    "table_id": "royal-sundaram-fy2025-26-royal-13-p2",
+    "file": "m8-royal-13",
+    "insurer_id": "royal-sundaram",
+    "insurer": "Royal Sundaram General Insurance",
+    "tpa": "Medi Assist Insurance TPA",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 2,
+    "values": [
+      [
+        96.7,
+        52.4,
+        98.7,
+        55.6
+      ],
+      [
+        1.4,
+        36.9,
+        0.9,
+        35.7
+      ],
+      [
+        0.6,
+        10.4,
+        0.2,
+        8.5
+      ],
+      [
+        0.3,
+        0.2,
+        0.1,
+        0.1
+      ],
+      [
+        0.9,
+        0.1,
+        0.1,
+        0.1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+    "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+    "sha256": "7d48ae2e7278423198b957f35a371f56c2c5e9860c2a13ef9d39c56348a12435",
+    "notes": "Browser View action serves a PDF blob; document_url is the exact annual archive. Select View beside Medi Assist Insurance TPA. Cashless denominators absent.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed.",
+    "identity_page": 1,
+    "browser_evidence": ".cache/m8-nl48/royal-all-browser.html",
+    "document_selector": "Medi Assist Insurance TPA"
+  },
+  {
+    "table_id": "royal-sundaram-fy2025-26-royal-11-p2",
+    "file": "m8-royal-11",
+    "insurer_id": "royal-sundaram",
+    "insurer": "Royal Sundaram General Insurance",
+    "tpa": "MDIndia Health Insurance TPA",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 2,
+    "values": [
+      [
+        0,
+        0,
+        85.2,
+        73.77
+      ],
+      [
+        0,
+        0,
+        12.2,
+        17.6
+      ],
+      [
+        0,
+        0,
+        2.51,
+        8.51
+      ],
+      [
+        0,
+        0,
+        0.09,
+        0.12
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+    "document_url": "https://www.royalsundaram.in/about-us/public-disclosures/tpa-public-disclosure/2025-2026/annual",
+    "sha256": "5dff6e48bd544e6c51c3511bff3c75c34cb99a856e29c3ee9ea6e847660cf93c",
+    "notes": "Browser View action serves a PDF blob; document_url is the exact annual archive. Select View beside MDIndia Health Insurance TPA. Cashless denominators absent.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed.",
+    "identity_page": 1,
+    "browser_evidence": ".cache/m8-nl48/royal-all-browser.html",
+    "document_selector": "MDIndia Health Insurance TPA"
+  },
+  {
+    "table_id": "shriram-fy2025-26-shriram-fy26-p58",
+    "file": "m8-shriram-fy26",
+    "insurer_id": "shriram",
+    "insurer": "Shriram General Insurance",
+    "tpa": "Medi Assist Insurance TPA Pvt Limited",
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "page": 58,
+    "values": [
+      [
+        37,
+        27,
+        null,
+        null
+      ],
+      [
+        63,
+        48,
+        null,
+        null
+      ],
+      [
+        0,
+        25,
+        null,
+        null
+      ],
+      [
+        0,
+        0,
+        null,
+        null
+      ],
+      [
+        0,
+        0,
+        null,
+        null
+      ],
+      [
+        0,
+        0,
+        null,
+        null
+      ]
+    ],
+    "source_url": "https://www.shriramgi.com/download/disclosure",
+    "document_url": "https://cdn.shriramgi.com/webassets/download/2025-2026/2539dd48-dd39-4946-ae4f-66cd3e6e4654_SGI-_Disclosure_-%20IVth%20Qtr%2025-26_11.06.2026_compressed.pdf",
+    "sha256": "140b9356d888a1863f576042a06f7eaa4b1ef4e239b4382cb803f6fc05d892c8",
+    "notes": "The published columns are explicitly percentages, although cells omit percent signs. Group cells are NA and omitted; no cashless denominators disclosed.",
+    "extraction_method": "Actual headed Chrome archive navigation; source identity, period, table placement and cells reviewed. Scanned cells visually transcribed."
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa0-p1",
+    "file": "m8-united-0",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Genins India Insurance TPA Ltd.",
+    "page": 1,
+    "values": [
+      [
+        89.21,
+        85.88,
+        90.02,
+        85.15
+      ],
+      [
+        8.25,
+        12.09,
+        8.12,
+        12.3
+      ],
+      [
+        1.67,
+        1.88,
+        1.86,
+        2.32
+      ],
+      [
+        0.36,
+        0.15,
+        0,
+        0.23
+      ],
+      [
+        0.07,
+        0,
+        0,
+        0
+      ],
+      [
+        0.44,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Genins%20Insurance%20TPA.pdf",
+    "sha256": "863d68f41cd06f004f77333225b1cb4821ec624d6a803b7866396ae2d27887fd",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-0-header.png",
+      ".cache/m8-nl48/united-reviewed-0-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa1-p1",
+    "file": "m8-united-1",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Good Health Insurance TPA Ltd.",
+    "page": 1,
+    "values": [
+      [
+        85.44,
+        46.77,
+        83.99,
+        47.96
+      ],
+      [
+        12.47,
+        32.18,
+        13.07,
+        33.4
+      ],
+      [
+        1.58,
+        19.37,
+        2.5,
+        17.31
+      ],
+      [
+        0.05,
+        0.25,
+        0.16,
+        0.34
+      ],
+      [
+        0.12,
+        0.52,
+        0.16,
+        0.29
+      ],
+      [
+        0.34,
+        0.91,
+        0.12,
+        0.7
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/GHPL%20Insurance%20TPA.pdf",
+    "sha256": "6891ab47c627415e30c5bfa6609d1948d8b84ca763f2f295b43b04d098245ba9",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-1-header.png",
+      ".cache/m8-nl48/united-reviewed-1-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa2-p1",
+    "file": "m8-united-2",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Health Assist Insurance TPA Pvt Ltd",
+    "page": 1,
+    "values": [
+      [
+        61.68,
+        68.31,
+        83.86,
+        84.53
+      ],
+      [
+        28.18,
+        19.15,
+        13,
+        11.45
+      ],
+      [
+        10.11,
+        12.17,
+        3.14,
+        3.47
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0.03,
+        0.37,
+        0,
+        0.55
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Assist%20Insurance%20TPA.pdf",
+    "sha256": "60a25a2ff970087581c9b24552589cb46c38e646c8caf835e26c8bb7f0583790",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-2-header.png",
+      ".cache/m8-nl48/united-reviewed-2-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa3-p1",
+    "file": "m8-united-3",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "page": 1,
+    "values": [
+      [
+        97.65,
+        46.47,
+        98.91,
+        47.83
+      ],
+      [
+        0.55,
+        45.57,
+        0.41,
+        44.43
+      ],
+      [
+        0.48,
+        4.99,
+        0.14,
+        4.89
+      ],
+      [
+        0.14,
+        0.76,
+        0,
+        0.68
+      ],
+      [
+        0.76,
+        0.48,
+        0.27,
+        0.95
+      ],
+      [
+        0.42,
+        1.73,
+        0.27,
+        1.22
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Ericson%20Insurance%20TPA.pdf",
+    "sha256": "8a1d594e58c71a2c9e68432af6f7fa53c63b65b6d0aaa13374bdd687c817c417",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-3-header.png",
+      ".cache/m8-nl48/united-reviewed-3-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa4-p1",
+    "file": "m8-united-4",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "FAMILY HEALTH PLAN INSURANCE TPA LIMITED",
+    "page": 1,
+    "values": [
+      [
+        86.05,
+        52.32,
+        91.76,
+        56.93
+      ],
+      [
+        10.06,
+        34.73,
+        6.34,
+        36.36
+      ],
+      [
+        3.3,
+        12.35,
+        1.11,
+        6.24
+      ],
+      [
+        0.21,
+        0.35,
+        0.12,
+        0.14
+      ],
+      [
+        0.31,
+        0.21,
+        0.24,
+        0.13
+      ],
+      [
+        0.07,
+        0.04,
+        0.43,
+        0.2
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/FHPL%20Insurance%20TPA.pdf",
+    "sha256": "6d4e2adb8e52c2020c87b143abefd7d771dbf19b85e2c446b9574b5fbb248159",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-4-header.png",
+      ".cache/m8-nl48/united-reviewed-4-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa5-p1",
+    "file": "m8-united-5",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Heritage Health Insurance TPA Pvt Ltd",
+    "page": 1,
+    "values": [
+      [
+        66.11,
+        79.83,
+        67.31,
+        80.71
+      ],
+      [
+        5.02,
+        4.57,
+        4.18,
+        3.71
+      ],
+      [
+        7.06,
+        4.67,
+        5.37,
+        3.09
+      ],
+      [
+        1.36,
+        0.76,
+        1.51,
+        0.95
+      ],
+      [
+        4.9,
+        1.87,
+        3.33,
+        1.31
+      ],
+      [
+        15.55,
+        8.3,
+        18.3,
+        10.23
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Heritage%20Insurance%20TPA.pdf",
+    "sha256": "85928aa62c041d275117360b2adc3b9a99ef7efaa3d8564e9ed5da3328cc561e",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-5-header.png",
+      ".cache/m8-nl48/united-reviewed-5-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa6-p1",
+    "file": "m8-united-6",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "LINK-K INSURANCE TPA PRIVATE LIMITED",
+    "page": 1,
+    "values": [
+      [
+        0,
+        0,
+        44.44,
+        55.56
+      ],
+      [
+        0,
+        0,
+        16.67,
+        16.67
+      ],
+      [
+        0,
+        0,
+        5.56,
+        16.67
+      ],
+      [
+        0,
+        0,
+        16.67,
+        0
+      ],
+      [
+        0,
+        0,
+        5.56,
+        11.1
+      ],
+      [
+        0,
+        0,
+        11.1,
+        0
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Link%20K%20Insurance%20TPA.pdf",
+    "sha256": "e82606368313004dab6ba42d8ab5375f4d50ede09582214f801e85de00e385d6",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance. Both individual-policy columns are printed 0.00% throughout, including totals; preserve as published but exclude all-zero cohorts from rankings and do not infer perfect compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-6-header.png",
+      ".cache/m8-nl48/united-reviewed-6-table.png"
+    ],
+    "column_sums": [
+      0,
+      0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa7-p1",
+    "file": "m8-united-7",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+    "page": 1,
+    "values": [
+      [
+        97.27,
+        78.59,
+        97.86,
+        81.26
+      ],
+      [
+        2.41,
+        15.61,
+        1.7,
+        13.76
+      ],
+      [
+        0.28,
+        5.79,
+        0.44,
+        4.97
+      ],
+      [
+        0.01,
+        0,
+        0,
+        0.01
+      ],
+      [
+        0.01,
+        0,
+        0,
+        0
+      ],
+      [
+        0.02,
+        0.01,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/MD%20India%20Insurance%20TPA.pdf",
+    "sha256": "235f157f9e1143429e39b114910dffa053f96aff51615d1bd380250c917acbde",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-7-header.png",
+      ".cache/m8-nl48/united-reviewed-7-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa8-p1",
+    "file": "m8-united-8",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Health Insurance TPA Of India Ltd.",
+    "page": 1,
+    "values": [
+      [
+        89.55,
+        91.45,
+        90.4,
+        95.52
+      ],
+      [
+        10,
+        8,
+        9,
+        4
+      ],
+      [
+        0.45,
+        0.55,
+        0.6,
+        0.48
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Health%20Insurance%20TPA.pdf",
+    "sha256": "9099d68e385724d198277d4676294843780dd852a060bc9a78ccbd1249798c10",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance. Pages 2\u20135 are geographical-service-area Annexure A; no additional cashless tables.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-8-header.png",
+      ".cache/m8-nl48/united-reviewed-8-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa9-p1",
+    "file": "m8-united-9",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "HEALTHINDIA INSURANCE TPA SERVICES PVT. LTD.",
+    "page": 1,
+    "values": [
+      [
+        81.91,
+        47.32,
+        85.78,
+        53.81
+      ],
+      [
+        12.98,
+        30.59,
+        9.67,
+        21.42
+      ],
+      [
+        3.69,
+        9.19,
+        2.92,
+        9.39
+      ],
+      [
+        0.18,
+        0.37,
+        0.2,
+        0.38
+      ],
+      [
+        0.36,
+        0.72,
+        0.42,
+        1.02
+      ],
+      [
+        0.88,
+        11.81,
+        1.01,
+        13.98
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/HealthIndia%20Insurance%20TPA.pdf",
+    "sha256": "aef5744c83c865c08f21e8008337ace8a10e6acbf624bd4c01430533178f6cb7",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-9-header.png",
+      ".cache/m8-nl48/united-reviewed-9-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa10-p1",
+    "file": "m8-united-10",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "PARAMOUNT HEALTH SERVICES & INSURANCE TPA PVT. LTD.",
+    "page": 1,
+    "values": [
+      [
+        24.52,
+        59.74,
+        29.54,
+        56.61
+      ],
+      [
+        8.37,
+        27.94,
+        10.15,
+        35.04
+      ],
+      [
+        14.73,
+        8.6,
+        15.6,
+        7.37
+      ],
+      [
+        3.16,
+        0.63,
+        3.46,
+        0.2
+      ],
+      [
+        17.82,
+        0.95,
+        16.48,
+        0.36
+      ],
+      [
+        31.4,
+        2.14,
+        24.77,
+        0.42
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Paramount%20Insurance%20TPA.pdf",
+    "sha256": "1c85d55a7f540992d1338888d504e4651ecbd599a41e89056a65227c37ca05ef",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-10-header.png",
+      ".cache/m8-nl48/united-reviewed-10-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa11-p1",
+    "file": "m8-united-11",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Vidal Health Insurance TPA Pvt Ltd",
+    "page": 1,
+    "values": [
+      [
+        61.12,
+        67.07,
+        70.46,
+        74.49
+      ],
+      [
+        6.71,
+        14.49,
+        5.55,
+        10.44
+      ],
+      [
+        8.33,
+        11.57,
+        6.93,
+        9.52
+      ],
+      [
+        1.54,
+        1.08,
+        1.3,
+        0.96
+      ],
+      [
+        11.19,
+        2.79,
+        7.8,
+        2.24
+      ],
+      [
+        11.11,
+        3,
+        7.96,
+        2.35
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Vidal%20Insurance%20TPA.pdf",
+    "sha256": "b5346e1d0fbfa89a8f239933878a6c03ce8d86eaf29ef13318273e6e57ada80b",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-11-header.png",
+      ".cache/m8-nl48/united-reviewed-11-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa12-p1",
+    "file": "m8-united-12",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Volo Health Insurance TPA Private Limited",
+    "page": 1,
+    "values": [
+      [
+        43.56,
+        56.06,
+        46.2,
+        64.91
+      ],
+      [
+        7.05,
+        16.58,
+        12.02,
+        24.69
+      ],
+      [
+        11.51,
+        15.72,
+        13.38,
+        6.68
+      ],
+      [
+        3.09,
+        1.73,
+        2.76,
+        0.34
+      ],
+      [
+        13.12,
+        3.84,
+        12.42,
+        0.76
+      ],
+      [
+        21.67,
+        6.07,
+        13.22,
+        2.62
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Volo%20Insurance%20TPA.pdf",
+    "sha256": "7609049dad61662708409b928775f68eaf11c9193590d0db5fefd89193ef8475",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-12-header.png",
+      ".cache/m8-nl48/united-reviewed-12-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa13-p1",
+    "file": "m8-united-13",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Med Save Health Insurance TPA Ltd.",
+    "page": 1,
+    "values": [
+      [
+        90.13,
+        84.37,
+        91.84,
+        87.35
+      ],
+      [
+        5.16,
+        11.17,
+        4.56,
+        8.57
+      ],
+      [
+        1.97,
+        2.98,
+        1.36,
+        2.79
+      ],
+      [
+        0.52,
+        0.22,
+        0.27,
+        0.54
+      ],
+      [
+        0.96,
+        0.7,
+        1.09,
+        0.41
+      ],
+      [
+        1.26,
+        0.56,
+        0.88,
+        0.34
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Med%20Save%20Insurance%20TPA.pdf",
+    "sha256": "ce2cc8a498fd03408229fac08dacd9a07e020b57d2a062b828488b3ec1bef62b",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-13-header.png",
+      ".cache/m8-nl48/united-reviewed-13-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "period": "FY2025-26",
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "extraction_method": "Scanned PDF rendered with PyMuPDF; all 24 cells and column labels visually reviewed at 3x; identity/as-at date checked in rendered header; actual headed Chrome source discovery by dataset agent. OCR used only as supplementary navigation.",
+    "table_id": "united-india-fy2025-26-tpa14-p1",
+    "file": "m8-united-14",
+    "insurer_id": "united-india",
+    "insurer": "United India Insurance Company Limited",
+    "tpa": "Medi Assist India TPA Pvt Ltd",
+    "page": 1,
+    "values": [
+      [
+        50.84,
+        54.54,
+        88.64,
+        88.09
+      ],
+      [
+        6.04,
+        21.05,
+        1.55,
+        7.44
+      ],
+      [
+        8.99,
+        14.97,
+        2.51,
+        2.78
+      ],
+      [
+        1.77,
+        1.4,
+        0.54,
+        0.54
+      ],
+      [
+        13.92,
+        2.95,
+        3.2,
+        0.41
+      ],
+      [
+        18.44,
+        5.09,
+        3.56,
+        0.74
+      ]
+    ],
+    "source_url": "https://uiic.co.in/web/tpapublic/2026-2025/10297",
+    "document_url": "https://uiic.co.in/web/sites/default/files/2026-08/Medi%20Assist%20Insurance%20TPA.pdf",
+    "sha256": "2e6759387f987c90cdff351b2dca248bfd8c49958b7f52d4117a789826d09f1b",
+    "notes": "Cashless denominators not disclosed. Raw rounded percentages preserved; other claims/policy counts are not cashless denominators. Preauth clock begins at last necessary document receipt by insurer/TPA, whichever earlier; discharge clock begins when TPA receives discharge bill, per form footnotes. These are published operational clock definitions, not confirmation of statutory compliance. The individual-discharge 12\u201324h cell is 2.95%; a small irregular scan speck to its left is not a minus sign, visually checked in 3x render.",
+    "browser_evidence": ".cache/m8-nl48/united-tpa26.html",
+    "visual_evidence": [
+      ".cache/m8-nl48/united-reviewed-14-header.png",
+      ".cache/m8-nl48/united-reviewed-14-table.png"
+    ],
+    "column_sums": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "as_at": "2026-03-31",
+    "sample_size": null
+  },
+  {
+    "table_id": "oriental-fy2025-26-1-p1",
+    "file": "m8-oriental-1",
+    "insurer_id": "oriental",
+    "insurer": "Oriental Insurance",
+    "tpa": "Medi Assist Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "page": 1,
+    "unit": "percent",
+    "values": [
+      [
+        98,
+        68.5,
+        98.9,
+        74
+      ],
+      [
+        1.8,
+        25.9,
+        1,
+        23.2
+      ],
+      [
+        0.1,
+        5.5,
+        0.1,
+        2.7
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.1,
+        0,
+        0.1
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "source_url": "https://orientalinsurance.org.in/tpa-in-house-public-disclosure/FY-2025-26",
+    "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/Mediassist_942bdeea29.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "f73893b12208653554bb1f047f1b7f6b535fe215f29888facf499cafe8880830",
+    "extraction_method": "Official archive recovered after homepage language selection in isolated headed Chrome. Every scanned bucket cell visually reviewed; MDIndia rotated page8 upright for review.",
+    "browser_evidence": ".cache/m8-nl48/oriental-fy26-loaded.html",
+    "notes": "Medi Assist >24h cells blank and retained as null. No cashless denominators; raw source rounding retained.",
+    "identity_page": 1
+  },
+  {
+    "table_id": "oriental-fy2025-26-5-p8",
+    "file": "m8-oriental-5",
+    "insurer_id": "oriental",
+    "insurer": "Oriental Insurance",
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "page": 8,
+    "unit": "percent",
+    "values": [
+      [
+        82.13,
+        65.31,
+        85.36,
+        67.87
+      ],
+      [
+        15.16,
+        24.89,
+        12.46,
+        23.47
+      ],
+      [
+        2.7,
+        9.79,
+        2.16,
+        8.63
+      ],
+      [
+        0.01,
+        0.01,
+        0.02,
+        0.03
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://orientalinsurance.org.in/tpa-in-house-public-disclosure/FY-2025-26",
+    "document_url": "https://oicl-cms-media.s3.ap-south-1.amazonaws.com/MD_India_9cc59cebaa.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "98dc341721c3f5f62b1607502a9f5d84e8c2403906feeeeae0eccdb8c5b710af",
+    "extraction_method": "Official archive recovered after homepage language selection in isolated headed Chrome. Every scanned bucket cell visually reviewed; MDIndia rotated page8 upright for review.",
+    "browser_evidence": ".cache/m8-nl48/oriental-fy26-loaded.html",
+    "notes": "Medi Assist >24h cells blank and retained as null. No cashless denominators; raw source rounding retained.",
+    "identity_page": 2
+  },
+  {
+    "table_id": "liberty-fy2025-26-p80",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "In-house",
+    "period": "FY2025-26",
+    "page": 80,
+    "unit": "percent",
+    "values": [
+      [
+        92.0,
+        68.0,
+        91.0,
+        66.0
+      ],
+      [
+        6.0,
+        23.0,
+        7.0,
+        25.0
+      ],
+      [
+        2.0,
+        7.0,
+        2.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        2.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p81",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Volo Health Insurance TPA Pvt. Ltd (Formerly Named East West Assist Insurance TPA Private Limited)",
+    "period": "FY2025-26",
+    "page": 81,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        86.0,
+        59.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.0,
+        30.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p82",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Vidal Health Insurance TPA Private Limited",
+    "period": "FY2025-26",
+    "page": 82,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        95.0,
+        91.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        8.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p83",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "MEDI ASSIST INSURANCE TPA P LTD",
+    "period": "FY2025-26",
+    "page": 83,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        98.0,
+        71.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        25.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p84",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd",
+    "period": "FY2025-26",
+    "page": 84,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        53.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        36.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p85",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd",
+    "period": "FY2025-26",
+    "page": 85,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        91.0,
+        80.0
+      ],
+      [
+        0.0,
+        0.0,
+        7.0,
+        14.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p86",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "HEALTHINDIA INSURANCE TPA SERVICES PVT. LTD",
+    "period": "FY2025-26",
+    "page": 86,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        95.0,
+        69.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        25.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p87",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Good Health Insurance TPA Ltd..",
+    "period": "FY2025-26",
+    "page": 87,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        97.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p88",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "period": "FY2025-26",
+    "page": 88,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        95.0,
+        66.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        30.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p89",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "ERICSON INSURANCE TPA PVT. LTD.",
+    "period": "FY2025-26",
+    "page": 89,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        97.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p90",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Medsave Health Insurance TPA Ltd.",
+    "period": "FY2025-26",
+    "page": 90,
+    "unit": "percent",
+    "values": [
+      [
+        null,
+        null,
+        97.0,
+        78.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        19.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        4.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        3.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p91",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Genins India TPA Ltd.",
+    "period": "FY2025-26",
+    "page": 91,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.0,
+        79.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        21.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p92",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "LINKK Insurance TPA",
+    "period": "FY2025-26",
+    "page": 92,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        94.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p93",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Park Mediclaim TPA Private Ltd.",
+    "period": "FY2025-26",
+    "page": 93,
+    "unit": "percent",
+    "values": [
+      [
+        null,
+        null,
+        90.0,
+        80.0
+      ],
+      [
+        null,
+        null,
+        10.0,
+        20.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "liberty-fy2025-26-p94",
+    "file": "m8-liberty-fy26",
+    "insurer_id": "liberty",
+    "insurer": "Liberty General Insurance",
+    "tpa": "Safeway TPA Services Pvt. Ltd",
+    "period": "FY2025-26",
+    "page": 94,
+    "unit": "percent",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "source_url": "https://www.libertyinsurance.in/products/irdai/irdaiindex",
+    "document_url": "https://www.libertyinsurance.in/products/IRDAI/DownloadPDF?fileUrl=mZoFuFwhEr2qNmXIR6Uep70+Drld8ATnevb5Yc9kP6iCQeSZ8fe6D0FLyD6DaD4pRlIILDwdJpm8fp4IHWXIstLyJbC5foZNDi/JE3SQ5xWQhCXqOKiT1h2+WKGZPDPykN6PhBJ12PyUK1zLPAGA8FrjWpHhILS6vvLjm5lYI7e/d8OznARmwioIk8gRoE3+O9xlac1BPYk3we8PM6MT++bfHaTSJu4c7u90amSm7PrTP7mxsBkvGt6LRVT5LBkFtQ7l0UtVQogQPiyAN3zPSilFe/U5eGmyq1/JJMB8OI1xqn8+J0UmHwVT5SghLkXg&token=KbSwSc7CgVV+ygIzYuSSo7bL0XQLHry80J+LKfPzicI7JYKM4kt8mWhNLQu07uOX",
+    "retrieved_on": "2026-10-10",
+    "sha256": "a9d6c242db7f802650ffb877910432d2da094b99feaf1888f3e60a8380ad42f6",
+    "extraction_method": "PDF text with all six timing-bucket cells and policy/request column headers visually checked against rendered PDF pages80\u201394; official link clicked in isolated headed Chrome",
+    "browser_evidence": ".cache/m8-nl48/secondary-liberty.html",
+    "notes": "No cashless denominator. All-zero or dash-only individual TPA columns omitted. Source integer rounding preserved (some columns total99 or101). Page91 Genins ancillary lives cell is negative (-255); cashless column headers and bucket values independently reviewed, do not infer denominator from lives."
+  },
+  {
+    "table_id": "navi-fy2025-26-p57",
+    "file": "m8-navi-fy26",
+    "insurer_id": "navi",
+    "insurer": "Navi General Insurance",
+    "tpa": "In-house",
+    "period": "FY2025-26",
+    "page": 57,
+    "unit": "percent",
+    "values": [
+      [
+        68,
+        91,
+        0,
+        0
+      ],
+      [
+        5,
+        4,
+        0,
+        0
+      ],
+      [
+        9,
+        4,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        0,
+        0
+      ],
+      [
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        7,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://navi.com/insurance/corporate-governance/public-disclosure",
+    "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "89e1d58833cb4cc3f45c03b5a0e19c16a6c416e02364e421496931e46048cf94",
+    "extraction_method": "All cashless headers and cells visually checked against PDF pages57\u201359; actual isolated headed Chrome accordion/year/quarter navigation and PDF download",
+    "browser_evidence": ".cache/m8-nl48/secondary-navi-final.txt",
+    "notes": "No cashless denominator disclosed. All-zero group columns and Paramount table excluded; Medi Assist only individual preauth has nonzero distribution (100% >24h), keep sample_size=null. In-house group policies/lives are printed negative and not used as cashless denominator."
+  },
+  {
+    "table_id": "navi-fy2025-26-p58",
+    "file": "m8-navi-fy26",
+    "insurer_id": "navi",
+    "insurer": "Navi General Insurance",
+    "tpa": "Medi Assist Insurance TPA",
+    "period": "FY2025-26",
+    "page": 58,
+    "unit": "percent",
+    "values": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        100,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://navi.com/insurance/corporate-governance/public-disclosure",
+    "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "89e1d58833cb4cc3f45c03b5a0e19c16a6c416e02364e421496931e46048cf94",
+    "extraction_method": "All cashless headers and cells visually checked against PDF pages57\u201359; actual isolated headed Chrome accordion/year/quarter navigation and PDF download",
+    "browser_evidence": ".cache/m8-nl48/secondary-navi-final.txt",
+    "notes": "No cashless denominator disclosed. All-zero group columns and Paramount table excluded; Medi Assist only individual preauth has nonzero distribution (100% >24h), keep sample_size=null. In-house group policies/lives are printed negative and not used as cashless denominator."
+  },
+  {
+    "table_id": "navi-fy2025-26-p59",
+    "file": "m8-navi-fy26",
+    "insurer_id": "navi",
+    "insurer": "Navi General Insurance",
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "period": "FY2025-26",
+    "page": 59,
+    "unit": "percent",
+    "values": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "source_url": "https://navi.com/insurance/corporate-governance/public-disclosure",
+    "document_url": "https://public-assets.prod.navi-tech.in/navi-website-assests/documents/Public_Disclosure_Q4_FY_20252026_JanMar_20260811165948.pdf",
+    "retrieved_on": "2026-10-10",
+    "sha256": "89e1d58833cb4cc3f45c03b5a0e19c16a6c416e02364e421496931e46048cf94",
+    "extraction_method": "All cashless headers and cells visually checked against PDF pages57\u201359; actual isolated headed Chrome accordion/year/quarter navigation and PDF download",
+    "browser_evidence": ".cache/m8-nl48/secondary-navi-final.txt",
+    "notes": "No cashless denominator disclosed. All-zero group columns and Paramount table excluded; Medi Assist only individual preauth has nonzero distribution (100% >24h), keep sample_size=null. In-house group policies/lives are printed negative and not used as cashless denominator."
   }
 ]

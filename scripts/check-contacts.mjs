@@ -12,10 +12,13 @@ export function normalizeText(value) {
   return value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]+>/g, ' ').replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
     .replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').toLowerCase();
+    .replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/g, '&')
+    .replace(/\[at\]/gi, '@').replace(/\[dot\]/gi, '.').replace(/[‐‑–—]/g, '-')
+    .replace(/\s+/g, ' ').toLowerCase();
 }
 export function contactPresent(content, value, kind) {
   const text = normalizeText(content);
+  if (kind === 'text') return text.includes(normalizeText(value));
   if (kind === 'email') return (text.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/g) ?? []).includes(value.trim().toLowerCase());
   const phones = value.split(/[,;/]|\bor\b/i).map(v => v.replace(/[^\d]/g, '')).filter(Boolean);
   if (!phones.length) return false;
@@ -57,14 +60,33 @@ async function loadSource(rawUrl, allowedHosts) {
   }
   throw new Error('Too many source redirects.');
 }
-function assertions(contact) {
+export function assertions(contact) {
   const values = [];
   for (const field of ['gro_email', 'gro_phone', 'helpline', 'claims_email']) {
     if (!contact[field]) continue;
-    values.push({ field, value: contact[field], kind: field.includes('email') ? 'email' : 'phone', source: contact.field_sources?.[field]?.source_url ?? contact.source_url });
+    values.push({ field, value: contact[field], kind: field.includes('email') ? 'email' : 'phone', source: contact.field_sources?.[field]?.source_url ?? contact.source_url, provenance: contact.field_sources?.[field] });
   }
-  for (const [index, level] of (contact.escalation_levels ?? []).entries()) for (const field of ['email', 'phone']) if (level[field]) values.push({ field: `escalation_levels[${index}].${field}`, value: level[field], kind: field, source: level.source_url ?? contact.source_url });
+  for (const [index, level] of (contact.escalation_levels ?? []).entries()) for (const field of ['role', 'email', 'phone']) if (level[field]) {
+    const provenance = level.field_sources?.[field];
+    values.push({ field: `escalation_levels[${index}].${field}`, value: field === 'role' ? provenance?.evidence ?? level.role : level[field], kind: field === 'role' ? 'text' : field, source: provenance?.source_url ?? level.source_url ?? contact.source_url, provenance });
+  }
+  for (const field of ['gro_email', 'gro_phone']) if (contact.irdai_baseline?.[field]) {
+    const provenance = contact.irdai_baseline.field_sources?.[field];
+    values.push({ field: `irdai_baseline.${field}`, value: contact.irdai_baseline[field], kind: field.includes('email') ? 'email' : 'phone', source: provenance?.source_url ?? contact.irdai_baseline.source_url, provenance });
+  }
   return values;
+}
+/** Renew only values whose source content matched; browser audit dates stay immutable. */
+export function renewVerifiedFields(contact, confirmed, checkedOn) {
+  const checks = assertions(contact), matched = new Set(confirmed);
+  for (const check of checks) if (matched.has(check.field) && check.provenance) check.provenance.verified_on = checkedOn;
+  if (checks.length && checks.every(check => matched.has(check.field))) contact.verified_on = checkedOn;
+  for (const [index, level] of (contact.escalation_levels ?? []).entries()) {
+    const own = checks.filter(check => check.field.startsWith(`escalation_levels[${index}].`));
+    if (own.length && own.every(check => matched.has(check.field))) level.verified_on = checkedOn;
+  }
+  const baseline = checks.filter(check => check.field.startsWith('irdai_baseline.'));
+  if (baseline.length && baseline.every(check => matched.has(check.field))) contact.irdai_baseline.verified_on = checkedOn;
 }
 async function reviewIssue(failures, checkedOn) {
   // Only the explicitly authorized scheduled workflow enables this path.
@@ -90,6 +112,7 @@ export async function checkContacts({ write = false, issues = false } = {}) {
   const confirmedContacts = [];
   for (const contact of contacts) {
     const checks = assertions(contact); let success = checks.length > 0;
+    const confirmed = [];
     if (!checks.length) failures.push({ id: contact.id, field: 'all', source: contact.source_url, reason: 'No published email/phone is available to verify.' });
     for (const check of checks) {
       checkedFields++;
@@ -97,13 +120,13 @@ export async function checkContacts({ write = false, issues = false } = {}) {
       const source = await sources.get(check.source);
       const reason = source.error ?? (contactPresent(source.text, check.value, check.kind) ? null : 'Published contact value was not found in extracted source text.');
       if (reason) { success = false; failures.push({ id: contact.id, field: check.field, source: check.source, reason }); }
-      else confirmedFields++;
+      else { confirmedFields++; confirmed.push(check.field); }
     }
     if (success) {
       verified++;
       confirmedContacts.push({ id: contact.id, name: contact.name, kind: contact.kind, sources: [...new Set(checks.map(check => check.source))] });
-      if (write) { contact.verified_on = checkedOn; for (const level of contact.escalation_levels ?? []) level.verified_on = checkedOn; }
     }
+    if (write) renewVerifiedFields(contact, confirmed, checkedOn);
     // No whole-page hash comparison: ads, navigation and dynamic IDs are irrelevant.
   }
   if (write) await writeFile(file, JSON.stringify(contacts, null, 2) + '\n');

@@ -1,0 +1,8 @@
+{
+  "tested_at": "2026-10-10T12:07:23.392Z",
+  "mocked": false,
+  "provider_available": false,
+  "fallback": "AI is unavailable or its free limit is reached. Your review and letters still work.",
+  "local_letter_preserved": true,
+  "screenshot": "screenshots/ai-secret-removed.png"
+}

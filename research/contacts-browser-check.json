@@ -1,0 +1,9 @@
+{
+  "checked_on": "2026-10-10",
+  "method": "Published-value matching against independently browser-loaded DOM/expanded states or browser-downloaded PDF text; hand-reviewed roles and scope",
+  "insurers": 32,
+  "fields_checked": 332,
+  "fields_matched": 332,
+  "failures": [],
+  "limitations": "Not a deliverability test. Insurer-level stages only; regulator baseline retained separately. No user data or complaint submissions."
+}

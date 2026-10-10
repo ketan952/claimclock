@@ -1,0 +1,28 @@
+{
+  "tested_at": "2026-10-10T12:07:18.948388+00:00",
+  "method": "Actual Worker LLM_API_KEY secret deletion, polling config propagation, real HTTP and browser fallback, secret restoration in finally",
+  "deletion_cli_confirmed": true,
+  "without_secret_config": {
+    "status": 200,
+    "body": {
+      "ai_enabled": false,
+      "provider": null,
+      "model": null
+    }
+  },
+  "without_secret_response": {
+    "status": 503,
+    "body": {
+      "error": "AI explanation is unavailable. Use the deterministic guidance."
+    }
+  },
+  "browser_verified": true,
+  "restored_config": {
+    "status": 200,
+    "body": {
+      "ai_enabled": true,
+      "provider": "api.groq.com",
+      "model": "openai/gpt-oss-120b"
+    }
+  }
+}

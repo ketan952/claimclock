@@ -1,0 +1,11 @@
+---
+const {insurerId}=Astro.props;
+---
+<section class="card"><h2 data-i18n="contact.title">Contacts and escalation</h2><div class="insurer-contact-details" data-insurer-contact={insurerId}></div></section>
+<script>
+ import contacts from '../../data/contacts.json';
+ import {renderContacts} from '../lib/contact-view';
+ import type {Contact} from '../lib/types';
+ function update(){document.querySelectorAll<HTMLElement>('[data-insurer-contact]').forEach(root=>renderContacts(root,(contacts as Contact[]).filter(c=>c.id===root.dataset.insurerContact)));}
+ update();window.addEventListener('languagechange',update);
+</script>

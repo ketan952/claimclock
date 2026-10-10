@@ -1,6 +1,6 @@
 # ClaimClock QA and release record
 
-**10 October 2026 — deployed to [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/).** Worker, static assets and D1 are live. The user approved the existing dependency snapshot for this deployment; the strict allowlist audit remains unchanged. Optional AI stays disabled because no-card free-account status is unconfirmed. The configured key and model passed a read-only provider check. [Deployment details](DEPLOYMENT.md).
+**10 October 2026 — deployed to [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/).** Worker, static assets and D1 are live in the personal account. M8 enables the explicitly authorized Groq Free-tier explanation feature. No documents are uploaded, and no paid fallback exists. Current results appear in the milestone sections; the original M6 acceptance record below is historical. [Deployment details](DEPLOYMENT.md).
 
 ## M7 — blockers corrected
 
@@ -12,7 +12,42 @@ Deployed 10 October 2026, version `45a8da83-6432-4c6a-b654-1e6c1c2dca10`. [Relea
 - Both short source URLs return an exact 302 to the primary document; the methodology page displays the primary URLs.
 - 87 unit/security tests pass. The live suite has 13 passing scenarios and one failing **Hindi leak baseline** for existing untranslated page text. Those findings are retained for M9, not described as passed ([baseline](m7-hindi-baseline.json)). M7-specific live acceptance passes.
 
-## Acceptance results
+## M8 — deductions, disclosures, contacts, AI and sharing
+
+Deployed 10 October 2026, version `d87a1420-e2dd-41bb-8da1-5793234fedea`. [Release evidence](m8-release.json).
+
+- **Deduction rules: 15/15** synthetic fixtures pass across 10 categories, including four conditional likely-valid lines. Clause applicability and arithmetic confirmations are required; verdict totals are shown. Room-cap differences remain distinct from associated-expense proportions. [Answer key](deduction-answer-key.md).
+- **Index:470 rows / 30 insurers**, up from 253/17. All 15 previously missing insurers were retried with real browser navigation. Star, Care, Aditya Birla, SBI, National, United India and Oriental now have numerical rows. Galaxy remains excluded for contradictory units; Prudential HCL's numeric filing was not located. Partial coverage is explicit. [Browser retry register](../research/nl48-browser-retry.json), [filing gaps](../research/filing-gaps.md).
+- **930 published cells across 34 PDFs** match reviewed source values, with zero differences; 55 cached PDF hashes verify. National and Oriental scans were reviewed cell by cell for retained channels. This does not certify all market data. [Source review](../research/nl48-m8-qa.md).
+- The live [comparison](https://claimclock.ketan952.workers.dev/index/) shows individual discharge buckets, latest period and disclosed cashless counts. It uses disclosed-denominator weights or explicit channel ranges; unknown values stay unknown. Latest-period group-only data does not silently fall back to older individual data. The TPA-receipt clock and 2–6 h caveat stay above the table.
+- **32/32 own contact pages** browser-reviewed ; **332/332 populated field assertions** matched. Helplines are sourced for all 32; dedicated claims emails appear for 6 where published, and 85 own-page escalation stages retain their actual role labels. Missing stages/emails remain null. The IRDAI baseline and field-specific sources/dates are visible separately. [Browser evidence](../research/contacts-browser-verification.json), [field checks](../research/contacts-browser-check.json). No calls, emails or complaints were sent.
+- All 41 pages have Open Graph/Twitter metadata.34 static 1200×630 PNG cards cover the Index, all 32 insurers and the default card. 192/512 PNG icons, 180 apple-touch icon, favicon, sitemap and robots are generated during build. [Mobile comparison](screenshots/comparison-mobile.png), [desktop comparison](screenshots/comparison-desktop.png).
+- **105 unit/API tests and 28 bilingual snapshots pass**; all 41 built pages pass the CSP audit. The public browser suite has **15 passes and one Hindi baseline failure** scheduled for M9, with no skips. The actual synthetic report was erased through the Privacy form. [Hindi baseline](m8-hindi-baseline.json).
+
+### Real-provider QA
+
+AI is enabled on the explicitly authorized Groq Free-tier `openai/gpt-oss-120b` model. The documented free limits are 30 RPM, 1,000 RPD, 8,000 TPM and 200,000 TPD ([Groq limits](https://console.groq.com/docs/rate-limits)); application caps are lower at 3/minute and 100/day. No card, paid fallback or model switching was enabled. Only synthetic, minimal, consented lines were sent; no documents or patient identifiers.
+
+The first ten-case run returned 10 HTTP 200 responses but only 7 explanations passed: unsupported coverage assertions and a reversed settlement-payment meaning were found. Further retained trials caught a clinical interpretation of a billing label and an amount attached to the wrong item. The final prompt explicitly preserves insurer attribution, item/amount binding and payment direction. A real Worker incompatibility with `redirect:error` was repaired with `manual` plus rejection of all redirects; completion output is bounded at 600 tokens and 1,600 returned characters. [Before](provider-before.json), [intermediate v3 and its independent review](provider-intermediate3-review.json), [final raw cases](provider-results.json), [independent review](provider-review.json).
+
+The final uniform v4 run achieved **10/10 independently reviewed explanations**, all HTTP 200 and at most 85 words. This is a ten-case explanation review, not a real-claim classification accuracy estimate.
+
+| Case | Synthetic scenario | HTTP | Explanation review | Words |
+|---|---|---:|---|---:|
+| S01 | Room-category proportional reduction | 200 | PASS | 60 |
+| S02 | Consumable item with unknown rider | 200 | PASS | 53 |
+| S03 | Confirmed cataract benefit cap | 200 | PASS | 85 |
+| S04 | Confirmed co-payment with calculation base | 200 | PASS | 60 |
+| S05 | Reasonable-and-customary reduction | 200 | PASS | 59 |
+| S06 | Package inclusion rather than consumable exclusion | 200 | PASS | 50 |
+| S07 | Alleged unrelated investigation | 200 | PASS | 60 |
+| S08 | Blank deduction explanation | 200 | PASS | 44 |
+| S09 | Approved room rent must not override actual co-pay | 200 | PASS | 48 |
+| S10 | Exhausted maternity allowance without the word sub-limit | 200 | PASS | 68 |
+
+The production D1 boundary test accepted permit 100, denied 101, and denied the fourth minute permit using isolated synthetic future-date keys. Those keys were erased; current-day counters were preserved. [Quota evidence](provider-quota.json). The real `LLM_API_KEY` secret was deleted, the public config changed to disabled, `/api/explain` returned 503, and a real browser showed the fallback while generating a local letter. The secret was restored and config confirmed enabled. [API proof](provider-fallback.json), [browser proof](provider-fallback-browser.json), [screenshot](screenshots/ai-secret-removed.png).
+
+## Original M6 acceptance record (historical)
 
 | Requirement | Executed result | Scope and remaining gap |
 |---|---|---|
@@ -28,7 +63,7 @@ Deployed 10 October 2026, version `45a8da83-6432-4c6a-b654-1e6c1c2dca10`. [Relea
 | Timeline export | JSON download preserves entered evidence; print produces one readable A4 page for the synthetic timeline | Printed PDF rendered and visually inspected. Native Android/iOS print and WhatsApp handoff still need device testing. |
 | Live public URL | **Deployed and tested** | Personal Worker + D1 + daily cron. [Release record](DEPLOYMENT.md). |
 
-## Executed checks
+## Original M6 executed checks (historical)
 
 `npm run lint`, `npm run check`, `npm test`, `npm run data:check`, `npm run build`, and `QA_BASE_URL=http://127.0.0.1:8787 npm run test:browser` pass. The test suite has **54 passing tests** (including five analytics-consent regressions). The build emits **41 static pages**. The final live browser suite has **10 passing scenarios**, including rejection-flow loading and native form privacy regressions (see [live result](DEPLOYMENT.md)), including mobile/desktop layouts, English/Hindi persistence, offline Index and clock, ten insurer displays, ten deduction fixtures, local PDF/OCR and exports. `wrangler deploy` published the service; the earlier dry-run validated packaging only. [Machine check summary](checks.json).
 
@@ -61,7 +96,7 @@ All images use synthetic data. Mobile entry, clock, Hindi draft, desktop and pri
 - Queued usage counts now recheck consent before transmission; revocation or unavailable storage discards them without replay. Five focused tests cover these cases and network failure.
 - Multiple phone numbers in one primary-source field now produce separate telephone links. Timeline event/outcome labels are readable in both languages. Mobile timestamp fields and white-background PDF output were visually refined.
 
-## Known release gaps and choices
+## Original M6 gaps and choices (historical; M7–M9 supersede resolved items)
 
 1. The user resolved the deployment gates by supplying personal credentials and approving the exact existing dependency snapshot. Future dependency changes require a new license assessment; the exception does not cover them.
 2. Mode A and the Index shipped and passed live acceptance before the thin Mode C was added. Mode C prepares a bilingual GRO representation and provides sourced deadlines; it never files a complaint.

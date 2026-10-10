@@ -1,0 +1,50 @@
+{
+  "tested_at": "2026-10-10T11:52:41.362Z",
+  "origin": "https://claimclock.ketan952.workers.dev",
+  "config": {
+    "ai_enabled": true,
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b"
+  },
+  "scope": "Ten synthetic minimal deduction lines. Provider explanations do not classify claims; deterministic answer-key accuracy is tested separately.",
+  "cases": [
+    {
+      "id": "S01",
+      "title": "Room-category proportional reduction",
+      "input": "Synthetic QA. Deduction Rs 8000: Surgeon and OT charges: proportionate reduction of 20% because chosen room rent was Rs 6,000 against eligible room rent Rs 4,800.\nApplicable policy clause not supplied.",
+      "expected_category": "room-rent",
+      "expected_verdict": "challengeable",
+      "answer_key": "The description identifies a room-category ratio applied to associated charges. Request the actual clause, affected-item calculation and whether those charges vary by room. Neither the historical 2020 circular nor a ratio alone establishes that the reduction is prohibited.",
+      "http_status": 200,
+      "latency_ms": 812,
+      "explanation": "The insurer reported a deduction of ₹8,000 for the surgeon and OT charges. It said the reduction was 20 % because the insured chose a room rent of ₹6,000, while the eligible room rent under the policy is ₹4,800. No specific policy clause was provided, so the applicability of any clause cannot be confirmed. This deduction lowers the insurer’s claim payment but does not affect the amount the patient must pay the hospital.",
+      "advisory_only": true
+    },
+    {
+      "id": "S02",
+      "title": "Consumable item with unknown rider",
+      "input": "Synthetic QA. Deduction Rs 1500: Non-medical consumables: gloves Rs 550, oxygen mask Rs 400, admission kit Rs 550. Deducted under excluded items; no rider review shown.\nApplicable policy clause not supplied.",
+      "expected_category": "consumable",
+      "expected_verdict": "challengeable",
+      "answer_key": "Exact items appear in different historical lists: gloves I.56, oxygen mask I.62, admission kit II.27. Those historical labels cannot decide present coverage. Request policy exclusion, consumable rider and any package/room inclusion before concluding recoverability.",
+      "http_status": 200,
+      "latency_ms": 900,
+      "explanation": "The insurer reported a deduction of Rs 1500 for “non‑medical consumables”: gloves Rs 550, oxygen mask Rs 400 and admission kit Rs 550. It asserted the deduction was made under “excluded items”; no rider review was shown. No policy clause was provided, so the applicability of any clause cannot be confirmed. This deduction reduces the insurer’s claim payment, not the amount the patient owes the hospital.",
+      "advisory_only": true
+    },
+    {
+      "id": "S03",
+      "title": "Confirmed cataract benefit cap",
+      "input": "Synthetic QA. Deduction Rs 4500: Cataract sub-limit: procedure bill Rs 54,500; eligible policy limit Rs 50,000 per eye; excess Rs 4,500.\nPolicy clause supplied: DEMO clause 4.2: cataract benefit is limited to Rs 50,000 per eye for this policy year; no prior utilization.. Calculation confirmed: true.",
+      "expected_category": "sub-limit",
+      "expected_verdict": "likely valid",
+      "answer_key": "In this synthetic scenario the user confirms the applicable per-eye cap and the arithmetic: 54,500 minus 50,000 is 4,500. Likely valid is conditional, not an adjudication; policy version, utilization and riders still matter. The linked cataract post is only contextual, not evidence this fictional cap exists.",
+      "http_status": 200,
+      "latency_ms": 916,
+      "explanation": "The insurer reported a deduction of ₹4,500 because the cataract procedure bill of ₹54,500 exceeds the policy’s cataract sub‑limit of ₹50,000 per eye. The supplied policy clause 4.2 states that cataract benefits are limited to ₹50,000 per eye for the policy year, with no prior utilization. The excess amount of ₹4,500 is therefore deducted from the insurer’s claim payment. This deduction does not affect the amount the patient owes the hospital.",
+      "advisory_only": true
+    }
+  ],
+  "prompt_revision": "attribution-and-payment-direction-v1",
+  "stopped_reason": "Review found an incorrect statement about patient liability in S01; wording refined before a fresh full run."
+}

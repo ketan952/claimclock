@@ -7,6 +7,7 @@ import {lang,t} from './i18n';
 import {makeLetter,timelineText} from './letters.ts';
 import {setupLetterDialog} from './letter-dialog.ts';
 import {track} from './events.ts';
+import {renderContacts} from './contact-view';
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const form=<T extends HTMLFormElement=HTMLFormElement>(id:string)=>el<T>(id);
@@ -44,13 +45,7 @@ function render(){
  const active=rules.find(r=>r.id===(timeline!.requestType==='preauth'?'cashless-preauth':timeline!.requestType==='discharge'?'cashless-discharge':''));
  if(active){addText(el('active-rule'),'p',(lang()==='hi'?active.plain_hi:active.plain_en)||active.title);addText(el('active-rule'),'blockquote',`“${active.quote}”`);const a=addText(el('active-rule'),'a',`${active.paragraph} ↗`) as HTMLAnchorElement;a.href=active.source_url;a.target='_blank';a.rel='noopener noreferrer';}
  else addText(el('active-rule'),'p',t('clock.enhancement'));
- el('contacts').replaceChildren();
- for(const c of [insurer,contacts.find(c=>c.id===timeline!.tpaId)].filter((c):c is Contact=>!!c)){
-  const section=document.createElement('div');section.className='contact-block';addText(section,'strong',c.name);
-  if(c.gro_email){const a=addText(section,'a',c.gro_email) as HTMLAnchorElement;a.href=`mailto:${c.gro_email}`;}
-  for(const phone of [...new Set([c.gro_phone,c.helpline].filter(Boolean).flatMap(value=>String(value).split(/[,;/]|\bor\b/i).map(p=>p.trim()).filter(Boolean)))]){const a=addText(section,'a',phone) as HTMLAnchorElement;a.href=`tel:${phone.replace(/[^+\d]/g,'')}`;}
-  const source=addText(section,'a',t('rights.source')+' ↗') as HTMLAnchorElement;source.href=c.source_url;source.target='_blank';source.rel='noopener noreferrer';addText(section,'small',`${t('contact.date')}: ${c.verified_on}`);el('contacts').append(section);
- }
+ renderContacts(el('contacts'),[insurer,contacts.find(c=>c.id===timeline!.tpaId)].filter((c):c is Contact=>!!c));
  if(!insurer?.gro_email){addText(el('contacts'),'p',t('contact.unavailable'));const a=addText(el('contacts'),'a',t('contact.directory')) as HTMLAnchorElement;a.href='https://irdai.gov.in/list-of-gros';a.target='_blank';a.rel='noopener noreferrer';}
  el('recovery-section').hidden=timeline.requestType!=='discharge';
  document.querySelectorAll<HTMLElement>('.discharge-only').forEach(n=>n.hidden=timeline!.requestType!=='discharge');

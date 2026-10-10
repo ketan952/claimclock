@@ -1,0 +1,86 @@
+{
+  "tested_at": "2026-10-10T11:54:05.390Z",
+  "origin": "https://claimclock.ketan952.workers.dev",
+  "config": {
+    "ai_enabled": true,
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b"
+  },
+  "scope": "Ten synthetic minimal deduction lines. Provider explanations do not classify claims; deterministic answer-key accuracy is tested separately.",
+  "cases": [
+    {
+      "id": "S01",
+      "title": "Room-category proportional reduction",
+      "input": "Synthetic QA. Deduction Rs 8000: Surgeon and OT charges: proportionate reduction of 20% because chosen room rent was Rs 6,000 against eligible room rent Rs 4,800.\nApplicable policy clause not supplied.",
+      "expected_category": "room-rent",
+      "expected_verdict": "challengeable",
+      "answer_key": "The description identifies a room-category ratio applied to associated charges. Request the actual clause, affected-item calculation and whether those charges vary by room. Neither the historical 2020 circular nor a ratio alone establishes that the reduction is prohibited.",
+      "http_status": 200,
+      "latency_ms": 647,
+      "explanation": "The insurer reported a deduction of Rs 8,000 for “Surgeon and OT charges.” It says the reduction is 20 % because the room rent chosen was Rs 6,000, while the eligible room rent under the policy is Rs 4,800. No policy clause was provided, so the applicability of any specific clause cannot be confirmed.",
+      "advisory_only": true
+    },
+    {
+      "id": "S02",
+      "title": "Consumable item with unknown rider",
+      "input": "Synthetic QA. Deduction Rs 1500: Non-medical consumables: gloves Rs 550, oxygen mask Rs 400, admission kit Rs 550. Deducted under excluded items; no rider review shown.\nApplicable policy clause not supplied.",
+      "expected_category": "consumable",
+      "expected_verdict": "challengeable",
+      "answer_key": "Exact items appear in different historical lists: gloves I.56, oxygen mask I.62, admission kit II.27. Those historical labels cannot decide present coverage. Request policy exclusion, consumable rider and any package/room inclusion before concluding recoverability.",
+      "http_status": 200,
+      "latency_ms": 869,
+      "explanation": "The insurer reported a deduction of Rs 1,500 for “non‑medical consumables,” itemising gloves (Rs 550), an oxygen mask (Rs 400) and an admission kit (Rs 550). The deduction is said to be “under excluded items”; however, the applicable policy clause was not supplied, so its applicability cannot be confirmed. “Non‑medical consumables” refers to supplies that are not part of the direct medical treatment. The settlement amount payable is the amount the insurer will pay, not an amount the patient must pay.",
+      "advisory_only": true
+    },
+    {
+      "id": "S03",
+      "title": "Confirmed cataract benefit cap",
+      "input": "Synthetic QA. Deduction Rs 4500: Cataract sub-limit: procedure bill Rs 54,500; eligible policy limit Rs 50,000 per eye; excess Rs 4,500.\nPolicy clause supplied: DEMO clause 4.2: cataract benefit is limited to Rs 50,000 per eye for this policy year; no prior utilization.. Calculation confirmed: true.",
+      "expected_category": "sub-limit",
+      "expected_verdict": "likely valid",
+      "answer_key": "In this synthetic scenario the user confirms the applicable per-eye cap and the arithmetic: 54,500 minus 50,000 is 4,500. Likely valid is conditional, not an adjudication; policy version, utilization and riders still matter. The linked cataract post is only contextual, not evidence this fictional cap exists.",
+      "http_status": 200,
+      "latency_ms": 907,
+      "explanation": "The insurer states, as a reported assertion, that the Rs 4,500 deduction is due to the cataract sub‑limit: the procedure cost Rs 54,500 exceeds the eligible policy limit of Rs 50,000 per eye, leaving an excess of Rs 4,500. The supplied policy clause (DEMO clause 4.2) says the cataract benefit is limited to Rs 50,000 per eye for the policy year, with no prior utilization. The settlement amount payable refers to the insurer’s payment to the claimant or hospital, not an amount the patient must pay.",
+      "advisory_only": true
+    },
+    {
+      "id": "S04",
+      "title": "Confirmed co-payment with calculation base",
+      "input": "Synthetic QA. Deduction Rs 14500: Co-payment at 20% of the admissible amount Rs 72,500 = Rs 14,500; balance insurer liability Rs 58,000.\nPolicy clause supplied: DEMO schedule: 20% co-payment applies to each admissible hospitalization claim; no waiver or special network exemption.. Calculation confirmed: true.",
+      "expected_category": "co-pay",
+      "expected_verdict": "likely valid",
+      "answer_key": "Both clause applicability and calculation are expressly confirmed by the fixture user. The arithmetic 72,500 x 20% = 14,500 supports the conditional status. Public shortfall reports illustrate confusion about partial approval, not proof of co-pay terms.",
+      "http_status": 200,
+      "latency_ms": 798,
+      "explanation": "The insurer says the claim is reduced by ₹14,500 because it applies a 20 % co‑payment to the admissible amount of ₹72,500, leaving the insurer’s liability at ₹58,000. The policy clause supplied states that a 20 % co‑payment applies to each admissible hospitalization claim, with no waiver or special network exemption. This clause’s applicability cannot be confirmed beyond the supplied text.",
+      "advisory_only": true
+    },
+    {
+      "id": "S05",
+      "title": "Reasonable-and-customary reduction",
+      "input": "Synthetic QA. Deduction Rs 12000: Consultant professional fee Rs 32,000 reduced to Rs 20,000 on reasonable and customary grounds; comparison data not enclosed.\nApplicable policy clause not supplied.",
+      "expected_category": "reasonable-customary",
+      "expected_verdict": "challengeable",
+      "answer_key": "The insurer label identifies the category but does not establish an evidence-based comparison, geographic benchmark or policy clause. Seek the reference data and line calculation. Do not characterize every reasonable-and-customary reduction as unlawful.",
+      "http_status": 200,
+      "latency_ms": 897,
+      "explanation": "The insurer says a deduction of ₹12,000 was made because the consultant’s professional fee of ₹32,000 was reduced to ₹20,000 on “reasonable and customary” grounds, though no comparison data were attached. No policy clause was provided, so its applicability cannot be confirmed. The settlement amount payable is the insurer’s payment after this deduction.",
+      "advisory_only": true
+    },
+    {
+      "id": "S06",
+      "title": "Package inclusion rather than consumable exclusion",
+      "input": "Synthetic QA. Deduction Rs 2400: Surgical tape and gauze Rs 2,400 deducted as already included in the surgery package. Hospital bills the items separately and says they were outside the agreed package.\nApplicable policy clause not supplied.",
+      "expected_category": "package",
+      "expected_verdict": "challengeable",
+      "answer_key": "The operative reason is alleged package inclusion, despite names of consumable items. Compare agreed package and hospital bill to determine whether this is duplicate billing or an incorrect package assumption. Historical List III labels do not settle the dispute.",
+      "http_status": 200,
+      "latency_ms": 735,
+      "explanation": "The insurer says Rs 2,400 for surgical tape and gauze was deducted because, according to its assertion, those items are already included in the surgery package, even though the hospital billed them separately as outside the agreed package. No policy clause was provided, so the applicability of any clause to this deduction cannot be confirmed.",
+      "advisory_only": true
+    }
+  ],
+  "prompt_revision": "attribution-and-payable-v2",
+  "stopped_reason": "Independent review found an unsupported clinical definition in S02. Preserve this partial run; rerun all ten after instruction correction."
+}

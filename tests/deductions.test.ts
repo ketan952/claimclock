@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {classify,parseManualLines} from '../src/lib/deductions.ts';
+import {classify,parseManualLines,verdictTotals} from '../src/lib/deductions.ts';
 import type {Category,DeductionStatus,DeductionInput} from '../src/lib/deductions.ts';
 import {knownIdentifiers,redact} from '../src/lib/redact.ts';
 import {reminders} from '../src/lib/reminders.ts';
@@ -12,15 +12,15 @@ const fixtures=dataset.fixtures;
 const rules=JSON.parse(readFileSync(new URL('../data/rules.json',import.meta.url),'utf8')) as {id:string}[];
 const evidence=JSON.parse(readFileSync(new URL('../research/user-evidence.json',import.meta.url),'utf8')) as {posts:{id:string;url:string}[]};
 
-test('synthetic answer key spans all eight deduction categories and traceable evidence',()=>{
- assert.equal(dataset.synthetic,true);assert.equal(dataset.ai_evaluated,false);assert.equal(dataset.ocr_evaluated,false);assert.equal(fixtures.length,10);
- assert.deepEqual([...new Set(fixtures.map(f=>f.expected.category))].sort(),['co-pay','consumable','package','reasonable-customary','room-rent','sub-limit','unexplained','unrelated'].sort());
+test('synthetic answer key spans all ten deduction categories and traceable evidence',()=>{
+ assert.equal(dataset.synthetic,true);assert.equal(dataset.ai_evaluated,false);assert.equal(dataset.ocr_evaluated,false);assert.equal(fixtures.length,15);
+ assert.deepEqual([...new Set(fixtures.map(f=>f.expected.category))].sort(),['co-pay','consumable','implant','package','reasonable-customary','room-rent','room-rent-cap','sub-limit','unexplained','unrelated'].sort());
  for(const f of fixtures){assert.equal(f.synthetic,true);assert.ok(f.letter.includes('NOT A REAL CLAIM'));assert.equal(f.billed_amount-f.paid_amount,f.reviewed_deduction.amount);assert.ok(f.expected.rationale.length>80);for(const s of f.primary_sources)assert.ok(rules.some(r=>r.id===s.rule_id));for(const p of f.public_case_context)assert.ok(evidence.posts.some(e=>e.id===p.id&&e.url===p.url));}
 });
 
-test('deterministic engine reaches the requested 7/10 synthetic-fixture floor',()=>{
+test('deterministic engine agrees with all fifteen independently reviewed fixture outcomes',()=>{
  const matching=fixtures.filter(f=>{const out=classify(f.reviewed_deduction);return out.category===f.expected.category&&out.status===f.expected.status;});
- assert.ok(matching.length>=7,`${matching.length}/10 category-and-status agreement; this does not measure AI or OCR accuracy`);
+ assert.equal(matching.length,15,`${matching.length}/15 category-and-status agreement; this does not measure AI or OCR accuracy`);assert.ok(fixtures.filter(f=>f.expected.status==='likely valid').length>=3);
 });
 for(const fixture of fixtures){
  test(`${fixture.id}: ${fixture.title}`,()=>{
@@ -34,7 +34,7 @@ for(const fixture of fixtures){
 }
 
 test('likely-valid status needs both policy applicability and arithmetic confirmation',()=>{
- for(const id of ['S03','S04']){
+ for(const id of ['S03','S04','S11','S12']){
   const input=fixtures.find(f=>f.id===id)!.reviewed_deduction;
   assert.equal(classify({...input,policyClause:undefined}).status,'challengeable');
   assert.equal(classify({...input,policyClause:'   '}).status,'challengeable');
@@ -42,6 +42,19 @@ test('likely-valid status needs both policy applicability and arithmetic confirm
  }
  const noReason=fixtures.find(f=>f.id==='S08')!.reviewed_deduction;
  assert.equal(classify({...noReason,policyClause:'Refer to policy terms',policyCalculationConfirmed:true}).status,'no reason given');
+});
+
+test('room cap difference and associated-expense ratio remain separate even with policy confirmations',()=>{
+ const direct=fixtures.find(f=>f.id==='S11')!.reviewed_deduction;assert.equal(classify(direct).category,'room-rent-cap');assert.equal(classify(direct).status,'likely valid');
+ const associated=fixtures.find(f=>f.id==='S01')!.reviewed_deduction;const reviewed=classify({...associated,policyClause:'DEMO room-related associated charge clause',policyCalculationConfirmed:true});assert.equal(reviewed.category,'room-rent');assert.equal(reviewed.status,'challengeable');assert.ok(reviewed.ruleIds.includes('financial-limits-2024'));
+});
+test('implants are not labelled consumables solely because the denial calls them non-medical',()=>{
+ const result=classify(fixtures.find(f=>f.id==='S13')!.reviewed_deduction);assert.equal(result.category,'implant');assert.equal(result.status,'challengeable');assert.match(result.explanation,/not automatically an excluded consumable/);
+});
+test('verdict totals preserve all amounts and monetary decimals in separate groups',()=>{
+ const all=fixtures.map(f=>classify(f.reviewed_deduction));const totals=verdictTotals(all);
+ assert.equal(totals['likely valid'],4500+14500+6000+10000);assert.equal(totals['no reason given'],3250);assert.equal(Object.values(totals).reduce((a,b)=>a+b,0),fixtures.reduce((sum,f)=>sum+f.reviewed_deduction.amount,0));
+ assert.equal(verdictTotals([classify({id:'a',description:'Unexplained',amount:0.1}),classify({id:'b',description:'Unexplained',amount:0.2})])['no reason given'],0.3);
 });
 
 test('manual line input preserves Indian-currency amounts and isolates invalid lines',()=>{

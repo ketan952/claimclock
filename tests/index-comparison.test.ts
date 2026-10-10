@@ -1,0 +1,8 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {compareInsurer, type Disclosure} from '../src/lib/index-comparison.ts';
+const row=(values:Partial<Disclosure>={}):Disclosure=>({insurer_id:'test',period:'FY2025-26',request_type:'discharge',policy_type:'individual',tpa:'A',unit:'percent',sample_size:null,lt1h:20,h1_2:30,h2_6:40,h6_12:5,h12_24:3,gt24h:2,...values});
+test('Index preserves unknown denominators as TPA ranges, never unweighted insurer means',()=>{const c=compareInsurer([row(),row({tpa:'B',lt1h:80})],'test');assert.equal(c.mode,'range');assert.equal(c.count,null);assert.deepEqual(c.shares[0],{min:20,max:80});});
+test('Index combines only disclosed denominators and the same latest period/population',()=>{const c=compareInsurer([row({sample_size:100}),row({tpa:'B',sample_size:300,lt1h:80}),row({period:'FY2024-25',sample_size:900,lt1h:1}),row({policy_type:'group',sample_size:1000})],'test');assert.equal(c.mode,'weighted');assert.equal(c.count,400);assert.deepEqual(c.shares[0],{min:65,max:65});});
+test('Index does not fill blank late buckets with zero or infer missing populations',()=>{assert.equal(compareInsurer([row({gt24h:null})],'test').shares[3],null);assert.equal(compareInsurer([row({policy_type:'group'})],'test').mode,'missing');});
+test('a latest-period population gap does not silently fall back to an older individual cohort',()=>{const c=compareInsurer([row({period:'FY2024-25'}),row({policy_type:'group'})],'test');assert.equal(c.period,'FY2025-26');assert.equal(c.mode,'missing');assert.deepEqual(c.shares,[null,null,null,null]);});

@@ -1,14 +1,14 @@
 # ClaimClock launch posts — drafts only
 
-**Drafts only; not posted.** The working public deployment is [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), with live browser/API checks recorded in [QA](../qa/REPORT.md). Before publishing these drafts, recheck the coverage counts, linked sources, privacy wording and enabled features. Optional AI is currently disabled pending confirmation of a no-card Free account; provider model-list access works, but inference has not been tested. Do not imply that patient results already exist or that the dataset covers the whole market.
+**Drafts only; not posted.** The working public deployment is [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), with live browser/API checks recorded in [QA](../qa/REPORT.md). Before publishing these drafts, recheck the coverage counts, linked sources, privacy wording and enabled features. Optional Groq AI is enabled on the explicitly authorized Free tier; see the current QA report before making accuracy claims. Do not imply that patient results already exist or that the dataset covers the whole market.
 
-Figures below describe the 10 October 2026 research snapshot: **253 NL-48 rows from 17 insurers**, a **32-insurer filing register**, and **49 published-source contact records** covering 32 insurers and 17 TPAs. Contact verification means a detail was found in a primary source, not that an inbox or phone number was tested.
+Figures below describe the 10 October 2026 research snapshot: **470 NL-48 rows from 30 insurers**, a **32-insurer filing register**, and **49 published-source contact records** covering 32 insurers and 17 TPAs. Contact verification means a detail was found in a primary source, not that an inbox or phone number was tested.
 
 ## Draft 1 — The Index: what insurers report and what patients report
 
 How long does cashless approval take? Insurers already publish part of the answer, scattered across PDFs.
 
-ClaimClock brings 253 published timing distributions from 17 insurers into one source-linked dataset. Each row keeps the TPA, reporting period, individual/group policy category and original percentages. The coverage register records gaps across 32 insurers.
+ClaimClock brings 470 published timing distributions from 30 insurers into one source-linked dataset. Each row keeps the TPA, reporting period, individual/group policy category and original percentages. The coverage register records gaps across 32 insurers.
 
 One limit matters: the **2–6 hour bucket cannot tell us whether the three-hour discharge deadline was met**. This is not a league table. Most included data is FY2025-26; one insurer's latest located filing is FY2024-25. Missing data is shown as missing.
 

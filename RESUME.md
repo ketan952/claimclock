@@ -22,18 +22,21 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## M7 revision
 
-M7 is deployed and live-verified: external scripts forced; all41HTML pages audited; Privacy erasure and analytics controls repaired;28 bilingual letter snapshots;302 short source links.87unit/securitytests pass. Live13/14scenarios pass, with the intentionally newly exposed Hindi leak failure assigned toM9. Seeqa/m7-release.json andqa/REPORT.md. The historical synthetic Prudential2025-11preauth report was erased through theUI; its suppressionmarker remains to preserve erasure semantics.
+M7 is deployed and live-verified: external scripts forced; all 41 HTML pages audited; Privacy erasure and analytics controls repaired; 28 bilingual letter snapshots;302 short source links.87 unit/security tests pass. Live 13/14 scenarios pass, with the intentionally newly exposed Hindi leak failure assigned to M9. See qa/m7-release.json andqa/REPORT.md. The historical synthetic Prudential 2025-11 preauth report was erased through theUI; its suppression marker remains to preserve erasure semantics.
+
+## M8 revision
+
+M8 is deployed as `d87a1420-e2dd-41bb-8da1-5793234fedea`. 105 unit/API tests and 28 bilingual snapshots pass; the live suite has 15 passes and the expected Hindi baseline for M9. See [release evidence](qa/m8-release.json).
+
+M8 expands the reviewed disclosure dataset to 470 rows across 30 insurers, including Star, Care, Aditya Birla, SBI, National, United India and Oriental. The sortable individual-discharge Index preserves channel ranges and missing counts. All32 insurer contact pages were browser-reviewed; 332 populated field assertions match their sources, with the IRDAI baseline shown separately. Fifteen deterministic deduction fixtures pass, including four likely-valid cases and all 10 categories. Static sharing cards and install icons are generated during build.
+
+Groq AI is explicitly authorized and enabled on the no-card Free tier. Ten synthetic real-provider cases, independent review, actual secret-removal fallback and production-D1 quota boundaries are recorded in qa/REPORT.md. Documents remain browser-only; only user-previewed, consented lines can be sent. No paid fallback exists.
 
 ## Next
 
-Continue M8: fifteen deductionfixtures/categories/totals, browser-retrieved disclosures toward27/32, new sortableIndex/OGassets, per-field contacts, explicitly user-authorized GroqAI enablement and real-provider/fallbackQA. ThenM9 localization, human-readable opt-in, clockstepstrip/hero, portalcharacterlimit and compatible-license gate. Deploy and verify each milestone separately; commit each with thisfileupdated. Browserresearch artifacts currentlylive inignored.cache/m8-*; nativeChrome integration islimited, isolatedheadedPlaywright browser navigation works.
+Complete and separately deploy M9: selected-language UI/dialogs, human-readable opt-in, clock steps/active hero, Bima character budget and compatible-license gate. M9 implementation is prepared in an isolated worktree; merge after the M8 release. The live Bima portal currently times out in repeated read-only browser attempts; an IRDAI-branded manual describes 4,000 characters, but the current live maxlength is unverified. Do not claim otherwise.
 
-
-The user supplied the personal credentials location and explicitly approved the existing dependencies for this deployment. Cloudflare deployment and live core acceptance are complete; do not repeat resolved credential or license questions. Worker and GitHub secrets are configured; never print their values.
-
-Optional AI remains disabled: the supplied Groq key passed a read-only model-list check (HTTP 200, configured model listed), but the account's no-card free status is unconfirmed and `LLM_FREE_TIER_CONFIRMED=false`. No real provider inference was sent. The user has now explicitly instructed setting the free-tier confirmation true and enabling Groq in M8. This authorization resolves the earlier question; do not ask again. Do not enable paid inference. The four core flows work without it.
-
-Remaining acceptance: ten real-provider cases and secret-removal comparison; physical Android/4G and native WhatsApp/print; independent Hindi/usability review; one additional qualifying recent research case; missing/partial numeric filings. Read qa/REPORT.md for all limitations. Launch posts remain drafts, not external publications.
+The user supplied the personal credentials location and approved the existing dependencies and AI enablement. Never repeat resolved credential or license questions, and never print secrets. Remaining historical acceptance gaps are physical Android/4G and native WhatsApp/print, independent Hindi/usability review, one additional qualifying recent research case and partial/missing insurer filings. Launch posts remain drafts.
 
 ## License approval and source corrections
 

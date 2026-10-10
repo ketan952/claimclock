@@ -177,5 +177,18 @@
     "plain_hi": "उपभोक्ता शिकायत आम तौर पर विवाद का कारण पैदा होने से 2 साल में करनी होती है। उचित कारण हो तो आयोग देरी माफ कर सकता है। ऑनलाइन शिकायत अब e-Jagriti पर होती है; e-Daakhil जनवरी 2025 में इसमें शामिल हो गया।",
     "filing_url": "https://e-jagriti.gov.in/",
     "caveat": "Cause of action depends on the facts. Do not automatically set the legal deadline at discharge plus two years. Seek advice before choosing parallel forums."
+  },
+  {
+    "id": "financial-limits-2024",
+    "title": "Policy-specific room limits, sub-limits, co-pay and deductible",
+    "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3",
+    "quote": "The policy will pay only up to the limits specified hereunder",
+    "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+    "pdf_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+    "verified_on": "2026-10-10",
+    "scope": "policy-financial-limits",
+    "plain_en": "The 2024 Customer Information Sheet requires disclosure of policy financial limits, including room/ICU sub-limits, co-payment and deductibles. Verify the actual policy limit and calculation; the form does not impose one universal cap.",
+    "plain_hi": "2024 की ग्राहक सूचना शीट में कमरे/ICU की उप-सीमा, सह-भुगतान और डिडक्टिबल सहित पॉलिसी की वित्तीय सीमाएँ बतानी हैं। अपनी पॉलिसी की सीमा और हिसाब जाँचें; यह प्रारूप कोई एक समान सीमा लागू नहीं करता।",
+    "caveat": "This is the prescribed disclosure format, not a universal room-rent cap or a ban on proportionate deductions. Associated-expense reductions need the actual policy wording and hospital tariff; the 2020 circular was superseded."
   }
 ]
