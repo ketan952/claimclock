@@ -13,12 +13,12 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 - M2: static hospital app/PWA local implementation ready; browser checks pass. Deployment remains blocked.
 - M3: static Index pages for all32 roster insurers ready,17 with numeric rows. Direct PDF/page links, partial-source flags and unnormalized bucket values verified. Offline/mobile tests pass. Deployment remains blocked.
 - M4: local PDF/OCR/manual pipeline ready. 10/10 independent synthetic deduction cases pass after5 fixes; seven browser scenarios pass including on-device textPDF, photoOCR and no-AI fallback. No real-provider QA.
-- M5: Worker/D1/workflows underway in parallel.
+- M5: optional Worker/D1 implementation ready: consent-gated reports and erasure, frozen monthly aggregates, bounded optional AI proxy, daily cron and weekly source-value contact workflow. Fourteen API/security tests plus ten actual local Wrangler/D1 integration checks pass. Production provisioning and provider tests remain pending.
 - M6: pending final QA and handoff.
 
 ## Next
 
-Finish Mode B, API and integration QA, commit milestones, then deploy only once account credentials and the license blocker are resolved. The user was asked exactly once to put Cloudflare token/account ID and optional Groq key in ignored `.env`; no credentials supplied yet. Do not ask again. Never claim live or complete without evidence.
+Finish the final QA/handoff record and push M6 preparation, then deploy only once account credentials and the license blocker are resolved. The user was asked exactly once to put Cloudflare token/account ID and optional Groq key in ignored `.env`; no credentials supplied yet. Do not ask again. Never claim live or complete without evidence.
 
 ## Release blockers and corrections
 

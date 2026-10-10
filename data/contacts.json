@@ -96,14 +96,14 @@
     "kind": "insurer",
     "aliases": [],
     "gro_email": "gro@uiic.co.in",
-    "gro_phone": "1800 425 333 33",
-    "helpline": null,
+    "gro_phone": null,
+    "helpline": "1800 425 333 33",
     "claims_email": null,
     "escalation_levels": [],
     "source_url": "https://irdai.gov.in/list-of-gros",
     "insurer_url": "https://uiic.co.in/web/grievance-details",
     "verified_on": "2026-10-10",
-    "evidence": "United India Insurance | https://uiic.co.in/en/customercare/grievance | gro@uiic.co.in | 1.80043E+11",
+    "evidence": "IRDAI directory: gro@uiic.co.in. Insurer grievance page: general helpline 1800 425 333 33, Monday-Friday 10 AM-5:45 PM.",
     "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
     "verification_status": "published-contact-verified",
     "field_sources": {
@@ -111,15 +111,16 @@
         "source_url": "https://irdai.gov.in/list-of-gros",
         "evidence": "United India Insurance | https://uiic.co.in/en/customercare/grievance | gro@uiic.co.in | 1.80043E+11"
       },
-      "gro_phone": {
-        "source_url": "https://www.uiic.co.in/web/sites/default/files/Policy-Document/ucc-cis%201.pdf",
-        "evidence": "In case of any grievance, you may contact UIIC through: Toll Free Number: 1800 425 333 33"
+      "helpline": {
+        "source_url": "https://uiic.co.in/web/grievance-details",
+        "evidence": "1800 425 333 33 | 10 AM - 5:45 PM | MONDAY - FRIDAY"
       }
     },
     "notes": [
-      "The IRDAI table phone uses scientific notation. Exact digits are separately confirmed in a current insurer CIS; not mathematically expanded."
+      "The IRDAI directory renders the phone in scientific notation; no direct GRO phone is asserted. The exact general helpline is verified on the current insurer grievance page.",
+      "The earlier CIS phone-source URL returned HTTP 404 during recheck on 2026-10-10 and has been replaced with a live insurer page."
     ],
-    "content_sha256": "e63d11ea40eacb794983d2b9832a2bd75e06ba35870539ef7a686a72bd830255"
+    "content_sha256": "e15ac9f70b6efc360b561bc2d18eaadd8670698c98834df41f85120d1396b33b"
   },
   {
     "id": "acko",
@@ -1877,7 +1878,7 @@
     "gro_email": null,
     "gro_phone": null,
     "helpline": "1800 180 3600, 1800 102 3600",
-    "claims_email": "customerservice@hitpa.co.in",
+    "claims_email": null,
     "escalation_levels": [],
     "source_url": "https://irdai.gov.in/list-of-tpas",
     "verified_on": "2026-10-10",
@@ -1888,17 +1889,14 @@
       "helpline": {
         "source_url": "https://irdai.gov.in/list-of-tpas",
         "evidence": "वरिष्ठ नागरिक सहायता/Senior Citizen Assistance: seniorcitizens@hitpa.co.in \nटोल फ्री नंबर/Toll Free No.: 1800 180 3600, 1800 102 3600 \nईमेल/Email: Mathew.George@hitpa.co.in\nवेबसाइट/Website: www.hitpa.co.in"
-      },
-      "claims_email": {
-        "source_url": "https://www.hitpa.co.in/Contact-Us",
-        "evidence": "Toll free numbers 1800 180 3600 / 1800 102 3600. Email us customerservice@hitpa.co.in"
       }
     },
     "notes": [
       "No GRO email inferred from the registry’s CEO/CAO email.",
-      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "Claims email removed on 2026-10-10: the provider Contact-Us page failed live TLS certificate verification on both www and bare host. Search-index text alone was not used to retain an active contact field; IRDAI-published helplines remain verified."
     ],
-    "content_sha256": "e023c2c525c2b09d33135dbe1d5f7ad5ed79ce357a440fa3b58110c46be658af"
+    "content_sha256": "1d4bc585433f1d342a90f286abaf7fe1b54557a79e52e78ec5323efe56d8431a"
   },
   {
     "id": "link-k",

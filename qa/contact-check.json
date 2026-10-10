@@ -1,0 +1,424 @@
+{
+  "checked_on": "2026-10-10",
+  "contacts": 49,
+  "renewed": 0,
+  "values_confirmed": 49,
+  "checked_fields": 156,
+  "confirmed_fields": 156,
+  "needs_review": [],
+  "confirmed_contacts": [
+    {
+      "id": "national",
+      "name": "National Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "new-india",
+      "name": "The New India Assurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "oriental",
+      "name": "The Oriental Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "united-india",
+      "name": "United India Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://uiic.co.in/web/grievance-details"
+      ]
+    },
+    {
+      "id": "acko",
+      "name": "Acko General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "aditya-birla",
+      "name": "Aditya Birla Health",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf"
+      ]
+    },
+    {
+      "id": "galaxy",
+      "name": "Galaxy Health Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://www.galaxyhealth.com/grievance-redressal"
+      ]
+    },
+    {
+      "id": "bajaj",
+      "name": "Bajaj General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.bajajgeneralinsurance.com/about-us/customer-service.html"
+      ]
+    },
+    {
+      "id": "chola",
+      "name": "Cholamandalam MS",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "navi",
+      "name": "Navi General Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "zuno",
+      "name": "Zuno General Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://cms.hizuno.com/uploads/GRO_DETAILS_12_01_2026_1de4aac01d.pdf?updated_at=2026-01-13T09%3A57%3A59.841Z"
+      ]
+    },
+    {
+      "id": "generali-central",
+      "name": "Generali Central",
+      "kind": "insurer",
+      "sources": [
+        "https://www.generalicentralinsurance.com/customer-service/grievance-redressal"
+      ]
+    },
+    {
+      "id": "digit",
+      "name": "Go Digit General",
+      "kind": "insurer",
+      "sources": [
+        "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "hdfc-ergo",
+      "name": "HDFC ERGO General",
+      "kind": "insurer",
+      "sources": [
+        "https://www.hdfcergo.com/customer-voice/grievances",
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "icici-lombard",
+      "name": "ICICI Lombard General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "iffco-tokio",
+      "name": "IFFCO Tokio General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "zurich-kotak",
+      "name": "Zurich Kotak General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "liberty",
+      "name": "Liberty General Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.libertyinsurance.in/customer-support/grievance-redressal.html"
+      ]
+    },
+    {
+      "id": "magma",
+      "name": "Magma General Insurance Limited",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.magmainsurance.com/more/contact-us"
+      ]
+    },
+    {
+      "id": "manipalcigna",
+      "name": "Manipal Cigna",
+      "kind": "insurer",
+      "sources": [
+        "https://www.manipalcigna.com/grievance-redressal"
+      ]
+    },
+    {
+      "id": "niva-bupa",
+      "name": "Niva Bupa Health Insurance Company Limited",
+      "kind": "insurer",
+      "sources": [
+        "https://www.nivabupa.com/health-insurance-articles/niva-bupa-customer-care-number.html",
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "raheja-qbe",
+      "name": "Raheja QBE",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.rahejaqbe.com/grievance-redressal"
+      ]
+    },
+    {
+      "id": "indusind",
+      "name": "IndusInd General Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "care",
+      "name": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.)",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "royal-sundaram",
+      "name": "Royal Sundaram General Insurance Co.Limited",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "sbi-general",
+      "name": "SBI General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.sbigeneral.in/grievance-redressal"
+      ]
+    },
+    {
+      "id": "shriram",
+      "name": "Shriram General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "star-health",
+      "name": "Star Health and Allied",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "narayana",
+      "name": "Narayana Health",
+      "kind": "insurer",
+      "sources": [
+        "https://www.narayanahealth.insurance/grievance-redressal"
+      ]
+    },
+    {
+      "id": "tata-aig",
+      "name": "Tata- AIG General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros",
+        "https://www.tataaig.com/grievance-redressal-policy"
+      ]
+    },
+    {
+      "id": "universal-sompo",
+      "name": "Universal Sompo General",
+      "kind": "insurer",
+      "sources": [
+        "https://irdai.gov.in/list-of-gros"
+      ]
+    },
+    {
+      "id": "prudential-hcl",
+      "name": "Prudential HCL Health Insurance",
+      "kind": "insurer",
+      "sources": [
+        "https://prudentialhealth.in/raise-grievance"
+      ]
+    },
+    {
+      "id": "medi-assist",
+      "name": "Medi Assist Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://mediassisttpa.in/grievance-redressal/"
+      ]
+    },
+    {
+      "id": "mdindia",
+      "name": "MDIndia Health Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx"
+      ]
+    },
+    {
+      "id": "paramount",
+      "name": "Paramount Health Services & Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://www.paramounttpa.com/Home/Grievance.aspx"
+      ]
+    },
+    {
+      "id": "heritage",
+      "name": "Heritage Health Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "fhpl",
+      "name": "Family Health Plan Insurance TPA Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "vidal",
+      "name": "Vidal Health Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://www.vidalhealthtpa.com/vidalhealthtpa/contact.html"
+      ]
+    },
+    {
+      "id": "volo",
+      "name": "Volo Health Insurance TPA Pvt. Ltd ( Formerly East West Assist Insurance TPA Private Limited)",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas",
+        "https://www.volohealth.in/"
+      ]
+    },
+    {
+      "id": "medsave",
+      "name": "Medsave Health Insurance TPA Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas",
+        "https://www.medsave.in/WebGrievanceMail.aspx"
+      ]
+    },
+    {
+      "id": "genins",
+      "name": "Genins India Insurance TPA Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "healthindia",
+      "name": "Health India Insurance TPA Services Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas",
+        "https://healthindiatpa.com/"
+      ]
+    },
+    {
+      "id": "good-health",
+      "name": "Good Health Insurance TPA Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://goodhealthtpa.com/wp-content/uploads/2026/02/Grievance-Mechanism-Note.pdf"
+      ]
+    },
+    {
+      "id": "park",
+      "name": "Park Mediclaim Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://www.parkmediclaim.co.in/Contact/CustomerSupport",
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "health-assist",
+      "name": "Health Assist Insurance TPA Pvt. Ltd. (Formerly known as Safeway Insurance TPA Pvt. Ltd.)",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas",
+        "https://www.safewaytpa.in/grievance.aspx"
+      ]
+    },
+    {
+      "id": "ericson",
+      "name": "Ericson Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://www.ericsontpa.com/GrievanceCell.aspx"
+      ]
+    },
+    {
+      "id": "hitpa",
+      "name": "Health Insurance TPA of India Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "link-k",
+      "name": "Link-K Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    },
+    {
+      "id": "akna",
+      "name": "AKNA Health Insurance TPA Private Limited",
+      "kind": "tpa",
+      "sources": [
+        "https://irdai.gov.in/list-of-tpas"
+      ]
+    }
+  ],
+  "confirmed_insurer_count": 32,
+  "ten_insurer_target_met": true,
+  "read_only": true,
+  "limitations": "Automated primary-source content matching only; no calls or emails. A verified contact confirms publication, not operational response."
+}

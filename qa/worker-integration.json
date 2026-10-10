@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-10-10T08:27:50.274Z",
+  "environment": "Wrangler 4.149.0 local Worker and local D1 only; 127.0.0.1:8788",
+  "migration": "0001_initial.sql applied locally",
+  "provider_secrets_used": false,
+  "synthetic_data_only": true,
+  "erasure_tokens_logged_or_saved": false,
+  "checks": [
+    {
+      "name": "AI config disabled without provider secrets",
+      "pass": true,
+      "status": 200
+    },
+    {
+      "name": "Static app served with CSP",
+      "pass": true,
+      "status": 200,
+      "csp_present": true
+    },
+    {
+      "name": "Cross-origin report rejected",
+      "pass": true,
+      "status": 403
+    },
+    {
+      "name": "AI unavailable gracefully",
+      "pass": true,
+      "status": 503
+    },
+    {
+      "name": "Anonymous event batch accepted by local D1",
+      "pass": true,
+      "status": 200
+    },
+    {
+      "name": "Synthetic report inserted in actual local D1",
+      "pass": true,
+      "status": 201
+    },
+    {
+      "name": "Fewer than ten reports have no public aggregate",
+      "pass": true,
+      "status": 200,
+      "public_rows": 0,
+      "note": "One synthetic current-month report; closed-month and minimum-sample safeguards also tested independently in SQLite unit tests."
+    },
+    {
+      "name": "Wrong erasure token not confirmed",
+      "pass": true,
+      "status": 200,
+      "erased": false
+    },
+    {
+      "name": "Actual D1 erasure confirmed",
+      "pass": true,
+      "status": 200,
+      "erased": true
+    },
+    {
+      "name": "Repeat erasure not falsely confirmed",
+      "pass": true,
+      "status": 200,
+      "erased": false
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "all_passed": true,
+  "regression_fixed": "Initial real-D1 test caught incorrect erasure confirmation from meta.changes because deletion triggers also changed rows. Worker now confirms DELETE RETURNING id; this rerun verifies true only on the actual deletion.",
+  "limitations": [
+    "Local integration only; not a live workers.dev deployment test.",
+    "No configured AI provider or real health documents used.",
+    "No browser UI or live contact recipient interactions."
+  ],
+  "local_server_stopped": true,
+  "cloudflare_remote_commands_used": false
+}
