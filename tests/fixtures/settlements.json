@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "created_on": "2026-10-10",
+  "purpose": "Independent, source-informed test cases for the deterministic local deduction engine. All names, insurer/hospital identities, claim identifiers, amounts and policy clauses are invented. No genuine settlement letter or personal information is reproduced.",
+  "review_basis": "Manually reasoned source review by the build agent; not a lawyer adjudication. Public case links provide issue context only.",
+  "ai_evaluated": false,
+  "ocr_evaluated": false,
+  "fixtures": [
+    {
+      "id": "S01",
+      "title": "Room-category proportional reduction",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Anaya Rao\nPolicy No.: DEMO-POL-260001\nClaim ID: DEMO-CLM-410001\nUHID: DEMO-UH-730001\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 112,000. Settled: Rs 104,000. Total reduction: Rs 8,000.\nDeduction explanation: Surgeon and OT charges: proportionate reduction of 20% because chosen room rent was Rs 6,000 against eligible room rent Rs 4,800.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Anaya Rao",
+        "DEMO-POL-260001",
+        "DEMO-CLM-410001",
+        "DEMO-UH-730001"
+      ],
+      "billed_amount": 112000,
+      "paid_amount": 104000,
+      "reviewed_deduction": {
+        "id": "s01",
+        "description": "Surgeon and OT charges: proportionate reduction of 20% because chosen room rent was Rs 6,000 against eligible room rent Rs 4,800.",
+        "amount": 8000,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "room-rent",
+        "status": "challengeable",
+        "rationale": "The description identifies a room-category ratio applied to associated charges. Request the actual clause, affected-item calculation and whether those charges vary by room. Neither the historical 2020 circular nor a ratio alone establishes that the reduction is prohibited.",
+        "rule_ids": [
+          "room-rent-review",
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "room-rent-review",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter III IV, p.30; Annexure 6 item 19, p.44"
+        },
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-013",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1thpaiw/star_health_reduced_49k_from_major_laparoscopic/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Consumable item with unknown rider",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Mira Sen\nPolicy No.: DEMO-POL-260002\nClaim ID: DEMO-CLM-410002\nUHID: DEMO-UH-730002\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 48,650. Settled: Rs 47,150. Total reduction: Rs 1,500.\nDeduction explanation: Non-medical consumables: gloves Rs 550, oxygen mask Rs 400, admission kit Rs 550. Deducted under excluded items; no rider review shown.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Mira Sen",
+        "DEMO-POL-260002",
+        "DEMO-CLM-410002",
+        "DEMO-UH-730002"
+      ],
+      "billed_amount": 48650,
+      "paid_amount": 47150,
+      "reviewed_deduction": {
+        "id": "s02",
+        "description": "Non-medical consumables: gloves Rs 550, oxygen mask Rs 400, admission kit Rs 550. Deducted under excluded items; no rider review shown.",
+        "amount": 1500,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "consumable",
+        "status": "challengeable",
+        "rationale": "Exact items appear in different historical lists: gloves I.56, oxygen mask I.62, admission kit II.27. Those historical labels cannot decide present coverage. Request policy exclusion, consumable rider and any package/room inclusion before concluding recoverability.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-007",
+          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1wm8q03/part_2_niva_bupa_escalation/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-024",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w1jjhy/disappointing_claim_process/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Confirmed cataract benefit cap",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Dev Shah\nPolicy No.: DEMO-POL-260003\nClaim ID: DEMO-CLM-410003\nUHID: DEMO-UH-730003\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 54,500. Settled: Rs 50,000. Total reduction: Rs 4,500.\nDeduction explanation: Cataract sub-limit: procedure bill Rs 54,500; eligible policy limit Rs 50,000 per eye; excess Rs 4,500.\nPolicy term supplied: DEMO clause 4.2: cataract benefit is limited to Rs 50,000 per eye for this policy year; no prior utilization.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Dev Shah",
+        "DEMO-POL-260003",
+        "DEMO-CLM-410003",
+        "DEMO-UH-730003"
+      ],
+      "billed_amount": 54500,
+      "paid_amount": 50000,
+      "reviewed_deduction": {
+        "id": "s03",
+        "description": "Cataract sub-limit: procedure bill Rs 54,500; eligible policy limit Rs 50,000 per eye; excess Rs 4,500.",
+        "amount": 4500,
+        "policyCalculationConfirmed": true,
+        "policyClause": "DEMO clause 4.2: cataract benefit is limited to Rs 50,000 per eye for this policy year; no prior utilization."
+      },
+      "expected": {
+        "category": "sub-limit",
+        "status": "likely valid",
+        "rationale": "In this synthetic scenario the user confirms the applicable per-eye cap and the arithmetic: 54,500 minus 50,000 is 4,500. Likely valid is conditional, not an adjudication; policy version, utilization and riders still matter. The linked cataract post is only contextual, not evidence this fictional cap exists.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-006",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w3m00w/unreasonable_deduction_from_health_claim/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Confirmed co-payment with calculation base",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Ishan Mehta\nPolicy No.: DEMO-POL-260004\nClaim ID: DEMO-CLM-410004\nUHID: DEMO-UH-730004\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 72,500. Settled: Rs 58,000. Total reduction: Rs 14,500.\nDeduction explanation: Co-payment at 20% of the admissible amount Rs 72,500 = Rs 14,500; balance insurer liability Rs 58,000.\nPolicy term supplied: DEMO schedule: 20% co-payment applies to each admissible hospitalization claim; no waiver or special network exemption.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Ishan Mehta",
+        "DEMO-POL-260004",
+        "DEMO-CLM-410004",
+        "DEMO-UH-730004"
+      ],
+      "billed_amount": 72500,
+      "paid_amount": 58000,
+      "reviewed_deduction": {
+        "id": "s04",
+        "description": "Co-payment at 20% of the admissible amount Rs 72,500 = Rs 14,500; balance insurer liability Rs 58,000.",
+        "amount": 14500,
+        "policyCalculationConfirmed": true,
+        "policyClause": "DEMO schedule: 20% co-payment applies to each admissible hospitalization claim; no waiver or special network exemption."
+      },
+      "expected": {
+        "category": "co-pay",
+        "status": "likely valid",
+        "rationale": "Both clause applicability and calculation are expressly confirmed by the fixture user. The arithmetic 72,500 x 20% = 14,500 supports the conditional status. Public shortfall reports illustrate confusion about partial approval, not proof of co-pay terms.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-004",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1t43fx2/cashless_claim_approved_partially_hospital_asking/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Reasonable-and-customary reduction",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Leena Bose\nPolicy No.: DEMO-POL-260005\nClaim ID: DEMO-CLM-410005\nUHID: DEMO-UH-730005\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 118,000. Settled: Rs 106,000. Total reduction: Rs 12,000.\nDeduction explanation: Consultant professional fee Rs 32,000 reduced to Rs 20,000 on reasonable and customary grounds; comparison data not enclosed.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Leena Bose",
+        "DEMO-POL-260005",
+        "DEMO-CLM-410005",
+        "DEMO-UH-730005"
+      ],
+      "billed_amount": 118000,
+      "paid_amount": 106000,
+      "reviewed_deduction": {
+        "id": "s05",
+        "description": "Consultant professional fee Rs 32,000 reduced to Rs 20,000 on reasonable and customary grounds; comparison data not enclosed.",
+        "amount": 12000,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "reasonable-customary",
+        "status": "challengeable",
+        "rationale": "The insurer label identifies the category but does not establish an evidence-based comparison, geographic benchmark or policy clause. Seek the reference data and line calculation. Do not characterize every reasonable-and-customary reduction as unlawful.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-012",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w1ewu7/rejection_claim/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Package inclusion rather than consumable exclusion",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Kabir Joshi\nPolicy No.: DEMO-POL-260006\nClaim ID: DEMO-CLM-410006\nUHID: DEMO-UH-730006\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 88,600. Settled: Rs 86,200. Total reduction: Rs 2,400.\nDeduction explanation: Surgical tape and gauze Rs 2,400 deducted as already included in the surgery package. Hospital bills the items separately and says they were outside the agreed package.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Kabir Joshi",
+        "DEMO-POL-260006",
+        "DEMO-CLM-410006",
+        "DEMO-UH-730006"
+      ],
+      "billed_amount": 88600,
+      "paid_amount": 86200,
+      "reviewed_deduction": {
+        "id": "s06",
+        "description": "Surgical tape and gauze Rs 2,400 deducted as already included in the surgery package. Hospital bills the items separately and says they were outside the agreed package.",
+        "amount": 2400,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "package",
+        "status": "challengeable",
+        "rationale": "The operative reason is alleged package inclusion, despite names of consumable items. Compare agreed package and hospital bill to determine whether this is duplicate billing or an incorrect package assumption. Historical List III labels do not settle the dispute.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-010",
+          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1tn5r32/health_insurance_reimbursement_paritally_honoured/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-024",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w1jjhy/disappointing_claim_process/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "Alleged unrelated investigation",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Tara Nair\nPolicy No.: DEMO-POL-260007\nClaim ID: DEMO-CLM-410007\nUHID: DEMO-UH-730007\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 37,400. Settled: Rs 34,300. Total reduction: Rs 3,100.\nDeduction explanation: Thyroid profile and vitamin panel Rs 3,100 are not related to the admitted ankle injury. Treating doctor ordered them during the same admission.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Tara Nair",
+        "DEMO-POL-260007",
+        "DEMO-CLM-410007",
+        "DEMO-UH-730007"
+      ],
+      "billed_amount": 37400,
+      "paid_amount": 34300,
+      "reviewed_deduction": {
+        "id": "s07",
+        "description": "Thyroid profile and vitamin panel Rs 3,100 are not related to the admitted ankle injury. Treating doctor ordered them during the same admission.",
+        "amount": 3100,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "unrelated",
+        "status": "challengeable",
+        "rationale": "Timing within an admission neither proves nor disproves medical relation. Request the specific terms and clinical basis and obtain the treating doctor explanation. The app must not independently diagnose or assert medical necessity.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-016",
+          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w0oios/claim_settled_a_long_fight/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-030",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1vojzq8/icici_lombard_rejected_our_claim/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "Blank deduction explanation",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Aarav Roy\nPolicy No.: DEMO-POL-260008\nClaim ID: DEMO-CLM-410008\nUHID: DEMO-UH-730008\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 80,350. Settled: Rs 77,100. Total reduction: Rs 3,250.\nDeduction explanation: Adjustment against final payable amount: Rs 3,250. Remarks: as per terms. Item-wise reason: —.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Aarav Roy",
+        "DEMO-POL-260008",
+        "DEMO-CLM-410008",
+        "DEMO-UH-730008"
+      ],
+      "billed_amount": 80350,
+      "paid_amount": 77100,
+      "reviewed_deduction": {
+        "id": "s08",
+        "description": "Adjustment against final payable amount: Rs 3,250. Remarks: as per terms. Item-wise reason: —.",
+        "amount": 3250,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "unexplained",
+        "status": "no reason given",
+        "rationale": "A numeric adjustment and generic terms label do not communicate the full item-specific reason and policy term. The correct next action is to ask for reasons; do not invent a consumables/co-pay/category explanation.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-011",
+          "url": "https://www.reddit.com/r/personalfinanceindia/comments/1sk4xc7/star_health_claim_partially_rejected_with_no/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-022",
+          "url": "https://www.reddit.com/r/personalfinanceindia/comments/1ufrw7q/mediassist_cashless_claim_reduced_after/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "Approved room rent must not override actual co-pay",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Neha Kapoor\nPolicy No.: DEMO-POL-260009\nClaim ID: DEMO-CLM-410009\nUHID: DEMO-UH-730009\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 62,500. Settled: Rs 50,000. Total reduction: Rs 12,500.\nDeduction explanation: Room rent approved in full, with no deduction. Deduction shown below: co-payment 20% on Rs 62,500, amount Rs 12,500. The policy clause is not enclosed.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Neha Kapoor",
+        "DEMO-POL-260009",
+        "DEMO-CLM-410009",
+        "DEMO-UH-730009"
+      ],
+      "billed_amount": 62500,
+      "paid_amount": 50000,
+      "reviewed_deduction": {
+        "id": "s09",
+        "description": "Room rent approved in full, with no deduction. Deduction shown below: co-payment 20% on Rs 62,500, amount Rs 12,500. The policy clause is not enclosed.",
+        "amount": 12500,
+        "policyCalculationConfirmed": true
+      },
+      "expected": {
+        "category": "co-pay",
+        "status": "challengeable",
+        "rationale": "The room charge is explicitly approved; the actual deduction is co-pay. Confirming arithmetic without an applicable policy clause cannot make it likely valid. A first-keyword room-rent match loses the negation and misstates the reason.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-004",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1t43fx2/cashless_claim_approved_partially_hospital_asking/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-011",
+          "url": "https://www.reddit.com/r/personalfinanceindia/comments/1sk4xc7/star_health_claim_partially_rejected_with_no/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Exhausted maternity allowance without the word sub-limit",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Riya Verma\nPolicy No.: DEMO-POL-260010\nClaim ID: DEMO-CLM-410010\nUHID: DEMO-UH-730010\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 42,000. Settled: Rs 20,000. Total reduction: Rs 22,000.\nDeduction explanation: Maternity benefit ceiling Rs 50,000 for the policy year. Prior maternity payment Rs 30,000; remaining allowance Rs 20,000. Current bill Rs 42,000; excess deducted Rs 22,000.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.",
+      "known_identifiers": [
+        "Riya Verma",
+        "DEMO-POL-260010",
+        "DEMO-CLM-410010",
+        "DEMO-UH-730010"
+      ],
+      "billed_amount": 42000,
+      "paid_amount": 20000,
+      "reviewed_deduction": {
+        "id": "s10",
+        "description": "Maternity benefit ceiling Rs 50,000 for the policy year. Prior maternity payment Rs 30,000; remaining allowance Rs 20,000. Current bill Rs 42,000; excess deducted Rs 22,000.",
+        "amount": 22000,
+        "policyCalculationConfirmed": false
+      },
+      "expected": {
+        "category": "sub-limit",
+        "status": "challengeable",
+        "rationale": "A treatment-specific benefit ceiling is a sub-limit even when the exact label is absent. Verify policy wording, period and prior utilization. The post reference concerns a policy-period dispute and is contextual only; all maternity terms here are synthetic.",
+        "rule_ids": [
+          "deduction-reasons"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-017",
+          "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t6c3mo/post_hospitalisation_rejected/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
+    }
+  ]
+}

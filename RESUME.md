@@ -12,7 +12,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 - M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Research has 12 strictly qualifying recent cases, below requested 30; adjacent cases are not counted.
 - M2: static hospital app/PWA local implementation ready; browser checks pass. Deployment remains blocked.
 - M3: static Index pages for all32 roster insurers ready,17 with numeric rows. Direct PDF/page links, partial-source flags and unnormalized bucket values verified. Offline/mobile tests pass. Deployment remains blocked.
-- M4: local PDF/OCR pipeline and conservative rules engine underway.
+- M4: local PDF/OCR/manual pipeline ready. 10/10 independent synthetic deduction cases pass after5 fixes; seven browser scenarios pass including on-device textPDF, photoOCR and no-AI fallback. No real-provider QA.
 - M5: Worker/D1/workflows underway in parallel.
 - M6: pending final QA and handoff.
 
