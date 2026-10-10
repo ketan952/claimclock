@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-10",
+  "window": {
+    "start": "2026-04-14",
+    "end": "2026-10-10",
+    "days": 180,
+    "basis": "180 inclusive calendar dates; publication date, not medical-event date. April 13 is 180 days before October 10 and outside this inclusive convention."
+  },
+  "original_dataset": "research/user-evidence.json",
+  "status": "partial_target_not_met",
+  "requested_minimum_qualifying_posts": 30,
+  "counts": {
+    "original_strict_qualifying_posts": 12,
+    "new_unique_strict_qualifying_posts": 13,
+    "combined_strict_without_amendments": 25,
+    "existing_records_with_resolved_dates": 5,
+    "recommended_existing_scope_or_date_upgrades": 2,
+    "combined_strict_if_recommended_amendments_applied": 27,
+    "remaining_to_target_if_amendments_applied": 3,
+    "new_x_individual_posts": 0,
+    "new_localcircles_individual_posts": 0
+  },
+  "eligibility_definition": "Strict target requires exact publication date in the 180-day window, a direct first-person/caregiver experience, and a discharge-delay, extra-stay, cashless-shortfall or deduction dispute. Adjacent reimbursement delays, pure rejections and OPD issues are retained for product context but not counted toward the strict 30-post target. Unresolved dates and friend-only reports are excluded.",
+  "methodology": [
+    "Additional bounded live-web research on 2026-10-10. New records are unique top-level cases against the original 36 records and listed duplicates. Author comments can clarify the same case but are not counted as separate posts.",
+    "Exact dates use the top-level Reddit JSON created_utc in UTC. No relative dates, comment dates or crawl dates are converted to publication dates.",
+    "Only short researcher paraphrases are stored. Usernames, patient names, policy/claim identifiers and source screenshots are omitted.",
+    "Counts describe a selected problem-oriented convenience sample, not insurer or TPA failure rates. Use only most reported by users language if presenting mention counts.",
+    "No independent finding of liability or statutory breach. Hospital submission delay, preauthorization delay, final discharge approval, deposit collection and reimbursement deductions remain distinct.",
+    "The original dataset is untouched. Existing-record amendments are explicit recommendations and are not additional unique posts."
+  ],
+  "posts": [
+    {
+      "id": "case-037",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1smd1jz/care_health_delaying_my_childs_claim_asking_for/",
+      "published_date": "2026-04-15",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1smd1jz/care_health_delaying_my_childs_claim_asking_for/.json?limit=0",
+      "created_utc": 1776274602,
+      "published_at_utc": "2026-04-15T17:36:42Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "document_request_loop",
+        "hospital_discharge_delay",
+        "cashless_provider_switch"
+      ],
+      "snippet": "Parent reports two days waiting in hospital amid repeated document requests, then switching from Care Health to corporate cover to leave.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Medical readiness and request-receipt timestamps are not established; two-day waiting allegation is the author’s own report."
+    },
+    {
+      "id": "case-038",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w73xui/a_question_on_excess_tarriff_charges/",
+      "published_date": "2026-09-04",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w73xui/a_question_on_excess_tarriff_charges/.json?limit=0",
+      "created_utc": 1788527290,
+      "published_at_utc": "2026-09-04T13:08:10Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "excess_tariff_collection_dispute"
+      ],
+      "snippet": "Patient reports paying ₹29,000, then finding insurer approval limited patient liability to ₹15,000; disputes the additional ₹14,000 hospital collection.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Report distinguishes insurer-approved patient liability from the hospital collection; insurer and TPA are unnamed."
+    },
+    {
+      "id": "case-039",
+      "source": "reddit",
+      "subreddit": "LegalAdviceIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/LegalAdviceIndia/comments/1uylxkc/star_india_health_insurance_i_need_to_lodge_a/",
+      "published_date": "2026-07-17",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/LegalAdviceIndia/comments/1uylxkc/star_india_health_insurance_i_need_to_lodge_a/.json?limit=0",
+      "created_utc": 1784252414,
+      "published_at_utc": "2026-07-17T01:40:14Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Star India health insurance"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "hospital_discharge_delay",
+        "approval_delay"
+      ],
+      "snippet": "Caregiver reports a mother’s expected discharge postponed amid medical-claim approval delays and seeks a formal complaint route.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "The direct report appears in the post title. Insurer label is preserved verbatim and not silently mapped to Star Health."
+    },
+    {
+      "id": "case-040",
+      "source": "reddit",
+      "subreddit": "gurgaon",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/gurgaon/comments/1vn6n6c/fortis_is_taking_forever_to_discharge/",
+      "published_date": "2026-08-13",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/gurgaon/comments/1vn6n6c/fortis_is_taking_forever_to_discharge/.json?limit=0",
+      "created_utc": 1786615955,
+      "published_at_utc": "2026-08-13T10:12:35Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "hospital_document_delay",
+        "hospital_discharge_delay",
+        "extra_stay_charge_concern"
+      ],
+      "snippet": "Patient reports delayed discharge paperwork and an unsent authorization request while required to remain in a ₹10,000-per-day room.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Report attributes the document delay to hospital workflow; no final extra-rent payment or insurer breach is established."
+    },
+    {
+      "id": "case-041",
+      "source": "reddit",
+      "subreddit": "india",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/india/comments/1tub3dl/we_relocated_to_a_different_city_for_my_mothers/",
+      "published_date": "2026-06-02",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/india/comments/1tub3dl/we_relocated_to_a_different_city_for_my_mothers/.json?limit=0",
+      "created_utc": 1780360364,
+      "published_at_utc": "2026-06-02T00:32:44Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "hospital_document_delay",
+        "hospital_discharge_delay"
+      ],
+      "snippet": "Caregiver reports expected morning discharge, hospital bill submission to insurance at 2:30 PM, and eventual transfer admission at 9 PM.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "The report includes other clinical allegations; only the stated discharge workflow is summarized here."
+    },
+    {
+      "id": "case-042",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w5wtr1/planning_cataract_surgery_for_your_parents_learn/",
+      "published_date": "2026-09-03",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w5wtr1/planning_cataract_surgery_for_your_parents_learn/.json?limit=0",
+      "created_utc": 1788408526,
+      "published_at_utc": "2026-09-03T04:08:46Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "cashless_deposit_shortfall",
+        "discharge_wait"
+      ],
+      "snippet": "Caregiver reports an upfront cashless deposit and a three-to-four-hour final-approval wait; later describes the overall cataract claim process positively.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Consolidates August 27 precursor and September 2 cross-post. Deposit was reportedly refunded; expected policy exclusions are not assumed improper."
+    },
+    {
+      "id": "case-043",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wqimrh/niva_bupa_kept_our_room_entitlement_ambiguous/",
+      "published_date": "2026-09-26",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wqimrh/niva_bupa_kept_our_room_entitlement_ambiguous/.json?limit=0",
+      "created_utc": 1790401760,
+      "published_at_utc": "2026-09-26T05:49:20Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "room_entitlement_deduction_dispute",
+        "discharge_payment_to_leave",
+        "escalation_access"
+      ],
+      "snippet": "Caregiver reports paying ₹6,214 to discharge a relative despite written room-eligibility assurances, and disputes the accommodation deduction.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Room-entitlement interpretation and the claim documents were not independently adjudicated."
+    },
+    {
+      "id": "case-044",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t8adn6/star_health_insurance_rejected_my_claim_urgent/",
+      "published_date": "2026-05-09",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t8adn6/star_health_insurance_rejected_my_claim_urgent/.json?limit=0",
+      "created_utc": 1778345853,
+      "published_at_utc": "2026-05-09T16:57:33Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "unexplained_partial_reimbursement",
+        "expense_date_exclusion_dispute"
+      ],
+      "snippet": "Caregiver disputes ₹54,000 post-hospitalization expenses reduced to about ₹10,500, reporting generic explanations and disputed expense-date exclusions.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Counted as a deduction dispute, not a pure reimbursement delay. January hospitalization predates the publication window; eligibility uses publication date."
+    },
+    {
+      "id": "case-045",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1tar7gp/icici_lombard_denied_claim/",
+      "published_date": "2026-05-12",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1tar7gp/icici_lombard_denied_claim/.json?limit=0",
+      "created_utc": 1778561105,
+      "published_at_utc": "2026-05-12T04:45:05Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "ICICI Lombard"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "physiotherapy_deduction_dispute",
+        "document_request_loop",
+        "grievance_closed_without_resolution"
+      ],
+      "snippet": "Caregiver reports ₹80,000 post-hospitalization expenses reduced to ₹42,000 and disputes a physiotherapy deduction despite submitting prescription and invoice.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Author expected ₹64,000 after a 20% copay; complaint concerns the further deduction, not the agreed copay."
+    },
+    {
+      "id": "case-046",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1sntpmc/infosys_corporate_insurance_efhip_my_experience/",
+      "published_date": "2026-04-17",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/personalfinanceindia/comments/1sntpmc/infosys_corporate_insurance_efhip_my_experience/.json?limit=0",
+      "created_utc": 1776410193,
+      "published_at_utc": "2026-04-17T07:16:33Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Go Digit"
+      ],
+      "tpa_as_reported": "Medi Assist",
+      "scope": "core",
+      "failure_types": [
+        "document_request_loop",
+        "hospital_discharge_delay",
+        "extra_stay_payment_reported",
+        "unexplained_deduction"
+      ],
+      "snippet": "Caregiver reports document delays and denial under corporate cover, and says two additional hospital-rent days were paid because of insurance delay.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "One top-level post includes several family events; counted once. Insurer, TPA and extra-rent statement come from the author’s clarification comment.",
+      "clarifying_source_urls": [
+        "https://www.reddit.com/r/personalfinanceindia/comments/1sntpmc/comment/ogpdsj7/"
+      ]
+    },
+    {
+      "id": "case-047",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1vimd07/corporate_health_insurance_maternity_claim_labour/",
+      "published_date": "2026-08-08",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1vimd07/corporate_health_insurance_maternity_claim_labour/.json?limit=0",
+      "created_utc": 1786163353,
+      "published_at_utc": "2026-08-08T04:29:13Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "maternity_package_dispute",
+        "room_rent_deduction_dispute"
+      ],
+      "snippet": "Caregiver disputes maternity labour-suite charges excluded after partial cashless payment and reconsideration, questioning the room-rent and package treatment.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "An exclusion reason was provided and is contested; this is not coded as an unexplained deduction or a proven improper charge."
+    },
+    {
+      "id": "case-048",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w19wmz/robotic_surgery_cost_rejected_by_hdfc_ergo/",
+      "published_date": "2026-08-29",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w19wmz/robotic_surgery_cost_rejected_by_hdfc_ergo/.json?limit=0",
+      "created_utc": 1787969613,
+      "published_at_utc": "2026-08-29T02:13:33Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "HDFC ERGO"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "robotic_surgery_deduction_dispute",
+        "discharge_payment_to_leave"
+      ],
+      "snippet": "Caregiver reports robotic knee-surgery charges excluded from a parent’s claim, with the balance paid to obtain discharge despite unclear explanation.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Author clarifies that other costs were approved; this is a partial deduction, not total claim rejection."
+    },
+    {
+      "id": "case-049",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1u96hac/care_supreme_health_insurance_partially_rejected/",
+      "published_date": "2026-06-18",
+      "date_precision": "day",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date; not a comment or crawl timestamp",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1u96hac/care_supreme_health_insurance_partially_rejected/.json?limit=0",
+      "created_utc": 1781789742,
+      "published_at_utc": "2026-06-18T13:35:42Z",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "robotic_surgery_deduction_dispute",
+        "medical_necessity_deduction_dispute"
+      ],
+      "snippet": "Caregiver disputes partial payment for a mother’s robotic gallbladder surgery after the insurer questioned its advantage over conventional laparoscopy.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "notes": "Care Supreme is named in the title. Insurer provided a necessity rationale that the caregiver disputes; neither medical necessity nor coverage is adjudicated."
+    }
+  ],
+  "existing_record_amendments": [
+    {
+      "existing_case_id": "case-032",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwxlde/care_health_rejected_my_mothers_19l_claim_because/",
+      "published_date": "2026-10-03",
+      "created_utc": 1791060458,
+      "published_at_utc": "2026-10-03T20:47:38Z",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwxlde/care_health_rejected_my_mothers_19l_claim_because/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": false,
+      "reason": "Exact date resolved; document dispute remains adjacent.",
+      "applied_to_original": false
+    },
+    {
+      "existing_case_id": "case-033",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwmycl/care_health_insurance_happy_to_take_your_premium/",
+      "published_date": "2026-10-03",
+      "created_utc": 1791033174,
+      "published_at_utc": "2026-10-03T13:12:54Z",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwmycl/care_health_insurance_happy_to_take_your_premium/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": false,
+      "reason": "Exact date resolved; document dispute remains adjacent.",
+      "applied_to_original": false
+    },
+    {
+      "existing_case_id": "case-034",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwgolq/my_experience_with_hdfc_ergo/",
+      "published_date": "2026-10-03",
+      "created_utc": 1791010922,
+      "published_at_utc": "2026-10-03T07:02:02Z",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwgolq/my_experience_with_hdfc_ergo/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": false,
+      "reason": "Exact date resolved; positive final two-hour discharge experience and planned consumables reimbursement, without a disputed final deduction, remain adjacent.",
+      "applied_to_original": false
+    },
+    {
+      "existing_case_id": "case-035",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wjops4/denied_cashless_authorization_by_hdfc_policy/",
+      "published_date": "2026-09-18",
+      "created_utc": 1789734156,
+      "published_at_utc": "2026-09-18T12:22:36Z",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wjops4/denied_cashless_authorization_by_hdfc_policy/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": true,
+      "reason": "Exact date resolved. Existing core report describes repeated discharge-day wait instructions and conversion to cash payment to leave.",
+      "applied_to_original": false
+    },
+    {
+      "existing_case_id": "case-036",
+      "url": "https://www.reddit.com/r/IndianPersonalFinance/comments/1ue7347/why_is_health_insurance_a_scam_in_india_my_story/",
+      "published_date": "2026-06-24",
+      "created_utc": 1782287543,
+      "published_at_utc": "2026-06-24T07:52:23Z",
+      "date_evidence_url": "https://www.reddit.com/r/IndianPersonalFinance/comments/1ue7347/why_is_health_insurance_a_scam_in_india_my_story/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": false,
+      "reason": "Exact date resolved; reimbursement delays remain adjacent.",
+      "applied_to_original": false
+    },
+    {
+      "existing_case_id": "case-030",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1vojzq8/icici_lombard_rejected_our_claim/",
+      "published_date": "2026-08-14",
+      "created_utc": 1786742618,
+      "published_at_utc": "2026-08-14T21:23:38Z",
+      "date_evidence_url": "https://www.reddit.com/r/indiahealthinsurance/comments/1vojzq8/icici_lombard_rejected_our_claim/.json?limit=0",
+      "date_evidence": "Top-level Reddit JSON created_utc, converted to UTC calendar date",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": true,
+      "reason": "Scope correction: author explicitly reports waiting a few hours despite sister being ready for discharge. Medical event was late 2025; publication date is within the established window.",
+      "applied_to_original": false
+    }
+  ],
+  "excluded_duplicates": [
+    {
+      "url": "https://www.reddit.com/r/navimumbaiclub/comments/1vzrlcf/cashless_treatment_in_india_but_the_hospital/",
+      "same_case_as": "case-042",
+      "reason": "Earlier August 27 precursor to the same cataract case"
+    },
+    {
+      "url": "https://www.reddit.com/r/navimumbaiclub/comments/1w5jpn0/",
+      "same_case_as": "case-042",
+      "reason": "September 2 cross-post of the same cataract case"
+    },
+    {
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1t97zjq/",
+      "same_case_as": "case-044",
+      "reason": "May 10 cross-post of the same Star post-hospitalization deduction dispute"
+    },
+    {
+      "url": "https://www.reddit.com/r/indiasocial/comments/1tjfngo/niva_bupa_rejected_my_43997_health_insurance/",
+      "same_case_as": "case-031",
+      "reason": "Cross-post of existing Niva Bupa case"
+    }
+  ],
+  "coverage_gaps": [
+    "The target remains unmet even after the recommended existing-record corrections.",
+    "No qualifying individual X or LocalCircles report verified in this bounded pass.",
+    "No representative denominator or verified claim adjudication. An author’s allegation of delay or extra payment is not a legal finding."
+  ],
+  "excluded_screened_sources": [
+    {
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1u27ngh/removed/",
+      "reason": "Removed top-level text; several useful firsthand comments exist, but separate comments are not counted under the established top-level-post methodology."
+    },
+    {
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1u0qv7t/need_help_understanding_cashless_insurance/",
+      "reason": "Initial approval question before final settlement; no actual disputed deduction or discharge delay established."
+    },
+    {
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1u2yvg3/do_you_pay_admission_charge_in_hospitalization/",
+      "reason": "Relative-only admission deposit question; direct caregiver participation and a contested final collection are not established."
+    },
+    {
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1rzovw5/hospital_discharged_patient_without_receiving/",
+      "reason": "March 21 publication is outside the window."
+    },
+    {
+      "url": "https://www.localcircles.com/a/public/post/excessive-charging-by-hospitals-for-medical-consumables/6838473cy",
+      "reason": "Community request for bills and aggregate context, not an exact-dated firsthand individual report."
+    },
+    {
+      "url": "https://www.localcircles.com/a/public/post/irdai-acts-on-localcircles-demand-on-claims-processing/6448501cy",
+      "reason": "Older regulatory discussion, not an eligible firsthand individual report."
+    }
+  ],
+  "combined_review_projection": {
+    "unique_top_level_posts": 49,
+    "exact_dates_in_window": 48,
+    "exact_dates_outside_window": 1,
+    "unresolved_publication_dates": 0,
+    "strict_qualifying_posts": 27,
+    "depends_on_explicit_amendments": true
+  },
+  "combined_strict_clusters_if_amendments_applied": {
+    "label": "Most reported by users in the strict qualifying convenience sample; not an insurer judgment or failure rate",
+    "insurer_mentions": {
+      "Star Health": 5,
+      "Niva Bupa": 3,
+      "Go Digit": 2,
+      "ICICI Lombard": 2,
+      "HDFC ERGO": 2,
+      "Care Health": 2,
+      "Aditya Birla Health": 1,
+      "New India Assurance": 1,
+      "Star India health insurance": 1
+    },
+    "tpa_mentions": {
+      "Medi Assist": 2
+    },
+    "unknown_insurer_cases": 8,
+    "unknown_tpa_cases": 25
+  }
+}

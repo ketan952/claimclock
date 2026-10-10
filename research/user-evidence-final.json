@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-10",
+  "status": "partial_target_not_met",
+  "note": "Final bounded search adds one unique case and corrects one existing scope classification. Combined count29, one below requested30. No original records overwritten.",
+  "existing_record_amendments": [
+    {
+      "existing_case_id": "case-019",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1twn9zw/how_i_forced_a_major_health_insurer_to_settle_an/",
+      "published_date": "2026-06-04",
+      "created_utc": 1780578718,
+      "published_at_utc": "2026-06-04T13:11:58Z",
+      "date_evidence_url": "https://www.reddit.com/r/personalfinanceindia/comments/1twn9zw/how_i_forced_a_major_health_insurer_to_settle_an/.json?limit=0",
+      "date_evidence": "Primary Reddit JSON top-level t3.created_utc",
+      "within_180_day_window": true,
+      "previous_target_eligible": false,
+      "recommended_target_eligible": true,
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "failure_types": [
+        "unexplained_deduction",
+        "cashless_denial_unclear_reason",
+        "reimbursement_delay"
+      ],
+      "snippet": "Caregiver reports an initial 95% settlement with unexplained deductions; the remaining deductions were reversed after a documented challenge.",
+      "reason": "Previously adjacent; original post STEP 7 explicitly describes contested deductions and their reversal. Keep insurer unnamed because post itself does not identify it.",
+      "applied_to_original": false
+    }
+  ],
+  "posts": [
+    {
+      "id": "case-050",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1svytwr/niva_bupa_reassure_claim_deduction_citing_the_use/",
+      "published_date": "2026-04-26",
+      "created_utc": 1777181845,
+      "published_at_utc": "2026-04-26T05:37:25Z",
+      "date_precision": "day",
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1svytwr/niva_bupa_reassure_claim_deduction_citing_the_use/.json?limit=0",
+      "date_evidence": "Primary Reddit JSON top-level t3.created_utc",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "target_eligible": true,
+      "failure_types": [
+        "lens_deduction_dispute",
+        "missing_clause"
+      ],
+      "snippet": "Caregiver disputes ₹5,000 deducted from a cataract claim for an advanced monofocal lens and seeks the policy basis after grievance refusal.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "verification": "Public self-report; documents and insurer response not independently verified.",
+      "statutory_breach_established": false
+    }
+  ],
+  "excluded_screened_sources": [
+    {
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1wng790/pre_auth_icici_lombard_approved_only_15_lakh_out/",
+      "published_date": "2026-09-22",
+      "created_utc": 1790098631,
+      "date_evidence_url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1wng790/pre_auth_icici_lombard_approved_only_15_lakh_out/.json?limit=0",
+      "target_eligible": false,
+      "reason": "Initial preauthorization uncertainty; no completed settlement deduction or discharge delay established.",
+      "excluded_duplicate": "https://www.reddit.com/r/indiahealthinsurance/comments/1wnfviw/pre_auth_icici_lombard_approved_only_15_lakh_out/"
+    }
+  ]
+}

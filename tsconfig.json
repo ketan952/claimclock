@@ -21,6 +21,7 @@
   "include": [
     "src/**/*.ts",
     "tests/core.test.ts",
-    "tests/deductions.test.ts"
+    "tests/deductions.test.ts",
+    "tests/events.test.ts"
   ]
 }

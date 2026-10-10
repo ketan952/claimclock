@@ -5,7 +5,8 @@ export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
   return ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r)).map(r=>`${r.title} — ${r.paragraph}\n“${r.quote}”\n${language==='hi'&&r.plain_hi?r.plain_hi+'\n':''}${r.source_url}`).join('\n\n');
 }
 export function timelineText(t:Timeline, language:Language) {
-  return [`${formatTime(t.submittedAt,language)} — ${language==='hi'?'बताया गया अनुरोध समय':'Reported submission'}`,...[...t.events].sort((a,b)=>Date.parse(a.at)-Date.parse(b.at)).map(e=>`${formatTime(e.at,language)} — ${e.type}: ${e.note}`),...(t.decidedAt?[`${formatTime(t.decidedAt,language)} — ${language==='hi'?'निर्णय':'Decision'}: ${t.outcome}`]:[])].join('\n');
+  const labels:Record<string,string>=language==='hi'?{query:'सवाल पूछा गया',documents:'दस्तावेज़ फिर भेजे',call:'कॉल की',ack:'लिखित पुष्टि मिली',other:'अन्य जानकारी',approved:'मंज़ूर',partial:'आंशिक मंज़ूरी',rejected:'अस्वीकृत'}:{query:'Query raised',documents:'Documents re-sent',call:'Call made',ack:'Written acknowledgement received',other:'Other update',approved:'Approved',partial:'Partly approved',rejected:'Rejected'};
+  return [`${formatTime(t.submittedAt,language)} — ${language==='hi'?'बताया गया अनुरोध समय':'Reported submission'}`,...[...t.events].sort((a,b)=>Date.parse(a.at)-Date.parse(b.at)).map(e=>`${formatTime(e.at,language)} — ${labels[e.type]||e.type}: ${e.note}`),...(t.decidedAt?[`${formatTime(t.decidedAt,language)} — ${language==='hi'?'निर्णय':'Decision'}: ${labels[t.outcome||'']||t.outcome}`]:[])].join('\n');
 }
 export function makeLetter(kind:LetterKind, timeline:Timeline, contacts:Contact[], rules:Rule[], language:Language, extra:Record<string,string>={}, now=new Date()):Letter {
   const template=templates[kind];

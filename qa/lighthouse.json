@@ -1,0 +1,51 @@
+{
+  "url": "http://127.0.0.1:8787/",
+  "run_at": "2026-10-10T08:34:51.760Z",
+  "environment": "Local Wrangler, Lighthouse simulated mobile (not a live 4G measurement)",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": {
+      "value": 1132.741,
+      "display": "1.1 s"
+    },
+    "largest-contentful-paint": {
+      "value": 1359.2892000000002,
+      "display": "1.4 s"
+    },
+    "speed-index": {
+      "value": 1132.741,
+      "display": "1.1 s"
+    },
+    "total-blocking-time": {
+      "value": 0,
+      "display": "0 ms"
+    },
+    "cumulative-layout-shift": {
+      "value": 0,
+      "display": "0"
+    },
+    "interactive": {
+      "value": 1359.2892000000002,
+      "display": "1.4 s"
+    },
+    "total-byte-weight": {
+      "value": 58070,
+      "display": "Total size was 57 KiB"
+    }
+  },
+  "failed": [
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree"
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests"
+    }
+  ]
+}

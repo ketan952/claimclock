@@ -11,12 +11,14 @@
     "dev": "astro dev --host 127.0.0.1",
     "build": "node scripts/prepare-assets.mjs && astro build && node scripts/build-sw.mjs",
     "preview": "astro preview --host 127.0.0.1",
-    "check": "tsc --noEmit && node scripts/validate-data.mjs",
+    "check": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && node scripts/validate-data.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "deploy": "wrangler deploy",
     "licenses": "node scripts/audit-licenses.mjs",
     "test:browser": "playwright test",
-    "data:check": "python3 scripts/parse-nl48.py --check"
+    "data:check": "python3 scripts/parse-nl48.py --check",
+    "lint": "node scripts/lint.mjs",
+    "qa:performance": "node scripts/run-lighthouse.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8",

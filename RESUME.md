@@ -9,16 +9,16 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 ## Milestones
 
 - M0: committed/pushed as 071be2b. Design preceded application code.
-- M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Research has 12 strictly qualifying recent cases, below requested 30; adjacent cases are not counted.
+- M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Combined research has 29 strictly qualifying recent cases out of 50 retained records, one below requested 30; amendments and original passes remain auditable.
 - M2: static hospital app/PWA local implementation ready; browser checks pass. Deployment remains blocked.
-- M3: static Index pages for all32 roster insurers ready,17 with numeric rows. Direct PDF/page links, partial-source flags and unnormalized bucket values verified. Offline/mobile tests pass. Deployment remains blocked.
-- M4: local PDF/OCR/manual pipeline ready. 10/10 independent synthetic deduction cases pass after5 fixes; seven browser scenarios pass including on-device textPDF, photoOCR and no-AI fallback. No real-provider QA.
-- M5: optional Worker/D1 implementation ready: consent-gated reports and erasure, frozen monthly aggregates, bounded optional AI proxy, daily cron and weekly source-value contact workflow. Fourteen API/security tests plus ten actual local Wrangler/D1 integration checks pass. Production provisioning and provider tests remain pending.
-- M6: pending final QA and handoff.
+- M3: static Index pages for all 32 roster insurers ready, 17 with numeric rows. Direct PDF/page links, partial-source flags and unnormalized bucket values verified. Offline/mobile tests pass. Deployment remains blocked.
+- M4: local PDF/OCR/manual pipeline ready. 10/10 independent synthetic deduction cases pass after five fixes; eight browser scenarios pass including on-device text PDF, photo OCR and no-AI fallback. No real-provider QA.
+- M5: committed/pushed as 65f6a70; optional Worker/D1 implementation ready: consent-gated reports and erasure, frozen monthly aggregates, bounded optional AI proxy, daily cron and weekly source-value contact workflow. Fourteen API/security tests plus ten actual local Wrangler/D1 integration checks pass. Production provisioning and provider tests remain pending.
+- M6: local QA/handoff preparation ready. 52 unit/API tests, eight browser scenarios and ten local D1 checks pass. Lighthouse local mobile scores 100 across all four categories. Screenshots, source gap list, launch drafts and v2 priorities recorded. Live, physical-device and real-provider acceptance remain pending. Mode C is deliberately deferred.
 
 ## Next
 
-Finish the final QA/handoff record and push M6 preparation, then deploy only once account credentials and the license blocker are resolved. The user was asked exactly once to put Cloudflare token/account ID and optional Groq key in ignored `.env`; no credentials supplied yet. Do not ask again. Never claim live or complete without evidence.
+Resolve the mandated-stack/license conflict and provide personal Cloudflare credentials through the previously requested path. Deploy Mode A and Index only after gates pass; run live acceptance, then implement thin Mode C. Run real-provider/no-secret QA if a free key is configured. The 30-post research target is still short by one. Read qa/REPORT.md for every remaining check. The user was asked exactly once to put Cloudflare token/account ID and optional Groq key in ignored `.env`; no credentials supplied yet. Do not ask again. Never claim live or complete without evidence.
 
 ## Release blockers and corrections
 

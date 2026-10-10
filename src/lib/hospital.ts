@@ -27,6 +27,7 @@ function updateClock(){
  el('clock-card').classList.toggle('beyond',state.stage==='beyond');
  el('clock-progress').style.width=`${state.minutes?Math.min(100,state.elapsed/(state.minutes*60000)*100):0}%`;
  el('enhancement-note').hidden=timeline.requestType!=='enhancement';
+ const next=t(state.stage==='decided'?'clock.nextDecided':state.stage==='beyond'?'clock.nextBeyond':state.stage==='halfway'?'clock.nextHalfway':'clock.nextRunning');if(el('clock-next').textContent!==next)el('clock-next').textContent=next;
  for(const button of document.querySelectorAll<HTMLElement>('[data-letter="followup"]')) button.classList.toggle('ready',state.stage==='halfway'||state.stage==='beyond');
 }
 function reportPayload(){return timeline?{insurer:timeline.insurerId,tpa:timeline.tpaId||null,city:timeline.city,request_type:timeline.requestType,submitted_at:timeline.submittedAt,decided_at:timeline.decidedAt,outcome:timeline.outcome,consent_version:'2026-10-10'}:null;}
@@ -47,7 +48,7 @@ function render(){
  for(const c of [insurer,contacts.find(c=>c.id===timeline!.tpaId)].filter((c):c is Contact=>!!c)){
   const section=document.createElement('div');section.className='contact-block';addText(section,'strong',c.name);
   if(c.gro_email){const a=addText(section,'a',c.gro_email) as HTMLAnchorElement;a.href=`mailto:${c.gro_email}`;}
-  for(const phone of [...new Set([c.gro_phone,c.helpline].filter(Boolean))]){const a=addText(section,'a',String(phone)) as HTMLAnchorElement;a.href=`tel:${String(phone).replace(/[^+\d]/g,'')}`;}
+  for(const phone of [...new Set([c.gro_phone,c.helpline].filter(Boolean).flatMap(value=>String(value).split(/[,;/]|\bor\b/i).map(p=>p.trim()).filter(Boolean)))]){const a=addText(section,'a',phone) as HTMLAnchorElement;a.href=`tel:${phone.replace(/[^+\d]/g,'')}`;}
   const source=addText(section,'a',t('rights.source')+' ↗') as HTMLAnchorElement;source.href=c.source_url;source.target='_blank';source.rel='noopener noreferrer';addText(section,'small',`${t('contact.date')}: ${c.verified_on}`);el('contacts').append(section);
  }
  if(!insurer?.gro_email){addText(el('contacts'),'p',t('contact.unavailable'));const a=addText(el('contacts'),'a',t('contact.directory')) as HTMLAnchorElement;a.href='https://irdai.gov.in/list-of-gros';a.target='_blank';a.rel='noopener noreferrer';}

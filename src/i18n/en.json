@@ -190,5 +190,9 @@
   "deductions.checkAgain": "More identifiers were removed. Review the new preview and confirm again.",
   "deductions.aiCaution": "AI explanation only. Check it against your policy; the rule-based review above is unchanged.",
   "deductions.calendarDone": "Reminder file downloaded. Import it into your calendar and verify the dates.",
-  "deductions.dateError": "Check the dates: no future dates; reply cannot precede the complaint."
+  "deductions.dateError": "Check the dates: no future dates; reply cannot precede the complaint.",
+  "clock.nextRunning": "First, ask for written confirmation of the receipt time.",
+  "clock.nextHalfway": "Half the window has passed. Your follow-up message is ready.",
+  "clock.nextBeyond": "Your recorded wait is beyond the window. Review the GRO and billing-desk drafts below.",
+  "clock.nextDecided": "Keep the decision and itemised bill with your timeline."
 }

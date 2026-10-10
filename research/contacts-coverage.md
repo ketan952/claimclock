@@ -27,7 +27,7 @@ Where the current provider page has explicit role-specific data, it takes preced
 | Health India Insurance TPA Services Private Limited (`healthindia`) | helpline 1800 2201 02; published support customersupport@healthindiatpa.com; [source](https://irdai.gov.in/list-of-tpas) |
 | Park Mediclaim Insurance TPA Private Limited (`park`) | GRO phone 9821236752 / 011-43191079; helpline 1800 11 55 33; [source](https://www.parkmediclaim.co.in/Contact/CustomerSupport) |
 | Health Assist Insurance TPA Pvt. Ltd. (Formerly known as Safeway Insurance TPA Pvt. Ltd.) (`health-assist`) | helpline 1800 102 5671; published support contact@healthassisttpa.com; [source](https://www.safewaytpa.in/grievance.aspx) |
-| Health Insurance TPA of India Limited (`hitpa`) | helpline 1800 180 3600, 1800 102 3600; published support customerservice@hitpa.co.in; [source](https://irdai.gov.in/list-of-tpas) |
+| Health Insurance TPA of India Limited (`hitpa`) | helpline 1800 180 3600, 1800 102 3600; support email left null after source recheck; [source](https://irdai.gov.in/list-of-tpas) |
 | Link-K Insurance TPA Private Limited (`link-k`) | helpline 044 35255426; [source](https://irdai.gov.in/list-of-tpas) |
 | AKNA Health Insurance TPA Private Limited (`akna`) | helpline 1800-569-4455; [source](https://irdai.gov.in/list-of-tpas) |
 
@@ -36,7 +36,7 @@ Where the current provider page has explicit role-specific data, it takes preced
 - **Bajaj General**, **Magma General**, **Generali Central**, **IndusInd General** and **Zurich Kotak** use their current published names. Familiar legacy names remain aliases for search.
 - The current Generali Central grievance page uses **GCIGRO@generalicentral.com**; the IndusInd page uses **grievances@indusindinsurance.com**. Old Future Generali/Reliance-domain addresses were not preferred when the current provider supplied the new address.
 - HDFC ERGO’s current provider page identifies **cgo@hdfcergo.com** for the chief escalation; the older regulator address is documented in notes.
-- Zuno’s official January 2026 GRO PDF provides **tarun.mathur@hizuno.com** and **7208001193**. A regulator phone rendered in scientific notation was not converted into a guessed number. United India’s malformed registry phone was similarly replaced only from a valid official document.
+- Zuno’s official January 2026 GRO PDF provides **tarun.mathur@hizuno.com** and **7208001193**. A regulator phone rendered in scientific notation was not converted into a guessed number. United India’s malformed registry GRO phone is left null; its general helpline is separately verified against the live official grievance page.
 - Narayana’s current published officer is **Bharathi Bai A G**, **gro@narayanahealth.insurance**, **+91 80507 31511**. Its dedicated grievance line is separately sourced.
 - **Paramount** publishes integration with **Medi Assist effective 1 February 2026**. Its legacy record is retained for existing policyholders and marked accordingly; it is not represented as a separate newly active operator. Medi Assist’s aliases include the merged Raksha operation.
 - **Volo** includes former East West Assist, and **Health Assist** includes former Safeway, preserving search usability.

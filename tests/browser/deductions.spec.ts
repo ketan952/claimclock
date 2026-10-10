@@ -8,7 +8,7 @@ function textPdf(lines:string[]){
  let out='%PDF-1.4\n';const offsets=[0];for(let i=0;i<objects.length;i++){offsets.push(Buffer.byteLength(out));out+=`${i+1} 0 obj\n${objects[i]}\nendobj\n`;}const xref=Buffer.byteLength(out);out+=`xref\n0 6\n0000000000 65535 f \n${offsets.slice(1).map(n=>String(n).padStart(10,'0')+' 00000 n ').join('\n')}\ntrailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;return Buffer.from(out);
 }
 test('ten synthetic settlements produce reviewed local classifications and letters without AI',async({page})=>{
- const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&!r.url().startsWith('http://127.0.0.1:4322'))external.push(r.url());});
+ const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&new URL(r.url()).origin!==new URL(process.env.QA_BASE_URL||'http://127.0.0.1:4322').origin)external.push(r.url());});
  for(const fixture of fixtures){
   await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');
   await page.fill('#deduction-lines',`${fixture.reviewed_deduction.description} | ${fixture.reviewed_deduction.amount}`);await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');
@@ -24,7 +24,7 @@ test('text PDF extraction happens on-device',async({page})=>{
  await expect(page.locator('#extracted-text')).toHaveValue(/Non-medical consumables/, {timeout:30000});await expect(page.locator('#extracted-text')).toHaveValue(/3250/);
 });
 test('English photo OCR uses only self-hosted assets',async({page})=>{
- test.setTimeout(120000);const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&!r.url().startsWith('http://127.0.0.1:4322'))external.push(r.url());});
+ test.setTimeout(120000);const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&new URL(r.url()).origin!==new URL(process.env.QA_BASE_URL||'http://127.0.0.1:4322').origin)external.push(r.url());});
  await page.goto('/deductions/');const image=await page.evaluate(()=>{const c=document.createElement('canvas');c.width=1500;c.height=650;const x=c.getContext('2d')!;x.fillStyle='white';x.fillRect(0,0,c.width,c.height);x.fillStyle='black';x.font='42px Arial';['SYNTHETIC SETTLEMENT','Non-medical consumables: 1500','Co-payment deduction: 4000','Please review the policy clause.'].forEach((line,i)=>x.fillText(line,60,110+i*110));return c.toDataURL('image/png').split(',')[1];});
  await page.setInputFiles('#bill-file',{name:'synthetic-bill.png',mimeType:'image/png',buffer:Buffer.from(image,'base64')});await expect(page.locator('#extracted-text')).toHaveValue(/consumables/i,{timeout:100000});await expect(page.locator('#extracted-text')).toHaveValue(/1500/);expect(external).toEqual([]);
 });

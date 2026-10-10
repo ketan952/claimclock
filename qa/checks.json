@@ -1,0 +1,36 @@
+{
+  "checked_on": "2026-10-10",
+  "environment": "macOS arm64, Node22.23.3, Chromium/Pixel7 emulation, local Wrangler8787; no provider secrets or production DB",
+  "lint": "pass",
+  "types_and_data": "pass",
+  "unit_tests": {
+    "passed": 52,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 8,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0
+  },
+  "nl48_spotcheck": {
+    "pdfs": 5,
+    "cells": 120,
+    "differences": 0
+  },
+  "build": {
+    "static_pages": 40
+  },
+  "worker_dry_run": {
+    "status": "pass",
+    "uncompressed_kib": 183.21,
+    "gzip_kib": 35.62
+  },
+  "print_export": {
+    "synthetic_pages": 1,
+    "text_retained": true
+  },
+  "license_gate": "fail:101lockfile locations outside allowlist; see assessment",
+  "live_deployment": "not run",
+  "real_llm": "not run"
+}
