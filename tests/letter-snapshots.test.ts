@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import templates from '../templates/messages.json' with {type:'json'};
+import {proseDuration,duration} from '../src/lib/clock.ts';
 import {makeLetter,timingDemand} from '../src/lib/letters.ts';
 import {BIMA_DRAFT_LIMIT} from '../src/lib/letter-limits.ts';
 import {makeDeductionLetter} from '../src/lib/deduction-letter.ts';
@@ -40,7 +41,7 @@ test('reconsideration requests evidence per amount without copying coaching, ver
  assert.match(body,/room eligibility clause/);assert.match(body,/eligible calculation base/);assert.match(body,/complete reason for each/);assert.match(body,/within 14 days under the PPHI Master Circular/);assert.match(body,/Attachments:/);assert.doesNotMatch(body,/17\(a\)|Committee|likely valid|Ask for/);
 });
 test('before-window and excess-wait messages preserve receipt trigger and no invented enhancement deadline',()=>{
- assert.match(timingDemand(timeline,'en',now),/exceeds the 3-hour window by 01:00:00/);
+ assert.match(timingDemand(timeline,'en',now),/exceeds the 3-hour window by 1 hour/);
  assert.match(timingDemand({...timeline,submittedAt:'2026-10-10T08:00:00Z'},'en',now),/within the 3-hour window from receipt/);
  assert.doesNotMatch(timingDemand({...timeline,requestType:'enhancement'},'en',now),/window|deadline|exceeds/);
 });
@@ -57,6 +58,25 @@ test('Bima app budget holds for all insurer names, both languages and maximum al
    const letter=makeLetter('bima',input,contacts,rules,language,{},now);
    assert.ok(letter.body.length<=BIMA_DRAFT_LIMIT,`${insurer.id}/${language}/${requestType}: ${letter.body.length}`);assert.ok(letter.body.includes(input.hospital));assert.ok(letter.body.includes(input.city));assert.ok(letter.body.includes(insurer.name));assert.doesNotMatch(letter.body,/Long timeline note/);
   }
-  const letter=makeDeductionLetter('bima',verboseDeductions,insurer.id,contacts,rules,language,now);assert.ok(letter.body.length<=BIMA_DRAFT_LIMIT,`${insurer.id}/${language}/deductions: ${letter.body.length}`);assert.doesNotMatch(letter.body,/X{500}/);
+  for(const scenario of [verboseDeductions,[...verboseDeductions,classify({id:'confirmed',description:'Co-payment',amount:999999999,policyClause:'Applicable term',policyCalculationConfirmed:true})],[classify({id:'confirmed',description:'Co-payment',amount:999999999,policyClause:'Applicable term',policyCalculationConfirmed:true})]]){const letter=makeDeductionLetter('bima',scenario,insurer.id,contacts,rules,language,now);assert.ok(letter.body.length<=BIMA_DRAFT_LIMIT,`${insurer.id}/${language}/deductions: ${letter.body.length}`);assert.doesNotMatch(letter.body,/X{500}/);}
  }
+});
+
+test('prose durations round partial minutes up and reserve HH:mm:ss for the clock',()=>{
+ assert.equal(duration(3654000),'01:00:54');
+ for(const [ms,en,hi] of [[0,'0 minutes','0 मिनट'],[1000,'1 minute','1 मिनट'],[3600000,'1 hour','1 घंटा'],[3654000,'1 hour 1 minute','1 घंटा 1 मिनट'],[7260000,'2 hours 1 minute','2 घंटे 1 मिनट']] as const){assert.equal(proseDuration(ms,'en'),en);assert.equal(proseDuration(ms,'hi'),hi);}
+ for(const language of ['en','hi'] as const){
+  const partialMinute={...timeline,submittedAt:new Date(now.getTime()-3654000).toISOString(),events:[]};
+  for(const kind of Object.keys(templates) as LetterKind[]){const letter=makeLetter(kind,partialMinute,contacts,rules,language,{amount:'2,000',hours:'4'},now);assert.doesNotMatch(letter.body,/\b\d{2}:\d{2}:\d{2}\b/);}
+  const excess={...timeline,submittedAt:new Date(now.getTime()-3*3600000-3654000).toISOString()};assert.match(timingDemand(excess,language,now),language==='hi'?/1 घंटा 1 मिनट/:/1 hour 1 minute/);
+ }
+});
+test('confirmed policy deductions receive clarification requests in both letter formats and languages',()=>{
+ const confirmed=[classify({id:'c',description:'Co-payment',amount:2500,policyClause:'Section 4.2: 10% co-pay',policyCalculationConfirmed:true})];
+ for(const language of ['en','hi'] as const)for(const kind of ['reconsideration','bima'] as const){
+  const letter=makeDeductionLetter(kind,confirmed,timeline.insurerId,contacts,rules,language,now);
+  assert.match(letter.body,language==='hi'?/जाँच लिए हैं/:/have checked/);assert.match(letter.body,language==='hi'?/पुष्टि/:/confirm/);assert.match(letter.body,/14/);
+  assert.doesNotMatch(letter.body,/reconsideration|I dispute|Provide the applicable|17\(b\)|पुनः समीक्षा|मुझे आपत्ति/);assert.deepEqual(letter.ruleIds,['grievance-14-days']);
+ }
+ const mixed=makeDeductionLetter('bima',deductions,timeline.insurerId,contacts,rules,'en',now);assert.match(mixed.body,/review of deductions totalling ₹5,700/);assert.match(mixed.body,/checked the policy terms and arithmetic for deductions totalling ₹2,500/);
 });

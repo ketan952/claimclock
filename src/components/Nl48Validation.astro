@@ -1,0 +1,12 @@
+---
+import {type RowValidation} from '../lib/index-comparison';
+const {result}=Astro.props as {result:RowValidation};
+---
+<p class="fine-print" data-row-validation={result.status}>
+ <span data-i18n={`index.validation.${result.status}`}>{result.status==='pass'?'Bucket total passes 100±1':result.status==='incomplete'?'Bucket total unknown: some cells are not disclosed':'Bucket total outside 100±1'}</span>{result.total!==null&&<> · {Number(result.total.toFixed(2))}%</>}
+</p>
+{result.flags.length>0&&<p class="fine-print" data-review-status={result.reviewedOn?'verified':'pending'}>
+ <strong data-i18n={result.reviewedOn?'index.review.verified':'index.review.pending'}>{result.reviewedOn?'Review flag · PDF reverified':'Review flag · manual re-verification pending'}</strong>
+ {' · '}{result.flags.map((flag,i)=><>{i>0?' · ':''}<span data-i18n={`index.review.${flag}`}>{flag==='late'?'Over 6 hours exceeds 10%':'One bucket is 100%'}</span></>)}
+ {result.reviewedOn&&<> · <span data-local-date={result.reviewedOn}>{result.reviewedOn}</span></>}
+</p>}

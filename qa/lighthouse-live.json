@@ -1,6 +1,6 @@
 {
   "url": "https://claimclock.ketan952.workers.dev/",
-  "run_at": "2026-10-10T12:20:56.396Z",
+  "run_at": "2026-10-10T18:08:49.935Z",
   "environment": "Public deployment, Lighthouse simulated mobile (not a physical 4G device)",
   "scores": {
     "performance": 98,
@@ -10,15 +10,15 @@
   },
   "metrics": {
     "first-contentful-paint": {
-      "value": 1683.58,
+      "value": 1653.1675,
       "display": "1.7 s"
     },
     "largest-contentful-paint": {
-      "value": 2070.8959999999997,
-      "display": "2.1 s"
+      "value": 2043.8010000000002,
+      "display": "2.0 s"
     },
     "speed-index": {
-      "value": 1683.58,
+      "value": 1653.1675,
       "display": "1.7 s"
     },
     "total-blocking-time": {
@@ -30,12 +30,12 @@
       "display": "0"
     },
     "interactive": {
-      "value": 2070.8959999999997,
-      "display": "2.1 s"
+      "value": 2043.8010000000002,
+      "display": "2.0 s"
     },
     "total-byte-weight": {
-      "value": 102655,
-      "display": "Total size was 100 KiB"
+      "value": 106401,
+      "display": "Total size was 104 KiB"
     }
   },
   "failed": [

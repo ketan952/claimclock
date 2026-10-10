@@ -13,14 +13,14 @@ const rules=JSON.parse(readFileSync(new URL('../data/rules.json',import.meta.url
 const evidence=JSON.parse(readFileSync(new URL('../research/user-evidence.json',import.meta.url),'utf8')) as {posts:{id:string;url:string}[]};
 
 test('synthetic answer key spans all ten deduction categories and traceable evidence',()=>{
- assert.equal(dataset.synthetic,true);assert.equal(dataset.ai_evaluated,false);assert.equal(dataset.ocr_evaluated,false);assert.equal(fixtures.length,15);
+ assert.equal(dataset.synthetic,true);assert.equal(dataset.ai_evaluated,false);assert.equal(dataset.ocr_evaluated,false);assert.equal(fixtures.length,16);
  assert.deepEqual([...new Set(fixtures.map(f=>f.expected.category))].sort(),['co-pay','consumable','implant','package','reasonable-customary','room-rent','room-rent-cap','sub-limit','unexplained','unrelated'].sort());
  for(const f of fixtures){assert.equal(f.synthetic,true);assert.ok(f.letter.includes('NOT A REAL CLAIM'));assert.equal(f.billed_amount-f.paid_amount,f.reviewed_deduction.amount);assert.ok(f.expected.rationale.length>80);for(const s of f.primary_sources)assert.ok(rules.some(r=>r.id===s.rule_id));for(const p of f.public_case_context)assert.ok(evidence.posts.some(e=>e.id===p.id&&e.url===p.url));}
 });
 
-test('deterministic engine agrees with all fifteen independently reviewed fixture outcomes',()=>{
+test('deterministic engine agrees with all sixteen reviewed fixture outcomes',()=>{
  const matching=fixtures.filter(f=>{const out=classify(f.reviewed_deduction);return out.category===f.expected.category&&out.status===f.expected.status;});
- assert.equal(matching.length,15,`${matching.length}/15 category-and-status agreement; this does not measure AI or OCR accuracy`);assert.ok(fixtures.filter(f=>f.expected.status==='likely valid').length>=3);
+ assert.equal(matching.length,16,`${matching.length}/16 category-and-status agreement; this does not measure AI or OCR accuracy`);assert.ok(fixtures.filter(f=>f.expected.status==='likely valid').length===4);
 });
 for(const fixture of fixtures){
  test(`${fixture.id}: ${fixture.title}`,()=>{
@@ -33,15 +33,18 @@ for(const fixture of fixtures){
  });
 }
 
-test('likely-valid status needs both policy applicability and arithmetic confirmation',()=>{
+test('policy terms default to verification until confirmed or explicitly reported absent',()=>{
  for(const id of ['S03','S04','S11','S12']){
   const input=fixtures.find(f=>f.id===id)!.reviewed_deduction;
-  assert.equal(classify({...input,policyClause:undefined}).status,'challengeable');
-  assert.equal(classify({...input,policyClause:'   '}).status,'challengeable');
-  assert.equal(classify({...input,policyCalculationConfirmed:false}).status,'challengeable');
+  assert.equal(classify({...input,policyClause:undefined}).status,'policy term — verify');
+  assert.equal(classify({...input,policyClause:'   '}).status,'policy term — verify');
+  assert.equal(classify({...input,policyCalculationConfirmed:false}).status,'policy term — verify');
+  assert.equal(classify({...input,noApplicablePolicyClause:true}).status,'challengeable');
+  assert.equal(classify({...input,policyClause:undefined,noApplicablePolicyClause:false}).status,'policy term — verify');
  }
+ for(const id of ['S09','S10','S14'])assert.equal(classify(fixtures.find(f=>f.id===id)!.reviewed_deduction).status,'policy term — verify');
  const noReason=fixtures.find(f=>f.id==='S08')!.reviewed_deduction;
- assert.equal(classify({...noReason,policyClause:'Refer to policy terms',policyCalculationConfirmed:true}).status,'no reason given');
+ assert.equal(classify({...noReason,policyClause:'Refer to policy terms',policyCalculationConfirmed:true,noApplicablePolicyClause:true}).status,'no reason given');
 });
 
 test('room cap difference and associated-expense ratio remain separate even with policy confirmations',()=>{
@@ -53,7 +56,7 @@ test('implants are not labelled consumables solely because the denial calls them
 });
 test('verdict totals preserve all amounts and monetary decimals in separate groups',()=>{
  const all=fixtures.map(f=>classify(f.reviewed_deduction));const totals=verdictTotals(all);
- assert.equal(totals['likely valid'],4500+14500+6000+10000);assert.equal(totals['no reason given'],3250);assert.equal(Object.values(totals).reduce((a,b)=>a+b,0),fixtures.reduce((sum,f)=>sum+f.reviewed_deduction.amount,0));
+ assert.equal(totals['likely valid'],4500+14500+6000+10000);assert.equal(totals['no reason given'],3250);assert.equal(totals['policy term — verify'],12500+22000+6000);assert.equal(Object.values(totals).reduce((a,b)=>a+b,0),fixtures.reduce((sum,f)=>sum+f.reviewed_deduction.amount,0));
  assert.equal(verdictTotals([classify({id:'a',description:'Unexplained',amount:0.1}),classify({id:'b',description:'Unexplained',amount:0.2})])['no reason given'],0.3);
 });
 

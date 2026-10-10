@@ -9,6 +9,7 @@ import csv
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 import re
 
@@ -38,11 +39,15 @@ def normalize(tables):
                                    "reason": reason or "All buckets zero or absent; no usable distribution."})
                 continue
             assert table["unit"] in ("percent", "count")
-            assert all(v is None or isinstance(v, (int, float)) and v >= 0 for v in values)
+            assert all(v is None or isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) and v >= 0 for v in values)
             if table["unit"] == "percent":
                 assert all(v is None or v <= 100 for v in values), table["table_id"]
-                # Alert only: sums reflect source rounding; never renormalize.
-                assert 97 <= sum(v or 0 for v in values) <= 103, table["table_id"]
+                # Preserve rounding and unknowns. Only complete rows can pass a
+                # 100 +/- 1 check; an incomplete subtotal is not a full total.
+                total = sum(v for v in values if v is not None)
+                assert total <= 101 + 1e-9, table["table_id"]
+                if all(v is not None for v in values):
+                    assert total >= 99 - 1e-9, table["table_id"]
             tpa = column["tpa"].strip()
             slug = re.sub(r"[^a-z0-9]+", "-", tpa.lower()).strip("-")
             if ("in-house" in slug or "inhouse" in slug) and "consolidated" not in slug:
@@ -108,9 +113,14 @@ def main():
             qa = json.loads(qa_path.read_text())
             checked = 0
             for check in qa["checks"]:
+                if check.get("sha256"):
+                    assert any(t.get("file") == check["file"] and t["page"] == check["source_page"] and t.get("sha256") == check["sha256"] for t in tables), f"Stale QA source hash: {check['file']}"
                 for column in check["columns"]:
                     actual = [by_id[column["row_id"]][key] for key in BUCKETS]
                     assert actual == column["expected_buckets"], f"Source spot-check mismatch: {column['row_id']}"
+                    for key in ("unit", "sample_size", "document_url", "source_page"):
+                        if key in column:
+                            assert by_id[column["row_id"]][key] == column[key], f"Stale source review: {column['row_id']} {key}"
                     checked += len(BUCKETS)
             assert checked == qa["cells_checked"], f"Stale QA cell count: {qa_path.name}"
             print(f"{qa_path.name}: source spot-check answer key matches {checked} cells.")

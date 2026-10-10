@@ -1,0 +1,59 @@
+{
+  "milestone": "M10",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "worker_version": "88370df4-e9c2-4cb3-8425-8fc97f127893",
+  "build_id": "fc4a5a93747b4d05",
+  "unit_tests": {
+    "passed": 124,
+    "failed": 0
+  },
+  "browser": {
+    "startTime": "2026-10-10T18:06:50.848Z",
+    "duration": 93526.88500000001,
+    "expected": 31,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "worker_update": {
+    "checked_at": "2026-10-10T18:07:08.657Z",
+    "milestone": "m10",
+    "before": "1f4f3870dcfe4eef",
+    "expected": "fc4a5a93747b4d05",
+    "after": "fc4a5a93747b4d05",
+    "secondNavigationPassed": true,
+    "updateToastVisible": true,
+    "toastApplicable": true,
+    "navigationCaches": [
+      "claimclock-pages-fc4a5a93747b4d05"
+    ]
+  },
+  "source_navigation": "worker-source-navigation.json",
+  "migration": "0002_optional_report_city.sql",
+  "data": {
+    "rows": 470,
+    "complete_totals_pass": 456,
+    "incomplete_totals": 14,
+    "flagged_rows": 76,
+    "reverified_flags": 7,
+    "pending_flags": 69,
+    "source_cells_reverified": 144,
+    "numeric_corrections": 0
+  },
+  "initial_findings": {
+    "live_suite": "30 passed; one AI-off mock bypassed the worker. Context routing and API pass-through corrected.",
+    "update_probe": "Activation-only probe was inconclusive. Controller build handshake now gates the second navigation. Late old-worker cache writes are cleaned without deleting future caches."
+  },
+  "screenshots": [
+    "screenshots/worker-source-irdai.png",
+    "screenshots/blank-city-report-sent.png",
+    "screenshots/blank-city-report-erased.png"
+  ],
+  "lighthouse": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "initial_transfer_bytes": 106401
+}

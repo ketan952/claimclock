@@ -19,10 +19,18 @@ for(const c of contacts) {
 }
 const rows=await read('nl48');
 const seen=new Set();
+let incomplete=0, flagged=0;
 for(const r of rows) {
   if(seen.has(r.id)) throw Error(`Duplicate row ${r.id}`); seen.add(r.id);
   if(!r.source_url?.startsWith('https://') || !r.retrieved_on) throw Error(`Missing provenance ${r.id}`);
   const vals=['lt1h','h1_2','h2_6','h6_12','h12_24','gt24h'].map(k=>r[k]);
-  if(vals.some(v=>v!==null && (typeof v!=='number'||v<0))) throw Error(`Bad bucket ${r.id}`);
+  if(!['percent','count'].includes(r.unit)) throw Error(`Bad unit ${r.id}`);
+  if(vals.some(v=>v!==null && (typeof v!=='number'||!Number.isFinite(v)||v<0||(r.unit==='percent'&&v>100)))) throw Error(`Bad bucket ${r.id}`);
+  if(r.unit==='percent') {
+    const sum=vals.reduce((n,v)=>n+(v??0),0),complete=vals.every(v=>v!==null);
+    if(sum>101+1e-9||(complete&&sum<99-1e-9)) throw Error(`Bucket sum outside 100±1 ${r.id}: ${sum}`);
+    if(!complete) incomplete++;
+    if(vals.slice(3).reduce((n,v)=>n+(v??0),0)>10+1e-9||vals.includes(100)) flagged++;
+  }
 }
-console.log(`Validated ${contacts.length} contacts and ${rows.length} disclosure rows`);
+console.log(`Validated ${contacts.length} contacts and ${rows.length} disclosure rows; ${incomplete} incomplete sums preserve unknowns; ${flagged} rows trigger manual re-verification flags`);

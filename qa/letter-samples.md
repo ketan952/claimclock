@@ -1,5 +1,4 @@
 # Sample final letters
-
 Synthetic examples only. Dates, amounts and events below are invented. Replace every square-bracketed placeholder and review the details before sending. Exact English quotations from primary sources are retained in the Hindi letters.
 
 ## GRO — English
@@ -13,7 +12,7 @@ Name: [Your name]
 Policy number: [Policy number]
 Claim number: [Claim number]
 
-I submit this grievance about my final discharge at [HOSPITAL NAME], [CITY]. The hospital reported submission at 10 October 2026 at 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 3-hour window by 01:00:00; confirm your receipt time and explain the delay.
+I submit this grievance about my final discharge at [HOSPITAL NAME], [CITY]. The hospital reported submission at 10 October 2026 at 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 3-hour window by 1 hour; confirm your receipt time and explain the delay.
 
 1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.
 2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.
@@ -48,7 +47,7 @@ Name: [Your name]
 Policy number: [Policy number]
 Claim number: [Claim number]
 
-I request reconsideration of the following deductions totalling ₹8,200:
+I request the review or clarification specified for each deduction below, totalling ₹8,200:
 
 1. Proportionate deduction from surgeon fee — ₹4,200. Provide the room eligibility clause, permitted and actual daily rates, the room-day calculation, and each associated charge reduced. For associated expenses, provide the policy wording permitting the reduction and the hospital tariff showing whether that item varies by room category.
 
@@ -56,7 +55,7 @@ I request reconsideration of the following deductions totalling ₹8,200:
 
 3. Unexplained settlement adjustment — ₹1,500. Identify the deducted bill items and amounts, the complete reason for each, the specific policy clause, and the itemised calculation.
 
-Please provide the full reasons for each deduction with the specific policy terms under paragraph 17(b) of the Health Insurance Master Circular. Acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).
+For the deductions I have requested you to review, please provide the full reasons with the specific policy terms under paragraph 17(b) of the Health Insurance Master Circular. For terms and calculations I have already checked, please provide the clarification requested above. Acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).
 
 Attachments: [settlement letter]; [itemised hospital bill]; [policy schedule and wording]; [relevant endorsements]; [payment receipts].
 
@@ -80,7 +79,7 @@ https://claimclock.ketan952.workers.dev/s/pphi-mc-2024
 पॉलिसी संख्या: [पॉलिसी संख्या]
 दावा संख्या: [दावा संख्या]
 
-[अस्पताल का नाम], [शहर] में मेरे अंतिम डिस्चार्ज के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टूबर 2026 को 10:00 am बजे IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 3 घंटे की समय-सीमा से 01:00:00 अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।
+[अस्पताल का नाम], [शहर] में मेरे अंतिम डिस्चार्ज के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टूबर 2026 को 10:00 am बजे IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 3 घंटे की समय-सीमा से 1 घंटा अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।
 
 1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।
 2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।
@@ -115,7 +114,7 @@ https://claimclock.ketan952.workers.dev/s/pphi-mc-2024
 पॉलिसी संख्या: [पॉलिसी संख्या]
 दावा संख्या: [दावा संख्या]
 
-मैं कुल ₹8,200 की निम्न कटौतियों की पुनः समीक्षा चाहता/चाहती हूँ:
+कुल ₹8,200 की निम्न कटौतियों में हर मद के लिए नीचे माँगी गई समीक्षा या स्पष्टीकरण दें:
 
 1. कमरे की पात्रता के अनुपात में सर्जन के शुल्क की कटौती — ₹4,200. कमरे की पात्रता की शर्त, अनुमत और वास्तविक दैनिक दर, दिनों का हिसाब और घटाई गई हर संबंधित मद दें। अन्य खर्चों की कटौती के लिए उसे अनुमत करने वाली पॉलिसी शर्त और कमरे की श्रेणी से उस मद की दर बदलने वाला अस्पताल शुल्क विवरण दें।
 
@@ -123,7 +122,7 @@ https://claimclock.ketan952.workers.dev/s/pphi-mc-2024
 
 3. निपटान पत्र में अस्पष्ट समायोजन — ₹1,500. काटी गई बिल मदें और राशियाँ, हर मद का पूरा कारण, पॉलिसी की सटीक शर्त और मदवार हिसाब दें।
 
-स्वास्थ्य बीमा मास्टर परिपत्र के अनुच्छेद 17(b) के अनुसार हर कटौती के पूरे कारण और पॉलिसी की सटीक शर्त दें। तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।
+जिन कटौतियों की मैंने समीक्षा माँगी है, उनके पूरे कारण और पॉलिसी की सटीक शर्त स्वास्थ्य बीमा मास्टर परिपत्र के अनुच्छेद 17(b) के अनुसार दें। जिन शर्तों और हिसाब की मैंने पहले ही जाँच कर ली है, उनका ऊपर माँगा गया स्पष्टीकरण दें। तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।
 
 संलग्नक: [निपटान पत्र]; [मदवार अस्पताल बिल]; [पॉलिसी अनुसूची और शर्तें]; [संबंधित ऐड-ऑन]; [भुगतान रसीदें]।
 

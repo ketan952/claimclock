@@ -1,6 +1,6 @@
 import templates from '../../templates/messages.json' with { type: 'json' };
 import type { Contact, Language, Letter, LetterKind, Rule, Timeline } from './types.ts';
-import { duration, formatTime, windowMinutes } from './clock.ts';
+import { proseDuration, formatTime, windowMinutes } from './clock.ts';
 const sourceBase='https://claimclock.ketan952.workers.dev';
 export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
  const entries=ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r));
@@ -19,10 +19,10 @@ export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
 export function timingDemand(timeline:Timeline,language:Language,now=new Date()):string {
  const elapsed=Math.max(0,(timeline.decidedAt?Date.parse(timeline.decidedAt):now.getTime())-Date.parse(timeline.submittedAt));
  const minutes=windowMinutes(timeline.requestType);
- if(minutes===null)return language==='hi'?`मेरा दर्ज इंतज़ार ${duration(elapsed)} है; प्राप्ति समय और अतिरिक्त मंज़ूरी का निर्णय दें।`:`My recorded wait is ${duration(elapsed)}; confirm receipt and provide the enhancement decision.`;
+ if(minutes===null)return language==='hi'?`मेरा दर्ज इंतज़ार ${proseDuration(elapsed,language)} है; प्राप्ति समय और अतिरिक्त मंज़ूरी का निर्णय दें।`:`My recorded wait is ${proseDuration(elapsed,language)}; confirm receipt and provide the enhancement decision.`;
  const hours=minutes/60;
- if(elapsed>minutes*60000)return language==='hi'?`अस्पताल के बताए समय से मेरा दर्ज इंतज़ार ${hours} घंटे की समय-सीमा से ${duration(elapsed-minutes*60000)} अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।`:`Based on the hospital's reported time, my recorded wait exceeds the ${hours}-hour window by ${duration(elapsed-minutes*60000)}; confirm your receipt time and explain the delay.`;
- return language==='hi'?`मेरा दर्ज इंतज़ार ${duration(elapsed)} है; अनुरोध मिलने से ${hours} घंटे की समय-सीमा में निर्णय दें और प्राप्ति समय की पुष्टि करें।`:`My recorded wait is ${duration(elapsed)}; decide within the ${hours}-hour window from receipt and confirm your receipt time.`;
+ if(elapsed>minutes*60000)return language==='hi'?`अस्पताल के बताए समय से मेरा दर्ज इंतज़ार ${hours} घंटे की समय-सीमा से ${proseDuration(elapsed-minutes*60000,language)} अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।`:`Based on the hospital's reported time, my recorded wait exceeds the ${hours}-hour window by ${proseDuration(elapsed-minutes*60000,language)}; confirm your receipt time and explain the delay.`;
+ return language==='hi'?`मेरा दर्ज इंतज़ार ${proseDuration(elapsed,language)} है; अनुरोध मिलने से ${hours} घंटे की समय-सीमा में निर्णय दें और प्राप्ति समय की पुष्टि करें।`:`My recorded wait is ${proseDuration(elapsed,language)}; decide within the ${hours}-hour window from receipt and confirm your receipt time.`;
 }
 export function timelineNote(note:string,language:Language):string {
  if(!note.startsWith('@time-correction|'))return note;
@@ -43,7 +43,7 @@ export function makeLetter(kind:LetterKind, timeline:Timeline, contacts:Contact[
     hospital:timeline.hospital || (language==='hi'?'[अस्पताल जोड़ें]':'[add hospital]'),city:timeline.city || (language==='hi'?'[शहर जोड़ें]':'[add city]'),
     request:({en:{preauth:'cashless pre-authorisation',discharge:'final discharge',enhancement:'enhancement'},hi:{preauth:'कैशलेस पूर्व-मंज़ूरी',discharge:'अंतिम डिस्चार्ज',enhancement:'अतिरिक्त मंज़ूरी'}})[language][timeline.requestType],
     submitted:formatTime(timeline.submittedAt,language), now:formatTime(now.toISOString(),language),
-    elapsed:duration((timeline.decidedAt?Date.parse(timeline.decidedAt):now.getTime())-Date.parse(timeline.submittedAt)),
+    elapsed:proseDuration((timeline.decidedAt?Date.parse(timeline.decidedAt):now.getTime())-Date.parse(timeline.submittedAt),language),
     decided:timeline.decidedAt?formatTime(timeline.decidedAt,language):(language==='hi'?'अभी दर्ज नहीं':'not yet recorded'),
     timeline:timelineText(timeline,language),timing:timingDemand(timeline,language,now),citations:ruleCitations(ruleIds,rules,language),...extra
   };

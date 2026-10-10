@@ -410,8 +410,8 @@
       },
       "expected": {
         "category": "co-pay",
-        "status": "challengeable",
-        "rationale": "The room charge is explicitly approved; the actual deduction is co-pay. Confirming arithmetic without an applicable policy clause cannot make it likely valid. A first-keyword room-rent match loses the negation and misstates the reason.",
+        "status": "policy term — verify",
+        "rationale": "The room charge is explicitly approved; the actual deduction is co-pay. Confirming arithmetic without an applicable policy clause cannot make it likely valid. A first-keyword room-rent match loses the negation and misstates the reason. The applicable term has not been verified; omission from the settlement is not an explicit user report that no applicable policy clause exists. This remains policy term — verify.",
         "rule_ids": [
           "deduction-reasons",
           "financial-limits-2024"
@@ -463,8 +463,8 @@
       },
       "expected": {
         "category": "sub-limit",
-        "status": "challengeable",
-        "rationale": "A treatment-specific benefit ceiling is a sub-limit even when the exact label is absent. Verify policy wording, period and prior utilization. The post reference concerns a policy-period dispute and is contextual only; all maternity terms here are synthetic.",
+        "status": "policy term — verify",
+        "rationale": "A treatment-specific benefit ceiling is a sub-limit even when the exact label is absent. Verify policy wording, period and prior utilization. The post reference concerns a policy-period dispute and is contextual only; all maternity terms here are synthetic. The applicable term has not been verified; omission from the settlement is not an explicit user report that no applicable policy clause exists. This remains policy term — verify.",
         "rule_ids": [
           "deduction-reasons",
           "financial-limits-2024"
@@ -633,8 +633,8 @@
       },
       "expected": {
         "category": "room-rent-cap",
-        "status": "challengeable",
-        "rationale": "The arithmetic of a room difference can be correct while its contractual basis is absent. Without an applicable policy room cap, a confirmed calculation alone does not justify likely valid. Obtain the policy schedule, room-category wording and applicable waiver before accepting the Rs 6,000 deduction.",
+        "status": "policy term — verify",
+        "rationale": "The arithmetic of a room difference can be correct while its contractual basis is absent. Without an applicable policy room cap, a confirmed calculation alone does not justify likely valid. Obtain the policy schedule, room-category wording and applicable waiver before accepting the Rs 6,000 deduction. The applicable term has not been verified; omission from the settlement is not an explicit user report that no applicable policy clause exists. This remains policy term — verify.",
         "rule_ids": [
           "deduction-reasons",
           "financial-limits-2024"
@@ -689,6 +689,59 @@
         }
       ],
       "public_case_context": []
+    },
+    {
+      "id": "S16",
+      "title": "Co-pay with explicit user confirmation of no applicable clause",
+      "synthetic": true,
+      "letter": "SYNTHETIC QA SETTLEMENT — NOT A REAL CLAIM\nDemonstration Health Assurance (fictional) / Example Teaching Hospital (fictional)\nPatient Name: Meera Rao\nPolicy No.: DEMO-POL-260016\nClaim ID: DEMO-CLM-410016\nUHID: DEMO-UH-730016\nAdmission: 04/09/2026; Discharge: 06/09/2026\nBill received: Rs 62,500. Settled: Rs 50,000. Total reduction: Rs 12,500.\nDeduction explanation: Room rent approved in full, with no deduction. Deduction shown below: co-payment 20% on Rs 62,500, amount Rs 12,500. The policy clause is not enclosed.\nPolicy term supplied: Not attached; please refer to terms and conditions.\nThis is the final payment advice. Contact the grievance desk for a detailed review.\nUser review note: I checked my policy schedule, wording and endorsements and found no applicable co-payment clause.",
+      "known_identifiers": [
+        "Meera Rao",
+        "DEMO-POL-260016",
+        "DEMO-CLM-410016",
+        "DEMO-UH-730016"
+      ],
+      "billed_amount": 62500,
+      "paid_amount": 50000,
+      "reviewed_deduction": {
+        "id": "s16",
+        "description": "Co-payment of 20% on Rs 62,500, amount Rs 12,500.",
+        "amount": 12500,
+        "noApplicablePolicyClause": true
+      },
+      "expected": {
+        "category": "co-pay",
+        "status": "challengeable",
+        "rationale": "The user explicitly reports checking their policy and finding no applicable co-pay clause. That confirmation, rather than a missing enclosure or unknown wording, supports requesting review of the contractual basis. The app does not independently prove policy absence or guarantee recovery.",
+        "rule_ids": [
+          "deduction-reasons",
+          "financial-limits-2024"
+        ]
+      },
+      "primary_sources": [
+        {
+          "rule_id": "deduction-reasons",
+          "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+          "paragraph": "Health Master Circular, 29 May 2024, Chapter I 17(b), p.24; Protection Circular Part B V.3(iii).5, p.121"
+        },
+        {
+          "rule_id": "financial-limits-2024",
+          "source_url": "https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true",
+          "paragraph": "Annexure 1 to Health Master Circular, 29 May 2024, Customer Information Sheet item 8, PDF p.3"
+        }
+      ],
+      "public_case_context": [
+        {
+          "id": "case-004",
+          "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1t43fx2/cashless_claim_approved_partially_hospital_asking/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        },
+        {
+          "id": "case-011",
+          "url": "https://www.reddit.com/r/personalfinanceindia/comments/1sk4xc7/star_health_claim_partially_rejected_with_no/",
+          "use": "Context for issue design only. Public self-report; not proof of the synthetic facts, terms, amount or legal outcome."
+        }
+      ]
     }
   ]
 }

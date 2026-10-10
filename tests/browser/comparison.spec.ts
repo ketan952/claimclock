@@ -18,3 +18,16 @@ test('all pages have preview metadata, static PNGs, install assets and sitemap',
  const ico=await(await request.get('/favicon.ico')).body();expect(ico.readUInt16LE(2)).toBe(1);
  expect(await(await request.get('/robots.txt')).text()).toContain('Sitemap: https://claimclock.ketan952.workers.dev/sitemap.xml');expect(await(await request.get('/sitemap.xml')).text()).toContain('/index/star-health/');
 });
+test('unusual published ranges name their channels and retain source review status',async({page})=>{
+ await page.goto('/index/');
+ const manipal=page.locator('#comparison-rows tr[data-insurer="manipalcigna"]');
+ await expect(manipal.locator('[data-share]').nth(3)).toHaveText('0.21–45%');
+ await expect(manipal.locator('[data-review-indicator]')).toContainText('PDF reverified');
+ const endpoints=manipal.locator('[data-channel-endpoints]').nth(3);
+ await endpoints.locator('summary').click();await expect(endpoints).toContainText('MEDI ASSIST INSURANCE TPA P LTD');await expect(endpoints).toContainText('In-house');
+ const raheja=page.locator('#comparison-rows tr[data-insurer="raheja-qbe"]');await expect(raheja).toContainText('FY2024-25');await expect(raheja.locator('[data-share]').nth(1)).toHaveText('19–100%');
+ await raheja.locator('[data-channel-endpoints]').nth(1).locator('summary').click();await expect(raheja.locator('[data-channel-endpoints]').nth(1)).toContainText('Paramount TPA');
+ await page.goto('/index/universal-sompo/');const rounded=page.locator('[data-row-id="universal-sompo-fy2025-26-inhouse-individual-discharge"]');await expect(rounded.locator('[data-row-validation]')).toHaveAttribute('data-row-validation','pass');await expect(rounded.locator('[data-row-validation]')).toContainText('99%');await expect(rounded.locator('.pdf-link')).toHaveAttribute('href',/#page=1$/);
+ await page.goto('/index/niva-bupa/');const incomplete=page.locator('[data-row-id="niva-bupa-fy2025-26-inhouse-individual-discharge"]');await expect(incomplete.locator('[data-row-validation]')).toHaveAttribute('data-row-validation','incomplete');await expect(incomplete.locator('.values')).toContainText('—');
+ await page.goto('/index/united-india/');await expect(page.locator('[data-review-status="pending"]').first()).toContainText('manual re-verification pending');
+});

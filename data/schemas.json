@@ -113,6 +113,7 @@
           "enum": [
             "likely valid",
             "challengeable",
+            "policy term — verify",
             "no reason given"
           ]
         },
@@ -127,6 +128,12 @@
         },
         "explanation": {
           "type": "string"
+        },
+        "noApplicablePolicyClause": {
+          "type": "boolean"
+        },
+        "policyCalculationConfirmed": {
+          "type": "boolean"
         }
       },
       "required": [

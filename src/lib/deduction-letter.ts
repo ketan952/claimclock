@@ -1,5 +1,5 @@
 import templates from '../../templates/deductions.json' with {type:'json'};
-import type {Deduction} from './deductions.ts';
+import {verdictTotals,type Deduction} from './deductions.ts';
 import type {Contact,Language,Letter,Rule} from './types.ts';
 import {ruleCitations} from './letters.ts';
 const demands:Record<string,{en:string;hi:string}>={
@@ -15,11 +15,23 @@ const demands:Record<string,{en:string;hi:string}>={
  'unrelated':{en:'Identify the item considered unrelated to admission, the clinical record and policy clause supporting that conclusion, and the amount calculation; review the treating hospital’s explanation.',hi:'भर्ती से असंबंधित मानी गई मद, उस निष्कर्ष का चिकित्सा रिकॉर्ड और पॉलिसी शर्त तथा राशि का हिसाब दें; इलाज करने वाले अस्पताल का स्पष्टीकरण देखें।'},
  'unexplained':{en:'Identify the deducted bill items and amounts, the complete reason for each, the specific policy clause, and the itemised calculation.',hi:'काटी गई बिल मदें और राशियाँ, हर मद का पूरा कारण, पॉलिसी की सटीक शर्त और मदवार हिसाब दें।'}
 };
+const clarifications:Record<string,{en:string;hi:string}>={
+ 'co-pay':{en:'I have checked this policy term and arithmetic. Please confirm the percentage or fixed amount, eligible calculation base, any waiver, and calculation for my records.',hi:'मैंने पॉलिसी की यह शर्त और हिसाब जाँच लिए हैं। कृपया मेरे रिकॉर्ड के लिए प्रतिशत या तय राशि, हिसाब की आधार राशि, छूट और गणना की पुष्टि करें।'},
+ 'sub-limit':{en:'I have checked this policy term and arithmetic. Please confirm the treatment limit, benefit period, prior use and remaining benefit for my records.',hi:'मैंने पॉलिसी की यह शर्त और हिसाब जाँच लिए हैं। कृपया मेरे रिकॉर्ड के लिए इलाज की सीमा, लाभ अवधि, पहले उपयोग और बचे लाभ की पुष्टि करें।'},
+ 'room-rent-cap':{en:'I have checked this policy term and arithmetic. Please confirm the eligible and actual daily room rates, number of days, any waiver and room-charge difference for my records.',hi:'मैंने पॉलिसी की यह शर्त और हिसाब जाँच लिए हैं। कृपया मेरे रिकॉर्ड के लिए अनुमत और वास्तविक दैनिक दर, दिनों की संख्या, छूट और कमरे के शुल्क के अंतर की पुष्टि करें।'}
+};
 export function makeDeductionLetter(kind:'reconsideration'|'bima',deductions:Deduction[],insurerId:string,contacts:Contact[],rules:Rule[],language:Language,now=new Date()):Letter {
- const template=templates[language],total=deductions.reduce((sum,d)=>sum+d.amount,0).toLocaleString('en-IN'),name=contacts.find(c=>c.id===insurerId)?.name||insurerId;
- const fill=(s:string)=>s.replaceAll('{total}',total).replaceAll('{insurer}',name);
- const ids=['deduction-reasons','grievance-14-days'];
- const list=deductions.map((d,i)=>`${i+1}. ${d.description} — ₹${d.amount.toLocaleString('en-IN')}. ${(demands[d.category]||demands.unexplained)[language]}${d.policyClause?` ${language==='hi'?'मेरे द्वारा दर्ज पॉलिसी की शर्त':'Policy term recorded by me'}: ${d.policyClause}.`:''}`).join('\n\n');
- const body=kind==='bima'?fill(template.bima):`${fill(template.intro)}\n\n${list}\n\n${template.demand}\n\n${ruleCitations(ids,rules,language)}`;
- return {id:crypto.randomUUID(),kind,language,generatedAt:now.toISOString(),subject:fill(kind==='bima'?template.bimaSubject:template.subject),body,ruleIds:ids};
+ const template=templates[language],totals=verdictTotals(deductions),validTotal=totals['likely valid'],reviewTotal=Object.values(totals).reduce((sum,value)=>sum+value,0)-validTotal;
+ const total=(validTotal+reviewTotal).toLocaleString('en-IN'),name=contacts.find(c=>c.id===insurerId)?.name||insurerId,allValid=deductions.length>0&&deductions.every(d=>d.status==='likely valid');
+ const fields:Record<string,string>={total,insurer:name,validTotal:validTotal.toLocaleString('en-IN'),reviewTotal:reviewTotal.toLocaleString('en-IN')};
+ const fill=(s:string)=>s.replace(/\{(\w+)\}/g,(_,key)=>fields[key]??`[${key}]`);
+ fields.request=[reviewTotal>0?fill(template.bimaReview):'',validTotal>0?fill(template.bimaClarification):''].filter(Boolean).join('\n\n');
+ const ids=allValid?['grievance-14-days']:['deduction-reasons','grievance-14-days'];
+ const list=deductions.map((d,i)=>{
+  const request=(d.status==='likely valid'?clarifications[d.category]:demands[d.category])||demands.unexplained;
+  const absent=d.noApplicablePolicyClause?(language==='hi'?'मैंने अपनी पॉलिसी जाँची और इस कटौती के लिए कोई लागू शर्त नहीं मिली। ':'I checked my policy and found no applicable clause for this deduction. '):'';
+  return `${i+1}. ${d.description} — ₹${d.amount.toLocaleString('en-IN')}. ${absent}${request[language]}${d.policyClause?` ${language==='hi'?'मेरे द्वारा दर्ज पॉलिसी की शर्त':'Policy term recorded by me'}: ${d.policyClause}.`:''}`;
+ }).join('\n\n');
+ const body=kind==='bima'?fill(template.bima):`${fill(allValid?template.clarificationIntro:template.intro)}\n\n${list}\n\n${allValid?template.clarificationDemand:template.demand}\n\n${ruleCitations(ids,rules,language)}`;
+ return {id:crypto.randomUUID(),kind,language,generatedAt:now.toISOString(),subject:fill(kind==='bima'?template.bimaSubject:allValid?template.clarificationSubject:template.subject),body,ruleIds:ids};
 }

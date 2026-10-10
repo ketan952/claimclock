@@ -13,6 +13,14 @@ export function duration(ms: number) {
   const seconds = Math.floor(Math.abs(ms)/1000);
   return `${Math.floor(seconds/3600).toString().padStart(2,'0')}:${Math.floor(seconds/60)%60 < 10 ? '0' : ''}${Math.floor(seconds/60)%60}:${(seconds%60).toString().padStart(2,'0')}`;
 }
+// Prose rounds a partial minute up; the live clock keeps its separate seconds display.
+export function proseDuration(ms:number,language:'en'|'hi'='en') {
+ const totalMinutes=Math.ceil(Math.max(0,ms)/60_000),hours=Math.floor(totalMinutes/60),minutes=totalMinutes%60;
+ const parts:string[]=[];
+ if(hours)parts.push(language==='hi'?`${hours} ${hours===1?'घंटा':'घंटे'}`:`${hours} ${hours===1?'hour':'hours'}`);
+ if(minutes||!hours)parts.push(language==='hi'?`${minutes} मिनट`:`${minutes} ${minutes===1?'minute':'minutes'}`);
+ return parts.join(' ');
+}
 export function validSubmission(value: string, now = Date.now()) {
   const t = Date.parse(value);
   return Number.isFinite(t) && t <= now + 30_000 && t >= now - 90 * 86400_000;

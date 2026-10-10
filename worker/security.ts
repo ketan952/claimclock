@@ -8,10 +8,12 @@ export const requestTypes = ['preauth', 'enhancement', 'discharge'] as const;
 export const outcomes = ['approved', 'partial', 'rejected', 'paid-and-left'] as const;
 export const CONSENT_VERSION = '2026-10-10';
 export const BODY_LIMIT = 4096;
+export type ReportInputField = 'report' | 'insurer' | 'tpa' | 'city' | 'request_type' | 'submitted_at' | 'decided_at' | 'outcome' | 'consent' | 'adult' | 'consent_version';
 
 export class InputError extends Error {
   status: 400 | 413 | 415;
-  constructor(status: 400 | 413 | 415 = 400) { super('Invalid request.'); this.status = status; }
+  field?: ReportInputField;
+  constructor(status: 400 | 413 | 415 = 400, field?: ReportInputField) { super('Invalid request.'); this.status = status; this.field = field; }
 }
 export function record(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -59,15 +61,20 @@ function timestamp(value: unknown, now: number): string | null {
   return canonical;
 }
 export function validateReport(value: Record<string, unknown>, now = Date.now()) {
-  if (!exactKeys(value, ['insurer', 'tpa', 'city', 'request_type', 'submitted_at', 'decided_at', 'outcome', 'consent_version', 'consent', 'adult']) || value.consent !== true || value.adult !== true || value.consent_version !== CONSENT_VERSION) throw new InputError();
-  if (typeof value.insurer !== 'string' || !insurerIds.has(value.insurer)) throw new InputError();
-  if (value.tpa !== undefined && value.tpa !== null && (typeof value.tpa !== 'string' || !tpaIds.has(value.tpa))) throw new InputError();
-  if (typeof value.city !== 'string') throw new InputError();
-  const city = value.city.normalize('NFC').trim().replace(/ +/g, ' ');
-  if (!city || [...city].length > 70 || !/^[\p{L}\p{M} -]+$/u.test(city) || !/\p{L}/u.test(city)) throw new InputError();
-  if (!requestTypes.includes(value.request_type as typeof requestTypes[number]) || !outcomes.includes(value.outcome as typeof outcomes[number])) throw new InputError();
+  if (!exactKeys(value, ['insurer', 'tpa', 'city', 'request_type', 'submitted_at', 'decided_at', 'outcome', 'consent_version', 'consent', 'adult'])) throw new InputError(400, 'report');
+  if (value.consent !== true) throw new InputError(400, 'consent');
+  if (value.adult !== true) throw new InputError(400, 'adult');
+  if (value.consent_version !== CONSENT_VERSION) throw new InputError(400, 'consent_version');
+  if (typeof value.insurer !== 'string' || !insurerIds.has(value.insurer)) throw new InputError(400, 'insurer');
+  if (value.tpa !== undefined && value.tpa !== null && (typeof value.tpa !== 'string' || !tpaIds.has(value.tpa))) throw new InputError(400, 'tpa');
+  if (value.city !== undefined && value.city !== null && typeof value.city !== 'string') throw new InputError(400, 'city');
+  const city = typeof value.city === 'string' ? value.city.normalize('NFC').trim().replace(/ +/g, ' ') || null : null;
+  if (city !== null && ([...city].length > 70 || !/^[\p{L}\p{M} -]+$/u.test(city) || !/\p{L}/u.test(city))) throw new InputError(400, 'city');
+  if (!requestTypes.includes(value.request_type as typeof requestTypes[number])) throw new InputError(400, 'request_type');
+  if (!outcomes.includes(value.outcome as typeof outcomes[number])) throw new InputError(400, 'outcome');
   const submitted = timestamp(value.submitted_at, now), decided = timestamp(value.decided_at, now);
-  if (!submitted || !decided || decided < submitted) throw new InputError();
+  if (!submitted) throw new InputError(400, 'submitted_at');
+  if (!decided || decided < submitted) throw new InputError(400, 'decided_at');
   return { insurer: value.insurer, tpa: (value.tpa as string | null | undefined) ?? null, city,
     request_type: value.request_type as typeof requestTypes[number], submitted_at: submitted, decided_at: decided,
     outcome: value.outcome as typeof outcomes[number], consent_version: CONSENT_VERSION };

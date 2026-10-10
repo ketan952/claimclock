@@ -1,0 +1,1022 @@
+{
+  "checked_on": "2026-10-10",
+  "source_pdfs_checked": 3,
+  "source_pages_checked": 6,
+  "rows_checked": 24,
+  "cells_checked": 144,
+  "transcription_errors": 0,
+  "scope": "M10 targeted re-verification of the six source channels defining the highlighted ManipalCigna, Raheja QBE and Universal Sompo endpoints. Other threshold-triggered rows remain pending M10 re-verification.",
+  "checks": [
+    {
+      "insurer_id": "universal-sompo",
+      "file": "universal-sompo",
+      "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+      "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+      "source_page": 1,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            33,
+            28,
+            39,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            99,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            29,
+            27,
+            43,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            99,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    },
+    {
+      "insurer_id": "universal-sompo",
+      "file": "universal-sompo",
+      "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+      "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+      "source_page": 4,
+      "provider": "HealthIndia Insurance TPA Services Pvt. Ltd.",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "universal-sompo-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-discharge",
+          "expected_buckets": [
+            91,
+            7,
+            2,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 4,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-preauth",
+          "expected_buckets": [
+            99,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 4,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-discharge",
+          "expected_buckets": [
+            93,
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 4,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "universal-sompo-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-preauth",
+          "expected_buckets": [
+            100,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+          "source_page": 4,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    },
+    {
+      "insurer_id": "manipalcigna",
+      "file": "manipal-cigna-0",
+      "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+      "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+      "source_page": 49,
+      "provider": "MEDI ASSIST INSURANCE TPA P LTD",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "manipalcigna-fy2025-26-medi-assist-insurance-tpa-p-ltd-group-discharge",
+          "expected_buckets": [
+            68.54,
+            28.29,
+            2.91,
+            0.23,
+            0.02,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 49,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-medi-assist-insurance-tpa-p-ltd-group-preauth",
+          "expected_buckets": [
+            98.23,
+            1.5,
+            0.17,
+            0.05,
+            0.04,
+            0.01
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 49,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-medi-assist-insurance-tpa-p-ltd-individual-discharge",
+          "expected_buckets": [
+            69.89,
+            27.2,
+            2.7,
+            0.21,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 49,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-medi-assist-insurance-tpa-p-ltd-individual-preauth",
+          "expected_buckets": [
+            98.13,
+            1.62,
+            0.16,
+            0.05,
+            0.03,
+            0.01
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 49,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    },
+    {
+      "insurer_id": "manipalcigna",
+      "file": "manipal-cigna-0",
+      "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+      "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+      "source_page": 59,
+      "provider": "In-house",
+      "period": "FY2025-26",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "manipalcigna-fy2025-26-inhouse-group-discharge",
+          "expected_buckets": [
+            34,
+            36,
+            1,
+            29,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 59,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-inhouse-group-preauth",
+          "expected_buckets": [
+            46,
+            26,
+            1,
+            22,
+            4,
+            1
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 59,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-inhouse-individual-discharge",
+          "expected_buckets": [
+            16,
+            39,
+            0,
+            44,
+            1,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 59,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "manipalcigna-fy2025-26-inhouse-individual-preauth",
+          "expected_buckets": [
+            36,
+            42,
+            0,
+            19,
+            2,
+            1
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+          "source_page": 59,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    },
+    {
+      "insurer_id": "raheja-qbe",
+      "file": "raheja-qbe-0",
+      "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+      "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+      "source_page": 1,
+      "provider": "Mediassist TPA",
+      "period": "FY2024-25",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "raheja-qbe-fy2024-25-mediassist-tpa-group-discharge",
+          "expected_buckets": [
+            72,
+            21,
+            7,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-mediassist-tpa-group-preauth",
+          "expected_buckets": [
+            84,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-mediassist-tpa-individual-discharge",
+          "expected_buckets": [
+            75,
+            19,
+            6,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-mediassist-tpa-individual-preauth",
+          "expected_buckets": [
+            72,
+            28,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 1,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    },
+    {
+      "insurer_id": "raheja-qbe",
+      "file": "raheja-qbe-0",
+      "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+      "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+      "source_page": 9,
+      "provider": "Paramount TPA",
+      "period": "FY2024-25",
+      "cells_checked": 24,
+      "transcription_errors": 0,
+      "columns": [
+        {
+          "row_id": "raheja-qbe-fy2024-25-paramount-tpa-group-discharge",
+          "expected_buckets": [
+            47,
+            41,
+            12,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 9,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-paramount-tpa-group-preauth",
+          "expected_buckets": [
+            84,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 9,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-paramount-tpa-individual-discharge",
+          "expected_buckets": [
+            0,
+            100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 9,
+          "reviewed_on": "2026-10-10"
+        },
+        {
+          "row_id": "raheja-qbe-fy2024-25-paramount-tpa-individual-preauth",
+          "expected_buckets": [
+            0,
+            100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "unit": "percent",
+          "sample_size": null,
+          "document_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+          "source_page": 9,
+          "reviewed_on": "2026-10-10"
+        }
+      ],
+      "method": "Fresh official download hash matched the cached PDF. Visually compared all six bucket rows and all four policy/request columns against a rendered page; confirmed identity and period."
+    }
+  ],
+  "threshold_audit": {
+    "complete_rows_passing": 456,
+    "incomplete_rows": 14,
+    "failed_rows": 0,
+    "flagged_rows": 76,
+    "reverified_flagged_rows": 7,
+    "pending_flagged_rows": 69,
+    "rows": [
+      {
+        "row_id": "aditya-birla-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-good-health-insurance-tpa-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-good-health-insurance-tpa-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-park-mediclaim-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "aditya-birla-fy2025-26-park-mediclaim-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "digit-fy2025-26-family-health-plan-insurance-tpa-limited-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "digit-fy2025-26-family-health-plan-insurance-tpa-limited-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "generali-central-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "generali-central-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "hdfc-ergo-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "hdfc-ergo-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "hdfc-ergo-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "hdfc-ergo-fy2025-26-link-k-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "iffco-tokio-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "iffco-tokio-fy2025-26-health-assist-insurance-tpa-pvt-ltd-formerly-known-as-safeway-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "indusind-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "indusind-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "indusind-fy2025-26-vidal-health-insurance-third-party-administrator-group-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "indusind-fy2025-26-vidal-health-insurance-third-party-administrator-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "liberty-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "liberty-fy2025-26-good-health-insurance-tpa-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "liberty-fy2025-26-linkk-insurance-tpa-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "liberty-fy2025-26-safeway-tpa-services-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "liberty-fy2025-26-safeway-tpa-services-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-inhouse-group-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-inhouse-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-inhouse-individual-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-inhouse-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-safeway-insurance-tpa-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "manipalcigna-fy2025-26-safeway-insurance-tpa-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "narayana-fy2025-26-combined-tpas-not-split-in-filing-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "navi-fy2025-26-inhouse-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "navi-fy2025-26-medi-assist-insurance-tpa-individual-preauth",
+        "flags": [
+          "late",
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "niva-bupa-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "niva-bupa-fy2025-26-genins-tpa-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "niva-bupa-fy2025-26-genins-tpa-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "niva-bupa-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "niva-bupa-fy2025-26-link-k-tpa-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "raheja-qbe-fy2024-25-paramount-tpa-individual-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "raheja-qbe-fy2024-25-paramount-tpa-individual-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "sbi-general-fy2025-26-link-k-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "sbi-general-fy2025-26-safeway-insurance-tpa-private-limited-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "sbi-general-fy2025-26-safeway-insurance-tpa-private-limited-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "star-health-fy2025-26-ericson-insurance-tpa-private-limited-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "star-health-fy2025-26-safeway-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "star-health-fy2025-26-safeway-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "tata-aig-fy2025-26-good-health-insurance-tpa-limited-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "tata-aig-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "tata-aig-fy2025-26-health-assist-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-group-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-individual-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-heritage-health-insurance-tpa-pvt-ltd-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-link-k-insurance-tpa-private-limited-group-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-link-k-insurance-tpa-private-limited-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-medi-assist-india-tpa-pvt-ltd-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-vidal-health-insurance-tpa-pvt-ltd-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-individual-discharge",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "united-india-fy2025-26-volo-health-insurance-tpa-private-limited-individual-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "universal-sompo-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "universal-sompo-fy2025-26-ericson-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "universal-sompo-fy2025-26-genins-india-insurance-tpa-limited-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "universal-sompo-fy2025-26-healthindia-insurance-tpa-services-pvt-ltd-individual-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "reverified"
+      },
+      {
+        "row_id": "universal-sompo-fy2025-26-volo-health-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "late"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "zuno-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-individual-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "zuno-fy2025-26-paramount-health-services-insurance-tpa-pvt-ltd-individual-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "zuno-fy2025-26-park-mediclaim-insurance-tpa-pvt-ltd-group-discharge",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      },
+      {
+        "row_id": "zuno-fy2025-26-park-mediclaim-insurance-tpa-pvt-ltd-group-preauth",
+        "flags": [
+          "hundred"
+        ],
+        "m10_status": "pending"
+      }
+    ]
+  }
+}

@@ -12,7 +12,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## Milestones
 
-M0–M6 describe earlier snapshots; the current M9 state appears below.
+M0–M6 describe earlier snapshots; the current M10 state appears below.
 
 - M0: committed/pushed as 071be2b. Design preceded application code.
 - M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Combined research has 29 strictly qualifying recent cases out of 50 retained records, one below requested 30; amendments and original passes remain auditable.
@@ -60,3 +60,13 @@ Final v5 provider review passes 10/10 English cases plus one Hindi smoke case; L
 ## Environment
 
 macOS arm64; no `node` on default PATH. Isolated runtime under ignored `.tools/node-v22.23.3-darwin-arm64/bin`. Prefix PATH for npm commands. All secrets belong in ignored `.env`/Worker/GitHub secrets only; never print values.
+
+## M10 revision
+
+Deployed version `88370df4-e9c2-4cb3-8425-8fc97f127893`, build `fc4a5a93747b4d05`. **31/31 live scenarios, 124 unit/API/snapshot tests and all 42 HTML CSP checks pass**; Lighthouse **98/100/100/100**, 104 KiB initial transfer. [Evidence](qa/m10-release.json).
+
+NetworkFirst navigation now preserves real source redirects, query pages and 404s; true offline fallback remains. An actual release update proves the new build on second navigation and the reload toast. City is nullable through API/D1 migration0002 and the live blank-city report was erased through Privacy. Policy-term deductions have an explicit verify state, confirmed-valid letters request clarification, letter durations use prose, and published stages expand at breach.
+
+The three flagged Index ranges were reverified against 144 PDF cells and retained unchanged with named channels and review labels. All 456 complete rows pass totals; 14 remain incomplete. Seventy-six extreme-row flags include seven reverified and 69 pending targeted checks. [Sources](research/nl48-qa.md).
+
+Next: implement M11 only after this deployed/live-tested milestone: validated backup preview/restore, browser-encrypted seven-day transfer, local multi-case/deduction attachments, invisible Turnstile verification. No login, no paid services, documents stay in the browser. Personal Cloudflare credentials are configured; Turnstile widget API access is verified. Never ask for credentials or repeat settled license approval.

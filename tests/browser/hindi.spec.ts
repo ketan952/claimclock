@@ -19,7 +19,7 @@ test('Hindi mode translates visible interface text and accessible labels without
  expect(Object.keys(hi).sort()).toEqual(Object.keys(en).sort());
  const leaks:{route:string;text:string;remaining:string}[]=[];
  await page.addInitScript(()=>localStorage.setItem('claimclock:language','hi'));
- const routes=['/','/privacy/','/deductions/','/rejected/','/death/','/index/','/methodology/','/about/','/offline/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
+ const routes=['/','/404.html','/privacy/','/deductions/','/rejected/','/death/','/index/','/methodology/','/about/','/offline/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
  for(const route of routes){
   await page.goto(route);await expect(page.locator('html')).toHaveAttribute('lang','hi');await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>node.open=true));
   const texts=await page.evaluate(()=>{

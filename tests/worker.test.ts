@@ -8,10 +8,11 @@ import { provider, quota, redact, validateReport } from '../worker/security.ts';
 import type { Database, Statement, Bindings } from '../worker/types.ts';
 
 const migration = readFileSync(new NodeURL('../migrations/0001_initial.sql', import.meta.url), 'utf8');
+const optionalCityMigration = readFileSync(new NodeURL('../migrations/0002_optional_report_city.sql', import.meta.url), 'utf8');
 const maintenance = readFileSync(new NodeURL('../worker/aggregate.sql', import.meta.url), 'utf8');
 class SqliteDB implements Database {
   sql = new DatabaseSync(':memory:');
-  constructor() { this.sql.exec(migration); }
+  constructor() { this.sql.exec(migration); this.sql.exec(optionalCityMigration); }
   prepare(sql: string): Statement {
     const database = this.sql;
     let values: (string | number | null)[] = [];
@@ -51,11 +52,58 @@ test('body streaming limit applies without Content-Length; malformed JSON/type r
   assert.equal((await request('/api/reports', 'POST', [], {})).status, 400);
   assert.equal((await request('/api/reports', 'POST', report(), {}, { 'content-type': 'text/plain' })).status, 415);
 });
-test('report requires adult consent, known identifiers, a city without numbers and no extra fields', async () => {
+test('report requires adult consent, known identifiers, valid supplied city and no extra fields', async () => {
   for (const patch of [{ adult: false }, { consent: false }, { consent_version: 'old' }, { insurer: 'invented' }, { tpa: 'invented' }, { city: 'Room 123' }, { hospital: 'Private data' }, { ip: '1.1.1.1' }, { city: 'a'.repeat(71) }]) {
     assert.equal((await request('/api/reports', 'POST', { ...report(), ...patch })).status, 400);
   }
   assert.equal(validateReport(report()).city, 'नई दिल्ली');
+});
+test('omitted, null and blank cities store SQL NULL and the report can still be erased', async () => {
+  const db = new SqliteDB();
+  for (const city of [undefined, null, '', '   ']) {
+    const value = { ...report(), city };
+    assert.equal(validateReport(value).city, null);
+    const response = await request('/api/reports', 'POST', value, { DB: db });
+    assert.equal(response.status, 201);
+    const saved = await response.json() as { id: string; erase_token: string };
+    assert.equal(db.sql.prepare('SELECT city FROM reports WHERE id=?').get(saved.id)!.city, null);
+    const erased = await request(`/api/reports/${saved.id}`, 'DELETE', { erase_token: saved.erase_token }, { DB: db });
+    assert.deepEqual(await erased.json(), { erased: true });
+    assert.equal(db.sql.prepare('SELECT id FROM reports WHERE id=?').get(saved.id), undefined);
+  }
+});
+test('report validation identifies a fixed field without echoing rejected input', async () => {
+  for (const [patch, field] of [
+    [{ city: 'PRIVATE_ROOM_123' }, 'city'], [{ city: false }, 'city'], [{ insurer: 'private-name' }, 'insurer'],
+    [{ decided_at: report().submitted_at, submitted_at: report().decided_at }, 'decided_at'],
+    [{ consent: false }, 'consent'], [{ extra_private_field: 'secret' }, 'report'],
+  ] as const) {
+    const response = await request('/api/reports', 'POST', { ...report(), ...patch });
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: 'Invalid request.', field });
+  }
+});
+test('optional-city migration preserves existing data, aggregates, suppressions, constraints and erasure trigger', () => {
+  const db = new DatabaseSync(':memory:');db.exec(migration);
+  db.prepare('INSERT INTO reports VALUES(?,?,?,?,?,?,?,?,?,?,?)').run('legacy', 'retained-hash', 'star-health', null, 'Delhi', 'discharge', '2026-06-01T00:00:00Z', '2026-06-01T04:00:00Z', 'approved', '2026-10-10', '2026-06-02T00:00:00Z');
+  db.prepare('INSERT INTO aggregates VALUES(?,?,?,?,?,?,?)').run('star-health', 'discharge', '2026-06', 10, 2400, 10, '2026-07-09');
+  db.prepare('INSERT INTO aggregate_suppressions VALUES(?,?,?)').run('care', 'preauth', '2026-05');
+  const oldReport = db.prepare('SELECT * FROM reports').get();
+  const oldAggregate = db.prepare('SELECT * FROM aggregates').get();
+  const oldSuppression = db.prepare('SELECT * FROM aggregate_suppressions').get();
+  db.exec(`BEGIN;${optionalCityMigration}COMMIT;`);
+  assert.deepEqual(db.prepare('SELECT * FROM reports').get(), oldReport);
+  assert.deepEqual(db.prepare('SELECT * FROM aggregates').get(), oldAggregate);
+  assert.deepEqual(db.prepare('SELECT * FROM aggregate_suppressions').get(), oldSuppression);
+  assert.deepEqual(db.prepare("SELECT name FROM sqlite_master WHERE type='index' AND name LIKE 'reports_%' ORDER BY name").all().map(row=>row.name), ['reports_cohort','reports_created']);
+  assert.throws(()=>db.prepare("UPDATE reports SET request_type='invalid'").run());
+  assert.throws(()=>db.prepare("UPDATE reports SET outcome='invalid'").run());
+  db.prepare('UPDATE reports SET city=NULL').run();assert.equal(db.prepare('SELECT city FROM reports').get()!.city, null);
+  db.prepare('DELETE FROM reports WHERE id=?').run('legacy');
+  assert.equal(db.prepare('SELECT * FROM aggregates').get(), undefined);
+  assert.ok(db.prepare("SELECT * FROM aggregate_suppressions WHERE insurer='star-health' AND period='2026-06'").get());
+  assert.ok(db.prepare("SELECT * FROM aggregate_suppressions WHERE insurer='care' AND period='2026-05'").get());
+  db.close();
 });
 test('timestamps require real UTC dates, past times and ordered decisions', () => {
   for (const patch of [

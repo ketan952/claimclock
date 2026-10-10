@@ -15,7 +15,7 @@ app.use('/api/*', async (c, next) => {
 });
 // No request logger, exception details, provider responses, identifiers or body text are logged.
 app.onError((error, c) => error instanceof InputError
-  ? c.json({ error: 'Invalid request.' }, error.status)
+  ? c.json({ error: 'Invalid request.', ...(c.req.path === '/api/reports' && error.status === 400 ? { field: error.field || 'report' } : {}) }, error.status)
   : c.json({ error: 'Optional service is unavailable. Your local work is unchanged.' }, 503));
 app.notFound(c => c.json({ error: 'Not found.' }, 404));
 

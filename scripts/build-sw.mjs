@@ -1,8 +1,10 @@
-import { generateSW } from 'workbox-build';
-await generateSW({
-  globDirectory:'dist', globPatterns:['**/*.{html,js,css,json,svg,webmanifest}'],
-  globIgnores:['vendor/**','_astro/pdf.*','_astro/extract.*','_astro/preprocess.worker-*','_astro/src.*'], swDest:'dist/sw.js', clientsClaim:true, skipWaiting:true,
-  navigateFallback:'/offline/index.html',
-  runtimeCaching:[{ urlPattern: /\/(?:vendor\/|_astro\/(?:pdf\.|extract\.|preprocess\.worker-|src\.))/, handler:'CacheFirst', options:{cacheName:'claimclock-local-tools-v1',expiration:{maxEntries:20}} }],
-  maximumFileSizeToCacheInBytes:2*1024*1024
-});
+import {getManifest} from 'workbox-build';
+import {build} from 'esbuild';
+import {readFile,writeFile} from 'node:fs/promises';
+import {buildId} from './build-info.mjs';
+await writeFile('dist/build.json',JSON.stringify({buildId})+'\n');
+const {manifestEntries,warnings}=await getManifest({globDirectory:'dist',globPatterns:['**/*.{html,js,css,json,svg,webmanifest}'],globIgnores:['sw.js','workbox-*.js','vendor/**','_astro/pdf.*','_astro/extract.*','_astro/preprocess.worker-*','_astro/src.*'],maximumFileSizeToCacheInBytes:2*1024*1024});
+if(warnings.length)throw Error(warnings.join('\n'));
+const source=(await readFile('scripts/service-worker.js','utf8')).replace('self.__WB_MANIFEST',JSON.stringify(manifestEntries));
+await build({stdin:{contents:source,resolveDir:process.cwd()},bundle:true,minify:true,outfile:'dist/sw.js',define:{'process.env.NODE_ENV':'"production"',__BUILD_ID__:JSON.stringify(buildId)}});
+console.log(`Service worker: NetworkFirst navigations, build ${buildId}.`);
