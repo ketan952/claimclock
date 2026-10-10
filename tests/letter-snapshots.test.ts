@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync} from 'node:fs';
 import templates from '../templates/messages.json' with {type:'json'};
 import {makeLetter,timingDemand} from '../src/lib/letters.ts';
+import {BIMA_DRAFT_LIMIT} from '../src/lib/letter-limits.ts';
 import {makeDeductionLetter} from '../src/lib/deduction-letter.ts';
 import {makeRejectionLetter} from '../src/lib/rejection.ts';
 import {classify} from '../src/lib/deductions.ts';
@@ -45,4 +46,17 @@ test('before-window and excess-wait messages preserve receipt trigger and no inv
 });
 test('Bima complaint bodies omit long citations and include supporting documents',()=>{
  for(const key of ['bima-en','bima-hi','deductions-bima-en','deductions-bima-hi']){assert.doesNotMatch(letters[key].body,/https?:\/\//);assert.ok(letters[key].body.length<2000);assert.match(letters[key].body,letters[key].language==='hi'?/दस्तावेज़ संलग्न/:/Documents I will attach/);}
+});
+test('Bima app budget holds for all insurer names, both languages and maximum allowed hospital/city inputs',()=>{
+ const insurers=contacts.filter(c=>c.kind==='insurer');assert.equal(insurers.length,32);
+ const longestTpa=contacts.filter(c=>c.kind==='tpa').sort((a,b)=>b.name.length-a.name.length)[0];
+ const verboseDeductions=Array.from({length:100},(_,i)=>classify({id:String(i),description:'X'.repeat(500),amount:999999999}));
+ for(const insurer of insurers)for(const language of ['en','hi'] as const){
+  for(const requestType of ['discharge','preauth','enhancement'] as const){
+   const input={...timeline,insurerId:insurer.id,tpaId:longestTpa?.id,hospital:'H'.repeat(100),city:'C'.repeat(70),requestType,submittedAt:'2000-01-01T00:00:00.000Z',events:Array.from({length:100},(_,i)=>({id:String(i),at:timeline.submittedAt,type:'note',note:'Long timeline note '.repeat(50)}))};
+   const letter=makeLetter('bima',input,contacts,rules,language,{},now);
+   assert.ok(letter.body.length<=BIMA_DRAFT_LIMIT,`${insurer.id}/${language}/${requestType}: ${letter.body.length}`);assert.ok(letter.body.includes(input.hospital));assert.ok(letter.body.includes(input.city));assert.ok(letter.body.includes(insurer.name));assert.doesNotMatch(letter.body,/Long timeline note/);
+  }
+  const letter=makeDeductionLetter('bima',verboseDeductions,insurer.id,contacts,rules,language,now);assert.ok(letter.body.length<=BIMA_DRAFT_LIMIT,`${insurer.id}/${language}/deductions: ${letter.body.length}`);assert.doesNotMatch(letter.body,/X{500}/);
+ }
 });

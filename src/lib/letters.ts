@@ -24,9 +24,14 @@ export function timingDemand(timeline:Timeline,language:Language,now=new Date())
  if(elapsed>minutes*60000)return language==='hi'?`अस्पताल के बताए समय से मेरा दर्ज इंतज़ार ${hours} घंटे की समय-सीमा से ${duration(elapsed-minutes*60000)} अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।`:`Based on the hospital's reported time, my recorded wait exceeds the ${hours}-hour window by ${duration(elapsed-minutes*60000)}; confirm your receipt time and explain the delay.`;
  return language==='hi'?`मेरा दर्ज इंतज़ार ${duration(elapsed)} है; अनुरोध मिलने से ${hours} घंटे की समय-सीमा में निर्णय दें और प्राप्ति समय की पुष्टि करें।`:`My recorded wait is ${duration(elapsed)}; decide within the ${hours}-hour window from receipt and confirm your receipt time.`;
 }
+export function timelineNote(note:string,language:Language):string {
+ if(!note.startsWith('@time-correction|'))return note;
+ const [,before,after]=note.split('|');if(!before||!after)return note;
+ return language==='hi'?`अनुरोध समय ${formatTime(before,language)} से बदलकर ${formatTime(after,language)} किया गया।`:`Submission time corrected from ${formatTime(before,language)} to ${formatTime(after,language)}.`;
+}
 export function timelineText(t:Timeline, language:Language) {
   const labels:Record<string,string>=language==='hi'?{query:'सवाल पूछा गया',documents:'दस्तावेज़ फिर भेजे',call:'कॉल की',ack:'लिखित पुष्टि मिली',other:'अन्य जानकारी',approved:'मंज़ूर',partial:'आंशिक मंज़ूरी',rejected:'अस्वीकृत'}:{query:'Query raised',documents:'Documents re-sent',call:'Call made',ack:'Written acknowledgement received',other:'Other update',approved:'Approved',partial:'Partly approved',rejected:'Rejected'};
-  return [`${formatTime(t.submittedAt,language)} — ${language==='hi'?'बताया गया अनुरोध समय':'Reported submission'}`,...[...t.events].sort((a,b)=>Date.parse(a.at)-Date.parse(b.at)).map(e=>`${formatTime(e.at,language)} — ${labels[e.type]||e.type}: ${e.note}`),...(t.decidedAt?[`${formatTime(t.decidedAt,language)} — ${language==='hi'?'निर्णय':'Decision'}: ${labels[t.outcome||'']||t.outcome}`]:[])].join('\n');
+  return [`${formatTime(t.submittedAt,language)} — ${language==='hi'?'बताया गया अनुरोध समय':'Reported submission'}`,...[...t.events].sort((a,b)=>Date.parse(a.at)-Date.parse(b.at)).map(e=>`${formatTime(e.at,language)} — ${labels[e.type]||e.type}: ${timelineNote(e.note,language)}`),...(t.decidedAt?[`${formatTime(t.decidedAt,language)} — ${language==='hi'?'निर्णय':'Decision'}: ${labels[t.outcome||'']||t.outcome}`]:[])].join('\n');
 }
 export function makeLetter(kind:LetterKind, timeline:Timeline, contacts:Contact[], rules:Rule[], language:Language, extra:Record<string,string>={}, now=new Date()):Letter {
   const template=templates[kind];

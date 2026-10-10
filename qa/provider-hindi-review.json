@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-10-10T12:17:06.136559+00:00",
+  "reviewer": "Independent regulation_contacts build subagent; manual Hindi semantic review",
+  "source_file": "qa/provider-hindi.json",
+  "source_sha256": "cff0d8f46847d7ab6fa7452d477e939babf6da092d0bd27509bc4ddc2ced58bf",
+  "tested_at": "2026-10-10T12:16:08.987Z",
+  "prompt_revision_reported_by_operator": "conditional-payment-and-amount-binding-v5",
+  "worker_source_sha256_from_uniform_v5_run": "791a1b9bafabd3732fb9f15b6607daa0f116859d3d35cba563c43cead5771104",
+  "scope": "One synthetic Hindi UI-to-real-provider smoke response. Separate from ten English explanation cases and deterministic classifier results. Reviewer made no provider API calls.",
+  "input_sha256": "ba4f6c9a8f31f600552bbd5b78c3e3d83376b2b01e3991ea3cf13cdedc26dd97",
+  "explanation_sha256": "5384782a81dc19e6685f205ec5700237296ef002c462cb392fb28e04252a3c87",
+  "http_status": 200,
+  "advisory_only": true,
+  "word_count": 24,
+  "review": "pass",
+  "review_note": "Faithfully states that the insurer reported a ₹3,250 deduction without a clear reason and that no policy clause/additional detail was provided. It does not invent a deduction reason, policy term, legal breach, medical assessment, or entitlement to payment. In particular, it no longer says the deducted ₹3,250 is payable to the claimant or hospital.",
+  "checks": {
+    "amount_preserved": true,
+    "deduction_meaning_preserved": true,
+    "no_invented_reason_or_coverage": true,
+    "no_deduction_as_payable_or_owed": true,
+    "no_medical_or_legal_adjudication": true,
+    "coherent_hindi": true,
+    "within_100_words": true
+  },
+  "style_note": "इंशुरर and नीति क्लॉज़ are understandable in context; बीमाकर्ता and पॉलिसी की शर्त would be more idiomatic plain Hindi. This is a style observation, not a semantic failure.",
+  "before": {
+    "file": "qa/provider-hindi-before.json",
+    "source_sha256": "bff0ff7fee64ee206f3f0ccf22e6993a1869694e36582c8c4e6fdb9572f0481b",
+    "review": "fail",
+    "review_note": "The earlier response asserted that the deducted ₹3,250 was payable to the claimant or hospital although the only input was an unexplained deduction. That unsupported entitlement is absent in the revised output."
+  },
+  "limitations": [
+    "One Hindi response is a smoke check, not a ten-case Hindi evaluation or proof of accuracy on real documents.",
+    "A prompt change can alter later outputs; this review is tied to the exact recorded response hashes."
+  ],
+  "worker_version_at_hindi_test_reported_by_operator": "5caa94f1-b8bb-41e7-800b-e24f9793a9c0"
+}

@@ -1,0 +1,36 @@
+{
+  "milestone": "M9",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "version": "7d273670-8f23-440d-ae34-1a4bf4712891",
+  "unit_tests_passed": 108,
+  "bilingual_letter_snapshots": 28,
+  "html_pages_csp_checked": 41,
+  "browser_stats": {
+    "startTime": "2026-10-10T12:19:08.091Z",
+    "duration": 99702.704,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "hindi_routes_checked": 41,
+  "hindi_leaks": [],
+  "license_gate": "PASS: reviewed AGPL compatibility snapshot and runtime notice integrity",
+  "ai_enabled": true,
+  "provider_prompt_revision": "conditional-payment-and-amount-binding-v5",
+  "provider_worker_source_sha256": "791a1b9bafabd3732fb9f15b6607daa0f116859d3d35cba563c43cead5771104",
+  "live_bima_maxlength": "UNVERIFIED: read-only production browser attempts timed out; manual says4000, app budget2000; no complaint filed",
+  "prior_milestones": {
+    "M7_commit": "edcb187",
+    "M8_commit": "b2f0898"
+  },
+  "synthetic_report": "Created and erased through real Privacy UI; existing historical Prudential2025-11 preauth suppression cohort used.",
+  "provider_english_review": "10/10 pass, max71words",
+  "provider_hindi_smoke": "1/1 pass,24words",
+  "lighthouse_scores": {
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  }
+}

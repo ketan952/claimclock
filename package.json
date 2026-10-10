@@ -15,12 +15,13 @@
     "check": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && node scripts/validate-data.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "deploy": "wrangler deploy",
-    "licenses": "node scripts/audit-licenses.mjs",
+    "licenses": "node scripts/check-release-licenses.mjs",
     "licenses:release": "node scripts/check-release-licenses.mjs",
     "test:browser": "playwright test",
     "data:check": "python3 scripts/parse-nl48.py --check",
     "lint": "node scripts/lint.mjs",
-    "qa:performance": "node scripts/run-lighthouse.mjs"
+    "qa:performance": "node scripts/run-lighthouse.mjs",
+    "licenses:strict": "node scripts/audit-licenses.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8",

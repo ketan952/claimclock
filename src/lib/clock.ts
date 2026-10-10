@@ -18,7 +18,7 @@ export function validSubmission(value: string, now = Date.now()) {
   return Number.isFinite(t) && t <= now + 30_000 && t >= now - 90 * 86400_000;
 }
 export function formatTime(value: string, language: 'en'|'hi' = 'en') {
-  return new Date(value).toLocaleString(language === 'hi' ? 'hi-IN' : 'en-IN',{dateStyle:'medium', timeStyle:'short',timeZone:'Asia/Kolkata'}) + ' IST';
+  return new Date(value).toLocaleString(language === 'hi' ? 'hi-IN' : 'en-IN',{day:'numeric',month:'long',year:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Asia/Kolkata'}) + ' IST';
 }
 export function localInputValue(date = new Date()) {
   const pad=(v:number)=>String(v).padStart(2,'0');

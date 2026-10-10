@@ -2,7 +2,7 @@
 
 An English/Hindi tool for people waiting for cashless health-insurance authorization in India: record the wait, ask for written timestamps, prepare a grievance and inspect published insurer disclosures. Information, not legal advice; ClaimClock does not file complaints or promise payment.
 
-**Live:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), hosted on the personal Cloudflare account with D1 provisioned and migrated. The user explicitly approved the existing dependency snapshot for this deployment. `npm run licenses:release` verifies that exact lockfile; the unchanged strict `npm run licenses` audit still reports 101 exceptions. See the [recorded approval](research/dependency-release-approval.json), [license assessment](research/license-assessment.md) and [runtime notices](third-party-notices/NOTICE.txt). No paid service or workplace account is authorized.
+**Live:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), hosted on the personal Cloudflare account with D1 provisioned and migrated. The user-requested [AGPL compatibility review](docs/licenses.md) covers the additional licenses and retained obligations. `npm run licenses` and `licenses:release` pass the exact reviewed dependency snapshot and runtime-notice hashes; changes fail closed. No paid service or workplace account is authorized.
 
 Source: [ketan952/claimclock](https://github.com/ketan952/claimclock). Project code: [AGPL-3.0-only](LICENSE). Source documents and third-party components retain their own licenses; this repository does not relicense insurer PDFs or other research sources.
 
@@ -39,11 +39,11 @@ Useful additional checks:
 ```sh
 npm run data:check
 npm run test:browser
-npm run licenses         # strict audit: expected failure for this snapshot
+npm run licenses         # reviewed AGPL compatibility + notice gate
 npm run licenses:release # approved snapshot gate: must pass
 ```
 
-The first command requires Python 3. Browser checks require Playwright's Chromium installation (`npx playwright install chromium`). The build contains **41 static pages**. M8 has 105 passing unit/security checks; live acceptance, real-provider review, privacy erasure, screenshots and measured performance are recorded in the [QA report](qa/REPORT.md). The [deduction answer key](qa/deduction-answer-key.md) covers 15 synthetic fixtures; these do not measure real-claim accuracy.
+The first command requires Python 3. Browser checks require Playwright's Chromium installation (`npx playwright install chromium`). The build contains **41 static pages**. Current milestone tests are recorded in QA; live acceptance, real-provider review, privacy erasure, screenshots and measured performance are recorded in the [QA report](qa/REPORT.md). The [deduction answer key](qa/deduction-answer-key.md) covers 15 synthetic fixtures; these do not measure real-claim accuracy.
 
 ## Where data goes
 
@@ -89,7 +89,7 @@ Lower global limits in [worker/security.ts](worker/security.ts) are: AI **100/da
 
 Use the **personal** Cloudflare account and this personal repository. Never use workplace credentials. Keep secrets in ignored `.env` or Worker/GitHub secret storage; never commit them, print them in logs or paste them into chat. `.env.example` lists the configuration names. Creating `.env` does not itself provision Cloudflare or publish Worker secrets.
 
-1. Keep the dependency snapshot within its recorded approval and finish release QA. Make `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` available in the local shell through trusted secret tooling. Restrict the token to this personal deployment and required D1 access. Run `npm run check`, `npm test`, `npm run build` and `npm run licenses:release`; deployment must stop if any release gate fails. `npm run licenses` still documents the strict policy exceptions and must not be described as passing.
+1. Keep the dependency snapshot within its reviewed compatibility record and run release QA. Make `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` available in the local shell through trusted secret tooling. Restrict the token to this personal deployment and required D1 access. Run `npm run check`, `npm test`, `npm run build` and `npm run licenses:release`; deployment must stop if any release gate fails. `npm run licenses` uses the same passing compatibility gate.
 2. D1 is already provisioned and bound in [wrangler.jsonc](wrangler.jsonc) for this deployment; do not create it again. For a new personal environment, create D1 once using the [official bootstrap flow](https://developers.cloudflare.com/d1/get-started/):
 
    ```sh
@@ -125,6 +125,6 @@ The personal deployment and remote D1 migrations have completed at [claimclock.k
 
 ## CI and resuming work
 
-[CI](.github/workflows/ci.yml) runs source lint, types/data checks, unit tests and the build. Standard GitHub-hosted runners are free for this public repository. [Deployment](.github/workflows/deploy.yml) is enabled for this personal repository through `CLOUDFLARE_DEPLOY_ENABLED=true` and `CLOUDFLARE_D1_ENABLED=true`; it runs the pinned-snapshot release license gate before any migration/deployment and regenerates the unchanged strict audit. Repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are configured; D1 was provisioned before enabling migrations. `CLOUDFLARE_AGGREGATE_FALLBACK=true` enables the scheduled maintenance fallback when needed. LLM keys belong in Worker secrets, not frontend variables or public artifacts. Weekly contact maintenance uses the repository's scoped Actions token.
+[CI](.github/workflows/ci.yml) runs source lint, types/data checks, unit tests and the build. Standard GitHub-hosted runners are free for this public repository. [Deployment](.github/workflows/deploy.yml) is enabled for this personal repository through `CLOUDFLARE_DEPLOY_ENABLED=true` and `CLOUDFLARE_D1_ENABLED=true`; it runs the pinned-snapshot release license gate before any migration/deployment and verifies retained runtime notices. Repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are configured; D1 was provisioned before enabling migrations. `CLOUDFLARE_AGGREGATE_FALLBACK=true` enables the scheduled maintenance fallback when needed. LLM keys belong in Worker secrets, not frontend variables or public artifacts. Weekly contact maintenance uses the repository's scoped Actions token.
 
 To resume, read [RESUME.md](RESUME.md), confirm the personal account and remote, inspect the latest [QA report](qa/REPORT.md), run checks, and continue the next incomplete milestone. Preserve the exact dependency approval, source caveats and remaining acceptance checks; the live-before-Mode-C sequence has now been followed. Proposed future work is in [docs/v2.md](docs/v2.md); prepared [launch posts](docs/launch-posts.md) are drafts, not published announcements.

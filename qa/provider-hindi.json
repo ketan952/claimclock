@@ -1,0 +1,12 @@
+{
+  "tested_at": "2026-10-10T12:16:08.987Z",
+  "scope": "One synthetic Hindi UI-to-real-provider smoke test; not part of the English ten-case accuracy review",
+  "request": {
+    "lines": "अस्पष्ट कटौती: ₹3250; unexplained",
+    "consent": true,
+    "language": "hi"
+  },
+  "http_status": 200,
+  "explanation": "इंशुरर ने ₹3,250 की एक कटौती बताई है, लेकिन कारण स्पष्ट नहीं किया गया है। कोई नीति क्लॉज़ या अतिरिक्त विवरण उपलब्ध नहीं है।",
+  "advisory_only": true
+}

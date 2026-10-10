@@ -1,0 +1,12 @@
+{
+  "tested_at": "2026-10-10T12:13:58.748Z",
+  "scope": "One synthetic Hindi UI-to-real-provider smoke test; not part of the English ten-case accuracy review",
+  "request": {
+    "lines": "अस्पष्ट कटौती: ₹3250; unexplained",
+    "consent": true,
+    "language": "hi"
+  },
+  "http_status": 200,
+  "explanation": "अस्पष्ट कटौती: ₹3,250 — इंस्युरर ने इस राशि के लिए कोई कारण नहीं बताया; लागू नीति क्लॉज़ की पुष्टि नहीं की जा सकती। यह राशि क्लेम‑धारक या अस्पताल को भुगतान योग्य है, लेकिन इस कटौती का विवरण उपलब्ध नहीं है।",
+  "advisory_only": true
+}

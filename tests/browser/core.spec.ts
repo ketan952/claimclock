@@ -26,3 +26,13 @@ test('Index is static and usable offline with source-linked six buckets',async({
 test('no horizontal overflow at narrow mobile width',async({page})=>{
  await page.setViewportSize({width:360,height:800});for(const path of ['/','/index/','/index/hdfc-ergo/','/privacy/','/death/']){await page.goto(path);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);}
 });
+test('language controls recover when the Base entry cannot initialize but the clock loads',async({page})=>{
+ // The live trace had a failed Base dependency followed by a successful clock import.
+ // Block Base itself to reproduce the missing bootstrap deterministically in dev and production.
+ let blockedBase=0;await page.route(/\/(?:_astro\/Base\.astro_|src\/layouts\/Base\.astro\?).*/,route=>{blockedBase++;return route.fulfill({status:404,body:''});});
+ await page.goto('/');expect(blockedBase).toBeGreaterThan(0);await page.selectOption('[name=insurer]','hdfc-ergo');const past=new Date(Date.now()-4*3600000);await page.fill('[name=submittedAt]',new Date(past.getTime()-past.getTimezoneOffset()*60000).toISOString().slice(0,16));await page.click('#start-form button[type=submit]');
+ await expect(page.locator('#clock-label')).toHaveText('Recorded wait beyond the rule’s window');await page.click('[data-letter=lock]');await page.click('#letter-close');await page.fill('#event-form [name=note]','Synthetic acknowledgement');await page.click('#event-form button');await page.click('[data-letter=gro]');await page.click('#letter-close');
+ await page.evaluate(()=>{document.documentElement.dataset.languageEvents='0';window.addEventListener('languagechange',()=>{document.documentElement.dataset.languageEvents=String(Number(document.documentElement.dataset.languageEvents)+1);});});
+ await page.click('[data-language=hi]');await expect(page.locator('html')).toHaveAttribute('lang','hi');await expect(page.locator('#clock-label')).toHaveText('दर्ज इंतज़ार नियम की समय-सीमा से आगे');await expect(page.locator('html')).toHaveAttribute('data-language-events','1');await expect(page.locator('#timeline-list')).toContainText('Synthetic acknowledgement');
+ await page.reload();await expect(page.locator('html')).toHaveAttribute('lang','hi');await expect(page.locator('#clock-label')).toHaveText('दर्ज इंतज़ार नियम की समय-सीमा से आगे');
+});

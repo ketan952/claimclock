@@ -1,3 +1,5 @@
+> Historical original-allowlist assessment. Superseded for M9 release decisions by [the AGPL compatibility review](../docs/licenses.md) and [pinned compatibility record](license-compatibility.json). Upstream notices remain mandatory.
+
 # Dependency-license assessment
 
 Reviewed 10 October 2026 against the installed `package-lock.json`, package metadata, package license files, asset-copy scripts and generated service-worker source map. The technical findings below remain valid. The subsequent deployment approval is recorded separately; it does not broaden the strict audit allowlist or relicense upstream components.

@@ -1,0 +1,32 @@
+import {test,expect} from '@playwright/test';
+const localDate=(date:Date)=>new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,16);
+test('clock step strip changes at halfway and breach while the active clock hides the intro',async({page})=>{
+ await page.goto('/');await page.selectOption('[name=insurer]','hdfc-ergo');await page.fill('[name=submittedAt]',localDate(new Date(Date.now()-100*60000)));await page.click('#start-form button');
+ await expect(page.locator('#intro')).toBeHidden();await expect(page.locator('h1:visible')).toHaveCount(1);await expect(page.locator('#what-now')).toHaveAttribute('data-stage','halfway');await expect(page.locator('#step-followup')).toHaveAttribute('aria-current','step');
+ await page.evaluate(()=>{const t=JSON.parse(localStorage.getItem('claimclock:timeline:v1')!);t.submittedAt=new Date(Date.now()-4*3600000).toISOString();localStorage.setItem('claimclock:timeline:v1',JSON.stringify(t));});await page.reload();await expect(page.locator('#what-now')).toHaveAttribute('data-stage','beyond');await expect(page.locator('#step-escalate')).toHaveAttribute('aria-current','step');
+ await page.click('[data-language=hi]');await expect(page.locator('#what-now-title')).toHaveText('अभी क्या करें');await expect(page.locator('#clock-meta')).toContainText(new Intl.DateTimeFormat('hi-IN',{month:'long',timeZone:'Asia/Kolkata'}).format(new Date()));
+});
+test('opt-in presents readable fields, exact-data disclosure and copyable deletion receipt',async({page})=>{
+ let payload:Record<string,unknown>|null=null;
+ await page.route('**/api/reports',async route=>{payload=route.request().postDataJSON();await route.fulfill({status:201,contentType:'application/json',body:JSON.stringify({id:'synthetic-report',erase_token:'synthetic-delete-token'})});});
+ await page.goto('/');await page.selectOption('[name=insurer]','hdfc-ergo');await page.fill('[name=city]','Pune');await page.fill('[name=submittedAt]',localDate(new Date(Date.now()-4*3600000)));await page.click('#start-form button');await page.fill('#finish-form [name=decidedAt]',localDate(new Date(Date.now()-60000)));await page.click('#finish-form button');
+ await expect(page.locator('#report-summary')).toContainText('HDFC');await expect(page.locator('#report-summary')).toContainText('Decision time');await expect(page.locator('#report-preview')).toBeHidden();await page.click('#report-exact summary');await expect(page.locator('#report-preview')).toContainText('"insurer": "hdfc-ergo"');
+ await page.check('#optin-form [name=consent]');await page.click('#optin-form button');await expect(page.locator('#deletion-code')).toHaveValue('synthetic-report:synthetic-delete-token');await expect(page.locator('#deletion-saved')).toHaveText('Also saved on this device; you can erase from the Privacy page.');await expect(page.locator('#copy-deletion-code')).toBeVisible();await page.context().grantPermissions(['clipboard-read','clipboard-write']);await page.click('#copy-deletion-code');expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe('synthetic-report:synthetic-delete-token');expect(payload).not.toHaveProperty('hospital');expect(payload).toHaveProperty('consent',true);
+ await page.click('[data-language=hi]');await expect(page.locator('#report-summary')).toContainText('निर्णय का समय');await expect(page.locator('#copy-deletion-code')).toHaveText('हटाने का कोड कॉपी करें');await page.goto('/privacy/');await expect(page.locator('[name=code]')).toHaveValue('synthetic-report:synthetic-delete-token');
+});
+
+test('file errors and AI availability states follow language changes',async({page})=>{
+ await page.route('**/api/config',route=>route.fulfill({json:{ai_enabled:false,provider:null,model:null}}));
+ await page.route('**/api/explain',route=>route.fulfill({status:503,json:{error:'AI unavailable'}}));
+ await page.goto('/deductions/');await page.setInputFiles('#settlement-file',{name:'synthetic.txt',mimeType:'text/plain',buffer:Buffer.from('synthetic unsupported format')});await expect(page.locator('#extract-status')).toHaveText('Choose a PDF, PNG or JPEG.');
+ await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');await page.fill('#deduction-lines','Synthetic unexplained amount | 1200');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');await page.click('#prepare-ai');await expect(page.locator('#ai-provider')).toContainText('AI is unavailable');
+ await page.click('[data-language=hi]');await expect(page.locator('#extract-status')).toHaveText('PDF, PNG या JPEG चुनें।');await expect(page.locator('#ai-provider')).toContainText('AI उपलब्ध नहीं');await page.check('#ai-form [name=consent]');await page.click('#ai-form button');await expect(page.locator('#ai-status')).toContainText('AI उपलब्ध नहीं');
+});
+
+test('Bima has a localized app budget and never silently truncates an overlong generated draft',async({page})=>{
+ await page.goto('/');await page.selectOption('[name=insurer]','hdfc-ergo');await page.fill('[name=hospital]','Example Hospital');await page.fill('[name=submittedAt]',localDate(new Date(Date.now()-4*3600000)));await page.click('#start-form button');await page.locator('[data-letter="bima"]').click();
+ await expect(page.locator('#letter-body')).toHaveAttribute('maxlength','2000');await expect(page.locator('#bima-character-count')).toContainText('/2000 characters');await expect(page.locator('#bima-character-count')).toContainText('set by this app');
+ await page.locator('[data-language=hi]').evaluate((el:HTMLElement)=>el.click());await expect(page.locator('#bima-character-count')).toContainText('/2000');await expect(page.locator('#bima-character-count')).not.toContainText('characters');await page.click('#letter-close');
+ await page.evaluate(()=>{const timeline=JSON.parse(localStorage.getItem('claimclock:timeline:v1')!);timeline.hospital='H'.repeat(2500);localStorage.setItem('claimclock:timeline:v1',JSON.stringify(timeline));});await page.reload();await page.locator('[data-letter="bima"]').click();expect((await page.locator('#letter-body').inputValue()).length).toBeGreaterThan(2000);await expect(page.locator('#letter-copy')).toBeDisabled();await expect(page.locator('#letter-whatsapp')).not.toHaveAttribute('href');
+ await page.click('#letter-close');await page.locator('[data-letter="gro"]').click();await expect(page.locator('#letter-body')).not.toHaveAttribute('maxlength');await expect(page.locator('#bima-character-count')).toBeHidden();await expect(page.locator('#letter-copy')).toBeEnabled();
+});

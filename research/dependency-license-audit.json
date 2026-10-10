@@ -1,6 +1,6 @@
 {
   "generated_on": "2026-10-10",
-  "status": "BLOCKED: required stack has dependencies outside user allowlist",
+  "status": "PASS",
   "allowlist": [
     "MIT",
     "Apache-2.0",
@@ -718,5 +718,9 @@
       "dev": true,
       "optional": false
     }
-  ]
+  ],
+  "policy": "user-requested-AGPL-compatible-dependency-review",
+  "assessment": "docs/licenses.md",
+  "reviewed_on": "2026-10-10",
+  "package_lock_sha256": "b591fe7a83e6af5e04508695f0f3cf85fc6d3157cbabc1269d48c1fa7a3faf1f"
 }

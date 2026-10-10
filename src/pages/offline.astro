@@ -1,4 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
+import en from '../i18n/en.json';
 ---
-<Base title="Offline — ClaimClock"><div class="wrap narrow prose"><h1>You're offline / इंटरनेट नहीं है</h1><p>Your saved clock still works. Return to the hospital page or a previously loaded Index page.</p><p>सहेजी गई घड़ी काम करती रहेगी। अस्पताल पेज या पहले खोला गया आँकड़ों का पेज देखें।</p><div class="button-row"><a class="button" href="/">Open my clock / मेरी घड़ी</a><a href="/index/">The Index / आँकड़े</a></div></div></Base>
+<Base title="Offline — ClaimClock"><div class="wrap narrow prose"><h1 data-i18n="offline.title">You are offline</h1><p data-i18n="offline.body">{en['offline.body']}</p><div class="button-row"><a class="button" href="/" data-i18n="offline.clock">Open my clock</a><a href="/index/" data-i18n="nav.index">The Delay Index</a></div></div></Base>

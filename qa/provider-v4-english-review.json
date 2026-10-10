@@ -1,0 +1,155 @@
+{
+  "reviewed_at": "2026-10-10T12:08:00.434098+00:00",
+  "reviewer": "Independent regulation_contacts build subagent; manual input-and-answer-key semantic review",
+  "provider_result_file": "qa/provider-results.json",
+  "provider_results_snapshot_sha256": "dac152af94d389ad46d4cd7d3c2b2e2f3ec77bee9eb0486b5c9ed5398542dad5",
+  "run_tested_at": "2026-10-10T12:03:41.346Z",
+  "prompt_revision": "reported-assertions-and-amount-binding-v4",
+  "worker_source_sha256": "ffd0f1dbed61c41738070278fd48a7070cf9bd451b9fc7393ba03ddd02e06993",
+  "worker_version_reported_by_operator": "b8c11abd-4caa-4737-9459-2ea1524cf820",
+  "provider": {
+    "ai_enabled": true,
+    "provider": "api.groq.com",
+    "model": "openai/gpt-oss-120b"
+  },
+  "scope": "Independent review of actual provider explanations for ten synthetic minimal English deduction inputs from one uniform deployed prompt revision. This is explanation quality, not classification accuracy or legal/medical adjudication. Reviewer made no provider API calls.",
+  "criteria": [
+    "Amounts and their association with the correct item/calculation are faithful to input.",
+    "Missing-clause insurer assertions are not stated as independently confirmed coverage facts.",
+    "No invented policy term, validity decision, legal breach or clinical-necessity assessment.",
+    "Insurer settlement payment is not confused with the patient’s payment obligation.",
+    "Coherent explanation of at most 100 whitespace-delimited words; no requirement to reproduce the full legal answer key."
+  ],
+  "cases": [
+    {
+      "id": "S01",
+      "review": "pass",
+      "word_count": 60,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "30b52f82df2b499ffa984d0a8a4711f0bf7fd6145085a25d23b7f7a585de052a",
+      "explanation_sha256": "db47b98b35ef7d4e8a6d1acdae9ece51a91c10228c7b461aba226b420b68ba83",
+      "review_note": "Correct ₹8,000 deduction, 20% reduction and ₹6,000/₹4,800 room amounts. The insurer’s stated room-rent justification is attributed, missing clause applicability remains unconfirmed, and reduced insurer payment is explained correctly."
+    },
+    {
+      "id": "S02",
+      "review": "pass",
+      "word_count": 53,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "f3315e80295d280d82933a9f3423c8333b26c4c6bcff61d1f13ca823c1c891a2",
+      "explanation_sha256": "728c3fdf3b5ad0768d17e55cd67265a9efe34ee7fe2ed4ff63d50725248aec40",
+      "review_note": "Correct ₹1,500 total and ₹550/₹400/₹550 item amounts. Non-medical/excluded terms remain insurer labels; no medical-necessity or coverage conclusion. Missing rider review and missing applicable clause are preserved."
+    },
+    {
+      "id": "S03",
+      "review": "pass",
+      "word_count": 85,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "da04a680cbb7082bf1dd4e06f3d02739238b887df2b849468315a07316bb9713",
+      "explanation_sha256": "7c380d1d30317b5e3bbc78a0c763e07745328fa38b9131204e7dda0a946b6203",
+      "review_note": "Correct ₹54,500−₹50,000=₹4,500 cataract per-eye cap arithmetic. Supplied DEMO clause and no prior use are identified. The explanation stays within the fixture-provided cap without introducing a different policy term or declaring legal validity."
+    },
+    {
+      "id": "S04",
+      "review": "pass",
+      "word_count": 60,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "1aee0c2bdf2d13b9a7753feffab5d5bd919a066440d45588a98fb08e84d1cbb7",
+      "explanation_sha256": "0b4f6f496b3cd6d56210d9264a9205ac72a9aa14a3f03d246e29e1c0b2d8f6f8",
+      "review_note": "Correct ₹72,500×20%=₹14,500 co-payment and ₹58,000 insurer balance. The percentage/no-waiver term is explicitly presented as supplied policy wording; no independent validity decision."
+    },
+    {
+      "id": "S05",
+      "review": "pass",
+      "word_count": 59,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "18be6c74ab5cbc8dda829c9d06af914b20a87f0f9e453a7a15a4ba0941043ea1",
+      "explanation_sha256": "19dd2b5688eb394f28a893f474797593c4ed41cdb150a722afdce87989394672",
+      "review_note": "Correct ₹32,000−₹20,000=₹12,000. Reports the insurer’s reasonable-and-customary reason, missing comparison data and unconfirmed clause applicability. Does not declare the reduction lawful or unlawful."
+    },
+    {
+      "id": "S06",
+      "review": "pass",
+      "word_count": 50,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "01ae54e6f5d4cb4709fbc7fae700388b60feafe9af0fd9df7fc2afb35744df75",
+      "explanation_sha256": "ce6e72e06af91eb171dd9ed3b4d6022d32faa558b72887a0224750dea9410bdd",
+      "review_note": "Correct ₹2,400 surgical tape/gauze amount. Preserves insurer package-inclusion assertion and hospital’s contrary position without resolving the disputed package scope or clinical merit."
+    },
+    {
+      "id": "S07",
+      "review": "pass",
+      "word_count": 60,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "b2e230836bea9335d9075de10ffa2a71062329cfed0d93672f3313059fadec9b",
+      "explanation_sha256": "ca87c241f2cbe41013a80ef13cabd9ffaf75e9520ecef903bd14b73a24e4a599",
+      "review_note": "Correct ₹3,100 test amount and ankle-admission context. Unrelatedness remains an insurer allegation, and the treating doctor’s order remains included. No unsupported diagnosis or medical-necessity conclusion; settlement-payment direction is correct."
+    },
+    {
+      "id": "S08",
+      "review": "pass",
+      "word_count": 44,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "489bfafe0b32897dafbfaf3b9a7a11e27322de8ef7f55777d3f7ba56e386db22",
+      "explanation_sha256": "0ddb918facde2b838c3a6294bca035e867c412cdca993cccfd4d6dd949457151",
+      "review_note": "Correct ₹3,250 adjustment. Explicitly says no item-wise reason or applicable clause was provided. Does not invent a deduction category or reverse who receives the settlement payment."
+    },
+    {
+      "id": "S09",
+      "review": "pass",
+      "word_count": 48,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "9caf80699fe8b5cdd90fa49df87c39bf9b669a28c9c1e22c974cb7d083c842db",
+      "explanation_sha256": "bdd1887eb9937c0cd3d8ef612237374f0a4e1fc8cda50bf50e052d8750d5b513",
+      "review_note": "Correctly binds ₹62,500 to the co-payment calculation and ₹12,500 to its 20% deduction. Separately reports room rent approved in full without assigning it an amount. Missing co-pay clause remains unconfirmed. Prior v3 item/amount-association failure is resolved."
+    },
+    {
+      "id": "S10",
+      "review": "pass",
+      "word_count": 68,
+      "within_100_words": true,
+      "http_status": 200,
+      "input_sha256": "3b916b001a2c2288489585ead37fedd25a231ce08aaf9c35283dda310d3477f6",
+      "explanation_sha256": "b2dc21bc07cad97fcaaf2426d38cea4abd1de829776e3d54cfc0c81bcf9fd0de",
+      "review_note": "Correct attributed ₹50,000 ceiling, ₹30,000 prior payment, ₹20,000 remaining allowance, ₹42,000 current bill and ₹22,000 deduction. The equation is correct and clause applicability remains expressly unconfirmed."
+    }
+  ],
+  "summary": {
+    "successful_http": 10,
+    "explanation_pass": 10,
+    "explanation_fail": 0,
+    "total": 10,
+    "failed_ids": [],
+    "max_words": 85
+  },
+  "earlier_runs": [
+    {
+      "file": "qa/provider-before.json",
+      "reported_explanation_pass": 7,
+      "total": 10,
+      "note": "Earlier root-reviewed baseline retained separately; this reviewer did not overwrite its decisions."
+    },
+    {
+      "file": "qa/provider-intermediate3-review.json",
+      "independent_explanation_pass": 9,
+      "total": 10,
+      "failed_ids": [
+        "S09"
+      ],
+      "note": "Uniform v3 failure retained separately; it misassigned the co-pay base to room rent."
+    }
+  ],
+  "limitations": [
+    "Ten synthetic English inputs do not establish accuracy on real settlement documents, OCR errors, Hindi explanations or all policy variants.",
+    "The provider does not classify category or validity. Deterministic 15/15 fixture results must be reported separately.",
+    "Per-case input/explanation hashes bind this review to exact text; any later provider rerun requires a new review."
+  ]
+}

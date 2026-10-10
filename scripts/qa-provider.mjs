@@ -6,7 +6,7 @@ if(process.env.QA_REAL_PROVIDER!=='1')throw Error('Set QA_REAL_PROVIDER=1 to run
 const fixtures=JSON.parse(await readFile('tests/fixtures/settlements.json','utf8')).fixtures.slice(0,10);
 const config=await(await fetch(origin+'/api/config',{headers:{origin}})).json();if(!config.ai_enabled)throw Error('AI is not enabled');
 const worker_source_sha256=createHash('sha256').update(await readFile('worker/app.ts')).digest('hex');
-const result={worker_source_sha256,prompt_revision:'reported-assertions-and-amount-binding-v4',tested_at:new Date().toISOString(),origin,config,scope:'Ten synthetic minimal deduction lines. Provider explanations do not classify claims; deterministic answer-key accuracy is tested separately.',cases:[]};
+const result={worker_source_sha256,prompt_revision:'conditional-payment-and-amount-binding-v5',tested_at:new Date().toISOString(),origin,config,scope:'Ten synthetic minimal deduction lines. Provider explanations do not classify claims; deterministic answer-key accuracy is tested separately.',cases:[]};
 for(const f of fixtures){
  const line=f.reviewed_deduction;
  const input=`Synthetic QA. Deduction Rs ${line.amount}: ${line.description}\n${line.policyClause?`Policy clause supplied: ${line.policyClause}. Calculation confirmed: ${line.policyCalculationConfirmed}.`:'Applicable policy clause not supplied.'}`;

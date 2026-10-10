@@ -1,7 +1,7 @@
 {
-  "worker_source_sha256": "ffd0f1dbed61c41738070278fd48a7070cf9bd451b9fc7393ba03ddd02e06993",
-  "prompt_revision": "reported-assertions-and-amount-binding-v4",
-  "tested_at": "2026-10-10T12:03:41.346Z",
+  "worker_source_sha256": "791a1b9bafabd3732fb9f15b6607daa0f116859d3d35cba563c43cead5771104",
+  "prompt_revision": "conditional-payment-and-amount-binding-v5",
+  "tested_at": "2026-10-10T12:16:50.662Z",
   "origin": "https://claimclock.ketan952.workers.dev",
   "config": {
     "ai_enabled": true,
@@ -18,8 +18,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "The description identifies a room-category ratio applied to associated charges. Request the actual clause, affected-item calculation and whether those charges vary by room. Neither the historical 2020 circular nor a ratio alone establishes that the reduction is prohibited.",
       "http_status": 200,
-      "latency_ms": 1333,
-      "explanation": "The insurer reported a deduction of ₹8,000 for the “Surgeon and OT charges.” It said the reduction is 20 percent because the room rent selected was ₹6,000, while the eligible room rent is ₹4,800. No policy clause was supplied, so the clause’s applicability cannot be confirmed. The deduction means the insurer will pay ₹8,000 less to the hospital or claimant.",
+      "latency_ms": 791,
+      "explanation": "The insurer reported a deduction of Rs 8,000 for surgeon and OT charges. It said the reduction is 20 % because the patient’s chosen room rent was Rs 6,000 while the eligible room rent is Rs 4,800. No policy clause was supplied, so the clause’s applicability cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -30,8 +30,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "Exact items appear in different historical lists: gloves I.56, oxygen mask I.62, admission kit II.27. Those historical labels cannot decide present coverage. Request policy exclusion, consumable rider and any package/room inclusion before concluding recoverability.",
       "http_status": 200,
-      "latency_ms": 772,
-      "explanation": "The insurer reported a deduction of Rs 1,500 for “Non‑medical consumables,” listing gloves Rs 550, oxygen mask Rs 400, and admission kit Rs 550. The insurer asserted the deduction was made under “excluded items,” but no rider review was shown. The applicable policy clause was not supplied, so its applicability cannot be confirmed.",
+      "latency_ms": 1052,
+      "explanation": "The insurer reported a deduction of Rs 1500 for “Non‑medical consumables,” itemized as gloves Rs 550, oxygen mask Rs 400, and admission kit Rs 550. The insurer stated the deduction was made under “excluded items”; no rider review was shown. No policy clause was provided, so the applicability of any clause cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -42,8 +42,8 @@
       "expected_verdict": "likely valid",
       "answer_key": "In this synthetic scenario the user confirms the applicable per-eye cap and the arithmetic: 54,500 minus 50,000 is 4,500. Likely valid is conditional, not an adjudication; policy version, utilization and riders still matter. The linked cataract post is only contextual, not evidence this fictional cap exists.",
       "http_status": 200,
-      "latency_ms": 1035,
-      "explanation": "The insurer reported a deduction of ₹4,500 because the cataract sub‑limit was exceeded. The procedure bill was ₹54,500 for one eye, while the eligible policy limit for cataract per eye is ₹50,000, leaving an excess of ₹4,500. The insurer cited the supplied policy clause DEMO clause 4.2, which states that the cataract benefit is limited to ₹50,000 per eye for this policy year and that there was no prior utilization. The settlement amount payable by the insurer is the bill amount minus the ₹4,500 deduction.",
+      "latency_ms": 850,
+      "explanation": "The insurer reported a deduction of Rs 4,500, stating it is due to the cataract sub‑limit. The procedure bill is Rs 54,500, while the eligible policy limit is Rs 50,000 per eye, leaving an excess of Rs 4,500. The supplied policy clause (DEMO clause 4.2) asserts that cataract benefit is limited to Rs 50,000 per eye for this policy year, with no prior utilization. The deduction calculation is confirmed as true.",
       "advisory_only": true
     },
     {
@@ -54,8 +54,8 @@
       "expected_verdict": "likely valid",
       "answer_key": "Both clause applicability and calculation are expressly confirmed by the fixture user. The arithmetic 72,500 x 20% = 14,500 supports the conditional status. Public shortfall reports illustrate confusion about partial approval, not proof of co-pay terms.",
       "http_status": 200,
-      "latency_ms": 995,
-      "explanation": "The insurer reported a deduction of **Rs 14,500** as a **co‑payment** of 20 % on the admissible amount of **Rs 72,500**. It stated that the co‑payment rule “applies to each admissible hospitalization claim” and that there is “no waiver or special network exemption,” as supplied in the policy clause. After this deduction, the insurer’s **settlement amount payable** is **Rs 58,000**.",
+      "latency_ms": 766,
+      "explanation": "The insurer reported a deduction of Rs 14,500, described as a 20 % co‑payment on the admissible amount of Rs 72,500. The policy clause supplied states that a 20 % co‑payment applies to each admissible hospitalization claim, with no waiver or special network exemption. After this deduction, the insurer indicated its remaining liability as Rs 58,000.",
       "advisory_only": true
     },
     {
@@ -66,8 +66,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "The insurer label identifies the category but does not establish an evidence-based comparison, geographic benchmark or policy clause. Seek the reference data and line calculation. Do not characterize every reasonable-and-customary reduction as unlawful.",
       "http_status": 200,
-      "latency_ms": 866,
-      "explanation": "The insurer reduced the consultant professional fee from ₹32,000 to ₹20,000, resulting in a deduction of ₹12,000. It stated this reduction was on “reasonable and customary grounds,” but did not provide comparison data. No policy clause was supplied, so the clause’s applicability cannot be confirmed. The settlement amount payable refers to the insurer’s payment to the claimant or hospital.",
+      "latency_ms": 1388,
+      "explanation": "A deduction of Rs 12,000 was applied. The insurer reported that the consultant professional fee was reduced from Rs 32,000 to Rs 20,000 on “reasonable and customary grounds,” but no comparison data were provided. No policy clause was supplied, so its applicability cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -78,8 +78,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "The operative reason is alleged package inclusion, despite names of consumable items. Compare agreed package and hospital bill to determine whether this is duplicate billing or an incorrect package assumption. Historical List III labels do not settle the dispute.",
       "http_status": 200,
-      "latency_ms": 972,
-      "explanation": "The insurer deducted Rs 2,400 for surgical tape and gauze, stating the items were already included in the surgery package. The hospital bills them separately and says they were outside the agreed package. No policy clause was supplied, so the applicability of any clause to this deduction cannot be confirmed.",
+      "latency_ms": 1674,
+      "explanation": "The insurer reported a deduction of Rs 2,400 for surgical tape and gauze, stating that these items were already included in the surgery package. The hospital billed them separately and claims they were outside the agreed package. No specific policy clause was provided, so the applicability of any clause cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -90,8 +90,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "Timing within an admission neither proves nor disproves medical relation. Request the specific terms and clinical basis and obtain the treating doctor explanation. The app must not independently diagnose or assert medical necessity.",
       "http_status": 200,
-      "latency_ms": 712,
-      "explanation": "The insurer reported a deduction of ₹3,100 for the “Thyroid profile and vitamin panel,” stating that these tests “are not related to the admitted ankle injury,” even though the treating doctor ordered them during the same admission. No policy clause was provided, so its applicability cannot be confirmed. The settlement amount payable by the insurer does not include this ₹3,100.",
+      "latency_ms": 912,
+      "explanation": "The insurer reports a deduction of Rs 3,100 for the thyroid profile and vitamin panel, stating that these tests are not related to the admitted ankle injury, even though the treating doctor ordered them during the same admission. No policy clause is provided, so the applicability of any clause to this deduction cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -102,8 +102,8 @@
       "expected_verdict": "no reason given",
       "answer_key": "A numeric adjustment and generic terms label do not communicate the full item-specific reason and policy term. The correct next action is to ask for reasons; do not invent a consumables/co-pay/category explanation.",
       "http_status": 200,
-      "latency_ms": 850,
-      "explanation": "The insurer reported a deduction of ₹3,250, shown as an adjustment against the final payable amount. The remark states “as per terms,” but no specific item‑wise reason is provided. The insurer did not supply the applicable policy clause, so its applicability cannot be confirmed.",
+      "latency_ms": 811,
+      "explanation": "The insurer reported a deduction of Rs 3,250, described as an adjustment against the final payable amount. The remark states it is “as per terms.” No specific item‑wise reason is given. The applicable policy clause was not supplied, so its applicability cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -114,8 +114,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "The room charge is explicitly approved; the actual deduction is co-pay. Confirming arithmetic without an applicable policy clause cannot make it likely valid. A first-keyword room-rent match loses the negation and misstates the reason.",
       "http_status": 200,
-      "latency_ms": 654,
-      "explanation": "The insurer reported a co‑payment of 20 % on a charge of Rs 62,500, resulting in a deduction of Rs 12,500. The policy clause that would govern this co‑payment was not supplied, so its applicability cannot be confirmed. The room‑rent item was approved in full with no deduction.",
+      "latency_ms": 758,
+      "explanation": "The insurer listed a deduction of Rs 12,500. It says this is a co‑payment of 20 % on a base amount of Rs 62,500, resulting in the Rs 12,500 deduction. It also notes that room rent was approved in full, with no deduction. The applicable policy clause was not provided, so its applicability cannot be confirmed.",
       "advisory_only": true
     },
     {
@@ -126,8 +126,8 @@
       "expected_verdict": "challengeable",
       "answer_key": "A treatment-specific benefit ceiling is a sub-limit even when the exact label is absent. Verify policy wording, period and prior utilization. The post reference concerns a policy-period dispute and is contextual only; all maternity terms here are synthetic.",
       "http_status": 200,
-      "latency_ms": 1060,
-      "explanation": "The insurer deducted ₹22,000 from the current maternity bill. It stated that the policy’s maternity benefit ceiling is ₹50,000 per policy year. A prior maternity payment of ₹30,000 had already been made, leaving a remaining allowance of ₹20,000. The present bill was ₹42,000, so the amount exceeding the remaining allowance (₹42,000 – ₹20,000 = ₹22,000) was deducted. No policy clause was provided, so its applicability cannot be confirmed.",
+      "latency_ms": 981,
+      "explanation": "A deduction of Rs 22,000 was applied because the policy’s maternity‑benefit ceiling is Rs 50,000 per year. The insurer reported that Rs 30,000 had already been paid for maternity, leaving a remaining allowance of Rs 20,000. The current maternity bill of Rs 42,000 therefore exceeds the allowable amount, and the excess Rs 22,000 was deducted. No policy clause was provided, so the applicability of any specific clause cannot be confirmed.",
       "advisory_only": true
     }
   ]

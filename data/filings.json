@@ -137,7 +137,11 @@
     ],
     "next_step": "Continue cell-level review of the remaining 16 scanned TPA sources.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26 के सभी 17 मौजूदा TPA लिंक सत्यापित किए गए। Medi Assist की स्कैन की गई फाइल से OCR पाठ निकाला गया और हर समय-सीमा का अंक देखकर जाँचा गया। बाकी 16 TPA की समीक्षा बाकी है।",
+      "Medi Assist की तालिका PDF के पृष्ठ 2–3 पर है। 24 घंटे से अधिक वाले चारों खाने खाली हैं और रिक्त ही रखे गए हैं; कैशलेस मामलों की कुल संख्या नहीं दी गई है।"
+    ]
   },
   {
     "insurer_id": "new-india",
@@ -164,7 +168,10 @@
     "notes": [
       "FY2025-26 document has 191 pages. Reviewed FHPL, Heritage, Health Insurance TPA of India and Park cashless tables included; other TPA tables need layout-specific extraction and review."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की फाइल में 191 पृष्ठ हैं। समीक्षा की गई FHPL, Heritage, Health Insurance TPA of India और Park की कैशलेस तालिकाएँ शामिल हैं; बाकी TPA तालिकाओं से उनके प्रारूप के अनुसार डेटा निकालना और उसकी समीक्षा करना बाकी है।"
+    ]
   },
   {
     "insurer_id": "oriental",
@@ -307,12 +314,16 @@
       }
     ],
     "notes": [
-      "The FY2025\u201326 archive became available after selecting English on the homepage; a direct first visit had sent an empty locale and displayed no data. Browser verified 18 source links.",
+      "The FY2025–26 archive became available after selecting English on the homepage; a direct first visit had sent an empty locale and displayed no data. Browser verified 18 source links.",
       "Medi Assist and MDIndia scanned cashless cells were visually reviewed. Medi Assist >24h cells are blank and retained as null. In-house cashless cells are Nil and omitted; the other 15 TPAs remain unreviewed. No cashless denominator disclosed."
     ],
     "next_step": "Review the remaining 15 Oriental TPA scans.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "मुखपृष्ठ पर अंग्रेज़ी चुनने के बाद वित्त वर्ष 2025–26 का अभिलेख खुला; पहले सीधे पृष्ठ खोलने पर भाषा का मान खाली गया था और कोई डेटा नहीं दिखा। ब्राउज़र में 18 स्रोत लिंक सत्यापित किए गए।",
+      "Medi Assist और MDIndia की स्कैन की गई कैशलेस तालिकाओं के अंक देखकर जाँचे गए। Medi Assist के 24 घंटे से अधिक वाले खाने खाली हैं और रिक्त ही रखे गए हैं। इन-हाउस कैशलेस खानों में ‘निल’ लिखा है, इसलिए उन्हें छोड़ा गया है; बाकी 15 TPA की समीक्षा बाकी है। कैशलेस मामलों की कुल संख्या नहीं दी गई है।"
+    ]
   },
   {
     "insurer_id": "united-india",
@@ -465,7 +476,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र से वित्त वर्ष 2025–26 का TPA अभिलेख मिला। सभी 15 स्कैन की गई फाइलें, TPA की पहचान, 31 मार्च 2026 के शीर्षक और समय-सीमाओं के 360 अंक देखकर जाँचे गए।",
+      "सभी 58 गैर-शून्य वितरणों का कुल 100% है। LINK-K के व्यक्तिगत कॉलम में सभी मान शून्य हैं, इसलिए उन्हें छोड़ा गया है। कैशलेस मामलों की कुल संख्या नहीं दी गई। स्रोत में समय की गणना आखिरी आवश्यक दस्तावेज़ या डिस्चार्ज बिल मिलने से शुरू होती है; ये समय-सीमाओं के समूह वैधानिक अनुपालन का माप नहीं हैं।"
+    ]
   },
   {
     "insurer_id": "acko",
@@ -490,7 +505,10 @@
     "notes": [
       "Official disclosure page links a combined FY2025-26 document and a separate FHPL file. In-house and FHPL distributions are included once, from the combined document. PDF hosted on insurer-linked ackoassets.com; official page and exact document URL retained."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "आधिकारिक प्रकटीकरण पृष्ठ पर वित्त वर्ष 2025–26 की संयुक्त फाइल और FHPL की अलग फाइल के लिंक हैं। इन-हाउस और FHPL के आँकड़े संयुक्त फाइल से केवल एक बार शामिल किए गए हैं। PDF बीमाकर्ता से जुड़े ackoassets.com पर है; आधिकारिक पृष्ठ और दस्तावेज़ का पूरा पता दोनों रखे गए हैं।"
+    ]
   },
   {
     "insurer_id": "aditya-birla",
@@ -528,7 +546,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की चौथी तिमाही की फाइल ब्राउज़र में सार्वजनिक प्रकटीकरण और फिर Q4-FY25-26 चुनकर प्राप्त की गई। पृष्ठ 53–64 पर इन-हाउस और 11 TPA की तालिकाएँ हैं।",
+      "व्यक्तिगत पॉलिसियों के जिन TPA कॉलम में सभी मान शून्य थे, उन्हें छोड़ा गया है; निपटान-समय की तालिकाओं में कैशलेस मामलों की कुल संख्या नहीं दी गई है।"
+    ]
   },
   {
     "insurer_id": "galaxy",
@@ -553,7 +575,11 @@
     ],
     "next_step": "Recheck the official annual filing for a corrected unit label or a separately disclosed cashless table.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; Financials year selector and Performance Disclosures inspected."
+    "browser_method": "Isolated headed Chrome via Playwright; Financials year selector and Performance Disclosures inspected.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26 चुनने पर अब भी चौथी तिमाही की वही PDF मिलती है; SHA256 हैश से इसकी पुष्टि हुई। पृष्ठ 53 पर सभी कैशलेस कॉलम प्रतिशत बताए गए हैं, लेकिन 1662 और 1014 जैसे मान तथा चार अंकों के कुल योग गिनती जैसे लगते हैं।",
+      "इकाई का अनुमान नहीं लगाया गया और कोई मान प्रकाशित नहीं किया गया। सही की गई या स्पष्ट इकाई वाली कैशलेस तालिका मिलने तक वार्षिक स्रोत शामिल नहीं किया जाएगा।"
+    ]
   },
   {
     "insurer_id": "bajaj",
@@ -626,7 +652,10 @@
     "notes": [
       "FY2025-26 in-house table included. Seven TPA source files located and downloaded; their varying layouts still need reviewed extraction."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की इन-हाउस तालिका शामिल है। सात TPA की स्रोत फाइलें मिलीं और डाउनलोड की गईं; उनके अलग-अलग प्रारूपों से डेटा निकालना और उसकी समीक्षा करना बाकी है।"
+    ]
   },
   {
     "insurer_id": "chola",
@@ -648,9 +677,12 @@
       }
     ],
     "notes": [
-      "FY2025-26 full disclosure pages 102\u2013103 reports consolidated in-house/TPA data, without individual TPA splits. Explicit combined-provider label retained. A separately linked health-service PDF was dated March 2020 and was not used."
+      "FY2025-26 full disclosure pages 102–103 reports consolidated in-house/TPA data, without individual TPA splits. Explicit combined-provider label retained. A separately linked health-service PDF was dated March 2020 and was not used."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की पूरी प्रकटीकरण फाइल के पृष्ठ 102–103 पर इन-हाउस और TPA के संयुक्त आँकड़े हैं; अलग-अलग TPA का विभाजन नहीं है। संयुक्त सेवा-प्रदाताओं का स्पष्ट नाम रखा गया है। अलग लिंक वाली स्वास्थ्य सेवा PDF मार्च 2020 की थी, इसलिए उसका उपयोग नहीं किया गया।"
+    ]
   },
   {
     "insurer_id": "navi",
@@ -674,12 +706,16 @@
       }
     ],
     "notes": [
-      "Browser FY2025\u201326 Jan\u2013Mar selection recovered the Q4 PDF. Pages 57\u201359 contain in-house, Medi Assist and Paramount NL-48 tables, all visually reviewed.",
+      "Browser FY2025–26 Jan–Mar selection recovered the Q4 PDF. Pages 57–59 contain in-house, Medi Assist and Paramount NL-48 tables, all visually reviewed.",
       "Only in-house individual preauthorization/discharge and Medi Assist individual preauthorization have nonzero distributions. Medi Assist reports 100% in >24h, with no disclosed cashless sample size. All-zero columns omitted. Negative group policy/lives figures were not used as denominators."
     ],
     "next_step": "Monitor the next annual filing; preserve source scope and rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26 और जनवरी–मार्च चुनकर चौथी तिमाही की PDF मिली। पृष्ठ 57–59 पर इन-हाउस, Medi Assist और Paramount की NL-48 तालिकाएँ हैं; सभी को देखकर जाँचा गया।",
+      "केवल इन-हाउस व्यक्तिगत पूर्व-अनुमति और डिस्चार्ज तथा Medi Assist व्यक्तिगत पूर्व-अनुमति में गैर-शून्य आँकड़े हैं। Medi Assist के 100% मामले 24 घंटे से अधिक में हैं; कैशलेस नमूने का आकार नहीं दिया गया है। सभी मान शून्य वाले कॉलम छोड़े गए हैं। समूह पॉलिसियों और बीमित लोगों के ऋणात्मक आँकड़ों को कुल मामलों की संख्या नहीं माना गया।"
+    ]
   },
   {
     "insurer_id": "zuno",
@@ -711,7 +747,10 @@
     "notes": [
       "FY2025-26 tables included except Park individual preauth/discharge columns: nonzero buckets contradict blank totals and absent individual policies on page 9. All-zero populations omitted."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की तालिकाएँ शामिल हैं, लेकिन Park की व्यक्तिगत पूर्व-अनुमति और डिस्चार्ज के कॉलम छोड़े गए हैं: समय-सीमाओं के गैर-शून्य मान खाली कुल योग और पृष्ठ 9 पर व्यक्तिगत पॉलिसियाँ न होने से मेल नहीं खाते। सभी मान शून्य वाले समूह छोड़े गए हैं।"
+    ]
   },
   {
     "insurer_id": "generali-central",
@@ -747,7 +786,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र से वित्त वर्ष 2025–26 की चौथी तिमाही का NL-48 मिला: पृष्ठ 1–10 पर इन-हाउस और नौ TPA की तालिकाएँ हैं। स्रोत की पहचान, इकाइयों और कैशलेस तालिकाओं के स्थान की समीक्षा की गई।",
+      "कैशलेस मामलों की कुल संख्या नहीं दी गई। पृष्ठ 10 पर Medi Assist के 24 घंटे से अधिक वाले खाने खाली हैं और रिक्त ही रखे गए हैं; सभी मान शून्य या अनुपस्थित वाले व्यक्तिगत TPA कॉलम छोड़े गए हैं। स्रोत की गोलाई रखी गई है।"
+    ]
   },
   {
     "insurer_id": "digit",
@@ -776,7 +819,10 @@
     "notes": [
       "FY2025-26 six-page filing reviewed. All-zero TPA/policy columns omitted; zero distributions do not imply fast service."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की छह पृष्ठों की फाइल की समीक्षा की गई। सभी मान शून्य वाले TPA/पॉलिसी कॉलम छोड़े गए हैं; शून्य आँकड़ों का अर्थ तेज सेवा नहीं है।"
+    ]
   },
   {
     "insurer_id": "hdfc-ergo",
@@ -881,7 +927,10 @@
     "notes": [
       "FY2025-26 in-house and nine TPA files found and parsed. In-house group discharge <1h is 59%; source period matters when comparing older examples."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की इन-हाउस और नौ TPA फाइलें मिलीं और उनसे डेटा निकाला गया। इन-हाउस समूह डिस्चार्ज में एक घंटे से कम वाला मान 59% है; पुराने उदाहरणों से तुलना करते समय स्रोत की अवधि ध्यान में रखें।"
+    ]
   },
   {
     "insurer_id": "icici-lombard",
@@ -904,9 +953,12 @@
       }
     ],
     "notes": [
-      "FY2025-26 11-page official PDF readable through the web PDF reader; direct local requests return HTTP 403. Pages 1\u20132 (in-house and Medi Assist) included. Remaining TPA pages await extraction; no local source hash available."
+      "FY2025-26 11-page official PDF readable through the web PDF reader; direct local requests return HTTP 403. Pages 1–2 (in-house and Medi Assist) included. Remaining TPA pages await extraction; no local source hash available."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की 11 पृष्ठों की आधिकारिक PDF वेब PDF रीडर में पढ़ी जा सकती है; सीधे स्थानीय अनुरोधों पर HTTP 403 मिलता है। पृष्ठ 1–2 के इन-हाउस और Medi Assist आँकड़े शामिल हैं। बाकी TPA पृष्ठों से डेटा निकालना बाकी है; स्थानीय स्रोत का हैश उपलब्ध नहीं है।"
+    ]
   },
   {
     "insurer_id": "iffco-tokio",
@@ -944,7 +996,10 @@
     "notes": [
       "FY2025-26 18-page TPA-wise disclosure parsed. Pages continuing geographic lists are not separate TAT tables. In-house table visually checked because a stray extracted zero sits outside its four table columns."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 के 18 पृष्ठों के TPA-वार प्रकटीकरण से डेटा निकाला गया। भौगोलिक सूचियों को आगे बढ़ाने वाले पृष्ठ अलग निपटान-समय की तालिकाएँ नहीं हैं। इन-हाउस तालिका को देखकर जाँचा गया, क्योंकि निकाले गए पाठ में एक अतिरिक्त शून्य तालिका के चार कॉलम के बाहर था।"
+    ]
   },
   {
     "insurer_id": "zurich-kotak",
@@ -973,7 +1028,10 @@
     "notes": [
       "FY2025-26 six-page filing parsed. Page 2 Medi Assist individual discharge sums to 2% and group discharge to 98%; both columns excluded. Values were not reassigned across columns."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की छह पृष्ठों की फाइल से डेटा निकाला गया। पृष्ठ 2 पर Medi Assist के व्यक्तिगत डिस्चार्ज का कुल 2% और समूह डिस्चार्ज का 98% है; दोनों कॉलम छोड़े गए हैं। किसी मान को दूसरे कॉलम में नहीं रखा गया।"
+    ]
   },
   {
     "insurer_id": "liberty",
@@ -1009,12 +1067,16 @@
       }
     ],
     "notes": [
-      "Browser FY2025\u201326 Q4 financial filing contains in-house Health360 and 14 TPA tables on pages 80\u201394. Every cashless header and bucket cell visually checked; all-zero or absent individual TPA columns omitted.",
+      "Browser FY2025–26 Q4 financial filing contains in-house Health360 and 14 TPA tables on pages 80–94. Every cashless header and bucket cell visually checked; all-zero or absent individual TPA columns omitted.",
       "Cashless denominators absent; source integer rounding retained. Genins page 91 has an unrelated negative covered-lives figure, which was not used as a denominator. Its clearly labelled cashless distribution was reviewed independently. The download URL may expire; use the archive year and quarter selectors if needed."
     ],
     "next_step": "Monitor the next annual filing; preserve source scope and rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र से मिली वित्त वर्ष 2025–26 की चौथी तिमाही की वित्तीय फाइल के पृष्ठ 80–94 पर इन-हाउस Health360 और 14 TPA की तालिकाएँ हैं। हर कैशलेस शीर्षक और समय-सीमा का अंक देखकर जाँचा गया; सभी मान शून्य या अनुपस्थित वाले व्यक्तिगत TPA कॉलम छोड़े गए हैं।",
+      "कैशलेस मामलों की कुल संख्या नहीं दी गई; स्रोत में पूर्णांक की गोलाई रखी गई है। Genins के पृष्ठ 91 पर बीमित लोगों का एक असंबंधित ऋणात्मक आँकड़ा है, जिसे कुल मामलों की संख्या नहीं माना गया। उसकी स्पष्ट रूप से नामित कैशलेस तालिका की अलग समीक्षा की गई। डाउनलोड का पता समाप्त हो सकता है; ज़रूरत पड़ने पर अभिलेख में वर्ष और तिमाही चुनें।"
+    ]
   },
   {
     "insurer_id": "magma",
@@ -1146,7 +1208,11 @@
     ],
     "next_step": "Review remaining TPA filings before treating coverage as complete.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26 के TPA अभिलेख में 14 स्रोत PDF हैं। Medi Assist और MDIndia के स्कैन किए गए अंक देखकर जाँचे गए; दोनों में केवल समूह पॉलिसियों के आँकड़े हैं। इन-हाउस कैशलेस खानों में सभी मान शून्य हैं, इसलिए उन्हें छोड़ा गया है। बाकी 11 स्रोतों की समीक्षा बाकी है।",
+      "कवरेज आंशिक है। समीक्षा की गई तालिकाओं में न व्यक्तिगत कैशलेस वितरण है, न कैशलेस मामलों की कुल संख्या।"
+    ]
   },
   {
     "insurer_id": "manipalcigna",
@@ -1179,7 +1245,10 @@
     "notes": [
       "FY2025-26 59-page disclosure parsed where table headers and numeric columns were extractable. Page 51 requires separate review; all-zero columns omitted."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की 59 पृष्ठों की फाइल में जहाँ तालिका के शीर्षक और संख्या वाले कॉलम पढ़े जा सके, वहाँ से डेटा निकाला गया। पृष्ठ 51 की अलग समीक्षा चाहिए; सभी मान शून्य वाले कॉलम छोड़े गए हैं।"
+    ]
   },
   {
     "insurer_id": "niva-bupa",
@@ -1203,9 +1272,12 @@
       }
     ],
     "notes": [
-      "FY2025-26 cashless tables on PDF pages 52\u201354 parsed per named service provider. In-house >24h dashes remain null, never converted to zero."
+      "FY2025-26 cashless tables on PDF pages 52–54 parsed per named service provider. In-house >24h dashes remain null, never converted to zero."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की PDF के पृष्ठ 52–54 की कैशलेस तालिकाओं से प्रत्येक नामित सेवा-प्रदाता का डेटा निकाला गया। इन-हाउस के 24 घंटे से अधिक वाले डैश रिक्त ही रखे गए हैं, उन्हें कभी शून्य नहीं बनाया गया।"
+    ]
   },
   {
     "insurer_id": "raheja-qbe",
@@ -1232,7 +1304,10 @@
     "notes": [
       "Latest NL48 located is FY2024-25. The archive exposes FY2025-26 Q4 forms through NL46, but a newer NL48 was not located. Older period is shown explicitly and should not be pooled with FY2025-26."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "सबसे नया मिला NL-48 वित्त वर्ष 2024–25 का है। अभिलेख में वित्त वर्ष 2025–26 की चौथी तिमाही के NL46 तक के फॉर्म हैं, लेकिन नया NL-48 नहीं मिला। पुरानी अवधि स्पष्ट दिखाई गई है और उसे वित्त वर्ष 2025–26 के साथ नहीं मिलाना चाहिए।"
+    ]
   },
   {
     "insurer_id": "indusind",
@@ -1264,7 +1339,10 @@
     "notes": [
       "FY2025-26 nine-page filing parsed. Insurer formerly Reliance General; all-zero/dash populations omitted. Published integer rounding is preserved."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की नौ पृष्ठों की फाइल से डेटा निकाला गया। बीमाकर्ता का पूर्व नाम Reliance General था; सभी मान शून्य या डैश वाले समूह छोड़े गए हैं। प्रकाशित पूर्णांक गोलाई ज्यों की त्यों रखी गई है।"
+    ]
   },
   {
     "insurer_id": "care",
@@ -1291,7 +1369,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की वित्तीय फाइल पृष्ठ में खुले सामग्री प्रबंधन प्रणाली के अभिलेख से प्राप्त की गई; अन्य प्रकटीकरण का पुराना लिंक 31 मार्च 2025 का है और उसकी जगह उपयोग नहीं किया गया।",
+      "पृष्ठ 63 पर बीमाकर्ता की एक संयुक्त तालिका है और पृष्ठ 55 पर 12 TPA सूचीबद्ध हैं। अलग-अलग TPA का विभाजन या कैशलेस मामलों की कुल संख्या नहीं दी गई; स्रोत की गोलाई के कारण समूह कॉलम का कुल 101% है।"
+    ]
   },
   {
     "insurer_id": "royal-sundaram",
@@ -1446,7 +1528,11 @@
     ],
     "next_step": "Review remaining TPA filings before treating coverage as complete.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26 के वार्षिक TPA अभिलेख में 15 माध्यम हैं। Medi Assist और MDIndia के स्कैन किए गए अंक देखकर जाँचे गए; इन-हाउस कैशलेस खानों में सभी मान शून्य हैं, इसलिए उन्हें छोड़ा गया है। बाकी 12 स्रोतों की समीक्षा बाकी है।",
+      "देखने के बटन से PDF फाइलें मिलती हैं। स्रोत लिंक सीधे संबंधित वार्षिक अभिलेख खोलते हैं; वहाँ नामित TPA चुनें। सहेजी गई PDF के हैश और पृष्ठ संख्या दर्ज हैं। कैशलेस मामलों की कुल संख्या नहीं दी गई।"
+    ]
   },
   {
     "insurer_id": "sbi-general",
@@ -1483,7 +1569,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष 2025–26, चौथी तिमाही और NL48 चुनकर दस्तावेज़ डाउनलोड किया गया। कैशलेस नमूने का आकार निपटान-समय के कॉलम में छपा कुल है; यह भुगतान या अस्वीकार किए गए मामलों की गिनती से अलग है।",
+      "पृष्ठ 20 की Volo TPA तालिका छोड़ी गई: समूह डिस्चार्ज की समय-सीमाओं की गिनती का योग 6799 है, लेकिन छपा कुल 7699 है; प्रतिशत और पूर्व-अनुमति की गिनती भी मेल नहीं खाते। बाकी 10 माध्यमों के छपे प्रतिशत और दी गई कैशलेस कुल संख्या ज्यों की त्यों रखी गई हैं।"
+    ]
   },
   {
     "insurer_id": "shriram",
@@ -1510,7 +1600,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "ब्राउज़र में वित्त वर्ष चुनकर 11 जून 2026 को संशोधित वित्त वर्ष 2025–26 की चौथी तिमाही की फाइल मिली। पृष्ठ 58 पर Medi Assist की एक NL-48 तालिका है।",
+      "शीर्षक में व्यक्तिगत पॉलिसियों के मान प्रतिशत बताए गए हैं; समूह की प्रविष्टियों में लागू नहीं लिखा है और उन्हें छोड़ा गया है। कैशलेस मामलों की कुल संख्या नहीं दी गई।"
+    ]
   },
   {
     "insurer_id": "star-health",
@@ -1548,7 +1642,11 @@
     ],
     "next_step": "Monitor the next annual filing; preserve table scope and source rounding.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM."
+    "browser_method": "Isolated headed Chrome via Playwright; official archive navigation and rendered DOM.",
+    "notes_hi": [
+      "वित्तीय अभिलेख में वित्त वर्ष 2025–26 की चौथी तिमाही के पृष्ठ 54 और 56–66 पर इन-हाउस स्वास्थ्य तथा 11 TPA की समीक्षा की गई। केवल यात्रा बीमा वाला पृष्ठ 55 छोड़ा गया। अलग स्वास्थ्य-मानदंड अनुभाग में सिर्फ वित्त वर्ष 2023–24 था; वार्षिक वित्तीय फाइल अधिक नई है।",
+      "कैशलेस मामलों की कुल संख्या नहीं दी गई। सभी मान शून्य वाले व्यक्तिगत TPA कॉलम छोड़े गए हैं; छपे हुए गोल किए गए प्रतिशत रखे गए हैं।"
+    ]
   },
   {
     "insurer_id": "narayana",
@@ -1570,9 +1668,12 @@
       }
     ],
     "notes": [
-      "FY2025-26 PDF pages 53\u201354 names five TPAs but presents one combined group-policy cashless distribution. Included under an explicit combined-provider label; per-TPA splits unavailable. PDF is hosted on official-page-linked Azure storage."
+      "FY2025-26 PDF pages 53–54 names five TPAs but presents one combined group-policy cashless distribution. Included under an explicit combined-provider label; per-TPA splits unavailable. PDF is hosted on official-page-linked Azure storage."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की PDF के पृष्ठ 53–54 पर पाँच TPA के नाम हैं, लेकिन समूह पॉलिसी की एक संयुक्त कैशलेस तालिका है। स्पष्ट संयुक्त सेवा-प्रदाता नाम के साथ शामिल किया गया; अलग-अलग TPA का विभाजन उपलब्ध नहीं है। PDF आधिकारिक पृष्ठ से जुड़े Azure भंडारण पर है।"
+    ]
   },
   {
     "insurer_id": "tata-aig",
@@ -1596,7 +1697,10 @@
     "notes": [
       "FY2025-26 PDF page 3 has multiple tables with different TPA/policy columns. All column mappings reviewed against the rendered page; all-zero columns omitted."
     ],
-    "next_step": null
+    "next_step": null,
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 की PDF के पृष्ठ 3 पर अलग-अलग TPA और पॉलिसी कॉलम वाली कई तालिकाएँ हैं। सभी कॉलम का मिलान पृष्ठ को देखकर जाँचा गया; सभी मान शून्य वाले कॉलम छोड़े गए हैं।"
+    ]
   },
   {
     "insurer_id": "universal-sompo",
@@ -1629,7 +1733,10 @@
     "notes": [
       "FY2025-26 page 3 Vidal table contains district names in place of timing-bucket labels. Entire affected table excluded. Other ten named provider tables parsed."
     ],
-    "next_step": "Review the stated gaps against the insurer\u2019s latest official archive before extending coverage."
+    "next_step": "Review the stated gaps against the insurer’s latest official archive before extending coverage.",
+    "notes_hi": [
+      "वित्त वर्ष 2025–26 के पृष्ठ 3 की Vidal तालिका में समय-सीमा के नामों की जगह ज़िलों के नाम हैं। पूरी प्रभावित तालिका छोड़ी गई। बाकी दस नामित सेवा-प्रदाताओं की तालिकाओं से डेटा निकाला गया।"
+    ]
   },
   {
     "insurer_id": "prudential-hcl",
@@ -1646,6 +1753,10 @@
     ],
     "next_step": "Monitor the official disclosure archive for an annual NL-48 source.",
     "browser_checked_on": "2026-10-10",
-    "browser_method": "Isolated headed Chrome via Playwright; expanded the Others accordion."
+    "browser_method": "Isolated headed Chrome via Playwright; expanded the Others accordion.",
+    "notes_hi": [
+      "सार्वजनिक प्रकटीकरण पृष्ठ और अन्य दस्तावेज़ों का अनुभाग ब्राउज़र में दोबारा खोलने पर अगस्त 2026 की पारिश्रमिक नीति मिली। उस पृष्ठ पर वार्षिक NL-48 नहीं मिला।",
+      "संग्रह में इस कमी से रिपोर्ट जमा करने की बाध्यता या प्रदर्शन के बारे में कोई निष्कर्ष नहीं निकाला गया है।"
+    ]
   }
 ]

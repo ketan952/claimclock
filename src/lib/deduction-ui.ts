@@ -1,7 +1,7 @@
 import contactsRaw from '../../data/contacts.json';import rulesRaw from '../../data/rules.json';
 import consumables from '../../data/consumables.json';
 import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,type Deduction,type DeductionInput} from './deductions';
-import {knownIdentifiers,redact} from './redact';import {lang,t} from './i18n';import {makeDeductionLetter} from './deduction-letter';
+import {knownIdentifiers,redact} from './redact';import {lang,t,setMessage} from './i18n';import {makeDeductionLetter} from './deduction-letter';
 import {setupLetterDialog} from './letter-dialog';import {download} from './storage';import {reminders} from './reminders';
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
@@ -10,9 +10,9 @@ const statusLabel=(status:string)=>t(`deductions.verdict.${status}`);
 function append(parent:HTMLElement,tag:string,text:string,className=''){const n=document.createElement(tag);n.textContent=text;n.className=className;parent.append(n);return n;}
 const normalized=(s:string)=>s.toUpperCase().replace(/\s+/g,' ').trim();
 async function read(file:File){
- if(processing){el('extract-status').textContent=t('deductions.wait');return;}processing=true;
- try{const {extractFile}=await import('./extract');const text=await extractFile(file,s=>el('extract-status').textContent=s);const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+text;el<HTMLDetailsElement>('extracted-details').open=true;el('extract-status').textContent=t('deductions.readDone');}
- catch(e){el('extract-status').textContent=e instanceof Error?e.message:t('deductions.readFailed');}finally{processing=false;}
+ if(processing){setMessage(el('extract-status'),'deductions.wait');return;}processing=true;
+ try{const {extractFile}=await import('./extract');const text=await extractFile(file,(key,fields)=>setMessage(el('extract-status'),key,fields));const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+text;el<HTMLDetailsElement>('extracted-details').open=true;setMessage(el('extract-status'),'deductions.readDone');}
+ catch(e){setMessage(el('extract-status'),e instanceof Error&&'translationKey' in e&&String(e.translationKey).startsWith('extract.')?String(e.translationKey):'deductions.readFailed');}finally{processing=false;}
 }
 for(const id of ['settlement-file','bill-file','policy-file'])el<HTMLInputElement>(id).addEventListener('change',()=>{const file=el<HTMLInputElement>(id).files?.[0];if(file)void read(file);});
 function render(){
@@ -35,22 +35,22 @@ function render(){
  for(const [status,amount] of Object.entries(totals)){const row=append(summary,'p',`${statusLabel(status)}: ₹${amount.toLocaleString('en-IN')}`);row.dataset.verdict=status;}
 
 }
-el<HTMLFormElement>('deduction-form').addEventListener('submit',e=>{e.preventDefault();const result=parseManualLines(el<HTMLTextAreaElement>('deduction-lines').value);if(result.errors.length||!result.inputs.length){el('deduction-error').textContent=`${t('deductions.lineError')}: ${result.errors.join(', ')}`;return;}el('deduction-error').textContent='';inputs=result.inputs;insurer=(el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement).value;render();el('deduction-results').scrollIntoView({block:'start'});});
+el<HTMLFormElement>('deduction-form').addEventListener('submit',e=>{e.preventDefault();const result=parseManualLines(el<HTMLTextAreaElement>('deduction-lines').value);if(result.errors.length||!result.inputs.length){setMessage(el('deduction-error'),'deductions.lineErrorNumbered',{lines:result.errors.join(', ')});return;}setMessage(el('deduction-error'),null);inputs=result.inputs;insurer=(el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement).value;render();el('deduction-results').scrollIntoView({block:'start'});});
 function letter(kind:'reconsideration'|'bima'):Letter {return makeDeductionLetter(kind,deductions,insurer,contacts,rules,lang());}
-el('reconsideration').addEventListener('click',()=>showLetter(letter('reconsideration'),contacts.find(c=>c.id===insurer)?.gro_email||''));el('deduction-bima').addEventListener('click',()=>showLetter(letter('bima')));
+el('reconsideration').addEventListener('click',()=>showLetter(()=>letter('reconsideration'),contacts.find(c=>c.id===insurer)?.gro_email||''));el('deduction-bima').addEventListener('click',()=>showLetter(()=>letter('bima')));
 el('prepare-ai').addEventListener('click',async()=>{
- if(!deductions.length){el('ai-status').textContent=t('deductions.reviewFirst');return;}
+ if(!deductions.length){setMessage(el('ai-status'),'deductions.reviewFirst');return;}
  const uncertain=deductions.filter(d=>d.status!=='likely valid');
  el<HTMLTextAreaElement>('ai-preview').value=redact(uncertain.map(d=>`${d.description}: ₹${d.amount}; ${d.category}`).join('\n'),knownIdentifiers(el<HTMLTextAreaElement>('extracted-text').value));
- el('ai-form').hidden=false;el('ai-status').textContent='';
- try{const r=await fetch('/api/config');if(!r.ok)throw Error();const config=await r.json() as {ai_enabled:boolean;provider:string;model:string};el('ai-provider').textContent=config.ai_enabled?`${config.provider} · ${config.model}`:t('deductions.aiUnavailable');}catch{el('ai-provider').textContent=t('deductions.aiUnavailable');}
+ el('ai-form').hidden=false;setMessage(el('ai-status'),null);setMessage(el('ai-provider'),'deductions.aiChecking');
+ try{const r=await fetch('/api/config');if(!r.ok)throw Error();const config=await r.json() as {ai_enabled:boolean;provider:string;model:string};if(config.ai_enabled){setMessage(el('ai-provider'),null);el('ai-provider').textContent=`${config.provider} · ${config.model}`;}else setMessage(el('ai-provider'),'deductions.aiUnavailable');}catch{setMessage(el('ai-provider'),'deductions.aiUnavailable');}
 });
 el<HTMLFormElement>('ai-form').addEventListener('submit',async e=>{
  e.preventDefault();const preview=el<HTMLTextAreaElement>('ai-preview');const cleaned=redact(preview.value,knownIdentifiers(el<HTMLTextAreaElement>('extracted-text').value));
- if(cleaned!==preview.value){preview.value=cleaned;(el<HTMLFormElement>('ai-form').elements.namedItem('consent') as HTMLInputElement).checked=false;el('ai-status').textContent=t('deductions.checkAgain');return;}
- const button=el('ai-form').querySelector('button')!;button.disabled=true;
- try{const r=await fetch('/api/explain',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lines:cleaned,consent:true})});if(!r.ok)throw Error();const result=await r.json() as {explanation:string};el('ai-output').textContent=result.explanation;el('ai-status').textContent=t('deductions.aiCaution');}
- catch{el('ai-status').textContent=t('deductions.aiUnavailable');}finally{button.disabled=false;}
+ if(cleaned!==preview.value){preview.value=cleaned;(el<HTMLFormElement>('ai-form').elements.namedItem('consent') as HTMLInputElement).checked=false;setMessage(el('ai-status'),'deductions.checkAgain');return;}
+ const button=el('ai-form').querySelector('button')!;button.disabled=true;setMessage(el('ai-status'),'deductions.aiWorking');
+ try{const r=await fetch('/api/explain',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lines:cleaned,consent:true,language:lang()})});if(!r.ok)throw Error();const result=await r.json() as {explanation:string};el('ai-output').textContent=result.explanation;setMessage(el('ai-status'),'deductions.aiCaution');}
+ catch{setMessage(el('ai-status'),'deductions.aiUnavailable');}finally{button.disabled=false;}
 });
-el<HTMLFormElement>('reminder-form').addEventListener('submit',e=>{e.preventDefault();const form=el<HTMLFormElement>('reminder-form');const complaint=(form.elements.namedItem('complaintDate') as HTMLInputElement).value;const response=(form.elements.namedItem('responseDate') as HTMLInputElement).value;try{if(complaint>new Date().toISOString().slice(0,10)||response>new Date().toISOString().slice(0,10))throw Error();download('claimclock-reminders.ics',reminders(complaint,response||undefined),'text/calendar;charset=utf-8');el('reminder-status').textContent=t('deductions.calendarDone');}catch{el('reminder-status').textContent=t('deductions.dateError');}});
+el<HTMLFormElement>('reminder-form').addEventListener('submit',e=>{e.preventDefault();const form=el<HTMLFormElement>('reminder-form');const complaint=(form.elements.namedItem('complaintDate') as HTMLInputElement).value;const response=(form.elements.namedItem('responseDate') as HTMLInputElement).value;try{if(complaint>new Date().toISOString().slice(0,10)||response>new Date().toISOString().slice(0,10))throw Error();download('claimclock-reminders.ics',reminders(complaint,response||undefined),'text/calendar;charset=utf-8');setMessage(el('reminder-status'),'deductions.calendarDone');}catch{setMessage(el('reminder-status'),'deductions.dateError');}});
 window.addEventListener('languagechange',render);

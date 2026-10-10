@@ -3,30 +3,26 @@ import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {auditLicenseSnapshot,writeLicenseAudit} from './audit-licenses.mjs';
-
-export function verifyReleaseApproval(lockBytes,approval){
-  if(approval?.scope!=='existing-dependency-snapshot-for-deployment'||approval?.approved_by!=='user'||approval?.authorization!=='Allow the existing dependencies for this deployment'){
-    throw new Error('Release blocked: a recorded user approval for this dependency snapshot is required.');
-  }
-  const actual=createHash('sha256').update(lockBytes).digest('hex');
-  if(!/^[a-f0-9]{64}$/.test(approval.package_lock_sha256)||actual!==approval.package_lock_sha256){
-    throw new Error('Release blocked: package-lock.json differs from the user-approved snapshot. Review changed dependencies and obtain a new explicit approval.');
-  }
-  return actual;
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+export function verifyCompatibility(lockBytes,review){
+ if(review?.policy!=='user-requested-AGPL-compatible-dependency-review'||review?.assessment!=='docs/licenses.md')throw Error('License compatibility assessment missing.');
+ if(hash(lockBytes)!==review.package_lock_sha256)throw Error('Dependency snapshot changed: review licenses and update the compatibility record.');
+ const report=auditLicenseSnapshot(JSON.parse(lockBytes.toString('utf8')));
+ const expressions=[...new Set(report.exceptions.map(e=>e.license))].sort();
+ if(JSON.stringify(expressions)!==JSON.stringify(review.license_expressions))throw Error('Unreviewed license expression in dependency graph.');
+ return{...report,status:'PASS',policy:review.policy,assessment:review.assessment,reviewed_on:review.reviewed_on,package_lock_sha256:review.package_lock_sha256};
 }
-
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
-  try{
-    const lockBytes=await readFile('package-lock.json');
-    const approval=JSON.parse(await readFile('research/dependency-release-approval.json','utf8'));
-    const hash=verifyReleaseApproval(lockBytes,approval);
-    const report=auditLicenseSnapshot(JSON.parse(lockBytes.toString('utf8')));
-    await writeLicenseAudit(report);
-    console.log(`Release license gate PASS: user-approved dependency snapshot ${hash}.`);
-    console.log(`Strict audit remains ${report.exceptions.length?'BLOCKED':'PASS'} (${report.exceptions.length} entries outside the unchanged allowlist).`);
-    console.log(`Approval includes existing embedded runtime components; see ${approval.assessment}. Upstream licenses and notices still apply.`);
-  }catch(error){
-    console.error(error.message);
-    process.exitCode=1;
-  }
+export async function checkReleaseLicenses(){
+ const review=JSON.parse(await readFile('research/license-compatibility.json','utf8'));
+ const report=verifyCompatibility(await readFile('package-lock.json'),review);
+ const assessment=await readFile(review.assessment,'utf8');
+ if(assessment.length<1000||!assessment.includes('AGPL-3.0'))throw Error('Compatibility explanation missing or incomplete.');
+ const manifestBytes=await readFile('third-party-notices/provenance.json');
+ if(hash(manifestBytes)!==review.runtime_notices_manifest_sha256)throw Error('Runtime component inventory changed: review its licenses.');
+ const manifest=JSON.parse(manifestBytes);
+ for(const notice of manifest.entries){const bytes=await readFile(`third-party-notices/${notice.file}`);if(hash(bytes)!==notice.sha256)throw Error(`Missing or changed third-party notice: ${notice.file}`);}
+ await writeLicenseAudit(report);
+ console.log(`License gate PASS: locked dependencies, ${review.license_expressions.length} reviewed additional expressions and ${manifest.entries.length} verified runtime notices. Assessment: ${review.assessment}`);
+ return report;
 }
+if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)checkReleaseLicenses().catch(error=>{console.error(error.message);process.exitCode=1;});
