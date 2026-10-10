@@ -1,0 +1,152 @@
+{
+  "checked_at": "2026-10-10T10:58:29.417Z",
+  "base_url": "https://claimclock.ketan952.workers.dev",
+  "scope": "Live Worker API and remote D1; synthetic data only; no analytics or provider inference.",
+  "cohort": {
+    "insurer": "prudential-hcl",
+    "request_type": "preauth",
+    "period": "2025-11"
+  },
+  "before": {
+    "reports_count": 0,
+    "aggregates_count": 0,
+    "suppressions_count": 0
+  },
+  "checks": [
+    {
+      "name": "AI configuration remains off",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "body": {
+          "ai_enabled": false,
+          "provider": null,
+          "model": null
+        },
+        "cache_control": "no-store"
+      }
+    },
+    {
+      "name": "API response is not cached",
+      "pass": true,
+      "details": {
+        "cache_control": "no-store"
+      }
+    },
+    {
+      "name": "Cross-origin API request rejected",
+      "pass": true,
+      "details": {
+        "status": 403
+      }
+    },
+    {
+      "name": "Mutation without same-origin evidence rejected",
+      "pass": true,
+      "details": {
+        "status": 403
+      }
+    },
+    {
+      "name": "Insurer aggregate endpoint returns no published cohorts",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "body": {
+          "rows": []
+        }
+      }
+    },
+    {
+      "name": "Missing consent rejected",
+      "pass": true,
+      "details": {
+        "status": 400
+      }
+    },
+    {
+      "name": "Unexpected personal field rejected",
+      "pass": true,
+      "details": {
+        "status": 400
+      }
+    },
+    {
+      "name": "Decision before submission rejected",
+      "pass": true,
+      "details": {
+        "status": 400
+      }
+    },
+    {
+      "name": "Synthetic opt-in report created with opaque ID and erasure token",
+      "pass": true,
+      "details": {
+        "status": 201,
+        "token_shape": true,
+        "id_shape": true
+      }
+    },
+    {
+      "name": "Incorrect erasure token cannot delete report",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "body": {
+          "erased": false
+        }
+      }
+    },
+    {
+      "name": "Correct erasure token deletes report",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "body": {
+          "erased": true
+        }
+      }
+    },
+    {
+      "name": "Repeated erasure reports no row deleted",
+      "pass": true,
+      "details": {
+        "status": 200,
+        "body": {
+          "erased": false
+        }
+      }
+    },
+    {
+      "name": "D1 confirms erased report and newly created cohort suppression",
+      "pass": true,
+      "details": {
+        "reports_count": 0,
+        "aggregates_count": 0,
+        "suppressions_count": 1
+      }
+    },
+    {
+      "name": "Synthetic cohort restored to empty state",
+      "pass": true,
+      "details": {
+        "reports_count": 0,
+        "aggregates_count": 0,
+        "suppressions_count": 0
+      }
+    }
+  ],
+  "cleanup": {
+    "suppression_marker_removed": true,
+    "after": {
+      "reports_count": 0,
+      "aggregates_count": 0,
+      "suppressions_count": 0
+    },
+    "token_retained": false,
+    "analytics_sent": false,
+    "provider_inference": false,
+    "quota_counters": "Normal minimal API quota counters retained."
+  },
+  "passed": true
+}

@@ -2,7 +2,7 @@
 
 An English/Hindi tool for people waiting for cashless health-insurance authorization in India: record the wait, ask for written timestamps, prepare a grievance and inspect published insurer disclosures. Information, not legal advice; ClaimClock does not file complaints or promise payment.
 
-**No live deployment is available. Release is blocked:** personal Cloudflare credentials have not been supplied, and the mandated stack contains dependencies outside the user's MIT / Apache-2.0 / AGPL-3.0 license allowlist. `npm run licenses` currently **fails as expected**; this is an unresolved release gate, not a passed check. See the [license assessment](research/license-assessment.md) and [audit](research/dependency-license-audit.json). No license exception, paid service or workplace account is authorized.
+**Live:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), hosted on the personal Cloudflare account with D1 provisioned and migrated. The user explicitly approved the existing dependency snapshot for this deployment. `npm run licenses:release` verifies that exact lockfile; the unchanged strict `npm run licenses` audit still reports 101 exceptions. See the [recorded approval](research/dependency-release-approval.json), [license assessment](research/license-assessment.md) and [runtime notices](third-party-notices/NOTICE.txt). No paid service or workplace account is authorized.
 
 Source: [ketan952/claimclock](https://github.com/ketan952/claimclock). Project code: [AGPL-3.0-only](LICENSE). Source documents and third-party components retain their own licenses; this repository does not relicense insurer PDFs or other research sources.
 
@@ -10,11 +10,11 @@ Source: [ketan952/claimclock](https://github.com/ketan952/claimclock). Project c
 
 | Area | Current state |
 |---|---|
-| Mode A — hospital clock | Local English/Hindi app, estimated 1-hour/3-hour clocks, editable timeline, written-confirmation and escalation drafts, delay-charge review, death protocol, exports and offline shell. Implementation milestones have been pushed; deployment remains pending. |
+| Mode A — hospital clock | Local English/Hindi app, estimated 1-hour/3-hour clocks, editable timeline, written-confirmation and escalation drafts, delay-charge review, death protocol, exports and offline shell. Available on the public deployment. |
 | Discharge Delay Index | **253 numerical NL-48 rows from 17 insurers**, with all **32 insurers** covered by a filing audit. Static insurer pages preserve published units, periods and source pages. |
 | Mode B — deduction review | Local PDF text extraction, English OCR, manual correction, eight-category deterministic classification, policy-confirmation gates, letters and calendar reminders. **10/10 synthetic classification fixtures** pass after corrections; this is not AI or OCR accuracy. |
-| Optional API | Hono/D1 reporting, erasure, privacy-preserving aggregates, event counts and consent-gated AI explanation; **14 API tests** and **10 actual local Wrangler/D1 checks** cover its local behavior. No production database or provider connection has been verified. |
-| Mode C — rejected-claim workflow | **Not implemented.** The user explicitly required live Mode A and Index before starting Mode C. The About page's escalation ladder is informational, not a completed Mode C flow. |
+| Optional API | Hono/D1 reporting, erasure, privacy-preserving aggregates and event counts are deployed; **14 live API checks** passed. The read-only Groq model-list request succeeded (HTTP 200) and listed the configured model. Optional AI remains disabled pending confirmation of a no-card Free account; no inference request has been made. Local review works without AI. |
+| Mode C — rejected-claim workflow | Basic English/Hindi GRO representation from a rejection reason, source-linked review requests and escalation guidance at `/rejected/`. Implemented after Mode A and the Index were live, as requested. Entries stay on the page; the user reviews and submits the complaint. This is not a complete case-filing service. |
 
 The contact matrix has **49 records: 32 insurers and 17 TPAs**, including legacy/merged service records where useful to existing policyholders. Missing contacts remain explicit gaps. Research found **29 strictly qualifying recent public cases**, one below the requested 30; adjacent cases and undated reports are not counted toward that target. This convenience sample cannot establish insurer failure rates. See [coverage](research/contacts-coverage.md), [filing audit](data/filings.json), [Index methodology](research/nl48-methodology.md) and [combined user evidence](research/user-evidence-combined.json).
 
@@ -39,10 +39,11 @@ Useful additional checks:
 ```sh
 npm run data:check
 npm run test:browser
-npm run licenses
+npm run licenses         # strict audit: expected failure for this snapshot
+npm run licenses:release # approved snapshot gate: must pass
 ```
 
-The first command requires Python 3. Browser checks require Playwright's browser installation (`npx playwright install chromium`). The license command remains an expected failure until the user's constraint is resolved. [QA report](qa/REPORT.md), [screenshots](qa/screenshots/), [deduction answer key](qa/deduction-answer-key.md) and [synthetic letters](tests/fixtures/settlements.json) distinguish executed tests from pending checks. Do not infer live AI, live deployment, production D1 or Lighthouse scores from a successful build; record those results only after running them.
+The first command requires Python 3. Browser checks require Playwright's browser installation (`npx playwright install chromium`). The strict license audit intentionally remains separate from the approved-snapshot release gate; any lockfile change fails that gate. The current build contains **41 static pages**, and **54 unit/security checks** pass, including two Mode C checks. The public deployment passed **10 browser scenarios**, including Mode C loading-race and native-form privacy regressions, and **14 live API checks**. Live Lighthouse simulated-mobile scores were **99 performance / 100 accessibility / 100 best practices / 100 SEO**; this is not a physical 4G measurement. See the [QA report](qa/REPORT.md) for final release checks and limits, [screenshots](qa/screenshots/), [deduction answer key](qa/deduction-answer-key.md) and [synthetic fixtures](tests/fixtures/settlements.json). Live AI validation remains pending.
 
 ## Where data goes
 
@@ -73,7 +74,7 @@ NL-48's **2–6-hour bucket cannot establish 3-hour compliance**. Keep the origi
 
 ## Free-plan limits and application budgets
 
-Checked against Cloudflare's official documentation on 10 October 2026; shared-account usage and provider terms must be rechecked before launch.
+Checked against Cloudflare's official documentation on 10 October 2026; shared-account usage and provider terms must be rechecked when changing deployment or enabling a provider.
 
 | Resource | Free ceiling |
 |---|---|
@@ -84,12 +85,12 @@ Checked against Cloudflare's official documentation on 10 October 2026; shared-a
 
 Lower global limits in [worker/security.ts](worker/security.ts) are: AI **100/day, 3/minute**; reports **100/day, 5/minute**; event batches **200/day, 10/minute**; aggregate reads **500/day, 30/minute**; erasure **100/day, 10/minute**. AI output is capped at 300 tokens with a ten-second timeout. API JSON bodies are capped at 4 KiB. A shared limit can be exhausted by one user; optional services then fail closed while static/local features continue. These budgets do not guarantee an account-wide ₹0 bill on a paid account. Stay on verified free plans; no card, purchased credits, paid fallback or automatic upgrade.
 
-## Provision and deploy — only after release blockers are resolved
+## Provision and deploy
 
 Use the **personal** Cloudflare account and this personal repository. Never use workplace credentials. Keep secrets in ignored `.env` or Worker/GitHub secret storage; never commit them, print them in logs or paste them into chat. `.env.example` lists the configuration names. Creating `.env` does not itself provision Cloudflare or publish Worker secrets.
 
-1. Resolve the dependency-license gate and finish release QA. Make `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` available in the local shell through trusted secret tooling. Restrict the token to this personal deployment and required D1 access. Run `npm run check`, `npm test`, `npm run build` and `npm run licenses`; deployment must stop if any release gate fails.
-2. For optional reports/AI, create D1 once using the [official bootstrap flow](https://developers.cloudflare.com/d1/get-started/):
+1. Keep the dependency snapshot within its recorded approval and finish release QA. Make `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` available in the local shell through trusted secret tooling. Restrict the token to this personal deployment and required D1 access. Run `npm run check`, `npm test`, `npm run build` and `npm run licenses:release`; deployment must stop if any release gate fails. `npm run licenses` still documents the strict policy exceptions and must not be described as passing.
+2. D1 is already provisioned and bound in [wrangler.jsonc](wrangler.jsonc) for this deployment; do not create it again. For a new personal environment, create D1 once using the [official bootstrap flow](https://developers.cloudflare.com/d1/get-started/):
 
    ```sh
    npx wrangler d1 create claimclock
@@ -120,10 +121,10 @@ Use the **personal** Cloudflare account and this personal repository. Never use 
    npx wrangler deploy
    ```
 
-No command above has been run against a live account during this build. Record the resulting URL and complete live smoke tests before marking deployment complete.
+The personal deployment and remote D1 migrations have completed at [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/). Live smoke tests and the remaining optional-provider limitation are recorded in the [QA report](qa/REPORT.md). Repeat relevant checks after a deployment change.
 
 ## CI and resuming work
 
-[CI](.github/workflows/ci.yml) runs source lint, types/data checks, unit tests and the build. Standard GitHub-hosted runners are free for this public repository. [Deployment](.github/workflows/deploy.yml) stays disabled until repository variable `CLOUDFLARE_DEPLOY_ENABLED=true`; it runs the license audit before any migration/deployment. Add repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`; set `CLOUDFLARE_D1_ENABLED=true` only after provisioning. `CLOUDFLARE_AGGREGATE_FALLBACK=true` enables the scheduled maintenance fallback when needed. LLM keys belong in Worker secrets, not frontend variables or public artifacts. Weekly contact maintenance uses the repository's scoped Actions token.
+[CI](.github/workflows/ci.yml) runs source lint, types/data checks, unit tests and the build. Standard GitHub-hosted runners are free for this public repository. [Deployment](.github/workflows/deploy.yml) is enabled for this personal repository through `CLOUDFLARE_DEPLOY_ENABLED=true` and `CLOUDFLARE_D1_ENABLED=true`; it runs the pinned-snapshot release license gate before any migration/deployment and regenerates the unchanged strict audit. Repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are configured; D1 was provisioned before enabling migrations. `CLOUDFLARE_AGGREGATE_FALLBACK=true` enables the scheduled maintenance fallback when needed. LLM keys belong in Worker secrets, not frontend variables or public artifacts. Weekly contact maintenance uses the repository's scoped Actions token.
 
-To resume, read [RESUME.md](RESUME.md), confirm the personal account and remote, inspect the latest [QA report](qa/REPORT.md), run checks, and continue the next incomplete milestone. Preserve the release blockers, source caveats and live-before-Mode-C sequencing. Proposed future work is in [docs/v2.md](docs/v2.md); prepared [launch posts](docs/launch-posts.md) are drafts, not published announcements.
+To resume, read [RESUME.md](RESUME.md), confirm the personal account and remote, inspect the latest [QA report](qa/REPORT.md), run checks, and continue the next incomplete milestone. Preserve the exact dependency approval, source caveats and remaining acceptance checks; the live-before-Mode-C sequence has now been followed. Proposed future work is in [docs/v2.md](docs/v2.md); prepared [launch posts](docs/launch-posts.md) are drafts, not published announcements.

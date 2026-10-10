@@ -1,6 +1,6 @@
 # ClaimClock launch posts — drafts only
 
-**Not posted. Not a deployment announcement.** `[LIVE_URL]` is an intentional publication placeholder. Replace it only after a working public deployment and release QA. Before publishing, recheck the coverage counts, linked sources, privacy wording and the features enabled on that deployment. Do not imply that patient reports have already been collected or that the dataset covers the whole market.
+**Drafts only; not posted.** The working public deployment is [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), with live browser/API checks recorded in [QA](../qa/REPORT.md). Before publishing these drafts, recheck the coverage counts, linked sources, privacy wording and enabled features. Optional AI is currently disabled pending confirmation of a no-card Free account; provider model-list access works, but inference has not been tested. Do not imply that patient results already exist or that the dataset covers the whole market.
 
 Figures below describe the 10 October 2026 research snapshot: **253 NL-48 rows from 17 insurers**, a **32-insurer filing register**, and **49 published-source contact records** covering 32 insurers and 17 TPAs. Contact verification means a detail was found in a primary source, not that an inbox or phone number was tested.
 
@@ -14,7 +14,7 @@ One limit matters: the **2–6 hour bucket cannot tell us whether the three-hour
 
 The intended comparison is “what insurers report” alongside “what patients report.” There are no patient results to announce in this draft. Any future patient figures must be voluntary, clearly labeled and shown only when privacy thresholds are met.
 
-Explore: [LIVE_URL]/index/
+[Explore the Index](https://claimclock.ketan952.workers.dev/index/)
 
 [Dataset and methodology](https://github.com/ketan952/claimclock/tree/main/research) · [Example original NL-48 filing: HDFC ERGO](https://customer-portal-assets.hdfcergo.com/documents/InhouseFY26-962262549973.pdf)
 
@@ -34,7 +34,7 @@ IRDAI's circular sets a one-hour initial cashless decision window and a three-ho
 
 ClaimClock helps you record those times, keep a timeline and prepare your own escalation message. Its contact directory contains 49 source-verified records for 32 insurers and 17 TPAs. You review and send; ClaimClock does not file or contact anyone for you.
 
-Start here after launch: [LIVE_URL]
+[Start here](https://claimclock.ketan952.workers.dev/)
 
 Information, not legal advice. Keep your request ID and health details in the private conversation, not a public comment.
 
@@ -54,6 +54,6 @@ Ask the insurer to pay the documented delay-related amount, or give its written 
 
 ClaimClock helps turn your timeline and extra charges into a recovery request you can review and send yourself. It cannot promise payment.
 
-Prepare your request after launch: [LIVE_URL]
+[Prepare your request](https://claimclock.ketan952.workers.dev/)
 
 Information, not legal advice. If you share your experience publicly, remove patient names, policy numbers, request IDs and medical details.

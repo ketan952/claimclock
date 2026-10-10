@@ -19,6 +19,13 @@ for(const [from,to] of [
  ['node_modules/tesseract.js-core/LICENSE','public/vendor/tesseract/LICENSE-core.txt'],
  ['node_modules/pdfjs-dist/LICENSE','public/vendor/LICENSE-pdfjs.txt']
 ]) { try{await cp(from,to);}catch(e){if(e.code!=='ENOENT')throw e;} }
+// Preserve source-exact notices for identified embedded native and SW code.
+const notices=JSON.parse(await readFile('third-party-notices/provenance.json','utf8'));
+for(const notice of notices.entries){
+ const bytes=await readFile(`third-party-notices/${notice.file}`);
+ if(createHash('sha256').update(bytes).digest('hex')!==notice.sha256)throw Error(`Third-party notice integrity mismatch: ${notice.file}`);
+}
+await cp('third-party-notices','public/vendor/notices',{recursive:true});
 const asset=JSON.parse(await readFile('data/ocr-assets.json','utf8'));
 let model;try{model=await readFile('.cache/eng.traineddata');}catch{
  const r=await fetch(asset.url);if(!r.ok)throw Error('Unable to download pinned English OCR model');model=Buffer.from(await r.arrayBuffer());

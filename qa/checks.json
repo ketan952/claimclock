@@ -1,14 +1,14 @@
 {
   "checked_on": "2026-10-10",
-  "environment": "macOS arm64, Node22.23.3, Chromium/Pixel7 emulation, local Wrangler8787; no provider secrets or production DB",
+  "environment": "macOS arm64, Node22.23.3; local unit/security checks and live public Worker/D1 with Chromium/Pixel7 emulation; no real provider inference",
   "lint": "pass",
   "types_and_data": "pass",
   "unit_tests": {
-    "passed": 52,
+    "passed": 54,
     "failed": 0
   },
   "browser_tests": {
-    "passed": 8,
+    "passed": 10,
     "failed": 0,
     "flaky": 0,
     "skipped": 0
@@ -19,7 +19,7 @@
     "differences": 0
   },
   "build": {
-    "static_pages": 40
+    "static_pages": 41
   },
   "worker_dry_run": {
     "status": "pass",
@@ -30,7 +30,13 @@
     "synthetic_pages": 1,
     "text_retained": true
   },
-  "license_gate": "fail:101lockfile locations outside allowlist; see assessment",
-  "live_deployment": "not run",
-  "real_llm": "not run"
+  "license_gate": "Strict allowlist fail:101 lockfile locations; exact user-approved snapshot release gate passes",
+  "live_deployment": "https://claimclock.ketan952.workers.dev/",
+  "real_llm": "not run; model-list access200, no-card Free-plan confirmation pending",
+  "live_api_checks": {
+    "passed": 14,
+    "failed": 0,
+    "synthetic_data_removed": true
+  },
+  "worker_version_tested": "e3d3b19e-c3ff-4406-9e0d-3b34c29f4607"
 }

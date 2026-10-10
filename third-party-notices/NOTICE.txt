@@ -1,0 +1,55 @@
+ClaimClock — bundled third-party runtime notices
+Collected 10 October 2026
+
+First-party ClaimClock code is AGPL-3.0-only. The software and notices in this
+directory retain their upstream licenses and copyright statements. This notice
+does not relicense those components or certify complete legal compliance.
+
+OCR
+
+The browser uses Tesseract.js 7.0.0 and tesseract.js-core 7.0.0. Their installed
+package licenses and the worker's bundled-license file are served separately at
+/vendor/tesseract/LICENSE-tesseract.txt, LICENSE-core.txt and
+worker.min.js.LICENSE.txt. The latter includes the worker's bundled JavaScript
+components, including ieee754. The English model license is at
+/vendor/tesseract/lang/LICENSE; its pinned provenance is in data/ocr-assets.json.
+
+The core v7.0.0 upstream build lists Leptonica, giflib, libjpeg, libpng, libtiff,
+libwebp, openlibm, Tesseract and zlib. Their notices here were retrieved from the
+exact submodule revisions recorded by that upstream tag. libjpeg and zlib place
+their licensing terms in README files, so those files are retained in full.
+This software is based in part on the work of the Independent JPEG Group.
+
+The same upstream build specifies Emscripten 4.0.15. The corresponding
+Emscripten, musl, libc++, libc++abi and compiler-rt notices are also retained.
+These source pins identify the release's declared build inputs. They are not
+an independently reproduced, byte-for-byte attestation of the installed WASM,
+nor an inventory of every object file actually linked into each variant.
+
+PDF
+
+The primary PDF.js 6.4.299 license is served at /vendor/LICENSE-pdfjs.txt.
+This directory also retains the installed OpenJPEG, JBIG2 and qcms license
+and integration notices because decoder integration code is present in the
+worker distribution. These notices do not imply that ClaimClock distributes
+all optional decoder binaries, fonts, CMaps or ICC profiles; it does not copy
+those asset directories. Some uncommon PDF encodings therefore need manual
+text entry or image conversion.
+
+Service worker
+
+The generated service-worker source map identifies workbox-core,
+workbox-expiration, workbox-precaching, workbox-routing, workbox-strategies and
+idb. Their installed-package notices are preserved in service-worker/.
+
+Provenance and limits
+
+provenance.json records every copied notice's source, package version or pinned
+revision, and SHA-256. The build verifies these notice bytes before copying this
+directory to /vendor/notices/. No upstream license terms have been edited.
+
+This is a concrete notice inventory for identified bundled components, not a
+claim that package metadata describes every embedded native component. The
+original strict allowlist assessment remains in research/license-assessment.md;
+the user-approved dependency snapshot exception is recorded separately in
+research/dependency-release-approval.json. Upstream obligations remain in force.

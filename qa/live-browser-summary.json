@@ -1,0 +1,84 @@
+{
+  "base_url": "https://claimclock.ketan952.workers.dev",
+  "worker_version": "e3d3b19e-c3ff-4406-9e0d-3b34c29f4607",
+  "stats": {
+    "startTime": "2026-10-10T11:03:30.665Z",
+    "duration": 31917.361,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "mobile English, clock lock, events, Hindi and source-linked GRO message",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "ten insurers have source-backed contacts and correct preauthorisation paragraphs",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "Index is static and usable offline with source-linked six buckets",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "no horizontal overflow at narrow mobile width",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "ten synthetic settlements produce reviewed local classifications and letters without AI",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "text PDF extraction happens on-device",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "English photo OCR uses only self-hosted assets",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "desktop clock, separate phone links and printable evidence export",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "native form submission cannot put local details in a URL when JavaScript is unavailable",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    },
+    {
+      "title": "rejected claim form produces a source-linked bilingual GRO draft without submitting claim details",
+      "ok": true,
+      "statuses": [
+        "expected"
+      ]
+    }
+  ]
+}
