@@ -14,7 +14,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 - M3: static Index pages for all 32 roster insurers ready, 17 with numeric rows. Direct PDF/page links, partial-source flags and unnormalized bucket values verified. Offline/mobile tests pass. Deployment remains blocked.
 - M4: local PDF/OCR/manual pipeline ready. 10/10 independent synthetic deduction cases pass after five fixes; eight browser scenarios pass including on-device text PDF, photo OCR and no-AI fallback. No real-provider QA.
 - M5: committed/pushed as 65f6a70; optional Worker/D1 implementation ready: consent-gated reports and erasure, frozen monthly aggregates, bounded optional AI proxy, daily cron and weekly source-value contact workflow. Fourteen API/security tests plus ten actual local Wrangler/D1 integration checks pass. Production provisioning and provider tests remain pending.
-- M6: local QA/handoff preparation ready. 52 unit/API tests, eight browser scenarios and ten local D1 checks pass. Lighthouse local mobile scores 100 across all four categories. Screenshots, source gap list, launch drafts and v2 priorities recorded. Live, physical-device and real-provider acceptance remain pending. Mode C is deliberately deferred.
+- M6: local QA/handoff snapshot committed/pushed as 1553747; launch-draft/roadmap follow-up accompanies it. 52 unit/API tests, eight browser scenarios and ten local D1 checks pass. Lighthouse local mobile scores 100 across all four categories. Screenshots, source gap list, launch drafts and v2 priorities recorded. Live, physical-device and real-provider acceptance remain pending. Mode C is deliberately deferred.
 
 ## Next
 
