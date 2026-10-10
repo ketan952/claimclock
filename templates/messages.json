@@ -2,25 +2,26 @@
   "lock": {
     "rules": [],
     "en": {
-      "subject": "Please confirm my cashless submission time",
-      "body": "Hello hospital insurance desk / TPA,\n\nFor my {request} at {hospital}, {city}, I was told the request was submitted on {submitted}. Please reply in writing with:\n1. The exact date and time you sent it and the insurer/TPA received it.\n2. The cashless request / claim reference ID.\n3. Any query or missing document, when it was raised, and who must send it.\n\nPlease preserve the original submission acknowledgement and share a copy. A later query or resend should be recorded separately.\n\nInsurer: {insurer}\nTPA: {tpa}\nThank you."
+      "subject": "Please confirm my cashless request and receipt time",
+      "body": "To the hospital insurance desk and TPA,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nFor my {request} at {hospital}, {city}, the hospital reported submission at {submitted}. Please confirm in writing:\n1. The exact date and time you sent the request and the insurer/TPA received it.\n2. The cashless request reference number and a copy of the original acknowledgement.\n3. Each outstanding query or document, when it was requested and who must supply it.\n\nPlease record later queries and resubmissions separately from the original receipt time.\n\nInsurer: {insurer}\nTPA: {tpa}"
     },
     "hi": {
-      "subject": "कैशलेस अनुरोध भेजने के समय की पुष्टि करें",
-      "body": "नमस्ते अस्पताल बीमा डेस्क / TPA,\n\n{hospital}, {city} में मेरे {request} का अनुरोध {submitted} को भेजा गया बताया गया है। कृपया लिखित रूप में बताएँ:\n1. अनुरोध भेजने और बीमा कंपनी/TPA को मिलने की सही तारीख और समय।\n2. कैशलेस अनुरोध / दावा संदर्भ ID।\n3. कोई सवाल या अधूरा दस्तावेज़ हो तो वह कब माँगा गया और कौन भेजेगा।\n\nकृपया मूल पुष्टि सुरक्षित रखें और उसकी प्रति दें। बाद के सवाल या दोबारा भेजे दस्तावेज़ का समय अलग दर्ज करें।\n\nबीमा कंपनी: {insurer}\nTPA: {tpa}\nधन्यवाद।"
+      "subject": "मेरे कैशलेस अनुरोध और प्राप्ति समय की पुष्टि करें",
+      "body": "प्रति: अस्पताल बीमा डेस्क और TPA,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{hospital}, {city} में मेरे {request} का अनुरोध अस्पताल के अनुसार {submitted} को भेजा गया। कृपया लिखित रूप में पुष्टि करें:\n1. अनुरोध भेजने और बीमा कंपनी/TPA को मिलने की सही तारीख और समय।\n2. कैशलेस अनुरोध की संदर्भ संख्या और मूल पावती की प्रति।\n3. हर लंबित सवाल या दस्तावेज़, उसे माँगने का समय और उसे भेजने वाले की जानकारी।\n\nबाद के सवाल और दोबारा भेजे अनुरोध का समय मूल प्राप्ति समय से अलग दर्ज करें।\n\nबीमा कंपनी: {insurer}\nTPA: {tpa}"
     }
   },
   "followup": {
     "rules": [
-      "window"
+      "window",
+      "documents-from-hospital"
     ],
     "en": {
-      "subject": "Cashless request: please share the status",
-      "body": "Hello claims team,\n\nPlease share the status of my {request} at {hospital}, {city}. The reported submission time is {submitted}. As of {now}, the recorded elapsed time is {elapsed}.\n\nPlease confirm receipt, the decision or expected decision time, and any query sent to the hospital. Please collect the needed hospital documents directly.\n\nInsurer: {insurer}\nTPA: {tpa}\n{citations}"
+      "subject": "Status and decision on my cashless {request}",
+      "body": "To the claims team, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI request a written status update and decision on my {request} at {hospital}, {city}. The hospital reported submission at {submitted}. {timing}\n\nPlease confirm your original receipt timestamp, provide the decision or expected decision time, and identify any outstanding query. Please collect the required hospital documents directly from the hospital.\n\n{citations}"
     },
     "hi": {
-      "subject": "कैशलेस अनुरोध की स्थिति बताएँ",
-      "body": "नमस्ते दावा टीम,\n\n{hospital}, {city} में मेरे {request} की स्थिति बताएँ। बताया गया समय {submitted} है। {now} तक दर्ज बीता समय {elapsed} है।\n\nप्राप्ति, निर्णय या संभावित निर्णय का समय और अस्पताल से पूछे सवाल की पुष्टि करें। ज़रूरी अस्पताल दस्तावेज़ सीधे अस्पताल से लें।\n\nबीमा कंपनी: {insurer}\nTPA: {tpa}\n{citations}"
+      "subject": "मेरे कैशलेस {request} की स्थिति और निर्णय",
+      "body": "प्रति: दावा टीम, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{hospital}, {city} में मेरे {request} की लिखित स्थिति और निर्णय दें। अस्पताल के अनुसार अनुरोध {submitted} को भेजा गया। {timing}\n\nअपने मूल प्राप्ति समय की पुष्टि करें, निर्णय या संभावित निर्णय का समय दें और लंबित सवाल बताएँ। ज़रूरी अस्पताल दस्तावेज़ सीधे अस्पताल से लें।\n\n{citations}"
     }
   },
   "gro": {
@@ -30,12 +31,12 @@
       "grievance-14-days"
     ],
     "en": {
-      "subject": "Grievance: pending cashless {request}",
-      "body": "To the Grievance Redressal Officer, {insurer}\n\nI am the insured/claimant requesting urgent review of my pending {request} at {hospital}, {city}. The hospital reported submission at {submitted}. At {now}, my recorded wait is {elapsed}. These are my recorded timestamps, subject to the hospital/insurer acknowledgement.\n\nPlease acknowledge this grievance, provide its reference number, confirm the original receipt time and decide the request promptly. Please explain any discrepancy with my timeline and resolve the grievance within the applicable period.\n\nTimeline:\n{timeline}\n\n{citations}\n\nI will add my name, policy/claim number and supporting acknowledgements before sending."
+      "subject": "Formal grievance about my cashless {request}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submit this grievance about my {request} at {hospital}, {city}. The hospital reported submission at {submitted}. {timing}\n\n1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.\n2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.\n3. Collect any required hospital documents directly from the hospital and identify each outstanding query.\n\nTimeline:\n{timeline}\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [hospital acknowledgement]; [cashless request and correspondence]; [timeline and relevant receipts].\n\n{citations}"
     },
     "hi": {
-      "subject": "शिकायत: लंबित कैशलेस {request}",
-      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nमैं बीमित व्यक्ति/दावेदार हूँ। {hospital}, {city} में लंबित {request} की तुरंत समीक्षा चाहता/चाहती हूँ। अस्पताल के अनुसार अनुरोध {submitted} को भेजा गया। {now} तक दर्ज इंतज़ार {elapsed} है। ये मेरे दर्ज समय हैं; अस्पताल/बीमा कंपनी की पुष्टि भी आवश्यक है।\n\nकृपया शिकायत की पुष्टि और संदर्भ संख्या दें, मूल प्राप्ति समय बताएँ और अनुरोध पर शीघ्र निर्णय लें। मेरे घटनाक्रम से कोई अंतर हो तो समझाएँ और लागू अवधि में शिकायत हल करें।\n\nघटनाक्रम:\n{timeline}\n\n{citations}\n\nभेजने से पहले मैं नाम, पॉलिसी/दावा संख्या और पुष्टि के प्रमाण जोड़ूँगा/जोड़ूँगी।"
+      "subject": "मेरे कैशलेस {request} के बारे में औपचारिक शिकायत",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{hospital}, {city} में मेरे {request} के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध {submitted} को भेजा गया। {timing}\n\n1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।\n2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।\n3. ज़रूरी दस्तावेज़ सीधे अस्पताल से लें और हर लंबित सवाल बताएँ।\n\nघटनाक्रम:\n{timeline}\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्पताल की पावती]; [कैशलेस अनुरोध और पत्राचार]; [घटनाक्रम और संबंधित रसीदें]।\n\n{citations}"
     }
   },
   "bima": {
@@ -44,12 +45,12 @@
       "grievance-14-days"
     ],
     "en": {
-      "subject": "Cashless delay grievance for Bima Bharosa",
-      "body": "I am the insured/claimant. My {request} at {hospital}, {city}, with {insurer} (TPA: {tpa}) was reportedly submitted at {submitted}. My recorded wait at {now} is {elapsed}.\n\nI request a recorded decision, the insurer's receipt timestamp and a written explanation of the delay. My insurer grievance reference and filing date: [add these]. The response received, if any: [add this].\n\nTimeline:\n{timeline}\n\n{citations}\n\nI will attach my acknowledgement, correspondence and relevant receipts when I file this complaint myself."
+      "subject": "Cashless grievance — {insurer}",
+      "body": "Name: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\nInsurer: {insurer}; TPA: {tpa}.\n\nMy {request} at {hospital}, {city}, was reported submitted at {submitted}. {timing}\n\nInsurer grievance reference/date: [Reference and date]. Response: [Response or pending]. I request the receipt and decision records, an explanation of delay and resolution of my grievance within 14 days under the PPHI Master Circular.\n\nDocuments I will attach: hospital acknowledgement, insurer grievance and reply, timeline, relevant Health and PPHI Master Circular extracts."
     },
     "hi": {
-      "subject": "बीमा भरोसा के लिए कैशलेस देरी की शिकायत",
-      "body": "मैं बीमित व्यक्ति/दावेदार हूँ। {hospital}, {city} में {insurer} (TPA: {tpa}) को मेरा {request} {submitted} को भेजा गया बताया गया। {now} तक मेरा दर्ज इंतज़ार {elapsed} है।\n\nमैं लिखित निर्णय, बीमा कंपनी का प्राप्ति समय और देरी का कारण माँगता/माँगती हूँ। बीमा कंपनी में शिकायत की संख्या और तारीख: [जोड़ें]। मिला जवाब, अगर हो: [जोड़ें]।\n\nघटनाक्रम:\n{timeline}\n\n{citations}\n\nमैं स्वयं शिकायत दर्ज करते समय पुष्टि, पत्राचार और संबंधित रसीदें जोड़ूँगा/जोड़ूँगी।"
+      "subject": "कैशलेस शिकायत — {insurer}",
+      "body": "नाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\nबीमा कंपनी: {insurer}; TPA: {tpa}।\n\n{hospital}, {city} में मेरे {request} का अनुरोध अस्पताल के अनुसार {submitted} को भेजा गया। {timing}\n\nकंपनी में शिकायत की संख्या/तारीख: [संदर्भ और तारीख]। जवाब: [जवाब या लंबित]। प्राप्ति और निर्णय रिकॉर्ड, देरी का कारण और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के अनुसार 14 दिनों में शिकायत का समाधान दें।\n\nमैं ये दस्तावेज़ संलग्न करूँगा/करूँगी: अस्पताल की पावती, कंपनी को शिकायत और जवाब, घटनाक्रम, स्वास्थ्य बीमा और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के संबंधित अंश।"
     }
   },
   "billing": {
@@ -58,23 +59,23 @@
       "delay-charges"
     ],
     "en": {
-      "subject": "Please separately record charges attributable to discharge delay",
-      "body": "To the hospital billing desk,\n\nMy final discharge request was reportedly submitted at {submitted}. Please record the time it was received by the insurer/TPA and the final authorisation time. Please separately itemise any additional room/nursing amount charged because of waiting beyond three hours.\n\nPlease coordinate with {insurer} on amounts attributable to that delay and provide an itemised bill and receipt. I am asking for the rule to be applied to the documented circumstances, not asserting that every extra charge is automatically recoverable.\n\n{citations}"
+      "subject": "Itemised charges caused by discharge authorisation delay",
+      "body": "To the hospital billing desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nMy final discharge request at {hospital}, {city}, was reported submitted at {submitted}. Please provide the insurer/TPA receipt time and final authorisation time.\n\nPlease separately itemise the additional room, nursing and other hospital charges caused by waiting beyond three hours after the insurer received the discharge request. Coordinate with {insurer} for these delay-related charges to be borne by the insurer under paragraph 16(b), and provide the itemised bill and payment receipt.\n\nAttachments: [discharge request acknowledgement]; [bill and receipts].\n\n{citations}"
     },
     "hi": {
-      "subject": "डिस्चार्ज देरी के कारण लगे शुल्क अलग दिखाएँ",
-      "body": "प्रति: अस्पताल बिलिंग डेस्क,\n\nमेरा अंतिम डिस्चार्ज अनुरोध {submitted} को भेजा गया बताया गया है। बीमा कंपनी/TPA को मिलने और अंतिम मंज़ूरी का समय दर्ज करें। तीन घंटे से अधिक इंतज़ार के कारण कमरे/नर्सिंग का अतिरिक्त शुल्क अलग दिखाएँ।\n\nउस देरी के कारण लगे शुल्क के लिए {insurer} से समन्वय करें और मदवार बिल व रसीद दें। मैं दर्ज परिस्थितियों पर नियम लागू करने की माँग कर रहा/रही हूँ; हर अतिरिक्त शुल्क की स्वतः वापसी का दावा नहीं कर रहा/रही हूँ।\n\n{citations}"
+      "subject": "डिस्चार्ज मंज़ूरी की देरी से लगे शुल्क का मदवार विवरण",
+      "body": "प्रति: अस्पताल बिलिंग डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{hospital}, {city} में मेरा अंतिम डिस्चार्ज अनुरोध अस्पताल के अनुसार {submitted} को भेजा गया। बीमा कंपनी/TPA को मिलने और अंतिम मंज़ूरी का समय दें।\n\nबीमा कंपनी को अनुरोध मिलने के तीन घंटे बाद के इंतज़ार से लगे कमरे, नर्सिंग और अन्य अतिरिक्त अस्पताल शुल्क अलग-अलग दिखाएँ। अनुच्छेद 16(b) के अनुसार देरी से लगे ये शुल्क कंपनी वहन करे, इसके लिए {insurer} से समन्वय करें। मदवार बिल और भुगतान की रसीद दें।\n\nसंलग्नक: [डिस्चार्ज अनुरोध की पावती]; [बिल और रसीदें]।\n\n{citations}"
     }
   },
   "protest": {
     "rules": [],
     "en": {
-      "subject": "Receipt note: payment under protest",
-      "body": "Paid under protest pending the cashless decision and review of charges attributable to authorisation delay. This payment does not indicate acceptance of the disputed charges. Please record this note on my receipt.\n\nHospital: {hospital}, {city}\nRecorded submission: {submitted}\nPrepared: {now}\n\nThis note records my position; it does not guarantee a refund or alter the policy terms."
+      "subject": "Payment under protest — receipt endorsement",
+      "body": "To the hospital billing desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI pay the disputed charges under protest while the cashless decision and authorisation-delay charges remain under review. My payment does not indicate acceptance of these charges. Please record this statement on my receipt and provide a signed copy.\n\nHospital: {hospital}, {city}\nReported submission: {submitted}\nDate and time: {now}\nDisputed amount: [Amount]\nReceipt number: [Receipt number]"
     },
     "hi": {
-      "subject": "रसीद पर नोट: आपत्ति सहित भुगतान",
-      "body": "कैशलेस निर्णय और मंज़ूरी की देरी के कारण लगे शुल्क की समीक्षा लंबित होने पर आपत्ति सहित भुगतान किया गया। यह भुगतान विवादित शुल्क की स्वीकृति नहीं है। कृपया रसीद पर यह नोट दर्ज करें।\n\nअस्पताल: {hospital}, {city}\nदर्ज अनुरोध समय: {submitted}\nतैयार किया: {now}\n\nयह नोट मेरा पक्ष दर्ज करता है; वापसी की गारंटी नहीं देता और पॉलिसी की शर्तें नहीं बदलता।"
+      "subject": "आपत्ति सहित भुगतान — रसीद पर टिप्पणी",
+      "body": "प्रति: अस्पताल बिलिंग डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nकैशलेस निर्णय और मंज़ूरी की देरी से लगे शुल्क की समीक्षा लंबित होने के कारण मैं विवादित शुल्क आपत्ति सहित चुका रहा/रही हूँ। मेरा भुगतान इन शुल्कों की स्वीकृति नहीं है। यह बात रसीद पर दर्ज करें और हस्ताक्षरित प्रति दें।\n\nअस्पताल: {hospital}, {city}\nबताया गया अनुरोध समय: {submitted}\nतारीख और समय: {now}\nविवादित राशि: [राशि]\nरसीद संख्या: [रसीद संख्या]"
     }
   },
   "recovery": {
@@ -84,12 +85,12 @@
       "grievance-14-days"
     ],
     "en": {
-      "subject": "Request to reimburse ₹{amount} charged for discharge delay",
-      "body": "To the Grievance Redressal Officer, {insurer}\n\nI request review and reimbursement of ₹{amount} in additional room/nursing charges for {hours} hours of waiting at {hospital}, {city}. My final discharge request was reportedly submitted at {submitted}; decision time: {decided}. Please reconcile these with your receipt and authorisation records.\n\nI request reimbursement to the extent the additional amount is attributable to delay beyond three hours under paragraph 16(b), with a written calculation and reasons for any disallowance. I will attach the itemised bill, proof of payment, hospital acknowledgement and this timeline before sending.\n\nTimeline:\n{timeline}\n\n{citations}"
+      "subject": "Reimbursement of ₹{amount} charged for discharge delay",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI seek reimbursement of ₹{amount} in additional hospital charges for {hours} hours of waiting at {hospital}, {city}. My final discharge request was reported submitted at {submitted}; the recorded decision time is {decided}.\n\n1. For the ₹{amount} delay-related charge, provide your receipt and authorisation timestamps and reconcile them with the attached hospital records.\n2. Reimburse the additional charge caused by delay beyond three hours from your receipt of the discharge request under paragraph 16(b). Provide the itemised calculation and reasons for any amount you decline.\n\nTimeline:\n{timeline}\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [itemised bill]; [proof of payment]; [hospital acknowledgement]; [discharge authorisation]; [timeline].\n\n{citations}"
     },
     "hi": {
-      "subject": "डिस्चार्ज देरी के ₹{amount} शुल्क की वापसी का अनुरोध",
-      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\n{hospital}, {city} में {hours} घंटे के इंतज़ार के लिए कमरे/नर्सिंग के अतिरिक्त ₹{amount} की समीक्षा और वापसी चाहता/चाहती हूँ। अंतिम डिस्चार्ज अनुरोध {submitted} को भेजा गया बताया गया; निर्णय का समय: {decided}। अपने प्राप्ति और मंज़ूरी रिकॉर्ड से इसकी जाँच करें।\n\nअनुच्छेद 16(b) के अनुसार तीन घंटे से अधिक की देरी के कारण लगे अतिरिक्त शुल्क की वापसी माँगता/माँगती हूँ। किसी कटौती का लिखित हिसाब और कारण दें। भेजने से पहले मदवार बिल, भुगतान प्रमाण, अस्पताल की पुष्टि और घटनाक्रम जोड़ूँगा/जोड़ूँगी।\n\nघटनाक्रम:\n{timeline}\n\n{citations}"
+      "subject": "डिस्चार्ज देरी के ₹{amount} शुल्क की वापसी",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{hospital}, {city} में {hours} घंटे के इंतज़ार के कारण लगे ₹{amount} अतिरिक्त अस्पताल शुल्क की वापसी चाहता/चाहती हूँ। अस्पताल के अनुसार अंतिम डिस्चार्ज अनुरोध {submitted} को भेजा गया; दर्ज निर्णय समय {decided} है।\n\n1. देरी से लगे ₹{amount} शुल्क के लिए अपने प्राप्ति और मंज़ूरी के समय दें तथा संलग्न अस्पताल रिकॉर्ड से उनका मिलान करें।\n2. अनुरोध मिलने के तीन घंटे बाद की देरी से लगे अतिरिक्त शुल्क अनुच्छेद 16(b) के अनुसार लौटाएँ। कोई राशि न लौटाने पर मदवार हिसाब और कारण दें।\n\nघटनाक्रम:\n{timeline}\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [मदवार बिल]; [भुगतान प्रमाण]; [अस्पताल की पावती]; [डिस्चार्ज मंज़ूरी]; [घटनाक्रम]।\n\n{citations}"
     }
   },
   "death": {
@@ -97,12 +98,12 @@
       "death-protocol"
     ],
     "en": {
-      "subject": "Urgent: immediate processing and release of mortal remains",
-      "body": "To the insurer/TPA and hospital insurance desk,\n\nThe patient has died during treatment. Please process the claim request immediately and get the mortal remains released immediately. Please coordinate directly between the hospital and {insurer} / {tpa}, identify the person handling this, and confirm the next action in writing.\n\nHospital: {hospital}, {city}\nPrepared: {now}\n\n{citations}\n\nThe claimant will add the patient's and claim details directly before sending."
+      "subject": "Urgent: process my claim and release the mortal remains immediately",
+      "body": "To the insurer/TPA and hospital insurance desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\nPatient name: [Patient name]\nMy relationship to the patient: [Relationship]\n\nMy family member died during treatment at {hospital}, {city}. Please process the claim request immediately and arrange immediate release of the mortal remains under paragraph 16(c). Coordinate directly between the hospital and {insurer} / {tpa}, identify the responsible person and confirm the action in writing.\n\nDate and time: {now}\nAttachments: [claim acknowledgement]; [hospital death record].\n\n{citations}"
     },
     "hi": {
-      "subject": "अत्यावश्यक: तुरंत कार्रवाई और पार्थिव शरीर की रिहाई",
-      "body": "प्रति: बीमा कंपनी/TPA और अस्पताल बीमा डेस्क,\n\nइलाज के दौरान मरीज़ की मृत्यु हो गई है। कृपया दावे पर तुरंत कार्रवाई करें और पार्थिव शरीर तुरंत परिजन को सौंपने की व्यवस्था करें। अस्पताल और {insurer} / {tpa} सीधे समन्वय करें, ज़िम्मेदार व्यक्ति बताएँ और अगली कार्रवाई की लिखित पुष्टि दें।\n\nअस्पताल: {hospital}, {city}\nतैयार किया: {now}\n\n{citations}\n\nदावेदार भेजने से पहले मरीज़ और दावे की जानकारी सीधे जोड़ेगा/जोड़ेगी।"
+      "subject": "अत्यावश्यक: दावे पर तुरंत कार्रवाई और पार्थिव शरीर तुरंत सौंपें",
+      "body": "प्रति: बीमा कंपनी/TPA और अस्पताल बीमा डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\nमरीज़ का नाम: [मरीज़ का नाम]\nमरीज़ से मेरा संबंध: [संबंध]\n\n{hospital}, {city} में इलाज के दौरान मेरे परिजन की मृत्यु हो गई है। अनुच्छेद 16(c) के अनुसार दावे पर तुरंत कार्रवाई करें और पार्थिव शरीर तुरंत सौंपने की व्यवस्था करें। अस्पताल और {insurer} / {tpa} सीधे समन्वय करें, ज़िम्मेदार व्यक्ति बताएँ और कार्रवाई की लिखित पुष्टि दें।\n\nतारीख और समय: {now}\nसंलग्नक: [दावे की पावती]; [अस्पताल का मृत्यु रिकॉर्ड]।\n\n{citations}"
     }
   }
 }

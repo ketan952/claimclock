@@ -216,5 +216,9 @@
   "rejection.filing": "You review, sign and send every complaint yourself. ClaimClock does not contact the insurer or file a case for you.",
   "rejection.rule.repudiation-review": "A repudiation needs approval by the Product Management Committee or its three-member Claims Review Committee. Ask which body approved it and when.",
   "rejection.rule.deduction-reasons": "For a rejected or partly disallowed claim, ask for the full reasons and the exact policy terms for each disputed amount.",
-  "rejection.rule.grievance-14-days": "The insurer must acknowledge your complaint immediately and should resolve it within 14 days, with reasons and policy terms if it is not accepted."
+  "rejection.rule.grievance-14-days": "The insurer must acknowledge your complaint immediately and should resolve it within 14 days, with reasons and policy terms if it is not accepted.",
+  "sources.title": "Primary sources behind letter links",
+  "sources.body": "Short links in your letters redirect to these original IRDAI documents.",
+  "sources.health-mc-2024": "Health Insurance Master Circular, 29 May 2024",
+  "sources.pphi-mc-2024": "Protection of Policyholders’ Interests Master Circular, 5 September 2024"
 }

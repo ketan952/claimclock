@@ -1,8 +1,26 @@
 import templates from '../../templates/messages.json' with { type: 'json' };
 import type { Contact, Language, Letter, LetterKind, Rule, Timeline } from './types.ts';
-import { duration, formatTime } from './clock.ts';
+import { duration, formatTime, windowMinutes } from './clock.ts';
+const sourceBase='https://claimclock.ketan952.workers.dev';
 export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
-  return ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r)).map(r=>`${r.title} — ${r.paragraph}\n“${r.quote}”\n${language==='hi'&&r.plain_hi?r.plain_hi+'\n':''}${r.source_url}`).join('\n\n');
+ const entries=ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r));
+ const health=entries.filter(r=>r.id!=='grievance-14-days');
+ const result:string[]=[];
+ if(health.length){
+  const quotations=health.map(r=>`${r.paragraph.match(/Chapter I ([^,;]+)/)?.[1]||r.paragraph}: “${r.quote}”`).join('\n');
+  result.push(`${language==='hi'?'स्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024':'Health Insurance Master Circular, 29 May 2024'}\n${quotations}\n${sourceBase}/s/health-mc-2024`);
+ }
+ const grievance=entries.find(r=>r.id==='grievance-14-days');
+ if(grievance)result.push(`${language==='hi'?'पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024':'PPHI Master Circular, 5 September 2024'} — Part B VI.2(i)\n“${grievance.quote}”\n${sourceBase}/s/pphi-mc-2024`);
+ return result.join('\n\n');
+}
+export function timingDemand(timeline:Timeline,language:Language,now=new Date()):string {
+ const elapsed=Math.max(0,(timeline.decidedAt?Date.parse(timeline.decidedAt):now.getTime())-Date.parse(timeline.submittedAt));
+ const minutes=windowMinutes(timeline.requestType);
+ if(minutes===null)return language==='hi'?`मेरा दर्ज इंतज़ार ${duration(elapsed)} है; प्राप्ति समय और अतिरिक्त मंज़ूरी का निर्णय दें।`:`My recorded wait is ${duration(elapsed)}; confirm receipt and provide the enhancement decision.`;
+ const hours=minutes/60;
+ if(elapsed>minutes*60000)return language==='hi'?`अस्पताल के बताए समय से मेरा दर्ज इंतज़ार ${hours} घंटे की समय-सीमा से ${duration(elapsed-minutes*60000)} अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।`:`Based on the hospital's reported time, my recorded wait exceeds the ${hours}-hour window by ${duration(elapsed-minutes*60000)}; confirm your receipt time and explain the delay.`;
+ return language==='hi'?`मेरा दर्ज इंतज़ार ${duration(elapsed)} है; अनुरोध मिलने से ${hours} घंटे की समय-सीमा में निर्णय दें और प्राप्ति समय की पुष्टि करें।`:`My recorded wait is ${duration(elapsed)}; decide within the ${hours}-hour window from receipt and confirm your receipt time.`;
 }
 export function timelineText(t:Timeline, language:Language) {
   const labels:Record<string,string>=language==='hi'?{query:'सवाल पूछा गया',documents:'दस्तावेज़ फिर भेजे',call:'कॉल की',ack:'लिखित पुष्टि मिली',other:'अन्य जानकारी',approved:'मंज़ूर',partial:'आंशिक मंज़ूरी',rejected:'अस्वीकृत'}:{query:'Query raised',documents:'Documents re-sent',call:'Call made',ack:'Written acknowledgement received',other:'Other update',approved:'Approved',partial:'Partly approved',rejected:'Rejected'};
@@ -20,8 +38,8 @@ export function makeLetter(kind:LetterKind, timeline:Timeline, contacts:Contact[
     submitted:formatTime(timeline.submittedAt,language), now:formatTime(now.toISOString(),language),
     elapsed:duration((timeline.decidedAt?Date.parse(timeline.decidedAt):now.getTime())-Date.parse(timeline.submittedAt)),
     decided:timeline.decidedAt?formatTime(timeline.decidedAt,language):(language==='hi'?'अभी दर्ज नहीं':'not yet recorded'),
-    timeline:timelineText(timeline,language),citations:ruleCitations(ruleIds,rules,language),...extra
+    timeline:timelineText(timeline,language),timing:timingDemand(timeline,language,now),citations:ruleCitations(ruleIds,rules,language),...extra
   };
   const fill=(s:string)=>s.replace(/\{(\w+)\}/g,(_,key)=>fields[key]??`[${key}]`);
-  return {id:crypto.randomUUID(),kind,language,generatedAt:now.toISOString(),subject:fill(template[language].subject),body:fill(template[language].body)+'\n\n'+(language==='hi'?'ClaimClock: जानकारी, कानूनी सलाह नहीं।':'ClaimClock: information, not legal advice.'),ruleIds};
+  return {id:crypto.randomUUID(),kind,language,generatedAt:now.toISOString(),subject:fill(template[language].subject),body:fill(template[language].body),ruleIds};
 }

@@ -1,0 +1,12 @@
+{
+  "milestone": "M7",
+  "baseline": "9975821",
+  "affected_html": [
+    {
+      "path": "privacy/index.html",
+      "inline_scripts": 1,
+      "inline_handlers": []
+    }
+  ],
+  "html_pages_audited": 41
+}

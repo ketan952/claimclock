@@ -20,11 +20,18 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 - M5: committed/pushed as 65f6a70; optional Worker/D1 implementation ready: consent-gated reports and erasure, frozen monthly aggregates, bounded optional AI proxy, daily cron and weekly source-value contact workflow. Fourteen API/security tests plus ten actual local Wrangler/D1 integration checks pass. Production Worker/D1 are provisioned; 14 live API checks pass. Provider inference remains untested and disabled.
 - M6: local QA/handoff snapshot committed/pushed as 1553747; launch-draft/roadmap follow-up accompanies it. 54 unit/API tests and ten local D1 checks pass. Live browser results are recorded in qa/DEPLOYMENT.md. Live Lighthouse scores 99 performance and 100 for accessibility, best practices and SEO. Screenshots, source gap list, launch drafts and v2 priorities recorded. Live core acceptance passed. Physical-device and real-provider acceptance remain pending. Thin Mode C was implemented after Mode A and the Index shipped: bilingual, browser-only GRO drafts and sourced escalation guidance.
 
+## M7 revision
+
+M7 is deployed and live-verified: external scripts forced; all41HTML pages audited; Privacy erasure and analytics controls repaired;28 bilingual letter snapshots;302 short source links.87unit/securitytests pass. Live13/14scenarios pass, with the intentionally newly exposed Hindi leak failure assigned toM9. Seeqa/m7-release.json andqa/REPORT.md. The historical synthetic Prudential2025-11preauth report was erased through theUI; its suppressionmarker remains to preserve erasure semantics.
+
 ## Next
+
+Continue M8: fifteen deductionfixtures/categories/totals, browser-retrieved disclosures toward27/32, new sortableIndex/OGassets, per-field contacts, explicitly user-authorized GroqAI enablement and real-provider/fallbackQA. ThenM9 localization, human-readable opt-in, clockstepstrip/hero, portalcharacterlimit and compatible-license gate. Deploy and verify each milestone separately; commit each with thisfileupdated. Browserresearch artifacts currentlylive inignored.cache/m8-*; nativeChrome integration islimited, isolatedheadedPlaywright browser navigation works.
+
 
 The user supplied the personal credentials location and explicitly approved the existing dependencies for this deployment. Cloudflare deployment and live core acceptance are complete; do not repeat resolved credential or license questions. Worker and GitHub secrets are configured; never print their values.
 
-Optional AI remains disabled: the supplied Groq key passed a read-only model-list check (HTTP 200, configured model listed), but the account's no-card free status is unconfirmed and `LLM_FREE_TIER_CONFIRMED=false`. No real provider inference was sent. Verify free-account status before enabling that optional path. Do not enable paid inference. The four core flows work without it.
+Optional AI remains disabled: the supplied Groq key passed a read-only model-list check (HTTP 200, configured model listed), but the account's no-card free status is unconfirmed and `LLM_FREE_TIER_CONFIRMED=false`. No real provider inference was sent. The user has now explicitly instructed setting the free-tier confirmation true and enabling Groq in M8. This authorization resolves the earlier question; do not ask again. Do not enable paid inference. The four core flows work without it.
 
 Remaining acceptance: ten real-provider cases and secret-removal comparison; physical Android/4G and native WhatsApp/print; independent Hindi/usability review; one additional qualifying recent research case; missing/partial numeric filings. Read qa/REPORT.md for all limitations. Launch posts remain drafts, not external publications.
 

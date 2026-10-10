@@ -1,0 +1,222 @@
+{
+  "lock-en": {
+    "subject": "Please confirm my cashless request and receipt time",
+    "body": "To the hospital insurance desk and TPA,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nFor my final discharge at Example Hospital, Pune, the hospital reported submission at 10 Oct 2026, 10:00 am IST. Please confirm in writing:\n1. The exact date and time you sent the request and the insurer/TPA received it.\n2. The cashless request reference number and a copy of the original acknowledgement.\n3. Each outstanding query or document, when it was requested and who must supply it.\n\nPlease record later queries and resubmissions separately from the original receipt time.\n\nInsurer: HDFC ERGO General\nTPA: not known / not applicable",
+    "ruleIds": []
+  },
+  "followup-en": {
+    "subject": "Status and decision on my cashless final discharge",
+    "body": "To the claims team, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI request a written status update and decision on my final discharge at Example Hospital, Pune. The hospital reported submission at 10 Oct 2026, 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 3-hour window by 01:00:00; confirm your receipt time and explain the delay.\n\nPlease confirm your original receipt timestamp, provide the decision or expected decision time, and identify any outstanding query. Please collect the required hospital documents directly from the hospital.\n\nHealth Insurance Master Circular, 29 May 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital"
+    ]
+  },
+  "gro-en": {
+    "subject": "Formal grievance about my cashless final discharge",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submit this grievance about my final discharge at Example Hospital, Pune. The hospital reported submission at 10 Oct 2026, 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 3-hour window by 01:00:00; confirm your receipt time and explain the delay.\n\n1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.\n2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.\n3. Collect any required hospital documents directly from the hospital and identify each outstanding query.\n\nTimeline:\n10 Oct 2026, 10:00 am IST — Reported submission\n10 Oct 2026, 10:05 am IST — Written acknowledgement received: Desk confirmed receipt.\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [hospital acknowledgement]; [cashless request and correspondence]; [timeline and relevant receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "bima-en": {
+    "subject": "Cashless grievance — HDFC ERGO General",
+    "body": "Name: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\nInsurer: HDFC ERGO General; TPA: not known / not applicable.\n\nMy final discharge at Example Hospital, Pune, was reported submitted at 10 Oct 2026, 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 3-hour window by 01:00:00; confirm your receipt time and explain the delay.\n\nInsurer grievance reference/date: [Reference and date]. Response: [Response or pending]. I request the receipt and decision records, an explanation of delay and resolution of my grievance within 14 days under the PPHI Master Circular.\n\nDocuments I will attach: hospital acknowledgement, insurer grievance and reply, timeline, relevant Health and PPHI Master Circular extracts.",
+    "ruleIds": [
+      "cashless-discharge",
+      "grievance-14-days"
+    ]
+  },
+  "billing-en": {
+    "subject": "Itemised charges caused by discharge authorisation delay",
+    "body": "To the hospital billing desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nMy final discharge request at Example Hospital, Pune, was reported submitted at 10 Oct 2026, 10:00 am IST. Please provide the insurer/TPA receipt time and final authorisation time.\n\nPlease separately itemise the additional room, nursing and other hospital charges caused by waiting beyond three hours after the insurer received the discharge request. Coordinate with HDFC ERGO General for these delay-related charges to be borne by the insurer under paragraph 16(b), and provide the itemised bill and payment receipt.\n\nAttachments: [discharge request acknowledgement]; [bill and receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n16(b): “the additional amount if any charged by the hospital shall be borne by the insurer from shareholder’s fund.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "delay-charges"
+    ]
+  },
+  "protest-en": {
+    "subject": "Payment under protest — receipt endorsement",
+    "body": "To the hospital billing desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI pay the disputed charges under protest while the cashless decision and authorisation-delay charges remain under review. My payment does not indicate acceptance of these charges. Please record this statement on my receipt and provide a signed copy.\n\nHospital: Example Hospital, Pune\nReported submission: 10 Oct 2026, 10:00 am IST\nDate and time: 10 Oct 2026, 2:00 pm IST\nDisputed amount: [Amount]\nReceipt number: [Receipt number]",
+    "ruleIds": []
+  },
+  "recovery-en": {
+    "subject": "Reimbursement of ₹2,000 charged for discharge delay",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI seek reimbursement of ₹2,000 in additional hospital charges for 4 hours of waiting at Example Hospital, Pune. My final discharge request was reported submitted at 10 Oct 2026, 10:00 am IST; the recorded decision time is not yet recorded.\n\n1. For the ₹2,000 delay-related charge, provide your receipt and authorisation timestamps and reconcile them with the attached hospital records.\n2. Reimburse the additional charge caused by delay beyond three hours from your receipt of the discharge request under paragraph 16(b). Provide the itemised calculation and reasons for any amount you decline.\n\nTimeline:\n10 Oct 2026, 10:00 am IST — Reported submission\n10 Oct 2026, 10:05 am IST — Written acknowledgement received: Desk confirmed receipt.\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [itemised bill]; [proof of payment]; [hospital acknowledgement]; [discharge authorisation]; [timeline].\n\nHealth Insurance Master Circular, 29 May 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n16(b): “the additional amount if any charged by the hospital shall be borne by the insurer from shareholder’s fund.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "delay-charges",
+      "grievance-14-days"
+    ]
+  },
+  "death-en": {
+    "subject": "Urgent: process my claim and release the mortal remains immediately",
+    "body": "To the insurer/TPA and hospital insurance desk,\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\nPatient name: [Patient name]\nMy relationship to the patient: [Relationship]\n\nMy family member died during treatment at Example Hospital, Pune. Please process the claim request immediately and arrange immediate release of the mortal remains under paragraph 16(c). Coordinate directly between the hospital and HDFC ERGO General / not known / not applicable, identify the responsible person and confirm the action in writing.\n\nDate and time: 10 Oct 2026, 2:00 pm IST\nAttachments: [claim acknowledgement]; [hospital death record].\n\nHealth Insurance Master Circular, 29 May 2024\n16(c)(i)-(ii): “immediately process the request for claim settlement.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "death-protocol"
+    ]
+  },
+  "deductions-reconsideration-en": {
+    "subject": "Reconsideration of ₹8,200 deducted from my claim",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI request reconsideration of the following deductions totalling ₹8,200:\n\n1. Proportionate surgeon fee — ₹4,200. Provide the room eligibility clause, permitted and actual daily rates, the room-day calculation, and each associated charge reduced. For associated expenses, provide the policy wording permitting the reduction and the hospital tariff showing whether that item varies by room category.\n\n2. Co-payment — ₹2,500. Provide the applicable co-pay or deductible clause and schedule, the percentage or fixed amount, the eligible calculation base, any waiver, and the arithmetic used. Policy term recorded by me: Section 4.2: 10% co-pay.\n\n3. Unexplained adjustment — ₹1,500. Identify the deducted bill items and amounts, the complete reason for each, the specific policy clause, and the itemised calculation.\n\nPlease provide the full reasons for each deduction with the specific policy terms under paragraph 17(b) of the Health Insurance Master Circular. Acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [settlement letter]; [itemised hospital bill]; [policy schedule and wording]; [relevant endorsements]; [payment receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n17(b): “giving reference to the specific terms and conditions of the policy document.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "deductions-bima-en": {
+    "subject": "Complaint about claim deductions — HDFC ERGO General",
+    "body": "Name: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\nInsurer: HDFC ERGO General.\n\nI dispute deductions totalling ₹8,200 from my health claim. I request the reason, exact policy clause and calculation for each line in my attached statement, reconsideration and a written decision.\n\nGRO complaint reference/date: [Reference and date]. Insurer response: [Response or pending]. Please secure resolution within 14 days under the PPHI Master Circular.\n\nDocuments I will attach: deduction statement, settlement letter, itemised bill, policy and endorsements, GRO grievance and response, Health and PPHI Master Circular extracts.",
+    "ruleIds": [
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "rejection-en": {
+    "subject": "Formal grievance: review of claim rejection — HDFC ERGO General",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI request reconsideration of the rejection communicated on 1 October 2026. The stated ground is: Waiting-period exclusion\n\n1. Provide the complete reasons for rejection, the specific policy clauses and the records relied upon. Explain how each clause applies to my claim under paragraph 17(b).\n2. If this decision is a repudiation, identify the Product Management Committee or three-member Claims Review Committee that approved it and provide the approval date under paragraph 17(a).\n3. Review my attached policy and claim records and issue a reasoned decision.\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [rejection letter]; [policy schedule and wording]; [claim documents]; [correspondence].\n\nHealth Insurance Master Circular, 29 May 2024\n17(a): “No claim shall be repudiated without the approval of PMC”\n17(b): “giving reference to the specific terms and conditions of the policy document.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "repudiation-review",
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "gro-preauth-en": {
+    "subject": "Formal grievance about my cashless cashless pre-authorisation",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submit this grievance about my cashless pre-authorisation at Example Hospital, Pune. The hospital reported submission at 10 Oct 2026, 10:00 am IST. Based on the hospital's reported time, my recorded wait exceeds the 1-hour window by 03:00:00; confirm your receipt time and explain the delay.\n\n1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.\n2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.\n3. Collect any required hospital documents directly from the hospital and identify each outstanding query.\n\nTimeline:\n10 Oct 2026, 10:00 am IST — Reported submission\n10 Oct 2026, 10:05 am IST — Written acknowledgement received: Desk confirmed receipt.\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [hospital acknowledgement]; [cashless request and correspondence]; [timeline and relevant receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n15(b): “immediately but not more than one hour of receipt of request.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-preauth",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "gro-enhancement-en": {
+    "subject": "Formal grievance about my cashless enhancement",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submit this grievance about my enhancement at Example Hospital, Pune. The hospital reported submission at 10 Oct 2026, 10:00 am IST. My recorded wait is 04:00:00; confirm receipt and provide the enhancement decision.\n\n1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.\n2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.\n3. Collect any required hospital documents directly from the hospital and identify each outstanding query.\n\nTimeline:\n10 Oct 2026, 10:00 am IST — Reported submission\n10 Oct 2026, 10:05 am IST — Written acknowledgement received: Desk confirmed receipt.\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [hospital acknowledgement]; [cashless request and correspondence]; [timeline and relevant receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "gro-before-window-en": {
+    "subject": "Formal grievance about my cashless final discharge",
+    "body": "To the Grievance Redressal Officer, HDFC ERGO General\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submit this grievance about my final discharge at Example Hospital, Pune. The hospital reported submission at 10 Oct 2026, 1:30 pm IST. My recorded wait is 00:30:00; decide within the 3-hour window from receipt and confirm your receipt time.\n\n1. Confirm the original insurer/TPA receipt time and provide the acknowledgement and decision records.\n2. Provide a written decision on my request and explain any delay or discrepancy with the timeline below.\n3. Collect any required hospital documents directly from the hospital and identify each outstanding query.\n\nTimeline:\n10 Oct 2026, 1:30 pm IST — Reported submission\n\nPlease acknowledge this grievance immediately with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [hospital acknowledgement]; [cashless request and correspondence]; [timeline and relevant receipts].\n\nHealth Insurance Master Circular, 29 May 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nPPHI Master Circular, 5 September 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "lock-hi": {
+    "subject": "मेरे कैशलेस अनुरोध और प्राप्ति समय की पुष्टि करें",
+    "body": "प्रति: अस्पताल बीमा डेस्क और TPA,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे अंतिम डिस्चार्ज का अनुरोध अस्पताल के अनुसार 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। कृपया लिखित रूप में पुष्टि करें:\n1. अनुरोध भेजने और बीमा कंपनी/TPA को मिलने की सही तारीख और समय।\n2. कैशलेस अनुरोध की संदर्भ संख्या और मूल पावती की प्रति।\n3. हर लंबित सवाल या दस्तावेज़, उसे माँगने का समय और उसे भेजने वाले की जानकारी।\n\nबाद के सवाल और दोबारा भेजे अनुरोध का समय मूल प्राप्ति समय से अलग दर्ज करें।\n\nबीमा कंपनी: HDFC ERGO General\nTPA: पता नहीं / लागू नहीं",
+    "ruleIds": []
+  },
+  "followup-hi": {
+    "subject": "मेरे कैशलेस अंतिम डिस्चार्ज की स्थिति और निर्णय",
+    "body": "प्रति: दावा टीम, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे अंतिम डिस्चार्ज की लिखित स्थिति और निर्णय दें। अस्पताल के अनुसार अनुरोध 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 3 घंटे की समय-सीमा से 01:00:00 अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।\n\nअपने मूल प्राप्ति समय की पुष्टि करें, निर्णय या संभावित निर्णय का समय दें और लंबित सवाल बताएँ। ज़रूरी अस्पताल दस्तावेज़ सीधे अस्पताल से लें।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital"
+    ]
+  },
+  "gro-hi": {
+    "subject": "मेरे कैशलेस अंतिम डिस्चार्ज के बारे में औपचारिक शिकायत",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे अंतिम डिस्चार्ज के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 3 घंटे की समय-सीमा से 01:00:00 अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।\n\n1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।\n2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।\n3. ज़रूरी दस्तावेज़ सीधे अस्पताल से लें और हर लंबित सवाल बताएँ।\n\nघटनाक्रम:\n10 अक्टू॰ 2026, 10:00 am IST — बताया गया अनुरोध समय\n10 अक्टू॰ 2026, 10:05 am IST — लिखित पुष्टि मिली: Desk confirmed receipt.\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्पताल की पावती]; [कैशलेस अनुरोध और पत्राचार]; [घटनाक्रम और संबंधित रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "bima-hi": {
+    "subject": "कैशलेस शिकायत — HDFC ERGO General",
+    "body": "नाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\nबीमा कंपनी: HDFC ERGO General; TPA: पता नहीं / लागू नहीं।\n\nExample Hospital, Pune में मेरे अंतिम डिस्चार्ज का अनुरोध अस्पताल के अनुसार 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 3 घंटे की समय-सीमा से 01:00:00 अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।\n\nकंपनी में शिकायत की संख्या/तारीख: [संदर्भ और तारीख]। जवाब: [जवाब या लंबित]। प्राप्ति और निर्णय रिकॉर्ड, देरी का कारण और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के अनुसार 14 दिनों में शिकायत का समाधान दें।\n\nमैं ये दस्तावेज़ संलग्न करूँगा/करूँगी: अस्पताल की पावती, कंपनी को शिकायत और जवाब, घटनाक्रम, स्वास्थ्य बीमा और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के संबंधित अंश।",
+    "ruleIds": [
+      "cashless-discharge",
+      "grievance-14-days"
+    ]
+  },
+  "billing-hi": {
+    "subject": "डिस्चार्ज मंज़ूरी की देरी से लगे शुल्क का मदवार विवरण",
+    "body": "प्रति: अस्पताल बिलिंग डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरा अंतिम डिस्चार्ज अनुरोध अस्पताल के अनुसार 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। बीमा कंपनी/TPA को मिलने और अंतिम मंज़ूरी का समय दें।\n\nबीमा कंपनी को अनुरोध मिलने के तीन घंटे बाद के इंतज़ार से लगे कमरे, नर्सिंग और अन्य अतिरिक्त अस्पताल शुल्क अलग-अलग दिखाएँ। अनुच्छेद 16(b) के अनुसार देरी से लगे ये शुल्क कंपनी वहन करे, इसके लिए HDFC ERGO General से समन्वय करें। मदवार बिल और भुगतान की रसीद दें।\n\nसंलग्नक: [डिस्चार्ज अनुरोध की पावती]; [बिल और रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n16(b): “the additional amount if any charged by the hospital shall be borne by the insurer from shareholder’s fund.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "delay-charges"
+    ]
+  },
+  "protest-hi": {
+    "subject": "आपत्ति सहित भुगतान — रसीद पर टिप्पणी",
+    "body": "प्रति: अस्पताल बिलिंग डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nकैशलेस निर्णय और मंज़ूरी की देरी से लगे शुल्क की समीक्षा लंबित होने के कारण मैं विवादित शुल्क आपत्ति सहित चुका रहा/रही हूँ। मेरा भुगतान इन शुल्कों की स्वीकृति नहीं है। यह बात रसीद पर दर्ज करें और हस्ताक्षरित प्रति दें।\n\nअस्पताल: Example Hospital, Pune\nबताया गया अनुरोध समय: 10 अक्टू॰ 2026, 10:00 am IST\nतारीख और समय: 10 अक्टू॰ 2026, 2:00 pm IST\nविवादित राशि: [राशि]\nरसीद संख्या: [रसीद संख्या]",
+    "ruleIds": []
+  },
+  "recovery-hi": {
+    "subject": "डिस्चार्ज देरी के ₹2,000 शुल्क की वापसी",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में 4 घंटे के इंतज़ार के कारण लगे ₹2,000 अतिरिक्त अस्पताल शुल्क की वापसी चाहता/चाहती हूँ। अस्पताल के अनुसार अंतिम डिस्चार्ज अनुरोध 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया; दर्ज निर्णय समय अभी दर्ज नहीं है।\n\n1. देरी से लगे ₹2,000 शुल्क के लिए अपने प्राप्ति और मंज़ूरी के समय दें तथा संलग्न अस्पताल रिकॉर्ड से उनका मिलान करें।\n2. अनुरोध मिलने के तीन घंटे बाद की देरी से लगे अतिरिक्त शुल्क अनुच्छेद 16(b) के अनुसार लौटाएँ। कोई राशि न लौटाने पर मदवार हिसाब और कारण दें।\n\nघटनाक्रम:\n10 अक्टू॰ 2026, 10:00 am IST — बताया गया अनुरोध समय\n10 अक्टू॰ 2026, 10:05 am IST — लिखित पुष्टि मिली: Desk confirmed receipt.\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [मदवार बिल]; [भुगतान प्रमाण]; [अस्पताल की पावती]; [डिस्चार्ज मंज़ूरी]; [घटनाक्रम]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n16(b): “the additional amount if any charged by the hospital shall be borne by the insurer from shareholder’s fund.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "delay-charges",
+      "grievance-14-days"
+    ]
+  },
+  "death-hi": {
+    "subject": "अत्यावश्यक: दावे पर तुरंत कार्रवाई और पार्थिव शरीर तुरंत सौंपें",
+    "body": "प्रति: बीमा कंपनी/TPA और अस्पताल बीमा डेस्क,\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\nमरीज़ का नाम: [मरीज़ का नाम]\nमरीज़ से मेरा संबंध: [संबंध]\n\nExample Hospital, Pune में इलाज के दौरान मेरे परिजन की मृत्यु हो गई है। अनुच्छेद 16(c) के अनुसार दावे पर तुरंत कार्रवाई करें और पार्थिव शरीर तुरंत सौंपने की व्यवस्था करें। अस्पताल और HDFC ERGO General / पता नहीं / लागू नहीं सीधे समन्वय करें, ज़िम्मेदार व्यक्ति बताएँ और कार्रवाई की लिखित पुष्टि दें।\n\nतारीख और समय: 10 अक्टू॰ 2026, 2:00 pm IST\nसंलग्नक: [दावे की पावती]; [अस्पताल का मृत्यु रिकॉर्ड]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(c)(i)-(ii): “immediately process the request for claim settlement.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024",
+    "ruleIds": [
+      "death-protocol"
+    ]
+  },
+  "deductions-reconsideration-hi": {
+    "subject": "मेरे दावे से काटे गए ₹8,200 की पुनः समीक्षा",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nमैं कुल ₹8,200 की निम्न कटौतियों की पुनः समीक्षा चाहता/चाहती हूँ:\n\n1. Proportionate surgeon fee — ₹4,200. कमरे की पात्रता की शर्त, अनुमत और वास्तविक दैनिक दर, दिनों का हिसाब और घटाई गई हर संबंधित मद दें। अन्य खर्चों की कटौती के लिए उसे अनुमत करने वाली पॉलिसी शर्त और कमरे की श्रेणी से उस मद की दर बदलने वाला अस्पताल शुल्क विवरण दें।\n\n2. Co-payment — ₹2,500. लागू सह-भुगतान या डिडक्टिबल की शर्त और अनुसूची, प्रतिशत या तय राशि, हिसाब की आधार राशि, छूट और गणना दें। मेरे द्वारा दर्ज पॉलिसी की शर्त: Section 4.2: 10% co-pay.\n\n3. Unexplained adjustment — ₹1,500. काटी गई बिल मदें और राशियाँ, हर मद का पूरा कारण, पॉलिसी की सटीक शर्त और मदवार हिसाब दें।\n\nस्वास्थ्य बीमा मास्टर परिपत्र के अनुच्छेद 17(b) के अनुसार हर कटौती के पूरे कारण और पॉलिसी की सटीक शर्त दें। तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [निपटान पत्र]; [मदवार अस्पताल बिल]; [पॉलिसी अनुसूची और शर्तें]; [संबंधित ऐड-ऑन]; [भुगतान रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n17(b): “giving reference to the specific terms and conditions of the policy document.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "deductions-bima-hi": {
+    "subject": "दावे की कटौतियों के बारे में शिकायत — HDFC ERGO General",
+    "body": "नाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\nबीमा कंपनी: HDFC ERGO General।\n\nमेरे स्वास्थ्य दावे से कुल ₹8,200 की कटौतियों पर मुझे आपत्ति है। संलग्न विवरण की हर मद के लिए कारण, पॉलिसी की सटीक शर्त और हिसाब दें, फिर समीक्षा करके लिखित निर्णय दें।\n\nGRO शिकायत संख्या/तारीख: [संदर्भ और तारीख]। कंपनी का जवाब: [जवाब या लंबित]। पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के अनुसार 14 दिनों में समाधान दिलाएँ।\n\nमैं ये दस्तावेज़ संलग्न करूँगा/करूँगी: कटौती विवरण, निपटान पत्र, मदवार बिल, पॉलिसी और ऐड-ऑन, GRO को शिकायत और जवाब, स्वास्थ्य बीमा और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के संबंधित अंश।",
+    "ruleIds": [
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "rejection-hi": {
+    "subject": "औपचारिक शिकायत: दावा खारिज करने के फैसले की समीक्षा — HDFC ERGO General",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nमुझे 1 अक्टूबर 2026 को बताए गए दावा खारिज करने के फैसले पर पुनर्विचार चाहिए। बताया गया कारण: प्रतीक्षा अवधि का अपवर्जन\n\n1. अस्वीकृति के पूरे कारण, पॉलिसी की सटीक शर्तें और फैसले में उपयोग किए रिकॉर्ड दें। अनुच्छेद 17(b) के अनुसार बताएँ कि हर शर्त मेरे दावे पर कैसे लागू होती है।\n2. यदि यह निर्णय दावे का खंडन (repudiation) है, तो अनुच्छेद 17(a) के अनुसार मंज़ूरी देने वाली Product Management Committee या तीन सदस्यों वाली Claims Review Committee और मंज़ूरी की तारीख बताएँ।\n3. मेरी संलग्न पॉलिसी और दावा रिकॉर्ड की समीक्षा करके कारण सहित निर्णय दें।\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्वीकृति पत्र]; [पॉलिसी अनुसूची और शर्तें]; [दावा दस्तावेज़]; [पत्राचार]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n17(a): “No claim shall be repudiated without the approval of PMC”\n17(b): “giving reference to the specific terms and conditions of the policy document.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "repudiation-review",
+      "deduction-reasons",
+      "grievance-14-days"
+    ]
+  },
+  "gro-preauth-hi": {
+    "subject": "मेरे कैशलेस कैशलेस पूर्व-मंज़ूरी के बारे में औपचारिक शिकायत",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे कैशलेस पूर्व-मंज़ूरी के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। अस्पताल के बताए समय से मेरा दर्ज इंतज़ार 1 घंटे की समय-सीमा से 03:00:00 अधिक है; अपने प्राप्ति समय की पुष्टि करें और देरी का कारण दें।\n\n1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।\n2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।\n3. ज़रूरी दस्तावेज़ सीधे अस्पताल से लें और हर लंबित सवाल बताएँ।\n\nघटनाक्रम:\n10 अक्टू॰ 2026, 10:00 am IST — बताया गया अनुरोध समय\n10 अक्टू॰ 2026, 10:05 am IST — लिखित पुष्टि मिली: Desk confirmed receipt.\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्पताल की पावती]; [कैशलेस अनुरोध और पत्राचार]; [घटनाक्रम और संबंधित रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n15(b): “immediately but not more than one hour of receipt of request.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-preauth",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "gro-enhancement-hi": {
+    "subject": "मेरे कैशलेस अतिरिक्त मंज़ूरी के बारे में औपचारिक शिकायत",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे अतिरिक्त मंज़ूरी के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टू॰ 2026, 10:00 am IST को भेजा गया। मेरा दर्ज इंतज़ार 04:00:00 है; प्राप्ति समय और अतिरिक्त मंज़ूरी का निर्णय दें।\n\n1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।\n2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।\n3. ज़रूरी दस्तावेज़ सीधे अस्पताल से लें और हर लंबित सवाल बताएँ।\n\nघटनाक्रम:\n10 अक्टू॰ 2026, 10:00 am IST — बताया गया अनुरोध समय\n10 अक्टू॰ 2026, 10:05 am IST — लिखित पुष्टि मिली: Desk confirmed receipt.\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्पताल की पावती]; [कैशलेस अनुरोध और पत्राचार]; [घटनाक्रम और संबंधित रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  },
+  "gro-before-window-hi": {
+    "subject": "मेरे कैशलेस अंतिम डिस्चार्ज के बारे में औपचारिक शिकायत",
+    "body": "प्रति: शिकायत निवारण अधिकारी, HDFC ERGO General\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nExample Hospital, Pune में मेरे अंतिम डिस्चार्ज के संबंध में यह शिकायत है। अस्पताल के अनुसार अनुरोध 10 अक्टू॰ 2026, 1:30 pm IST को भेजा गया। मेरा दर्ज इंतज़ार 00:30:00 है; अनुरोध मिलने से 3 घंटे की समय-सीमा में निर्णय दें और प्राप्ति समय की पुष्टि करें।\n\n1. बीमा कंपनी/TPA को मूल अनुरोध मिलने का समय बताएँ और पावती तथा निर्णय रिकॉर्ड दें।\n2. मेरे अनुरोध पर लिखित निर्णय दें और नीचे दिए घटनाक्रम से किसी अंतर या देरी का कारण बताएँ।\n3. ज़रूरी दस्तावेज़ सीधे अस्पताल से लें और हर लंबित सवाल बताएँ।\n\nघटनाक्रम:\n10 अक्टू॰ 2026, 1:30 pm IST — बताया गया अनुरोध समय\n\nकृपया तुरंत संदर्भ संख्या सहित पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [अस्पताल की पावती]; [कैशलेस अनुरोध और पत्राचार]; [घटनाक्रम और संबंधित रसीदें]।\n\nस्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024\n16(a): “Insurer shall grant final authorization within three hours of the receipt of discharge authorization request from the hospital.”\n17(c): “Insurers and Third Party Administrators (TPAs) shall collect the required documents from the Hospitals.”\nhttps://claimclock.ketan952.workers.dev/s/health-mc-2024\n\nपॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024 — Part B VI.2(i)\n“Insurers should provide resolution to the complaint within 14 days”\nhttps://claimclock.ketan952.workers.dev/s/pphi-mc-2024",
+    "ruleIds": [
+      "cashless-discharge",
+      "documents-from-hospital",
+      "grievance-14-days"
+    ]
+  }
+}

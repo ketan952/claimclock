@@ -2,6 +2,16 @@
 
 **10 October 2026 — deployed to [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/).** Worker, static assets and D1 are live. The user approved the existing dependency snapshot for this deployment; the strict allowlist audit remains unchanged. Optional AI stays disabled because no-card free-account status is unconfirmed. The configured key and model passed a read-only provider check. [Deployment details](DEPLOYMENT.md).
 
+## M7 — blockers corrected
+
+Deployed 10 October 2026, version `45a8da83-6432-4c6a-b654-1e6c1c2dca10`. [Release evidence](m7-release.json).
+
+- Before: the live Privacy page had one blocked inline script; saved deletion codes were not restored ([browser evidence](m7-privacy-before.json), [screenshot](screenshots/privacy-before-m7.png)). The build audit identified that single affected page.
+- After: all 41 generated pages pass the external-script/no-inline-handler CI check. All 41 public pages pass the same browser audit. The Privacy form restores a saved synthetic deletion code, erases the report and clears local storage; the analytics checkbox persists both choices ([screenshot](screenshots/privacy-erased.png)). No real patient data was used.
+- All message templates were rewritten as user-to-recipient requests. 28 bilingual snapshots and semantic checks cover identity placeholders, numbered demands, supported operative quotes, short citation links, acknowledgement and 14-day resolution. App coaching, verdict labels and disclaimers are excluded from message bodies. Bima text uses a compact attachments line.
+- Both short source URLs return an exact 302 to the primary document; the methodology page displays the primary URLs.
+- 87 unit/security tests pass. The live suite has 13 passing scenarios and one failing **Hindi leak baseline** for existing untranslated page text. Those findings are retained for M9, not described as passed ([baseline](m7-hindi-baseline.json)). M7-specific live acceptance passes.
+
 ## Acceptance results
 
 | Requirement | Executed result | Scope and remaining gap |

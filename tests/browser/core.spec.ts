@@ -9,7 +9,7 @@ test('mobile English, clock lock, events, Hindi and source-linked GRO message',a
  await expect(page.locator('#dashboard')).toBeVisible();await expect(page.locator('#clock-label')).toHaveText("Recorded wait beyond the rule’s window");
  await page.click('[data-letter=lock]');await expect(page.locator('#letter-body')).toHaveValue(/exact date and time/);await expect(page.locator('#letter-body')).toHaveValue(/Example Hospital/);await page.click('#letter-close');
  await page.fill('#event-form [name=note]','Desk confirmed request ID in writing');await page.click('#event-form button');await expect(page.locator('#timeline-list')).toContainText('Desk confirmed');
- await page.click('[data-letter=gro]');await expect(page.locator('#letter-body')).toHaveValue(/16\(a\)/);await expect(page.locator('#letter-body')).toHaveValue(/https:\/\/irdai.gov.in/);await page.click('#letter-close');
+ await page.click('[data-letter=gro]');await expect(page.locator('#letter-body')).toHaveValue(/16\(a\)/);await expect(page.locator('#letter-body')).toHaveValue(/https:\/\/claimclock.ketan952.workers.dev\/s\/health-mc-2024/);await page.click('#letter-close');
  await page.screenshot({path:'qa/screenshots/mobile-clock.png',fullPage:true});
  await page.click('[data-language=hi]');await expect(page.locator('#clock-label')).toHaveText('दर्ज इंतज़ार नियम की समय-सीमा से आगे');await page.click('[data-letter=lock]');await expect(page.locator('#letter-body')).toHaveValue(/लिखित रूप/);await page.screenshot({path:'qa/screenshots/hindi-letter.png',fullPage:true});await page.click('#letter-close');await page.reload();await expect(page.locator('#dashboard')).toBeVisible();expect(errors).toEqual([]);
 });

@@ -1,0 +1,18 @@
+{
+  "milestone": "M7",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "version": "45a8da83-6432-4c6a-b654-1e6c1c2dca10",
+  "unit_tests_passed": 87,
+  "letter_snapshots": 28,
+  "html_pages_csp_checked": 41,
+  "browser_stats": {
+    "startTime": "2026-10-10T11:35:06.600Z",
+    "duration": 57649.732,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "known_failure": "Hindi leak test exposes pre-existing UI strings scheduled for M9; all13 other live scenarios pass.",
+  "synthetic_report": "Created and erased through Privacy form; historical empty Prudential2025-11 preauth cohort; erasure suppression marker retained."
+}

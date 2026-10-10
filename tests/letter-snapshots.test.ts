@@ -1,0 +1,48 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import templates from '../templates/messages.json' with {type:'json'};
+import {makeLetter,timingDemand} from '../src/lib/letters.ts';
+import {makeDeductionLetter} from '../src/lib/deduction-letter.ts';
+import {makeRejectionLetter} from '../src/lib/rejection.ts';
+import {classify} from '../src/lib/deductions.ts';
+import type {Contact,Rule,Timeline,Letter,LetterKind} from '../src/lib/types.ts';
+const contacts:Contact[]=JSON.parse(readFileSync(new URL('../data/contacts.json',import.meta.url),'utf8'));
+const rules:Rule[]=JSON.parse(readFileSync(new URL('../data/rules.json',import.meta.url),'utf8'));
+const now=new Date('2026-10-10T08:30:00.000Z');
+const timeline:Timeline={id:'snapshot',insurerId:'hdfc-ergo',hospital:'Example Hospital',city:'Pune',requestType:'discharge',submittedAt:'2026-10-10T04:30:00.000Z',events:[{id:'ack',at:'2026-10-10T04:35:00.000Z',type:'ack',note:'Desk confirmed receipt.'}]};
+const deductions=[classify({id:'room',description:'Proportionate surgeon fee',amount:4200}),classify({id:'copay',description:'Co-payment',amount:2500,policyClause:'Section 4.2: 10% co-pay',policyCalculationConfirmed:true}),classify({id:'unknown',description:'Unexplained adjustment',amount:1500})];
+const letters:Record<string,Letter>={};
+for(const language of ['en','hi'] as const){
+ for(const kind of Object.keys(templates) as LetterKind[])letters[`${kind}-${language}`]=makeLetter(kind,timeline,contacts,rules,language,{amount:'2,000',hours:'4'},now);
+ for(const kind of ['reconsideration','bima'] as const)letters[`deductions-${kind}-${language}`]=makeDeductionLetter(kind,deductions,timeline.insurerId,contacts,rules,language,now);
+ letters[`rejection-${language}`]=makeRejectionLetter({insurerId:timeline.insurerId,rejectedOn:'2026-10-01',ground:language==='hi'?'प्रतीक्षा अवधि का अपवर्जन':'Waiting-period exclusion'},contacts,rules,language,now);
+ for(const requestType of ['preauth','enhancement'] as const)letters[`gro-${requestType}-${language}`]=makeLetter('gro',{...timeline,requestType},contacts,rules,language,{},now);
+ letters[`gro-before-window-${language}`]=makeLetter('gro',{...timeline,submittedAt:'2026-10-10T08:00:00.000Z',events:[]},contacts,rules,language,{},now);
+}
+const snapshotUrl=new URL('./snapshots/letters.json',import.meta.url);
+const actual=Object.fromEntries(Object.entries(letters).map(([key,{subject,body,ruleIds}])=>[key,{subject,body,ruleIds}]));
+if(process.env.UPDATE_LETTER_SNAPSHOTS==='1')writeFileSync(snapshotUrl,JSON.stringify(actual,null,2)+'\n');
+const expected=JSON.parse(readFileSync(snapshotUrl,'utf8'));
+for(const [key,letter] of Object.entries(letters))test(`letter snapshot: ${key}`,()=>{
+ assert.deepEqual(actual[key],expected[key]);
+ // Same-site source URLs use the lowercase hostname; this forbids app branding in the message prose.
+ assert.ok(!letter.body.includes('ClaimClock'));
+ assert.doesNotMatch(letter.body,/information, not legal advice|Ask for|challengeable|no reason given|गारंटी|कानूनी सलाह|हर आंशिक कटौती के लिए CRC/i);
+ assert.doesNotMatch(letter.body,/https:\/\/irdai\.gov\.in|\{(?:citations|identity|timeline|timing)\}/);
+ if(letter.kind!=='bima')for(const id of letter.ruleIds){const rule=rules.find(r=>r.id===id)!;assert.ok(letter.body.includes(`“${rule.quote}”`),`${key} lacks the exact operative quote for ${id}`);}
+ assert.match(letter.body,letter.language==='hi'?/नाम: \[आपका नाम\]/:/Name: \[Your name\]/);
+});
+test('reconsideration requests evidence per amount without copying coaching, verdicts or unrelated repudiation requirements',()=>{
+ const body=letters['deductions-reconsideration-en'].body;
+ for(const [number,amount] of [[1,'4,200'],[2,'2,500'],[3,'1,500']])assert.match(body,new RegExp(`${number}\\. [^\\n]+₹${amount}`));
+ assert.match(body,/room eligibility clause/);assert.match(body,/eligible calculation base/);assert.match(body,/complete reason for each/);assert.match(body,/within 14 days under the PPHI Master Circular/);assert.match(body,/Attachments:/);assert.doesNotMatch(body,/17\(a\)|Committee|likely valid|Ask for/);
+});
+test('before-window and excess-wait messages preserve receipt trigger and no invented enhancement deadline',()=>{
+ assert.match(timingDemand(timeline,'en',now),/exceeds the 3-hour window by 01:00:00/);
+ assert.match(timingDemand({...timeline,submittedAt:'2026-10-10T08:00:00Z'},'en',now),/within the 3-hour window from receipt/);
+ assert.doesNotMatch(timingDemand({...timeline,requestType:'enhancement'},'en',now),/window|deadline|exceeds/);
+});
+test('Bima complaint bodies omit long citations and include supporting documents',()=>{
+ for(const key of ['bima-en','bima-hi','deductions-bima-en','deductions-bima-hi']){assert.doesNotMatch(letters[key].body,/https?:\/\//);assert.ok(letters[key].body.length<2000);assert.match(letters[key].body,letters[key].language==='hi'?/दस्तावेज़ संलग्न/:/Documents I will attach/);}
+});

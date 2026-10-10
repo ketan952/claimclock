@@ -14,7 +14,7 @@ test('ten synthetic settlements produce reviewed local classifications and lette
   await page.fill('#deduction-lines',`${fixture.reviewed_deduction.description} | ${fixture.reviewed_deduction.amount}`);await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');
   if(fixture.reviewed_deduction.policyClause){await page.fill('#deduction-cards input:not([type=checkbox])',fixture.reviewed_deduction.policyClause);await page.locator('#deduction-cards input:not([type=checkbox])').blur();await page.check('#deduction-cards input[type=checkbox]');}
   await expect(page.locator('#deduction-cards')).toContainText(fixture.expected.status);
-  await page.click('#reconsideration');await expect(page.locator('#letter-body')).toHaveValue(/17\(b\)/);await expect(page.locator('#letter-body')).toHaveValue(/not assert that every partial deduction requires CRC approval/);await page.click('#letter-close');
+  await page.click('#reconsideration');await expect(page.locator('#letter-body')).toHaveValue(/17\(b\)/);await expect(page.locator('#letter-body')).toHaveValue(/within 14 days under the PPHI Master Circular/);await expect(page.locator('#letter-body')).not.toHaveValue(/ClaimClock|Ask for|challengeable|no reason given|CRC/);await page.click('#letter-close');
  }
  await page.click('#prepare-ai');await expect(page.locator('#ai-provider')).toContainText('AI is unavailable');await page.check('#ai-form [name=consent]');await page.click('#ai-form button');await expect(page.locator('#ai-status')).toContainText('letters still work');await expect(page.locator('#deduction-results')).toBeVisible();
  await page.screenshot({path:'qa/screenshots/mobile-deductions.png',fullPage:true});expect(external).toEqual([]);

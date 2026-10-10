@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
-    "build": "node scripts/prepare-assets.mjs && astro build && node scripts/build-sw.mjs",
+    "build": "node scripts/prepare-assets.mjs && astro build && node scripts/check-static-csp.mjs && node scripts/build-sw.mjs",
+    "check:csp": "node scripts/check-static-csp.mjs",
     "preview": "astro preview --host 127.0.0.1",
     "check": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit && node scripts/validate-data.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.ts",

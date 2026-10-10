@@ -1,7 +1,7 @@
 import contactsRaw from '../../data/contacts.json';import rulesRaw from '../../data/rules.json';
-import consumables from '../../data/consumables.json';import templates from '../../templates/deductions.json';
+import consumables from '../../data/consumables.json';
 import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,type Deduction,type DeductionInput} from './deductions';
-import {knownIdentifiers,redact} from './redact';import {lang,t} from './i18n';import {ruleCitations} from './letters';
+import {knownIdentifiers,redact} from './redact';import {lang,t} from './i18n';import {makeDeductionLetter} from './deduction-letter';
 import {setupLetterDialog} from './letter-dialog';import {download} from './storage';import {reminders} from './reminders';
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
@@ -30,13 +30,7 @@ function render(){
  el('deduction-total').textContent=`${t('deductions.total')}: ₹${deductions.reduce((sum,d)=>sum+d.amount,0).toLocaleString('en-IN')}`;
 }
 el<HTMLFormElement>('deduction-form').addEventListener('submit',e=>{e.preventDefault();const result=parseManualLines(el<HTMLTextAreaElement>('deduction-lines').value);if(result.errors.length||!result.inputs.length){el('deduction-error').textContent=`${t('deductions.lineError')}: ${result.errors.join(', ')}`;return;}el('deduction-error').textContent='';inputs=result.inputs;insurer=(el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement).value;render();el('deduction-results').scrollIntoView({block:'start'});});
-function letter(kind:'reconsideration'|'bima'):Letter{
- const template=templates[lang()],total=deductions.reduce((sum,d)=>sum+d.amount,0).toLocaleString('en-IN'),name=contacts.find(c=>c.id===insurer)?.name||insurer;
- const fill=(s:string)=>s.replaceAll('{total}',total).replaceAll('{insurer}',name);
- const ids=[...new Set(['deduction-reasons','repudiation-review','grievance-14-days',...deductions.flatMap(d=>d.ruleIds)])];
- const list=deductions.map((d,i)=>`${i+1}. ${d.description} — ₹${d.amount.toLocaleString('en-IN')}\n${statusLabel(d.status)}: ${lang()==='hi'?d.explanation_hi:d.explanation}${d.policyClause?`\n${t('deductions.clause')}: ${d.policyClause}`:''}`).join('\n\n');
- return {id:crypto.randomUUID(),kind,language:lang(),generatedAt:new Date().toISOString(),subject:fill(template.subject),body:(kind==='bima'?fill(template.bima):`${fill(template.intro)}\n\n${list}\n\n${template.demand}`)+`\n\n${ruleCitations(ids,rules,lang())}\n\n${t('footer.disclaimer')}`,ruleIds:ids};
-}
+function letter(kind:'reconsideration'|'bima'):Letter {return makeDeductionLetter(kind,deductions,insurer,contacts,rules,lang());}
 el('reconsideration').addEventListener('click',()=>showLetter(letter('reconsideration'),contacts.find(c=>c.id===insurer)?.gro_email||''));el('deduction-bima').addEventListener('click',()=>showLetter(letter('bima')));
 el('prepare-ai').addEventListener('click',async()=>{
  if(!deductions.length){el('ai-status').textContent=t('deductions.reviewFirst');return;}
