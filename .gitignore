@@ -3,8 +3,11 @@
 .dev.vars.*
 .env
 .env.*
+!.env.example
+!.dev.vars.example
 *.pem
 *.key
+secrets*.json
 
 # tooling
 node_modules/
@@ -14,3 +17,11 @@ dist/
 .svelte-kit/
 coverage/
 .DS_Store
+.tools/
+.cache/
+*.log
+test-results/
+playwright-report/
+public/vendor/
+public/data/
+qa/browser-results.json

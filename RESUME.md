@@ -18,7 +18,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## Next
 
-Resolve the mandated-stack/license conflict and provide personal Cloudflare credentials through the previously requested path. Deploy Mode A and Index only after gates pass; run live acceptance, then implement thin Mode C. Run real-provider/no-secret QA if a free key is configured. The 30-post research target is still short by one. Read qa/REPORT.md for every remaining check. The user was asked exactly once to put Cloudflare token/account ID and optional Groq key in ignored `.env`; no credentials supplied yet. Do not ask again. Never claim live or complete without evidence.
+Resolve the mandated-stack/license conflict and provide personal Cloudflare credentials through the previously requested path. Deploy Mode A and Index only after gates pass; run live acceptance, then implement thin Mode C. Run real-provider/no-secret QA if a free key is configured. The 30-post research target is still short by one. Read qa/REPORT.md for every remaining check. The original credential request was made once. On the follow-up deployment request, `.dev.vars` contains LLM_BASE_URL, LLM_MODEL and LLM_API_KEY (values not printed or tested). No Cloudflare token/account ID was found in the project environment or this repository’s GitHub secrets; Wrangler reports loggedIn=false. The credential location and an explicit resolution of the original license constraint were requested for clarification. Do not repeat the initial key request or use unrelated account credentials. Never claim live or complete without evidence.
 
 ## Release blockers and corrections
 
