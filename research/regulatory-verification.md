@@ -1,0 +1,77 @@
+# Regulatory verification — ClaimClock
+
+Verified **10 October 2026 (Asia/Kolkata)**. This is a source audit for an informational tool, not a determination that an individual claim is covered. Operative quotations, English explanations and Hindi explanations are in `data/rules.json`.
+
+## Primary documents and method
+
+- [IRDAI Health Insurance Business Master Circular, 29 May 2024](https://irdai.gov.in/document-detail?documentId=4942918), reference **IRDAI/HLT/CIR/PRO/84/5/2024**. [Official bilingual PDF](https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular+on+Health+Insurance+Business+29052024.pdf/5e707a91-b5de-1ec1-cf18-b66273a6839d?version=2.1&t=1719834812962&download=true).
+- [Official annexures to the May 2024 Health circular](https://irdai.gov.in/documents/37343/991022/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+29052024+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%AC%E0%A4%82%E0%A4%A7+_+Annexure+to+Master+circualr+on+Health+Insurance+Business+29052024.pdf/e65501d8-2731-6f5c-aaed-658f961289e1?version=2.0&t=1717051485494&download=true).
+- [IRDAI Master Circular on Protection of Policyholders’ Interests, 5 September 2024](https://irdai.gov.in/documents/37343/365525/%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%B8%E0%A5%80%E0%A4%A7%E0%A4%BE%E0%A4%B0%E0%A4%95%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%B9%E0%A4%BF%E0%A4%A4%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A3+%E0%A4%B8%E0%A4%82%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A5%80+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0%2C+2024+_+Master+Circular+on+Protection+of+Policyholders%27+interests+2024.pdf/2bc6a186-5c96-461b-2946-89945b9d488c?version=5.1&t=1737118636654&download=true), reference **IRDAI/PP&GR/CIR/MISC/117/9/2024**.
+- [Council for Insurance Ombudsmen, official FAQs](https://www.cioins.co.in/Faqs).
+- [IRDAI grievance redressal mechanism](https://irdai.gov.in/grievance-redressal-mechanism1).
+- [Consumer Protection Act 2019, official Ministry of Consumer Affairs Gazette PDF](https://consumeraffairs.gov.in/public/upload/files/CP%20Act%202019_1732700731.pdf), section 69, PDF page 28. Linked from the [Ministry’s Acts page](https://consumeraffairs.gov.in/index.php/pages/consumer-protection-acts).
+- [e-Jagriti, official consumer commission filing service](https://e-jagriti.gov.in/).
+
+The official PDFs were downloaded, text extracted and operative pages visually checked. Page numbers below are **one-based PDF page numbers** (the documents are bilingual). Circulars take precedence over outdated service-provider FAQs. A bounded search of IRDAI’s [health circular index](https://irdai.gov.in/circulars?filterDepartment=HLT&filtersApplied=true) and current primary-government material found no later replacement of the cashless 1-hour/3-hour rules. The Government’s [26 March 2026 parliamentary answer](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2245575&lang=2&reg=48) confirms those timings. This does not claim an exhaustive legal update service.
+
+## Verified operating rules
+
+| Issue | Exact reference | Correct application |
+|---|---|---|
+| Initial cashless request | May Chapter I **15(b)**, p.23; September Part B **V.3(i).1(i)**, p.121 | Decide immediately, no more than **1 hour from receipt of request**. Capture receipt evidence; a patient’s approximate recollection remains an estimate. This is a decision deadline, not a promise that every request must be approved. |
+| Discharge final authorization | May **16(a)**, p.23; September Part B **V.3(i).2(i)**, p.121 | **3 hours from receipt of the hospital’s discharge authorization request**. The policyholder must not be made to wait for discharge. A doctor’s discharge decision and insurer receipt can differ; record both when known. |
+| Delay-related hospital charges | May **16(b)**, p.23; September Part B **V.3(i).2(ii)**, p.121 | Additional hospital amount caused by delay beyond 3 hours is borne by the insurer’s **shareholder fund**. Preserve itemized bill, receipt timestamps and evidence linking additional charges to the delay. Do not label unrelated charges automatically reimbursable. |
+| Death during treatment | May **16(c)(i)–(ii)**, p.23 | Process claim settlement immediately and get the mortal remains released immediately. No invented separate number of minutes. |
+| Document collection | May **17(c)**, p.24; September Part B **V.3(iii).3**, p.121 | Insurer/TPA collects required hospital documents. The policyholder shall not be required to submit those documents. Distinguish hospital document collection from identity/consent information needed for a person’s own complaint. |
+| Repudiation approval | May **17(a)**, p.23; September Part B **V.3(iii).4**, p.121 | A claim cannot be repudiated without Product Management Committee approval or its three-member Claims Review Committee subgroup approval. Do not claim that every partial deduction necessarily requires CRC approval. |
+| Full or partial disallowance reasons | May **17(b)**, p.24; September Part B **V.3(iii).5**, p.121 | Communicate full reasons with the **specific policy terms** for repudiation or partial disallowance. Request line-by-line terms, calculation and amount; applicability remains dependent on the policy. |
+| Insurer grievance | September Section 1 Part B **VI.2(i)**, p.123 | Acknowledge immediately and resolve within **14 days** with reasons tied to relevant terms. Fourteen days is not the Ombudsman’s no-response waiting period. |
+| Ombudsman award | September Part B **VI.4(i)–(iv)**, p.124; Section 2 Chapter VII **25.1–25.4**, p.148 | Insurer must comply within **30 days of receipt of award**; delay carries **₹5,000/day** payable to the complainant. The September circular states an exception where the insurer appeals within 30 days and informs the policyholder. The amount is not a blanket penalty for initial cashless delay. |
+| Consumer commission | Consumer Protection Act 2019 **69(1)–(2)**, PDF p.28 | Normal limitation is **two years from cause of action**, with possible delay condonation for sufficient cause. ClaimClock does not determine cause of action or promise that a reminder is the legal last date. |
+
+The user’s May-circular paragraph numbers **15 and 16 were correct**. No separate enhancement-specific statutory turnaround time was located in the checked primary circulars. Enhancement timestamps may be recorded, but the app must not invent an independent one-hour enhancement rule.
+
+## Ombudsman eligibility
+
+The Council’s current FAQ supports the following cumulative checks:
+
+1. First make a **written complaint to the insurer/broker** and retain its acknowledgement or delivery evidence.
+2. An unsatisfactory or rejected response enables escalation, or **no reply for one calendar month**. A calendar month is not invariably 30 days.
+3. Ordinarily file within **one year** of the insurer’s decision, or expiry of the no-response month. Delay questions require checking the rules and individual facts; automated reminder dates are planning aids.
+4. Compensation/claim sought is within **₹50 lakh**. Do not use the obsolete ₹30 lakh threshold found in old FAQs.
+5. The same subject must not already be pending or disposed of before a court, consumer forum or arbitrator.
+6. The Ombudsman route is free. Its award binds the insurer; the complainant retains the relevant legal remedies if dissatisfied. Ombudsman and consumer commission routes are alternatives requiring a forum/status check, not simultaneous automatic submissions.
+
+The Council FAQ repeats some legacy content; the updated current section is used. ClaimClock does not file, act as an intermediary or represent a complainant. The [IRDAI mechanism](https://irdai.gov.in/grievance-redressal-mechanism1) says only complaints from insured people or claimants are entertained. A copied packet is not a filed complaint. IRDAI’s published channels are **155255 / 1800 4254 732** and **complaints@irdai.gov.in**, with [Bima Bharosa](https://bimabharosa.irdai.gov.in/) for grievance registration. IRDAI escalation is not an adjudicated award or a replacement for filing within limitation.
+
+## Material correction: room rent and proportionate deductions
+
+The proposed blanket room-rent/surgeon/OT/ICU/pharmacy illegality rule is **not supported as a universal current rule**. May Chapter III **IV**, p.30 expressly supersedes circulars listed in Annexure 6. Annexure 6 **item 19**, p.44 expressly lists **IRDAI/HLT/REG/CIR/151/06/2020**, the earlier proportionate-deduction circular; item 1 also lists the July 2020 standardization circular. The May replacement text does not reproduce the asserted blanket prohibition. The current [March 2026 Ministry of Finance answer](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2245575&lang=2&reg=48) also identifies room limits, proportionate charges and nonmedical items as examples of policy conditions that can result in disallowance.
+
+Accordingly, the tool can **identify a deduction to question**, calculate its impact, and request the exact policy clause/formula/eligible room rent and whether the item varies with room category. It must not state that all such deductions are unlawful or fully recoverable. An item included in a historical nonmedical list is not automatically excluded under every current product either: riders, benefits and wording matter. Retain the policy version and schedule. A mathematical proportionality check alone does not establish legal coverage.
+
+## Current portals and data protection
+
+**e-Daakhil migrated to e-Jagriti from 1 January 2025.** Current filing guidance should link to [e-Jagriti](https://e-jagriti.gov.in/) while retaining “formerly e-Daakhil” as search context. The user reviews, signs and submits their own complaint and attachments.
+
+MeitY’s final [Digital Personal Data Protection Rules 2025, G.S.R.846(E)](https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf) is a **final November 2025 notification**, not the earlier January draft. English PDF p.24, rule **1(2)–(4)** staggers commencement: rules 1, 2 and 17–21 upon Gazette publication; rule 4 one year later; rules 3, 5–16, 22 and 23 eighteen months later. Consequently on this audit date the core notice/security/rights Rules are not yet commenced. This bounded check verifies the Rules’ timing, not all Act commencement notifications, applicable IT/security duties or future changes. Avoid unqualified “DPDP compliant” or “all provisions in force” claims. A local-first design, minimal optional data, explicit purposes, easy deletion and clear English/Hindi notice are prudent design requirements independently of that marketing claim. Actual storage, logs, backups and network behavior require implementation verification.
+
+## Verification limits and maintenance
+
+- `verified_on` means a primary-source content review on that date. HTTP 200 alone does **not** verify a rule or contact and must never silently advance it.
+- A weekly automated check may record `last_checked_on`, status, evidence/content hash changes and open a review task. Only a reviewed source-backed update should advance `verified_on`.
+- Preserve document reference, paragraph, scope, exceptions and a short quote with every rule. A dead link is a maintenance issue, not evidence of repeal.
+- Deadline computations must use the triggering event and timezone, preserve uncertainty and avoid describing eligibility reminders as legal advice or guaranteed outcomes.
+- No email, call, complaint, filing, consent or financial action was performed during this audit.
+
+## Nonmedical and consumables lookup added for Mode B
+
+`data/consumables.json` is a **historical reference index**, not a current payment rule. It contains the **146 exact item labels** (whitespace normalized, source spellings preserved) from the [27 September 2019 IRDAI modification, 176/09/2019](https://irdai.gov.in/document-detail?documentId=392476), Annexure I: **68 List I**, **37 List II**, **23 List III**, **18 List IV**. The labels carry bilingual category explanations and the policy-dependent caveat in both languages. Source item labels remain verbatim English so a user can compare the document rather than treating a translation as an exact source match.
+
+The primary chain of supersession was checked directly:
+
+1. The [22 July 2020 standardization master circular, 193/07/2020](https://irdai.gov.in/document-detail?documentId=395035), **4.1 table item 8, PDF p.2**, supersedes the September 2019 circular. Its Chapter III p.22 and Annexure I pp.26–30 retain the four historical categories: optional cover; room-charge inclusion; procedure-charge inclusion; treatment-cost inclusion. The original [official 2020 PDF](https://irdai.gov.in/documents/37343/366029/Master+Circular+on+Standardization+of+Health+Insurance+Products.pdf/40548736-71a8-1b76-e28d-0df899407e1e?version=1.2&t=1665033878433&download=true) was downloaded and checked.
+2. May 2024 Chapter III IV, p.30, supersedes the 2020 master circular through **Annexure 6 item 1, PDF p.43**. The separate June 2020 proportionate-deduction circular appears at item 19, p.44.
+3. A replacement universally operative item-by-item consumable list was **not located** in the May 2024 circular/appendices or the bounded current primary-source search. Therefore every item has `legal_status: historical_reference_only`, `current_rule_verified: false`, and `payable: null`. This does not decide whether an existing policy contract has retained the same lists or additional consumable cover.
+
+Do not label all 146 items “not payable”: even the historical source distinguishes the four categories. A List II/III/IV historical match is a reason to ask whether it is already included in room/procedure/treatment charges under the specific contract and hospital package; it is not a universal recovery entitlement. A List I match does not establish exclusion if the policy/rider covers it. “MASK” (I.60), “OXYGEN MASK” (I.62), “FACE MASK” (II.15) and “FLEXI MASK” (II.16) illustrate why broad keyword matching can misclassify a bill. Match exact terms conservatively, retain the original line, require user confirmation, and leave vague “consumables/miscellaneous” lines unclassified. Hospital abbreviations, source misspellings and OCR errors must not be silently treated as exact legal matches.

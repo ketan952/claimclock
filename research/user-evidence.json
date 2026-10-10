@@ -1,0 +1,1170 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-10",
+  "window": {
+    "start": "2026-04-14",
+    "end": "2026-10-10",
+    "days": 180,
+    "basis": "180 inclusive calendar dates; publication date, not medical-event date. April 13 is 180 days before October 10 and outside this inclusive convention."
+  },
+  "requested_minimum_qualifying_posts": 30,
+  "status": "partial_target_not_met",
+  "counts": {
+    "unique_top_level_cases_reviewed": 36,
+    "exact_publication_dates_in_window": 30,
+    "unresolved_publication_dates": 5,
+    "strict_qualifying_discharge_or_deduction_posts": 12,
+    "adjacent_claim_workflow_posts": 22,
+    "x_individual_posts": 0,
+    "localcircles_individual_posts": 0,
+    "exact_publication_dates_outside_window": 1
+  },
+  "eligibility_definition": "Strict target requires exact publication date in the 180-day window, a direct first-person/caregiver experience, and a discharge-delay, extra-stay, cashless-shortfall or deduction dispute. Adjacent reimbursement delays, pure rejections and OPD issues are retained for product context but not counted toward the strict 30-post target. Unresolved dates and friend-only reports are excluded.",
+  "methodology": [
+    "Convenience sample from search-indexed public Reddit text and opened public Reddit pages. Search terms included cashless/discharge/wait/delay/room rent/deduction/partial approval/consumables/reimbursement plus insurer and TPA names.",
+    "Selected relevant top-level posts rather than treating each comment or duplicated cross-post as a separate case. Same-case updates consolidated; the Niva Bupa September escalation record uses the later update.",
+    "All snippets are short paraphrases. Do not publish claim/policy identifiers, usernames or patients’ names. No contact made with authors.",
+    "Search results frequently supplied explicit date lines that the opened page replaced with stale relative timestamps. Exact dates are retained only where an explicit date was observed; null means unresolved, not guessed.",
+    "Counts measure mentions in a selected problem-oriented sample. They are neither insurer failure rates nor a representative comparison. More policyholders, search visibility, selection terms and duplicate exposure can change counts.",
+    "No independently verified legal breach is inferred. Cashless preauthorization, hospital submission, discharge authorization and later hospital settlement/reimbursement are separate processes.",
+    "No future-dated post was included. No authenticated X or LocalCircles access was used. LocalCircles survey aggregates are supplementary context and never counted as individual posts."
+  ],
+  "strict_target_clusters": {
+    "label": "Most reported by users in the strict qualifying convenience sample; not an insurer judgment",
+    "insurer_mentions": {
+      "Star Health": 3,
+      "Niva Bupa": 2,
+      "Aditya Birla Health": 1,
+      "Go Digit": 1,
+      "New India Assurance": 1
+    },
+    "tpa_mentions": {
+      "Medi Assist": 1
+    },
+    "failure_type_mentions": {
+      "unexplained_deduction": 4,
+      "consumables_deduction": 3,
+      "cashless_deposit_shortfall": 1,
+      "cashless_reversal": 1,
+      "cashless_reversal_at_discharge": 1,
+      "claim_reversal": 1,
+      "extra_stay_demand": 1,
+      "hospital_discharge_delay": 1,
+      "missing_itemized_bill": 1,
+      "package_cap": 1,
+      "package_double_count_dispute": 1,
+      "package_or_duplicate_bill_dispute": 1,
+      "post_settlement_reduction": 1,
+      "procedure_coding_dispute": 1,
+      "reasonable_customary_deduction": 1,
+      "unexplained_shortfall": 1
+    },
+    "unknown_insurer_cases": 4,
+    "unknown_tpa_cases": 11
+  },
+  "all_reviewed_clusters": {
+    "label": "Most reported by users in all reviewed cases, including adjacent topics and unresolved dates; not an insurer judgment",
+    "insurer_mentions": {
+      "Niva Bupa": 7,
+      "Star Health": 5,
+      "Care Health": 4,
+      "HDFC ERGO": 4,
+      "Aditya Birla Health": 3,
+      "ICICI Lombard": 3,
+      "New India Assurance": 2,
+      "Go Digit": 1,
+      "ManipalCigna": 1
+    },
+    "tpa_mentions": {
+      "Medi Assist": 2,
+      "Vidal Health": 1
+    },
+    "failure_type_mentions": {
+      "document_request_loop": 10,
+      "reimbursement_delay": 8,
+      "unexplained_deduction": 5,
+      "cashless_denial_unclear_reason": 4,
+      "consumables_deduction": 4,
+      "claim_denial_medical_necessity": 3,
+      "cashless_reversal": 2,
+      "cash_payment_conversion": 1,
+      "cashless_deposit_shortfall": 1,
+      "cashless_reversal_at_discharge": 1,
+      "claim_registration_delay": 1,
+      "claim_reversal": 1,
+      "denial_explanation_missing": 1,
+      "deposit_retention": 1,
+      "discharge_wait": 1,
+      "document_receipt_dispute": 1,
+      "extra_stay_demand": 1,
+      "hospital_discharge_delay": 1,
+      "missing_clause": 1,
+      "missing_itemized_bill": 1,
+      "network_treatment_restriction_dispute": 1,
+      "opd_document_dispute": 1,
+      "package_cap": 1,
+      "package_double_count_dispute": 1,
+      "package_or_duplicate_bill_dispute": 1,
+      "policy_period_limit_dispute": 1,
+      "post_settlement_reduction": 1,
+      "pre_existing_disclosure_dispute": 1,
+      "preauth_delay": 1,
+      "procedure_coding_dispute": 1,
+      "reasonable_customary_deduction": 1,
+      "settlement_delay": 1,
+      "unexplained_shortfall": 1
+    }
+  },
+  "coverage_gaps": [
+    "The strict 30-post request is not met. Thirty exact-date cases are in the inclusive 180-day window across broader claim problems, but many are adjacent to the requested discharge-delay/deduction scope. One additional exact-date post, April 13, is retained but excluded.",
+    "No individual X posts or LocalCircles community posts were retrievable and verified in this timebox.",
+    "Only one strict case explicitly described an extra hospital-stay demand; source did not establish a final extra-rent payment or verified three-hour statutory breach.",
+    "Several retrieved posts had only relative dates. They remain excluded from date-qualified counts.",
+    "Underlying bills, policy wording, insurer files and hospital timestamps were not available for independent adjudication."
+  ],
+  "supplementary_survey": {
+    "url": "https://www.localcircles.com/a/press/page/health-insurance-claim-survey",
+    "published_date": "2026-03-07",
+    "within_180_day_window": false,
+    "counted_as_individual_posts": 0,
+    "responses_across_questions": "54,000+",
+    "districts": 323,
+    "claim_outcome_question_responses": 18989,
+    "discharge_delay_question_responses": 18119,
+    "caution": "Responses across multiple questions are not necessarily unique respondents. Survey describes a prior three-year claim-experience period; it is not 30 current first-person posts."
+  },
+  "excluded_duplicates": [
+    {
+      "url": "https://www.reddit.com/r/HealthInsuranceIndia/comments/1vx06w5/go_digit_medical_insurance_claim_cashless_claim/",
+      "same_case_as": "case-001"
+    },
+    {
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1we8ajd/how_to_escalate_to_niva_bupa/",
+      "same_case_as": "case-007"
+    },
+    {
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t96928/aditya_birla_health_systematic_harassment_denied/",
+      "same_case_as": "case-009"
+    },
+    {
+      "url": "https://www.reddit.com/r/HealthInsuranceIndia/comments/1w1fi25/partial_claim_rejected/",
+      "same_case_as": "case-012"
+    },
+    {
+      "url": "https://www.reddit.com/r/indianhealthinsurance/comments/1tgntk8/star_health_reduced_49k_from_major_laparoscopic/",
+      "same_case_as": "case-013"
+    },
+    {
+      "url": "https://www.reddit.com/r/HealthInsuranceIndia/comments/1ug15kq/mediassist_cashless_claim_reduced_after/",
+      "same_case_as": "case-022"
+    },
+    {
+      "url": "https://www.reddit.com/r/InsuranceClaims/comments/1ug14oj/mediassist_cashless_claim_reduced_after/",
+      "same_case_as": "case-022"
+    },
+    {
+      "url": "https://www.reddit.com/r/MedicalInsuranceIndia/comments/1x0je62/niva_bupa_delaying_claim_over_frivolous_queries/",
+      "same_case_as": "case-026"
+    },
+    {
+      "url": "https://www.reddit.com/r/HealthInsuranceIndia/comments/1wck68l/niva_bupa_claim_rejection/",
+      "same_case_as": "case-027"
+    },
+    {
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wck4iu/niva_bupa_claim_rejection/",
+      "same_case_as": "case-027"
+    }
+  ],
+  "posts": [
+    {
+      "id": "case-001",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1vx07hz/go_digit_medical_insurance_claim_cashless_claim/",
+      "published_date": "2026-08-24",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [
+        "Go Digit"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "cashless_reversal_at_discharge"
+      ],
+      "snippet": "Author reports initial cashless approval of ₹30,000, followed by rejection at final discharge after accident surgery costing over ₹1 lakh.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-002",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1u79qju/hospital_charging_far_more_than_cashless_approval/",
+      "published_date": "2026-06-16",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "unexplained_shortfall",
+        "missing_itemized_bill"
+      ],
+      "snippet": "Author reports a ₹67,000 estimate, ₹52,000 cashless approval and ₹92,000 hospital bill, with no itemized bill supplied.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-003",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1v8z7c7/care_health_refused_to_even_register_my_121_lakh/",
+      "published_date": "2026-07-28",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "claim_registration_delay",
+        "document_request_loop"
+      ],
+      "snippet": "Author reports cashless refusal followed by difficulty registering a ₹1.21 lakh reimbursement claim and repeated requests for hospital documents.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-004",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1t43fx2/cashless_claim_approved_partially_hospital_asking/",
+      "published_date": "2026-05-05",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "cashless_deposit_shortfall"
+      ],
+      "snippet": "Author reports 60% preauthorization and a demand to pay the other 40% upfront at Apollo, and asks how to obtain written confirmation about reimbursement.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-005",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwh4us/manipal_cigna_cashless_denial_help/",
+      "published_date": "2026-10-03",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": false,
+      "relationship": "friend_helper",
+      "insurers_as_reported": [
+        "ManipalCigna"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "cashless_denial_unclear_reason"
+      ],
+      "snippet": "Author helping a friend reports an unexplained medical-history investigation and cashless denial for the friend’s father, requiring about ₹4 lakh payment.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-006",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w3m00w/unreasonable_deduction_from_health_claim/",
+      "published_date": "2026-08-31",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "unexplained_deduction"
+      ],
+      "snippet": "Author reports an additional ₹4,000 deduction for a second cataract operation with the same doctor and hospital, with only a general non-medical explanation.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-007",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1wm8q03/part_2_niva_bupa_escalation/",
+      "published_date": "2026-09-21",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "cashless_reversal",
+        "consumables_deduction",
+        "unexplained_deduction"
+      ],
+      "snippet": "Author reports cashless approval after three days of escalation, then ₹36,000 deductions; a ₹6,000 unexplained component was approved after further enquiry.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-008",
+      "source": "reddit",
+      "subreddit": "LegalAdviceIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/LegalAdviceIndia/comments/1ui8lhn/pulse_hospital_jammu_threatened_dama_after_my/",
+      "published_date": "2026-06-28",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "hospital_discharge_delay",
+        "extra_stay_demand"
+      ],
+      "snippet": "Author reports the hospital demanded an additional 24-hour stay after medical clearance; the family sought a written reason and was eventually discharged.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-009",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t96fjm/aditya_birla_health_systematic_harassment_denied/",
+      "published_date": "2026-05-10",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Aditya Birla Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "cashless_reversal",
+        "document_request_loop",
+        "reimbursement_delay"
+      ],
+      "snippet": "Author reports a father’s cashless approval being revoked and a delayed reimbursement with old-record requests; an update says both claims were later approved.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-010",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1tn5r32/health_insurance_reimbursement_paritally_honoured/",
+      "published_date": "2026-05-25",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Aditya Birla Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "package_or_duplicate_bill_dispute"
+      ],
+      "snippet": "Author reports ₹9,500 reimbursement against ₹30,000 paid at a first hospital, with the remainder described as already covered by a second hospital’s cashless payment.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-011",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1sk4xc7/star_health_claim_partially_rejected_with_no/",
+      "published_date": "2026-04-13",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": false,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "unexplained_deduction",
+        "missing_clause"
+      ],
+      "snippet": "Author reports deductions under a corporate policy without an itemized explanation or relevant policy clause despite requesting clarification.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-012",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w1ewu7/rejection_claim/",
+      "published_date": "2026-08-29",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "reasonable_customary_deduction",
+        "procedure_coding_dispute"
+      ],
+      "snippet": "Author reports ₹2,30,831 deducted from a ₹4,94,738 bill, disputes procedure coding and reasonable-and-customary limits, and reports repeated confirmation that deductions stand.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-013",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1thpaiw/star_health_reduced_49k_from_major_laparoscopic/",
+      "published_date": "2026-05-19",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "package_cap",
+        "consumables_deduction"
+      ],
+      "snippet": "Author reports ₹49,221 deducted from a ₹2,15,435 surgical bill, including OT, consultation and consumables, and disputes the basis of the payable limits.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-014",
+      "source": "reddit",
+      "subreddit": "india",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/india/comments/1v56t5s/health_insurance_partially_approved_my_claim_when/",
+      "published_date": "2026-07-24",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [
+        "New India Assurance"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "unexplained_deduction",
+        "claim_reversal"
+      ],
+      "snippet": "Author reports a ₹31,636 college-policy claim first reduced to ₹10,000 with unsupported amounts described as unjustified, then refused after asking for clarification.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-015",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wfu6zq/claim_settlement_issue/",
+      "published_date": "2026-09-14",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "ICICI Lombard"
+      ],
+      "tpa_as_reported": "Vidal Health",
+      "scope": "adjacent",
+      "failure_types": [
+        "settlement_delay",
+        "deposit_retention"
+      ],
+      "snippet": "Author reports a ₹2 lakh hospital deposit held after cashless approval while final insurer-to-hospital settlement remained pending following hard-copy receipt on August 12.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-016",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1w0oios/claim_settled_a_long_fight/",
+      "published_date": "2026-08-28",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Star Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "claim_denial_medical_necessity"
+      ],
+      "snippet": "Author reports eventual settlement after challenging a ₹50,000 claim denial on the stated ground that inpatient admission was unnecessary.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-017",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1t6c3mo/post_hospitalisation_rejected/",
+      "published_date": "2026-05-07",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "policy_period_limit_dispute"
+      ],
+      "snippet": "Author reports post-hospitalization bills rejected after the earlier period’s sum insured was exhausted, although the policy had since renewed.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-018",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1v9lqbv/70_days_no_payout_care_health_insurance_delaying/",
+      "published_date": "2026-07-29",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "reimbursement_delay",
+        "document_request_loop"
+      ],
+      "snippet": "Author reports more than 70 days without chemotherapy reimbursement after original documents were submitted, with repeated queries for older medical records.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-019",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1twn9zw/how_i_forced_a_major_health_insurer_to_settle_an/",
+      "published_date": "2026-06-04",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "cashless_denial_unclear_reason",
+        "reimbursement_delay"
+      ],
+      "snippet": "Author reports paying a ₹1.6 lakh bill after cashless denial on possible pre-existing-disease grounds and receiving reimbursement about four weeks later after escalation.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-020",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1tktxn2/hdfc_ergo_claim_6_months_mental_harassment/",
+      "published_date": "2026-05-22",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "HDFC ERGO"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "document_request_loop",
+        "reimbursement_delay"
+      ],
+      "snippet": "Author reports an unresolved top-up claim for about six months, with repeated requests for old prescriptions and first-consultation records.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-021",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1v1jdo7/mediassist_feels_like_a_legal_scam/",
+      "published_date": "2026-07-20",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [],
+      "tpa_as_reported": "Medi Assist",
+      "scope": "adjacent",
+      "failure_types": [
+        "document_request_loop",
+        "opd_document_dispute"
+      ],
+      "snippet": "Author reports requests for physical documents for corporate OPD claims that a cashless clinic did not provide. This is an OPD workflow, not a discharge case.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-022",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1ufrw7q/mediassist_cashless_claim_reduced_after/",
+      "published_date": "2026-06-26",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [],
+      "tpa_as_reported": "Medi Assist",
+      "scope": "core",
+      "failure_types": [
+        "post_settlement_reduction",
+        "unexplained_deduction"
+      ],
+      "snippet": "Author reports cataract approvals originally showing ₹80,000 per eye, followed by a reduction for one eye and a ₹30,692 deductible without a clear explanation.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-023",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w6xe5c/hdfc_ergo_denied_my_cashless_claim/",
+      "published_date": "2026-09-04",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "HDFC ERGO"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "cashless_denial_unclear_reason"
+      ],
+      "snippet": "Author reports cashless denial for doctor-advised hospitalization with fever and low platelets because admissibility could not be determined.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-024",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w1jjhy/disappointing_claim_process/",
+      "published_date": "2026-08-29",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "consumables_deduction",
+        "package_double_count_dispute"
+      ],
+      "snippet": "Author reports ₹44,476 deducted from a mother’s ₹3.64 lakh cashless bill and disputes whether some consumables should have been subsumed within procedure charges.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": true,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-025",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wt6usv/icici_lombard_health_insurance_claims_is_an/",
+      "published_date": "2026-09-29",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [
+        "ICICI Lombard"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "reimbursement_delay",
+        "document_request_loop"
+      ],
+      "snippet": "Author reports a ₹47,608 inpatient reimbursement unsettled after 20 days and requests for physical documents.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-026",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1x0jd94/niva_bupa_delaying_claim_over_frivolous_queries/",
+      "published_date": "2026-10-08",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "reimbursement_delay",
+        "document_receipt_dispute",
+        "document_request_loop"
+      ],
+      "snippet": "Author reports nearly two months without a father’s reimbursement, disputed receipt of mailed originals, and a separate payment-receipt request despite a signed bill-cum-receipt.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-027",
+      "source": "reddit",
+      "subreddit": "InsuranceTroubleIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/InsuranceTroubleIndia/comments/1wck5li/niva_bupa_claim_rejection/",
+      "published_date": "2026-09-10",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "denial_explanation_missing"
+      ],
+      "snippet": "Author reports rejection of an approximately ₹66,000 claim citing two policy clauses, but no specific explanation of the alleged document discrepancy despite repeated requests.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-028",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1w0m3pu/niva_bupa_denied_cashless_claim_on_crazy_reason/",
+      "published_date": "2026-08-28",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "network_treatment_restriction_dispute"
+      ],
+      "snippet": "Author reports a mother’s dengue cashless request rejected at a listed hospital on the stated ground of a treatment-specific tie-up restriction.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-029",
+      "source": "reddit",
+      "subreddit": "HealthInsuranceIndia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/HealthInsuranceIndia/comments/1wppmkp/think_twice_before_buying_niva_bupa_my_familys/",
+      "published_date": "2026-09-25",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "pre_existing_disclosure_dispute"
+      ],
+      "snippet": "Author reports repeated rejection of a father’s claim on medical-history grounds and says that history had been disclosed when purchasing the policy.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-030",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1vojzq8/icici_lombard_rejected_our_claim/",
+      "published_date": "2026-08-14",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "ICICI Lombard"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "claim_denial_medical_necessity"
+      ],
+      "snippet": "Author reports a sister’s cashless claim denied because admission was considered unnecessary, followed by a requested doctor’s justification letter.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-031",
+      "source": "reddit",
+      "subreddit": "personalfinanceindia",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/personalfinanceindia/comments/1tjdmjt/niva_bupa_rejected_my_43997_health_insurance/",
+      "published_date": "2026-05-21",
+      "date_precision": "day",
+      "date_evidence": "Explicit bracketed publication date in indexed Reddit text",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": true,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Niva Bupa"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "claim_denial_medical_necessity"
+      ],
+      "snippet": "Author reports a family member’s ₹43,997 reimbursement denied as manageable through OPD despite a treating doctor’s justification and unsuccessful outpatient treatment.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false
+    },
+    {
+      "id": "case-032",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwxlde/care_health_rejected_my_mothers_19l_claim_because/",
+      "published_date": null,
+      "date_precision": "unresolved",
+      "date_evidence": "Public page retrieved, but only relative publication time displayed; not converted to an exact date",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": null,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "document_request_loop",
+        "reimbursement_delay"
+      ],
+      "snippet": "Author reports repeated requests for inpatient case papers for a mother’s roughly ₹1.91 lakh claim and a dispute about the hospital’s supplied document format.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "relative_date_observed": "Page crawled five days before review; exact post date unavailable"
+    },
+    {
+      "id": "case-033",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwmycl/care_health_insurance_happy_to_take_your_premium/",
+      "published_date": null,
+      "date_precision": "unresolved",
+      "date_evidence": "Public page retrieved, but only relative publication time displayed; not converted to an exact date",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": null,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "Care Health"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "document_request_loop"
+      ],
+      "snippet": "Author reports a requirement for a consultation paper explicitly stating first-time diagnosis despite a discharge summary stating no previous history.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "relative_date_observed": "Page crawled four days before review; exact post date unavailable"
+    },
+    {
+      "id": "case-034",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wwgolq/my_experience_with_hdfc_ergo/",
+      "published_date": null,
+      "date_precision": "unresolved",
+      "date_evidence": "Public page retrieved, but only relative publication time displayed; not converted to an exact date",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": null,
+      "first_person_experience": true,
+      "relationship": "patient_or_caregiver",
+      "insurers_as_reported": [
+        "HDFC ERGO"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "preauth_delay",
+        "consumables_deduction"
+      ],
+      "snippet": "Author reports preauthorization on day three at a non-empaneled hospital, final discharge approval in about two hours, and payment except disposables; overall experience described positively.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "relative_date_observed": "20h ago shown on page crawled six days before review"
+    },
+    {
+      "id": "case-035",
+      "source": "reddit",
+      "subreddit": "indiahealthinsurance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/indiahealthinsurance/comments/1wjops4/denied_cashless_authorization_by_hdfc_policy/",
+      "published_date": null,
+      "date_precision": "unresolved",
+      "date_evidence": "Public page retrieved, but only relative publication time displayed; not converted to an exact date",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": null,
+      "first_person_experience": true,
+      "relationship": "caregiver",
+      "insurers_as_reported": [
+        "HDFC ERGO"
+      ],
+      "tpa_as_reported": null,
+      "scope": "core",
+      "failure_types": [
+        "cashless_denial_unclear_reason",
+        "discharge_wait",
+        "cash_payment_conversion"
+      ],
+      "snippet": "Parent reports repeated cashless denials at a son’s September 17 discharge, requests to wait another 30 minutes, and conversion to cash payment to leave.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "relative_date_observed": "15h ago shown on page crawled three weeks before review; body names September 13–17, 2026 events"
+    },
+    {
+      "id": "case-036",
+      "source": "reddit",
+      "subreddit": "IndianPersonalFinance",
+      "post_type": "top_level",
+      "url": "https://www.reddit.com/r/IndianPersonalFinance/comments/1ue7347/why_is_health_insurance_a_scam_in_india_my_story/",
+      "published_date": null,
+      "date_precision": "unresolved",
+      "date_evidence": "Public page retrieved, but only relative publication time displayed; not converted to an exact date",
+      "retrieved_on": "2026-10-10",
+      "within_180_day_window": null,
+      "first_person_experience": true,
+      "relationship": "patient",
+      "insurers_as_reported": [
+        "Aditya Birla Health",
+        "New India Assurance"
+      ],
+      "tpa_as_reported": null,
+      "scope": "adjacent",
+      "failure_types": [
+        "reimbursement_delay",
+        "document_request_loop"
+      ],
+      "snippet": "Author reports a 2026 ₹1.5 lakh claim delayed and initially refused pending a nurse’s report, later refunded, plus lack of updates on a separate New India reimbursement.",
+      "snippet_type": "researcher_paraphrase_of_user_report",
+      "target_eligible": false,
+      "verification": "Public self-report only; underlying claim documents and insurer response not independently verified",
+      "statutory_breach_established": false,
+      "relative_date_observed": "3mo ago displayed; exact publication date unavailable"
+    }
+  ]
+}

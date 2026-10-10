@@ -1,0 +1,6039 @@
+[
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Inhouse Health Claim Management",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        99.0,
+        29.0,
+        99.0,
+        33.0
+      ],
+      [
+        1.0,
+        27.0,
+        1.0,
+        28.0
+      ],
+      [
+        0.0,
+        43.0,
+        0.0,
+        39.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p1-t1",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Ericson Insurance TPA Pvt. Ltd",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p2-t2",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 4,
+    "tpa": "HealthIndia Insurance TPA Services Pvt. Ltd.",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        100.0,
+        93.0,
+        99.0,
+        91.0
+      ],
+      [
+        0.0,
+        7.0,
+        1.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p4-t3",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "Medi Assist Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        63.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        32.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p5-t4",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        71.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        25.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p6-t5",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 7,
+    "tpa": "Volo Health Insurance TPA Pvt Ltd",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        76.0,
+        44.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        36.0
+      ],
+      [
+        0.0,
+        0.0,
+        8.0,
+        17.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        7.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p7-t6",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 8,
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.0,
+        70.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        26.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p8-t7",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 9,
+    "tpa": "Genins India Insurance TPA Limited",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        94.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p9-t8",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 10,
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        54.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        27.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        18.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p10-t9",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "universal-sompo",
+    "insurer_id": "universal-sompo",
+    "insurer": "Universal Sompo General Insurance",
+    "period": "FY2025-26",
+    "page": 11,
+    "tpa": "Link-K Insurance TPA Pvt Ltd",
+    "source_url": "https://www.universalsompo.com/publicdisclosure/assets/files/2025-2026/Q4/NL-48 - DISCLOSURES ON QUANTITATIVE AND QUALITATIVE PARAMETERS OF HEALTH SERVICES RENDERED (ANNUAL DISCLOSURE).pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        99.0,
+        91.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "93930eb32882b27c157288f2e0d7a82ead10a9a6aba81b19ad82a8cf7b06879e",
+    "unit": "percent",
+    "table_id": "universal-sompo-p11-t10",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        null,
+        null,
+        98.0,
+        97.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        3.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p1-t11",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        77.0
+      ],
+      [
+        0.0,
+        0.0,
+        6.0,
+        20.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p2-t12",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        null,
+        null,
+        91.0,
+        80.0
+      ],
+      [
+        null,
+        null,
+        7.0,
+        13.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        6.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p3-t13",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 4,
+    "tpa": "HealthIndia Insurance TPA Services Pvt. Ltd.",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        null,
+        null,
+        96.0,
+        95.0
+      ],
+      [
+        null,
+        null,
+        4.0,
+        5.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p4-t14",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "Volo Health Insurance TPA Pvt Ltd",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        0.0,
+        0.0,
+        82.0,
+        82.0
+      ],
+      [
+        0.0,
+        0.0,
+        15.0,
+        13.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p5-t15",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "VIDAL HEALTH INSURANCE THIRD PARTY ADMINISTRATOR",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        null,
+        null,
+        95.0,
+        90.0
+      ],
+      [
+        null,
+        null,
+        3.0,
+        9.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        1.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p6-t16",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 7,
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        100.0,
+        100.0,
+        97.0,
+        87.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        10.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p7-t17",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 8,
+    "tpa": "Medi Assist Insurance Tpa P Ltd",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        96.0,
+        92.0,
+        99.0,
+        72.0
+      ],
+      [
+        3.0,
+        6.0,
+        1.0,
+        25.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p8-t18",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zuno",
+    "insurer_id": "zuno",
+    "insurer": "Zuno General Insurance",
+    "period": "FY2025-26",
+    "page": 9,
+    "tpa": "Park Mediclaim Insurance TPA Pvt. Ltd.",
+    "source_url": "https://cms.hizuno.com/uploads/NL_48_Health_Services_Q4_FY_2025_26_350d5eb921.pdf?updated_at=2026-09-30T11:01:48.004Z",
+    "values": [
+      [
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "02939ce7085796fc54c98b4b458d99e1be7e1fbcb44be7e6fbc99fe022fd100a",
+    "unit": "percent",
+    "table_id": "zuno-p9-t19",
+    "excluded_columns": {
+      "0": "Nonzero buckets contradict blank reported total and no individual policies.",
+      "1": "Nonzero buckets contradict blank reported total and no individual policies."
+    },
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-inhouse",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "In-house",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/InhouseFY26-962262549973.pdf",
+    "values": [
+      [
+        94.0,
+        61.0,
+        94.0,
+        59.0
+      ],
+      [
+        5.0,
+        31.0,
+        5.0,
+        32.0
+      ],
+      [
+        1.0,
+        8.0,
+        1.0,
+        9.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "63a8712fa25d78659ab037c9ffea46e76cf6c431f6604bbde596bdadfeefb084",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-inhouse-p2-t20",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-medi-assist",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Medi Assist Insurance TPA Pvt. Ltd.",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/MediAssistFY26-221257878464.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        98.0,
+        68.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        28.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "9449d845b0264ce0d373fb96cdd2ad32155458837604011491e85b371c3fcfb0",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-medi-assist-p2-t21",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-ericson",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Ericson Insurance Tpa Pvt. Ltd.",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/EricsonFY26-708777001785.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        95.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "c8a4d834db486e1e60de2706f1279209234814d462427d1ed0fc4263b72de223",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-ericson-p1-t22",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-link-k",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Link-K Insurance TPA Pvt Ltd",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/LinkKFY26-62539486820.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        80.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        13.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "0a53fca4e3167a5cb7fcb4481e30b39e319c440a979cd6296f909937ed002990",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-link-k-p1-t23",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-mdindia",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Mdindia Healthcare Services (TPA) Pvt. Ltd.",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/MDIndiaFY26-330652919219.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        85.0,
+        63.0
+      ],
+      [
+        0.0,
+        0.0,
+        11.0,
+        20.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        17.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "1743ce2d8770cfe899dbe9f1a83c877ae3d1d0f429baa0c970a635f4132fa798",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-mdindia-p1-t24",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-health-assist",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Health Assist Insurance TPA Pvt. Ltd",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/HealthAssist(Safeway)FY26-93723095551.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "9c1d8c6f34b53742e13b46bcf8eabaa74532b3a33c049d0271d15177b7445649",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-health-assist-p1-t25",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-vidal",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Vidal Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/VidalFY26-332219803400.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.0,
+        95.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        4.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "d452e132d0248917e467ca3ad8f4a6de13ac778db3767392e1248f16c0d9f8e6",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-vidal-p1-t26",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-health-india",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Health India Tpa Services Pvt. Ltd.",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/HealthIndiaFY26-978334144473.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        57.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        28.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        15.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "d512a032950dc73993073e316fafcef588bf54c6c241ec3a48c30df4a53d6471",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-health-india-p2-t27",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-fhpl",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/FHPLFY26-28657715290.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.0,
+        67.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        28.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "0282035a07d94998fd6731112731321b939308956d5b9eebd38eb4052c9b9c84",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-fhpl-p2-t28",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "hdfc-ergo-volo",
+    "insurer_id": "hdfc-ergo",
+    "insurer": "HDFC ERGO General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Volo Health Insurance TPA Pvt. Ltd",
+    "source_url": "https://customer-portal-assets.hdfcergo.com/documents/VoloFY26-616571125489.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.0,
+        60.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        35.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e98ca65bf91b35803c1af55be46b908319157a07151f1f4f99293ff9a3222009",
+    "unit": "percent",
+    "table_id": "hdfc-ergo-volo-p2-t29",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "In-House",
+    "section": "In-House",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        89.0,
+        48.57,
+        83.0,
+        38.13
+      ],
+      [
+        4.0,
+        39.57,
+        5.0,
+        47.83
+      ],
+      [
+        7.0,
+        10.36,
+        5.0,
+        13.02
+      ],
+      [
+        0.0,
+        0.88,
+        1.0,
+        0.52
+      ],
+      [
+        0.0,
+        0.62,
+        6.0,
+        0.5
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p52-t30",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "Medi Assist Insurance TPA Pvt Ltd",
+    "section": "Medi Assist Insurance TPA Pvt Ltd",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        99.38,
+        87.33
+      ],
+      [
+        0.0,
+        0.0,
+        0.49,
+        10.55
+      ],
+      [
+        0.0,
+        0.0,
+        0.09,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.01,
+        0.05
+      ],
+      [
+        0.0,
+        0.0,
+        0.03,
+        0.07
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p52-t31",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "section": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.9,
+        83.15
+      ],
+      [
+        0.0,
+        0.0,
+        3.76,
+        14.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.8,
+        2.12
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.28
+      ],
+      [
+        0.0,
+        0.0,
+        0.27,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.27,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p52-t32",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "Vidal Health Insurance TPA Pvt Ltd",
+    "section": "Vidal Health Insurance TPA Pvt Ltd",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.96,
+        94.62
+      ],
+      [
+        0.0,
+        0.0,
+        1.94,
+        4.39
+      ],
+      [
+        0.0,
+        0.0,
+        0.95,
+        0.98
+      ],
+      [
+        0.0,
+        0.0,
+        0.15,
+        0.01
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p52-t33",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 53,
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "section": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        90.56,
+        43.99
+      ],
+      [
+        0.0,
+        0.0,
+        3.33,
+        38.55
+      ],
+      [
+        0.0,
+        0.0,
+        4.44,
+        15.66
+      ],
+      [
+        0.0,
+        0.0,
+        1.67,
+        0.6
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.2
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p53-t34",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 53,
+    "tpa": "Health India TPA Services Pvt Ltd",
+    "section": "Health India TPA Services Pvt Ltd",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.73,
+        83.55
+      ],
+      [
+        0.0,
+        0.0,
+        3.45,
+        16.05
+      ],
+      [
+        0.0,
+        0.0,
+        2.39,
+        0.27
+      ],
+      [
+        0.0,
+        0.0,
+        0.14,
+        0.08
+      ],
+      [
+        0.0,
+        0.0,
+        0.14,
+        0.05
+      ],
+      [
+        0.0,
+        0.0,
+        0.14,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p53-t35",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 53,
+    "tpa": "Health Assist Insurance TPA Pvt. Ltd.",
+    "section": "Health Assist Insurance TPA Pvt. Ltd.",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        96.9
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        3.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p53-t36",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 53,
+    "tpa": "Ericson Insurance TPA Pvt Ltd",
+    "section": "Ericson Insurance TPA Pvt Ltd",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        85.69
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        14.31
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p53-t37",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Volo Health TPA",
+    "section": "Volo Health TPA",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        92.47,
+        88.36
+      ],
+      [
+        0.0,
+        0.0,
+        6.36,
+        8.59
+      ],
+      [
+        0.0,
+        0.0,
+        1.17,
+        3.05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p54-t38",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Genins TPA",
+    "section": "Genins TPA",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p54-t39",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Park Mediclaim TPA",
+    "section": "Park Mediclaim TPA",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        66.0,
+        64.0
+      ],
+      [
+        0.0,
+        0.0,
+        34.0,
+        36.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p54-t40",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "MDIndia TPA",
+    "section": "MDIndia TPA",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.31,
+        83.78
+      ],
+      [
+        0.0,
+        0.0,
+        5.69,
+        11.47
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        4.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p54-t41",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "niva-bupa",
+    "insurer_id": "niva-bupa",
+    "insurer": "Niva Bupa Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Link-K TPA",
+    "section": "Link-K TPA",
+    "source_url": "https://transactions.nivabupa.com/pages/doc/pub-dis/quarterly-reports/Website-Public-Disclosures-Mar-2026.pdf?v=1.0",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        67.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        22.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "187938c4c0d21a034d0a273d20938c5c91bde7e7796c3f8cd8d8f25a486ef86c",
+    "unit": "percent",
+    "table_id": "niva-bupa-p54-t42",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "bajaj-allianz-0",
+    "insurer_id": "bajaj",
+    "insurer": "Bajaj General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "In-House (Health Administartion Team)",
+    "source_url": "https://www.bajajgeneralinsurance.com/download-documents/financialinformation_general/2025-26q4/NL-48.pdf",
+    "values": [
+      [
+        88.72,
+        53.72,
+        91.9,
+        51.23
+      ],
+      [
+        9.74,
+        36.69,
+        7.04,
+        40.3
+      ],
+      [
+        0.98,
+        8.96,
+        0.66,
+        7.98
+      ],
+      [
+        0.36,
+        0.39,
+        0.38,
+        0.44
+      ],
+      [
+        0.14,
+        0.07,
+        0.02,
+        0.04
+      ],
+      [
+        0.06,
+        0.17,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "5494d73517a27494071d7446bbdd4e90fe87ee2a06f5617639bb3a3b1d71b8f6",
+    "unit": "percent",
+    "table_id": "bajaj-allianz-0-p2-t43",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 49,
+    "tpa": "MEDI ASSIST INSURANCE TPA P LTD",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        98.13,
+        69.89,
+        98.23,
+        68.54
+      ],
+      [
+        1.62,
+        27.2,
+        1.5,
+        28.29
+      ],
+      [
+        0.16,
+        2.7,
+        0.17,
+        2.91
+      ],
+      [
+        0.05,
+        0.21,
+        0.05,
+        0.23
+      ],
+      [
+        0.03,
+        0.0,
+        0.04,
+        0.02
+      ],
+      [
+        0.01,
+        0.0,
+        0.01,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p49-t44",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 50,
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        91.07,
+        67.59
+      ],
+      [
+        0.0,
+        0.0,
+        7.2,
+        28.09
+      ],
+      [
+        0.0,
+        0.0,
+        1.35,
+        4.14
+      ],
+      [
+        0.0,
+        0.0,
+        0.07,
+        0.11
+      ],
+      [
+        0.0,
+        0.0,
+        0.17,
+        0.02
+      ],
+      [
+        0.0,
+        0.0,
+        0.15,
+        0.05
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p50-t45",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "HealthIndia Insurance TPA Services Pvt Ltd",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.51,
+        89.23
+      ],
+      [
+        0.0,
+        0.0,
+        2.49,
+        10.77
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p52-t46",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 53,
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        89.32,
+        72.97
+      ],
+      [
+        0.0,
+        0.0,
+        8.44,
+        19.9
+      ],
+      [
+        0.0,
+        0.0,
+        2.17,
+        7.05
+      ],
+      [
+        0.0,
+        0.0,
+        0.06,
+        0.08
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p53-t47",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Paramount Health Services & Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.24,
+        54.33
+      ],
+      [
+        0.0,
+        0.0,
+        4.66,
+        34.45
+      ],
+      [
+        0.0,
+        0.0,
+        1.33,
+        10.75
+      ],
+      [
+        0.0,
+        0.0,
+        0.16,
+        0.2
+      ],
+      [
+        0.0,
+        0.0,
+        0.42,
+        0.23
+      ],
+      [
+        0.0,
+        0.0,
+        0.19,
+        0.03
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p54-t48",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 55,
+    "tpa": "Raksha Health Insurance TPA Pvt Ltd.",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p55-t49",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 56,
+    "tpa": "VIDAL HEALTH INSURANCE THIRD PARTY ADMINISTRATOR",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        94.16,
+        82.88
+      ],
+      [
+        0.0,
+        0.0,
+        3.32,
+        9.34
+      ],
+      [
+        0.0,
+        0.0,
+        2.25,
+        7.53
+      ],
+      [
+        0.0,
+        0.0,
+        0.27,
+        0.25
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p56-t50",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 57,
+    "tpa": "Volo Health Insurance TPA Pvt Ltd",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        86.15,
+        73.05
+      ],
+      [
+        0.0,
+        0.0,
+        11.33,
+        18.07
+      ],
+      [
+        0.0,
+        0.0,
+        2.52,
+        8.88
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p57-t51",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 58,
+    "tpa": "SAFEWAY INSURANCE TPA",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p58-t52",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "manipal-cigna-0",
+    "insurer_id": "manipalcigna",
+    "insurer": "ManipalCigna Health Insurance",
+    "period": "FY2025-26",
+    "page": 59,
+    "tpa": "Inhouse",
+    "source_url": "https://www.manipalcigna.com/documents/20124/0/Public+Disclosure+March-26+-Final.pdf/6578a708-d64f-06fd-0ff5-2abcaa77e533?t=1782738561784",
+    "values": [
+      [
+        36.0,
+        16.0,
+        46.0,
+        34.0
+      ],
+      [
+        42.0,
+        39.0,
+        26.0,
+        36.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        19.0,
+        44.0,
+        22.0,
+        29.0
+      ],
+      [
+        2.0,
+        1.0,
+        4.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "fdcd39571a08faf0e6a3b5d54c3b09d7d62ab099f167b83884fda9921a743092",
+    "unit": "percent",
+    "table_id": "manipal-cigna-0-p59-t53",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Medi Assist Insurance TPA Pvt Ltd",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        99.2,
+        73.2
+      ],
+      [
+        0.0,
+        0.0,
+        0.6,
+        23.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.1,
+        3.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.1,
+        0.1
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p1-t54",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Paramount Health Services & Insurance TPA Pvt Ltd",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        93.0,
+        55.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        34.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p2-t55",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        100.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p3-t56",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 4,
+    "tpa": "Vidal Health Insurance TPA Pvt Ltd",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p4-t57",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "MDIndia Health Insurance TPA Pvt Ltd",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p5-t58",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "digit-0",
+    "insurer_id": "digit",
+    "insurer": "Go Digit General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "In-house",
+    "source_url": "https://www.godigit.com/content/dam/godigit/general/financials/public-disclosure/fy-25-26/quarter-4/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered.pdf",
+    "values": [
+      [
+        92.0,
+        53.0,
+        96.5,
+        61.0
+      ],
+      [
+        4.8,
+        39.2,
+        2.1,
+        32.0
+      ],
+      [
+        0.6,
+        6.8,
+        0.4,
+        5.6
+      ],
+      [
+        1.0,
+        0.8,
+        0.5,
+        0.8
+      ],
+      [
+        1.6,
+        0.2,
+        0.5,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b458a1322eeaded6aecf5182af5057f493c18326a5264ba91b4f529214d86daf",
+    "unit": "percent",
+    "table_id": "digit-0-p6-t59",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "MEDI ASSIST INSURANCE TPA P LTD",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        99.0,
+        86.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        12.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p2-t60",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "tpa": "Paramount Health Services and Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        92.0,
+        49.0
+      ],
+      [
+        0.0,
+        0.0,
+        6.0,
+        38.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        13.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p3-t61",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "HealthIndia Insurance TPA Services Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        97.0,
+        97.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p5-t62",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        94.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p6-t63",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 8,
+    "tpa": "MDIndia Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        89.0,
+        81.0
+      ],
+      [
+        0.0,
+        0.0,
+        9.0,
+        12.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p8-t64",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 10,
+    "tpa": "Health Assist Insurance TPA Pvt. Ltd.(Formerly Known as Safeway Insurance TPA Pvt. Ltd..)",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        94.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p10-t65",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 11,
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        100.0,
+        80.08
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        19.92
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p11-t66",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 12,
+    "tpa": "Good Health Insurance TPA Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p12-t67",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 13,
+    "tpa": "Vidal Health Insurance TPA Private Limited",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        88.0,
+        80.0
+      ],
+      [
+        0.0,
+        0.0,
+        7.0,
+        15.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        5.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p13-t68",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 14,
+    "tpa": "Park Mediclaim Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p14-t69",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 15,
+    "tpa": "Genins India insurance TPA Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p15-t70",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 16,
+    "tpa": "MEDSAVE HEALTH INSURANCE TPA LTD.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p16-t71",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 17,
+    "tpa": "Volo Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        84.49,
+        81.2
+      ],
+      [
+        0.0,
+        0.0,
+        8.91,
+        12.79
+      ],
+      [
+        0.0,
+        0.0,
+        6.6,
+        6.01
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p17-t72",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 18,
+    "tpa": "Heritage Health Insurance TPA Private Limited",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p18-t73",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "raheja-qbe-0",
+    "insurer_id": "raheja-qbe",
+    "insurer": "Raheja QBE General Insurance",
+    "period": "FY2024-25",
+    "page": 1,
+    "tpa": "Mediassist TPA",
+    "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+    "values": [
+      [
+        72.0,
+        75.0,
+        84.0,
+        72.0
+      ],
+      [
+        28.0,
+        19.0,
+        16.0,
+        21.0
+      ],
+      [
+        0.0,
+        6.0,
+        0.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+    "unit": "percent",
+    "table_id": "raheja-qbe-0-p1-t74",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "raheja-qbe-0",
+    "insurer_id": "raheja-qbe",
+    "insurer": "Raheja QBE General Insurance",
+    "period": "FY2024-25",
+    "page": 9,
+    "tpa": "Paramount TPA",
+    "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        84.0,
+        47.0
+      ],
+      [
+        100.0,
+        100.0,
+        16.0,
+        41.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        12.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+    "unit": "percent",
+    "table_id": "raheja-qbe-0-p9-t75",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "raheja-qbe-0",
+    "insurer_id": "raheja-qbe",
+    "insurer": "Raheja QBE General Insurance",
+    "period": "FY2024-25",
+    "page": 14,
+    "tpa": "Healthindia TPA",
+    "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        83.0,
+        24.0
+      ],
+      [
+        0.0,
+        0.0,
+        17.0,
+        39.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        37.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+    "unit": "percent",
+    "table_id": "raheja-qbe-0-p14-t76",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "raheja-qbe-0",
+    "insurer_id": "raheja-qbe",
+    "insurer": "Raheja QBE General Insurance",
+    "period": "FY2024-25",
+    "page": 19,
+    "tpa": "Volo TPA",
+    "source_url": "https://www.rahejaqbe.com/uploads/images/public-disclosures/pdf/2024-25/quarter4/NL-48-Disclosures-on-Quantitative-and-Qualitative-Parameters-of-Health-Service-New.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "87cee30103fccea6e77f7a5fe13897e5912020530ccd64cba4fb2c15977e229f",
+    "unit": "percent",
+    "table_id": "raheja-qbe-0-p19-t77",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        91.0,
+        42.0,
+        86.0,
+        46.0
+      ],
+      [
+        8.0,
+        50.0,
+        9.0,
+        50.0
+      ],
+      [
+        1.0,
+        6.0,
+        5.0,
+        4.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p1-t78",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Medi Assist Insurance TPA P Ltd",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        98.0,
+        80.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        18.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p2-t79",
+    "excluded_columns": {
+      "1": "Individual discharge buckets total 2%; source column inconsistent.",
+      "3": "Group discharge buckets total 98%; source column inconsistent."
+    },
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "tpa": "Paramount Health Services and Insurance TPA Pvt.Ltd",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        90.0,
+        51.0
+      ],
+      [
+        0.0,
+        0.0,
+        7.0,
+        37.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        12.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p3-t80",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 4,
+    "tpa": "Inhouse",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p4-t81",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "Health India Insurance TPA Pvt.Ltd",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        96.0,
+        75.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.0,
+        19.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        6.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p5-t82",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "zurich-kotak",
+    "insurer_id": "zurich-kotak",
+    "insurer": "Zurich Kotak General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "MD India",
+    "source_url": "https://cms.zurichkotak.com/uploads/NL_48_Quantitative_and_Qualitative_parameters_of_Health_services_rendered_a17d132b4c.pdf",
+    "values": [
+      [
+        0.0,
+        0.0,
+        85.0,
+        48.0
+      ],
+      [
+        0.0,
+        0.0,
+        11.0,
+        33.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        19.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "e3f734fb95ea5c9e1b695e896fb8a23973fd4abbf5f829cca82f374ba3d3fab8",
+    "unit": "percent",
+    "table_id": "zurich-kotak-p6-t83",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "new-india",
+    "insurer_id": "new-india",
+    "insurer": "The New India Assurance",
+    "period": "FY2025-26",
+    "page": 52,
+    "tpa": "Family Health Plan Insurance TPA Ltd",
+    "source_url": "https://www.newindia.co.in/assets/docs/public-disclosure/PublicDisclosureMarch_2026(6).pdf",
+    "values": [
+      [
+        88.5,
+        48.2,
+        93.6,
+        59.6
+      ],
+      [
+        9.5,
+        42.7,
+        5.1,
+        34.3
+      ],
+      [
+        1.7,
+        8.8,
+        1.0,
+        5.9
+      ],
+      [
+        0.1,
+        0.2,
+        0.1,
+        0.1
+      ],
+      [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      [
+        0.1,
+        0.0,
+        0.1,
+        0.1
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "60d3e65120b6180f5cdf8e78b30d670fe3c6ca1a3ab5bd693db7edc77390615c",
+    "unit": "percent",
+    "table_id": "new-india-p52-t84",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "new-india",
+    "insurer_id": "new-india",
+    "insurer": "The New India Assurance",
+    "period": "FY2025-26",
+    "page": 62,
+    "tpa": "Heritage Health Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.newindia.co.in/assets/docs/public-disclosure/PublicDisclosureMarch_2026(6).pdf",
+    "values": [
+      [
+        92.15,
+        88.66,
+        99.93,
+        99.94
+      ],
+      [
+        3.9,
+        6.22,
+        0.07,
+        0.03
+      ],
+      [
+        3.94,
+        5.12,
+        0.0,
+        0.03
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "60d3e65120b6180f5cdf8e78b30d670fe3c6ca1a3ab5bd693db7edc77390615c",
+    "unit": "percent",
+    "table_id": "new-india-p62-t85",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "new-india",
+    "insurer_id": "new-india",
+    "insurer": "The New India Assurance",
+    "period": "FY2025-26",
+    "page": 169,
+    "tpa": "Health Insurance TPA of India Ltd.",
+    "source_url": "https://www.newindia.co.in/assets/docs/public-disclosure/PublicDisclosureMarch_2026(6).pdf",
+    "values": [
+      [
+        89.55,
+        91.45,
+        90.4,
+        95.52
+      ],
+      [
+        10.0,
+        8.0,
+        9.0,
+        4.0
+      ],
+      [
+        0.45,
+        0.55,
+        0.6,
+        0.48
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "60d3e65120b6180f5cdf8e78b30d670fe3c6ca1a3ab5bd693db7edc77390615c",
+    "unit": "percent",
+    "table_id": "new-india-p169-t86",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "new-india",
+    "insurer_id": "new-india",
+    "insurer": "The New India Assurance",
+    "period": "FY2025-26",
+    "page": 191,
+    "tpa": "Park Mediclaim",
+    "source_url": "https://www.newindia.co.in/assets/docs/public-disclosure/PublicDisclosureMarch_2026(6).pdf",
+    "values": [
+      [
+        null,
+        null,
+        65.0,
+        70.0
+      ],
+      [
+        null,
+        null,
+        23.0,
+        28.0
+      ],
+      [
+        null,
+        null,
+        12.0,
+        2.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "60d3e65120b6180f5cdf8e78b30d670fe3c6ca1a3ab5bd693db7edc77390615c",
+    "unit": "percent",
+    "table_id": "new-india-p191-t87",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "IndusInd General Insurance Company Limited (Formerly as Reliance General Insurance Company Limited) - Inhouse",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        61.0,
+        23.0,
+        63.0,
+        25.0
+      ],
+      [
+        30.0,
+        50.0,
+        28.0,
+        51.0
+      ],
+      [
+        8.0,
+        27.0,
+        7.0,
+        24.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p1-t88",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        0.0,
+        0.0,
+        91.0,
+        93.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        3.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        2.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p2-t89",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "tpa": "MDIndia",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p3-t90",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 4,
+    "tpa": "Medi Assist Insurance TPA Pvt Ltd",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        99.0,
+        71.0
+      ],
+      [
+        null,
+        null,
+        1.0,
+        26.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        4.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p4-t91",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 5,
+    "tpa": "Paramount Health Services & Insurance Pvt Ltd",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        92.0,
+        40.0
+      ],
+      [
+        null,
+        null,
+        6.0,
+        40.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        20.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p5-t92",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 6,
+    "tpa": "Vidal health Insurance Third Party Administrator",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        23.0,
+        21.0
+      ],
+      [
+        null,
+        null,
+        27.0,
+        25.0
+      ],
+      [
+        null,
+        null,
+        32.0,
+        24.0
+      ],
+      [
+        null,
+        null,
+        4.0,
+        6.0
+      ],
+      [
+        null,
+        null,
+        3.0,
+        12.0
+      ],
+      [
+        null,
+        null,
+        11.0,
+        12.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p6-t93",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 7,
+    "tpa": "HealthIndia Insurance TPA Services Pvt. Ltd.",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        91.0,
+        62.0
+      ],
+      [
+        null,
+        null,
+        7.0,
+        29.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        9.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p7-t94",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 8,
+    "tpa": "Ericson Insurance TPA Pvt. Ltd.",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        100.0,
+        100.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p8-t95",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "indusind",
+    "insurer_id": "indusind",
+    "insurer": "IndusInd General Insurance",
+    "period": "FY2025-26",
+    "page": 9,
+    "tpa": "Volo Health Insurance TPA Pvt Ltd",
+    "source_url": "https://www.indusindinsurance.com/downloads/nl-48-disclosures-on-quantitative-and-qualitative-parameters-of-health-services-rendered",
+    "values": [
+      [
+        null,
+        null,
+        87.0,
+        57.0
+      ],
+      [
+        null,
+        null,
+        11.0,
+        32.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        11.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "ce141cae4477c95be26865631ca0c2fa65b5e766120c8cf049b8d15d3466ef46",
+    "unit": "percent",
+    "table_id": "indusind-p9-t96",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "acko-0",
+    "insurer_id": "acko",
+    "insurer": "Acko General Insurance",
+    "period": "FY2025-26",
+    "page": 57,
+    "tpa": "In-house",
+    "source_url": "https://www.acko.com/public-disclosure/",
+    "values": [
+      [
+        88.0,
+        88.0,
+        null,
+        null
+      ],
+      [
+        5.0,
+        9.0,
+        null,
+        null
+      ],
+      [
+        1.0,
+        2.0,
+        null,
+        null
+      ],
+      [
+        1.0,
+        1.0,
+        null,
+        null
+      ],
+      [
+        2.0,
+        0.0,
+        null,
+        null
+      ],
+      [
+        2.0,
+        0.0,
+        null,
+        null
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "107f884fe75eab0e7bc5c19439d32b9b57e839a1a4bb71cfd29f7464a12f7f45",
+    "unit": "percent",
+    "table_id": "acko-0-p57-t97",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order",
+    "document_url": "https://acko-cms.ackoassets.com/Public_Disclosure_Q4_2025_26_d11ebbad81.pdf"
+  },
+  {
+    "file": "acko-0",
+    "insurer_id": "acko",
+    "insurer": "Acko General Insurance",
+    "period": "FY2025-26",
+    "page": 72,
+    "tpa": "Family Health Plan Insurance TPA Limited",
+    "source_url": "https://www.acko.com/public-disclosure/",
+    "values": [
+      [
+        null,
+        null,
+        90.0,
+        43.0
+      ],
+      [
+        null,
+        null,
+        6.0,
+        44.0
+      ],
+      [
+        null,
+        null,
+        2.0,
+        12.0
+      ],
+      [
+        null,
+        null,
+        0.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        1.0,
+        0.0
+      ],
+      [
+        null,
+        null,
+        1.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "107f884fe75eab0e7bc5c19439d32b9b57e839a1a4bb71cfd29f7464a12f7f45",
+    "unit": "percent",
+    "table_id": "acko-0-p72-t98",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order",
+    "document_url": "https://acko-cms.ackoassets.com/Public_Disclosure_Q4_2025_26_d11ebbad81.pdf"
+  },
+  {
+    "file": "narayana-0",
+    "insurer_id": "narayana",
+    "insurer": "Narayana Health Insurance",
+    "period": "FY2025-26",
+    "page": 54,
+    "tpa": "Combined TPAs (not split in filing)",
+    "source_url": "https://www.narayanahealth.insurance/disclosures-report",
+    "values": [
+      [
+        0.0,
+        0.0,
+        50.0,
+        43.0
+      ],
+      [
+        0.0,
+        0.0,
+        8.0,
+        33.0
+      ],
+      [
+        0.0,
+        0.0,
+        16.0,
+        19.0
+      ],
+      [
+        0.0,
+        0.0,
+        4.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        10.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        12.0,
+        2.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "dd22090d2bec5053071b762b042d33949b0e061a786b048cf7eb4a63915d1a0c",
+    "unit": "percent",
+    "table_id": "narayana-0-p54-t99",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order",
+    "document_url": "https://stgaccinwbsprdlrs01.blob.core.windows.net/nhilprd/Financial_Report_Q4_Fin_b6f97cde9e.pdf?sv=2025-05-05&spr=https&st=2026-07-17T16%3A55%3A59Z&se=2036-07-14T16%3A55%3A59Z&sr=b&sp=r&sig=QxUniDoboq5LsrFBd3RAAfJ9qcR%2BB7vx4W7RuGCpfAE%3D",
+    "extraction_note": "The filing combines service providers; the source does not disclose separate TPA percentages."
+  },
+  {
+    "file": "chola-latest",
+    "insurer_id": "chola",
+    "insurer": "Cholamandalam MS General Insurance",
+    "period": "FY2025-26",
+    "page": 103,
+    "tpa": "Consolidated in-house and TPAs (not split in filing)",
+    "source_url": "https://www.cholainsurance.com/documents/20121/o/Public Disclosure for Q4 FY 2025-26.pdf/0254e938-2d25-c04a-2a77-3f505a876077",
+    "values": [
+      [
+        91.0,
+        61.0,
+        90.0,
+        59.0
+      ],
+      [
+        8.0,
+        31.0,
+        8.0,
+        34.0
+      ],
+      [
+        1.0,
+        8.0,
+        1.0,
+        7.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "d33d20fcf6b4ac29148cd0d9af7e7daa7a4430664bf2bff70ae2780246d4663d",
+    "unit": "percent",
+    "table_id": "chola-latest-p103-t100",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order",
+    "extraction_note": "The filing combines service providers; the source does not disclose separate TPA percentages."
+  },
+  {
+    "file": "iffco-tokio-1",
+    "insurer_id": "iffco-tokio",
+    "insurer": "IFFCO Tokio General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "In-house",
+    "source_url": "https://www.iffcotokio.co.in/content/dam/iffcotokio/iffco-pdf/TPA-wise-disclosure-march-2026.pdf",
+    "values": [
+      [
+        54,
+        53,
+        56,
+        52
+      ],
+      [
+        37,
+        37,
+        36,
+        37
+      ],
+      [
+        8,
+        10,
+        7,
+        11
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "extraction_note": "Rendered page checked: ignore a stray zero outside the cashless table.",
+    "retrieved_on": "2026-10-10",
+    "sha256": "b829d7c68ff820a9cc6d70f7f911b777fa11dc323710c03c68750ff33ee6ed55",
+    "unit": "percent",
+    "table_id": "iffco-tokio-1-p1-t101",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "tata-aig",
+    "insurer_id": "tata-aig",
+    "insurer": "Tata AIG General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "source_url": "https://www.tataaig.com/s3/NL_48_1800cdc711.pdf",
+    "tpa": "multiple",
+    "values": [
+      [
+        92.0,
+        59.0,
+        94.0,
+        58.0,
+        99.0,
+        64.0,
+        89.0,
+        75.0
+      ],
+      [
+        3.0,
+        33.0,
+        3.0,
+        33.0,
+        1.0,
+        31.0,
+        9.0,
+        18.0
+      ],
+      [
+        1.0,
+        6.0,
+        1.0,
+        7.0,
+        0.0,
+        5.0,
+        2.0,
+        7.0
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        2.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "columns": [
+      {
+        "tpa": "In-house",
+        "policy_type": "individual",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "individual",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "In-house",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Medi Assist Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "MDIndia Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "MDIndia Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      }
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "869f830c64db42e71e63dcea79397bcf8bb358aa24cac2bf32db60656537941a",
+    "unit": "percent",
+    "table_id": "tata-aig-p3-t102",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "tata-aig",
+    "insurer_id": "tata-aig",
+    "insurer": "Tata AIG General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "source_url": "https://www.tataaig.com/s3/NL_48_1800cdc711.pdf",
+    "tpa": "multiple",
+    "values": [
+      [
+        94.0,
+        51.0,
+        97.0,
+        90.0,
+        98.0,
+        98.0,
+        84.0,
+        60.0
+      ],
+      [
+        4.0,
+        35.0,
+        2.0,
+        8.0,
+        2.0,
+        2.0,
+        13.0,
+        29.0
+      ],
+      [
+        1.0,
+        13.0,
+        1.0,
+        2.0,
+        0.0,
+        0.0,
+        3.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "columns": [
+      {
+        "tpa": "Paramount Health Services & Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Paramount Health Services & Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Vidal Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Vidal Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Health India Insurance TPA Services Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Health India Insurance TPA Services Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Volo Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      }
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "869f830c64db42e71e63dcea79397bcf8bb358aa24cac2bf32db60656537941a",
+    "unit": "percent",
+    "table_id": "tata-aig-p3-t103",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "tata-aig",
+    "insurer_id": "tata-aig",
+    "insurer": "Tata AIG General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "source_url": "https://www.tataaig.com/s3/NL_48_1800cdc711.pdf",
+    "tpa": "multiple",
+    "values": [
+      [
+        94.0,
+        75.0,
+        88.0,
+        56.0,
+        98.0,
+        98.0,
+        100.0,
+        97.0
+      ],
+      [
+        4.0,
+        20.0,
+        11.0,
+        36.0,
+        2.0,
+        1.0,
+        0.0,
+        3.0
+      ],
+      [
+        1.0,
+        5.0,
+        2.0,
+        8.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "columns": [
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "individual",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Family Health Plan Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Genins India Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Genins India Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Good Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Good Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      }
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "869f830c64db42e71e63dcea79397bcf8bb358aa24cac2bf32db60656537941a",
+    "unit": "percent",
+    "table_id": "tata-aig-p3-t104",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "tata-aig",
+    "insurer_id": "tata-aig",
+    "insurer": "Tata AIG General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "source_url": "https://www.tataaig.com/s3/NL_48_1800cdc711.pdf",
+    "tpa": "multiple",
+    "values": [
+      [
+        100.0,
+        100.0,
+        95.0,
+        92.0,
+        92.0,
+        92.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0,
+        8.0,
+        8.0,
+        4.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "columns": [
+      {
+        "tpa": "Health Assist Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Health Assist Insurance TPA Pvt Ltd",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Link K Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Link K Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Heritage Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Raksha Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Raksha Health Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      }
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "869f830c64db42e71e63dcea79397bcf8bb358aa24cac2bf32db60656537941a",
+    "unit": "percent",
+    "table_id": "tata-aig-p3-t105",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "file": "tata-aig",
+    "insurer_id": "tata-aig",
+    "insurer": "Tata AIG General Insurance",
+    "period": "FY2025-26",
+    "page": 3,
+    "source_url": "https://www.tataaig.com/s3/NL_48_1800cdc711.pdf",
+    "tpa": "multiple",
+    "values": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "columns": [
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Medsave Health Insurance TPA Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      },
+      {
+        "tpa": "Ericson Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "preauth"
+      },
+      {
+        "tpa": "Ericson Insurance TPA Private Limited",
+        "policy_type": "group",
+        "request_type": "discharge"
+      }
+    ],
+    "retrieved_on": "2026-10-10",
+    "sha256": "869f830c64db42e71e63dcea79397bcf8bb358aa24cac2bf32db60656537941a",
+    "unit": "percent",
+    "table_id": "tata-aig-p3-t106",
+    "excluded_columns": {},
+    "extraction_method": "PDF text extraction with reviewed table identity and column order"
+  },
+  {
+    "table_id": "icici-lombard-p1",
+    "file": "icici-lombard",
+    "insurer_id": "icici-lombard",
+    "insurer": "ICICI Lombard General Insurance",
+    "period": "FY2025-26",
+    "page": 1,
+    "tpa": "In-house",
+    "source_url": "https://www.icicilombard.com/docs/default-source/public-disclosures/2025-2026/public-disclosure-on-the-quantitative-and-qualitative-parameters-of-the-health-services-rendered-to-the-policyholders-fy26-(1).pdf",
+    "values": [
+      [
+        86.55,
+        38.09,
+        90.01,
+        35.93
+      ],
+      [
+        9.02,
+        42.51,
+        6.15,
+        44.72
+      ],
+      [
+        3.61,
+        18.33,
+        2.71,
+        18.98
+      ],
+      [
+        0.33,
+        0.63,
+        0.53,
+        0.3
+      ],
+      [
+        0.4,
+        0.28,
+        0.32,
+        0.05
+      ],
+      [
+        0.09,
+        0.15,
+        0.28,
+        0.02
+      ]
+    ],
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "sha256": null,
+    "excluded_columns": {},
+    "extraction_method": "Official PDF web text reader; cashless table labels and columns checked",
+    "extraction_note": "Local HTTP download returns 403; the official PDF is readable through the web PDF reader. Only pages 1 and 2 are included."
+  },
+  {
+    "table_id": "icici-lombard-p2",
+    "file": "icici-lombard",
+    "insurer_id": "icici-lombard",
+    "insurer": "ICICI Lombard General Insurance",
+    "period": "FY2025-26",
+    "page": 2,
+    "tpa": "Medi Assist Insurance TPA Pvt Ltd",
+    "source_url": "https://www.icicilombard.com/docs/default-source/public-disclosures/2025-2026/public-disclosure-on-the-quantitative-and-qualitative-parameters-of-the-health-services-rendered-to-the-policyholders-fy26-(1).pdf",
+    "values": [
+      [
+        null,
+        null,
+        96.16,
+        73.96
+      ],
+      [
+        null,
+        null,
+        2.69,
+        21.89
+      ],
+      [
+        null,
+        null,
+        0.58,
+        3.43
+      ],
+      [
+        null,
+        null,
+        0.11,
+        0.18
+      ],
+      [
+        null,
+        null,
+        0.28,
+        0.33
+      ],
+      [
+        null,
+        null,
+        0.2,
+        0.24
+      ]
+    ],
+    "unit": "percent",
+    "retrieved_on": "2026-10-10",
+    "sha256": null,
+    "excluded_columns": {},
+    "extraction_method": "Official PDF web text reader; cashless table labels and columns checked",
+    "extraction_note": "Local HTTP download returns 403; the official PDF is readable through the web PDF reader. Only pages 1 and 2 are included."
+  }
+]

@@ -1,0 +1,1959 @@
+[
+  {
+    "id": "national",
+    "name": "National Insurance",
+    "name_hi": "नेशनल इंश्योरेंस",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "griho@nic.co.in",
+    "gro_phone": "18003450330",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://niconline.in/grievance/html/app1/home.html",
+    "verified_on": "2026-10-10",
+    "evidence": "National Insurance | https://niconline.in/grievance/html/app1/home.html | griho@nic.co.in | 18003450330",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "National Insurance | https://niconline.in/grievance/html/app1/home.html | griho@nic.co.in | 18003450330"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "National Insurance | https://niconline.in/grievance/html/app1/home.html | griho@nic.co.in | 18003450330"
+      }
+    },
+    "notes": [],
+    "content_sha256": "c55ffef1e73ace38fb43224fd874a5189c85b39890681c693e48c2dd9a3c7421"
+  },
+  {
+    "id": "new-india",
+    "name": "The New India Assurance",
+    "name_hi": "न्यू इंडिया एश्योरेंस",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@newindia.co.in",
+    "gro_phone": "18002091415",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.newindia.co.in/portal/login/customer",
+    "verified_on": "2026-10-10",
+    "evidence": "The New India Assurance | https://www.newindia.co.in/portal/login/customer | gro@newindia.co.in | 18002091415",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "The New India Assurance | https://www.newindia.co.in/portal/login/customer | gro@newindia.co.in | 18002091415"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "The New India Assurance | https://www.newindia.co.in/portal/login/customer | gro@newindia.co.in | 18002091415"
+      }
+    },
+    "notes": [],
+    "content_sha256": "397b67021cdf42d9df327a6e7cfedabe48adc7de73de86e27c1a7196a3c9eb36"
+  },
+  {
+    "id": "oriental",
+    "name": "The Oriental Insurance",
+    "name_hi": "ओरिएंटल इंश्योरेंस",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@orientalinsurance.co.in",
+    "gro_phone": "1800118485",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://orientalinsurance.org.in/web/guest/contact-us?isSelected=contactUs&isRefresh=true",
+    "verified_on": "2026-10-10",
+    "evidence": "The Oriental Insurance | https://orientalinsurance.org.in/web/guest/contact-us?isSelected=contactUs&isRefresh=true | gro@orientalinsurance.co.in | 1800118485",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "The Oriental Insurance | https://orientalinsurance.org.in/web/guest/contact-us?isSelected=contactUs&isRefresh=true | gro@orientalinsurance.co.in | 1800118485"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "The Oriental Insurance | https://orientalinsurance.org.in/web/guest/contact-us?isSelected=contactUs&isRefresh=true | gro@orientalinsurance.co.in | 1800118485"
+      }
+    },
+    "notes": [],
+    "content_sha256": "f72a193322a2294bca64970ed666b8872593a942d373d52932353c079e1cf2c7"
+  },
+  {
+    "id": "united-india",
+    "name": "United India Insurance",
+    "name_hi": "यूनाइटेड इंडिया इंश्योरेंस",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@uiic.co.in",
+    "gro_phone": "1800 425 333 33",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://uiic.co.in/web/grievance-details",
+    "verified_on": "2026-10-10",
+    "evidence": "United India Insurance | https://uiic.co.in/en/customercare/grievance | gro@uiic.co.in | 1.80043E+11",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "United India Insurance | https://uiic.co.in/en/customercare/grievance | gro@uiic.co.in | 1.80043E+11"
+      },
+      "gro_phone": {
+        "source_url": "https://www.uiic.co.in/web/sites/default/files/Policy-Document/ucc-cis%201.pdf",
+        "evidence": "In case of any grievance, you may contact UIIC through: Toll Free Number: 1800 425 333 33"
+      }
+    },
+    "notes": [
+      "The IRDAI table phone uses scientific notation. Exact digits are separately confirmed in a current insurer CIS; not mathematically expanded."
+    ],
+    "content_sha256": "e63d11ea40eacb794983d2b9832a2bd75e06ba35870539ef7a686a72bd830255"
+  },
+  {
+    "id": "acko",
+    "name": "Acko General",
+    "name_hi": "एको जनरल",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@acko.com",
+    "gro_phone": "91-8068843605",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.acko.com/gi/customer-service/grievance-redressal/",
+    "verified_on": "2026-10-10",
+    "evidence": "Acko General | https://www.acko.com/customer-service/grievance-redressal/ | gro@acko.com | 91-8068843605",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Acko General | https://www.acko.com/customer-service/grievance-redressal/ | gro@acko.com | 91-8068843605"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Acko General | https://www.acko.com/customer-service/grievance-redressal/ | gro@acko.com | 91-8068843605"
+      }
+    },
+    "notes": [],
+    "content_sha256": "73c73098af2d7197623da03d54d1c2131923887c4cc5c004db4e19fb1f2ebba9"
+  },
+  {
+    "id": "aditya-birla",
+    "name": "Aditya Birla Health",
+    "name_hi": "आदित्य बिड़ला हेल्थ",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro.healthinsurance@adityabirlacapital.com",
+    "gro_phone": "18002707000",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "care.healthinsurance@adityabirlacapital.com",
+        "phone": null,
+        "source_url": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+        "verified_on": "2026-10-10",
+        "evidence": "ll be requested to be sent from the registered email \n \n3.2 E-mail: Customer may send an e -mail to care.healthinsurance@adityabirlacapital.com \nfrom his/her registered e-mail id with complete details of the concern faced or any of the \nTPA’s,"
+      },
+      {
+        "level": "Head customer care",
+        "email": "carehead.healthinsurance@adityabirlacapital.com",
+        "phone": null,
+        "source_url": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+        "verified_on": "2026-10-10",
+        "evidence": "West) Maharashtra - 400615 \n In case you are not satisfied  \nLevel 2 \nwith the resolution you may \n carehead.healthinsurance@adityabirlacapital.com  \nwrite to Head – Customer   \n Care  \nLevel 3 Escalate to Grievance gro.healthinsurance@adityabirla"
+      },
+      {
+        "level": "GRO",
+        "email": "gro.healthinsurance@adityabirlacapital.com",
+        "phone": null,
+        "source_url": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+        "verified_on": "2026-10-10",
+        "evidence": "nsurance@adityabirlacapital.com  \nwrite to Head – Customer   \n Care  \nLevel 3 Escalate to Grievance gro.healthinsurance@adityabirlacapital.com \n Redressal Officer  \n    \n \n \n \n6 \n \n \n \n10 CLOSURE OF COMPLAINTS: \n \n10.1 As mandated in Master C"
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf",
+    "verified_on": "2026-10-10",
+    "evidence": "Aditya Birla Health | https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf | gro.healthinsurance@adityabirlacapital.com | 18002707000",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Aditya Birla Health | https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf | gro.healthinsurance@adityabirlacapital.com | 18002707000"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Aditya Birla Health | https://www.adityabirlahealth.com/healthinsurance/assets/pdf/GrievanceRedressalPolicy_New.pdf | gro.healthinsurance@adityabirlacapital.com | 18002707000"
+      }
+    },
+    "notes": [],
+    "content_sha256": "bc0bb73e72e67d471701fa782d7e48c37feecb734d759f856c76317a0b02f4b5"
+  },
+  {
+    "id": "galaxy",
+    "name": "Galaxy Health Insurance",
+    "name_hi": "गैलेक्सी हेल्थ",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@galaxyhealth.com",
+    "gro_phone": "044-40017238",
+    "helpline": "1800 203 0007",
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "support@galaxyhealth.com",
+        "phone": null,
+        "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "ai, Nandanam, Chennai - 600 035. CIN: U65120TN2023PLC165765 | IRDAI Registration Number: 167 Email: support@galaxyhealth.com | Toll Free Number: 1800 203 0007 Company About Us Work With Us Agent Registration Contact Us Media"
+      },
+      {
+        "level": "GRO",
+        "email": "gro@galaxyhealth.com",
+        "phone": null,
+        "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "ment Prestige Polygon, 12th Top Floor (P), # 471, Anna Salai, Nandanam, Chennai – 600035. Email ID: gro@galaxyhealth.com Contact No: 044-40017238. Toll free number: 1800-203-0007 and press 3. Or You may also lodge a comp"
+      }
+    ],
+    "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+    "insurer_url": "https://www.galaxyhealth.com/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "ment Prestige Polygon, 12th Top Floor (P), # 471, Anna Salai, Nandanam, Chennai – 600035. Email ID: gro@galaxyhealth.com Contact No: 044-40017238. Toll free number: 1800-203-0007 and press 3. Or You may also lodge a complaint through the portals ment",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+        "evidence": "ment Prestige Polygon, 12th Top Floor (P), # 471, Anna Salai, Nandanam, Chennai – 600035. Email ID: gro@galaxyhealth.com Contact No: 044-40017238. Toll free number: 1800-203-0007 and press 3. Or You may also lodge a complaint through the portals ment"
+      },
+      "gro_phone": {
+        "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+        "evidence": "loor (P), # 471, Anna Salai, Nandanam, Chennai – 600035. Email ID: gro@galaxyhealth.com Contact No: 044-40017238. Toll free number: 1800-203-0007 and press 3. Or You may also lodge a complaint through the portals mentioned below. •    Bima Bh"
+      },
+      "helpline": {
+        "source_url": "https://www.galaxyhealth.com/grievance-redressal",
+        "evidence": "Grievance Redressal | We are Here to Help You | GalaxyHealth.com Toll Free Number: 1800 203 0007 Products Health Insurance Galaxy Marvel Galaxy Promise Galaxy Twin 360 Arogya Sanjeevani Policy, Galaxy Health Insurance Company "
+      }
+    },
+    "notes": [],
+    "content_sha256": "d9e3fc77aa403b4e57462bd00056e58ab3a272957c9059916d51f82d10f377fc"
+  },
+  {
+    "id": "bajaj",
+    "name": "Bajaj General",
+    "name_hi": "बजाज जनरल",
+    "kind": "insurer",
+    "aliases": [
+      "Bajaj Allianz General"
+    ],
+    "gro_email": "ggro@bajajgeneral.com",
+    "gro_phone": "8080945060",
+    "helpline": "1800-209-5858",
+    "claims_email": "careforyou@bajajgeneral.com",
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "careforyou@bajajgeneral.com",
+        "phone": null,
+        "source_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "verified_on": "2026-10-10",
+        "evidence": "ce needs. Customer Service - We're Here to Help Dial our Toll Free Number 1800-209-5858 Email us on careforyou@bajajgeneral.com Toll free No. Intermediary 1800-209-7073 BOING BOT Connect with us on BOING Chatbot Connect with us"
+      },
+      {
+        "level": "GRO",
+        "email": "ggro@bajajgeneral.com",
+        "phone": null,
+        "source_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "verified_on": "2026-10-10",
+        "evidence": "se given to you by our team, you may write to our Grievance Redressal Officer Mr. Jerome Vincent at ggro@bajajgeneral.com Level 3 Head Customer Service if you are still not satisfied with the solutions provided, or have s"
+      },
+      {
+        "level": "Head customer service",
+        "email": "head.customerservice@bajajgeneral.com",
+        "phone": null,
+        "source_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "verified_on": "2026-10-10",
+        "evidence": " if you are still not satisfied with the solutions provided, or have some feedback for us, write to head.customerservice@bajajgeneral.com If after having followed the above steps, your issue remains unresolved, you may approach the Insur"
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+    "verified_on": "2026-10-10",
+    "evidence": "Bajaj General | https://www.bajajgeneralinsurance.com/about-us/customer-service.html | ggro@bajajgeneral.com | 8080945060",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Bajaj General | https://www.bajajgeneralinsurance.com/about-us/customer-service.html | ggro@bajajgeneral.com | 8080945060"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Bajaj General | https://www.bajajgeneralinsurance.com/about-us/customer-service.html | ggro@bajajgeneral.com | 8080945060"
+      },
+      "helpline": {
+        "source_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "evidence": "o help you meet your service needs. Customer Service - We're Here to Help Dial our Toll Free Number 1800-209-5858 Email us on careforyou@bajajgeneral.com Toll free No. Intermediary 1800-209-7073 BOING BOT Connect with us on BOING Chatbot Conne"
+      },
+      "claims_email": {
+        "source_url": "https://www.bajajgeneralinsurance.com/about-us/customer-service.html",
+        "evidence": "ce needs. Customer Service - We're Here to Help Dial our Toll Free Number 1800-209-5858 Email us on careforyou@bajajgeneral.com Toll free No. Intermediary 1800-209-7073 BOING BOT Connect with us on BOING Chatbot Connect with us on WhatsApp +91 7507425858 Fo"
+      }
+    },
+    "notes": [],
+    "content_sha256": "ee29bff05d5047da9c3d4d200b2d4296157a087bca281511d54740bcda2e5936"
+  },
+  {
+    "id": "chola",
+    "name": "Cholamandalam MS",
+    "name_hi": "चोलामंडलम एमएस",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@cholams.murugappa.com",
+    "gro_phone": "1800 208 5544",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.cholainsurance.com/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "Cholamandalam MS | https://www.cholainsurance.com/grievance-redressal | gro@cholams.murugappa.com | 1800 208 5544",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Cholamandalam MS | https://www.cholainsurance.com/grievance-redressal | gro@cholams.murugappa.com | 1800 208 5544"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Cholamandalam MS | https://www.cholainsurance.com/grievance-redressal | gro@cholams.murugappa.com | 1800 208 5544"
+      }
+    },
+    "notes": [
+      "Insurer page check: The read operation timed out. Contact supported by the live IRDAI directory."
+    ],
+    "content_sha256": "38dbbaaa83a54b7278448302046031811053dc393eaff3fc568758c02ab704a0"
+  },
+  {
+    "id": "navi",
+    "name": "Navi General Insurance",
+    "name_hi": "नवी जनरल",
+    "kind": "insurer",
+    "aliases": [
+      "Coco General",
+      "DHFL General"
+    ],
+    "gro_email": "gro@navi.com",
+    "gro_phone": "18001230004",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://navi.com:443/insurance",
+    "verified_on": "2026-10-10",
+    "evidence": "Navi General Insurance | https://www.naviinsurance.com/service/ | gro@navi.com | 18001230004",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Navi General Insurance | https://www.naviinsurance.com/service/ | gro@navi.com | 18001230004"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Navi General Insurance | https://www.naviinsurance.com/service/ | gro@navi.com | 18001230004"
+      }
+    },
+    "notes": [],
+    "content_sha256": "ee09e8948915d71ab1b5b08be12b370269ec13ddd183afd06198ed06888d2d92"
+  },
+  {
+    "id": "zuno",
+    "name": "Zuno General Insurance",
+    "name_hi": "ज़ूनो जनरल",
+    "kind": "insurer",
+    "aliases": [
+      "Edelweiss General",
+      "Hizuno"
+    ],
+    "gro_email": "tarun.mathur@hizuno.com",
+    "gro_phone": "7208001193",
+    "helpline": "1800 120 216216",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://cms.hizuno.com/uploads/GRO_DETAILS_12_01_2026_1de4aac01d.pdf?updated_at=2026-01-13T09%3A57%3A59.841Z",
+    "insurer_url": "https://cms.hizuno.com/uploads/Policy_for_Protection_of_Policyholders_Interests_4fa28cc29e.pdf?updated_at=2023-01-31T10:01:04.069Z",
+    "verified_on": "2026-10-10",
+    "evidence": "Chief Grievance Officer | Tarun Mathur | 7208001193 | tarun.mathur@hizuno.com",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://cms.hizuno.com/uploads/GRO_DETAILS_12_01_2026_1de4aac01d.pdf?updated_at=2026-01-13T09%3A57%3A59.841Z",
+        "evidence": "Chief Grievance Officer | Tarun Mathur | 7208001193 | tarun.mathur@hizuno.com"
+      },
+      "gro_phone": {
+        "source_url": "https://cms.hizuno.com/uploads/GRO_DETAILS_12_01_2026_1de4aac01d.pdf?updated_at=2026-01-13T09%3A57%3A59.841Z",
+        "evidence": "Chief Grievance Officer | Tarun Mathur | 7208001193 | tarun.mathur@hizuno.com"
+      },
+      "helpline": {
+        "source_url": "https://cms.hizuno.com/uploads/GRO_DETAILS_12_01_2026_1de4aac01d.pdf?updated_at=2026-01-13T09%3A57%3A59.841Z",
+        "evidence": "Toll-Free Number for Grievance: 1800 120 216216."
+      }
+    },
+    "notes": [
+      "IRDAI directory retains a legacy email and malformed phone; current insurer GRO PDF is used."
+    ],
+    "content_sha256": "36705140fc768165ac22c66bad9761b0d001bcec11406efc52ccbc8203fa3269"
+  },
+  {
+    "id": "generali-central",
+    "name": "Generali Central",
+    "name_hi": "जेनरली सेंट्रल",
+    "kind": "insurer",
+    "aliases": [
+      "Future Generali India"
+    ],
+    "gro_email": "GCIGRO@generalicentral.com",
+    "gro_phone": "+91-79001 97777",
+    "helpline": "1800-220-233 / 1860-500-3333 / 022-67837800",
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "GCIcare@generalicentral.com",
+        "phone": null,
+        "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "EVEL 1 You Can Call On Our HELPLINE 1800-220-233 / 1860-500-3333 / 022-67837800 OR SEND US AN EMAIL GCIcare@generalicentral.com Our senior citizen policyholders can avail priority support by choosing the valid option from the h"
+      },
+      {
+        "level": "Corporate GRO",
+        "email": "GCIGRO@generalicentral.com",
+        "phone": null,
+        "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": " you does not meet your expectations, you can write directly to our Corporate GRO. SEND US AN EMAIL GCIGRO@generalicentral.com OR CALL US ON +91-79001 97777 OR Send your complaint to our Corporate Grievance Redressal Officer M"
+      }
+    ],
+    "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+    "insurer_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": " you does not meet your expectations, you can write directly to our Corporate GRO. SEND US AN EMAIL GCIGRO@generalicentral.com OR CALL US ON +91-79001 97777 OR Send your complaint to our Corporate Grievance Redressal Officer Mr. Hari Shankar Mishra ADDRESS",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "evidence": " you does not meet your expectations, you can write directly to our Corporate GRO. SEND US AN EMAIL GCIGRO@generalicentral.com OR CALL US ON +91-79001 97777 OR Send your complaint to our Corporate Grievance Redressal Officer Mr. Hari Shankar Mishra ADDRESS"
+      },
+      "gro_phone": {
+        "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "evidence": " can write directly to our Corporate GRO. SEND US AN EMAIL GCIGRO@generalicentral.com OR CALL US ON +91-79001 97777 OR Send your complaint to our Corporate Grievance Redressal Officer Mr. Hari Shankar Mishra ADDRESS Generali Central Insurance Co"
+      },
+      "helpline": {
+        "source_url": "https://www.generalicentralinsurance.com/customer-service/grievance-redressal",
+        "evidence": "calate your concerns as per the escalation matrix given below. LEVEL 1 You Can Call On Our HELPLINE 1800-220-233 / 1860-500-3333 / 022-67837800 OR SEND US AN EMAIL GCIcare@generalicentral.com Our senior citizen policyholders can avail priority support by choosing the valid"
+      }
+    },
+    "notes": [
+      "Current insurer grievance page used in preference to the older IRDAI directory email."
+    ],
+    "content_sha256": "06684dd87813af9e4267f6e4f7d338eed049900e66ffef01f2f3ead579fddfaa"
+  },
+  {
+    "id": "digit",
+    "name": "Go Digit General",
+    "name_hi": "गो डिजिट",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@godigit.com",
+    "gro_phone": "1800-258-5956",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Grievance team",
+        "email": "grievance@godigit.com",
+        "phone": null,
+        "source_url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "verified_on": "2026-10-10",
+        "evidence": "ur complaint and provide you with a\r\n                        resolution within 14 days. Email us at grievance@godigit.com Submit your Grievance Click Here Email at complaints@irdai.gov.in Register your complaint online at"
+      },
+      {
+        "level": "GRO",
+        "email": "gro@godigit.com",
+        "phone": null,
+        "source_url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "verified_on": "2026-10-10",
+        "evidence": "ill respond to your Grievance within 48 hours. Mr. Praveen Bhat Grievance Redressal Officer Email : gro@godigit.com Address: Atlantis, 95, 4th B Cross Road,\r\n                          Koramangala Industrial Layout, "
+      }
+    ],
+    "source_url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+    "insurer_url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+    "verified_on": "2026-10-10",
+    "evidence": "ill respond to your Grievance within 48 hours. Mr. Praveen Bhat Grievance Redressal Officer Email : gro@godigit.com Address: Atlantis, 95, 4th B Cross Road,\r\n                          Koramangala Industrial Layout, 5th Block, Bengaluru\r\n        ",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.godigit.com/claim/grievance-redressal-procedure",
+        "evidence": "ill respond to your Grievance within 48 hours. Mr. Praveen Bhat Grievance Redressal Officer Email : gro@godigit.com Address: Atlantis, 95, 4th B Cross Road,\r\n                          Koramangala Industrial Layout, 5th Block, Bengaluru\r\n        "
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Go Digit General | https://www.godigit.com/claims/grievance-redressal-procedure | grievance@godigit.com | 1800-258-5956"
+      }
+    },
+    "notes": [
+      "Current insurer grievance page used in preference to the older IRDAI directory email."
+    ],
+    "content_sha256": "768b5fb5041a434793897bcc2c253d482c32e185206d7a07749e42f95efa2cd3"
+  },
+  {
+    "id": "hdfc-ergo",
+    "name": "HDFC ERGO General",
+    "name_hi": "एचडीएफसी एर्गो",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "cgo@hdfcergo.com",
+    "gro_phone": "18001020333",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Chief grievance officer",
+        "email": "cgo@hdfcergo.com",
+        "phone": null,
+        "source_url": "https://www.hdfcergo.com/customer-voice/grievances",
+        "verified_on": "2026-10-10",
+        "evidence": "55 Level 2 Level 2 In case, you are not satisfied with the decision/resolution of the above office, cgo@hdfcergo.com to reach our CGO desk SAMVAD: One Platform for Managing Concerns, Queries & Customer Feedback Effic"
+      }
+    ],
+    "source_url": "https://www.hdfcergo.com/customer-voice/grievances",
+    "insurer_url": "https://www.hdfcergo.com/customer-voice/grievances",
+    "verified_on": "2026-10-10",
+    "evidence": "55 Level 2 Level 2 In case, you are not satisfied with the decision/resolution of the above office, cgo@hdfcergo.com to reach our CGO desk SAMVAD: One Platform for Managing Concerns, Queries & Customer Feedback Efficiently Now Enhanced with Video",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.hdfcergo.com/customer-voice/grievances",
+        "evidence": "55 Level 2 Level 2 In case, you are not satisfied with the decision/resolution of the above office, cgo@hdfcergo.com to reach our CGO desk SAMVAD: One Platform for Managing Concerns, Queries & Customer Feedback Efficiently Now Enhanced with Video"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "HDFC ERGO General | https://www.hdfcergo.com/customer-voice/grievances | gro@hdfcergo.com | 18001020333"
+      }
+    },
+    "notes": [
+      "Current insurer page publishes Chief Grievance Officer desk cgo@hdfcergo.com; IRDAI still lists gro@hdfcergo.com."
+    ],
+    "content_sha256": "fb8261d369a09fa8d15fe8b0ab6965719819e4966ecd64a0bb69c62ad7832974"
+  },
+  {
+    "id": "icici-lombard",
+    "name": "ICICI Lombard General",
+    "name_hi": "आईसीआईसीआई लोम्बार्ड",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@icicilombard.com",
+    "gro_phone": "022- 66877111",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.icicilombard.com/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "ICICI Lombard General | https://www.icicilombard.com/grievance-redressal | gro@icicilombard.com | 022- 66877111",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "ICICI Lombard General | https://www.icicilombard.com/grievance-redressal | gro@icicilombard.com | 022- 66877111"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "ICICI Lombard General | https://www.icicilombard.com/grievance-redressal | gro@icicilombard.com | 022- 66877111"
+      }
+    },
+    "notes": [
+      "Insurer page check: HTTP Error 403: Forbidden. Contact supported by the live IRDAI directory."
+    ],
+    "content_sha256": "122b926205e26f420b9714dfb2d6bf901385d04351c784504eba9a4f3a210839"
+  },
+  {
+    "id": "iffco-tokio",
+    "name": "IFFCO Tokio General",
+    "name_hi": "इफको टोकियो",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@iffcotokio.co.in",
+    "gro_phone": "1800-103-5499",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.iffcotokio.co.in/contact-us/customer-services",
+    "verified_on": "2026-10-10",
+    "evidence": "IFFCO Tokio General | https://www.iffcotokio.co.in/contact-us/customer-services | gro@iffcotokio.co.in | 1800-103-5499",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "IFFCO Tokio General | https://www.iffcotokio.co.in/contact-us/customer-services | gro@iffcotokio.co.in | 1800-103-5499"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "IFFCO Tokio General | https://www.iffcotokio.co.in/contact-us/customer-services | gro@iffcotokio.co.in | 1800-103-5499"
+      }
+    },
+    "notes": [],
+    "content_sha256": "9db129955bad09a4c4be38052fca66b7c6fe6f87945889c6fa255687a2e2785c"
+  },
+  {
+    "id": "zurich-kotak",
+    "name": "Zurich Kotak General",
+    "name_hi": "ज़्यूरिख कोटक",
+    "kind": "insurer",
+    "aliases": [
+      "Kotak General"
+    ],
+    "gro_email": "grievanceofficer@kotak.com",
+    "gro_phone": "1800 266 4545",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.zurichkotak.com/customer-support/grievance-redressal-process",
+    "verified_on": "2026-10-10",
+    "evidence": "Zurich Kotak General | https://www.kotakgeneralinsurance.com/customer-support/grievance-redressal-process | grievanceofficer@kotak.com | 1800 266 4545",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Zurich Kotak General | https://www.kotakgeneralinsurance.com/customer-support/grievance-redressal-process | grievanceofficer@kotak.com | 1800 266 4545"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Zurich Kotak General | https://www.kotakgeneralinsurance.com/customer-support/grievance-redressal-process | grievanceofficer@kotak.com | 1800 266 4545"
+      }
+    },
+    "notes": [],
+    "content_sha256": "cd38c6194050f0d9400038af021f9704d8b90e668c3170baa7ac9284bd1e5eb9"
+  },
+  {
+    "id": "liberty",
+    "name": "Liberty General Insurance",
+    "name_hi": "लिबर्टी जनरल",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "GRO@libertyinsurance.in",
+    "gro_phone": "1800-266-5844",
+    "helpline": "1800-266-5844",
+    "claims_email": "care@libertyinsurance.in",
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "care@libertyinsurance.in",
+        "phone": null,
+        "source_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "verified_on": "2026-10-10",
+        "evidence": "dressed. Step 1 Call us toll free: 1800-266-5844 (8:00 AM to 8:00 PM, 7 days of the week) Email us: care@libertyinsurance.in Write to us: Liberty General Insurance Ltd. Unit 1501 & 1502, 15th Floor, Tower 2, One Internationa"
+      },
+      {
+        "level": "Service head",
+        "email": "ServiceHead@libertyinsurance.in",
+        "phone": null,
+        "source_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "verified_on": "2026-10-10",
+        "evidence": " are still not satisfied with the resolution provided, you can further escalate at email: Email us: ServiceHead@libertyinsurance.in Step 4 If your issue remains unresolved or if you are not satisfied with the resolution provided, y"
+      },
+      {
+        "level": "Chief GRO",
+        "email": "gro@libertyinsurance.in",
+        "phone": null,
+        "source_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "verified_on": "2026-10-10",
+        "evidence": "ievance to our Chief Grievance Redressal Officer (Chief GRO). Chief GRO: Mr. Sachin Joshi Email us: gro@libertyinsurance.in Step 6: In case your issue remains unsolved, you can approach the Insurance Ombudsman for redressal"
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+    "verified_on": "2026-10-10",
+    "evidence": "Liberty General Insurance | https://www.libertyinsurance.in/customer-support/grievance-redressal.html | GRO@libertyinsurance.in | 1800-266-5844",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Liberty General Insurance | https://www.libertyinsurance.in/customer-support/grievance-redressal.html | GRO@libertyinsurance.in | 1800-266-5844"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Liberty General Insurance | https://www.libertyinsurance.in/customer-support/grievance-redressal.html | GRO@libertyinsurance.in | 1800-266-5844"
+      },
+      "helpline": {
+        "source_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "evidence": "services or resolution, here's how you can get your grievances redressed. Step 1 Call us toll free: 1800-266-5844 (8:00 AM to 8:00 PM, 7 days of the week) Email us: care@libertyinsurance.in Write to us: Liberty General Insurance Ltd. Unit 1501"
+      },
+      "claims_email": {
+        "source_url": "https://www.libertyinsurance.in/customer-support/grievance-redressal.html",
+        "evidence": "dressed. Step 1 Call us toll free: 1800-266-5844 (8:00 AM to 8:00 PM, 7 days of the week) Email us: care@libertyinsurance.in Write to us: Liberty General Insurance Ltd. Unit 1501 & 1502, 15th Floor, Tower 2, One International Center, Senapati Bapat Marg,"
+      }
+    },
+    "notes": [],
+    "content_sha256": "21d57bd165be83e7e1ec85905cdad3bc41ed7a6913c1eb63d41d07b767f205a8"
+  },
+  {
+    "id": "magma",
+    "name": "Magma General Insurance Limited",
+    "name_hi": "मैग्मा जनरल",
+    "kind": "insurer",
+    "aliases": [
+      "Magma HDI"
+    ],
+    "gro_email": "gro@magmainsurance.com",
+    "gro_phone": "1800 266 3202",
+    "helpline": "1800 266 3202",
+    "claims_email": "customercare@magmainsurance.com",
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "customercare@magmainsurance.com",
+        "phone": null,
+        "source_url": "https://www.magmainsurance.com/more/contact-us",
+        "verified_on": "2026-10-10",
+        "evidence": " help you! call-email-contact-us Toll Free Number 1800 266 3202 We are available 24x7 Email Address customercare@magmainsurance.com For Senior Citizens - Namaskar@magmainsurance.com Ask MIRA MIRA (Magma Interactive Realtime Assista"
+      },
+      {
+        "level": "GRO",
+        "email": "gro@magmainsurance.com",
+        "phone": null,
+        "source_url": "https://www.magmainsurance.com/more/contact-us",
+        "verified_on": "2026-10-10",
+        "evidence": " nd Floor, Unit Number 1B & 2B, LBS Marg, Kurla (West), Mumbai - 400070, Maharashtra, India E-mail: gro@magmainsurance.com Details Of Debenture Truste Grievance Redressal - Debenture Holders Details Of Debentures Trustee A"
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.magmainsurance.com/more/contact-us",
+    "verified_on": "2026-10-10",
+    "evidence": "Magma General Insurance Limited | https://www.magmainsurance.com/more/contact-us | gro@magmainsurance.com | 1800 266 3202",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Magma General Insurance Limited | https://www.magmainsurance.com/more/contact-us | gro@magmainsurance.com | 1800 266 3202"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Magma General Insurance Limited | https://www.magmainsurance.com/more/contact-us | gro@magmainsurance.com | 1800 266 3202"
+      },
+      "helpline": {
+        "source_url": "https://www.magmainsurance.com/more/contact-us",
+        "evidence": "mer Care Service at Magma Insurance - Magma Insurance - Magma Skip to Content One-Line-Hearder-Test 1800 266 3202 Navigation Customer Service Senior Citizen Services Road side Assistance Annual Health Check-up Policy Servicing assistance Eligi"
+      },
+      "claims_email": {
+        "source_url": "https://www.magmainsurance.com/more/contact-us",
+        "evidence": " help you! call-email-contact-us Toll Free Number 1800 266 3202 We are available 24x7 Email Address customercare@magmainsurance.com For Senior Citizens - Namaskar@magmainsurance.com Ask MIRA MIRA (Magma Interactive Realtime Assistant) is a responsive AI chat se"
+      }
+    },
+    "notes": [],
+    "content_sha256": "bf847a0c298ceea35c530bb0db86e33fe4213533a1c3c818cc1af3d9f59d4212"
+  },
+  {
+    "id": "manipalcigna",
+    "name": "Manipal Cigna",
+    "name_hi": "मणिपाल सिग्ना",
+    "kind": "insurer",
+    "aliases": [
+      "Cigna TTK"
+    ],
+    "gro_email": "complaints@manipalcigna.com",
+    "gro_phone": "022-61703600",
+    "helpline": "1800-102-4462",
+    "claims_email": null,
+    "escalation_levels": [
+      {
+        "level": "Health relationship manager",
+        "email": "headcustomercare@manipalcigna.com",
+        "phone": null,
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "Managers Call Call our toll-free number 1800-102-4462 between 9:00 AM to 9:00 PM. Email Write us at headcustomercare@manipalcigna.com Raise your Query/Concern BRANCH GRO LIST Mailing Address Raheja Titanium Unit 401 & 402 4th floor W"
+      },
+      {
+        "level": "GRO",
+        "email": "complaints@manipalcigna.com",
+        "phone": null,
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "Nagar, Goregaon, Mumbai, Maharashtra 400060 Level 2 Mrs. Rakhee Desousa Grievance Redressal Officer complaints@manipalcigna.com 022-61703600 10 am to 6 Pm (Monday to Friday) Email to GRO Level 3 Mr. Sameer Bhatnagar Chief Griev"
+      },
+      {
+        "level": "Chief GRO",
+        "email": "compliance@manipalcigna.com",
+        "phone": null,
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "6 Pm (Monday to Friday) Email to GRO Level 3 Mr. Sameer Bhatnagar Chief Grievance Redressal Officer compliance@manipalcigna.com 022-61703600 10 am to 6 Pm (Monday to Friday) Email to CGRO Level 4 Approach Ombudsman If the chann"
+      }
+    ],
+    "source_url": "https://www.manipalcigna.com/grievance-redressal",
+    "insurer_url": "https://www.manipalcigna.com/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "Nagar, Goregaon, Mumbai, Maharashtra 400060 Level 2 Mrs. Rakhee Desousa Grievance Redressal Officer complaints@manipalcigna.com 022-61703600 10 am to 6 Pm (Monday to Friday) Email to GRO Level 3 Mr. Sameer Bhatnagar Chief Grievance Redressal Officer complia",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "evidence": "Nagar, Goregaon, Mumbai, Maharashtra 400060 Level 2 Mrs. Rakhee Desousa Grievance Redressal Officer complaints@manipalcigna.com 022-61703600 10 am to 6 Pm (Monday to Friday) Email to GRO Level 3 Mr. Sameer Bhatnagar Chief Grievance Redressal Officer complia"
+      },
+      "gro_phone": {
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "evidence": "arashtra 400060 Level 2 Mrs. Rakhee Desousa Grievance Redressal Officer complaints@manipalcigna.com 022-61703600 10 am to 6 Pm (Monday to Friday) Email to GRO Level 3 Mr. Sameer Bhatnagar Chief Grievance Redressal Officer compliance@manipalci"
+      },
+      "helpline": {
+        "source_url": "https://www.manipalcigna.com/grievance-redressal",
+        "evidence": " 1 Health Relationship Managers Level 1 Health Relationship Managers Call Call our toll-free number 1800-102-4462 between 9:00 AM to 9:00 PM. Email Write us at headcustomercare@manipalcigna.com Raise your Query/Concern BRANCH GRO LIST Mailing "
+      }
+    },
+    "notes": [
+      "Current insurer grievance page used in preference to the older IRDAI directory email."
+    ],
+    "content_sha256": "181e3afe72b536e9dc70d665ac163fd6b64f48bd2b922d8821fca4375c93deca"
+  },
+  {
+    "id": "niva-bupa",
+    "name": "Niva Bupa Health Insurance Company Limited",
+    "name_hi": "निवा बूपा",
+    "kind": "insurer",
+    "aliases": [
+      "Max Bupa"
+    ],
+    "gro_email": "gro@nivabupa.com",
+    "gro_phone": "1860-500-8888",
+    "helpline": "1860-500-8888",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://www.nivabupa.com/health-insurance-articles/niva-bupa-customer-care-number.html",
+    "insurer_url": "https://transaction.nivabupa.com/customer-care/health-services/grievance-redressal.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "Grievance Redressal | gro@nivabupa.com | Formal complaint escalation, unresolved service requests",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.nivabupa.com/health-insurance-articles/niva-bupa-customer-care-number.html",
+        "evidence": "Grievance Redressal | gro@nivabupa.com | Formal complaint escalation, unresolved service requests"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Niva Bupa Health Insurance Company Limited | https://transaction.nivabupa.com/customer-care/health-services/grievance-redressal.aspx | gro@maxbupa.com | 1860-500-8888"
+      },
+      "helpline": {
+        "source_url": "https://www.nivabupa.com/health-insurance-articles/niva-bupa-customer-care-number.html",
+        "evidence": "Customer Helpline | 1860-500-8888 | Live phone support, emergency claims intimation, general inquiries"
+      }
+    },
+    "notes": [
+      "Current insurer domain publishes gro@nivabupa.com; IRDAI still lists the legacy maxbupa address."
+    ],
+    "content_sha256": "6187440d4219cfaee35110c63844f78b98c02597cc7411eef6378504f6558f0b"
+  },
+  {
+    "id": "raheja-qbe",
+    "name": "Raheja QBE",
+    "name_hi": "रहेजा क्यूबीई",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "complaintsofficer@rahejaqbe.com",
+    "gro_phone": "18001027723",
+    "helpline": "18001027723",
+    "claims_email": "customercare@rahejaqbe.com",
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "customercare@rahejaqbe.com",
+        "phone": null,
+        "source_url": "https://www.rahejaqbe.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "aims Click here to track you claim status Click here to Register a Claim Intermediaries 18001027723 customercare@rahejaqbe.com Contact Us Hospital Locator Garage Locator Register a Claim Register Complaint With Us Policy Servi"
+      },
+      {
+        "level": "GRO",
+        "email": "complaintsofficer@rahejaqbe.com",
+        "phone": null,
+        "source_url": "https://www.rahejaqbe.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "onse received and need further assistance, please email our Grievance Redressal   \n\t\t\t\t  Officer at complaintsofficer@rahejaqbe.com You can also Click​ here to login to Bima Bharosa Portal of IRDAI to register your   \n\t\t\t\t  grievan"
+      },
+      {
+        "level": "Head grievances",
+        "email": "grievancehead@rahejaqbe.com",
+        "phone": null,
+        "source_url": "https://www.rahejaqbe.com/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "tisfied or not received a response for 2 working days, Kindly   \n\t\t\t\t  email our Head Grievances at grievancehead@rahejaqbe.com Please note: If the complaint is not resolved/not satisfied/not responsed with in 30 days then you "
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.rahejaqbe.com/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "Raheja QBE | https://www.rahejaqbe.com/grievance-redressal | complaintsofficer@rahejaqbe.com | 18001027723",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Raheja QBE | https://www.rahejaqbe.com/grievance-redressal | complaintsofficer@rahejaqbe.com | 18001027723"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Raheja QBE | https://www.rahejaqbe.com/grievance-redressal | complaintsofficer@rahejaqbe.com | 18001027723"
+      },
+      "helpline": {
+        "source_url": "https://www.rahejaqbe.com/grievance-redressal",
+        "evidence": "ial Lines Claims Click here to track you claim status Click here to Register a Claim Intermediaries 18001027723 customercare@rahejaqbe.com Contact Us Hospital Locator Garage Locator Register a Claim Register Complaint With Us Policy Servicin"
+      },
+      "claims_email": {
+        "source_url": "https://www.rahejaqbe.com/grievance-redressal",
+        "evidence": "aims Click here to track you claim status Click here to Register a Claim Intermediaries 18001027723 customercare@rahejaqbe.com Contact Us Hospital Locator Garage Locator Register a Claim Register Complaint With Us Policy Servicing Let us call you back Plea"
+      }
+    },
+    "notes": [],
+    "content_sha256": "e7d180f5b24d50a5afbf91d84bfd08eac944b2cd38b94ba08ec5a201b1668e36"
+  },
+  {
+    "id": "indusind",
+    "name": "IndusInd General Insurance",
+    "name_hi": "इंडसइंड जनरल",
+    "kind": "insurer",
+    "aliases": [
+      "Reliance General"
+    ],
+    "gro_email": "grievances@indusindinsurance.com",
+    "gro_phone": "18003009",
+    "helpline": null,
+    "claims_email": "services@indusindinsurance.com",
+    "escalation_levels": [
+      {
+        "level": "Customer care",
+        "email": "services@indusindinsurance.com",
+        "phone": null,
+        "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "urance Claim Commercial Insurance Claim Support Sign In Self Help Video Chat Contact Us Email us at services@indusindinsurance.com grievances@indusindinsurance.com careers@indusindinsurance.com Call us at +91 22 48903009 (Paid Num"
+      },
+      {
+        "level": "GRO",
+        "email": "grievances@indusindinsurance.com",
+        "phone": null,
+        "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "ce Claim Support Sign In Self Help Video Chat Contact Us Email us at services@indusindinsurance.com grievances@indusindinsurance.com careers@indusindinsurance.com Call us at +91 22 48903009 (Paid Number) +91 22 65934185 (Senior Citi"
+      },
+      {
+        "level": "Head grievances",
+        "email": "headgrievances@indusindinsurance.com",
+        "phone": null,
+        "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "com. Step 3 If the issue remains unresolved after Step 2, please escalate to: ​Head Grievances ​at ​headgrievances@indusindinsurance.com.​ Step 4 If your concern remains unresolved after completing Steps 1, 2, and 3, you may approach th"
+      }
+    ],
+    "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+    "insurer_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "ce Claim Support Sign In Self Help Video Chat Contact Us Email us at services@indusindinsurance.com grievances@indusindinsurance.com careers@indusindinsurance.com Call us at +91 22 48903009 (Paid Number) +91 22 65934185 (Senior Citizen) +91 7400422200 (WhatsApp)",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "evidence": "ce Claim Support Sign In Self Help Video Chat Contact Us Email us at services@indusindinsurance.com grievances@indusindinsurance.com careers@indusindinsurance.com Call us at +91 22 48903009 (Paid Number) +91 22 65934185 (Senior Citizen) +91 7400422200 (WhatsApp)"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "IndusInd General Insurance | https://www.reliancegeneral.co.in/Insurance/About-Us/Grievance-Redressal.aspx | rgicl.grievances@relianceada.com | 18003009"
+      },
+      "claims_email": {
+        "source_url": "https://www.indusindinsurance.com/about-us/grievance-redressal",
+        "evidence": "urance Claim Commercial Insurance Claim Support Sign In Self Help Video Chat Contact Us Email us at services@indusindinsurance.com grievances@indusindinsurance.com careers@indusindinsurance.com Call us at +91 22 48903009 (Paid Number) +91 22 65934185 (Senior C"
+      }
+    },
+    "notes": [
+      "Current insurer grievance page used in preference to the older IRDAI directory email."
+    ],
+    "content_sha256": "83b960687f4c46ff1ff1053ecf44727a18e0c3b6790932120a8eff24de75f9df"
+  },
+  {
+    "id": "care",
+    "name": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.)",
+    "name_hi": "केयर हेल्थ",
+    "kind": "insurer",
+    "aliases": [
+      "Religare Health"
+    ],
+    "gro_email": "gro@careinsurance.com",
+    "gro_phone": "18001024488/18001026655",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.careinsurance.com/customer-grievance-redressal.html",
+    "verified_on": "2026-10-10",
+    "evidence": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) | https://www.careinsurance.com/customer-grievance-redressal.html | gro@careinsurance.com | 18001024488/18001026655",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) | https://www.careinsurance.com/customer-grievance-redressal.html | gro@careinsurance.com | 18001024488/18001026655"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.) | https://www.careinsurance.com/customer-grievance-redressal.html | gro@careinsurance.com | 18001024488/18001026655"
+      }
+    },
+    "notes": [
+      "Insurer page check: HTTP Error 403: Forbidden. Contact supported by the live IRDAI directory."
+    ],
+    "content_sha256": "d36295e91f78e2c53dc6e45417764a1e9dd529f1798201fcf5a957737b9487a7"
+  },
+  {
+    "id": "royal-sundaram",
+    "name": "Royal Sundaram General Insurance Co.Limited",
+    "name_hi": "रॉयल सुंदरम",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@royalsundaram.in",
+    "gro_phone": "1860 258 0000 / 1860 425 0000",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.royalsundaram.in/app/customer-grievance",
+    "verified_on": "2026-10-10",
+    "evidence": "Royal Sundaram General Insurance Co.Limited | https://www.royalsundaram.in/app/customer-grievance | gro@royalsundaram.in | 1860 258 0000 / 1860 425 0000",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Royal Sundaram General Insurance Co.Limited | https://www.royalsundaram.in/app/customer-grievance | gro@royalsundaram.in | 1860 258 0000 / 1860 425 0000"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Royal Sundaram General Insurance Co.Limited | https://www.royalsundaram.in/app/customer-grievance | gro@royalsundaram.in | 1860 258 0000 / 1860 425 0000"
+      }
+    },
+    "notes": [
+      "Insurer page check: HTTP Error 403: Forbidden. Contact supported by the live IRDAI directory."
+    ],
+    "content_sha256": "ee6845db6af1a33cfc15dbd5e76a0a8dbe91e6239e447251e159b64619a3a634"
+  },
+  {
+    "id": "sbi-general",
+    "name": "SBI General",
+    "name_hi": "एसबीआई जनरल",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@sbigeneral.in",
+    "gro_phone": "1800-22-1111 / 1800-102-1111",
+    "helpline": "1800 102 1111",
+    "claims_email": "head.customercare@sbigeneral.in",
+    "escalation_levels": [
+      {
+        "level": "Grievance desk",
+        "email": "head.customercare@sbigeneral.in",
+        "phone": null,
+        "source_url": "https://www.sbigeneral.in/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "the link below) https://content.sbigeneral.in/uploads/2f5968755c764e7bae74f66d13913581.pdf Email: - head.customercare@sbigeneral.in Mode of contact with  IRDAI: If at any point you wish to register your grievance directly with IRDA"
+      },
+      {
+        "level": "GRO",
+        "email": "gro@sbigeneral.in",
+        "phone": null,
+        "source_url": "https://www.sbigeneral.in/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "egister your grievances directly with us, you may write to us at head.customercare@sbigeneral.in or gro@sbigeneral.in or call our toll free number- 1800 102 1111 . After examining the matter, final response would be c"
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.sbigeneral.in/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "SBI General | https://www.sbigeneral.in/portal/grievance-redressal | gro@sbigeneral.in | 1800-22-1111 / 1800-102-1111",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "SBI General | https://www.sbigeneral.in/portal/grievance-redressal | gro@sbigeneral.in | 1800-22-1111 / 1800-102-1111"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "SBI General | https://www.sbigeneral.in/portal/grievance-redressal | gro@sbigeneral.in | 1800-22-1111 / 1800-102-1111"
+      },
+      "helpline": {
+        "source_url": "https://www.sbigeneral.in/grievance-redressal",
+        "evidence": " Floor A & B Wing, Fulcrum Building, Sahar Road, Andheri East, Mumbai – 400 099 Phone: 022-45138021/1800 102 1111 Walk In: At any branch office (refer the link below) https://content.sbigeneral.in/uploads/2f5968755c764e7bae74f66d13913581.pdf E"
+      },
+      "claims_email": {
+        "source_url": "https://www.sbigeneral.in/grievance-redressal",
+        "evidence": "the link below) https://content.sbigeneral.in/uploads/2f5968755c764e7bae74f66d13913581.pdf Email: - head.customercare@sbigeneral.in Mode of contact with  IRDAI: If at any point you wish to register your grievance directly with IRDAI, you may do so by using the "
+      }
+    },
+    "notes": [],
+    "content_sha256": "5c414d4a41c5c4c38ce6f584fbba9623108f0a41f0f5dc5395cdf280bb361528"
+  },
+  {
+    "id": "shriram",
+    "name": "Shriram General",
+    "name_hi": "श्रीराम जनरल",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@shriramgi.com",
+    "gro_phone": "0141-4828497",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.shriramgi.com/register-grievance",
+    "verified_on": "2026-10-10",
+    "evidence": "Shriram General | https://www.shriramgi.com/grievance.html | gro@shriramgi.com | 0141-4828497",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Shriram General | https://www.shriramgi.com/grievance.html | gro@shriramgi.com | 0141-4828497"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Shriram General | https://www.shriramgi.com/grievance.html | gro@shriramgi.com | 0141-4828497"
+      }
+    },
+    "notes": [],
+    "content_sha256": "50567c69b142ecc90d9cb7beaa54b573731a22d2c7110571814ab3e621adbecc"
+  },
+  {
+    "id": "star-health",
+    "name": "Star Health and Allied",
+    "name_hi": "स्टार हेल्थ",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@starhealth.in",
+    "gro_phone": "18004252255",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.starhealth.in/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "Star Health and Allied | https://www.starhealth.in/grievance-redressal | gro@starhealth.in | 18004252255",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Star Health and Allied | https://www.starhealth.in/grievance-redressal | gro@starhealth.in | 18004252255"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Star Health and Allied | https://www.starhealth.in/grievance-redressal | gro@starhealth.in | 18004252255"
+      }
+    },
+    "notes": [
+      "Insurer page check: The read operation timed out. Contact supported by the live IRDAI directory."
+    ],
+    "content_sha256": "7c7ddafcce59a13ce6c490506206a82ab370b359964d0d3634f3cf99169ea6d3"
+  },
+  {
+    "id": "narayana",
+    "name": "Narayana Health",
+    "name_hi": "नारायणा हेल्थ",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@narayanahealth.insurance",
+    "gro_phone": "+91 80507 31511",
+    "helpline": "+91-9821034071",
+    "claims_email": "support@narayanahealth.insurance",
+    "escalation_levels": [
+      {
+        "level": "Dedicated grievance support",
+        "email": "grievance@narayanahealth.insurance",
+        "phone": null,
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "8248735 (Mon–Sat, 8 AM – 8 PM) Senior Citizen Helpline: 1800 203 0234 (Mon–Sat, 8 AM – 8 PM) Email: grievance@narayanahealth.insurance Contact our  Grievance Redressal Officer at Corporate Office. Grievance Redressal Officer (GRO): Na"
+      },
+      {
+        "level": "GRO",
+        "email": "gro@narayanahealth.insurance",
+        "phone": null,
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "verified_on": "2026-10-10",
+        "evidence": "Redressal Officer (GRO): Name: Ms. Bharathi Bai A G Designation: Grievance Redressal Officer Email: gro@narayanahealth.insurance Phone: +91 80507 31511 Registered Office Address: Claims Department, Narayana Health Insurance Ltd."
+      }
+    ],
+    "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+    "insurer_url": "https://www.narayanahealth.insurance/grievance-redressal",
+    "verified_on": "2026-10-10",
+    "evidence": "Redressal Officer (GRO): Name: Ms. Bharathi Bai A G Designation: Grievance Redressal Officer Email: gro@narayanahealth.insurance Phone: +91 80507 31511 Registered Office Address: Claims Department, Narayana Health Insurance Ltd. , No. 258/A, Bommasandra Indu",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "evidence": "Redressal Officer (GRO): Name: Ms. Bharathi Bai A G Designation: Grievance Redressal Officer Email: gro@narayanahealth.insurance Phone: +91 80507 31511 Registered Office Address: Claims Department, Narayana Health Insurance Ltd. , No. 258/A, Bommasandra Indu"
+      },
+      "gro_phone": {
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "evidence": "harathi Bai A G Designation: Grievance Redressal Officer Email: gro@narayanahealth.insurance Phone: +91 80507 31511 Registered Office Address: Claims Department, Narayana Health Insurance Ltd. , No. 258/A, Bommasandra Industrial Area, Anekal Tal"
+      },
+      "helpline": {
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "evidence": "dy when raising a grievance. Retail Products Narayana Aditi Arya Health Insurance Contact us Call : +91-9821034071 Toll-Free for Senior Citizens : 1800 2030 234 E-mail: support@narayanahealth.insurance Legal IRDAI customer education Insurance o"
+      },
+      "claims_email": {
+        "source_url": "https://www.narayanahealth.insurance/grievance-redressal",
+        "evidence": "th Insurance Contact us Call : +91-9821034071 Toll-Free for Senior Citizens : 1800 2030 234 E-mail: support@narayanahealth.insurance Legal IRDAI customer education Insurance ombudsman Privacy notice and disclaimers Terms of use Underwriting policy Whistleblower "
+      }
+    },
+    "notes": [],
+    "content_sha256": "3b221428d31a9a37477ddb50ed4ed7a1bf01e36e6561fde7060f3651a9a4b8d4"
+  },
+  {
+    "id": "tata-aig",
+    "name": "Tata- AIG General",
+    "name_hi": "टाटा एआईजी",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@tataaig.com",
+    "gro_phone": "022 - 66933715",
+    "helpline": "022 6489 8282",
+    "claims_email": "customersupport@tataaig.com",
+    "escalation_levels": [
+      {
+        "level": "Customer service",
+        "email": "customersupport@tataaig.com",
+        "phone": null,
+        "source_url": "https://www.tataaig.com/grievance-redressal-policy",
+        "verified_on": "2026-10-10",
+        "evidence": "the best possible services to its customers. Please feel free to email the customer service desk at customersupport@tataaig.com . After investigating the matter internally and subsequent closure, we will send our response withi"
+      },
+      {
+        "level": "Escalation level 1",
+        "email": "manager.customersupport@tataaig.com",
+        "phone": null,
+        "source_url": "https://www.tataaig.com/grievance-redressal-policy",
+        "verified_on": "2026-10-10",
+        "evidence": "For lack of a response or if the resolution still does not meet your expectations, you can write to manager.customersupport@tataaig.com . After investigating the matter internally and subsequent closure, we will send our response withi"
+      },
+      {
+        "level": "Escalation level 2",
+        "email": "head.customerservices@tataaig.com",
+        "phone": null,
+        "source_url": "https://www.tataaig.com/grievance-redressal-policy",
+        "verified_on": "2026-10-10",
+        "evidence": " resolution still does not meet your expectations, you can write to the Head - Customer Services at head.customerservices@tataaig.com After examining the matter, we will send you our final response within a period of 7 days from the "
+      }
+    ],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.tataaig.com/grievance-redressal-policy",
+    "verified_on": "2026-10-10",
+    "evidence": "Tata- AIG General | https://www.tataaig.com/grievance-redressal-policy | gro@tataaig.com | 022 - 66933715",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Tata- AIG General | https://www.tataaig.com/grievance-redressal-policy | gro@tataaig.com | 022 - 66933715"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Tata- AIG General | https://www.tataaig.com/grievance-redressal-policy | gro@tataaig.com | 022 - 66933715"
+      },
+      "helpline": {
+        "source_url": "https://www.tataaig.com/grievance-redressal-policy",
+        "evidence": "th our services and wish to lodge a complaint, please feel free to call our Customer Support Number 022 6489 8282(Charges Applied) or 022-66939500 (tolled) Download Our App Follow Us Company About Us Public Disclosures Investors Contact Us Car"
+      },
+      "claims_email": {
+        "source_url": "https://www.tataaig.com/grievance-redressal-policy",
+        "evidence": "the best possible services to its customers. Please feel free to email the customer service desk at customersupport@tataaig.com . After investigating the matter internally and subsequent closure, we will send our response within a period of 7 days from the "
+      }
+    },
+    "notes": [],
+    "content_sha256": "9a14cee04a26c550731961aa2c266808dc9e98040be3cc90e185e05aedc4c718"
+  },
+  {
+    "id": "universal-sompo",
+    "name": "Universal Sompo General",
+    "name_hi": "यूनिवर्सल सोम्पो",
+    "kind": "insurer",
+    "aliases": [],
+    "gro_email": "gro@universalsompo.com",
+    "gro_phone": "1800 224030 / 18002674030",
+    "helpline": null,
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-gros",
+    "insurer_url": "https://www.universalsompo.com/Footer/GrievanceRedressalProcess",
+    "verified_on": "2026-10-10",
+    "evidence": "Universal Sompo General | https://www.universalsompo.com/Footer/GrievanceRedressalProcess | gro@universalsompo.com | 1800 224030 / 18002674030",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "gro_email": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Universal Sompo General | https://www.universalsompo.com/Footer/GrievanceRedressalProcess | gro@universalsompo.com | 1800 224030 / 18002674030"
+      },
+      "gro_phone": {
+        "source_url": "https://irdai.gov.in/list-of-gros",
+        "evidence": "Universal Sompo General | https://www.universalsompo.com/Footer/GrievanceRedressalProcess | gro@universalsompo.com | 1800 224030 / 18002674030"
+      }
+    },
+    "notes": [],
+    "content_sha256": "e31ad9fc2c00fbae1e4ebbb232dfa30219f6444a03d64312735d0977c22bd5e9"
+  },
+  {
+    "id": "prudential-hcl",
+    "name": "Prudential HCL Health Insurance",
+    "name_hi": "प्रूडेंशियल एचसीएल हेल्थ इंश्योरेंस",
+    "kind": "insurer",
+    "aliases": [
+      "Prudential Health",
+      "PRUHealth"
+    ],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 268 2000",
+    "claims_email": "customersupport@prudentialhealth.in",
+    "escalation_levels": [],
+    "source_url": "https://prudentialhealth.in/raise-grievance",
+    "insurer_url": "https://prudentialhealth.in/raise-grievance",
+    "verified_on": "2026-10-10",
+    "evidence": "Get in Touch 1800 268 2000 customersupport@prudentialhealth.in",
+    "verification_method": "Live primary-source page content. Published contact only; no email sent or call made.",
+    "verification_status": "published-contact-verified",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://prudentialhealth.in/raise-grievance",
+        "evidence": "Get in Touch 1800 268 2000 customersupport@prudentialhealth.in"
+      },
+      "claims_email": {
+        "source_url": "https://prudentialhealth.in/raise-grievance",
+        "evidence": "Get in Touch 1800 268 2000 customersupport@prudentialhealth.in"
+      }
+    },
+    "notes": [
+      "Current IRDAI list-of-health-insurers includes Prudential HCL. Official grievance page provides three escalation levels but the accessible page did not reveal the Level 3 GRO email. Use its official grievance page to find the current officer.",
+      "claims_email is published customer support, not a dedicated claims or GRO address."
+    ],
+    "content_sha256": "17328fb0d060d85de37c4329186d6637a83e35959c8e0dd52d479e8dce028350"
+  },
+  {
+    "id": "medi-assist",
+    "name": "Medi Assist Insurance TPA Private Limited",
+    "name_hi": "मेडी असिस्ट इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [
+      "Medi Assist",
+      "MediBuddy TPA",
+      "Raksha TPA"
+    ],
+    "gro_email": "grievance@mediassist.in",
+    "gro_phone": null,
+    "helpline": "0120 693 7372",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://mediassisttpa.in/grievance-redressal/",
+    "verified_on": "2026-10-10",
+    "evidence": "In case of any delay you may write to grievance@mediassist.in. General helpline: 0120 693 7372",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://mediassisttpa.in/grievance-redressal/",
+        "evidence": "In case of any delay you may write to grievance@mediassist.in. General helpline: 0120 693 7372"
+      },
+      "gro_email": {
+        "source_url": "https://mediassisttpa.in/grievance-redressal/",
+        "evidence": "In case of any delay you may write to grievance@mediassist.in. General helpline: 0120 693 7372"
+      }
+    },
+    "notes": [
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "The page also contains older SLA/ombudsman text and a second helpline (01206937324); regulatory guidance is not taken from it. Main header/footer contact retained."
+    ],
+    "content_sha256": "a706831792ce558117a123ed24cfb4c6c5d7ff2a76f5a8c90be000133bf398a9"
+  },
+  {
+    "id": "mdindia",
+    "name": "MDIndia Health Insurance TPA Private Limited",
+    "name_hi": "एमडीइंडिया हेल्थ इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": "grievance@mdindia.com",
+    "gro_phone": "020-25300128",
+    "helpline": "1800-209-7800",
+    "claims_email": "authorisation@mdindia.com",
+    "escalation_levels": [
+      {
+        "level": "Cashless level 1",
+        "email": "contact@mdindia.com",
+        "phone": "8956338253",
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "verified_on": "2026-10-10",
+        "evidence": "Level 1 | Rohit Bapu Jadhav | Group Leader | 8956338253 | contact@mdindia.com"
+      },
+      {
+        "level": "Cashless level 2",
+        "email": "pkoyal@mdindia.com",
+        "phone": "7249291752",
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "verified_on": "2026-10-10",
+        "evidence": "Level 2 | Prince Koyal | Assistant Manager | 7249291752 | pkoyal@mdindia.com"
+      }
+    ],
+    "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "Cashless | authorisation@mdindia.com | 1800-209-7800. Level 1 Grievance Cell | 020-25300128 | grievance@mdindia.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "evidence": "Cashless | authorisation@mdindia.com | 1800-209-7800. Level 1 Grievance Cell | 020-25300128 | grievance@mdindia.com"
+      },
+      "gro_email": {
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "evidence": "Cashless | authorisation@mdindia.com | 1800-209-7800. Level 1 Grievance Cell | 020-25300128 | grievance@mdindia.com"
+      },
+      "claims_email": {
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "evidence": "Cashless | authorisation@mdindia.com | 1800-209-7800. Level 1 Grievance Cell | 020-25300128 | grievance@mdindia.com"
+      },
+      "gro_phone": {
+        "source_url": "https://mdindiaonline.com/staticpages/Static_HelpDesk.aspx",
+        "evidence": "Cashless | authorisation@mdindia.com | 1800-209-7800. Level 1 Grievance Cell | 020-25300128 | grievance@mdindia.com"
+      }
+    },
+    "notes": [
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "de553c9db13fede03005bc1544b729a76f53c1b76851a70a71a9de4e465dbd2c"
+  },
+  {
+    "id": "paramount",
+    "name": "Paramount Health Services & Insurance TPA Private Limited",
+    "name_hi": "पैरामाउंट हेल्थ सर्विसेज एंड इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": "grievance.phs@paramounttpa.com",
+    "gro_phone": null,
+    "helpline": "1800226655",
+    "claims_email": "contact.phs@paramounttpa.com",
+    "escalation_levels": [],
+    "source_url": "https://www.paramounttpa.com/Home/Grievance.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "you may please write to us on \"grievance.phs@paramounttpa.com\". Toll Free Number - 1800226655. Contact us at contact.phs@paramounttpa.com.",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://www.paramounttpa.com/Home/Grievance.aspx",
+        "evidence": "you may please write to us on \"grievance.phs@paramounttpa.com\". Toll Free Number - 1800226655. Contact us at contact.phs@paramounttpa.com."
+      },
+      "gro_email": {
+        "source_url": "https://www.paramounttpa.com/Home/Grievance.aspx",
+        "evidence": "you may please write to us on \"grievance.phs@paramounttpa.com\". Toll Free Number - 1800226655. Contact us at contact.phs@paramounttpa.com."
+      },
+      "claims_email": {
+        "source_url": "https://www.paramounttpa.com/Home/Grievance.aspx",
+        "evidence": "you may please write to us on \"grievance.phs@paramounttpa.com\". Toll Free Number - 1800226655. Contact us at contact.phs@paramounttpa.com."
+      }
+    },
+    "notes": [
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "Provider page states integration with Medi Assist effective 1 February 2026; legacy service contact retained for existing members."
+    ],
+    "content_sha256": "83ae6425cd1501d6c8a9991f956c644e8372e150b7d433958e56aa026043c789"
+  },
+  {
+    "id": "heritage",
+    "name": "Heritage Health Insurance TPA Private Limited",
+    "name_hi": "हेरिटेज हेल्थ इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 345 3477",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 033 40145100 \nटोल फ्री नंबर/Toll Free No.: 1800 345 3477\nईमेल/Email: mchakraborty@bajoria.in\nवेबसाइट/Website: www.heritagehealthtpa.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 033 40145100 \nटोल फ्री नंबर/Toll Free No.: 1800 345 3477\nईमेल/Email: mchakraborty@bajoria.in\nवेबसाइट/Website: www.heritagehealthtpa.com"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "d951374d4242e1e98acba62c1a3c45c4615956f6e733519ef0a4e5b2709bcc43"
+  },
+  {
+    "id": "fhpl",
+    "name": "Family Health Plan Insurance TPA Limited",
+    "name_hi": "फैमिली हेल्थ प्लान इंश्योरेंस टीपीए लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 102 4033",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 1800 102 4273 \nटोल फ्री नंबर/Toll Free No.: 1800 102 4033 \nईमेल/Email: drmedha@fhpl.net\nवेबसाइट/Website: www.fhpl.net",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 1800 102 4273 \nटोल फ्री नंबर/Toll Free No.: 1800 102 4033 \nईमेल/Email: drmedha@fhpl.net\nवेबसाइट/Website: www.fhpl.net"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "Provider website blocked automated access (HTTP 403); helpline is verified in the live IRDAI directory. No unverified grievance email shown."
+    ],
+    "content_sha256": "ba4cf98cd0eb00035a13376329380323d8d5cf36b08f0f138b97d73f38405fe1"
+  },
+  {
+    "id": "vidal",
+    "name": "Vidal Health Insurance TPA Private Limited",
+    "name_hi": "विडाल हेल्थ इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": "grievance@vidalhealth.com",
+    "gro_phone": null,
+    "helpline": "18004257878",
+    "claims_email": "care@vidalhealth.com",
+    "escalation_levels": [],
+    "source_url": "https://www.vidalhealthtpa.com/vidalhealthtpa/contact.html",
+    "verified_on": "2026-10-10",
+    "evidence": "Pan India | 080-46267018/18004257878. Senior Citizen helpline number | 080-46267070/18002037591. care@vidalhealth.com. Grievance Cell | grievance@vidalhealth.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://www.vidalhealthtpa.com/vidalhealthtpa/contact.html",
+        "evidence": "Pan India | 080-46267018/18004257878. Senior Citizen helpline number | 080-46267070/18002037591. care@vidalhealth.com. Grievance Cell | grievance@vidalhealth.com"
+      },
+      "gro_email": {
+        "source_url": "https://www.vidalhealthtpa.com/vidalhealthtpa/contact.html",
+        "evidence": "Pan India | 080-46267018/18004257878. Senior Citizen helpline number | 080-46267070/18002037591. care@vidalhealth.com. Grievance Cell | grievance@vidalhealth.com"
+      },
+      "claims_email": {
+        "source_url": "https://www.vidalhealthtpa.com/vidalhealthtpa/contact.html",
+        "evidence": "Pan India | 080-46267018/18004257878. Senior Citizen helpline number | 080-46267070/18002037591. care@vidalhealth.com. Grievance Cell | grievance@vidalhealth.com"
+      }
+    },
+    "notes": [
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "ecd71e3cc133f0dc7fa651b48305e347b4aa28a1c00a73db29b1d1a826ad5f9f"
+  },
+  {
+    "id": "volo",
+    "name": "Volo Health Insurance TPA Pvt. Ltd ( Formerly East West Assist Insurance TPA Private Limited)",
+    "name_hi": "वोलो हेल्थ इंश्योरेंस टीपीए प्रा. लिमिटेड (पूर्व में ईस्ट वेस्ट असिस्ट इंश्योरेंस टीपीए प्राइवेट लिमिटेड)",
+    "kind": "tpa",
+    "aliases": [
+      "East West Assist"
+    ],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "011-47222666",
+    "claims_email": "support@volohealth.in",
+    "escalation_levels": [],
+    "source_url": "https://www.volohealth.in/",
+    "verified_on": "2026-10-10",
+    "evidence": "to learn more about our services, please write to support@volohealth.in (C) Volo Health Services Private Limited",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 011 47222647\nफोन नंबर/Ph. No.: 011-47222666 \nफैक्स/FAX: 011-47222640  \nईमेल/Email: cao@eastwestassist.com \nवेबसाइट/Webite: www.eastwestassist.com"
+      },
+      "claims_email": {
+        "source_url": "https://www.volohealth.in/",
+        "evidence": "to learn more about our services, please write to support@volohealth.in (C) Volo Health Services Private Limited"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "claims_email is the published general customer-support address; no dedicated claims or GRO role inferred."
+    ],
+    "content_sha256": "7f6ae8bb74faa35bcfaa9f043e62a513af8c67c26d5921cb1f4e5894bf458372"
+  },
+  {
+    "id": "medsave",
+    "name": "Medsave Health Insurance TPA Limited",
+    "name_hi": "मेडसेव हेल्थ इंश्योरेंस टीपीए लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 111 142",
+    "claims_email": "info@medsave.in",
+    "escalation_levels": [],
+    "source_url": "https://www.medsave.in/WebGrievanceMail.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "acy Policy For Agent Faq Careers Contact Us Email:info@medsave.in",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 9319810070\nटोल फ्री नंबर/Toll Free No.: 1800 111 142 \nईमेल/Email: geeta@medsave.in\nवेबसाइट/Website: www.medsave.in"
+      },
+      "claims_email": {
+        "source_url": "https://www.medsave.in/WebGrievanceMail.aspx",
+        "evidence": "acy Policy For Agent Faq Careers Contact Us Email:info@medsave.in"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "claims_email is the published general customer-support address; no dedicated claims or GRO role inferred."
+    ],
+    "content_sha256": "e06fc8c92456131f72ac1c4fbc3ae80614a82fd9ca010274f1fb5ab0eb9ad12f"
+  },
+  {
+    "id": "genins",
+    "name": "Genins India Insurance TPA Limited",
+    "name_hi": "जेनिन्स इंडिया इंश्योरेंस टीपीए लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 890 2359",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 0120 4144100\nटोल फ्री नंबर/Toll Free No.: 1800 890 2359 \nईमेल/Email: drsumit@geninsindia.com \nवेबसाइट/Website: www.geninsindia.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 0120 4144100\nटोल फ्री नंबर/Toll Free No.: 1800 890 2359 \nईमेल/Email: drsumit@geninsindia.com \nवेबसाइट/Website: www.geninsindia.com"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "a872b669e3e25641d160985a7a88c80a853fff9becb8a636da4198b85321c94f"
+  },
+  {
+    "id": "healthindia",
+    "name": "Health India Insurance TPA Services Private Limited",
+    "name_hi": "हेल्थ इंडिया इंश्योरेंस टीपीए सर्विसेज प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 2201 02",
+    "claims_email": "customersupport@healthindiatpa.com",
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 1800 2269 70\nटोल फ्री नंबर/Toll Free No.: 1800 2201 02 \nफोन नंबर/Ph. No.: 022-40881000 \nईमेल/Email: vinay.chimad@healthindiatpa.com \nवेबसाइट/Website: www.healthindiatpa.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 1800 2269 70\nटोल फ्री नंबर/Toll Free No.: 1800 2201 02 \nफोन नंबर/Ph. No.: 022-40881000 \nईमेल/Email: vinay.chimad@healthindiatpa.com \nवेबसाइट/Website: www.healthindiatpa.com"
+      },
+      "claims_email": {
+        "source_url": "https://healthindiatpa.com/",
+        "evidence": "Email Us: customersupport@healthindiatpa.com"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "50577d9339a16c7f920c10c4c2a45bf711d5f696c84b87d4b33a6cbc9c901c66"
+  },
+  {
+    "id": "good-health",
+    "name": "Good Health Insurance TPA Limited",
+    "name_hi": "गुड हेल्थ इंश्योरेंस टीपीए लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": "grievance@ghpltpa.com",
+    "gro_phone": null,
+    "helpline": "1800-425-3232 / 1860-425-3232",
+    "claims_email": "customer.care@ghpltpa.com",
+    "escalation_levels": [],
+    "source_url": "https://goodhealthtpa.com/wp-content/uploads/2026/02/Grievance-Mechanism-Note.pdf",
+    "verified_on": "2026-10-10",
+    "evidence": "Contact Details Centralized Call Centre Number 1800 425 3232 customer.care@ghpltpa.com 1860 425 3232",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://goodhealthtpa.com/wp-content/uploads/2026/02/Grievance-Mechanism-Note.pdf",
+        "evidence": "Contact Details Centralized Call Centre Number 1800 425 3232 customer.care@ghpltpa.com 1860 425 3232"
+      },
+      "gro_email": {
+        "source_url": "https://goodhealthtpa.com/wp-content/uploads/2026/02/Grievance-Mechanism-Note.pdf",
+        "evidence": "Grievance Email: grievance@ghpltpa.com; Toll-Free Number: 1800-425-3232; Grievance Redressal Officer: Chandana G /Manager supervised by CMO"
+      },
+      "claims_email": {
+        "source_url": "https://goodhealthtpa.com/wp-content/uploads/2026/02/Grievance-Mechanism-Note.pdf",
+        "evidence": "Contact Details Centralized Call Centre Number 1800 425 3232 customer.care@ghpltpa.com 1860 425 3232"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "Provider grievance PDF supplies current contacts; its legacy legal references are not used as regulatory evidence."
+    ],
+    "content_sha256": "0858ad22715eff95023a0479f046c8e993892b6ec8a396b6c0106a57474606f5"
+  },
+  {
+    "id": "park",
+    "name": "Park Mediclaim Insurance TPA Private Limited",
+    "name_hi": "पार्क मेडिक्लेम इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": "9821236752 / 011-43191079",
+    "helpline": "1800 11 55 33",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://www.parkmediclaim.co.in/Contact/CustomerSupport",
+    "verified_on": "2026-10-10",
+    "evidence": "Grievance Support Grievance officer Name: Mr.Sandeep Srivastava Phone no. 9821236752,011-43191079",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 9821236752 \nटोल फ्री नंबर/Toll Free No.: 1800 11 55 33 \nईमेल/Email: anuragbhatnagar@parkmediclaim.co.in\nवेबसाइट/Website : www.parkmediclaim.co.in"
+      },
+      "gro_phone": {
+        "source_url": "https://www.parkmediclaim.co.in/Contact/CustomerSupport",
+        "evidence": "Grievance Support Grievance officer Name: Mr.Sandeep Srivastava Phone no. 9821236752,011-43191079"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "65cac4b9a716a6fc4ae3e35d9d347b64e9e739003b8f9efd57c1c80ded664ed9"
+  },
+  {
+    "id": "health-assist",
+    "name": "Health Assist Insurance TPA Pvt. Ltd. (Formerly known as Safeway Insurance TPA Pvt. Ltd.)",
+    "name_hi": "हेल्थ असिस्ट इंश्योरेंस टीपीए प्राइवेट लिमिटेड (पूर्व में - सेफवे इंश्योरेंस टीपीए प्राइवेट लिमिटेड)",
+    "kind": "tpa",
+    "aliases": [
+      "Safeway"
+    ],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 102 5671",
+    "claims_email": "contact@healthassisttpa.com",
+    "escalation_levels": [],
+    "source_url": "https://www.safewaytpa.in/grievance.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "ent Mobile Application Get in Touch 1800 102 5671 contact@healthassisttpa.com Health Assist Insurance TPA Pvt. Ltd CIN No : U67200DL2004PTC129929 | IRDA Registration No: 26 Vali",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर/Senior Citizen Helpline No.: 011 45451300 (एक्सटेंशन/Ext: 206) \nटोल फ्री नंबर/Toll Free No.: 1800 102 5671 \nईमेल/Email: ceo@healthassisttpa.com \nवेबसाइट/Website : www.safewaytpa.in"
+      },
+      "claims_email": {
+        "source_url": "https://www.safewaytpa.in/grievance.aspx",
+        "evidence": "ent Mobile Application Get in Touch 1800 102 5671 contact@healthassisttpa.com Health Assist Insurance TPA Pvt. Ltd CIN No : U67200DL2004PTC129929 | IRDA Registration No: 26 Vali"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "claims_email is the published general customer-support address; no dedicated claims or GRO role inferred."
+    ],
+    "content_sha256": "a638889dcecff4083fe5fb2d3bdc5c741670ba17fe9723350e14e58f7e3d504f"
+  },
+  {
+    "id": "ericson",
+    "name": "Ericson Insurance TPA Private Limited",
+    "name_hi": "एरिक्सन इंश्योरेंस टीपीए प्राइवेट लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": "grievances@ericsontpa.com",
+    "gro_phone": "022-41548300",
+    "helpline": "1800 202 2034",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://www.ericsontpa.com/GrievanceCell.aspx",
+    "verified_on": "2026-10-10",
+    "evidence": "Ericson Grievance Matrix Call centre at : 022-41548300 Toll Free : 1800 202 2034 Email us at : grievances@ericsontpa.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://www.ericsontpa.com/GrievanceCell.aspx",
+        "evidence": "Ericson Grievance Matrix Call centre at : 022-41548300 Toll Free : 1800 202 2034 Email us at : grievances@ericsontpa.com"
+      },
+      "gro_email": {
+        "source_url": "https://www.ericsontpa.com/GrievanceCell.aspx",
+        "evidence": "Ericson Grievance Matrix Call centre at : 022-41548300 Toll Free : 1800 202 2034 Email us at : grievances@ericsontpa.com"
+      },
+      "gro_phone": {
+        "source_url": "https://www.ericsontpa.com/GrievanceCell.aspx",
+        "evidence": "Ericson Grievance Matrix Call centre at : 022-41548300 Toll Free : 1800 202 2034 Email us at : grievances@ericsontpa.com"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status.",
+      "Current provider helpline differs from older IRDAI directory; current provider contact is preferred."
+    ],
+    "content_sha256": "1e4f8f1887f52005c3a45134f921152ba27e54688524113416212fb495f5df31"
+  },
+  {
+    "id": "hitpa",
+    "name": "Health Insurance TPA of India Limited",
+    "name_hi": "हेल्थ इंश्योरेंस टीपीए ऑफ इंडिया लिमिटेड",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800 180 3600, 1800 102 3600",
+    "claims_email": "customerservice@hitpa.co.in",
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक सहायता/Senior Citizen Assistance: seniorcitizens@hitpa.co.in \nटोल फ्री नंबर/Toll Free No.: 1800 180 3600, 1800 102 3600 \nईमेल/Email: Mathew.George@hitpa.co.in\nवेबसाइट/Website: www.hitpa.co.in",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक सहायता/Senior Citizen Assistance: seniorcitizens@hitpa.co.in \nटोल फ्री नंबर/Toll Free No.: 1800 180 3600, 1800 102 3600 \nईमेल/Email: Mathew.George@hitpa.co.in\nवेबसाइट/Website: www.hitpa.co.in"
+      },
+      "claims_email": {
+        "source_url": "https://www.hitpa.co.in/Contact-Us",
+        "evidence": "Toll free numbers 1800 180 3600 / 1800 102 3600. Email us customerservice@hitpa.co.in"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "e023c2c525c2b09d33135dbe1d5f7ad5ed79ce357a440fa3b58110c46be658af"
+  },
+  {
+    "id": "link-k",
+    "name": "Link-K Insurance TPA Private Limited",
+    "name_hi": "लिंक-के इंश्योरेंस टीपीए प्राइवेट लिमिटेड / Link-K Insurance TPA Private Limited",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "044 35255426",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "ईमेल/Email: Info@linkktpa.com,\nफोन नं. / Ph. No.-044 35255426",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "ईमेल/Email: Info@linkktpa.com,\nफोन नं. / Ph. No.-044 35255426"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "682abe6e1a0a4fb43f1005b78c91a5d209ef993df8ab71f99f50d142153c039e"
+  },
+  {
+    "id": "akna",
+    "name": "AKNA Health Insurance TPA Private Limited",
+    "name_hi": "अक्ना हेल्थ इंश्योरेंस टीपीए प्राइवेट लिमिटेड                                                    AKNA Health Insurance TPA Private Limited",
+    "kind": "tpa",
+    "aliases": [],
+    "gro_email": null,
+    "gro_phone": null,
+    "helpline": "1800-569-4455",
+    "claims_email": null,
+    "escalation_levels": [],
+    "source_url": "https://irdai.gov.in/list-of-tpas",
+    "verified_on": "2026-10-10",
+    "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर / Senior Citizen Helpline No.: 1800-309-4455, \nटोल फ्री नंबर/Toll Free No.: 1800-569-4455, \nईमेल /  EMail:ceo@aknatpa.com, \nवेबसाइट / Website: www.aknatpa.com",
+    "verification_status": "published-contact-verified",
+    "verification_method": "Live regulator directory plus provider page where noted; publication check only, no email or telephone test.",
+    "field_sources": {
+      "helpline": {
+        "source_url": "https://irdai.gov.in/list-of-tpas",
+        "evidence": "वरिष्ठ नागरिक हेल्पलाइन नंबर / Senior Citizen Helpline No.: 1800-309-4455, \nटोल फ्री नंबर/Toll Free No.: 1800-569-4455, \nईमेल /  EMail:ceo@aknatpa.com, \nवेबसाइट / Website: www.aknatpa.com"
+      }
+    },
+    "notes": [
+      "No GRO email inferred from the registry’s CEO/CAO email.",
+      "The registry may show historic licence-valid-until dates; this dataset verifies published contact details, not licence renewal status."
+    ],
+    "content_sha256": "48dfafa54861b4c8ea29104b277e4b67dac0c2422e7ba372eec1174adca2c12f"
+  }
+]
