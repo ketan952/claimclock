@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-10T18:55:51.009335+00:00",
+  "mode": "live-public-native-safari-real-turnstile",
+  "base_url": "https://claimclock.ketan952.workers.dev/",
+  "build_id": "22de957d113657b8",
+  "sender": "Safari normal browsing",
+  "receiver": "Safari private browsing: empty local case list before restore",
+  "independent_contexts": true,
+  "fragment_removed_before_verification": true,
+  "preview_before_save": true,
+  "restored_case": "Prudential HCL \u00b7 Synthetic QA hospital \u00b7 November 2025",
+  "city": null,
+  "elapsed_clock": "00:30:00",
+  "events_preserved": [
+    "decision approved",
+    "submission time correction"
+  ],
+  "attached_deductions_in_this_native_case": 0,
+  "lookups_succeeded": 3,
+  "production_d1_after_first_lookup": {
+    "encoded_ciphertext_bytes": 763,
+    "attempts": 1,
+    "remaining_ttl_seconds": 604727
+  },
+  "production_d1_after_third_lookup": {
+    "remaining_rows": 0
+  },
+  "http_traffic_intercepted": false,
+  "wire_privacy_evidence": "Static client review and separately labelled automated mocked-API regression; native success proves actual ciphertext round trip but does not claim all-traffic interception.",
+  "screenshots": [
+    "qa/screenshots/transfer-safari-preview.jpg",
+    "qa/screenshots/transfer-safari-round-trip.jpg"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "recorded_at": "2026-10-10T18:43:05.342688+00:00",
+  "status": "automated_production_success_path_not_verified",
+  "production": {
+    "url": "https://claimclock.ketan952.workers.dev",
+    "deployment_id_prefix": "22162264",
+    "build_id": "32a97743b89e1e93",
+    "verifier_sha256": "f15ef40af9efa7e235e2939fca46726304403ac828417135c252f24cfea04edd",
+    "verifier_relaxed": false,
+    "test_keys_installed": false
+  },
+  "production_observations": [
+    {
+      "browser": "Playwright Chromium headless",
+      "error_code": "600010",
+      "evidence_origin": "Root agent production test report",
+      "result": "challenge rejected automation"
+    },
+    {
+      "browser": "Playwright normal headed browser",
+      "error_code": "600010",
+      "evidence_origin": "Root agent production test report",
+      "result": "challenge rejected automation"
+    }
+  ],
+  "official_sources": [
+    {
+      "url": "https://developers.cloudflare.com/turnstile/troubleshooting/testing/",
+      "finding": "Cloudflare documents that automated suites including Playwright can be detected as bots and recommends dedicated test keys."
+    },
+    {
+      "url": "https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/",
+      "finding": "The 600* family is a generic challenge failure associated with detected bot behavior; the final digits are internal."
+    },
+    {
+      "url": "https://developers.cloudflare.com/turnstile/get-started/server-side-validation/",
+      "finding": "Siteverify success must be checked together with the expected hostname and action."
+    }
+  ],
+  "vendor_test_key_probes": [
+    {
+      "method": "Direct Siteverify request with officially documented dummy token and always-pass test secret",
+      "success": true,
+      "hostname": "example.com",
+      "action": null,
+      "error_codes": []
+    },
+    {
+      "method": "Real invisible test widget loaded in isolated Playwright headless page, action reports, followed by real Siteverify request",
+      "success": true,
+      "hostname": "example.com",
+      "action": null,
+      "error_codes": []
+    }
+  ],
+  "interpretation": "Official test-key success omitted the action even when the browser widget was configured with reports. The unchanged verifier correctly rejects that response. Configuring a different test hostname alone cannot provide a success path with the exact production action check. No equivalent-code success-path result is claimed from these probes.",
+  "retained_evidence_scope": "Production automated positive flows remain blocked. Real native Safari positive flows are separately recorded in turnstile-safari-explain.json, blank-city-safari.json and transfer-safari-round-trip.json. Deterministic and mocked tests retain their explicit scope; production invalid-token requests verify fail-closed behavior.",
+  "temporary_qa_cleanup": {
+    "worker_created": false,
+    "secrets_uploaded": false,
+    "provider_calls": 0,
+    "database_name": "claimclock-m11-qa",
+    "database_id": "16638a31-faa4-4248-8727-1c2c14906b40",
+    "schema_or_rows_added": false,
+    "empty_verified": true,
+    "empty_verification": "No user tables returned from sqlite_master before deletion.",
+    "deleted": true
+  },
+  "sensitive_values_recorded": false
+}

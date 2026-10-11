@@ -4,15 +4,18 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import { URL as NodeURL } from 'node:url';
 import { app } from '../worker/app.ts';
-import { provider, quota, redact, validateReport } from '../worker/security.ts';
+import { provider, quota, redact, validateReport, sha256 } from '../worker/security.ts';
+import { SITEVERIFY_URL, verifyTurnstile } from '../worker/turnstile.ts';
+import { TRANSFER_BODY_LIMIT, TRANSFER_TTL_SECONDS, createTransfer, lookupTransfer, purgeTransfers, scheduledTask, validateCiphertext } from '../worker/transfers.ts';
 import type { Database, Statement, Bindings } from '../worker/types.ts';
 
 const migration = readFileSync(new NodeURL('../migrations/0001_initial.sql', import.meta.url), 'utf8');
 const optionalCityMigration = readFileSync(new NodeURL('../migrations/0002_optional_report_city.sql', import.meta.url), 'utf8');
+const transferMigration = readFileSync(new NodeURL('../migrations/0003_encrypted_transfers.sql', import.meta.url), 'utf8');
 const maintenance = readFileSync(new NodeURL('../worker/aggregate.sql', import.meta.url), 'utf8');
 class SqliteDB implements Database {
   sql = new DatabaseSync(':memory:');
-  constructor() { this.sql.exec(migration); this.sql.exec(optionalCityMigration); }
+  constructor() { this.sql.exec(migration); this.sql.exec(optionalCityMigration); this.sql.exec(transferMigration); }
   prepare(sql: string): Statement {
     const database = this.sql;
     let values: (string | number | null)[] = [];
@@ -31,11 +34,21 @@ class SqliteDB implements Database {
   }
 }
 const origin = 'https://claimclock.example';
+const challengeEnv = { TURNSTILE_SECRET_KEY: 'synthetic-secret', TURNSTILE_SITE_KEY: 'synthetic-public-key', TURNSTILE_HOSTNAME: 'claimclock.example' };
+const actionFor = (path: string) => path === '/api/transfers/lookup' ? 'transfer_lookup' : path === '/api/transfers' ? 'transfer_create' : path === '/api/explain' ? 'explain' : 'reports';
 const report = () => ({ insurer: 'star-health', tpa: null, city: 'नई दिल्ली', request_type: 'discharge',
   submitted_at: new Date(Date.now() - 5 * 3600000).toISOString(), decided_at: new Date(Date.now() - 3600000).toISOString(),
   outcome: 'approved', consent_version: '2026-10-10', consent: true, adult: true });
 async function request(path: string, method = 'GET', body?: unknown, env: Bindings = {}, headers: Record<string, string> = {}) {
-  return app.request(`${origin}${path}`, { method, headers: { origin, 'content-type': 'application/json', ...headers }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) }, env);
+  const originalFetch = globalThis.fetch, action = actionFor(path), token = `synthetic-${crypto.randomUUID()}`;
+  globalThis.fetch = async (url, options) => {
+    if (String(url) !== SITEVERIFY_URL) return originalFetch(url, options);
+    assert.deepEqual(JSON.parse(String(options?.body)), { secret: challengeEnv.TURNSTILE_SECRET_KEY, response: token });
+    return Response.json({ success: true, hostname: challengeEnv.TURNSTILE_HOSTNAME, action });
+  };
+  try {
+    return await app.request(`${origin}${path}`, { method, headers: { origin, 'content-type': 'application/json', 'X-Turnstile-Token': token, ...headers }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) }, { ...(env.DB ? challengeEnv : {}), ...env });
+  } finally { globalThis.fetch = originalFetch; }
 }
 
 test('requires same origin and rejects missing/cross-site origins', async () => {
@@ -118,7 +131,7 @@ test('optional binding absence is graceful and AI config is disabled', async () 
     ['/api/reports', 'POST', report()], ['/api/events', 'POST', { counts: { session_started: 1 } }],
     ['/api/explain', 'POST', { lines: 'Consumables 400', consent: true }], ['/api/aggregates?insurer=star-health', 'GET', undefined],
   ] as const) assert.equal((await request(path, method, body)).status, 503);
-  assert.deepEqual(await (await request('/api/config')).json(), { ai_enabled: false, provider: null, model: null });
+  assert.deepEqual(await (await request('/api/config')).json(), { ai_enabled: false, provider: null, model: null, turnstile_enabled: false, turnstile_site_key: null });
 });
 test('report stores only erasure hash and wrong-token deletion is non-enumerating', async () => {
   const db = new SqliteDB();
@@ -254,4 +267,163 @@ test('provider redirects are rejected without following or forwarding authorizat
     const result=await request('/api/explain','POST',{lines:'Deduction 400',consent:true},{DB:new SqliteDB(),LLM_BASE_URL:'https://api.groq.com/openai/v1',LLM_API_KEY:'example-not-a-secret',LLM_MODEL:'openai/gpt-oss-120b',LLM_FREE_TIER_CONFIRMED:'true'});
     assert.equal(result.status,503);assert.equal(calls,1);
   } finally { globalThis.fetch = originalFetch; }
+});
+
+const envelope = (length = 64, version = 1) => { const bytes = new Uint8Array(length); bytes[0] = version; return Buffer.from(bytes).toString('base64url'); };
+const rawRequest = (path: string, body: unknown, env: Bindings, token?: string) => app.request(`${origin}${path}`, {
+  method: 'POST', headers: { origin, 'content-type': 'application/json', ...(token === undefined ? {} : { 'X-Turnstile-Token': token }) }, body: JSON.stringify(body),
+}, env);
+test('Turnstile config exposes only the public key and never derives trust from request Host', async () => {
+  const env = { ...challengeEnv, DB: new SqliteDB() };
+  const config = await (await request('/api/config', 'GET', undefined, env)).json();
+  assert.deepEqual(config, { ai_enabled: false, provider: null, model: null, turnstile_enabled: true, turnstile_site_key: 'synthetic-public-key' });
+  assert.doesNotMatch(JSON.stringify(config), /synthetic-secret|TURNSTILE_SECRET|hostname/);
+  for (const patch of [{ TURNSTILE_SECRET_KEY: '' }, { TURNSTILE_SITE_KEY: undefined }, { TURNSTILE_HOSTNAME: 'https://evil.example' }]) {
+    const disabled = await (await request('/api/config', 'GET', undefined, { ...env, ...patch })).json() as { turnstile_enabled: boolean; turnstile_site_key: null };
+    assert.equal(disabled.turnstile_enabled, false); assert.equal(disabled.turnstile_site_key, null);
+  }
+  const original = globalThis.fetch;
+  globalThis.fetch = async () => Response.json({ success: true, hostname: 'claimclock.example', action: 'reports' });
+  try {
+    assert.equal(await verifyTurnstile(new Request(origin, { headers: { 'X-Turnstile-Token': 'valid-token' } }), { ...challengeEnv, TURNSTILE_HOSTNAME: undefined }, 'reports'), 403);
+  } finally { globalThis.fetch = original; }
+});
+test('Turnstile verifies the exact action and hostname with no identity fields and bounded timeout', async () => {
+  const original = globalThis.fetch;
+  let calls = 0;
+  globalThis.fetch = async (url, options) => {
+    calls++; assert.equal(url, SITEVERIFY_URL); assert.equal(options?.method, 'POST'); assert.equal(options?.redirect, 'manual'); assert.ok(options?.signal);
+    assert.deepEqual(JSON.parse(String(options?.body)), { secret: challengeEnv.TURNSTILE_SECRET_KEY, response: 'valid-token' });
+    return Response.json({ success: true, hostname: challengeEnv.TURNSTILE_HOSTNAME, action: 'transfer_lookup' });
+  };
+  const req = new Request(origin, { headers: { 'X-Turnstile-Token': 'valid-token', 'CF-Connecting-IP': '192.0.2.1' } });
+  try {
+    assert.equal(await verifyTurnstile(req, challengeEnv, 'transfer_lookup'), null);
+    assert.equal(await verifyTurnstile(req, challengeEnv, 'transfer_create'), 403);
+    assert.equal(await verifyTurnstile(req, { ...challengeEnv, TURNSTILE_HOSTNAME: 'other.example' }, 'transfer_lookup'), 403);
+    assert.equal(calls, 3);
+  } finally { globalThis.fetch = original; }
+});
+test('Turnstile rejects missing and oversized tokens without fetch; unavailable verification fails closed', async () => {
+  const original = globalThis.fetch;
+  let calls = 0;
+  globalThis.fetch = async () => { calls++; throw new Error('Private network error'); };
+  try {
+    for (const token of [undefined, '', 'a'.repeat(2049), 'bad token']) {
+      assert.equal(await verifyTurnstile(new Request(origin, { headers: token === undefined ? {} : { 'X-Turnstile-Token': token } }), challengeEnv, 'reports'), 403);
+    }
+    assert.equal(calls, 0);
+    const req = new Request(origin, { headers: { 'X-Turnstile-Token': 'valid-token' } });
+    assert.equal(await verifyTurnstile(req, {}, 'reports'), 503); assert.equal(calls, 0);
+    assert.equal(await verifyTurnstile(req, challengeEnv, 'reports'), 503);
+    for (const response of [new Response('private', { status: 500 }), new Response(null, { status: 302 }), new Response('{'), Response.json({}), new Response('a'.repeat(4097)), Response.json({ success: false, 'error-codes': ['internal-error'] }), Response.json({ success: false, 'error-codes': ['invalid-input-secret'] })]) {
+      globalThis.fetch = async () => response;
+      assert.equal(await verifyTurnstile(req, challengeEnv, 'reports'), 503);
+    }
+    for (const code of ['timeout-or-duplicate', 'invalid-input-response']) {
+      globalThis.fetch = async () => Response.json({ success: false, 'error-codes': [code] });
+      assert.equal(await verifyTurnstile(req, challengeEnv, 'reports'), 403);
+    }
+  } finally { globalThis.fetch = original; }
+});
+test('all protected APIs validate first and reject missing verification without consuming quotas', async () => {
+  const original = globalThis.fetch; let calls = 0;
+  globalThis.fetch = async () => { calls++; throw new Error('Unexpected verification'); };
+  const db = new SqliteDB(), env = { DB: db, ...challengeEnv, LLM_BASE_URL: 'https://api.groq.com/openai/v1', LLM_API_KEY: 'synthetic-provider-key', LLM_MODEL: 'synthetic-model', LLM_FREE_TIER_CONFIRMED: 'true' };
+  try {
+    for (const [path, body] of [['/api/reports', report()], ['/api/explain', { lines: 'Deduction 400', consent: true }], ['/api/transfers', { ciphertext: envelope() }], ['/api/transfers/lookup', { code: 'ABCDEFGH' }]] as const) {
+      assert.equal((await rawRequest(path, body, env)).status, 403);
+      assert.equal((await rawRequest(path, { ...body, key: 'never-accepted' }, env, 'valid-token')).status, 400);
+      assert.equal((await rawRequest(path, body, { ...env, TURNSTILE_SECRET_KEY: undefined }, 'valid-token')).status, 503);
+    }
+    assert.equal(calls, 0); assert.equal(db.sql.prepare('SELECT count(*) AS n FROM quotas').get()!.n, 0);
+  } finally { globalThis.fetch = original; }
+});
+test('a replayed Turnstile token does not create a second report or burn another quota permit', async () => {
+  const original = globalThis.fetch, db = new SqliteDB(); let calls = 0;
+  globalThis.fetch = async () => ++calls === 1 ? Response.json({ success: true, hostname: challengeEnv.TURNSTILE_HOSTNAME, action: 'reports' }) : Response.json({ success: false, 'error-codes': ['timeout-or-duplicate'] });
+  try {
+    assert.equal((await rawRequest('/api/reports', report(), { DB: db, ...challengeEnv }, 'single-use-token')).status, 201);
+    assert.equal((await rawRequest('/api/reports', report(), { DB: db, ...challengeEnv }, 'single-use-token')).status, 403);
+    assert.equal(db.sql.prepare('SELECT count(*) AS n FROM reports').get()!.n, 1);
+    assert.deepEqual(db.sql.prepare('SELECT count FROM quotas').all().map(row => row.count), [1, 1]);
+  } finally { globalThis.fetch = original; }
+});
+test('transfers strictly bound the opaque versioned envelope and reject key or plaintext fields', async () => {
+  for (const ciphertext of ['', envelope(29), envelope(65537), envelope(64, 2), envelope() + '=', envelope() + '\n', 'A', '_'.repeat(40), envelope(31).slice(0, -1) + 'B']) assert.throws(() => validateCiphertext({ ciphertext }));
+  assert.equal(validateCiphertext({ ciphertext: envelope(30) }), envelope(30));
+  assert.equal(validateCiphertext({ ciphertext: envelope(65536) }), envelope(65536));
+  const db = new SqliteDB();
+  for (const body of [{ ciphertext: envelope(), key: 'private' }, { ciphertext: envelope(), timeline: {} }, { ciphertext: 1 }, {}]) assert.equal((await request('/api/transfers', 'POST', body, { DB: db })).status, 400);
+  const large = await app.request(`${origin}/api/transfers`, { method: 'POST', headers: { origin, 'content-type': 'application/json' }, body: ' '.repeat(TRANSFER_BODY_LIMIT + 1) }, { DB: db });
+  assert.equal(large.status, 413);
+  const valid = await request('/api/transfers', 'POST', { ciphertext: envelope(65536) }, { DB: db });
+  assert.equal(valid.status, 201);
+});
+test('transfer create and lookup expose only ciphertext; DB stores only hash, ciphertext, expiry and attempts', async () => {
+  const db = new SqliteDB(), ciphertext = envelope();
+  const response = await request('/api/transfers', 'POST', { ciphertext }, { DB: db });
+  assert.equal(response.status, 201);
+  const saved = await response.json() as { code: string; expires_at: string };
+  assert.match(saved.code, /^[0-9A-HJKMNP-TV-Z]{8}$/);
+  assert.ok(Math.abs(Date.parse(saved.expires_at) - Date.now() - TRANSFER_TTL_SECONDS * 1000) < 2000);
+  const stored = db.sql.prepare('SELECT * FROM transfers').get()!;
+  assert.deepEqual(Object.keys(stored).sort(), ['attempts', 'ciphertext', 'code_hash', 'expires_at']);
+  assert.equal(stored.code_hash, await sha256(saved.code)); assert.notEqual(stored.code_hash, saved.code); assert.equal(stored.ciphertext, ciphertext);
+  for (let i = 1; i <= 3; i++) {
+    const found = await request('/api/transfers/lookup', 'POST', { code: saved.code }, { DB: db });
+    assert.equal(found.status, 200); assert.deepEqual(await found.json(), { ciphertext, expires_at: saved.expires_at, attempts_remaining: 3 - i });
+    assert.equal(db.sql.prepare('SELECT attempts FROM transfers').get()?.attempts, i < 3 ? i : undefined);
+  }
+  const gone = await request('/api/transfers/lookup', 'POST', { code: saved.code }, { DB: db });
+  const missing = await request('/api/transfers/lookup', 'POST', { code: '00000000' }, { DB: db });
+  assert.equal(gone.status, 404); assert.equal(missing.status, 404); assert.deepEqual(await gone.json(), await missing.json());
+});
+test('concurrent lookups deliver at most three copies and TTL is enforced even before cleanup', async () => {
+  const db = new SqliteDB(), now = Date.now(), saved = await createTransfer(db, envelope(), now);
+  const values = await Promise.all(Array.from({ length: 12 }, () => lookupTransfer(db, saved.code, now)));
+  assert.equal(values.filter(Boolean).length, 3); assert.equal(db.sql.prepare('SELECT count(*) AS n FROM transfers').get()!.n, 0);
+  const expired = await createTransfer(db, envelope(), now - TRANSFER_TTL_SECONDS * 1000);
+  assert.equal(await lookupTransfer(db, expired.code, now), null);
+  assert.equal(db.sql.prepare('SELECT attempts FROM transfers').get()!.attempts, 0);
+  const response = await request('/api/transfers/lookup', 'POST', { code: expired.code }, { DB: db });
+  assert.equal(response.status, 404);
+});
+test('third-lookup deletion failure rolls back the attempt and never returns a false success', async () => {
+  const db = new SqliteDB(), saved = await createTransfer(db, envelope());
+  await lookupTransfer(db, saved.code); await lookupTransfer(db, saved.code);
+  db.sql.exec("CREATE TRIGGER fail_transfer_delete BEFORE DELETE ON transfers BEGIN SELECT RAISE(ABORT,'private injected error'); END;");
+  const failed = await request('/api/transfers/lookup', 'POST', { code: saved.code }, { DB: db });
+  assert.equal(failed.status, 503); assert.doesNotMatch(await failed.text(), /private|injected|ciphertext/);
+  assert.equal(db.sql.prepare('SELECT attempts FROM transfers').get()!.attempts, 2);
+});
+test('transfer quotas are atomic and enforce separate creation and lookup minute/day caps', async () => {
+  const start = Date.UTC(2026, 9, 10);
+  for (const [action, minuteCap, dayCap] of [['transfer_create', 3, 100], ['transfer_lookup', 10, 500]] as const) {
+    const concurrent = new SqliteDB();
+    assert.equal((await Promise.all(Array.from({ length: 20 }, () => quota(concurrent, action, start)))).filter(Boolean).length, minuteCap);
+    const daily = new SqliteDB();
+    for (let i = 0; i < dayCap; i++) assert.equal(await quota(daily, action, start + i * 60000), true);
+    assert.equal(await quota(daily, action, start + dayCap * 60000), false);
+  }
+});
+test('hourly transfer purge does not aggregate reports; daily maintenance purges and aggregates', async () => {
+  const db = new SqliteDB(), now = Date.now(); addCohort(db, 'star-health', 10, 'hourly');
+  const active = await createTransfer(db, envelope(), now);
+  await createTransfer(db, envelope(), now - TRANSFER_TTL_SECONDS * 1000);
+  assert.equal(scheduledTask('43 * * * *'), 'purge'); assert.equal(scheduledTask('17 2 * * *'), 'aggregate'); assert.equal(scheduledTask('unknown'), null);
+  await purgeTransfers(db, now);
+  assert.equal(db.sql.prepare('SELECT count(*) AS n FROM transfers').get()!.n, 1);
+  assert.equal(db.sql.prepare('SELECT count(*) AS n FROM aggregates').get()!.n, 0);
+  await createTransfer(db, envelope(), now - TRANSFER_TTL_SECONDS * 1000);
+  db.sql.exec(maintenance);
+  assert.equal(db.sql.prepare('SELECT count(*) AS n FROM transfers').get()!.n, 1);
+  assert.equal(db.sql.prepare('SELECT count(*) AS n FROM aggregates').get()!.n, 1);
+  assert.ok(await lookupTransfer(db, active.code, now));
+});
+test('report erasure remains available without Turnstile configuration or tokens', async () => {
+  const db = new SqliteDB(), result = await request('/api/reports', 'POST', report(), { DB: db });
+  const saved = await result.json() as { id: string; erase_token: string };
+  const response = await app.request(`${origin}/api/reports/${saved.id}`, { method: 'DELETE', headers: { origin, 'content-type': 'application/json' }, body: JSON.stringify({ erase_token: saved.erase_token }) }, { DB: db });
+  assert.equal(response.status, 200); assert.deepEqual(await response.json(), { erased: true });
 });

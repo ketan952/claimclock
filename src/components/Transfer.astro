@@ -1,0 +1,29 @@
+<section class="card" id="transfer-card">
+ <details id="transfer-panel"><summary data-i18n="transfer.title">Move a case to another device</summary>
+ <p class="fine-print" data-i18n="transfer.intro">Send an encrypted copy of the selected case. The private key stays with you. The encrypted copy expires after 7 days or 3 lookups.</p>
+ <p class="fine-print" data-i18n="transfer.localAlternative">For an offline option, save a case backup file instead.</p>
+ <button type="button" class="button-secondary" id="transfer-create" disabled data-i18n="transfer.create">Create encrypted transfer</button>
+ <div id="transfer-created" hidden>
+  <p class="notice" data-i18n="transfer.secretWarning">Anyone with the full link or QR can open this case. Share it only with the person receiving it. The short ID alone cannot decrypt the case.</p>
+  <label for="transfer-code" data-i18n="transfer.idLabel">Transfer ID</label><input id="transfer-code" type="text" readonly autocomplete="off" data-transfer-secret /><label for="transfer-generated-key" data-i18n="transfer.generatedKeyLabel">Private key</label><input id="transfer-generated-key" type="password" readonly autocomplete="off" data-transfer-secret /><button type="button" class="text-button" id="transfer-copy-key" data-i18n="transfer.copyKey">Copy private key</button>
+  <label for="transfer-link" data-i18n="transfer.linkLabel">Private transfer link</label><textarea id="transfer-link" rows="3" readonly autocomplete="off" spellcheck="false" data-transfer-secret></textarea>
+  <div class="button-row"><button type="button" class="button-secondary" id="transfer-copy" data-i18n="transfer.copy">Copy private link</button><button type="button" class="text-button" id="transfer-clear" data-i18n="transfer.clear">Hide link and QR</button></div>
+  <canvas id="transfer-qr" width="296" height="296" role="img" data-i18n-aria-label="transfer.qrLabel" aria-label="Private case transfer QR code" data-transfer-secret></canvas>
+  <p class="fine-print" id="transfer-expiry"></p>
+ </div>
+ <hr class="divider" />
+ <form id="transfer-receive-form" autocomplete="off">
+  <label for="transfer-reference" data-i18n="transfer.receiveLabel">Receive a case: paste the full link or transfer text</label>
+  <input id="transfer-reference" type="text" maxlength="2048" autocomplete="off" spellcheck="false" autocapitalize="off" required data-transfer-secret />
+  <p class="fine-print" data-i18n="transfer.codeHint">You can also enter the 8-character transfer ID here and its separate private key below. The ID alone is not enough.</p>
+  <label for="transfer-private-key" data-i18n="transfer.keyLabel">Private key (only when entering the short ID)</label>
+  <input id="transfer-private-key" type="password" maxlength="43" autocomplete="off" spellcheck="false" autocapitalize="off" data-transfer-secret />
+  <p class="fine-print" data-i18n="transfer.lookupHint">Each successful lookup uses one of the 3 allowed lookups, even if the private key is wrong. Check it before continuing.</p>
+  <button type="submit" class="button-secondary" id="transfer-receive" disabled data-i18n="transfer.receive">Decrypt and preview</button>
+ </form>
+ <p class="status" id="transfer-status" role="status" aria-live="polite"></p>
+ </details>
+</section>
+<style>
+ #transfer-panel>p,#transfer-created,#transfer-receive-form{margin-top:16px}#transfer-created label,#transfer-receive-form label{display:block;margin-top:16px}#transfer-qr{display:block;width:296px;max-width:100%;height:auto;margin:20px auto;background:white}#transfer-link{font-size:.8rem;overflow-wrap:anywhere}#transfer-panel summary{font-size:1.05rem;font-weight:600}
+</style>

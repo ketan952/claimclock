@@ -1,6 +1,6 @@
 # ClaimClock
 
-An English/Hindi tool for people waiting for cashless health-insurance authorization in India: record the wait, ask for written timestamps, prepare a grievance and inspect published insurer disclosures. Information, not legal advice; ClaimClock does not file complaints or promise payment.
+An English/Hindi tool for people waiting for cashless health-insurance authorization in India: record the wait, ask for written timestamps, prepare a grievance and inspect published insurer disclosures. Free to use, with no login. Information, not legal advice; ClaimClock does not file complaints or promise payment.
 
 **Live:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/), hosted on the personal Cloudflare account with D1 provisioned and migrated. The user-requested [AGPL compatibility review](docs/licenses.md) covers the additional licenses and retained obligations. `npm run licenses` and `licenses:release` pass the exact reviewed dependency snapshot and runtime-notice hashes; changes fail closed. No paid service or workplace account is authorized.
 
@@ -10,13 +10,23 @@ Source: [ketan952/claimclock](https://github.com/ketan952/claimclock). Project c
 
 | Area | Current state |
 |---|---|
-| Mode A — hospital clock | Local English/Hindi app, estimated 1-hour/3-hour clocks, editable timeline, written-confirmation and escalation drafts, delay-charge review, death protocol, exports and offline shell. Available on the public deployment. |
+| Mode A — hospital clock | Local English/Hindi app, estimated 1-hour/3-hour clocks, editable timelines, written-confirmation and escalation drafts, delay-charge review, death protocol, exports and offline shell. |
+| M11 — cases and device transfer | Up to 50 local cases, attached deduction inputs, JSON backup with preview before restore, and optional client-encrypted transfer by private link, QR or `CODE.KEY`. No account or automatic synchronization. |
 | Discharge Delay Index | **470 numerical NL-48 rows from 30 insurers**, with all **32 insurers** covered by a filing audit. Static insurer pages preserve published units, periods and source pages. |
-| Mode B — deduction review | Local PDF text extraction, English OCR, manual correction, ten-category deterministic classification, policy-confirmation gates, letters and calendar reminders. **15/15 synthetic classification fixtures** pass after corrections; this is not AI or OCR accuracy. |
-| Optional API | Hono/D1 reporting, erasure, privacy-preserving aggregates and event counts are deployed; **14 live API checks** passed. Optional Groq AI is enabled on the explicitly authorized Free tier. Real-provider cases, independent review, secret-removal fallback and production-D1 quota results are recorded in QA. Local review works without AI. |
+| Mode B — deduction review | Local PDF text extraction, English OCR, manual correction, ten-category deterministic classification, policy-confirmation gates, letters and calendar reminders. **16 synthetic classification fixtures** have reviewed answers; this is not AI or OCR accuracy. |
+| Optional API | Hono/D1 reports, erasure, aggregates, event counts and encrypted transfers. Report submission, AI and transfer creation/lookup require invisible Turnstile verification. Optional Groq AI uses the explicitly authorized Free tier; local review works without AI. Current live acceptance and provider results are recorded in QA. |
 | Mode C — rejected-claim workflow | Basic English/Hindi GRO representation from a rejection reason, source-linked review requests and escalation guidance at `/rejected/`. Implemented after Mode A and the Index were live, as requested. Entries stay on the page; the user reviews and submits the complaint. This is not a complete case-filing service. |
 
 The contact matrix has **49 records: 32 insurers and 17 TPAs**, including legacy/merged service records where useful to existing policyholders. Missing contacts remain explicit gaps. Research found **29 strictly qualifying recent public cases**, one below the requested 30; adjacent cases and undated reports are not counted toward that target. This convenience sample cannot establish insurer failure rates. See [coverage](research/contacts-coverage.md), [filing audit](data/filings.json), [Index methodology](research/nl48-methodology.md) and [combined user evidence](research/user-evidence-combined.json).
+
+## Keep or move a case
+
+1. Start or select a case on the hospital page. Cases remain in this browser; switching or deleting one does not remove the others. Attach reviewed deduction inputs from Mode B when wanted.
+2. Download a case backup to keep an offline copy. Import the file or paste its JSON if the file picker is unavailable; either route shows a preview before creating a new case or replacing a selected one. Backup JSON is plaintext; keep it private. Original uploaded documents and report-deletion codes are excluded.
+3. Choose **Create encrypted transfer** to move a case between devices. Share the full private link/QR, paste `CODE.KEY`, or enter the eight-character code and private key separately on the receiving device. Decryption opens the same restore preview. The browser encrypts before sending; D1 stores only ciphertext, a code hash, expiry and lookup count. The link uses `#transfer=CODE.KEY`; its private key is removed from the address bar before verification loads and is never sent to the API.
+4. Transfers expire after **7 days or 3 successful ciphertext retrievals**, whichever comes first; a retrieval still counts if the entered key is wrong. The third retrieval deletes the server copy. Envelopes are limited to **64 KiB**. Anyone holding the full link can decrypt it; a lost key cannot be recovered. Keep report-deletion codes separately using the **Privacy** page's saved-code picker and copy action.
+
+Invisible Turnstile loads only when requesting an optional report, AI explanation or transfer operation. These operations fail closed if verification is unavailable; local case work and offline backups remain usable. Report erasure does not require Turnstile.
 
 ## Run locally
 
@@ -43,7 +53,7 @@ npm run licenses         # reviewed AGPL compatibility + notice gate
 npm run licenses:release # approved snapshot gate: must pass
 ```
 
-The first command requires Python 3. Browser checks require Playwright's Chromium installation (`npx playwright install chromium`). The build contains **41 static pages**. Current milestone tests are recorded in QA; live acceptance, real-provider review, privacy erasure, screenshots and measured performance are recorded in the [QA report](qa/REPORT.md). The [deduction answer key](qa/deduction-answer-key.md) covers 15 synthetic fixtures; these do not measure real-claim accuracy.
+The first command requires Python 3. Browser checks require Playwright's Chromium installation (`npx playwright install chromium`). The build contains **41 static pages**. M11 is deployed as `0569ca56-1e68-41ed-a934-05968824f08e` (build `ac7e2571edd90ade`). Final **159 unit tests**, lint, type/data and reviewed license checks pass; mobile Lighthouse is **99/100/100/100**. Earlier local acceptance passed 44 browser tests with four production-only skips. The original production Playwright run recorded **45 passes and four Turnstile challenge failures out of 49**; actual native Safari verified AI, blank-city reporting/erasure and encrypted transfer through the real public service. The new paste-backup test passed separately, but host network loss interrupted the expanded 46-case nonblocked regression; its hosted-runner check is pending. See the [QA report](qa/REPORT.md) for native JPEG evidence and exact boundaries; native success is not described as a full automated-suite pass. The [deduction answer key](qa/deduction-answer-key.md) covers 16 synthetic fixtures; these do not measure real-claim accuracy.
 
 ## Where data goes
 
@@ -52,10 +62,13 @@ The first command requires Python 3. Browser checks require Playwright's Chromiu
 | Flow | Browser | Server or external service |
 |---|---|---|
 | Hospital clock and timeline | Browser storage; user-controlled copy, share, email and print/export | No timeline submission by default. A sharing action transfers content to the app the user chooses. |
+| Cases and backups | Separate local cases; validated JSON import with preview; plaintext file export | No automatic synchronization. Deletion receipts remain in a separate local registry and are never included in backups or transfers. |
+| Optional device transfer | AES-256-GCM encryption/decryption; private key stays with the visitor | Ciphertext-only storage, seven-day expiry, at most three retrievals; hourly expired-row cleanup. |
 | Settlement letter, bill and policy | PDF.js/Tesseract read files locally; extracted text stays on the current page for correction. Manual entry always works. | No document upload endpoint. OCR is English only; images/PDFs are limited to 20 MB and 20 pages per file. |
 | Deduction classification | Deterministic rules and source citations run locally | AI cannot change a category, validity status or citation. |
 | Optional AI explanation | User reviews and edits the redacted text, then separately consents | At most 800 characters go through Hono to the explicitly configured provider. ClaimClock does not persist document text or log request bodies. Provider processing terms still apply. |
-| Optional patient report | Separate purpose notice, unchecked consent, field preview and erasure token | D1 stores insurer/TPA, city, request type, timestamps, outcome and consent version. No name, hospital, policy number, IP or user agent is stored by the application. |
+| Optional patient report | Separate purpose notice, unchecked consent, field preview and a separate erasure receipt for each report | D1 stores insurer/TPA, optional city, request type, timestamps, outcome and consent version. No name, hospital, policy number, IP or user agent is stored by the application. |
+| Optional-operation verification | Cloudflare's invisible Turnstile widget loads on request | Worker verifies the one-use token, exact hostname and action before allocating service quota. No IP is forwarded to Siteverify by the application. |
 | Optional usage counts | Separate choice; five fixed event names, batched counts | Daily aggregate counters, without a persistent analytics identifier. |
 
 Regex redaction is **best effort**, not guaranteed anonymity. Names, unusual identifiers, medical details and OCR errors can survive. The exact outbound preview is mandatory. Removing local storage does not erase downloaded files, clipboard content or an already shared message. Cloudflare and an enabled AI provider necessarily process network metadata.
@@ -83,11 +96,11 @@ Checked against Cloudflare's official documentation on 10 October 2026; shared-a
 | D1 reads/writes | [5 million rows read/day; 100,000 rows written/day](https://developers.cloudflare.com/d1/platform/pricing/) |
 | D1 storage | [500 MB per database](https://developers.cloudflare.com/d1/platform/limits/); [5 GB total per account](https://developers.cloudflare.com/d1/platform/pricing/) |
 
-Lower global limits in [worker/security.ts](worker/security.ts) are: AI **100/day, 3/minute**; reports **100/day, 5/minute**; event batches **200/day, 10/minute**; aggregate reads **500/day, 30/minute**; erasure **100/day, 10/minute**. AI output is capped at 600 completion tokens and 1600 returned characters with a ten-second timeout. API JSON bodies are capped at 4 KiB. A shared limit can be exhausted by one user; optional services then fail closed while static/local features continue. These budgets do not guarantee an account-wide ₹0 bill on a paid account. Stay on verified free plans; no card, purchased credits, paid fallback or automatic upgrade.
+Lower global limits in [worker/security.ts](worker/security.ts) are: AI **100/day, 3/minute**; reports **100/day, 5/minute**; event batches **200/day, 10/minute**; aggregate reads **500/day, 30/minute**; erasure **100/day, 10/minute**; transfer creation **100/day, 3/minute**; transfer lookup **500/day, 10/minute**. AI output is capped at 600 completion tokens and 1600 returned characters with a ten-second timeout. API JSON bodies are capped at 4 KiB, except encrypted-transfer creation at 90 KiB with a 64 KiB decoded envelope limit. A shared limit can be exhausted by one user; optional services then fail closed while static/local features continue. These budgets do not guarantee an account-wide ₹0 bill on a paid account. Stay on verified free plans; no card, purchased credits, paid fallback or automatic upgrade.
 
 ## Provision and deploy
 
-Use the **personal** Cloudflare account and this personal repository. Never use workplace credentials. Keep secrets in ignored `.env` or Worker/GitHub secret storage; never commit them, print them in logs or paste them into chat. `.env.example` lists the configuration names. Creating `.env` does not itself provision Cloudflare or publish Worker secrets.
+Use the **personal** Cloudflare account and this personal repository. Never use workplace credentials. Keep secrets in ignored `.env`/`.dev.vars` or Worker/GitHub secret storage; never commit them, print them in logs or paste them into chat. [.env.example](.env.example) and [.dev.vars.example](.dev.vars.example) list configuration names without credentials. Creating these local files does not itself provision Cloudflare or publish Worker secrets.
 
 1. Keep the dependency snapshot within its reviewed compatibility record and run release QA. Make `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` available in the local shell through trusted secret tooling. Restrict the token to this personal deployment and required D1 access. Run `npm run check`, `npm test`, `npm run build` and `npm run licenses:release`; deployment must stop if any release gate fails. `npm run licenses` uses the same passing compatibility gate.
 2. D1 is already provisioned and bound in [wrangler.jsonc](wrangler.jsonc) for this deployment; do not create it again. For a new personal environment, create D1 once using the [official bootstrap flow](https://developers.cloudflare.com/d1/get-started/):
@@ -113,15 +126,16 @@ Use the **personal** Cloudflare account and this personal repository. Never use 
    npx wrangler d1 migrations apply claimclock --remote
    ```
 
-   D1 is optional for static functionality. Publish a working privacy contact and review [operations](docs/privacy-operations.md) before enabling collection. Daily Workers Cron runs [aggregate.sql](worker/aggregate.sql); monitor failures. The GitHub fallback runs the same SQL without a public admin endpoint.
+   D1 is optional for static functionality. Apply all pending migrations, including `0002` for optional city and `0003` for encrypted transfers. Publish a working privacy contact and review [operations](docs/privacy-operations.md) before enabling collection. Daily Workers Cron runs [aggregate.sql](worker/aggregate.sql); hourly cron purges expired transfers without publishing aggregates. Monitor failures. The GitHub fallback runs the daily SQL without a public admin endpoint.
 3. AI is optional and disabled unless `DB` and **all four** settings exist: `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY`, **`LLM_FREE_TIER_CONFIRMED=true`**. Store the first three as Worker secrets through the Cloudflare dashboard or interactive `npx wrangler secret put NAME`. Set the confirmation flag only after verifying a free account and model; a provider hostname does not prove free billing. Supported bases are Groq `https://api.groq.com/openai/v1`, Cerebras `https://api.cerebras.ai/v1` and OpenRouter `https://openrouter.ai/api/v1`. OpenRouter requires a `:free` model. Swap providers through these settings and recheck terms/limits; there is no automatic provider/model fallback. Show the configured provider and redacted preview before consent. Provider changes require rerunning the live QA recorded in qa/REPORT.md.
-4. Once prerequisites pass, one command builds and deploys the static app and Worker:
+4. Configure an **invisible Turnstile widget** for the live hostname and set `TURNSTILE_SECRET_KEY` and `TURNSTILE_SITE_KEY` in the Worker. `TURNSTILE_HOSTNAME` defaults to `claimclock.ketan952.workers.dev`; local overrides must be explicit. `/api/config` publishes only the public site key and enabled flag for this integration. Report/AI/transfer requests require successful verification; credentials never belong in frontend code. There is no production bypass. Local tests use mocks; live checks use the real widget.
+5. Once prerequisites pass, one command builds and deploys the static app and Worker:
 
    ```sh
    npx wrangler deploy
    ```
 
-The personal deployment and remote D1 migrations have completed at [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/). Live smoke tests and the remaining optional-provider limitation are recorded in the [QA report](qa/REPORT.md). Repeat relevant checks after a deployment change.
+The personal deployment and remote D1 migrations have completed at [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/). Live success evidence and the automated Turnstile challenge limitation are recorded in the [QA report](qa/REPORT.md). Repeat relevant checks after a deployment change.
 
 ## CI and resuming work
 

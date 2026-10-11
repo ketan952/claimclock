@@ -7,5 +7,5 @@ export const reportFieldLabels={report:'optin.summary',insurer:'label.insurer',t
 export type ReportField=keyof typeof reportFieldLabels;
 export function reportFailure(status:number|null,body:unknown):{key:string;field?:ReportField}{
  if(status===400){const field=body&&typeof body==='object'&&'field' in body?body.field:null;return {key:'optin.invalid',field:typeof field==='string'&&Object.hasOwn(reportFieldLabels,field)?field as ReportField:'report'};}
- return {key:status===429?'optin.busy':'optin.failed'};
+ return {key:status===403?'optin.verification':status===429?'optin.busy':'optin.failed'};
 }

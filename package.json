@@ -28,6 +28,7 @@
     "drizzle-orm": "^0.45.4",
     "hono": "^4.13.13",
     "pdfjs-dist": "^6.4.299",
+    "qrcode-generator": "2.0.4",
     "tesseract.js": "^7.0.0"
   },
   "devDependencies": {

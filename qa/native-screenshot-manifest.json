@@ -1,0 +1,30 @@
+{
+  "capture": "Native Safari screenshots emitted by computer-use tool; saved from this task tool-result images without alteration",
+  "files": [
+    {
+      "file": "qa/screenshots/blank-city-safari-payload.jpg",
+      "bytes": 413900,
+      "sha256": "4b50f5c74ffa8e15d816c8cb8c9fcb54c205b0a1d54c56860fdeadc57f4ef4bb"
+    },
+    {
+      "file": "qa/screenshots/transfer-safari-round-trip.jpg",
+      "bytes": 432163,
+      "sha256": "5ca4ca0dbda88d759ae4d9971f282da04bba7e31c34894ba77e156af2c812d04"
+    },
+    {
+      "file": "qa/screenshots/transfer-safari-preview.jpg",
+      "bytes": 343448,
+      "sha256": "c7bf23dd978c2821d83929de6ec1408620bbf59aa0b584a8f9c38dcd6b0fc624"
+    },
+    {
+      "file": "qa/screenshots/blank-city-safari-erased.jpg",
+      "bytes": 411187,
+      "sha256": "0c14e1cd7cdee31e5d3938d991d76cf1ccbc885516297b2f72a025d4f7cf72e9"
+    },
+    {
+      "file": "qa/screenshots/safari-ai-explanation.jpg",
+      "bytes": 507109,
+      "sha256": "862889de4875c9fad58ddc1952429dfcb53f51a80302dc546bf5699959bfe488"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-10T18:52:17.912594+00:00",
+  "base_url": "https://claimclock.ketan952.workers.dev/",
+  "browser": "Native Safari via accessibility UI",
+  "build_id": "22de957d113657b8",
+  "synthetic_only": true,
+  "insurer": "prudential-hcl",
+  "request_type": "preauth",
+  "submitted_at": "2025-11-01T18:48:00.000Z",
+  "decided_at": "2025-11-01T19:18:00.000Z",
+  "city": null,
+  "exact_payload_preview_checked": true,
+  "real_turnstile": true,
+  "ui_report_received": true,
+  "privacy_receipt_restored": true,
+  "privacy_erased": true,
+  "receipt_removed_after_erasure": true,
+  "http_status_observed": false,
+  "cohort_already_suppressed": true,
+  "screenshots": [
+    "qa/screenshots/blank-city-safari-payload.jpg",
+    "qa/screenshots/blank-city-safari-erased.jpg"
+  ],
+  "screenshot_scope": "Payload image shows city null; received status was observed in the native accessibility UI below the captured viewport. Erasure confirmation is visible in the second screenshot. M10 blank-city-report-sent.png is the separate historical accepted-status capture."
+}

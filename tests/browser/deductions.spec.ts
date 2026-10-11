@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
+import {installMockTurnstile,mockTurnstileConfig} from './turnstile-helper';
 const fixtures=JSON.parse(readFileSync('tests/fixtures/settlements.json','utf8')).fixtures;
 function textPdf(lines:string[]){
  const esc=(s:string)=>s.replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
@@ -8,10 +9,11 @@ function textPdf(lines:string[]){
  let out='%PDF-1.4\n';const offsets=[0];for(let i=0;i<objects.length;i++){offsets.push(Buffer.byteLength(out));out+=`${i+1} 0 obj\n${objects[i]}\nendobj\n`;}const xref=Buffer.byteLength(out);out+=`xref\n0 6\n0000000000 65535 f \n${offsets.slice(1).map(n=>String(n).padStart(10,'0')+' 00000 n ').join('\n')}\ntrailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;return Buffer.from(out);
 }
 test('sixteen synthetic settlements produce reviewed local classifications and letters without AI',async({page,context})=>{
+ await installMockTurnstile(page,{mockConfig:false});
  // Context routes cover the installed worker's NetworkOnly fetch as well as page fetches.
  let configMockHits=0,explanationMockHits=0;
- await context.route('**/api/config',route=>{configMockHits++;return route.fulfill({json:{ai_enabled:false,provider:null,model:null}});});
- await context.route('**/api/explain',route=>{explanationMockHits++;return route.fulfill({status:503,json:{error:'AI unavailable'}});});
+ await context.route('**/api/config',route=>{configMockHits++;return route.fulfill({json:{ai_enabled:false,provider:null,model:null,...mockTurnstileConfig}});});
+ await context.route('**/api/explain',route=>{expect(route.request().headers()['x-turnstile-token']).toContain('mock-turnstile-explain-');explanationMockHits++;return route.fulfill({status:503,json:{error:'AI unavailable'}});});
  const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&new URL(r.url()).origin!==new URL(process.env.QA_BASE_URL||'http://127.0.0.1:4322').origin)external.push(r.url());});
  for(const fixture of fixtures){
   await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');

@@ -1,7 +1,7 @@
 {
   "reviewed_on": "2026-10-10",
   "policy": "user-requested-AGPL-compatible-dependency-review",
-  "package_lock_sha256": "b591fe7a83e6af5e04508695f0f3cf85fc6d3157cbabc1269d48c1fa7a3faf1f",
+  "package_lock_sha256": "e73f507143297ac7a4d0e1133fb7a3b1e283b73dfa92e6583d2bea121e69fae8",
   "assessment": "docs/licenses.md",
   "license_expressions": [
     "0BSD",
@@ -16,7 +16,7 @@
     "LGPL-3.0-or-later",
     "MPL-2.0"
   ],
-  "runtime_notices_manifest_sha256": "545528240b291bccb2ffd567e9f2e372c2b7e2bfd7642c93b4f403564961b49b",
+  "runtime_notices_manifest_sha256": "3aa8739793fd9674e5428a88c807b36d3b2bf46024ebdc1d05c37659f2b311d3",
   "scope": "Locked package graph plus identified embedded runtime notices; native tool binaries are not deployed. Compatibility preserves upstream licenses.",
   "native_tool_review": {
     "package": "@img/sharp-libvips-darwin-arm64@1.3.4",
@@ -28,5 +28,14 @@
       "AOM Patent License 1.0"
     ],
     "boundary": "Separate local build tool; native libraries are not shipped as application code."
+  },
+  "qr_review": {
+    "package": "qrcode-generator@2.0.4",
+    "license": "MIT",
+    "reviewed_on": "2026-10-10",
+    "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
+    "npm_integrity": "sha512-mZSiP6RnbHl4xL2Ap5HfkjLnmxfKcPWpWe/c+5XxCuetEenqmNFf1FH/ftXPCtFG5/TDobjsjz6sSNL0Sr8Z9g==",
+    "runtime_dependencies": 0,
+    "use": "Local QR rendering in the browser; no external QR service or network call."
   }
 }

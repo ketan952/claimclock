@@ -1,0 +1,19 @@
+# Copy to ignored .dev.vars for personal local development. Never commit real
+# secrets, paste them into chat, or reuse workplace credentials.
+# Both Turnstile values are mandatory for reports, explain and transfer APIs.
+# Use an invisible widget; its site key is public, its secret stays server-side.
+TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
+# Trust this exact verification hostname, never an incoming request Host.
+# For an operator-configured local widget, explicitly change this hostname.
+TURNSTILE_HOSTNAME=claimclock.ketan952.workers.dev
+
+# Optional AI; no request succeeds until provider + DB + Turnstile are ready.
+LLM_BASE_URL=https://api.groq.com/openai/v1
+LLM_API_KEY=
+LLM_MODEL=openai/gpt-oss-120b
+# Set true only after confirming the account/model is free with no paid fallback.
+LLM_FREE_TIER_CONFIRMED=false
+
+# DB and ASSETS bindings belong in wrangler.jsonc, not credentials in this file.
+# Unit/browser mocks are test-only; there is no Worker verification bypass flag.

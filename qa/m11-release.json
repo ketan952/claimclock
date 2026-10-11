@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-11T15:31:08.113597+00:00",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "deployment_version": "0569ca56-1e68-41ed-a934-05968824f08e",
+  "build_id": "ac7e2571edd90ade",
+  "migrations": [
+    "0003_encrypted_transfers.sql"
+  ],
+  "validation": {
+    "unit_passed": 159,
+    "lint": "pass",
+    "type_data_checks": "pass",
+    "license_gate": "pass",
+    "static_html_csp_pages": 42,
+    "full_production_playwright_before_paste": {
+      "passed": 45,
+      "failed": 4,
+      "total": 49,
+      "failure": "Turnstile rejected automated positive flows with 600010; headed and headless",
+      "log": ".cache/m11-production-final.log"
+    },
+    "final_public_regression": {
+      "status": "awaiting hosted runner; local network/suspend interruptions are not application passes",
+      "expected_cases": 46,
+      "omitted_positive_flows": 4
+    },
+    "native_production_success": [
+      "blank-city report accepted and erased",
+      "AI explanation",
+      "encrypted transfer between separate native Safari contexts with 3 lookups and D1 deletion"
+    ],
+    "lighthouse_scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "installed_worker_second_navigation": "pass",
+    "installed_worker_update_toast": "pass"
+  },
+  "evidence": [
+    "qa/blank-city-safari.json",
+    "qa/transfer-safari-round-trip.json",
+    "qa/turnstile-safari-explain.json",
+    "qa/turnstile-failures.json",
+    "qa/turnstile-automation-limitation.json",
+    "qa/m11-worker-update.json",
+    "qa/lighthouse-m11.json",
+    "qa/native-screenshot-manifest.json"
+  ],
+  "upstream_source_limitation": "Installed-worker app 302 succeeds; IRDAI currently returns 504. Historical successful M10 PDF screenshot retained explicitly.",
+  "privacy": "No login, documents browser-only, ciphertext-only transfer with key in client fragment, 7-day expiry, 3 successful retrieval limit. Real production verifier remains strict."
+}

@@ -13,4 +13,7 @@ export interface Bindings {
   LLM_API_KEY?: string;
   LLM_MODEL?: string;
   LLM_FREE_TIER_CONFIRMED?: string;
+  TURNSTILE_SECRET_KEY?: string;
+  TURNSTILE_SITE_KEY?: string;
+  TURNSTILE_HOSTNAME?: string;
 }

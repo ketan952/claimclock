@@ -21,10 +21,10 @@ export function record(value: unknown): value is Record<string, unknown> {
 export function exactKeys(value: Record<string, unknown>, keys: string[]): boolean {
   return Object.keys(value).every(k => keys.includes(k));
 }
-export async function readJson(request: Request): Promise<Record<string, unknown>> {
+export async function readJson(request: Request, limit = BODY_LIMIT): Promise<Record<string, unknown>> {
   if (!/^application\/json(?:\s*;\s*charset=utf-8)?$/i.test(request.headers.get('content-type') ?? '')) throw new InputError(415);
   const declared = request.headers.get('content-length');
-  if (declared && (!/^\d+$/.test(declared) || Number(declared) > BODY_LIMIT)) throw new InputError(413);
+  if (declared && (!/^\d+$/.test(declared) || Number(declared) > limit)) throw new InputError(413);
   const reader = request.body?.getReader();
   if (!reader) throw new InputError();
   let size = 0;
@@ -33,7 +33,7 @@ export async function readJson(request: Request): Promise<Record<string, unknown
     const part = await reader.read();
     if (part.done) break;
     size += part.value.byteLength;
-    if (size > BODY_LIMIT) { await reader.cancel(); throw new InputError(413); }
+    if (size > limit) { await reader.cancel(); throw new InputError(413); }
     chunks.push(part.value);
   }
   const body = new Uint8Array(size);
@@ -86,7 +86,7 @@ export async function sha256(value: string): Promise<string> {
 export function eraseToken(): string {
   return [...crypto.getRandomValues(new Uint8Array(32))].map(b => b.toString(16).padStart(2, '0')).join('');
 }
-const budgets = { explain: [100, 3], reports: [100, 5], events: [200, 10], aggregates: [500, 30], erase: [100, 10] } as const;
+const budgets = { explain: [100, 3], reports: [100, 5], events: [200, 10], aggregates: [500, 30], erase: [100, 10], transfer_create: [100, 3], transfer_lookup: [500, 10] } as const;
 export async function quota(db: Database, action: keyof typeof budgets, now = Date.now()): Promise<boolean> {
   const day = new Date(now).toISOString().slice(0, 10), minute = Math.floor(now / 60000);
   const expiry = Math.floor(now / 1000) + 86400;

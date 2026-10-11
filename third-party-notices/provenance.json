@@ -205,6 +205,14 @@
       "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/compiler-rt/LICENSE.TXT",
       "file": "ocr/emscripten/system/lib/compiler-rt/LICENSE.TXT",
       "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+    },
+    {
+      "component": "qrcode-generator",
+      "version": "2.0.4",
+      "revision": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+      "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
+      "file": "qrcode-generator/LICENSE",
+      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
     }
   ],
   "emscripten_evidence": "https://github.com/naptha/tesseract.js-core/blob/v7.0.0/build-with-docker.sh"

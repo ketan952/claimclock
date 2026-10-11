@@ -6,7 +6,7 @@ import rows from '../../data/nl48.json' with {type:'json'};
 import en from '../../src/i18n/en.json' with {type:'json'};
 import hi from '../../src/i18n/hi.json' with {type:'json'};
 const normalize=(s:string)=>s.replace(/[“”"↗]/g,'').replace(/\s+/g,' ').trim();
-const properNames=[...contacts.map(c=>c.name),...rows.map(r=>r.tpa).filter(s=>!/^In-house|^Combined |^Consolidated /.test(s)),'ClaimClock','Ketan Gautam','Bima Bharosa','e-Jagriti','WhatsApp','Cloudflare Worker','Cloudflare D1','Cloudflare','AGPL-3.0','Product Management Committee','Claims Review Committee','Medi Assist','MDIndia','Paramount','Health360','Genins','LINK-K','FHPL','Heritage','Health Insurance TPA of India','Park','Volo','Vidal','Reliance General','JavaScript','Azure','ackoassets.com'];
+const properNames=[...contacts.map(c=>c.name),...rows.map(r=>r.tpa).filter(s=>!/^In-house|^Combined |^Consolidated /.test(s)),'ClaimClock','Ketan Gautam','Bima Bharosa','e-Jagriti','WhatsApp','Cloudflare Worker','Cloudflare D1','Cloudflare','Turnstile','AGPL-3.0','Product Management Committee','Claims Review Committee','Medi Assist','MDIndia','Paramount','Health360','Genins','LINK-K','FHPL','Heritage','Health Insurance TPA of India','Park','Volo','Vidal','Reliance General','JavaScript','Azure','ackoassets.com'];
 const sourceTexts=new Set(rules.flatMap(r=>[r.quote,r.paragraph]).map(normalize));
 const remainingEnglish=(text:string)=>{
  if(sourceTexts.has(normalize(text)))return '';

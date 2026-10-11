@@ -1,6 +1,6 @@
 # Resume ClaimClock
 
-Updated: 2026-10-10. Repository: `ketan952/claimclock`, branch `main`.
+Updated: 2026-10-11. Repository: `ketan952/claimclock`, branch `main`.
 
 ## Account guard
 
@@ -8,11 +8,11 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## Live release
 
-[ClaimClock](https://claimclock.ketan952.workers.dev/) is deployed to the personal Cloudflare account with D1 and a daily `17 2 * * *` cron. Mode A and the Index shipped and passed live acceptance before the thin Mode C was built. [Deployment record](qa/DEPLOYMENT.md).
+[ClaimClock](https://claimclock.ketan952.workers.dev/) is deployed to the personal Cloudflare account with D1, a daily `17 2 * * *` aggregation/retention cron and an hourly `43 * * * *` expired-transfer cleanup cron. Mode A and the Index shipped and passed live acceptance before the thin Mode C was built. [Deployment record](qa/DEPLOYMENT.md).
 
 ## Milestones
 
-M0–M6 describe earlier snapshots; the current M10 state appears below.
+M0–M6 describe earlier snapshots; the current M11 state appears below.
 
 - M0: committed/pushed as 071be2b. Design preceded application code.
 - M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Combined research has 29 strictly qualifying recent cases out of 50 retained records, one below requested 30; amendments and original passes remain auditable.
@@ -69,4 +69,20 @@ NetworkFirst navigation now preserves real source redirects, query pages and 404
 
 The three flagged Index ranges were reverified against 144 PDF cells and retained unchanged with named channels and review labels. All 456 complete rows pass totals; 14 remain incomplete. Seventy-six extreme-row flags include seven reverified and 69 pending targeted checks. [Sources](research/nl48-qa.md).
 
-Next: implement M11 only after this deployed/live-tested milestone: validated backup preview/restore, browser-encrypted seven-day transfer, local multi-case/deduction attachments, invisible Turnstile verification. No login, no paid services, documents stay in the browser. Personal Cloudflare credentials are configured; Turnstile widget API access is verified. Never ask for credentials or repeat settled license approval.
+M10 is committed/pushed as `931487a`; GitHub Check and Deploy passed. M11 followed that deployed/live-tested milestone.
+
+## M11 handoff
+
+Local multi-case storage, attached deduction inputs, validated backup preview/restore, browser-encrypted transfer and mandatory invisible Turnstile are implemented and live. Up to 50 cases remain independent; deletion receipts are stored separately and excluded from backups/transfers. Receipt handling preserves older reports, removes only the matching erased receipt and reports failed storage honestly. Legacy correction, consent-wait, case-switch and attachment regressions are resolved. JSON paste restore supplements the file picker after native Safari blocked file selection during QA.
+
+Migration `0003_encrypted_transfers.sql` is applied remotely. Transfers use browser AES-GCM and private `CODE.KEY` links/QR, with the key removed from the URL fragment before verification loads. D1 retains only ciphertext, code hash, expiry and count; seven-day expiry and three retrievals are enforced even between hourly cleanup runs. The third lookup atomically deletes the row. The separate erasure endpoint remains challenge-free.
+
+The free invisible production widget is provisioned for the exact public hostname, with pre-clearance disabled. The async Turnstile ready-callback race is fixed. All four protected actions verify the real token, exact hostname and action before consuming quota. Do not add a bypass, relax verification or install public test keys. The temporary QA database was verified empty and deleted; no QA Worker remains. Credentials and settled licensing need no further user input.
+
+**Final deployed version `0569ca56-1e68-41ed-a934-05968824f08e`, build `ac7e2571edd90ade`.** Final 159 unit tests, lint, type/data and reviewed license checks pass. Earlier local acceptance had 44 browser passes and four production-only skips. Preserve the original full public run: **45 passes and four Turnstile challenge failures out of 49** (`600010`, also reproduced headed). The preceding nonblocked run on build `22de957d113657b8` passed all 45; the targeted paste-backup case passed locally and in the initial public check. It expands the full suite to 50, with 46 nonblocked cases. Final reruns suffered host sleep/network loss (`ENOTFOUND`, `ERR_INTERNET_DISCONNECTED` and timeouts), including one 30-pass/16-failure run. The clean 46-case run is assigned to the manual hosted `qa-live.yml` workflow. Do not describe native success as all Playwright tests passing.
+
+Actual production Safari evidence supplies the positive paths: [one real AI explanation](qa/turnstile-safari-explain.json); [blank-city report accepted then erased through Privacy](qa/blank-city-safari.json); and [normal-to-private encrypted transfer](qa/transfer-safari-round-trip.json), three retrievals and zero remaining matching D1 rows. These records retain the observed build IDs and do not claim HTTP interception. Eight real missing/invalid-token requests return 403. [Automation boundary](qa/turnstile-automation-limitation.json).
+
+An actual installed-worker update from `22de957d113657b8` to final `ac7e2571edd90ade` passed second navigation and the reload toast. Final public mobile Lighthouse scores are **99/100/100/100**, with 131 KiB initial transfer. Genuine native JPEG screenshots are saved with a [hash manifest](qa/native-screenshot-manifest.json); the blank-city image shows the null-city payload, while acceptance is recorded in JSON and erasure has its own screenshot. The [accepted-report screenshot](qa/screenshots/blank-city-report-sent.png) remains historical M10 evidence. Current app source navigation returns the correct 302, but IRDAI responds 504; [M10’s successful PDF screenshot](qa/screenshots/worker-source-m10-irdai.png) is also historical. See [QA report](qa/REPORT.md) for evidence boundaries and remaining research/device gaps.
+
+Finish handoff by recording the clean final public regression result; then commit/push M11 and verify CI. No further source change is required merely to work around automation detection. Launch posts remain unpublished drafts, and the current-live Bima description limit remains unverified.

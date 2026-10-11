@@ -21,4 +21,8 @@ export const events = sqliteTable('events', {
 export const quotas = sqliteTable('quotas', {
   key: text('key').primaryKey(), count: integer('count').notNull(), expiresAt: integer('expires_at').notNull(),
 }, (t) => [index('quotas_expiry').on(t.expiresAt)]);
+export const transfers = sqliteTable('transfers', {
+  codeHash: text('code_hash').primaryKey(), ciphertext: text('ciphertext').notNull(),
+  expiresAt: integer('expires_at').notNull(), attempts: integer('attempts').notNull().default(0),
+}, (t) => [index('transfers_expiry').on(t.expiresAt)]);
 // CHECK constraints and transactional erasure trigger are maintained in migrations/*.sql.

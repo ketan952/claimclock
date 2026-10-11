@@ -1,5 +1,6 @@
 -- SQL-side maintenance, identical for Workers Cron and the Actions fallback.
 -- Separate statements deliberately invalidate before inserting snapshots.
+DELETE FROM transfers WHERE expires_at <= unixepoch();
 DELETE FROM reports WHERE created_at < strftime('%Y-%m-%dT%H:%M:%fZ','now','-365 days');
 DELETE FROM events WHERE day < date('now','-90 days');
 DELETE FROM quotas WHERE expires_at <= unixepoch();

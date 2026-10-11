@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-10T18:47:20.116790+00:00",
+  "url": "https://claimclock.ketan952.workers.dev/deductions/",
+  "browser": "Native Safari via accessibility UI; no automation browser flags, no mocked widget/API",
+  "build_id": "32a97743b89e1e93",
+  "synthetic_input": "Unexplained adjustment | 3250",
+  "exact_preview": "Unexplained adjustment: \u20b93250; unexplained",
+  "provider": "api.groq.com",
+  "model": "openai/gpt-oss-120b",
+  "consent_checked": true,
+  "ui_success_status": "AI explanation only. Check it against your policy; the rule-based review above is unchanged.",
+  "explanation": "A deduction of \u20b93,250 was listed as an \u201cunexplained adjustment.\u201d The insurer\u2019s stated reason is simply \u201cunexplained.\u201d No further amount, policy clause, or additional detail is provided.",
+  "http_status_observed": false,
+  "evidence_boundary": "Successful production UI output; native accessibility flow did not intercept network traffic. Real Worker requires exact hostname/action Siteverify.",
+  "screenshot": "qa/screenshots/safari-ai-explanation.jpg"
+}

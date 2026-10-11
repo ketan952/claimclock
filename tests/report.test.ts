@@ -14,6 +14,7 @@ test('report failures separate rejected fields, service quota and network/server
  assert.deepEqual(reportFailure(400,{field:'city'}),{key:'optin.invalid',field:'city'});
  assert.deepEqual(reportFailure(400,{field:'<script>private</script>'}),{key:'optin.invalid',field:'report'});
  assert.deepEqual(reportFailure(400,null),{key:'optin.invalid',field:'report'});
+ assert.deepEqual(reportFailure(403,{error:'Untrusted verification detail'}),{key:'optin.verification'});
  assert.deepEqual(reportFailure(429,{error:'Private provider detail'}),{key:'optin.busy'});
  for(const status of [500,503,null])assert.deepEqual(reportFailure(status,{error:'Sensitive backend detail'}),{key:'optin.failed'});
 });

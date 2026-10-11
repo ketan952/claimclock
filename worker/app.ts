@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import type { Bindings } from './types.ts';
 import { InputError, readJson, sameOrigin, validateReport, sha256, eraseToken, quota, exactKeys, record, eventNames, insurerIds, provider, redact } from './security.ts';
+import { turnstileConfig, verifyTurnstile } from './turnstile.ts';
+import { TRANSFER_BODY_LIMIT, validateCiphertext, validateTransferCode, createTransfer, lookupTransfer } from './transfers.ts';
 
 type AppEnv = { Bindings: Bindings };
 export const app = new Hono<AppEnv>();
@@ -20,20 +22,40 @@ app.onError((error, c) => error instanceof InputError
 app.notFound(c => c.json({ error: 'Not found.' }, 404));
 
 app.get('/api/config', c => {
-  const config = provider(c.env);
+  const config = provider(c.env), turnstile = turnstileConfig(c.env);
   const enabled = Boolean(config && c.env.DB);
-  return c.json({ ai_enabled: enabled, provider: enabled ? new URL(config!.endpoint).hostname : null, model: enabled ? config!.model : null });
+  return c.json({ ai_enabled: enabled, provider: enabled ? new URL(config!.endpoint).hostname : null, model: enabled ? config!.model : null,
+    turnstile_enabled: Boolean(turnstile), turnstile_site_key: turnstile?.sitekey ?? null });
 });
 
 app.post('/api/reports', async c => {
   const report = validateReport(await readJson(c.req.raw));
   const db = c.env.DB;
   if (!db) return c.json({ error: 'Optional service is unavailable. Your local work is unchanged.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'reports');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Your local work is unchanged.' }, verification);
   if (!await quota(db, 'reports')) return c.json({ error: 'Optional service is busy. Try later.' }, 429);
   const id = crypto.randomUUID(), token = eraseToken();
   await db.prepare('INSERT INTO reports(id,erase_hash,insurer,tpa,city,request_type,submitted_at,decided_at,outcome,consent_version,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)')
     .bind(id, await sha256(token), report.insurer, report.tpa, report.city, report.request_type, report.submitted_at, report.decided_at, report.outcome, report.consent_version, new Date().toISOString()).run();
   return c.json({ id, erase_token: token }, 201);
+});
+app.post('/api/transfers', async c => {
+  const ciphertext = validateCiphertext(await readJson(c.req.raw, TRANSFER_BODY_LIMIT)), db = c.env.DB;
+  if (!db) return c.json({ error: 'Optional service is unavailable. Your local work is unchanged.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'transfer_create');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Your local work is unchanged.' }, verification);
+  if (!await quota(db, 'transfer_create')) return c.json({ error: 'Optional service is busy. Try later.' }, 429);
+  return c.json(await createTransfer(db, ciphertext), 201);
+});
+app.post('/api/transfers/lookup', async c => {
+  const code = validateTransferCode(await readJson(c.req.raw)), db = c.env.DB;
+  if (!db) return c.json({ error: 'Optional service is unavailable. Your local work is unchanged.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'transfer_lookup');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Your local work is unchanged.' }, verification);
+  if (!await quota(db, 'transfer_lookup')) return c.json({ error: 'Optional service is busy. Try later.' }, 429);
+  const transfer = await lookupTransfer(db, code);
+  return transfer ? c.json(transfer) : c.json({ error: 'Transfer not found or no longer available.' }, 404);
 });
 app.delete('/api/reports/:id', async c => {
   const body = await readJson(c.req.raw), id = c.req.param('id');
@@ -78,6 +100,8 @@ app.post('/api/explain', async c => {
   if (!exactKeys(body, ['lines', 'consent', 'language']) || body.consent !== true || typeof body.lines !== 'string' || body.lines.trim().length === 0 || body.lines.length > 800 || (body.language !== undefined && body.language !== 'en' && body.language !== 'hi')) throw new InputError();
   const config = provider(c.env), db = c.env.DB;
   if (!config || !db) return c.json({ error: 'AI explanation is unavailable. Use the deterministic guidance.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'explain');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Use the deterministic guidance.' }, verification);
   if (!await quota(db, 'explain')) return c.json({ error: 'AI explanation is busy. Use the deterministic guidance.' }, 429);
   const response = await fetch(config.endpoint, {
     method: 'POST', redirect: 'manual', signal: AbortSignal.timeout(10000),

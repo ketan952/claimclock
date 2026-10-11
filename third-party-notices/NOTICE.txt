@@ -53,3 +53,9 @@ claim that package metadata describes every embedded native component. The
 original strict allowlist assessment remains in research/license-assessment.md;
 the user-approved dependency snapshot exception is recorded separately in
 research/dependency-release-approval.json. Upstream obligations remain in force.
+
+Local transfer QR generation
+
+The browser bundle uses qrcode-generator 2.0.4 by Kazuhiko Arase under MIT.
+The complete copyright, permission and warranty notice is retained in
+qrcode-generator/LICENSE, with its source revision and SHA-256 in provenance.json.
