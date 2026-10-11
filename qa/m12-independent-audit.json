@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-11T16:18:49.275850+00:00",
+  "base_url": "http://127.0.0.1:4321",
+  "browser": "Playwright headless Chromium; touch/viewport emulation only",
+  "runtime_api_mocks": false,
+  "original_findings": [
+    "First open restored Zuno selection below visible result viewport",
+    "Opening optional TPA inherited insurer scroll, hiding selected empty option",
+    "Aborted picker module left native controls visible but prevented application initialization"
+  ],
+  "after_fixes": {
+    "viewport_sizes": [
+      [
+        320,
+        460
+      ],
+      [
+        667,
+        300
+      ]
+    ],
+    "tab_and_shift_tab_contained": true,
+    "escape_focus_return": true,
+    "hindi_care_alias": true,
+    "case_cancel_unchanged": true,
+    "restored_selected_visible": true,
+    "optional_tpa_selected_visible": true,
+    "blocked_module_native_clock_started": true,
+    "blocked_module_native_deduction_review": true
+  },
+  "source_sha256": {
+    "src/lib/select-picker.ts": "4cc8388e7ad5b53a85ede98292fc3959c41a144fae72a29011888ecba98dcf96",
+    "src/lib/hospital.ts": "fedad3c8265fea6b14cf44b51f808c9b7062a2e2e3da6de1dcca289d36eea63c",
+    "src/lib/deduction-ui.ts": "dc64db2d4a0c5aced919e00f39cd09f8ab41e70b900921cb17819431e232c679"
+  },
+  "limitations": [
+    "No physical phone/on-screen keyboard test",
+    "No VoiceOver or TalkBack audit",
+    "No production deployment audit"
+  ]
+}

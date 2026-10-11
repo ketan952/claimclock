@@ -1,3 +1,6 @@
+// Picker enhancement is optional; a failed picker chunk must not disable forms.
+const refreshPickers=()=>window.dispatchEvent(new Event('pickerrefresh'));
+const focusPicker=(field:HTMLElement)=>(field.parentElement?.querySelector<HTMLButtonElement>('[data-picker-trigger]')||field).focus();
 import {renderContacts,expandContactEscalations} from './contact-view';
 import contactsRaw from '../../data/contacts.json';
 import rulesRaw from '../../data/rules.json';
@@ -62,7 +65,7 @@ export function previewRestore(value:CaseBackup){
  const target=el<HTMLSelectElement>('restore-target');target.replaceChildren(new Option(t('backup.noTarget'),''));for(const backup of listCases())target.append(new Option(caseLabel(backup),backup.timeline.id));target.value='';el<HTMLButtonElement>('restore-replace').disabled=true;setMessage(el('restore-status'),null);if(!el<HTMLDialogElement>('restore-dialog').open)el<HTMLDialogElement>('restore-dialog').showModal();
 }
 function completeRestore(replace=false){if(!pendingBackup||!leaveUnsaved())return;const target=el<HTMLSelectElement>('restore-target').value;if(replace&&!target)return;if(!restoreCase(pendingBackup,replace?target:undefined)){setMessage(el('restore-status'),'error.storage');return;}pendingBackup=null;activateSavedCase();setMessage(el('case-status'),'backup.done');}
-function populateDetails(){if(timeline)for(const [key,value] of Object.entries({insurer:timeline.insurerId,tpa:timeline.tpaId||'',hospital:timeline.hospital,city:timeline.city||'',requestType:timeline.requestType,submittedAt:localInputValue(new Date(timeline.submittedAt))}))input(start,key).value=value;}
+function populateDetails(){if(timeline)for(const [key,value] of Object.entries({insurer:timeline.insurerId,tpa:timeline.tpaId||'',hospital:timeline.hospital,city:timeline.city||'',requestType:timeline.requestType,submittedAt:localInputValue(new Date(timeline.submittedAt))}))input(start,key).value=value;refreshPickers();}
 function clearReportError(){reportErrorField=undefined;for(const node of document.querySelectorAll('[data-report-invalid]')){node.removeAttribute('aria-invalid');node.removeAttribute('aria-describedby');node.removeAttribute('data-report-invalid');}if(el('start-error').dataset.i18nMessage==='optin.invalid')setMessage(el('start-error'),null);if(reportStatusKey==='optin.invalid')reportStatusKey='';}
 function highlightReportField(focus=false){
  if(!reportErrorField)return;
@@ -74,7 +77,7 @@ function highlightReportField(focus=false){
  else if(field==='consent'||field==='adult'||field==='consent_version')target=input(form('optin-form'),'consent');
  else {target=form('optin-form');target.tabIndex=-1;}
  target.dataset.reportInvalid='true';target.setAttribute('aria-invalid','true');target.setAttribute('aria-describedby',description);
- if(focus){target.scrollIntoView({block:'center'});target.focus();}
+ if(focus){target.scrollIntoView({block:'center'});focusPicker(target);}
 }
 function updateClock(){
  if(!timeline)return;
@@ -163,5 +166,5 @@ el('backup-paste-preview').addEventListener('click',()=>{try{const backup=parseB
 el('restore-new').addEventListener('click',()=>completeRestore());el('restore-replace').addEventListener('click',()=>completeRestore(true));el('restore-cancel').addEventListener('click',()=>{pendingBackup=null;el<HTMLTextAreaElement>('backup-paste').value='';el<HTMLDialogElement>('restore-dialog').close();});el<HTMLSelectElement>('restore-target').addEventListener('change',()=>{el<HTMLButtonElement>('restore-replace').disabled=!el<HTMLSelectElement>('restore-target').value;});
 setupTransfer({getBackup:currentBackup,previewBackup:previewRestore});
 for(const id of ['case-select','case-new','case-raw-backup','backup-file','backup-paste','backup-paste-preview','restore-new','restore-cancel'])(el(id) as HTMLButtonElement).disabled=false;
-for(const selector of ['#start-form button[type=submit]','#event-form button','#finish-form button','#recovery-form button','#optin-form button'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
+for(const selector of ['#start-form button[type=submit]','#event-form button[type=submit]','#finish-form button[type=submit]','#recovery-form button[type=submit]','#optin-form button[type=submit]'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
 window.addEventListener('languagechange',()=>{render();if(pendingBackup&&el<HTMLDialogElement>('restore-dialog').open){const target=el<HTMLSelectElement>('restore-target').value;previewRestore(pendingBackup);el<HTMLSelectElement>('restore-target').value=target;el<HTMLButtonElement>('restore-replace').disabled=!target;}});setInterval(updateClock,1000);render();

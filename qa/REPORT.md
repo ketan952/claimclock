@@ -1,6 +1,27 @@
 # ClaimClock QA and release record
 
-**11 October 2026 — live at [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/).** Worker, static assets and D1 run in the personal account. M11 adds local cases, backup/restore, encrypted transfer and mandatory verification for optional submissions. Native Safari production success and automated challenge failures are reported separately below. Groq uses the explicitly authorized Free tier; original documents stay in the browser and no paid fallback exists. Earlier milestone results are historical. [Deployment details](DEPLOYMENT.md).
+**11 October 2026 — live at [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/).** Worker, static assets and D1 run in the personal account. M12 improves responsive forms and searchable selection while preserving the M11 local cases, backup/restore, encrypted transfer and verification safeguards. Native Safari production success and automated challenge failures are reported separately below. Groq uses the explicitly authorized Free tier; original documents stay in the browser and no paid fallback exists. Earlier milestone results are historical. [Deployment details](DEPLOYMENT.md).
+
+## M12 — responsive selection and reliable form interactions
+
+Deployed and tested build **`e1e509d30ac97912`**, manual Worker version `270a4084-c266-4dcf-b53f-668bf0a2d763`. **58/58 selected public Chromium regressions and 12/12 public WebKit UI scenarios pass**, with zero failures, skips or retries in those selected runs. Mobile Lighthouse is **100 performance / 100 accessibility / 100 best practices / 100 SEO**, 136 KiB initial transfer, 1.5 s LCP and zero layout shift. [Release record](m12-release.json), [scenario evidence](m12-browser.json), [Lighthouse](lighthouse-m12.json).
+
+| Before | Shipped behavior and evidence |
+|---|---|
+| Native long lists had no local search; editable fields inherited 14px text, and policy clauses inherited even smaller hint text. | Searchable insurer, optional TPA and local-case dialogs preserve the existing cream/green design. English and Hindi aliases filter locally. Fields use 16px text; selection rows are at least 52px. [Baseline](m12-baseline.json), [render measurements](m12-render.json). |
+| Long selected names were constrained by native single-line controls; narrow forms kept some fields side by side. | Names wrap, grids shrink safely, and form fields stack below 600px. Short-choice selects remain native. Checked at 320, 390, 768 and 1440px, plus 320×460 and 667×300. [Mobile form](screenshots/m12-mobile-form.png). |
+| A clause edit rebuilt deduction controls during blur, swallowing the following confirmation click. | Verdict, explanation and totals update in place. Text selection and the first checkbox click survive; keyboard toggles preserve focus. The existing policy-verdict and letter semantics pass. |
+| New picker audit initially exposed lost focus on language changes, Escape/search conflicts, cross-list scroll carryover and a hidden restored selection. | Explicit cancellation and modal Tab containment, IME handling, preserved focused results, current-selection scrolling and per-list scroll resets pass. Native forms still work if the picker module fails. [Independent audit](m12-independent-audit.json). |
+
+The pickers use actual native dialogs with buttons and DOM focus inside; they do not claim combobox/listbox semantics. Native selects retain form values, required validation and the no-script fallback. The original local storage, document privacy, no-account model and free-tier infrastructure are unchanged; no dependency was added. [Primary-source design research](../research/ui-interactions.md).
+
+Local acceptance: **57 browser passes and four production-only skips**, followed by the separately added scroll regression passing. Lint, type/data checks, **159 unit tests**, reviewed license gate and all **42 HTML CSP checks** pass. An initial plain Python static-server run lacked the Worker CSP header; rerunning against local Wrangler passed the form privacy test. The public checks use the real Worker response headers.
+
+The 58-case public selection excludes the same four Turnstile-positive automation flows documented under M11; it is **not a 62/62 full-suite result**. Real missing/invalid-token paths pass **8/8**. Existing fixture-based API checks remain fixture-based even when the page is hosted publicly. M11 native positive evidence is retained with its original build IDs. The new 12-case WebKit result uses iPhone emulation; physical phone keyboards and VoiceOver/TalkBack were not tested. Lighthouse accessibility is an automated score, not a certification. [Verification failure evidence](m12-turnstile-failures.json).
+
+The source short link still follows the correct 302 with the worker installed; IRDAI returned 504 in this run. Genuine online/query/404 and offline checks pass. [Navigation evidence](m12-worker-source-navigation.json).
+
+Actual public renders were visually inspected: [mobile picker](screenshots/m12-mobile-picker.png), [desktop picker](screenshots/m12-desktop-picker.png), [mobile form](screenshots/m12-mobile-form.png). Historical M11 screenshot files remain unchanged.
 
 ## M11 — local cases, private transfer and verified optional requests
 

@@ -1,12 +1,13 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect,type Page} from '@playwright/test';
 import {installMockTurnstile} from './turnstile-helper';
 test.use({trace:'off'});
 const casesKey='claimclock:cases:v1';
 const localDate=(date:Date)=>new Date(date.getTime()-date.getTimezoneOffset()*60000).toISOString().slice(0,16);
 async function completedTimeline(page:Page,city=''){
- await page.goto('/');await page.selectOption('#start-form [name=insurer]','hdfc-ergo');
+ await page.goto('/');await selectPicker(page,'#start-form [name=insurer]','hdfc-ergo');
  await page.fill('#start-form [name=city]',city);await page.fill('#start-form [name=submittedAt]',localDate(new Date(Date.now()-4*3600000)));
- await page.click('#start-form button');await page.fill('#finish-form [name=decidedAt]',localDate(new Date(Date.now()-60000)));await page.click('#finish-form button');
+ await page.click('#start-form button[type=submit]');await page.fill('#finish-form [name=decidedAt]',localDate(new Date(Date.now()-60000)));await page.click('#finish-form button');
  await page.check('#optin-form [name=consent]');
 }
 test('blank optional city is previewed and sent as null',async({page})=>{
@@ -23,7 +24,7 @@ test('400 names and highlights the rejected field; correcting it preserves the t
  await page.click('#optin-form button');await expect(page.locator('#optin-status')).toContainText('City');await expect(page.locator('#start-form [name=city]')).toHaveAttribute('aria-invalid','true');await expect(page.locator('#start-form [name=city]')).toBeFocused();
  expect(await page.evaluate(key=>localStorage.getItem(key),casesKey)).toBe(before);
  await page.fill('#start-form [name=city]','Delhi');await page.click('[data-language=hi]');await expect(page.locator('#start-error')).toContainText('शहर');await expect(page.locator('#optin-status')).toContainText('शहर');await expect(page.locator('#start-form [name=city]')).toHaveValue('Delhi');
- await page.fill('#start-form [name=city]','');await page.click('#start-form button');await expect(page.locator('#start-form [name=city]')).not.toHaveAttribute('aria-invalid','true');await expect(page.locator('#optin-section')).toBeVisible();
+ await page.fill('#start-form [name=city]','');await page.click('#start-form button[type=submit]');await expect(page.locator('#start-form [name=city]')).not.toHaveAttribute('aria-invalid','true');await expect(page.locator('#optin-section')).toBeVisible();
 });
 test('quota, server and network errors use distinct safe retry copy without deleting the timeline',async({page})=>{
  await installMockTurnstile(page);
@@ -33,7 +34,7 @@ test('quota, server and network errors use distinct safe retry copy without dele
  for(const code of [429,503,null]){status=code;await page.click('#optin-form button');await expect(page.locator('#optin-status')).toHaveText(code===429?'Busy. Try later. Your timeline is safe.':'Not sent. Your timeline is safe. Try later.');await expect(page.locator('#optin-form button')).toBeEnabled();expect(await page.evaluate(key=>localStorage.getItem(key),casesKey)).toBe(before);}
 });
 test('published escalation stages open on clock breach and respect a later manual collapse',async({page})=>{
- await page.clock.install();await page.goto('/');await page.selectOption('#start-form [name=insurer]','hdfc-ergo');await page.selectOption('#start-form [name=requestType]','preauth');await page.fill('#start-form [name=submittedAt]',localDate(new Date(Date.now()-59*60000)));await page.click('#start-form button');
+ await page.clock.install();await page.goto('/');await selectPicker(page,'#start-form [name=insurer]','hdfc-ergo');await page.selectOption('#start-form [name=requestType]','preauth');await page.fill('#start-form [name=submittedAt]',localDate(new Date(Date.now()-59*60000)));await page.click('#start-form button[type=submit]');
  const stages=page.locator('details[data-contact-escalation="hdfc-ergo"]');await expect(stages).not.toHaveAttribute('open','');await page.clock.fastForward(2*60000);await expect(stages).toHaveAttribute('open','');await expect(page.locator('.contact-baseline')).not.toHaveAttribute('open','');
  await page.click('[data-language=hi]');await expect(stages).toHaveAttribute('open','');await stages.locator('summary').click();await page.clock.fastForward(2000);await expect(stages).not.toHaveAttribute('open','');await page.click('[data-language=en]');await expect(stages).not.toHaveAttribute('open','');
 });

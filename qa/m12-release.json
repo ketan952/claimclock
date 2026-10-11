@@ -1,0 +1,42 @@
+{
+  "milestone": "M12",
+  "date": "2026-10-11",
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "tested_build": "e1e509d30ac97912",
+  "manual_worker_version": "270a4084-c266-4dcf-b53f-668bf0a2d763",
+  "identity": "ketan952/claimclock, personal account only",
+  "checks": {
+    "lint": "pass",
+    "type_and_data": "pass",
+    "unit_tests": 159,
+    "reviewed_license_gate": "pass; no dependency changes",
+    "static_csp_pages": 42,
+    "public_chromium_selected": 58,
+    "public_webkit_ui": 12,
+    "local_chromium": 57,
+    "local_production_only_skips": 4,
+    "local_added_scroll_regression": 1,
+    "mobile_lighthouse": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    }
+  },
+  "evidence": {
+    "browser": "m12-browser.json",
+    "independent_audit": "m12-independent-audit.json",
+    "before": "m12-baseline.json",
+    "renders": "m12-render.json",
+    "lighthouse": "lighthouse-m12.json",
+    "turnstile_negative": "m12-turnstile-failures.json",
+    "source_navigation": "m12-worker-source-navigation.json"
+  },
+  "boundaries": [
+    "Selected Chromium suite excludes the same four automated Turnstile success flows documented in M11; no verification bypass or key changes.",
+    "Public WebKit uses iPhone 13 emulation, not physical iOS. No VoiceOver/TalkBack or physical on-screen-keyboard certification.",
+    "IRDAI redirect remains correct; upstream responded 504 during the source navigation test.",
+    "Initial Python static-server run had 53 passes, 6 skips, and a missing-CSP-header failure; real local Wrangler rerun passed the security check.",
+    "WebKit tests respect native checkbox click-focus behavior and separately verify keyboard focus and the actual first-click state change."
+  ]
+}

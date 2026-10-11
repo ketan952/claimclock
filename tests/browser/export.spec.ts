@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
 
@@ -6,7 +7,7 @@ test('desktop clock, separate phone links and printable evidence export',async({
  await page.goto('/');
  await mkdir('qa/screenshots',{recursive:true});
  await page.screenshot({path:'qa/screenshots/desktop-home.png',fullPage:true});
- await page.selectOption('[name=insurer]','care');
+ await selectPicker(page,'[name=insurer]','care');
  await page.fill('[name=hospital]','Example Hospital');
  await page.fill('[name=city]','Pune');
  const past=new Date(Date.now()-100*60000);

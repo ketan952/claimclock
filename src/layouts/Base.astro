@@ -31,6 +31,7 @@ const card=Astro.url.pathname==='/index/'?'index':Astro.url.pathname.match(/^\/i
   <div id="print-root" aria-hidden="true"></div>
   <script>
     import {initI18n} from '../lib/i18n';
+    import '../lib/select-picker';
     initI18n();
     const offline=document.querySelector<HTMLElement>('#offline-status')!;
     const connectivity=()=>offline.hidden=navigator.onLine;

@@ -536,5 +536,15 @@
   "optin.unsavedReceipts": "Deletion codes not saved on this device",
   "optin.unsavedOtherCase": "A report from another case was submitted, but its deletion code could not be saved on this device. Copy this code before leaving or reloading the page. It is not included in case backups.",
   "backup.paste": "Or paste backup JSON",
-  "backup.previewPaste": "Preview pasted backup"
+  "backup.previewPaste": "Preview pasted backup",
+  "picker.search": "Search by name",
+  "picker.close": "Close selection",
+  "picker.clear": "Clear search",
+  "picker.count": "{count} options",
+  "picker.noResults": "No matching options",
+  "picker.tryAgain": "Try a shorter name or clear your search to browse all.",
+  "picker.private": "Search stays on this device.",
+  "picker.required": "Choose an option to continue.",
+  "picker.empty": "Choose an option",
+  "picker.one": "1 option"
 }

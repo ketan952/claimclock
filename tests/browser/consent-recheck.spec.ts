@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect,type Page} from '@playwright/test';
 import {mockTurnstileConfig} from './turnstile-helper';
 async function delayChallenge(page:Page){
@@ -21,7 +22,7 @@ test('report consent withdrawal during verification sends nothing and allows a r
 });
 test('AI rechecks consent, edited preview, deduction lines and language after delayed verification',async({page})=>{
  await delayChallenge(page);let posts=0;await page.context().route('**/api/explain',route=>{posts++;return route.fulfill({json:{explanation:'Synthetic explanation'}});});
- await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','care');await page.fill('#deduction-lines','Co-payment | 1500');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');await page.click('#prepare-ai');
+ await page.goto('/deductions/');await selectPicker(page,'#deduction-form [name=insurer]','care');await page.fill('#deduction-lines','Co-payment | 1500');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button[type=submit]');await page.click('#prepare-ai');
  for(const change of ['consent','preview','lines','language']){
   await page.check('#ai-form [name=consent]');await page.click('#ai-form button');await pending(page);
   if(change==='consent')await page.uncheck('#ai-form [name=consent]');

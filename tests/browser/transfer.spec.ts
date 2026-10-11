@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect,type BrowserContext,type Request,type Page} from '@playwright/test';
 import {writeFile} from 'node:fs/promises';
 test.use({trace:'off'});
@@ -70,9 +71,9 @@ test.setTimeout(60000);
  const context=await browser.newContext();try{
   await seed(context);const server=mockTransferServer();await server.attach(context);const page=await context.newPage();await page.goto(baseURL!);
   const first=await createLink(page);await page.click('#case-new');await expect(page.locator('#transfer-created')).not.toBeVisible();await expect(page.locator('#transfer-link')).toHaveValue('');await expect(page.locator('#transfer-generated-key')).toHaveValue('');
-  await page.selectOption('#case-select',sourceCase.timeline.id);
+  await selectPicker(page,'#case-select',sourceCase.timeline.id);
   let release!:()=>void;server.control.createGate=new Promise(resolve=>release=resolve);await page.click('#transfer-create');await expect.poll(()=>server.control.creates).toBe(2);await expect(page.locator('#transfer-create')).toBeDisabled();await page.click('#case-new');release();await expect(page.locator('#transfer-create')).toBeEnabled();await expect(page.locator('#transfer-created')).not.toBeVisible();await expect(page.locator('#transfer-status')).toContainText('selected case changed');
-  let releaseLookup!:()=>void;server.control.lookupGate=new Promise(resolve=>releaseLookup=resolve);await page.fill('#transfer-reference',first);await page.click('#transfer-receive');await expect.poll(()=>server.control.lookups).toBe(1);await page.selectOption('#case-select',sourceCase.timeline.id);releaseLookup();await expect(page.locator('#transfer-receive')).toBeEnabled();await expect(page.locator('#restore-dialog')).not.toBeVisible();await expect(page.locator('#transfer-status')).toContainText('selected case changed');
+  let releaseLookup!:()=>void;server.control.lookupGate=new Promise(resolve=>releaseLookup=resolve);await page.fill('#transfer-reference',first);await page.click('#transfer-receive');await expect.poll(()=>server.control.lookups).toBe(1);await selectPicker(page,'#case-select',sourceCase.timeline.id);releaseLookup();await expect(page.locator('#transfer-receive')).toBeEnabled();await expect(page.locator('#restore-dialog')).not.toBeVisible();await expect(page.locator('#transfer-status')).toContainText('selected case changed');
  }finally{await context.close();}
 });
 

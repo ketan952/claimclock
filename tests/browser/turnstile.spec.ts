@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {writeFile} from 'node:fs/promises';
 test.use({trace:'off'});
@@ -35,8 +36,8 @@ test('live protected APIs fail closed on missing and invalid Turnstile tokens',a
 test('live AI explanation verifies a real Turnstile action before one synthetic Free-tier request',async({page})=>{
  test.setTimeout(100000);
  test.skip(process.env.QA_LIVE_TURNSTILE!=='1','Requires explicit live verification and one synthetic free-provider request.');
- await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');
- await page.fill('#deduction-lines','Unexplained adjustment | 3250');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');
+ await page.goto('/deductions/');await selectPicker(page,'#deduction-form [name=insurer]','hdfc-ergo');
+ await page.fill('#deduction-lines','Unexplained adjustment | 3250');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button[type=submit]');
  await page.click('#prepare-ai');await expect(page.locator('#ai-provider')).toContainText('api.groq.com');
  const preview=await page.locator('#ai-preview').inputValue();await page.check('#ai-form [name=consent]');
  const pending=page.waitForResponse(response=>response.url().endsWith('/api/explain')&&response.request().method()==='POST',{timeout:85000});

@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-11T16:20:34.152Z",
+  "base_url": "https://claimclock.ketan952.workers.dev",
+  "mode": "live-public-no-mocks",
+  "results": [
+    {
+      "path": "/api/reports",
+      "token": "missing",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/reports",
+      "token": "invalid",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/explain",
+      "token": "missing",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/explain",
+      "token": "invalid",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/transfers",
+      "token": "missing",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/transfers",
+      "token": "invalid",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/transfers/lookup",
+      "token": "missing",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    },
+    {
+      "path": "/api/transfers/lookup",
+      "token": "invalid",
+      "status": 403,
+      "generic": true,
+      "cacheControl": "no-store"
+    }
+  ]
+}

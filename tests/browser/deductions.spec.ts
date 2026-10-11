@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {installMockTurnstile,mockTurnstileConfig} from './turnstile-helper';
@@ -16,8 +17,8 @@ test('sixteen synthetic settlements produce reviewed local classifications and l
  await context.route('**/api/explain',route=>{expect(route.request().headers()['x-turnstile-token']).toContain('mock-turnstile-explain-');explanationMockHits++;return route.fulfill({status:503,json:{error:'AI unavailable'}});});
  const external:string[]=[];page.on('request',r=>{if(r.url().startsWith('http')&&new URL(r.url()).origin!==new URL(process.env.QA_BASE_URL||'http://127.0.0.1:4322').origin)external.push(r.url());});
  for(const fixture of fixtures){
-  await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');
-  await page.fill('#deduction-lines',`${fixture.reviewed_deduction.description} | ${fixture.reviewed_deduction.amount}`);await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');
+  await page.goto('/deductions/');await selectPicker(page,'#deduction-form [name=insurer]','hdfc-ergo');
+  await page.fill('#deduction-lines',`${fixture.reviewed_deduction.description} | ${fixture.reviewed_deduction.amount}`);await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button[type=submit]');
   if(fixture.reviewed_deduction.policyClause){await page.fill('#deduction-cards input:not([type=checkbox])',fixture.reviewed_deduction.policyClause);await page.locator('#deduction-cards input:not([type=checkbox])').blur();await page.check('#deduction-cards [data-policy-arithmetic]');}
   if(fixture.reviewed_deduction.noApplicablePolicyClause)await page.check('#deduction-cards [data-policy-absent]');
   await expect(page.locator('#deduction-cards')).toContainText(new RegExp(fixture.expected.status,'i'));
@@ -38,8 +39,8 @@ test('English photo OCR uses only self-hosted assets',async({page})=>{
 });
 
 test('policy verdicts follow explicit confirmations, conserve totals and localize clarification letters',async({page})=>{
- await page.goto('/deductions/');await page.selectOption('#deduction-form [name=insurer]','hdfc-ergo');
- await page.fill('#deduction-lines','Co-payment 10% | 2500\nRoom rent cap difference | 6000\nCataract sub-limit | 4500');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button');
+ await page.goto('/deductions/');await selectPicker(page,'#deduction-form [name=insurer]','hdfc-ergo');
+ await page.fill('#deduction-lines','Co-payment 10% | 2500\nRoom rent cap difference | 6000\nCataract sub-limit | 4500');await page.check('#deduction-form [name=confirmed]');await page.click('#deduction-form button[type=submit]');
  const cards=page.locator('#deduction-cards article');
  await expect(page.locator('[data-verdict]')).toHaveCount(3);await expect(page.locator('[data-verdict="policy term — verify"]')).toContainText('₹13,000');
  for(let i=0;i<3;i++){
@@ -55,5 +56,5 @@ test('policy verdicts follow explicit confirmations, conserve totals and localiz
  await page.click('#reconsideration');await expect(page.locator('#letter-body')).toHaveValue(/Please confirm the percentage/);await expect(page.locator('#letter-body')).not.toHaveValue(/17\(b\)|reconsideration/i);await page.click('#letter-close');
  await page.locator('[data-language=hi]').click();await expect(page.locator('[data-verdict="policy term — verify"]')).toContainText('पॉलिसी की शर्त — पुष्टि करें');
  await page.click('#reconsideration');await expect(page.locator('#letter-body')).toHaveValue(/पुष्टि करें/);await expect(page.locator('#letter-body')).not.toHaveValue(/17\(b\)|पुनः समीक्षा/);await page.click('#letter-close');
- await page.fill('#deduction-lines','Unexplained adjustment | 3250');await page.click('#deduction-form button');await expect(page.locator('[data-verdict]')).toHaveCount(4);await expect(page.locator('[data-verdict="no reason given"]')).toContainText('₹3,250');
+ await page.fill('#deduction-lines','Unexplained adjustment | 3250');await page.click('#deduction-form button[type=submit]');await expect(page.locator('[data-verdict]')).toHaveCount(4);await expect(page.locator('[data-verdict="no reason given"]')).toContainText('₹3,250');
 });

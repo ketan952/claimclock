@@ -1,10 +1,11 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {mkdir} from 'node:fs/promises';
 test('mobile English, clock lock, events, Hindi and source-linked GRO message',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/');await expect(page.locator('#intro h1')).toHaveText('A clock on your side.');
  await mkdir('qa/screenshots',{recursive:true});await page.screenshot({path:'qa/screenshots/mobile-home.png',fullPage:true});
- await page.selectOption('[name=insurer]','hdfc-ergo');await page.fill('[name=hospital]','Example Hospital');await page.fill('[name=city]','Pune');
+ await selectPicker(page,'[name=insurer]','hdfc-ergo');await page.fill('[name=hospital]','Example Hospital');await page.fill('[name=city]','Pune');
  const past=new Date(Date.now()-4*3600000);const local=new Date(past.getTime()-past.getTimezoneOffset()*60000).toISOString().slice(0,16);await page.fill('[name=submittedAt]',local);await page.click('#start-form button[type=submit]');
  await expect(page.locator('#dashboard')).toBeVisible();await expect(page.locator('#clock-label')).toHaveText("Recorded wait beyond the rule’s window");
  await page.click('[data-letter=lock]');await expect(page.locator('#letter-body')).toHaveValue(/exact date and time/);await expect(page.locator('#letter-body')).toHaveValue(/Example Hospital/);await page.click('#letter-close');
@@ -15,7 +16,7 @@ test('mobile English, clock lock, events, Hindi and source-linked GRO message',a
 });
 test('ten insurers have source-backed contacts and correct preauthorisation paragraphs',async({page})=>{
  for(const id of ['national','new-india','united-india','hdfc-ergo','icici-lombard','bajaj','star-health','care','niva-bupa','manipalcigna']){
-  await page.goto('/');await page.evaluate(()=>localStorage.removeItem('claimclock:cases:v1'));await page.reload();await page.selectOption('[name=insurer]',id);await page.selectOption('[name=requestType]','preauth');await page.click('#start-form button[type=submit]');
+  await page.goto('/');await page.evaluate(()=>localStorage.removeItem('claimclock:cases:v1'));await page.reload();await selectPicker(page,'[name=insurer]',id);await page.selectOption('[name=requestType]','preauth');await page.click('#start-form button[type=submit]');
   expect(await page.locator('#contacts a[href^="mailto:"]').count()).toBeGreaterThan(0);await expect(page.locator('#contacts')).toContainText('10 October 2026');await page.click('[data-letter=gro]');await expect(page.locator('#letter-body')).toHaveValue(/15\(b\)/);await page.click('#letter-close');
  }
 });
@@ -30,7 +31,7 @@ test('language controls recover when the Base entry cannot initialize but the cl
  // The live trace had a failed Base dependency followed by a successful clock import.
  // Block Base itself to reproduce the missing bootstrap deterministically in dev and production.
  let blockedBase=0;await page.route(/\/(?:_astro\/Base\.astro_|src\/layouts\/Base\.astro\?).*/,route=>{blockedBase++;return route.fulfill({status:404,body:''});});
- await page.goto('/');expect(blockedBase).toBeGreaterThan(0);await page.selectOption('[name=insurer]','hdfc-ergo');const past=new Date(Date.now()-4*3600000);await page.fill('[name=submittedAt]',new Date(past.getTime()-past.getTimezoneOffset()*60000).toISOString().slice(0,16));await page.click('#start-form button[type=submit]');
+ await page.goto('/');expect(blockedBase).toBeGreaterThan(0);await selectPicker(page,'[name=insurer]','hdfc-ergo');const past=new Date(Date.now()-4*3600000);await page.fill('[name=submittedAt]',new Date(past.getTime()-past.getTimezoneOffset()*60000).toISOString().slice(0,16));await page.click('#start-form button[type=submit]');
  await expect(page.locator('#clock-label')).toHaveText('Recorded wait beyond the rule’s window');await page.click('[data-letter=lock]');await page.click('#letter-close');await page.fill('#event-form [name=note]','Synthetic acknowledgement');await page.click('#event-form button');await page.click('[data-letter=gro]');await page.click('#letter-close');
  await page.evaluate(()=>{document.documentElement.dataset.languageEvents='0';window.addEventListener('languagechange',()=>{document.documentElement.dataset.languageEvents=String(Number(document.documentElement.dataset.languageEvents)+1);});});
  await page.click('[data-language=hi]');await expect(page.locator('html')).toHaveAttribute('lang','hi');await expect(page.locator('#clock-label')).toHaveText('दर्ज इंतज़ार नियम की समय-सीमा से आगे');await expect(page.locator('html')).toHaveAttribute('data-language-events','1');await expect(page.locator('#timeline-list')).toContainText('Synthetic acknowledgement');

@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {writeFile} from 'node:fs/promises';
 import contacts from '../../data/contacts.json' with {type:'json'};
@@ -21,7 +22,7 @@ test('Hindi mode translates visible interface text and accessible labels without
  await page.addInitScript(()=>localStorage.setItem('claimclock:language','hi'));
  const routes=['/','/404.html','/privacy/','/deductions/','/rejected/','/death/','/index/','/methodology/','/about/','/offline/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
  for(const route of routes){
-  await page.goto(route);await expect(page.locator('html')).toHaveAttribute('lang','hi');await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>node.open=true));
+  await page.goto(route);await expect(page.locator('html')).toHaveAttribute('lang','hi');await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>(node as HTMLDetailsElement).open=true));
   const texts=await page.evaluate(()=>{
    const output:string[]=[];const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
    while(walker.nextNode()){
@@ -38,7 +39,7 @@ test('Hindi mode translates visible interface text and accessible labels without
  expect(leaks).toEqual([]);
 });
 test('Hindi dialog regenerates subject and body and uses full month names',async({page})=>{
- await page.goto('/rejected/');await page.selectOption('[name=insurer]','hdfc-ergo');await page.fill('[name=rejectedOn]','2026-10-01');await page.fill('[name=ground]','Policy waiting period');await page.click('#rejection-form button');
+ await page.goto('/rejected/');await selectPicker(page,'[name=insurer]','hdfc-ergo');await page.fill('[name=rejectedOn]','2026-10-01');await page.fill('[name=ground]','Policy waiting period');await page.click('#rejection-form button[type=submit]');
  await expect(page.locator('#letter-subject')).toContainText('Formal grievance');
  // The language switch is behind the modal, so invoke its real click handler through the DOM.
  await page.locator('[data-language=hi]').evaluate((el:HTMLElement)=>el.click());

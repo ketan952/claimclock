@@ -12,7 +12,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## Milestones
 
-M0–M6 describe earlier snapshots; the current M11 state appears below.
+M0–M6 describe earlier snapshots; the current M12 state appears below.
 
 - M0: committed/pushed as 071be2b. Design preceded application code.
 - M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Combined research has 29 strictly qualifying recent cases out of 50 retained records, one below requested 30; amendments and original passes remain auditable.
@@ -90,3 +90,13 @@ Actual production Safari evidence supplies the positive paths: [one real AI expl
 An actual installed-worker update from `22de957d113657b8` to manual release `ac7e2571edd90ade` passed second navigation and the reload toast. Latest public CI-build Lighthouse scores are **95/100/100/100**, with FCP 2.0 s, LCP 2.4 s and 131 KiB initial transfer; the earlier manual-build [99-score result](qa/lighthouse-m11-manual.json) is retained separately. Genuine native JPEG screenshots are saved with a [hash manifest](qa/native-screenshot-manifest.json); the blank-city image shows the null-city payload, while acceptance is recorded in JSON and erasure has its own screenshot. The [accepted-report screenshot](qa/screenshots/blank-city-report-sent.png) remains historical M10 evidence. Current app source navigation returns the correct 302, but IRDAI responds 504; [M10’s successful PDF screenshot](qa/screenshots/worker-source-m10-irdai.png) is also historical. See [QA report](qa/REPORT.md) for evidence boundaries and remaining research/device gaps.
 
 The build-identity fix and first hosted evidence are committed/pushed as `7720b3e`; both CI jobs pass. Production now serves canonical `ac7e2571edd90ade`, and final hosted run `38152234879` passes all 46 selected cases on that build. Final evidence-only commits preserve this source identity. No further source change is required merely to work around automation detection. Launch posts remain unpublished drafts, and the current-live Bima description limit remains unverified.
+
+## M12 handoff — responsive selection
+
+M12 is deployed and public-tested at build `e1e509d30ac97912`; manual Worker version `270a4084-c266-4dcf-b53f-668bf0a2d763`. Searchable native-dialog pickers cover insurer, optional TPA and local cases/restore targets. English and Hindi aliases filter only in the browser. The existing visual identity is preserved, names wrap, fields are 16px and narrow forms stack. Short-choice selects remain native. No framework/dependency, account, server endpoint or paid service was added.
+
+Keep picker enhancement optional: hospital/deduction forms notify `pickerrefresh` after direct select value updates instead of importing the picker module. Native forms still work if its chunk fails. Hidden required selects route errors to visible triggers. Escape/close/backdrop cancel; Tab stays inside the dialog; arrow navigation never commits by itself. IME entry, language changes, optional empty TPA, programmatic case changes and current-row scrolling have regressions. Clause editing now updates deduction verdict fragments without replacing active inputs or swallowing the next checkbox click.
+
+**159 unit tests; lint, type/data, reviewed license gate and 42 static CSP checks pass. Public Chromium: 58/58 selected scenarios; public WebKit: 12/12 new UI scenarios.** Mobile Lighthouse: **100/100/100/100**, 136 KiB, 1.5 s LCP. Local Wrangler: 57 passes/four production-only skips, plus the final added scroll test passing. [Release and bounds](qa/m12-release.json), [browser evidence](qa/m12-browser.json), [research](research/ui-interactions.md), [screenshots/measurements](qa/m12-render.json), [QA report](qa/REPORT.md).
+
+The four known automated Turnstile-positive flows stay excluded from the selected public run; M11 native evidence remains historical. Negative verification paths pass 8/8 without loosening security. Physical phone keyboards and screen readers remain untested. Source redirect is correct but IRDAI still returned 504. No M11 evidence was overwritten.

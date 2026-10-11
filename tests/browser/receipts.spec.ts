@@ -1,3 +1,4 @@
+import {selectPicker} from './picker-helpers';
 import {test,expect} from '@playwright/test';
 import {installMockTurnstile} from './turnstile-helper';
 test.use({trace:'off'});
@@ -34,6 +35,6 @@ test('corrupt receipt data survives manual erasure with an honest local-storage 
 test('a failed receipt write keeps prior B and still displays new A for private copying',async({page})=>{
  await installMockTurnstile(page);await page.addInitScript(({key,b})=>{localStorage.setItem(key,JSON.stringify({version:1,receipts:{[b.id]:b}}));const setItem=Storage.prototype.setItem;Storage.prototype.setItem=function(name,value){if(name===key)throw new DOMException('Synthetic full storage','QuotaExceededError');return setItem.call(this,name,value);};},{key,b});
  await page.route('**/api/reports',route=>route.fulfill({status:201,json:{id:a.id,erase_token:a.erase_token}}));
- await page.goto('/');await page.selectOption('#start-form [name=insurer]','care');await page.click('#start-form button[type=submit]');await page.click('#finish-form button');await page.check('#optin-form [name=consent]');await page.click('#optin-form button');
+ await page.goto('/');await selectPicker(page,'#start-form [name=insurer]','care');await page.click('#start-form button[type=submit]');await page.click('#finish-form button');await page.check('#optin-form [name=consent]');await page.click('#optin-form button');
  await expect(page.locator('#deletion-code')).toHaveValue(code(a));await expect(page.locator('#deletion-saved')).toContainText('not save');expect(await page.evaluate(key=>Object.keys(JSON.parse(localStorage.getItem(key)!).receipts),key)).toEqual([b.id]);
 });

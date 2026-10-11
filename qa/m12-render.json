@@ -1,0 +1,99 @@
+{
+  "captured_at": "2026-10-11T16:20:11.499Z",
+  "build_id": "e1e509d30ac97912",
+  "source_url": "https://claimclock.ketan952.workers.dev",
+  "browser": "Playwright Chromium, real public pages; touch emulated; no widget/API mocks",
+  "pointer_outside_results": true,
+  "browser_closed": true,
+  "views": [
+    {
+      "view": "mobile-picker",
+      "source_url": "https://claimclock.ketan952.workers.dev/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch_emulated": true,
+      "query": "health",
+      "screenshot": "qa/screenshots/m12-mobile-picker.png",
+      "overflow": false,
+      "dialog": {
+        "x": 0,
+        "y": 151.921875,
+        "width": 390,
+        "height": 692.078125
+      },
+      "input_font_px": 16,
+      "row_heights": [
+        52.69,
+        72.38,
+        52.69,
+        52.69,
+        72.38,
+        52.69,
+        52.69
+      ],
+      "result_count": 7,
+      "selected_result_values": []
+    },
+    {
+      "view": "mobile-form",
+      "source_url": "https://claimclock.ketan952.workers.dev/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch_emulated": true,
+      "screenshot": "qa/screenshots/m12-mobile-form.png",
+      "overflow": false,
+      "selected_insurer": "care",
+      "input_font_px": 16,
+      "control_heights": [
+        72.38,
+        52,
+        53.59,
+        52,
+        52,
+        52,
+        49
+      ]
+    },
+    {
+      "view": "desktop-picker",
+      "source_url": "https://claimclock.ketan952.workers.dev/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "touch_emulated": false,
+      "query": "health",
+      "screenshot": "qa/screenshots/m12-desktop-picker.png",
+      "overflow": false,
+      "dialog": {
+        "x": 450,
+        "y": 200,
+        "width": 540,
+        "height": 600
+      },
+      "input_font_px": 16,
+      "row_heights": [
+        52.69,
+        72.38,
+        52.69,
+        52.69,
+        52.69,
+        52.69,
+        52.69
+      ],
+      "result_count": 7,
+      "selected_result_values": []
+    }
+  ],
+  "visual_review": {
+    "images_inspected": 3,
+    "mobile_picker": "Seven health results visible; long names wrap; search and close controls clear; no option falsely highlighted.",
+    "desktop_picker": "Centered panel with clear focus outline; result area scrolls and the last row is partially visible above footer at this scroll position.",
+    "mobile_form": "Selected Care wraps without overflow; all form controls and Start my clock are visible.",
+    "boundary": "Touch emulated in Chromium; no physical phone keyboard or screen-reader claim."
+  }
+}
