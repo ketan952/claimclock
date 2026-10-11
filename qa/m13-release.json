@@ -1,0 +1,64 @@
+{
+  "milestone": "M13 fresh end-to-end review",
+  "build": "4e06cdf5ccb69460",
+  "origin": "https://claimclock.ketan952.workers.dev/",
+  "manual_worker_version": "c8d0fdca-a67d-4f4e-8e75-c52a866df5c8",
+  "reviewed_baseline_commit": "3c5c0db878c76f31446881739e253285885b66b4",
+  "validation": {
+    "lint": "pass",
+    "typescript_and_data": "pass:49 contacts,470 rows;14 incomplete sums remain explicit;76 manual-review flags retained",
+    "unit_tests": {
+      "passed": 167,
+      "failed": 0
+    },
+    "reviewed_license_gate": "pass",
+    "csp_html_pages": 42,
+    "public_chromium_selected": {
+      "passed": 69,
+      "failed": 0,
+      "skipped": 0,
+      "retries": 0
+    },
+    "public_webkit_selected": {
+      "passed": 23,
+      "failed": 0,
+      "skipped": 0,
+      "retries": 0
+    },
+    "mobile_lighthouse": {
+      "performance": 97,
+      "accessibility": 100,
+      "best_practices": 100,
+      "seo": 100
+    },
+    "installed_worker_update": "pass:old to new controller,toast,second navigation,new navigation cache only"
+  },
+  "evidence": [
+    "qa/m13-browser.json",
+    "qa/m13-before-deploy.json",
+    "qa/m13-worker-update.json",
+    "qa/m13-worker-source-navigation.json",
+    "qa/m13-turnstile-failures.json",
+    "qa/m13-render.json",
+    "qa/lighthouse-m13.json",
+    "qa/review-workflows.json",
+    "qa/review-ui.json",
+    "qa/review-server-data.json",
+    "qa/review-transfer-cancellation.json",
+    "qa/review-native.json"
+  ],
+  "constraints": {
+    "new_dependency": false,
+    "login_or_account": false,
+    "paid_service": false,
+    "original_document_upload": false,
+    "production_turnstile_weakened": false
+  },
+  "limits": [
+    "Four production Turnstile-positive automation flows excluded;69/69 selected is not73/73. Real native positive flows were observed on baselinee1e509d30ac97912 and labeled separately.",
+    "Fresh two-context crypto round trip uses mocked API/challenge; real native current-review transfer checks use one Safari context.",
+    "IRDAI upstream504 persists despite correct app302.",
+    "Optimistic localStorage conflict checks are not atomic simultaneous-write serialization.",
+    "Physical phone keyboard and native VoiceOver/TalkBack acceptance remain untested; native Safari AX omitted restore modal although it rendered and isolated WebKit snapshots passed."
+  ]
+}

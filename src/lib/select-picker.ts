@@ -55,9 +55,14 @@ function renderResults(){
 }
 function viewport(){
  const view=window.visualViewport,height=view?.height||innerHeight,top=view?.offsetTop||0;
- dialog.style.setProperty('--picker-height',`${Math.max(140,height-24)}px`);
+ // A software keyboard may shrink only the visual viewport. Compact the
+ // chrome from that actual space, leaving a useful result row below search.
+ const compact=height<=300;dialog.classList.toggle('picker-compact',compact);
+ dialog.style.setProperty('--picker-height',`${Math.max(0,height-(compact?8:24))}px`);
  dialog.style.setProperty('--picker-bottom',`${Math.max(0,innerHeight-height-top)}px`);
  dialog.style.setProperty('--picker-top',`${top}px`);
+ // A resize can otherwise leave the focused last option below the shorter list.
+ if(dialog.open&&results.contains(document.activeElement))(document.activeElement as HTMLElement).scrollIntoView({block:'nearest'});
 }
 function translateDialog(){
  if(!active)return;

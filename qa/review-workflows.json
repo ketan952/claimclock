@@ -1,0 +1,201 @@
+{
+  "reviewed_at": "2026-10-11T16:56:55.850781+00:00",
+  "public_url": "https://claimclock.ketan952.workers.dev",
+  "public_build_observed": "e1e509d30ac97912",
+  "source_verification_url": "http://127.0.0.1:4321",
+  "status": "confirmed_fixes_verified_in_source_parent_owns_final_build_and_public_retest",
+  "scope": {
+    "source_review": [
+      "storage/local cases and migration",
+      "strict backup import and restore preview",
+      "encrypted transfer and interruption handling",
+      "deduction attachment and policy confirmation",
+      "rejection/letter dialog lifecycle",
+      "hospital event, correction, decision, language and report-consent workflows"
+    ],
+    "synthetic_data_only": true,
+    "real_provider_calls": false,
+    "production_report_writes": false,
+    "production_transfer_writes": false,
+    "browser_mutations": "Synthetic browser-local case data only; protected API paths in consent regressions use deterministic mocks.",
+    "notes_read": [
+      "RESUME.md M12",
+      "qa/REPORT.md M12"
+    ]
+  },
+  "findings": [
+    {
+      "id": "WF-01",
+      "severity": "high",
+      "title": "Stale tabs overwrite saved timeline evidence or resurrect deleted cases",
+      "observed_on": "public e1e509d30ac97912",
+      "status": "fixed_in_source_verified",
+      "reproduction": [
+        "Open one synthetic case in two pages sharing localStorage.",
+        "Tab B saves a new event.",
+        "Stale tab A saves a different event."
+      ],
+      "before": "Only tab A event remains in storage; tab B saved evidence is silently replaced.",
+      "fix": "Timeline writes compare the latest persisted timeline with the displayed baseline. Delete and replacement restore compare the reviewed whole case, including attached inputs. Conflicts preserve typed input and the unsaved draft, provide a draft download, and require an explicit confirmed load of the latest case.",
+      "verification": [
+        "Real two-page stale event and correction after another tab decision are rejected with saved bytes preserved.",
+        "A stale tab cannot resurrect a deleted case.",
+        "Stale deletion cannot discard newly attached deduction evidence.",
+        "Restore preview replacement rejects a subsequently changed target; importing as a separate case remains available."
+      ]
+    },
+    {
+      "id": "WF-02",
+      "severity": "medium",
+      "title": "Closed letter regenerates against a cleared case after language switch",
+      "observed_on": "public e1e509d30ac97912",
+      "status": "fixed_in_source_verified",
+      "reproduction": [
+        "Open and close a lock letter.",
+        "Create another case so there is no active timeline.",
+        "Change language."
+      ],
+      "before": "A page error reads requestType from null; old closed letter state retains stale actions.",
+      "fix": "Regenerate only an open current dialog. Case changes close the letter and clear body, subject, recipient, generation callback and share/copy/download actions.",
+      "verification": [
+        "Case reset followed by language switch emits no page errors.",
+        "Closed letter body is empty, copy/download are disabled, and mail/WhatsApp hrefs are absent."
+      ]
+    },
+    {
+      "id": "WF-03",
+      "severity": "medium",
+      "title": "Language switching exits correction view and loses unsaved edits when reopened",
+      "observed_on": "public e1e509d30ac97912; independently reproduced in Chromium and WebKit",
+      "status": "fixed_in_source_independently_verified",
+      "reproduction": [
+        "Open Edit details for a saved case.",
+        "Change hospital without submitting.",
+        "Choose Hindi, then reopen Edit details."
+      ],
+      "before": "Language render hides the edit form; reopening restores the saved value over the typed draft.",
+      "fix": "Track details-editing view independently of whether a timeline exists; language rendering retains the form and its field values.",
+      "verification": [
+        "Focused Chromium regression preserves visible form, typed hospital and unchanged saved bytes.",
+        "Independent Chromium and WebKit confirmation is recorded in qa/review-ui.json."
+      ]
+    },
+    {
+      "id": "WF-04",
+      "severity": "medium",
+      "title": "Stale deduction attachment can replace newer lines or attach to a different claim restored over the same ID",
+      "observed_on": "source audit and deterministic browser/unit reproduction",
+      "status": "fixed_in_source_verified",
+      "before": "Attachment writes used the latest case ID without checking the loaded deduction inputs or claim identity.",
+      "fix": "Compare reviewed deductions and stable claim identity fields (ID, insurer, TPA, hospital, city, request type and submitted time). Keep unrelated newer events/decisions from current storage.",
+      "verification": [
+        "Two-page stale line replacement is rejected while its reviewed input remains visible.",
+        "A fresh attachment confirmation preserves another tab event.",
+        "A same-insurer replacement with a different hospital/submission time rejects the original claim attachment."
+      ]
+    },
+    {
+      "id": "WF-05",
+      "severity": "medium",
+      "title": "Draft export can combine an old case identity with another tab newer deductions",
+      "observed_on": "independent source review and source browser reproduction",
+      "status": "fixed_in_source_independently_verified",
+      "fix": "Use fresh saved deductions only when stable case identity matches the exported timeline. Otherwise preserve the coherent displayed baseline deductions, or none after an insurer change.",
+      "verification": [
+        "Focused two-page regression keeps original Care draft separate from newer HDFC deductions without modifying newer storage.",
+        "Independent reviewer confirmed original Care100 deductions plus unsaved event survive export while HDFC222 remains untouched."
+      ]
+    },
+    {
+      "id": "WF-06",
+      "severity": "low",
+      "title": "Blocked storage access is mislabeled as corrupt saved data",
+      "observed_on": "source inspection and blocked-getItem reproduction",
+      "status": "fixed_in_source_verified",
+      "fix": "Distinguish read access exceptions from malformed contents; hide raw recovery download when bytes cannot be read.",
+      "verification": [
+        "Unit regression classifies SecurityError as unavailable and does not modify original bytes.",
+        "Independent browser check shows storage error with raw recovery hidden and no page errors."
+      ]
+    }
+  ],
+  "verification": {
+    "focused_browser_run": {
+      "engine": "Chromium",
+      "passed": 17,
+      "failed": 0,
+      "duration_seconds": 20.9,
+      "specs": [
+        "tests/browser/review-workflows.spec.ts",
+        "tests/browser/local-cases.spec.ts",
+        "tests/browser/consent-recheck.spec.ts",
+        "tests/browser/deduction-focus.spec.ts"
+      ],
+      "new_workflow_scenarios": 7,
+      "output_directory": ".cache/agent-review-workflows-restart",
+      "reporter": "list",
+      "coverage": [
+        "Two-page conflict checks",
+        "migration and individual case switching/deletion",
+        "strict restore validation and preview",
+        "malformed/quota storage with in-memory backup",
+        "displayed-case export across tabs",
+        "late unsaved report receipt preservation",
+        "report and AI consent withdrawal during delayed verification",
+        "policy-clause focus and first-click checkbox"
+      ]
+    },
+    "independent_backup_storage_units": {
+      "passed": 13,
+      "failed": 0,
+      "reported_by": "independent nl48_dataset reviewer",
+      "includes": "same-insurer replacement identity guard"
+    },
+    "earlier_targeted_units": {
+      "passed": 46,
+      "failed": 0,
+      "boundary": "Before the final same-case-identity unit was added; parent performs final aggregate checks."
+    },
+    "earlier_check_and_lint": "Passed before the final small identity guard; parent performs final frozen-source check/lint/build.",
+    "source_file_sha256": {
+      "src/lib/storage.ts": "74c51eb0af44043aa8265bb74cd41ad9235f9ccc6e2f0c8712bf85d7bd76d112",
+      "src/lib/hospital.ts": "e6f8a34c2ff199f16c55adc03758f97d712aa2102fc05f7e5673fe6f02feff37",
+      "src/lib/deduction-ui.ts": "46ba93c82bb22e0105f7129d6abc2c03b365be44aa3ce161659bed8a85da5939",
+      "src/lib/letter-dialog.ts": "2bc4ce5610ed4ea61688fc8e7a1e6d4d3d270ebf8e05840d426dbb303ab80ae3",
+      "tests/browser/review-workflows.spec.ts": "3b6eea6a47081043bcaad22d1a915bc7b71e312919f62c121474e62c9edc569f",
+      "tests/storage-conflicts.test.ts": "3356986e90e8baea3d57b6e496ef954615d53e2a1c52225f2aa65c3e9f89d1d0"
+    }
+  },
+  "preserved_contracts": [
+    "No local-case schema change or account requirement.",
+    "Backup parsing still validates allowed keys, scalar types, known insurer/TPA IDs, real calendar dates, lengths/counts and deduction confirmation consistency; old historical dates and pre-correction events remain allowed.",
+    "Backup import/transfer restore requires an explicit preview decision; receipt erase tokens are excluded.",
+    "Confirmed-valid deduction lines retain clarification wording and policy/arithmetic confirmation behavior.",
+    "Storage failure remains separate from a concurrent-edit conflict; malformed saved bytes are not automatically overwritten.",
+    "New quota-failed case retains an in-memory clock/export path; existing conflicting draft remains downloadable."
+  ],
+  "limitations": [
+    "Optimistic localStorage compare/read/write checks are not an atomic cross-renderer transaction. They prevent demonstrated sequential stale-tab writes; no strict simultaneous-write serialization guarantee is claimed.",
+    "The successful source run followed an aborted development run with Vite qrcode-generator 504 Outdated Optimize Dep responses. Root restarted Astro, then all 17 focused scenarios passed; the earlier infrastructure failures are not concealed as product passes.",
+    "This artifact does not claim fixes are deployed or publicly retested; parent owns the final build and hosted regression.",
+    "No new real-provider, production report/erase, or encrypted-transfer mutation was performed in this workflow review. Existing positive Turnstile evidence is separate.",
+    "Independent WebKit verification here is limited to the language/edit workflow; the 17-case focused run used Chromium."
+  ],
+  "follow_up_boundaries": [
+    {
+      "id": "WF-B1",
+      "area": "encrypted transfer challenge interruption",
+      "observation": "transferRequest waits for Turnstile internally; generation is checked before that request helper and after response, not immediately before fetch. A case change during verification may create an orphan ciphertext transfer or consume a lookup before the result is discarded.",
+      "status": "subsequently_reproduced_and_fixed_by_independent_transfer_review",
+      "data_boundary": "Plaintext and decryption key stay local; received backup still cannot overwrite without preview.",
+      "resolution": "A generation callback is checked immediately after verification resolves, before fetch. Regression reproduced one unwanted create POST before the fix; canceled create and lookup send zero requests afterward. See qa/review-transfer-cancellation.json."
+    }
+  ],
+  "release_followup": {
+    "build": "4e06cdf5ccb69460",
+    "public_chromium_selected_passes": 69,
+    "public_webkit_selected_passes": 23,
+    "evidence": "qa/m13-browser.json",
+    "note": "This follow-up records final release verification; the original source/baseline observations above retain their original provenance."
+  }
+}

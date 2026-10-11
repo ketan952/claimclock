@@ -6,7 +6,7 @@ import contactsRaw from '../../data/contacts.json';
 import rulesRaw from '../../data/rules.json';
 import type { Contact, LetterKind, Rule, Timeline, RequestType } from './types.ts';
 import {clockState,duration,formatTime,localInputValue,validSubmission} from './clock.ts';
-import {loadTimeline,saveTimeline,download,listCases,selectCase,deleteCase,restoreCase,storageIssue,rawLocalBackup} from './storage.ts';
+import {getSelectedBackup,saveTimeline,download,listCases,selectCase,deleteCase,restoreCase,storageIssue,rawLocalBackup,sameCaseIdentity} from './storage.ts';
 import {parseBackup,makeBackup,MAX_BACKUP_BYTES,type CaseBackup} from './backup.ts';
 import {setupTransfer} from './transfer-ui';
 import {getTurnstileToken} from './turnstile';
@@ -20,7 +20,7 @@ const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const form=<T extends HTMLFormElement=HTMLFormElement>(id:string)=>el<T>(id);
 const showLetter=setupLetterDialog();
-let timeline=loadTimeline();let unsavedChanges=false;let reportStatusKey='';let reportErrorField:ReportField|undefined;let deletionSaved=true;let expandedBreach='';
+let baselineCase=getSelectedBackup();let timeline=baselineCase?.timeline||null;let unsavedDraft:Timeline|null=null;let editingDetails=false;let unsavedChanges=false;let reportStatusKey='';let reportErrorField:ReportField|undefined;let deletionSaved=true;let expandedBreach='';
 const start=form('start-form');
 const input=(f:HTMLFormElement,n:string)=>f.elements.namedItem(n) as HTMLInputElement;
 input(start,'submittedAt').value=localInputValue();
@@ -28,7 +28,13 @@ input(form('event-form'),'at').value=localInputValue();
 input(form('finish-form'),'decidedAt').value=localInputValue();
 const deviceTimezone=Intl.DateTimeFormat().resolvedOptions().timeZone;
 function validRecordedTime(value:string){const ms=Date.parse(value);return Number.isFinite(ms)&&ms<=Date.now()+30_000&&localInputValue(new Date(ms))===value.slice(0,16);}
-function save(){unsavedChanges=!!timeline&&!saveTimeline(timeline);setMessage(el('storage-error'),unsavedChanges?'error.storage':null);}
+function showSaveProblem(conflict:boolean){setMessage(el('workflow-status'),conflict?'workflow.conflict':'error.storage');el('workflow-actions').hidden=false;el('workflow-load-latest').hidden=!conflict;setMessage(el('storage-error'),conflict?'workflow.conflict':'error.storage');}
+function save(candidate:Timeline){
+ const saved=saveTimeline(candidate,baselineCase?.timeline||null);unsavedChanges=!saved;
+ if(saved){timeline=candidate;baselineCase=makeBackup(candidate,baselineCase?.deductions||[]);unsavedDraft=null;setMessage(el('workflow-status'),null);setMessage(el('storage-error'),null);el('workflow-actions').hidden=true;}
+ else {unsavedDraft=candidate;if(!baselineCase){timeline=candidate;editingDetails=false;}showSaveProblem(storageIssue()==='conflict');}
+ return saved;
+}
 function leaveUnsaved(){return !unsavedChanges||confirm(t('cases.unsavedConfirm'));}
 function addText(parent:HTMLElement,tag:string,text:string){const node=document.createElement(tag);node.textContent=text;parent.append(node);return node;}
 const unsavedReceiptCodes=new Set<string>();
@@ -43,9 +49,10 @@ function caseLabel(backup:CaseBackup){const value=backup.timeline,contact=contac
 function renderCases(){
  const cases=listCases(),select=el<HTMLSelectElement>('case-select');select.replaceChildren();const blank=new Option(t('cases.unsaved'),'');select.append(blank);for(const backup of cases)select.append(new Option(caseLabel(backup),backup.timeline.id));select.value=timeline?.id||'';
  el<HTMLButtonElement>('case-delete').disabled=!timeline||!cases.some(c=>c.timeline.id===timeline!.id);
- const issue=storageIssue();if(issue)setMessage(el('case-status'),issue==='corrupt'?'cases.corrupt':'error.storage');el('case-raw-backup').hidden=!issue;
+ const issue=storageIssue();if(issue)setMessage(el('case-status'),issue==='corrupt'?'cases.corrupt':'error.storage');el('case-raw-backup').hidden=!issue||issue==='unavailable';
 }
 function resetCaseUI(){
+ editingDetails=false;
  reportStatusKey='';reportErrorField=undefined;deletionSaved=true;expandedBreach='';clearReportError();
  form('optin-form').reset();form('event-form').reset();form('finish-form').reset();form('recovery-form').reset();input(form('event-form'),'at').value=localInputValue();input(form('finish-form'),'decidedAt').value=localInputValue();
  el('deletion-receipt').hidden=true;el<HTMLInputElement>('deletion-code').value='';setMessage(el('deletion-copy-status'),null);
@@ -54,17 +61,19 @@ function resetCaseUI(){
  for(const dialog of document.querySelectorAll<HTMLDialogElement>('dialog[open]'))dialog.close();
  window.dispatchEvent(new Event('casechange'));
 }
-function activateSavedCase(){timeline=loadTimeline();unsavedChanges=false;resetCaseUI();start.reset();input(start,'submittedAt').value=localInputValue();render();}
-function currentBackup():CaseBackup|null{if(!timeline)return null;const saved=listCases().find(c=>c.timeline.id===timeline!.id);return makeBackup(timeline,saved?.deductions||[]);}
+function activateSavedCase(){baselineCase=getSelectedBackup();timeline=baselineCase?.timeline||null;unsavedChanges=false;unsavedDraft=null;setMessage(el('workflow-status'),null);el('workflow-actions').hidden=true;resetCaseUI();start.reset();input(start,'submittedAt').value=localInputValue();render();}
+function currentBackup():CaseBackup|null{const draft=unsavedDraft||timeline;if(!draft)return null;const saved=listCases().find(c=>c.timeline.id===draft.id);const deductions=saved&&sameCaseIdentity(saved.timeline,draft)?saved.deductions:baselineCase?.timeline.insurerId===draft.insurerId?baselineCase.deductions:[];return makeBackup(draft,deductions);}
 let pendingBackup:CaseBackup|null=null;
+let restoreTargets=new Map<string,CaseBackup>();
 function parseBackupText(value:string):CaseBackup{if(new TextEncoder().encode(value).byteLength>MAX_BACKUP_BYTES)throw Error('Backup too large');return parseBackup(JSON.parse(value));}
 export function previewRestore(value:CaseBackup){
+ const samePreview=value===pendingBackup&&el<HTMLDialogElement>('restore-dialog').open;
  try{pendingBackup=parseBackup(value);}catch{setMessage(el('backup-status'),'backup.invalid');return;}
  el<HTMLTextAreaElement>('backup-paste').value='';
  const summary=el('restore-summary');summary.replaceChildren();for(const [key,value] of [['cases.choose',caseLabel(pendingBackup)],['label.type',t(`type.${pendingBackup.timeline.requestType}`)],['label.time',formatTime(pendingBackup.timeline.submittedAt,lang())],['backup.events',String(pendingBackup.timeline.events.length)],['backup.deductions',String(pendingBackup.deductions.length)]]){addText(summary,'dt',t(key));addText(summary,'dd',value);}
- const target=el<HTMLSelectElement>('restore-target');target.replaceChildren(new Option(t('backup.noTarget'),''));for(const backup of listCases())target.append(new Option(caseLabel(backup),backup.timeline.id));target.value='';el<HTMLButtonElement>('restore-replace').disabled=true;setMessage(el('restore-status'),null);if(!el<HTMLDialogElement>('restore-dialog').open)el<HTMLDialogElement>('restore-dialog').showModal();
+ const cases=listCases();if(!samePreview)restoreTargets=new Map(cases.map(backup=>[backup.timeline.id,backup]));const target=el<HTMLSelectElement>('restore-target');target.replaceChildren(new Option(t('backup.noTarget'),''));for(const backup of cases)target.append(new Option(caseLabel(backup),backup.timeline.id));target.value='';el<HTMLButtonElement>('restore-replace').disabled=true;setMessage(el('restore-status'),null);if(!el<HTMLDialogElement>('restore-dialog').open)el<HTMLDialogElement>('restore-dialog').showModal();
 }
-function completeRestore(replace=false){if(!pendingBackup||!leaveUnsaved())return;const target=el<HTMLSelectElement>('restore-target').value;if(replace&&!target)return;if(!restoreCase(pendingBackup,replace?target:undefined)){setMessage(el('restore-status'),'error.storage');return;}pendingBackup=null;activateSavedCase();setMessage(el('case-status'),'backup.done');}
+function completeRestore(replace=false){if(!pendingBackup||!leaveUnsaved())return;const target=el<HTMLSelectElement>('restore-target').value;if(replace&&!target)return;if(replace&&!restoreTargets.has(target)){setMessage(el('restore-status'),'workflow.restoreConflict');return;}if(!restoreCase(pendingBackup,replace?target:undefined,replace?restoreTargets.get(target):undefined)){setMessage(el('restore-status'),storageIssue()==='conflict'?'workflow.restoreConflict':'error.storage');return;}pendingBackup=null;activateSavedCase();setMessage(el('case-status'),'backup.done');}
 function populateDetails(){if(timeline)for(const [key,value] of Object.entries({insurer:timeline.insurerId,tpa:timeline.tpaId||'',hospital:timeline.hospital,city:timeline.city||'',requestType:timeline.requestType,submittedAt:localInputValue(new Date(timeline.submittedAt))}))input(start,key).value=value;refreshPickers();}
 function clearReportError(){reportErrorField=undefined;for(const node of document.querySelectorAll('[data-report-invalid]')){node.removeAttribute('aria-invalid');node.removeAttribute('aria-describedby');node.removeAttribute('data-report-invalid');}if(el('start-error').dataset.i18nMessage==='optin.invalid')setMessage(el('start-error'),null);if(reportStatusKey==='optin.invalid')reportStatusKey='';}
 function highlightReportField(focus=false){
@@ -72,7 +81,7 @@ function highlightReportField(focus=false){
  const field=reportErrorField;
  const startFields:Partial<Record<ReportField,string>>={insurer:'insurer',tpa:'tpa',city:'city',request_type:'requestType',submitted_at:'submittedAt'};
  let target:HTMLElement;let description='optin-status';
- if(startFields[field]){target=input(start,startFields[field]!);if(target.dataset.reportInvalid!=='true')populateDetails();el('start-view').hidden=false;description='start-error';setMessage(el('start-error'),'optin.invalid',{field:t(reportFieldLabels[field])});}
+ if(startFields[field]){target=input(start,startFields[field]!);if(target.dataset.reportInvalid!=='true')populateDetails();editingDetails=true;el('start-view').hidden=false;description='start-error';setMessage(el('start-error'),'optin.invalid',{field:t(reportFieldLabels[field])});}
  else if(field==='decided_at'||field==='outcome')target=input(form('finish-form'),field==='decided_at'?'decidedAt':'outcome');
  else if(field==='consent'||field==='adult'||field==='consent_version')target=input(form('optin-form'),'consent');
  else {target=form('optin-form');target.tabIndex=-1;}
@@ -98,7 +107,7 @@ function updateClock(){
 function render(){
  renderCases();
  el('input-timezone').textContent=`${t('common.timezone')}: ${new Intl.DateTimeFormat(lang()==='hi'?'hi-IN':'en-IN',{timeZone:deviceTimezone,timeZoneName:'long'}).formatToParts(new Date()).find(part=>part.type==='timeZoneName')?.value||deviceTimezone}`;el('optin-status').textContent=reportStatusKey?interpolate(reportStatusKey,{field:reportErrorField?t(reportFieldLabels[reportErrorField]):''}):'';el('deletion-saved').textContent=t(deletionSaved?'optin.saved':'optin.notSaved');
- el('intro').hidden=!!timeline;el('start-view').hidden=!!timeline;el('dashboard').hidden=!timeline;
+ el('intro').hidden=!!timeline;el('start-view').hidden=!!timeline&&!editingDetails;el('dashboard').hidden=!timeline||editingDetails;
  document.querySelectorAll<HTMLElement>('[data-rule-plain]').forEach(node=>{const rule=rules.find(r=>r.id===node.dataset.rulePlain);if(rule)node.textContent=(lang()==='hi'?rule.plain_hi:rule.plain_en)||rule.title;});
  if(!timeline)return;
  const insurer=contacts.find(c=>c.id===timeline!.insurerId);
@@ -131,16 +140,16 @@ start.addEventListener('submit',e=>{
  const candidate:Timeline={id:previous?.id||crypto.randomUUID(),insurerId:input(start,'insurer').value,tpaId:input(start,'tpa').value,hospital:input(start,'hospital').value.trim(),city:input(start,'city').value.trim(),requestType:input(start,'requestType').value as RequestType,submittedAt:new Date(value).toISOString(),events:[...(previous?.events||[])],decidedAt:previous?.decidedAt,outcome:previous?.outcome};
  if(candidate.decidedAt&&Date.parse(candidate.decidedAt)<Date.parse(candidate.submittedAt)){delete candidate.decidedAt;delete candidate.outcome;}
  if(previous&&previous.submittedAt!==candidate.submittedAt)candidate.events.push({id:crypto.randomUUID(),at:new Date().toISOString(),type:'other',note:`@time-correction|${previous.submittedAt}|${candidate.submittedAt}`});
- try{makeBackup(candidate);}catch{setMessage(el('start-error'),'backup.invalid');return;}timeline=candidate;
- resetCaseUI();setMessage(el('start-error'),null);save();render();el('dashboard').scrollIntoView({block:'start'});track('session_started');
+ try{makeBackup(candidate);}catch{setMessage(el('start-error'),'backup.invalid');return;}
+ if(!save(candidate)){if(!baselineCase)render();return;}resetCaseUI();setMessage(el('start-error'),null);render();el('dashboard').scrollIntoView({block:'start'});track('session_started');
 });
-el('edit-details').addEventListener('click',()=>{if(!timeline)return;populateDetails();el('start-view').hidden=false;el('dashboard').hidden=true;start.scrollIntoView();});
+el('edit-details').addEventListener('click',()=>{if(!timeline)return;editingDetails=true;populateDetails();el('start-view').hidden=false;el('dashboard').hidden=true;start.scrollIntoView();});
 document.querySelectorAll<HTMLElement>('[data-letter]').forEach(button=>button.addEventListener('click',()=>{if(timeline)showLetter(()=>makeLetter(button.dataset.letter as LetterKind,timeline!,contacts,rules,lang()),['gro','recovery'].includes(button.dataset.letter||'')?contacts.find(c=>c.id===timeline!.insurerId)?.gro_email||'':'');}));
-form('event-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('event-form'),at=input(f,'at').value;if(timeline.events.length>=500||!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('event-error'),'finished.error');return;}timeline.events.push({id:crypto.randomUUID(),at:new Date(at).toISOString(),type:input(f,'type').value,note:input(f,'note').value.trim()});input(f,'note').value='';input(f,'at').value=localInputValue();setMessage(el('event-error'),null);save();render();});
+form('event-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('event-form'),at=input(f,'at').value;if(timeline.events.length>=500||!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('event-error'),'finished.error');return;}const candidate={...timeline,events:[...timeline.events,{id:crypto.randomUUID(),at:new Date(at).toISOString(),type:input(f,'type').value,note:input(f,'note').value.trim()}]};if(!save(candidate))return;input(f,'note').value='';input(f,'at').value=localInputValue();setMessage(el('event-error'),null);render();});
 el('print-timeline').addEventListener('click',()=>{if(!timeline)return;const p=el('print-root');p.replaceChildren();addText(p,'h1','ClaimClock — '+t('timeline.title'));addText(p,'p',`${contacts.find(c=>c.id===timeline!.insurerId)?.name}\n${timeline.hospital}, ${timeline.city}\n${t('clock.basis')}\n\n${timelineText(timeline,lang())}\n\n${t('footer.disclaimer')}`);window.print();});
 el('export-timeline').addEventListener('click',()=>{const backup=currentBackup();if(backup)download('claimclock-case.json',JSON.stringify(backup,null,2),'application/json');});
 form('recovery-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('recovery-form');showLetter(()=>makeLetter('recovery',timeline!,contacts,rules,lang(),{amount:Number(input(f,'amount').value).toLocaleString('en-IN'),hours:input(f,'hours').value}),contacts.find(c=>c.id===timeline!.insurerId)?.gro_email||'');track('delay_charge_generated');});
-form('finish-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('finish-form'),at=input(f,'decidedAt').value;if(!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('finish-error'),'finished.error');return;}timeline.decidedAt=new Date(at).toISOString();timeline.outcome=input(f,'outcome').value;resetCaseUI();setMessage(el('finish-error'),null);save();render();});
+form('finish-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('finish-form'),at=input(f,'decidedAt').value;if(!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('finish-error'),'finished.error');return;}const candidate={...timeline,decidedAt:new Date(at).toISOString(),outcome:input(f,'outcome').value};if(!save(candidate))return;resetCaseUI();setMessage(el('finish-error'),null);render();});
 form('optin-form').addEventListener('submit',async e=>{
  e.preventDefault();if(!timeline)return;clearReportError();const requestLanguage=lang(),caseId=timeline.id,payload={...reportPayload(timeline),consent:true,adult:true},payloadKey=JSON.stringify(payload);const stillCurrent=()=>timeline?.id===caseId&&JSON.stringify({...reportPayload(timeline),consent:true,adult:true})===payloadKey;const button=form('optin-form').querySelector('button')!;button.disabled=true;
  try{
@@ -155,7 +164,9 @@ form('optin-form').addEventListener('submit',async e=>{
  render();
 });
 el('copy-deletion-code').addEventListener('click',async()=>{const code=el<HTMLInputElement>('deletion-code');try{await navigator.clipboard.writeText(code.value);setMessage(el('deletion-copy-status'),'optin.codeCopied');}catch{code.focus();code.select();setMessage(el('deletion-copy-status'),'optin.copyFailed');}});
-function removeCurrentCase(){if(!timeline||!confirm(t('cases.deleteConfirm')))return;if(!deleteCase(timeline.id)){setMessage(el('case-status'),'error.storage');return;}activateSavedCase();setMessage(el('case-status'),'cases.deleted');}
+function removeCurrentCase(){if(!timeline||!confirm(t('cases.deleteConfirm')))return;if(!deleteCase(timeline.id,baselineCase||undefined)){if(storageIssue()==='conflict')showSaveProblem(true);else setMessage(el('case-status'),'error.storage');return;}activateSavedCase();setMessage(el('case-status'),'cases.deleted');}
+el('workflow-download').addEventListener('click',()=>{const backup=currentBackup();if(backup)download('claimclock-case.json',JSON.stringify(backup,null,2),'application/json');});
+el('workflow-load-latest').addEventListener('click',()=>{if(!confirm(t('workflow.loadConfirm')))return;const id=baselineCase?.timeline.id||timeline?.id;const latest=listCases().find(c=>c.timeline.id===id);if(!selectCase(latest?.timeline.id||null)){setMessage(el('workflow-status'),'error.storage');return;}activateSavedCase();setMessage(el('case-status'),'workflow.loaded');});
 el('erase-timeline').addEventListener('click',removeCurrentCase);
 el('case-delete').addEventListener('click',removeCurrentCase);
 el<HTMLSelectElement>('case-select').addEventListener('change',()=>{if(!leaveUnsaved()){renderCases();return;}if(!selectCase(el<HTMLSelectElement>('case-select').value||null)){setMessage(el('case-status'),'error.storage');renderCases();return;}activateSavedCase();setMessage(el('case-status'),null);});

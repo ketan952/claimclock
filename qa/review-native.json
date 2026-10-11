@@ -1,0 +1,46 @@
+{
+  "review": "M13 fresh native Safari acceptance",
+  "origin": "https://claimclock.ketan952.workers.dev/",
+  "tested_build": "e1e509d30ac97912",
+  "environment": "Real native Safari UI; production Turnstile configuration unchanged; synthetic case only",
+  "checks": [
+    {
+      "name": "Blank-city report and erasure",
+      "result": "pass",
+      "evidence": [
+        "Report received with deletion code",
+        "Privacy restored saved receipt and deletion code",
+        "Report erased; code cleared and receipt removed"
+      ],
+      "report_id": "b4501852-d82a-454f-aba8-2f99e21b0bbe",
+      "cleanup": "Erased through Privacy UI"
+    },
+    {
+      "name": "Optional AI explanation",
+      "result": "pass",
+      "preview": "Unexplained adjustment: ₹3250; unexplained",
+      "provider": "api.groq.com · openai/gpt-oss-120b",
+      "evidence": "Consented request returned a plain-language description of the synthetic unexplained deduction; no entitlement or clinical determination."
+    },
+    {
+      "name": "Encrypted transfer creation, decryption preview and lookup limit",
+      "result": "pass_same_context",
+      "evidence": [
+        "Created encrypted transfer and QR",
+        "Decrypted preview matched Prudential HCL Health Insurance, Synthetic QA hospital, November 2025, one timeline entry, zero deductions",
+        "Three successful decrypt-and-preview lookups showed remaining counts 2, 1, 0",
+        "Fourth lookup returned unavailable/expired/used three lookups",
+        "Cancelled each preview; no case overwritten or imported; hid private link/QR and cleared receive field"
+      ],
+      "cleanup": "Three-lookups exhausted; fourth lookup unavailable"
+    }
+  ],
+  "limits": [
+    "These production positive-path checks used the previously deployed M12 build before M13 source changes.",
+    "Transfer checked in one Safari context; this is not fresh two-context round-trip evidence. M11 independent-context evidence remains historical.",
+    "No HTTP interception was used in native Safari; these are observed UI outcomes.",
+    "Native Safari accessibility snapshot omitted the open restore dialog; screenshot visibly confirmed the complete preview.",
+    "No physical mobile device or screen-reader acceptance is claimed."
+  ],
+  "secrets": "No deletion token, encryption key or full transfer link retained in this artifact."
+}

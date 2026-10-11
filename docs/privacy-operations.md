@@ -7,7 +7,7 @@ Reviewed 10 October 2026. This document describes implemented safeguards and ope
 | Flow | Leaves device | Application persistence |
 |---|---|---|
 | Local clock, timeline, document extraction and rules | Nothing until user shares/exports | Browser storage controlled by the user |
-| Optional patient report | Known insurer/TPA ID, optional city (`null` when blank), request type, submitted/decided timestamps, outcome, consent version | D1 report plus random ID and SHA-256 erasure-token hash; scheduled retention up to 365 days |
+| Optional patient report | Known insurer/TPA ID, optional city (`null` when blank), request type, submitted/decided timestamps, outcome, consent version | D1 report plus random ID and SHA-256 erasure-token hash; reports older than 365 days are removed by daily cleanup, subject to the maintenance failure boundary below |
 | Optional usage counts | At most 20 total counts per batch, using five fixed event names | Daily counts only; scheduled retention 90 days |
 | Explain with AI | User-reviewed, redacted ambiguous lines, at most 800 characters, explicit consent | Not persisted by ClaimClock; sent to the configured provider under its own processing terms |
 | Aggregate reading | Selected insurer ID | Global rate counter only; no IP, user agent or reader ID |

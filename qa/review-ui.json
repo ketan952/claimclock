@@ -1,0 +1,1235 @@
+{
+  "reviewed_at": "2026-10-11T16:45:18.807Z",
+  "public_url": "https://claimclock.ketan952.workers.dev",
+  "public_build": {
+    "buildId": "e1e509d30ac97912"
+  },
+  "review_scope": "Independent M12 live UI edge-case audit beyond the existing picker suite; Chromium and WebKit isolated browser contexts, synthetic local-only cases. Follow-up compact-layout verification used the source server, not a redeployed public release.",
+  "evidence_method": {
+    "public_api_mutations": false,
+    "provider_calls": false,
+    "real_personal_data": false,
+    "public_page_mocks": false,
+    "controlled_mutations": [
+      "Open native select value + pickerrefresh diagnostic",
+      "Source regression uses controlled visualViewport geometry to model a keyboard inset; not a physical keyboard test"
+    ],
+    "source_review": [
+      "src/lib/select-picker.ts",
+      "src/styles/global.css",
+      "src/lib/hospital.ts"
+    ],
+    "notes_read": [
+      "RESUME.md M12",
+      "qa/REPORT.md M12"
+    ]
+  },
+  "findings": [
+    {
+      "id": "UI-01",
+      "severity": "medium",
+      "title": "Short available viewport hides every insurer result",
+      "status": "fixed_in_source_verified_not_yet_public_retested",
+      "build_observed": "e1e509d30ac97912",
+      "engines": [
+        "Chromium",
+        "WebKit"
+      ],
+      "reproduction": [
+        "Use a fresh 667×200 CSS viewport and open the home insurer picker.",
+        "Search health.",
+        "Press ArrowDown or try to select a result by touch/pointer."
+      ],
+      "actual": "The public dialog list is 8px high; no result center is visible/hit-testable. ArrowDown focuses a clipped row. WebKit also scrolls the header partly out of view.",
+      "impact": "A very short viewport cannot expose a usable option through the picker. This is directly reproduced by viewport sizing, not asserted as a tested physical phone keyboard.",
+      "source_cause": "Fixed-height header/search/count/footer consume all flex space; visualViewport height was applied without compact chrome.",
+      "fix": "At visualViewport height ≤300px, compact title/close and search stay visible, result rows remain ≥48px, count status and privacy hint remain in the accessibility tree but are visually clipped. Inset uses the actual visualViewport height/offset.",
+      "verification": "3 focused browser tests passed in each engine on source4321: 200px height at667/320 widths, visible hit-testable result, keyboard selection/focus containment, simulated keyboard inset/restoration, and keeping a focused final option visible after shrinking700→200px.",
+      "before_screenshots": [
+        "qa/screenshots/review-ui-chromium-short.png",
+        "qa/screenshots/review-ui-webkit-short.png"
+      ],
+      "after_screenshots": [
+        "qa/screenshots/review-ui-chromium-667-compact-after.png",
+        "qa/screenshots/review-ui-chromium-320-compact-after.png",
+        "qa/screenshots/review-ui-webkit-667-compact-after.png",
+        "qa/screenshots/review-ui-webkit-320-compact-after.png"
+      ],
+      "additional_resize_reproduction": "After opening at667×700, ArrowDown then End, resizing to667×200 also left the final focused row below the clipped list. viewport() now scrolls a focused result into view after height changes; new third regression passes both engines."
+    },
+    {
+      "id": "UI-02",
+      "severity": "medium",
+      "title": "Language switch exits saved-case editing and discards unsaved changes on reopening",
+      "status": "fixed_by_workflow_agent_independently_verified_in_source_not_yet_public_retested",
+      "build_observed": "e1e509d30ac97912",
+      "engines": [
+        "Chromium",
+        "WebKit"
+      ],
+      "reproduction": [
+        "Start a synthetic Care case with hospital Synthetic saved hospital.",
+        "Choose Edit details, change hospital to Synthetic unsaved correction without submitting.",
+        "Click हिन्दी; the edit form is hidden and dashboard shown.",
+        "Click Edit details again."
+      ],
+      "actual": "The hospital field reverts to Synthetic saved hospital. The draft temporarily remains in the hidden form after the language click, then populateDetails overwrites it on reopening.",
+      "impact": "Unsaved editing is lost during a normal language-switch workflow. Saved case data is not changed.",
+      "source_cause": "languagechange calls render(), which derives form visibility only from a saved timeline; reopening always populates saved values.",
+      "screenshots": [
+        "qa/screenshots/review-ui-chromium-language-edit.png",
+        "qa/screenshots/review-ui-webkit-language-edit.png"
+      ],
+      "verification": "Independent repeat in Chromium and WebKit: language switch preserves visible edit form, typed hospital, hidden dashboard and byte-for-byte unchanged saved local case data.",
+      "after_screenshots": [
+        "qa/screenshots/review-ui-chromium-language-edit-after.png",
+        "qa/screenshots/review-ui-webkit-language-edit-after.png"
+      ]
+    }
+  ],
+  "diagnostics_not_classified_as_user_bugs": [
+    {
+      "id": "UI-D1",
+      "title": "Open-list current marker is stale after a controlled programmatic value update",
+      "reproduction": "Choose Care, reopen insurer picker, set native select.value=hdfc-ergo and dispatch window pickerrefresh.",
+      "actual": "Native value and trigger show HDFC ERGO, but the open list still marks Care aria-current=true. Closing/reopening refreshes.",
+      "limitation": "This uses page.evaluate; no corresponding ordinary user path while the modal is open was established. Not counted as a confirmed production workflow bug and not changed.",
+      "screenshots": [
+        "qa/screenshots/review-ui-chromium-late-refresh.png",
+        "qa/screenshots/review-ui-webkit-late-refresh.png"
+      ]
+    }
+  ],
+  "passed_checks": [
+    "At320×460, query health displays usable rows without horizontal overflow in Chromium and WebKit.",
+    "At640×450 reflow-equivalent viewport, both engines expose usable rows and Escape restores trigger focus.",
+    "Actual Chromium browser zoom factor2 was confirmed with chrome.tabs.getZoom after chrome.tabs.setZoom; DOM geometry, hit testing and Escape focus passed. Screenshot compositor limitation is recorded separately.",
+    "Submitting an entirely empty rejection form exposes the insurer error and focuses the next visible invalid date field; no nonfocusable-control console error, all invalid fields remain recoverable.",
+    "Escape from the controlled open-list refresh returns focus to the trigger in both engines."
+  ],
+  "actual_browser_zoom": {
+    "at": "2026-10-11T16:48:48.318Z",
+    "method": "Temporary isolated Chromium extension chrome.tabs.setZoom(2); actual browser zoom, fresh profile, no source mutation",
+    "zoom": {
+      "factor": 2,
+      "settings": {
+        "defaultZoomFactor": 1,
+        "mode": "automatic",
+        "scope": "per-origin"
+      }
+    },
+    "geometry": {
+      "innerWidth": 640,
+      "innerHeight": 406,
+      "outerWidth": 1280,
+      "outerHeight": 900,
+      "devicePixelRatio": 4,
+      "visualViewport": {
+        "scale": 1,
+        "width": 640,
+        "height": 406.5
+      },
+      "dialog": {
+        "x": 50,
+        "y": 12,
+        "width": 540,
+        "height": 382.5
+      },
+      "list": {
+        "x": 51,
+        "y": 184.19921875,
+        "width": 538,
+        "height": 163.1015625
+      },
+      "active": {
+        "x": 61,
+        "y": 184.19921875,
+        "width": 518,
+        "height": 52.67578125
+      },
+      "overflow": false,
+      "inputFont": "16px",
+      "activeName": "Aditya Birla Health✓",
+      "visibleHitResults": 3
+    },
+    "focusReturned": true,
+    "screenshot": null,
+    "screenshot_capture_note": "Headed Chromium screenshot output was blank despite successful browser zoom/DOM geometry and focus checks; excluded as visual evidence. Separate 640×450 reflow screenshots are valid."
+  },
+  "public_observations": [
+    {
+      "name": "chromium-320",
+      "viewport": {
+        "width": 320,
+        "height": 460
+      },
+      "zoom_note": null,
+      "open": {
+        "innerWidth": 320,
+        "innerHeight": 460,
+        "visualViewport": {
+          "width": 320,
+          "height": 460,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 82.8125,
+          "bottom": 460,
+          "left": 0,
+          "right": 320,
+          "width": 320,
+          "height": 377.1875
+        },
+        "list": {
+          "top": 249,
+          "bottom": 413.8125,
+          "left": 1,
+          "right": 319,
+          "width": 318,
+          "height": 164.8125
+        },
+        "input": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "close": {
+          "top": 95.8125,
+          "bottom": 143.8125,
+          "left": 255,
+          "right": 303,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 249,
+          "bottom": 301.6875,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 2
+      },
+      "focus": {
+        "innerWidth": 320,
+        "innerHeight": 460,
+        "visualViewport": {
+          "width": 320,
+          "height": 460,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 82.8125,
+          "bottom": 460,
+          "left": 0,
+          "right": 320,
+          "width": 320,
+          "height": 377.1875
+        },
+        "list": {
+          "top": 249,
+          "bottom": 413.8125,
+          "left": 1,
+          "right": 319,
+          "width": 318,
+          "height": 164.8125
+        },
+        "input": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "close": {
+          "top": 95.8125,
+          "bottom": 143.8125,
+          "left": 255,
+          "right": 303,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 249,
+          "bottom": 301.6875,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 249,
+          "bottom": 301.6875,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.6875
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 2
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-chromium-320.png"
+    },
+    {
+      "name": "chromium-short",
+      "viewport": {
+        "width": 667,
+        "height": 200
+      },
+      "zoom_note": null,
+      "open": {
+        "innerWidth": 667,
+        "innerHeight": 200,
+        "visualViewport": {
+          "width": 667,
+          "height": 200,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 188,
+          "left": 63.5,
+          "right": 603.5,
+          "width": 540,
+          "height": 176
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 192.1875,
+          "left": 64.5,
+          "right": 602.5,
+          "width": 538,
+          "height": 8
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 534.5,
+          "right": 582.5,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.875,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 91,
+          "bottom": 143,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 0
+      },
+      "focus": {
+        "innerWidth": 667,
+        "innerHeight": 200,
+        "visualViewport": {
+          "width": 667,
+          "height": 200,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 188,
+          "left": 63.5,
+          "right": 603.5,
+          "width": 540,
+          "height": 176
+        },
+        "list": {
+          "top": 179.1875,
+          "bottom": 187.1875,
+          "left": 64.5,
+          "right": 602.5,
+          "width": 538,
+          "height": 8
+        },
+        "input": {
+          "top": 86,
+          "bottom": 138,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 24,
+          "bottom": 72,
+          "left": 534.5,
+          "right": 582.5,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 179.1875,
+          "bottom": 231.875,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 179.1875,
+          "bottom": 231.875,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.6875
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 0
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-chromium-short.png"
+    },
+    {
+      "name": "chromium-zoom-equivalent",
+      "viewport": {
+        "width": 640,
+        "height": 450
+      },
+      "zoom_note": "640x450 CSS viewport models 200% reflow within1280x900; not a browser zoom API or physical keyboard",
+      "open": {
+        "innerWidth": 640,
+        "innerHeight": 450,
+        "visualViewport": {
+          "width": 640,
+          "height": 450,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 438,
+          "left": 50,
+          "right": 590,
+          "width": 540,
+          "height": 426
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 390.8125,
+          "left": 51,
+          "right": 589,
+          "width": 538,
+          "height": 206.625
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 521,
+          "right": 569,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.875,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 3
+      },
+      "focus": {
+        "innerWidth": 640,
+        "innerHeight": 450,
+        "visualViewport": {
+          "width": 640,
+          "height": 450,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 438,
+          "left": 50,
+          "right": 590,
+          "width": 540,
+          "height": 426
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 390.8125,
+          "left": 51,
+          "right": 589,
+          "width": 538,
+          "height": 206.625
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 521,
+          "right": 569,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.875,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.6875
+        },
+        "active": {
+          "top": 184.1875,
+          "bottom": 236.875,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.6875
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 3
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-chromium-zoom-equivalent.png"
+    },
+    {
+      "name": "chromium-multiple-invalid",
+      "active": "<input name=\"rejectedOn\" type=\"date\" required=\"\">",
+      "invalid": [
+        {
+          "tag": "SELECT",
+          "name": "insurer",
+          "hidden": true
+        },
+        {
+          "tag": "INPUT",
+          "name": "rejectedOn",
+          "hidden": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "name": "ground",
+          "hidden": false
+        }
+      ],
+      "pickerError": "Choose an option to continue.",
+      "triggerInvalid": "true",
+      "consoleErrors": [],
+      "screenshot": "qa/screenshots/review-ui-chromium-multiple-invalid.png"
+    },
+    {
+      "name": "chromium-edit-language-loss",
+      "afterLanguage": {
+        "formVisible": false,
+        "dashboardVisible": true,
+        "inputValue": "Synthetic unsaved correction",
+        "focusSummary": "<button type=\"button\" data-language=\"hi\" aria-pressed=\"true\">हिन्दी</button>",
+        "draftStillInHiddenDOM": true
+      },
+      "afterReopen": "Synthetic saved hospital",
+      "typedBeforeLanguage": "Synthetic unsaved correction",
+      "screenshot": "qa/screenshots/review-ui-chromium-language-edit.png"
+    },
+    {
+      "name": "chromium-late-select-refresh",
+      "controlledMutation": true,
+      "productionUserPathEstablished": false,
+      "underlying": "hdfc-ergo",
+      "triggerText": "HDFC ERGO General",
+      "markedCurrent": "care",
+      "currentLabel": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.)\n✓",
+      "focusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-chromium-late-refresh.png"
+    },
+    {
+      "name": "webkit-320",
+      "viewport": {
+        "width": 320,
+        "height": 460
+      },
+      "zoom_note": null,
+      "open": {
+        "innerWidth": 320,
+        "innerHeight": 460,
+        "visualViewport": {
+          "width": 320,
+          "height": 460,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 82.8125,
+          "bottom": 460,
+          "left": 0,
+          "right": 320,
+          "width": 320,
+          "height": 377.1875
+        },
+        "list": {
+          "top": 249,
+          "bottom": 413.8125,
+          "left": 1,
+          "right": 319,
+          "width": 318,
+          "height": 164.8125
+        },
+        "input": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "close": {
+          "top": 95.8125,
+          "bottom": 143.8125,
+          "left": 255,
+          "right": 303,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 249,
+          "bottom": 301.65625,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 2
+      },
+      "focus": {
+        "innerWidth": 320,
+        "innerHeight": 460,
+        "visualViewport": {
+          "width": 320,
+          "height": 460,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 82.8125,
+          "bottom": 460,
+          "left": 0,
+          "right": 320,
+          "width": 320,
+          "height": 377.1875
+        },
+        "list": {
+          "top": 249,
+          "bottom": 413.8125,
+          "left": 1,
+          "right": 319,
+          "width": 318,
+          "height": 164.8125
+        },
+        "input": {
+          "top": 155.8125,
+          "bottom": 207.8125,
+          "left": 17,
+          "right": 303,
+          "width": 286,
+          "height": 52
+        },
+        "close": {
+          "top": 95.8125,
+          "bottom": 143.8125,
+          "left": 255,
+          "right": 303,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 249,
+          "bottom": 301.65625,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 249,
+          "bottom": 301.65625,
+          "left": 8,
+          "right": 312,
+          "width": 304,
+          "height": 52.65625
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 2
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-webkit-320.png"
+    },
+    {
+      "name": "webkit-short",
+      "viewport": {
+        "width": 667,
+        "height": 200
+      },
+      "zoom_note": null,
+      "open": {
+        "innerWidth": 667,
+        "innerHeight": 200,
+        "visualViewport": {
+          "width": 667,
+          "height": 200,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 188,
+          "left": 63.5,
+          "right": 603.5,
+          "width": 540,
+          "height": 176
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 192.1875,
+          "left": 64.5,
+          "right": 602.5,
+          "width": 538,
+          "height": 8
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 534.5,
+          "right": 582.5,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.84375,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 91,
+          "bottom": 143,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 0
+      },
+      "focus": {
+        "innerWidth": 667,
+        "innerHeight": 200,
+        "visualViewport": {
+          "width": 667,
+          "height": 200,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 188,
+          "left": 63.5,
+          "right": 603.5,
+          "width": 540,
+          "height": 176
+        },
+        "list": {
+          "top": 134.1875,
+          "bottom": 142.1875,
+          "left": 64.5,
+          "right": 602.5,
+          "width": 538,
+          "height": 8
+        },
+        "input": {
+          "top": 41,
+          "bottom": 93,
+          "left": 84.5,
+          "right": 582.5,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": -21,
+          "bottom": 27,
+          "left": 534.5,
+          "right": 582.5,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 134.1875,
+          "bottom": 186.84375,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 134.1875,
+          "bottom": 186.84375,
+          "left": 74.5,
+          "right": 592.5,
+          "width": 518,
+          "height": 52.65625
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 0
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-webkit-short.png"
+    },
+    {
+      "name": "webkit-zoom-equivalent",
+      "viewport": {
+        "width": 640,
+        "height": 450
+      },
+      "zoom_note": "640x450 CSS viewport models 200% reflow within1280x900; not a browser zoom API or physical keyboard",
+      "open": {
+        "innerWidth": 640,
+        "innerHeight": 450,
+        "visualViewport": {
+          "width": 640,
+          "height": 450,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 438,
+          "left": 50,
+          "right": 590,
+          "width": 540,
+          "height": 426
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 390.8125,
+          "left": 51,
+          "right": 589,
+          "width": 538,
+          "height": 206.625
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 521,
+          "right": 569,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.84375,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "overflow": false,
+        "visibleHitResults": 3
+      },
+      "focus": {
+        "innerWidth": 640,
+        "innerHeight": 450,
+        "visualViewport": {
+          "width": 640,
+          "height": 450,
+          "scale": 1
+        },
+        "dialog": {
+          "top": 12,
+          "bottom": 438,
+          "left": 50,
+          "right": 590,
+          "width": 540,
+          "height": 426
+        },
+        "list": {
+          "top": 184.1875,
+          "bottom": 390.8125,
+          "left": 51,
+          "right": 589,
+          "width": 538,
+          "height": 206.625
+        },
+        "input": {
+          "top": 91,
+          "bottom": 143,
+          "left": 71,
+          "right": 569,
+          "width": 498,
+          "height": 52
+        },
+        "close": {
+          "top": 29,
+          "bottom": 77,
+          "left": 521,
+          "right": 569,
+          "width": 48,
+          "height": 48
+        },
+        "firstResult": {
+          "top": 184.1875,
+          "bottom": 236.84375,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.65625
+        },
+        "active": {
+          "top": 184.1875,
+          "bottom": 236.84375,
+          "left": 61,
+          "right": 579,
+          "width": 518,
+          "height": 52.65625
+        },
+        "activeValue": "aditya-birla",
+        "overflow": false,
+        "visibleHitResults": 3
+      },
+      "escapeFocusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-webkit-zoom-equivalent.png"
+    },
+    {
+      "name": "webkit-multiple-invalid",
+      "active": "<input name=\"rejectedOn\" type=\"date\" required=\"\">",
+      "invalid": [
+        {
+          "tag": "SELECT",
+          "name": "insurer",
+          "hidden": true
+        },
+        {
+          "tag": "INPUT",
+          "name": "rejectedOn",
+          "hidden": false
+        },
+        {
+          "tag": "TEXTAREA",
+          "name": "ground",
+          "hidden": false
+        }
+      ],
+      "pickerError": "Choose an option to continue.",
+      "triggerInvalid": "true",
+      "consoleErrors": [],
+      "screenshot": "qa/screenshots/review-ui-webkit-multiple-invalid.png"
+    },
+    {
+      "name": "webkit-edit-language-loss",
+      "afterLanguage": {
+        "formVisible": false,
+        "dashboardVisible": true,
+        "inputValue": "Synthetic unsaved correction",
+        "focusSummary": "body",
+        "draftStillInHiddenDOM": true
+      },
+      "afterReopen": "Synthetic saved hospital",
+      "typedBeforeLanguage": "Synthetic unsaved correction",
+      "screenshot": "qa/screenshots/review-ui-webkit-language-edit.png"
+    },
+    {
+      "name": "webkit-late-select-refresh",
+      "controlledMutation": true,
+      "productionUserPathEstablished": false,
+      "underlying": "hdfc-ergo",
+      "triggerText": "HDFC ERGO General",
+      "markedCurrent": "care",
+      "currentLabel": "Care Health Insurance (Formely Religare Health Insurance Co. Ltd.)\n✓",
+      "focusReturned": true,
+      "screenshot": "qa/screenshots/review-ui-webkit-late-refresh.png"
+    }
+  ],
+  "source_compact_followup": {
+    "at": "2026-10-11T16:49:05.247Z",
+    "sourceURL": "http://127.0.0.1:4321/",
+    "results": [
+      {
+        "engine": "chromium",
+        "screenshot": "qa/screenshots/review-ui-chromium-667-compact-after.png",
+        "metrics": {
+          "viewport": {
+            "width": 667,
+            "height": 200
+          },
+          "dialog": {
+            "top": 4,
+            "bottom": 196,
+            "height": 192
+          },
+          "list": {
+            "top": 105,
+            "bottom": 195,
+            "height": 90
+          },
+          "focused": {
+            "top": 105,
+            "bottom": 153,
+            "height": 48
+          },
+          "close": {
+            "top": 5,
+            "bottom": 53,
+            "height": 48
+          },
+          "search": {
+            "top": 53,
+            "bottom": 101,
+            "height": 48
+          },
+          "visibleHitResults": 2
+        }
+      },
+      {
+        "engine": "chromium",
+        "screenshot": "qa/screenshots/review-ui-chromium-320-compact-after.png",
+        "metrics": {
+          "viewport": {
+            "width": 320,
+            "height": 200
+          },
+          "dialog": {
+            "top": 8,
+            "bottom": 200,
+            "height": 192
+          },
+          "list": {
+            "top": 109,
+            "bottom": 200,
+            "height": 91
+          },
+          "focused": {
+            "top": 109,
+            "bottom": 157,
+            "height": 48
+          },
+          "close": {
+            "top": 9,
+            "bottom": 57,
+            "height": 48
+          },
+          "search": {
+            "top": 57,
+            "bottom": 105,
+            "height": 48
+          },
+          "visibleHitResults": 2
+        }
+      },
+      {
+        "engine": "webkit",
+        "screenshot": "qa/screenshots/review-ui-webkit-667-compact-after.png",
+        "metrics": {
+          "viewport": {
+            "width": 667,
+            "height": 200
+          },
+          "dialog": {
+            "top": 4,
+            "bottom": 196,
+            "height": 192
+          },
+          "list": {
+            "top": 105,
+            "bottom": 195,
+            "height": 90
+          },
+          "focused": {
+            "top": 105,
+            "bottom": 153,
+            "height": 48
+          },
+          "close": {
+            "top": 5,
+            "bottom": 53,
+            "height": 48
+          },
+          "search": {
+            "top": 53,
+            "bottom": 101,
+            "height": 48
+          },
+          "visibleHitResults": 2
+        }
+      },
+      {
+        "engine": "webkit",
+        "screenshot": "qa/screenshots/review-ui-webkit-320-compact-after.png",
+        "metrics": {
+          "viewport": {
+            "width": 320,
+            "height": 200
+          },
+          "dialog": {
+            "top": 8,
+            "bottom": 200,
+            "height": 192
+          },
+          "list": {
+            "top": 109,
+            "bottom": 200,
+            "height": 91
+          },
+          "focused": {
+            "top": 109,
+            "bottom": 157,
+            "height": 48
+          },
+          "close": {
+            "top": 9,
+            "bottom": 57,
+            "height": 48
+          },
+          "search": {
+            "top": 57,
+            "bottom": 105,
+            "height": 48
+          },
+          "visibleHitResults": 2
+        }
+      }
+    ]
+  },
+  "source_fix_files": {
+    "src/lib/select-picker.ts": "2ccbb153064ce7acc2d0b57e793c7cdc09c5041811779f42e3a0a9e23cd7d2da",
+    "src/styles/global.css": "77d77eb0de4678c7e8a499fe232b3829a0b664fdd04e82051fe66bf826372517",
+    "tests/browser/review-layout.spec.ts": "89bf2392772b10d3175c94d2802c52f370888c0fc5e65ea551309141967b113c"
+  },
+  "limitations": [
+    "No physical mobile keyboard, VoiceOver or TalkBack session; WebKit engine checks are not native Safari screen-reader certification.",
+    "200% zoom checked in isolated Chromium via the browser extension API; no actual WebKit browser zoom claim.",
+    "Compact fix source checks are separate from public build e1e509d30ac97912. Parent owns final build/deployment/regression.",
+    "Controlled late DOM mutation is diagnostic only."
+  ],
+  "source_language_followup": {
+    "at": "2026-10-11T16:50:59.721Z",
+    "sourceURL": "http://127.0.0.1:4321",
+    "outcomes": [
+      {
+        "engine": "chromium",
+        "passed": true,
+        "formVisible": true,
+        "draftPreserved": true,
+        "savedBytesUnchanged": true,
+        "screenshot": "qa/screenshots/review-ui-chromium-language-edit-after.png"
+      },
+      {
+        "engine": "webkit",
+        "passed": true,
+        "formVisible": true,
+        "draftPreserved": true,
+        "savedBytesUnchanged": true,
+        "screenshot": "qa/screenshots/review-ui-webkit-language-edit-after.png"
+      }
+    ]
+  },
+  "source_tests": {
+    "Chromium": {
+      "passed": 3,
+      "failed": 0
+    },
+    "WebKit": {
+      "passed": 3,
+      "failed": 0
+    },
+    "baseURL": "http://127.0.0.1:4321",
+    "production_claim": false
+  },
+  "release_followup": {
+    "build": "4e06cdf5ccb69460",
+    "public_chromium_selected_passes": 69,
+    "public_webkit_selected_passes": 23,
+    "evidence": "qa/m13-browser.json",
+    "note": "This follow-up records final release verification; the original source/baseline observations above retain their original provenance."
+  }
+}

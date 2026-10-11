@@ -13,7 +13,10 @@ function discardPending() {
 export function track(name:EventName) {
   // Optional analytics must never break local work when browser storage is denied.
   if(!hasConsent()){discardPending();return;}
-  counts[name]=Math.min(20,(counts[name]||0)+1);
+  // The API limit is per batch, across every event name. Drop excess actions
+  // without retaining them for a later request or replay after consent changes.
+  if(Object.values(counts).reduce((sum,n)=>sum+n,0)>=20)return;
+  counts[name]=(counts[name]||0)+1;
   if(timer===undefined) timer=setTimeout(flush,15000);
 }
 async function flush() {

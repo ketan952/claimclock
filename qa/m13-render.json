@@ -1,0 +1,138 @@
+{
+  "captured_at": "2026-10-11T17:00:35.748Z",
+  "publicURL": "https://claimclock.ketan952.workers.dev",
+  "build": {
+    "buildId": "4e06cdf5ccb69460"
+  },
+  "browser": "Isolated Playwright Chromium; mobile/touch emulation, not physical phone",
+  "captures": [
+    {
+      "path": "qa/screenshots/m13-compact-picker.png",
+      "note": "Actual public insurer picker after query health; pointer moved away from rows.",
+      "sourceURL": "https://claimclock.ketan952.workers.dev/",
+      "metrics": {
+        "viewport": {
+          "width": 320,
+          "height": 200
+        },
+        "visualViewport": {
+          "width": 320,
+          "height": 200,
+          "offsetTop": 0
+        },
+        "horizontalOverflow": false,
+        "dialog": {
+          "bounds": {
+            "x": 0,
+            "y": 8,
+            "width": 320,
+            "height": 192
+          },
+          "results": {
+            "x": 1,
+            "y": 109,
+            "width": 318,
+            "height": 91
+          },
+          "inputFont": "16px",
+          "minimumRowHeight": 48
+        }
+      },
+      "sha256": "fd955cc810ec76f21b6a18e0ff2ac384c1b191ef1d2cd7c3a6b511ecb00526d4"
+    },
+    {
+      "path": "qa/screenshots/m13-mobile-picker.png",
+      "note": "Actual public insurer picker after query health; pointer moved away from rows.",
+      "sourceURL": "https://claimclock.ketan952.workers.dev/",
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetTop": 0
+        },
+        "horizontalOverflow": false,
+        "dialog": {
+          "bounds": {
+            "x": 0,
+            "y": 151.921875,
+            "width": 390,
+            "height": 692.078125
+          },
+          "results": {
+            "x": 1,
+            "y": 318.109375,
+            "width": 388,
+            "height": 479.703125
+          },
+          "inputFont": "16px",
+          "minimumRowHeight": 52.6875
+        }
+      },
+      "sha256": "a85eb97b42452a83d63f7d8873aecf8074a72674ee128173c5ac1cbeb01f7486"
+    },
+    {
+      "path": "qa/screenshots/m13-mobile-form.png",
+      "note": "Actual public start form with Care selected; local unsaved input only.",
+      "sourceURL": "https://claimclock.ketan952.workers.dev/",
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetTop": 0
+        },
+        "horizontalOverflow": false,
+        "dialog": null
+      },
+      "sha256": "141b94c806a5fc107fc993378a75ebb6d7d7341ff53ad4a42988006b29cc0e15"
+    },
+    {
+      "path": "qa/screenshots/m13-conflict-feedback.png",
+      "note": "Two isolated same-context tabs; second tab saves a synthetic event, first submits a stale draft. No public report or API write.",
+      "sourceURL": "https://claimclock.ketan952.workers.dev/",
+      "metrics": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetTop": 0
+        },
+        "horizontalOverflow": false,
+        "dialog": null
+      },
+      "sha256": "89b2e7624bf4afe7ea27d15eb185dd7683144b348cf4f7c80f84c650cc88fa31"
+    }
+  ],
+  "conflict": {
+    "message": "This case changed or was deleted in another tab. Your draft is still here, and the saved case was not overwritten. Download your draft before loading the latest saved case.",
+    "draftPreserved": true,
+    "savedEvents": [
+      "Synthetic saved event from second tab"
+    ]
+  },
+  "apiPostRequests": [],
+  "visualInspection": {
+    "completed": true,
+    "method": "All four actual screenshots opened with view_image",
+    "notes": [
+      "320×200 compact picker preserves title,48px close/search/first result and91px result viewport; longer following rows scroll.",
+      "390×844 normal picker shows all seven filtered results; search input16px and row minimum52.6875px.",
+      "390×844 Care start form shows every control and submit without horizontal overflow.",
+      "Conflict feedback and both recovery actions are visible; original saved event remains intact and stale draft stays editable."
+    ],
+    "limitations": [
+      "Touch/mobile emulation does not reproduce a physical software keyboard.",
+      "Screenshots and conflict workflow were captured on public build4e06cdf5ccb69460; native Safari acceptance in qa/review-native.json remains separate baseline evidence."
+    ]
+  }
+}

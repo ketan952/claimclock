@@ -1,0 +1,100 @@
+{
+  "review_id": "transfer-delayed-verification-cancellation",
+  "checked_at": "2026-10-11T16:59:21.860Z",
+  "status": "fixed_and_locally_verified",
+  "finding": "A case switch during the awaited Turnstile challenge could still dispatch a transfer operation before the existing post-response generation check.",
+  "reachability": "Confirmed through the real #case-new button while the local verification mock was pending; no synthetic casechange event was used.",
+  "before": {
+    "command": "QA_BASE_URL=http://127.0.0.1:4321 npx playwright test tests/browser/transfer-challenge-race.spec.ts --reporter=list --output=.cache/review-transfer-challenge-before",
+    "result": "Failed as expected at the create request-count assertion: expected 0, received 1.",
+    "reproduction": [
+      "Select a saved synthetic case and start encrypted transfer creation.",
+      "Hold the mocked challenge callback pending.",
+      "Click Create another case through the real UI.",
+      "Complete the challenge.",
+      "The original code sent one create POST, then noticed the case change only after the response."
+    ],
+    "evidence": ".cache/review-transfer-challenge-before/transfer-challenge-race-ca-7696f-and-allow-an-explicit-retry/error-context.md",
+    "boundary": "The first create assertion stopped the pre-fix run; no separate pre-fix lookup execution is claimed. Both operations shared the same affected helper."
+  },
+  "fix": {
+    "path": "src/lib/transfer-ui.ts",
+    "sha256": "82b5dbb9da89b1a3bd9b6ba4a52e43f9c0e737b08ba608d975500145122a5519",
+    "references": [
+      {
+        "line": 17,
+        "change": "Require an isCurrent callback in transferRequest."
+      },
+      {
+        "line": 22,
+        "change": "After token resolution, reject stale generation before creating the request timeout or calling fetch."
+      },
+      {
+        "line": 67,
+        "change": "Creation supplies its captured case-generation comparison."
+      },
+      {
+        "line": 78,
+        "change": "Lookup supplies its captured case-generation comparison."
+      }
+    ],
+    "behavior": "A canceled challenge completion shows transfer.caseChanged, releases pending controls, creates no orphan ciphertext and consumes no lookup. Existing guards still discard responses when a case changes after dispatch.",
+    "server_changes": false,
+    "quota_or_turnstile_validation_changes": false
+  },
+  "after": [
+    {
+      "command": "QA_BASE_URL=http://127.0.0.1:4321 npx playwright test tests/browser/transfer-challenge-race.spec.ts --reporter=list --output=.cache/review-transfer-challenge-after",
+      "result": "1 passed, 0 failed",
+      "coverage": [
+        "Canceled creation sends zero POSTs.",
+        "Explicit fresh creation retry sends one POST and produces a private link.",
+        "Canceled lookup sends zero POSTs and opens no restore preview.",
+        "Explicit fresh lookup retry dispatches normally and handles the mocked 404.",
+        "Private output is cleared on case switch; controls are re-enabled.",
+        "The original saved synthetic case remains intact."
+      ],
+      "mode": "Always mocked challenge and transfer APIs, including if QA_LIVE_TRANSFERS is enabled for the separate live test."
+    },
+    {
+      "command": "QA_BASE_URL=http://127.0.0.1:4321 npx playwright test tests/browser/transfer.spec.ts --grep 'case changes clear|short ID alone' --reporter=list --output=.cache/review-transfer-existing",
+      "result": "2 passed, 0 failed",
+      "coverage": [
+        "Already-dispatched responses cannot display another case's private output or restore preview.",
+        "Short IDs need a key; three mocked lookups remain bounded.",
+        "429, 403 and 503 retain the local case and re-enable controls."
+      ]
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "result": "Passed"
+    },
+    {
+      "command": "git diff --check -- src/lib/transfer-ui.ts tests/browser/transfer-challenge-race.spec.ts",
+      "result": "Passed"
+    }
+  ],
+  "additional_parent_evidence": {
+    "reported_by": "root",
+    "build_id": "4e06cdf5ccb69460",
+    "checks": "Parent reported lint/check/build passed and four local built transfer tests passed, including the delayed-challenge test and two-context mocked crypto round trip.",
+    "boundary": "This record does not claim public deployment completion or a fresh real-Turnstile round trip."
+  },
+  "modified_runtime_and_test": [
+    "src/lib/transfer-ui.ts",
+    "tests/browser/transfer-challenge-race.spec.ts"
+  ],
+  "boundaries": [
+    "This fix used local mocks only; no production transfer, quota consumption or database mutation was performed by the reviewer.",
+    "No server or production verification bypass was added.",
+    "Operations already dispatched before a later case switch cannot be recalled; existing response guards prevent unexpected UI/restore effects.",
+    "No source change was made after the parent's source freeze; the parent owns build, deployment and public checks."
+  ],
+  "release_followup": {
+    "build": "4e06cdf5ccb69460",
+    "public_chromium_selected_passes": 69,
+    "public_webkit_selected_passes": 23,
+    "evidence": "qa/m13-browser.json",
+    "note": "This follow-up records final release verification; the original source/baseline observations above retain their original provenance."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "url": "https://claimclock.ketan952.workers.dev/",
+  "run_at": "2026-10-11T17:00:51.297Z",
+  "environment": "Public deployment, Lighthouse simulated mobile (not a physical 4G device)",
+  "scores": {
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": {
+      "value": 1833.485,
+      "display": "1.8 s"
+    },
+    "largest-contentful-paint": {
+      "value": 2365.182,
+      "display": "2.4 s"
+    },
+    "speed-index": {
+      "value": 1833.485,
+      "display": "1.8 s"
+    },
+    "total-blocking-time": {
+      "value": 0,
+      "display": "0 ms"
+    },
+    "cumulative-layout-shift": {
+      "value": 0,
+      "display": "0"
+    },
+    "interactive": {
+      "value": 2365.182,
+      "display": "2.4 s"
+    },
+    "total-byte-weight": {
+      "value": 141527,
+      "display": "Total size was 138 KiB"
+    }
+  },
+  "failed": [
+    {
+      "id": "first-contentful-paint",
+      "title": "First Contentful Paint",
+      "display": "1.8 s"
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree"
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "display": "Est savings of 150 ms"
+    }
+  ],
+  "build": "4e06cdf5ccb69460"
+}

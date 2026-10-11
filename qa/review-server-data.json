@@ -1,0 +1,354 @@
+{
+  "review_id": "post-m12-server-data",
+  "checked_at": "2026-10-11T16:48:55.409302+00:00",
+  "reviewed_commit": "3c5c0db878c76f31446881739e253285885b66b4",
+  "scope": [
+    "Worker API validation and privacy",
+    "Turnstile and quotas",
+    "Encrypted transfers",
+    "Consent, erasure and aggregate publication",
+    "Service-worker cache boundaries and source redirects",
+    "NL-48 provenance, normalization, gaps and review flags"
+  ],
+  "outcome": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low_findings": 2,
+    "analytics_fix": "Applied locally with regression tests; parent owns release.",
+    "privacy_wording": "Exact replacement text recommended; parent owns i18n edits and release.",
+    "certification": false
+  },
+  "findings": [
+    {
+      "id": "REV-SD-01",
+      "severity": "low",
+      "status": "fixed_in_working_tree",
+      "title": "Mixed event batches could exceed the API's total count cap and be discarded",
+      "references": [
+        {
+          "path": "src/lib/events.ts",
+          "line": 16,
+          "when": "reviewed commit"
+        },
+        {
+          "path": "worker/app.ts",
+          "line": 90
+        },
+        {
+          "path": "docs/privacy-operations.md",
+          "line": 11
+        }
+      ],
+      "impact": "Optional usage counts were lost during a burst involving more than one event name. Local case functionality and privacy isolation were unaffected.",
+      "reproduction": {
+        "environment": "Node with mocked localStorage, timers and fetch; local app.fetch only, no D1 binding",
+        "steps": [
+          "Opt in to usage counts.",
+          "Call track('clock_lock_copied') twenty times, then track('escalation_copied') once before the fifteen-second flush.",
+          "Flush the captured timer and pass the generated body to the local Worker."
+        ],
+        "actual_before": {
+          "counts": {
+            "clock_lock_copied": 20,
+            "escalation_copied": 1
+          },
+          "total": 21,
+          "worker_status": 400
+        },
+        "expected": "At most twenty total positive counts, accepted as a valid batch."
+      },
+      "fix": {
+        "path": "src/lib/events.ts",
+        "line": 18,
+        "description": "Cap the sum across event names before enqueueing; discard excess actions without storing or replaying them.",
+        "new_test_file": "tests/analytics-batch.test.ts",
+        "tests": [
+          "mixed-event bursts send at most twenty total positive counts, preserving the accepted batch",
+          "overflow is dropped without delayed replay or contaminating the next opted-in batch",
+          "revoking consent discards a full batch and its overflow before any network request"
+        ],
+        "validation": "All 8 new and existing analytics tests passed; TypeScript no-emit check passed."
+      }
+    },
+    {
+      "id": "REV-SD-02",
+      "severity": "low",
+      "status": "fixed_in_source",
+      "title": "User-facing report retention wording promises a stricter physical deadline than daily cleanup",
+      "references": [
+        {
+          "path": "src/i18n/en.json",
+          "line": 285
+        },
+        {
+          "path": "src/i18n/en.json",
+          "line": 288
+        },
+        {
+          "path": "src/i18n/hi.json",
+          "line": 285
+        },
+        {
+          "path": "src/i18n/hi.json",
+          "line": 288
+        },
+        {
+          "path": "worker/aggregate.sql",
+          "line": 4
+        },
+        {
+          "path": "wrangler.jsonc",
+          "line": 32
+        },
+        {
+          "path": "docs/privacy-operations.md",
+          "line": 69
+        }
+      ],
+      "impact": "The privacy notice says 'up to 365 days' and 'expire after one year', while healthy daily cleanup can retain a raw report until almost day 366. Failed cleanup can extend physical retention. Operations documentation already acknowledges scheduled retention. This is a wording/implementation mismatch, not a legal compliance conclusion.",
+      "reproduction": {
+        "environment": "In-memory SQLite comparison using the exact retention predicate",
+        "created_at": "2025-10-11T02:17:00.001Z",
+        "scheduled_checks": [
+          {
+            "run_at": "2026-10-11T02:17:00.000Z",
+            "would_delete": false
+          },
+          {
+            "run_at": "2026-10-12T02:17:00.000Z",
+            "would_delete": true,
+            "age_days": 365.99999998842594
+          }
+        ],
+        "explanation": "The report reaches its 365-day age just after the first daily invocation and remains until the next one."
+      },
+      "recommendation": "Describe the scheduled 365-day target, daily cleanup delay and failure boundary on the privacy page; remove the unconditional expiry sentence. Keep docs/privacy-operations.md's table consistent.",
+      "copy": {
+        "en": {
+          "privacy.reports": "Optional patient reports: insurer, TPA, optional city, request type, submission/decision times and outcome are stored in Cloudflare D1 for grouped waiting-time research. Daily cleanup removes reports older than 365 days; removal may take up to another day, or longer if cleanup fails. No hospital name, patient name, policy number, document, IP or user-agent is stored by the app.",
+          "privacy.publicationBody": "We publish only groups with at least ten reports. Exact timestamps, individual cities and hospital names are not published. Closed monthly groups reduce the chance of identification. Erasing a report withdraws the affected public group too. Raw reports are removed by the scheduled cleanup described above.",
+          "optin.body": "Optional: share insurer, TPA, city (if provided), request type, submission/decision times and outcome. City is optional. No name, hospital, documents or claim number. Reports are scheduled for removal after one year; see Privacy & data for cleanup timing. Public cells need at least 10 reports. Keep your deletion code to withdraw."
+        },
+        "hi": {
+          "privacy.reports": "वैकल्पिक मरीज़ रिपोर्ट: समूहों में इंतज़ार के आँकड़ों पर शोध के लिए बीमा कंपनी, TPA, वैकल्पिक शहर, अनुरोध का प्रकार, अनुरोध/निर्णय समय और परिणाम Cloudflare D1 में रखे जाते हैं। रोज़ की सफ़ाई 365 दिन से पुरानी रिपोर्ट हटाती है; इसमें एक अतिरिक्त दिन लग सकता है, और सफ़ाई विफल होने पर अधिक देर भी हो सकती है। ऐप अस्पताल या मरीज़ का नाम, पॉलिसी संख्या, दस्तावेज़, IP या यूज़र-एजेंट नहीं रखता।",
+          "privacy.publicationBody": "कम से कम दस रिपोर्ट वाले समूह ही प्रकाशित होते हैं। सटीक समय, व्यक्तिगत शहर और अस्पताल के नाम नहीं दिखते। पूरे हो चुके महीनों के समूह पहचान का जोखिम घटाते हैं। रिपोर्ट हटाने पर संबंधित सार्वजनिक समूह भी हटता है। मूल रिपोर्ट ऊपर बताई गई तय सफ़ाई के दौरान हटाई जाती हैं।",
+          "optin.body": "वैकल्पिक: बीमा कंपनी, TPA, शहर (अगर भरा है), अनुरोध का प्रकार, भेजने और निर्णय के समय तथा परिणाम साझा करें। शहर भरना ज़रूरी नहीं है। नाम, अस्पताल, दस्तावेज़ या दावा संख्या नहीं। रिपोर्ट एक साल बाद तय सफ़ाई में हटाई जाती है; समय की जानकारी गोपनीयता और डेटा पेज पर देखें। सार्वजनिक आँकड़े के लिए कम से कम 10 रिपोर्ट चाहिए। हटाने के लिए कोड रखें।"
+        },
+        "operations_table": "D1 report plus random ID and SHA-256 erasure-token hash; reports older than 365 days are removed by daily cleanup, subject to the maintenance failure boundary below."
+      },
+      "resolution": "Privacy notice and opt-in consent text now describe scheduled removal after one year, daily cleanup timing and failure boundary in English and Hindi; no retention job changed."
+    }
+  ],
+  "executed_checks": [
+    {
+      "command": "node --experimental-strip-types --test tests/worker.test.ts tests/transfer-crypto.test.ts tests/report.test.ts tests/events.test.ts tests/index-comparison.test.ts tests/receipts.test.ts",
+      "result": "65 passed, 0 failed, 0 skipped",
+      "boundary": "Local tests use an in-memory SQLite adapter and mocked verification/provider fetches. This is not fresh production Turnstile success evidence."
+    },
+    {
+      "command": "node --experimental-strip-types --test tests/analytics-batch.test.ts tests/events.test.ts",
+      "result": "8 passed, 0 failed, 0 skipped after the analytics fix"
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "result": "Passed after the analytics fix; no build performed."
+    },
+    {
+      "command": "node scripts/validate-data.mjs",
+      "result": "49 contacts; 470 rows; 14 incomplete percentage totals preserve unknowns; 76 review flags."
+    },
+    {
+      "command": "python3 scripts/parse-nl48.py --check --verify-pdfs",
+      "result": "470 rows from 30 insurers match both JSON and CSV; 326 absent/inconsistent columns omitted; 55 cached PDF SHA256 hashes verified; QA answer keys match 120, 810 and 144 cells.",
+      "boundary": "Answer-key sets overlap and must not be summed as unique reviewed cells. Cached source checks do not establish current remote availability or a fresh visual reread of all PDFs."
+    },
+    {
+      "command": "Independent JSON cohort/provenance scan",
+      "result": "No duplicate insurer/period/TPA/policy/request cohorts; every row has a document URL and positive source page. All 470 units are percent; 460 FY2025-26 rows and 10 explicitly older FY2024-25 rows; 22 rows disclose cashless denominators."
+    }
+  ],
+  "verified_controls": [
+    {
+      "control": "Input and cross-origin boundary",
+      "evidence": [
+        "worker/security.ts:24 streams and limits bytes before JSON parsing; rejects non-object JSON and unsupported content type.",
+        "worker/security.ts:48 rejects cross-site/missing-origin mutations; this is browser-origin protection, not non-browser authentication.",
+        "worker/app.ts:10 applies no-store, no-referrer, nosniff and same-origin resource policy to API responses.",
+        "worker/security.ts:63 validates known insurer/TPA, optional city, consent/adult/version and ordered real UTC timestamps; extra report fields rejected."
+      ]
+    },
+    {
+      "control": "Turnstile",
+      "evidence": [
+        "worker/turnstile.ts:15 bounds tokens and Siteverify response, uses 8-second timeout/manual redirects, checks exact configured hostname/action, sends no remoteip, and fails closed.",
+        "worker/app.ts:31/43/51/98 validate input before verification and allocate quota only after success.",
+        "src/lib/turnstile.ts:25 lazy-loads verification only after an optional action; line48 rejects loading with an unconsumed private fragment.",
+        "worker/app.ts:60 leaves report erasure available without Turnstile.",
+        "Token replay, wrong hostname/action, invalid/oversized tokens, missing config and provider failures passed local tests."
+      ]
+    },
+    {
+      "control": "Quotas and logging",
+      "evidence": [
+        "worker/security.ts:89 defines global per-day/per-minute caps without IP/device identifiers.",
+        "worker/security.ts:95 conditional UPSERT RETURNING gates allocation atomically.",
+        "worker/app.ts:18 and wrangler.jsonc:27 disable application request logging/observability; generic failures do not echo provider/body text."
+      ],
+      "boundary": "A denied minute may consume a daily permit. One visitor can exhaust a shared optional-service budget; caps are not identity or authenticity verification. Infrastructure metadata processing remains outside the app's no-log assertion."
+    },
+    {
+      "control": "Ciphertext-only transfer and limits",
+      "evidence": [
+        "src/lib/transfer-crypto.ts:26 creates a fresh 32-byte key and 12-byte IV with AES-GCM/tagLength128; validates the backup before encryption.",
+        "worker/transfers.ts:8 accepts only canonical version-1 ciphertext, 30–65536 decoded bytes, within a 90KiB JSON body.",
+        "worker/transfers.ts:22 stores code hash, ciphertext, expiry and attempt count; no key/plaintext field is accepted.",
+        "worker/transfers.ts:35 atomically increments attempts only while attempts<3 and expiry is in the future.",
+        "migrations/0003_encrypted_transfers.sql:11 deletes ciphertext in the third lookup statement; failure rolls back and does not falsely succeed.",
+        "worker/transfers.ts:39 and worker/index.ts:15 implement hourly expiry purge independently from the daily aggregate job.",
+        "src/lib/transfer-ui.ts:9 strips the private fragment; line22 sends only ciphertext or lookup code; line55 and line79 guard case changes; line82 previews without saving."
+      ]
+    },
+    {
+      "control": "Consent, erasure and aggregation",
+      "evidence": [
+        "src/lib/report.ts:3 omits hospital names and event notes from submitted reports.",
+        "src/lib/hospital.ts:145 binds the consented snapshot and line148 rechecks consent/language after verification.",
+        "src/lib/deduction-ui.ts:63 rechecks text/state/language/consent before AI submission.",
+        "worker/app.ts:60 requires a strong erasure token in a JSON body and confirms only actual deletion; unknown/wrong token results match.",
+        "migrations/0002_optional_report_city.sql:24 atomically deletes/suppresses the entire affected public cohort.",
+        "worker/aggregate.sql:10 freezes only closed monthly cohorts after a seven-day grace period, with n>=10 and no city/TPA split.",
+        "worker/app.ts:79 exposes only fixed aggregate fields and respects suppression; no raw-report read endpoint exists."
+      ],
+      "boundary": "Thresholds and frozen cohorts reduce disclosure risk but are not differential privacy, verified reports, representative sampling, or proof of anonymity."
+    },
+    {
+      "control": "AI boundary",
+      "evidence": [
+        "worker/security.ts:110 accepts only pinned HTTPS provider paths and explicit free-tier confirmation; no client endpoint parameter.",
+        "worker/app.ts:106 rejects redirects, applies a 10-second deadline and limits response bytes to16KiB.",
+        "worker/app.ts:112 and line132 redact input/output and never expose provider reasoning/error bodies; output is advisory only."
+      ],
+      "boundary": "Regex redaction is incomplete; the existing preview and consent warning remains necessary. Provider retention/processing settings were not independently audited."
+    },
+    {
+      "control": "Service-worker cache boundaries",
+      "evidence": [
+        "scripts/service-worker.js:22 forces query navigations to network; line36 denies API/source/query navigation interception.",
+        "scripts/service-worker.js:23 uses NetworkFirst for ordinary page navigation; actual 404s are not converted into offline success.",
+        "scripts/service-worker.js:31 supplies known precached content/offline page only for network failure.",
+        "scripts/service-worker.js:38 precaches built public assets; runtime CacheFirst is limited to same-origin vendor/_astro assets.",
+        "scripts/build-sw.mjs:6 builds the public manifest with OCR/PDF-heavy files excluded from initial precache.",
+        "public/_redirects:1 maps the primary source shortlink to the official IRDAI PDF."
+      ]
+    },
+    {
+      "control": "NL-48 comparison and source QA",
+      "evidence": [
+        "src/lib/index-comparison.ts:35 chooses the newest exact period, then individual discharge rows; it does not fall back across population gaps.",
+        "src/lib/index-comparison.ts:38 weights only when every sample_size is disclosed; otherwise ranges retain named endpoint channels.",
+        "src/lib/index-comparison.ts:45 propagates unknown components instead of treating them as zero.",
+        "src/lib/index-comparison.ts:21 validates 100±1 totals and flags >6h over10% or a100% bucket without suppressing genuine extremes.",
+        "research/nl48-qa.md:29 records the three highlighted PDF reverifications; answer keys remain exact.",
+        "research/filing-gaps.md:7 and line8 retain Galaxy's inconsistent units and Prudential HCL's not-located status without invented values."
+      ]
+    }
+  ],
+  "read_only_live_checks": {
+    "checked_at": "2026-10-11T16:44:56Z",
+    "origin": "https://claimclock.ketan952.workers.dev",
+    "production_mutations": 0,
+    "results": [
+      {
+        "path": "/build.json",
+        "status": 200,
+        "buildId": "e1e509d30ac97912"
+      },
+      {
+        "path": "/api/config",
+        "same_origin_headers": true,
+        "status": 200,
+        "cache_control": "no-store",
+        "referrer_policy": "no-referrer",
+        "cors_allow_origin": null,
+        "ai_enabled": true,
+        "turnstile_enabled": true,
+        "boundary": "Public configuration only; no secret read and not proof of D1/provider health."
+      },
+      {
+        "path": "/api/config",
+        "same_origin_headers": false,
+        "status": 403,
+        "cache_control": "no-store"
+      },
+      {
+        "path": "/s/health-mc-2024",
+        "status": 302,
+        "redirect_mode": "manual",
+        "destination_host": "irdai.gov.in",
+        "referrer_policy": "no-referrer",
+        "boundary": "This review did not follow the external PDF or assert upstream availability."
+      }
+    ]
+  },
+  "data_snapshot": {
+    "roster_insurers": 32,
+    "numeric_insurers": 30,
+    "rows": 470,
+    "complete_rows": 456,
+    "incomplete_rows": 14,
+    "unknown_cells": 14,
+    "invalid_rows": 0,
+    "flagged_rows": 76,
+    "m10_reverified_flagged_rows": 7,
+    "m10_pending_flagged_rows": 69,
+    "missing_or_excluded_insurers": [
+      {
+        "id": "galaxy",
+        "status": "inconsistent"
+      },
+      {
+        "id": "prudential-hcl",
+        "status": "not_located"
+      }
+    ],
+    "priority_individual_discharge_channels": {
+      "star-health": 1,
+      "care": 1,
+      "aditya-birla": 1,
+      "sbi-general": 1,
+      "national": 1,
+      "united-india": 14,
+      "oriental": 2
+    },
+    "no_duplicate_cohorts": true,
+    "consolidated_channels": "Care and Chola each have a single consolidated individual-discharge channel, with no component channels included for the same cohort; no actual consolidated/component double count found.",
+    "limitations": [
+      "National and Oriental have partial TPA coverage and unknown late cells.",
+      "Other partial/older coverage is documented in research/filing-gaps.md and data/filings.json.",
+      "ICICI's web-reader source remains explicitly unhashed; 55 is the number of cached PDF hashes checked, not all remote URLs.",
+      "Royal Sundaram archive actions and Liberty tokenized URLs have access conditions recorded in the filing register.",
+      "The 2–6-hour bucket cannot establish the share meeting a three-hour rule."
+    ]
+  },
+  "boundaries": [
+    "No production database mutation, secret-file read, credentials access, build, commit or deployment was performed by this review.",
+    "Only read-only public GETs were made. GET /api/aggregates was deliberately not used because it consumes a D1 quota permit.",
+    "Existing production browser/Turnstile round-trip evidence is owned by the main agent; this review's fresh verification-provider tests were mocks.",
+    "No exhaustive fresh PDF retranscription or live retry of all insurer sources was performed.",
+    "Review results are bounded evidence, not a penetration-test, legal-compliance or anonymity certification.",
+    "The main agent is concurrently reviewing UI and running the public browser regression; those results are separate."
+  ],
+  "modified_files_by_reviewer": [
+    "qa/review-server-data.json",
+    "src/lib/events.ts",
+    "tests/analytics-batch.test.ts"
+  ],
+  "release_followup": {
+    "build": "4e06cdf5ccb69460",
+    "public_chromium_selected_passes": 69,
+    "public_webkit_selected_passes": 23,
+    "evidence": "qa/m13-browser.json",
+    "note": "This follow-up records final release verification; the original source/baseline observations above retain their original provenance."
+  }
+}

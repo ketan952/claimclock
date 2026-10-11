@@ -1,0 +1,1892 @@
+{
+  "runs": [
+    {
+      "kind": "baseline_public",
+      "build": "e1e509d30ac97912",
+      "stats": {
+        "startTime": "2026-10-11T16:43:48.846Z",
+        "duration": 59138.844,
+        "expected": 58,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scenarios": [
+        {
+          "title": "comparison presents all insurers, required source rows, units and working sorts",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1779,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all pages have preview metadata, static PNGs, install assets and sitemap",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 16258,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "unusual published ranges name their channels and retain source review status",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1307,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "report consent withdrawal during verification sends nothing and allows a reviewed retry",
+          "file": "consent-recheck.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1334,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "AI rechecks consent, edited preview, deduction lines and language after delayed verification",
+          "file": "consent-recheck.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1053,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "mobile English, clock lock, events, Hindi and source-linked GRO message",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1733,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "ten insurers have source-backed contacts and correct preauthorisation paragraphs",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 3802,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Index is static and usable offline with source-linked six buckets",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 3113,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "no horizontal overflow at narrow mobile width",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1084,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "language controls recover when the Base entry cannot initialize but the clock loads",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 920,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "policy clause editing keeps selection and the first confirmation click updates the verdict",
+          "file": "deduction-focus.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 715,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "sixteen synthetic settlements produce reviewed local classifications and letters without AI",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 5991,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "text PDF extraction happens on-device",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1222,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "English photo OCR uses only self-hosted assets",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2240,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "policy verdicts follow explicit confirmations, conserve totals and localize clarification letters",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1291,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "desktop clock, separate phone links and printable evidence export",
+          "file": "export.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1084,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "native form submission cannot put local details in a URL when JavaScript is unavailable",
+          "file": "form-privacy.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1212,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Hindi mode translates visible interface text and accessible labels without broad chrome exemptions",
+          "file": "hindi.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 5200,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Hindi dialog regenerates subject and body and uses full month names",
+          "file": "hindi.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 556,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "legacy case migration, switching and individual deletion preserve other cases",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1067,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore previews before creating or replacing; attached inputs survive backup and reclassification",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1522,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "corrupt local storage is preserved and quota failure offers an in-memory backup",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 872,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "switching cases resets consent and prevents a late report response appearing on another case",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 825,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "an export keeps its displayed case deductions when another tab selects a different case",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1348,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "late unsaved report receipts remain copyable across case switches without overwriting prior receipts",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1225,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "pasted backups share strict validation and require preview before creating or replacing cases",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1654,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "clock step strip changes at halfway and breach while the active clock hides the intro",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 667,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "opt-in presents readable fields, exact-data disclosure and copyable deletion receipt",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1006,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "file errors and AI availability states follow language changes",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1514,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Bima has a localized app budget and blocks an overlong edited draft without silently truncating it",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 804,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all insurer entry points offer the full local list and commit an explicit searched choice",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1048,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Escape, explicit close and backdrop cancel without changing the committed insurer and return focus",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 661,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "keyboard navigation, modal focus, no-results recovery and IME composition preserve deliberate selection",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 612,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a language change preserves the open query, focused result and committed value, with Hindi TPA search",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 645,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "required insurer validation focuses the visible trigger while short choices remain native",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 656,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "optional TPA has an explicit empty option and form reset updates both visible pickers",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 709,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case selection, edit details and a new case keep programmatic picker values and labels synchronized",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 845,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore target picker remains inside the preview workflow and deduction case choices use current dynamic options",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 764,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "long case labels and Hindi controls fit 320, 390, 768 and 1440 pixel viewports with usable rows",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1066,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "reopening saved Zuno details reveals the selected row and a different picker resets shared scroll on a short screen",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1059,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "without JavaScript the original labelled insurer and TPA selects remain usable native controls",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 576,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Privacy picker copies either receipt and manual erasure of old A preserves newer B",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 843,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "erasure response for A does not clear B selected while the request waits",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 533,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "corrupt receipt data survives manual erasure with an honest local-storage warning",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 701,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a failed receipt write keeps prior B and still displays new A for private copying",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 625,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "rejected claim form produces a source-linked bilingual GRO draft without submitting claim details",
+          "file": "rejection.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 983,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "blank optional city is previewed and sent as null",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 754,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "400 names and highlights the rejected field; correcting it preserves the timeline",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 744,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "quota, server and network errors use distinct safe retry copy without deleting the timeline",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 724,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "published escalation stages open on clock breach and respect a later manual collapse",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 714,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "installed worker preserves online query pages, genuine 404 and network-only source redirects",
+          "file": "service-worker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 20712,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "offline unknown page uses offline fallback while a precached page keeps its real content",
+          "file": "service-worker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2845,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all public pages contain external scripts only and no inline event handlers",
+          "file": "source-links.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2505,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "short citation links return a 302 to the exact primary source",
+          "file": "source-links.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 78,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case changes clear private outputs and discard in-flight create or receive results",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 817,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "short ID alone makes no lookup, three retrievals are bounded, and service failures keep the local case",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1054,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "lazy Turnstile uses the vendor onload callback and reuses its loaded API on retry",
+          "file": "turnstile-loader.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 704,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "live protected APIs fail closed on missing and invalid Turnstile tokens",
+          "file": "turnstile.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1471,
+              "errors": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "local_before_transfer_guard",
+      "build": "af5e30d35be18019",
+      "stats": {
+        "startTime": "2026-10-11T16:56:09.498Z",
+        "duration": 35340.546,
+        "expected": 67,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "scenarios": [
+        {
+          "title": "comparison presents all insurers, required source rows, units and working sorts",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2094,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all pages have preview metadata, static PNGs, install assets and sitemap",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 205,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "unusual published ranges name their channels and retain source review status",
+          "file": "comparison.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 670,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "report consent withdrawal during verification sends nothing and allows a reviewed retry",
+          "file": "consent-recheck.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1167,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "AI rechecks consent, edited preview, deduction lines and language after delayed verification",
+          "file": "consent-recheck.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 914,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "mobile English, clock lock, events, Hindi and source-linked GRO message",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1588,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "ten insurers have source-backed contacts and correct preauthorisation paragraphs",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2858,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Index is static and usable offline with source-linked six buckets",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 798,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "no horizontal overflow at narrow mobile width",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 375,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "language controls recover when the Base entry cannot initialize but the clock loads",
+          "file": "core.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 605,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "policy clause editing keeps selection and the first confirmation click updates the verdict",
+          "file": "deduction-focus.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 647,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "sixteen synthetic settlements produce reviewed local classifications and letters without AI",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 4861,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "text PDF extraction happens on-device",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 611,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "English photo OCR uses only self-hosted assets",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1049,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "policy verdicts follow explicit confirmations, conserve totals and localize clarification letters",
+          "file": "deductions.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1146,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "desktop clock, separate phone links and printable evidence export",
+          "file": "export.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 972,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "native form submission cannot put local details in a URL when JavaScript is unavailable",
+          "file": "form-privacy.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 765,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Hindi mode translates visible interface text and accessible labels without broad chrome exemptions",
+          "file": "hindi.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 2999,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Hindi dialog regenerates subject and body and uses full month names",
+          "file": "hindi.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 492,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "legacy case migration, switching and individual deletion preserve other cases",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 839,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore previews before creating or replacing; attached inputs survive backup and reclassification",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1305,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "corrupt local storage is preserved and quota failure offers an in-memory backup",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 677,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "switching cases resets consent and prevents a late report response appearing on another case",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 701,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "an export keeps its displayed case deductions when another tab selects a different case",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 863,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "late unsaved report receipts remain copyable across case switches without overwriting prior receipts",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1014,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "pasted backups share strict validation and require preview before creating or replacing cases",
+          "file": "local-cases.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1589,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "clock step strip changes at halfway and breach while the active clock hides the intro",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 581,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "opt-in presents readable fields, exact-data disclosure and copyable deletion receipt",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 801,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "file errors and AI availability states follow language changes",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 670,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Bima has a localized app budget and blocks an overlong edited draft without silently truncating it",
+          "file": "localized-clock.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 757,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all insurer entry points offer the full local list and commit an explicit searched choice",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 712,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Escape, explicit close and backdrop cancel without changing the committed insurer and return focus",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 578,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "keyboard navigation, modal focus, no-results recovery and IME composition preserve deliberate selection",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 525,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a language change preserves the open query, focused result and committed value, with Hindi TPA search",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 701,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "required insurer validation focuses the visible trigger while short choices remain native",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 625,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "optional TPA has an explicit empty option and form reset updates both visible pickers",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 758,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case selection, edit details and a new case keep programmatic picker values and labels synchronized",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 757,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore target picker remains inside the preview workflow and deduction case choices use current dynamic options",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 619,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "long case labels and Hindi controls fit 320, 390, 768 and 1440 pixel viewports with usable rows",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 896,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "reopening saved Zuno details reveals the selected row and a different picker resets shared scroll on a short screen",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 654,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "without JavaScript the original labelled insurer and TPA selects remain usable native controls",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 283,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Privacy picker copies either receipt and manual erasure of old A preserves newer B",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 746,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "erasure response for A does not clear B selected while the request waits",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 374,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "corrupt receipt data survives manual erasure with an honest local-storage warning",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 367,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a failed receipt write keeps prior B and still displays new A for private copying",
+          "file": "receipts.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 497,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "rejected claim form produces a source-linked bilingual GRO draft without submitting claim details",
+          "file": "rejection.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 715,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "blank optional city is previewed and sent as null",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 527,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "400 names and highlights the rejected field; correcting it preserves the timeline",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 607,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "quota, server and network errors use distinct safe retry copy without deleting the timeline",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 596,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "published escalation stages open on clock breach and respect a later manual collapse",
+          "file": "report-optional-city.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 560,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "200px-high insurer picker keeps a visible label, close, search and selectable result",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 608,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "visual viewport keyboard inset compacts an already open picker and restores the full layout",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 376,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "shrinking the viewport keeps the already focused last result visible",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 372,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "two tabs cannot overwrite saved events or decisions with a stale draft, and loading latest is explicit",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 910,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a stale tab cannot resurrect a deleted case or delete newly attached evidence",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1248,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "deduction replacement detects stale lines while preserving unrelated timeline updates",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1298,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore replacement rejects a changed preview target and still allows import as a separate case",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 791,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "language changes preserve details being edited and case changes clear closed letter actions",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 585,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a stale draft backup does not combine its original insurer with another insurers new deductions",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1016,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "reviewed lines cannot attach to another claim restored over the same case ID",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1001,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "installed worker preserves online query pages, genuine 404 and network-only source redirects",
+          "file": "service-worker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 10202,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "offline unknown page uses offline fallback while a precached page keeps its real content",
+          "file": "service-worker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 582,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all public pages contain external scripts only and no inline event handlers",
+          "file": "source-links.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 89,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "short citation links return a 302 to the exact primary source",
+          "file": "source-links.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 5,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case changes clear private outputs and discard in-flight create or receive results",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 721,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "short ID alone makes no lookup, three retrievals are bounded, and service failures keep the local case",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 896,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "lazy Turnstile uses the vendor onload callback and reuses its loaded API on retry",
+          "file": "turnstile-loader.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 600,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "live protected APIs fail closed on missing and invalid Turnstile tokens",
+          "file": "turnstile.spec.ts",
+          "status": "unexpected",
+          "results": [
+            {
+              "status": "failed",
+              "duration_ms": 263,
+              "errors": [
+                "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  14 |   return {status:response.status,enabled:body.turnstile_enabled,keyPresent:typeof body.turnstile_site_key==='string'&&body.turnstile_site_key.length>0,keys:Object.keys(body).sort()};\n  15 |  });\n> 16 |  expect(config.status).toBe(200);expect(config.enabled).toBe(true);expect(config.keyPresent).toBe(true);\n     |                                                         ^\n  17 |  expect(config.keys).toEqual(['ai_enabled','model','provider','turnstile_enabled','turnstile_site_key']);\n  18 |  const results=await page.evaluate(async()=>{\n  19 |   const bytes=new Uint8Array(30);bytes[0]=1;const ciphertext=btoa(String.fromCharCode(...bytes)).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');\n    at /Users/ketan.gautam/Documents/Ketan/claimclock/tests/browser/turnstile.spec.ts:16:57"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "local_webkit_before_transfer_guard",
+      "build": "af5e30d35be18019",
+      "stats": {
+        "startTime": "2026-10-11T16:56:58.619Z",
+        "duration": 15963.944,
+        "expected": 22,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scenarios": [
+        {
+          "title": "policy clause editing keeps selection and the first confirmation click updates the verdict",
+          "file": "deduction-focus.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 900,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "all insurer entry points offer the full local list and commit an explicit searched choice",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 714,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "Escape, explicit close and backdrop cancel without changing the committed insurer and return focus",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 602,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "keyboard navigation, modal focus, no-results recovery and IME composition preserve deliberate selection",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 473,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a language change preserves the open query, focused result and committed value, with Hindi TPA search",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 563,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "required insurer validation focuses the visible trigger while short choices remain native",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 463,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "optional TPA has an explicit empty option and form reset updates both visible pickers",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 575,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case selection, edit details and a new case keep programmatic picker values and labels synchronized",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 637,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore target picker remains inside the preview workflow and deduction case choices use current dynamic options",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 598,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "long case labels and Hindi controls fit 320, 390, 768 and 1440 pixel viewports with usable rows",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 930,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "reopening saved Zuno details reveals the selected row and a different picker resets shared scroll on a short screen",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 591,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "without JavaScript the original labelled insurer and TPA selects remain usable native controls",
+          "file": "picker.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 276,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "200px-high insurer picker keeps a visible label, close, search and selectable result",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 567,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "visual viewport keyboard inset compacts an already open picker and restores the full layout",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 349,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "shrinking the viewport keeps the already focused last result visible",
+          "file": "review-layout.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 326,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "two tabs cannot overwrite saved events or decisions with a stale draft, and loading latest is explicit",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 851,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a stale tab cannot resurrect a deleted case or delete newly attached evidence",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1150,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "deduction replacement detects stale lines while preserving unrelated timeline updates",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1331,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "restore replacement rejects a changed preview target and still allows import as a separate case",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 760,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "language changes preserve details being edited and case changes clear closed letter actions",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 561,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "a stale draft backup does not combine its original insurer with another insurers new deductions",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1047,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "reviewed lines cannot attach to another claim restored over the same case ID",
+          "file": "review-workflows.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 972,
+              "errors": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "local_final_transfer",
+      "build": "4e06cdf5ccb69460",
+      "stats": {
+        "startTime": "2026-10-11T16:58:23.860Z",
+        "duration": 5087.005,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "scenarios": [
+        {
+          "title": "case changes during a delayed challenge prevent transfer dispatch and allow an explicit retry",
+          "file": "transfer-challenge-race.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1038,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "encrypted case transfer round trip uses two independent browser contexts and never sends the key or plaintext",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 1328,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "case changes clear private outputs and discard in-flight create or receive results",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 730,
+              "errors": []
+            }
+          ]
+        },
+        {
+          "title": "short ID alone makes no lookup, three retrievals are bounded, and service failures keep the local case",
+          "file": "transfer.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "duration_ms": 901,
+              "errors": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Baseline public suite passed58 tests but adversarial review still found defects; new regression scenarios were added.",
+    "The local67-pass/1-fail run incorrectly enabled a production-only Turnstile assertion. Local Wrangler has no Turnstile configuration; the failure is recorded, not counted as a production regression.",
+    "Local final transfer run uses mocked API and challenge responses, including the two-context crypto round trip.",
+    "The earlier22 WebKit checks cover UI/storage source unchanged in the later transfer-only patch. Final public build retest is recorded separately."
+  ]
+}

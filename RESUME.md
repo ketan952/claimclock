@@ -12,7 +12,7 @@ Before first commit: `gh auth switch --user ketan952`, `gh api user --jq .login`
 
 ## Milestones
 
-M0–M6 describe earlier snapshots; the current M12 state appears below.
+M0–M6 describe earlier snapshots; the current M13 state appears below.
 
 - M0: committed/pushed as 071be2b. Design preceded application code.
 - M1: sourced dataset snapshot ready: 253 NL-48 rows / 17 insurers; all 32 roster insurers audited with explicit gaps; 49 contacts (32 insurers, 17 TPAs); 14 current-rule citations; 146 historical consumable entries labelled non-current. Five-PDF spot-check: 120 cells, zero transcription differences. Combined research has 29 strictly qualifying recent cases out of 50 retained records, one below requested 30; amendments and original passes remain auditable.
@@ -100,3 +100,11 @@ Keep picker enhancement optional: hospital/deduction forms notify `pickerrefresh
 **159 unit tests; lint, type/data, reviewed license gate and 42 static CSP checks pass. Public Chromium: 58/58 selected scenarios; public WebKit: 12/12 new UI scenarios.** Mobile Lighthouse: **100/100/100/100**, 136 KiB, 1.5 s LCP. Local Wrangler: 57 passes/four production-only skips, plus the final added scroll test passing. [Release and bounds](qa/m12-release.json), [browser evidence](qa/m12-browser.json), [research](research/ui-interactions.md), [screenshots/measurements](qa/m12-render.json), [QA report](qa/REPORT.md).
 
 The four known automated Turnstile-positive flows stay excluded from the selected public run; M11 native evidence remains historical. Negative verification paths pass 8/8 without loosening security. Physical phone keyboards and screen readers remain untested. Source redirect is correct but IRDAI still returned 504. No M11 evidence was overwritten.
+
+## M13 handoff — independent review fixes
+
+Current public build **`4e06cdf5ccb69460`**, manual Worker version `c8d0fdca-a67d-4f4e-8e75-c52a866df5c8`. Fresh review found and fixed stale-tab case/evidence overwrites, stale deduction attachment and mixed-context draft exports, language-switch edit loss, closed-letter regeneration, compact picker clipping, and transfer dispatch after case cancellation. Conflict recovery preserves unsaved drafts with explicit download/load-latest actions. Blocked storage, analytics batching and retention wording are corrected. No new dependency, account, paid service or production Turnstile bypass. [QA report](qa/REPORT.md), [release record](qa/m13-release.json).
+
+**167 unit tests, 69 selected public Chromium scenarios, and 23 public WebKit scenarios pass**, plus lint, type/data, reviewed license and 42-page CSP gates. Mobile Lighthouse **97/100/100/100**; installed-worker update toast and second navigation pass. Real native Safari report acceptance/erasure, AI and three decrypt previews passed on the pre-fix M12 build, separately labelled; final two-context transfer round-trip uses mocks. Four production-positive automation flows remain excluded. IRDAI still returns504 after the correct source302. Preserve the distinctions in qa/review-native.json and qa/m13-browser.json.
+
+Do not promise atomic localStorage transactions: baseline checks prevent the demonstrated stale writes, but simultaneous cross-renderer read/write is not serialized. Native phone keyboard and VoiceOver/TalkBack acceptance remain unverified. Native Safari AX omitted an otherwise visible restore modal; isolated WebKit snapshots and keyboard interaction pass. Historical evidence is retained, with M13 artifacts and screenshots named separately. All review test data was synthetic; report was erased and transfer's three permitted lookups exhausted.

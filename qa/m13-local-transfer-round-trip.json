@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-11T16:58:27.276Z",
+  "mode": "mocked-api-and-challenge",
+  "base_url": "http://127.0.0.1:8788",
+  "independent_contexts": 2,
+  "request_count": 256,
+  "transfer_posts": 2,
+  "replayed_token_status": null,
+  "plaintext_or_key_sent": false,
+  "preview_before_save": true,
+  "restored_events": 1,
+  "restored_deductions": 1,
+  "recipient_restored_screenshot": "qa/screenshots/m13-local-transfer-round-trip.png",
+  "sender_secret_masked_screenshot": "qa/screenshots/m13-local-transfer-created.png",
+  "build": "4e06cdf5ccb69460"
+}

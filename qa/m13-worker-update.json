@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-11T16:59:41.549Z",
+  "milestone": "m13",
+  "before": "e1e509d30ac97912",
+  "expected": "4e06cdf5ccb69460",
+  "after": "4e06cdf5ccb69460",
+  "secondNavigationPassed": true,
+  "updateToastVisible": true,
+  "toastApplicable": true,
+  "navigationCaches": [
+    "claimclock-pages-4e06cdf5ccb69460"
+  ]
+}

@@ -14,9 +14,12 @@ function takeFragment():string {
 }
 let incomingFragment=takeFragment();
 class ApiFailure extends Error{readonly messageKey:string;constructor(messageKey:string){super(messageKey);this.messageKey=messageKey;}}
-async function transferRequest(path:string,body:{ciphertext:string}|{code:string},action:'transfer_create'|'transfer_lookup'):Promise<Record<string,unknown>> {
+async function transferRequest(path:string,body:{ciphertext:string}|{code:string},action:'transfer_create'|'transfer_lookup',isCurrent:()=>boolean):Promise<Record<string,unknown>> {
  takeFragment();
  let token:string;try{token=await getTurnstileToken(action);}catch{throw new ApiFailure('transfer.verification');}
+ // Verification can remain pending while the visitor switches cases. Recheck
+ // immediately before dispatch, so cancellation creates no copy or lookup.
+ if(!isCurrent())throw new ApiFailure('transfer.caseChanged');
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20_000);
  try{
   const response=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json','X-Turnstile-Token':token},body:JSON.stringify(body),signal:controller.signal,cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'});
@@ -61,7 +64,7 @@ export function setupTransfer({getBackup,previewBackup}:{getBackup:()=>CaseBacku
    const encrypted=await encryptBackup(backup);
    if(generation!==caseGeneration){setMessage(status,'transfer.caseChanged');return;}
    // Only authenticated ciphertext is sent; the key remains in this closure.
-   const result=await transferRequest('/api/transfers',{ciphertext:encrypted.ciphertext},'transfer_create');
+   const result=await transferRequest('/api/transfers',{ciphertext:encrypted.ciphertext},'transfer_create',()=>generation===caseGeneration);
    if(generation!==caseGeneration){setMessage(status,'transfer.caseChanged');return;}
    if(typeof result.code!=='string'||!/^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{8}$/.test(result.code))throw new ApiFailure('transfer.requestFailed');
    expiresAt=expiration(result.expires_at);displayedCode.value=result.code;displayedKey.value=encrypted.key;link.value=transferLink({code:result.code,key:encrypted.key},location.origin);
@@ -72,7 +75,7 @@ export function setupTransfer({getBackup,previewBackup}:{getBackup:()=>CaseBacku
   event.preventDefault();if(busy)return;const generation=caseGeneration;setBusy(true);setMessage(status,'transfer.receiving');
   try{
    const parsed=parseTransferReference(reference.value,privateKey.value);
-   const result=await transferRequest('/api/transfers/lookup',{code:parsed.code},'transfer_lookup');
+   const result=await transferRequest('/api/transfers/lookup',{code:parsed.code},'transfer_lookup',()=>generation===caseGeneration);
    if(typeof result.ciphertext!=='string'||!Number.isInteger(result.attempts_remaining)||(result.attempts_remaining as number)<0||(result.attempts_remaining as number)>2)throw new ApiFailure('transfer.requestFailed');
    expiration(result.expires_at);
    const backup=await decryptBackup(result.ciphertext,parsed.key);
