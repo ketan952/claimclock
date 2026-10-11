@@ -1,12 +1,12 @@
 {
-  "run_url": "https://github.com/ketan952/claimclock/actions/runs/38151814816",
-  "commit": "d55c28a35faebbc107c6a790c2d87c933efa942d",
+  "run_url": "https://github.com/ketan952/claimclock/actions/runs/38152234879",
+  "commit": "7720b3e5ea704ed80a797a7ed2019a61ae9dca29",
   "base_url": "https://claimclock.ketan952.workers.dev",
-  "build_id": "8a05418b5f27c0df",
+  "build_id": "ac7e2571edd90ade",
   "runner": "GitHub hosted Ubuntu, Chromium, two workers, zero retries",
   "stats": {
-    "startTime": "2026-10-11T15:34:51.284Z",
-    "duration": 69650.03300000001,
+    "startTime": "2026-10-11T15:40:54.318Z",
+    "duration": 63470.581999999995,
     "expected": 46,
     "skipped": 0,
     "unexpected": 0,
@@ -27,7 +27,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 4758
+          "duration_ms": 5189
         }
       ]
     },
@@ -38,7 +38,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 10393
+          "duration_ms": 6953
         }
       ]
     },
@@ -49,7 +49,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1406
+          "duration_ms": 1307
         }
       ]
     },
@@ -60,7 +60,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1825
+          "duration_ms": 1733
         }
       ]
     },
@@ -71,7 +71,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1626
+          "duration_ms": 1593
         }
       ]
     },
@@ -82,7 +82,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 3563
+          "duration_ms": 3417
         }
       ]
     },
@@ -93,7 +93,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 5778
+          "duration_ms": 4647
         }
       ]
     },
@@ -104,7 +104,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 6506
+          "duration_ms": 4985
         }
       ]
     },
@@ -115,7 +115,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1362
+          "duration_ms": 1174
         }
       ]
     },
@@ -126,7 +126,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1365
+          "duration_ms": 1439
         }
       ]
     },
@@ -137,7 +137,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 10839
+          "duration_ms": 11867
         }
       ]
     },
@@ -148,7 +148,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1836
+          "duration_ms": 1289
         }
       ]
     },
@@ -159,7 +159,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 3351
+          "duration_ms": 2320
         }
       ]
     },
@@ -170,7 +170,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 2398
+          "duration_ms": 2549
         }
       ]
     },
@@ -181,7 +181,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 2499
+          "duration_ms": 2716
         }
       ]
     },
@@ -192,7 +192,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1328
+          "duration_ms": 1227
         }
       ]
     },
@@ -203,7 +203,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 11083
+          "duration_ms": 10061
         }
       ]
     },
@@ -214,7 +214,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 758
+          "duration_ms": 687
         }
       ]
     },
@@ -225,7 +225,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1670
+          "duration_ms": 1521
         }
       ]
     },
@@ -236,7 +236,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 2436
+          "duration_ms": 2396
         }
       ]
     },
@@ -247,7 +247,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1135
+          "duration_ms": 1285
         }
       ]
     },
@@ -258,7 +258,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 829
+          "duration_ms": 871
         }
       ]
     },
@@ -269,7 +269,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1224
+          "duration_ms": 1158
         }
       ]
     },
@@ -280,7 +280,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1444
+          "duration_ms": 1499
         }
       ]
     },
@@ -291,7 +291,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 3016
+          "duration_ms": 3364
         }
       ]
     },
@@ -302,7 +302,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1017
+          "duration_ms": 1000
         }
       ]
     },
@@ -313,7 +313,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1319
+          "duration_ms": 1362
         }
       ]
     },
@@ -324,7 +324,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1012
+          "duration_ms": 888
         }
       ]
     },
@@ -335,7 +335,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1174
+          "duration_ms": 1226
         }
       ]
     },
@@ -346,7 +346,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 657
+          "duration_ms": 659
         }
       ]
     },
@@ -357,7 +357,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 407
+          "duration_ms": 283
         }
       ]
     },
@@ -368,7 +368,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 388
+          "duration_ms": 318
         }
       ]
     },
@@ -379,7 +379,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 594
+          "duration_ms": 469
         }
       ]
     },
@@ -390,7 +390,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1344
+          "duration_ms": 1107
         }
       ]
     },
@@ -401,7 +401,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 585
+          "duration_ms": 514
         }
       ]
     },
@@ -412,7 +412,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 706
+          "duration_ms": 667
         }
       ]
     },
@@ -423,7 +423,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 687
+          "duration_ms": 621
         }
       ]
     },
@@ -434,7 +434,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 580
+          "duration_ms": 497
         }
       ]
     },
@@ -445,7 +445,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 18409
+          "duration_ms": 20136
         }
       ]
     },
@@ -456,7 +456,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 6015
+          "duration_ms": 2276
         }
       ]
     },
@@ -467,7 +467,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1677
+          "duration_ms": 956
         }
       ]
     },
@@ -478,7 +478,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 202
+          "duration_ms": 54
         }
       ]
     },
@@ -489,7 +489,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 668
+          "duration_ms": 617
         }
       ]
     },
@@ -500,7 +500,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1209
+          "duration_ms": 1143
         }
       ]
     },
@@ -511,7 +511,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 1136
+          "duration_ms": 696
         }
       ]
     },
@@ -522,7 +522,7 @@
       "results": [
         {
           "status": "passed",
-          "duration_ms": 750
+          "duration_ms": 513
         }
       ]
     }

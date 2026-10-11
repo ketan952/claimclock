@@ -1,7 +1,7 @@
 {
   "recorded_at": "2026-10-11T15:31:08.113597+00:00",
   "url": "https://claimclock.ketan952.workers.dev/",
-  "deployment_version": "0569ca56-1e68-41ed-a934-05968824f08e",
+  "deployment_version": "fdbe6044-b642-403c-870f-225a5a6a36ce",
   "build_id": "ac7e2571edd90ade",
   "migrations": [
     "0003_encrypted_transfers.sql"
@@ -25,7 +25,8 @@
       "skipped": 0,
       "flaky": 0,
       "omitted_positive_flows": 4,
-      "evidence": "qa/m11-hosted-qa.json"
+      "evidence": "qa/m11-hosted-qa.json",
+      "run_url": "https://github.com/ketan952/claimclock/actions/runs/38152234879"
     },
     "native_production_success": [
       "blank-city report accepted and erased",
@@ -57,13 +58,20 @@
   "privacy": "No login, documents browser-only, ciphertext-only transfer with key in client fragment, 7-day expiry, 3 successful retrieval limit. Real production verifier remains strict.",
   "feature_commit": "d55c28a35faebbc107c6a790c2d87c933efa942d",
   "ci_deployment": {
-    "version": "4b97a057-62fc-4a8f-bf96-5a6200d595a9",
-    "build_id": "8a05418b5f27c0df",
-    "run_url": "https://github.com/ketan952/claimclock/actions/runs/38151697226"
+    "version": "fdbe6044-b642-403c-870f-225a5a6a36ce",
+    "build_id": "ac7e2571edd90ade",
+    "run_url": "https://github.com/ketan952/claimclock/actions/runs/38152152410"
   },
   "ci_checks": {
     "unit": "159/159",
-    "check": "https://github.com/ketan952/claimclock/actions/runs/38151697238",
+    "check": "https://github.com/ketan952/claimclock/actions/runs/38152152435",
     "deployment": "success"
+  },
+  "manual_deployment_version": "0569ca56-1e68-41ed-a934-05968824f08e",
+  "tested_commit": "7720b3e5ea704ed80a797a7ed2019a61ae9dca29",
+  "previous_ci_deployment": {
+    "version": "4b97a057-62fc-4a8f-bf96-5a6200d595a9",
+    "build_id": "8a05418b5f27c0df",
+    "run_url": "https://github.com/ketan952/claimclock/actions/runs/38151697226"
   }
 }
