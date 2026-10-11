@@ -1,28 +1,28 @@
 {
   "url": "https://claimclock.ketan952.workers.dev/",
-  "run_at": "2026-10-10T19:02:17.607Z",
+  "run_at": "2026-10-11T15:34:37.160Z",
   "environment": "Public deployment, Lighthouse simulated mobile (not a physical 4G device)",
   "scores": {
-    "performance": 99,
+    "performance": 95,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100
   },
   "metrics": {
     "first-contentful-paint": {
-      "value": 1523.84625,
-      "display": "1.5 s"
+      "value": 1988.4699999999998,
+      "display": "2.0 s"
     },
     "largest-contentful-paint": {
-      "value": 1828.6154999999999,
-      "display": "1.8 s"
+      "value": 2436.352,
+      "display": "2.4 s"
     },
     "speed-index": {
-      "value": 1523.84625,
-      "display": "1.5 s"
+      "value": 3105.398188001609,
+      "display": "3.1 s"
     },
     "total-blocking-time": {
-      "value": 0,
+      "value": 1,
       "display": "0 ms"
     },
     "cumulative-layout-shift": {
@@ -30,15 +30,20 @@
       "display": "0"
     },
     "interactive": {
-      "value": 1828.6154999999999,
-      "display": "1.8 s"
+      "value": 2464.952,
+      "display": "2.5 s"
     },
     "total-byte-weight": {
-      "value": 134174,
+      "value": 134108,
       "display": "Total size was 131 KiB"
     }
   },
   "failed": [
+    {
+      "id": "first-contentful-paint",
+      "title": "First Contentful Paint",
+      "display": "2.0 s"
+    },
     {
       "id": "network-dependency-tree-insight",
       "title": "Network dependency tree"
@@ -46,7 +51,7 @@
     {
       "id": "render-blocking-insight",
       "title": "Render-blocking requests",
-      "display": "Est savings of 300 ms"
+      "display": "Est savings of 150 ms"
     }
   ]
 }

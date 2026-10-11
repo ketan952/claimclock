@@ -20,9 +20,12 @@
       "log": ".cache/m11-production-final.log"
     },
     "final_public_regression": {
-      "status": "awaiting hosted runner; local network/suspend interruptions are not application passes",
-      "expected_cases": 46,
-      "omitted_positive_flows": 4
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0,
+      "omitted_positive_flows": 4,
+      "evidence": "qa/m11-hosted-qa.json"
     },
     "native_production_success": [
       "blank-city report accepted and erased",
@@ -30,7 +33,7 @@
       "encrypted transfer between separate native Safari contexts with 3 lookups and D1 deletion"
     ],
     "lighthouse_scores": {
-      "performance": 99,
+      "performance": 95,
       "accessibility": 100,
       "best-practices": 100,
       "seo": 100
@@ -46,8 +49,21 @@
     "qa/turnstile-automation-limitation.json",
     "qa/m11-worker-update.json",
     "qa/lighthouse-m11.json",
-    "qa/native-screenshot-manifest.json"
+    "qa/native-screenshot-manifest.json",
+    "qa/m11-hosted-qa.json",
+    "qa/build-identity.json"
   ],
   "upstream_source_limitation": "Installed-worker app 302 succeeds; IRDAI currently returns 504. Historical successful M10 PDF screenshot retained explicitly.",
-  "privacy": "No login, documents browser-only, ciphertext-only transfer with key in client fragment, 7-day expiry, 3 successful retrieval limit. Real production verifier remains strict."
+  "privacy": "No login, documents browser-only, ciphertext-only transfer with key in client fragment, 7-day expiry, 3 successful retrieval limit. Real production verifier remains strict.",
+  "feature_commit": "d55c28a35faebbc107c6a790c2d87c933efa942d",
+  "ci_deployment": {
+    "version": "4b97a057-62fc-4a8f-bf96-5a6200d595a9",
+    "build_id": "8a05418b5f27c0df",
+    "run_url": "https://github.com/ketan952/claimclock/actions/runs/38151697226"
+  },
+  "ci_checks": {
+    "unit": "159/159",
+    "check": "https://github.com/ketan952/claimclock/actions/runs/38151697238",
+    "deployment": "success"
+  }
 }

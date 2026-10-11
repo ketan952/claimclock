@@ -34,3 +34,5 @@ public/apple-touch-icon.png
 public/favicon.ico
 public/sitemap.xml
 public/robots.txt
+__pycache__/
+*.py[cod]
