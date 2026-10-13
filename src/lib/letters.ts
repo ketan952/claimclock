@@ -38,7 +38,7 @@ export function makeLetter(kind:LetterKind, timeline:Timeline, contacts:Contact[
   const windowRule=timeline.requestType==='preauth'?'cashless-preauth':timeline.requestType==='discharge'?'cashless-discharge':null;
   const ruleIds=template.rules.map(id=>id==='window'?windowRule:id).filter((id):id is string=>Boolean(id));
   const fields:Record<string,string>={
-    insurer:contacts.find(c=>c.id===timeline.insurerId)?.name || timeline.insurerId || (language==='hi'?'[बीमा कंपनी जोड़ें]':'[add insurer]'),
+    insurer:contacts.find(c=>c.id===timeline.insurerId)?.name || (timeline.insurerId&&timeline.insurerId!=='unlisted'?timeline.insurerId:(language==='hi'?'[बीमा कंपनी का नाम जोड़ें]':'[add insurer name]')),
     tpa:contacts.find(c=>c.id===timeline.tpaId)?.name || (language==='hi'?'पता नहीं / लागू नहीं':'not known / not applicable'),
     hospital:timeline.hospital || (language==='hi'?'[अस्पताल जोड़ें]':'[add hospital]'),city:timeline.city || (language==='hi'?'[शहर जोड़ें]':'[add city]'),
     request:({en:{preauth:'cashless pre-authorisation',discharge:'final discharge',enhancement:'enhancement'},hi:{preauth:'कैशलेस पूर्व-मंज़ूरी',discharge:'अंतिम डिस्चार्ज',enhancement:'अतिरिक्त मंज़ूरी'}})[language][timeline.requestType],

@@ -45,6 +45,8 @@ function preserveUnsavedReceipt(result:{id:string;erase_token:string}){
  const copy=document.createElement('button');copy.type='button';copy.className='button-secondary';copy.textContent=t('optin.copyCode');copy.dataset.i18n='optin.copyCode';const status=document.createElement('p');status.className='status';status.setAttribute('role','status');
  copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(value);setMessage(status,'optin.codeCopied');}catch{code.focus();code.select();setMessage(status,'optin.copyFailed');}});card.append(copy,status);el('unsaved-receipt-list').append(card);el('unsaved-receipts').hidden=false;
 }
+// Display name for the case's insurer; 'unlisted' must never leak as a raw id into the UI or print view.
+const insurerLabel=(id:string)=>{const c=contacts.find(x=>x.id===id);return c?.name||(id==='unlisted'?t('label.unlisted'):id);};
 function caseLabel(backup:CaseBackup){const value=backup.timeline,contact=contacts.find(c=>c.id===value.insurerId);return `${(lang()==='hi'?contact?.name_hi:undefined)||contact?.name||t('label.unlisted')} · ${value.hospital||t('cases.noHospital')} · ${new Intl.DateTimeFormat(lang()==='hi'?'hi-IN':'en-IN',{month:'long',year:'numeric',timeZone:'Asia/Kolkata'}).format(new Date(value.submittedAt))}`;}
 function renderCases(){
  const cases=listCases(),select=el<HTMLSelectElement>('case-select');select.replaceChildren();const blank=new Option(t('cases.unsaved'),'');select.append(blank);for(const backup of cases)select.append(new Option(caseLabel(backup),backup.timeline.id));select.value=timeline?.id||'';
@@ -96,6 +98,8 @@ function updateClock(){
  el('clock-progress').style.width=`${state.minutes?Math.min(100,state.elapsed/(state.minutes*60000)*100):0}%`;
  el('enhancement-note').hidden=timeline.requestType!=='enhancement';
  const next=t(state.stage==='decided'?'clock.nextDecided':state.stage==='tracking'?'clock.nextTracking':state.stage==='beyond'?(timeline.requestType==='discharge'?'clock.nextBeyondDischarge':'clock.nextBeyondPreauth'):state.stage==='halfway'?'clock.nextHalfway':'clock.nextRunning');if(el('clock-next').textContent!==next)el('clock-next').textContent=next;
+ const nextLink=el<HTMLAnchorElement>('decision-next');const target=state.stage==='decided'?(timeline.outcome==='rejected'?['/rejected/','finished.nextRejected']:timeline.outcome==='partial'?['/deductions/','finished.nextPartial']:null):null;
+ if(target){nextLink.href=target[0];nextLink.textContent=t(target[1]);nextLink.hidden=false;}else nextLink.hidden=true;
  el('what-now').dataset.stage=state.stage;const current=state.stage==='beyond'?'step-escalate':state.stage==='halfway'?'step-followup':'step-record';
  for(const step of document.querySelectorAll<HTMLElement>('.what-now-steps li')){step.classList.toggle('active',step.id===current);if(step.id===current)step.setAttribute('aria-current','step');else step.removeAttribute('aria-current');step.hidden=state.stage==='decided'||(timeline.requestType==='enhancement'&&step.id==='step-escalate');}
 
@@ -111,7 +115,7 @@ function render(){
  document.querySelectorAll<HTMLElement>('[data-rule-plain]').forEach(node=>{const rule=rules.find(r=>r.id===node.dataset.rulePlain);if(rule)node.textContent=(lang()==='hi'?rule.plain_hi:rule.plain_en)||rule.title;});
  if(!timeline)return;
  const insurer=contacts.find(c=>c.id===timeline!.insurerId);
- el('clock-meta').textContent=`${insurer?.name||timeline.insurerId} · ${formatTime(timeline.submittedAt,lang())}`;
+ el('clock-meta').textContent=`${insurerLabel(timeline.insurerId)} · ${formatTime(timeline.submittedAt,lang())}`;
  el('timeline-list').replaceChildren();
  const entries=[{at:timeline.submittedAt,type:lang()==='hi'?'बताया गया अनुरोध समय':'Reported submission',note:''},...timeline.events.map(e=>({...e,type:t(`timeline.${e.type}`)})),...(timeline.decidedAt?[{at:timeline.decidedAt,type:t('finished.title'),note:t(`finished.${timeline.outcome}`)}]:[])].sort((a,b)=>Date.parse(a.at)-Date.parse(b.at));
  for(const e of entries){const li=document.createElement('li');const time=addText(li,'time',formatTime(e.at,lang()));time.setAttribute('datetime',e.at);addText(li,'span',e.type);if(e.note)addText(li,'p',timelineNote(e.note,lang()));el('timeline-list').append(li);}
@@ -123,10 +127,10 @@ function render(){
  if(!insurer?.gro_email){addText(el('contacts'),'p',t('contact.unavailable'));const a=addText(el('contacts'),'a',t('contact.directory')) as HTMLAnchorElement;a.href='https://irdai.gov.in/list-of-gros';a.target='_blank';a.rel='noopener noreferrer';}
  el('recovery-section').hidden=timeline.requestType!=='discharge';
  document.querySelectorAll<HTMLElement>('.discharge-only').forEach(n=>n.hidden=timeline!.requestType!=='discharge');
- el('optin-section').hidden=!timeline.decidedAt;
+ el('optin-section').hidden=!timeline.decidedAt||timeline.insurerId==='unlisted';
  if(timeline.decidedAt){
   el('report-preview').textContent=JSON.stringify({...reportPayload(timeline),consent:true,adult:true},null,2);el('report-summary').replaceChildren();
-  const fields=[['label.insurer',insurer?.name||timeline.insurerId],['label.tpa',contacts.find(c=>c.id===timeline!.tpaId)?.name||t('label.noTpa')],['label.city',timeline.city||t('common.notProvided')],['label.type',t(`type.${timeline.requestType}`)],['optin.submittedAt',formatTime(timeline.submittedAt,lang())],['optin.decidedAt',formatTime(timeline.decidedAt,lang())],['finished.outcome',t(`finished.${timeline.outcome}`)],['optin.consentVersion','2026-10-10']];
+  const fields=[['label.insurer',insurerLabel(timeline.insurerId)],['label.tpa',contacts.find(c=>c.id===timeline!.tpaId)?.name||t('label.noTpa')],['label.city',timeline.city||t('common.notProvided')],['label.type',t(`type.${timeline.requestType}`)],['optin.submittedAt',formatTime(timeline.submittedAt,lang())],['optin.decidedAt',formatTime(timeline.decidedAt,lang())],['finished.outcome',t(`finished.${timeline.outcome}`)],['optin.consentVersion','2026-10-10']];
   for(const [label,value] of fields){addText(el('report-summary'),'dt',t(label));addText(el('report-summary'),'dd',value);}
  }
 
@@ -154,7 +158,7 @@ function letterRecipient(kind:string):string {
 }
 document.querySelectorAll<HTMLElement>('[data-letter]').forEach(button=>button.addEventListener('click',()=>{if(timeline)showLetter(()=>makeLetter(button.dataset.letter as LetterKind,timeline!,contacts,rules,lang()),letterRecipient(button.dataset.letter||''));}));
 form('event-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('event-form'),at=input(f,'at').value;if(timeline.events.length>=500||!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('event-error'),'finished.error');return;}const candidate={...timeline,events:[...timeline.events,{id:crypto.randomUUID(),at:new Date(at).toISOString(),type:input(f,'type').value,note:input(f,'note').value.trim()}]};if(!save(candidate))return;input(f,'note').value='';input(f,'at').value=localInputValue();setMessage(el('event-error'),null);render();});
-el('print-timeline').addEventListener('click',()=>{if(!timeline)return;const p=el('print-root');p.replaceChildren();addText(p,'h1','ClaimClock — '+t('timeline.title'));addText(p,'p',`${contacts.find(c=>c.id===timeline!.insurerId)?.name}\n${timeline.hospital}, ${timeline.city}\n${t('clock.basis')}\n\n${timelineText(timeline,lang())}\n\n${t('footer.disclaimer')}`);window.print();});
+el('print-timeline').addEventListener('click',()=>{if(!timeline)return;const p=el('print-root');p.replaceChildren();addText(p,'h1','ClaimClock — '+t('timeline.title'));addText(p,'p',`${insurerLabel(timeline.insurerId)}\n${timeline.hospital}, ${timeline.city}\n${t('clock.basis')}\n\n${timelineText(timeline,lang())}\n\n${t('footer.disclaimer')}`);window.print();});
 el('export-timeline').addEventListener('click',()=>{const backup=currentBackup();if(backup)download('claimclock-case.json',JSON.stringify(backup,null,2),'application/json');});
 form('recovery-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('recovery-form');showLetter(()=>makeLetter('recovery',timeline!,contacts,rules,lang(),{amount:Number(input(f,'amount').value).toLocaleString('en-IN'),hours:input(f,'hours').value}),contacts.find(c=>c.id===timeline!.insurerId)?.gro_email||'');track('delay_charge_generated');});
 form('finish-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('finish-form'),at=input(f,'decidedAt').value;if(!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('finish-error'),'finished.error');return;}const candidate={...timeline,decidedAt:new Date(at).toISOString(),outcome:input(f,'outcome').value};if(!save(candidate))return;resetCaseUI();setMessage(el('finish-error'),null);render();});

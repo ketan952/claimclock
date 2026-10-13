@@ -107,6 +107,8 @@
   "finished.rejected": "Rejected",
   "finished.save": "Save decision",
   "finished.error": "Decision time must be after submission and not in the future.",
+  "finished.nextRejected": "Claim rejected? Prepare a grievance about the rejection →",
+  "finished.nextPartial": "Paid less than the bill? Check each deduction →",
   "optin.title": "Help make the wait visible",
   "optin.body": "Optional: share insurer, TPA, city (if provided), request type, submission/decision times and outcome. City is optional. No name, hospital, documents or claim number. Reports are scheduled for removal after one year; see Privacy & data for cleanup timing. Public cells need at least 10 reports. Keep your deletion code to withdraw.",
   "optin.consent": "I am 18 or older and agree to share these fields for the patient-reported Delay Index.",
