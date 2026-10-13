@@ -108,3 +108,12 @@ Current public build **`4e06cdf5ccb69460`**, manual Worker version `c8d0fdca-a67
 **167 unit tests, 69 selected public Chromium scenarios, and 23 public WebKit scenarios pass**, plus lint, type/data, reviewed license and 42-page CSP gates. Mobile Lighthouse **97/100/100/100**; installed-worker update toast and second navigation pass. Real native Safari report acceptance/erasure, AI and three decrypt previews passed on the pre-fix M12 build, separately labelled; final two-context transfer round-trip uses mocks. Four production-positive automation flows remain excluded. IRDAI still returns504 after the correct source302. Preserve the distinctions in qa/review-native.json and qa/m13-browser.json.
 
 Do not promise atomic localStorage transactions: baseline checks prevent the demonstrated stale writes, but simultaneous cross-renderer read/write is not serialized. Native phone keyboard and VoiceOver/TalkBack acceptance remain unverified. Native Safari AX omitted an otherwise visible restore modal; isolated WebKit snapshots and keyboard interaction pass. Historical evidence is retained, with M13 artifacts and screenshots named separately. All review test data was synthetic; report was erased and transfer's three permitted lookups exhausted.
+
+## M14 — user-journey fixes (independent review, 13 October 2026)
+
+A walk-through as a first-time visitor on a phone found two usability problems and fixed them in source:
+
+- The home page opened with "Cases on this device", backup and encrypted-transfer controls above the hero and start form; "Start my clock" sat about three screens down. Those blocks (`#unsaved-receipts`, `#local-cases`, `<Transfer />`) now render after the clock dashboard. The start card links to them ("Already have a case on another phone…"), and the active-clock header has a "Saved cases & backup" link. All element ids are unchanged; the local-cases, transfer, picker, hindi and core browser suites pass against the rebuilt site.
+- After scanning or pasting a settlement letter the user still had to retype every line as `reason | amount`. `suggestLinesFromText()` (src/lib/deductions.ts, on-device, deterministic) now proposes lines from the extracted text, skipping bill totals, paid amounts, identifiers and dates; it runs automatically after a successful read and from the "Find deduction lines in this text" button, never overwriting existing lines. Unit tests cover extraction, skipping and deduplication in both grouping styles.
+
+Nothing server-side changed. Bilingual strings added for both features.

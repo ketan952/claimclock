@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {classify,parseManualLines,verdictTotals} from '../src/lib/deductions.ts';
+import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines} from '../src/lib/deductions.ts';
 import type {Category,DeductionStatus,DeductionInput} from '../src/lib/deductions.ts';
 import {knownIdentifiers,redact} from '../src/lib/redact.ts';
 import {reminders} from '../src/lib/reminders.ts';
@@ -132,4 +132,39 @@ test('ICS output uses folded CRLF lines and preserves necessary escaped punctuat
  assert.ok(ics.includes('\r\n '));assert.ok(unfold(ics).includes('response\\; consider'));
  assert.ok(unfold(ics).includes('Information\\, not legal advice.'));
  assert.ok(!ics.includes('DEMO-POL'));
+});
+
+const syntheticLetter=`SYNTHETIC HEALTH INSURANCE COMPANY LIMITED
+Claim Settlement Letter
+Claim No: 1234567 Policy No: 30425678 Patient: Synthetic Person UHID 998877
+Hospital: Synthetic Hospital, Pune Admission: 05/10/2026 Discharge: 08/10/2026
+Total Bill Amount: Rs. 3,64,000
+DEDUCTION DETAILS
+Room Rent proportionate deduction as per policy room eligibility Rs. 10,000
+Surgeon fee reduced in proportion to room rent eligibility  15,000
+Non payable items (gloves, gauze, surgical tape, gown) as per Annexure I Rs. 4,476/-
+Co-payment 10% as per policy terms INR 12,000.50
+Reasonable and customary charges - OT charges ₹ 8,000
+Total Deductions: Rs. 49,476
+Amount Payable: Rs. 3,14,524
+Please quote claim number 1234567 in all correspondence. Helpline 1800 123 4567.`;
+
+test('suggestLinesFromText finds deduction lines and skips totals, identifiers and dates',()=>{
+ const found=suggestLinesFromText(syntheticLetter);
+ assert.deepEqual(found.map(l=>l.amount),[10000,15000,4476,12000.5,8000]);
+ assert.equal(found[0].description,'Room Rent proportionate deduction as per policy room eligibility');
+ assert.equal(found[2].description,'Non payable items (gloves, gauze, surgical tape, gown) as per Annexure I');
+ assert.equal(found[3].description,'Co-payment 10% as per policy terms');
+ assert.equal(found[4].description,'Reasonable and customary charges - OT charges');
+ const text=JSON.stringify(found);
+ for(const forbidden of ['364000','49476','314524','1234567','30425678','998877','1800'])assert.ok(!text.includes(forbidden),`must not treat ${forbidden} as a deduction`);
+ const parsed=parseManualLines(formatSuggestedLines(found));
+ assert.deepEqual(parsed.errors,[]);assert.equal(parsed.inputs.length,5);assert.equal(parsed.inputs[3].amount,12000.5);
+});
+
+test('suggestLinesFromText ignores bare numbers outside deduction context and dedupes repeats',()=>{
+ assert.deepEqual(suggestLinesFromText('Room 402 on the 3rd floor\nBed charges for 5 days\nReport generated 13/10/2026 at 10:45'),[]);
+ const repeated=suggestLinesFromText('Non-medical items disallowed Rs 500\nNon-medical items disallowed Rs 500\nImplant cost not payable 25000');
+ assert.deepEqual(repeated,[{description:'Non-medical items disallowed',amount:500},{description:'Implant cost not payable',amount:25000}]);
+ assert.deepEqual(suggestLinesFromText(''),[]);
 });

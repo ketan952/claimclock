@@ -49,6 +49,34 @@ export function classify(input:DeductionInput):Deduction {
  }
  return {...input,category,status,ruleIds,explanation,explanation_hi};
 }
+export type SuggestedLine={description:string;amount:number};
+// Lines that carry a figure but are not deductions: bill totals, approved/paid amounts, identifiers and dates.
+const SUGGEST_SKIP=/total bill|bill amount|gross bill|hospital bill|amount payable|net payable|payable amount|net amount|approved amount|amount approved|claimed amount|claim amount|amount claimed|sum insured|amount paid|paid amount|settled amount|settlement amount|balance|grand total|^\s*(?:[-•*]\s*)?total\b|total deduction|sub-?total|policy (?:no|number)|claim (?:no|number|id)|uhid|member (?:id|no)|mobile|phone|e-?mail|date of|admission|discharge date|dob\b|invoice|receipt|gstin|\bpan\b|ifsc|account (?:no|number)|cheque|utr\b|neft|rtgs|pin ?code|reference/i;
+const SUGGEST_HINT=/deduct|disallow|not payable|non[- ]?payable|non[- ]?medical|non[- ]?admissible|inadmissible|consumable|disposable|proportion|co-?pay|sub-?limit|capping|\bcap\b|reasonable|customary|\bR&C\b|exclu|not covered|implant|room rent|room eligib|package|less\b|short|reduc|adjust/i;
+const CURRENCY_AMOUNT=/(?:₹|rs\.?|inr)\s*:?\s*([\d,]+(?:\.\d{1,2})?)(?:\/-)?/gi;
+const BARE_AMOUNT=/(?<![\d,.\/%-])(\d{1,2}(?:,\d{2})*,\d{3}(?:\.\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{3,8}(?:\.\d{1,2})?)(?:\/-)?(?![\d,.%\/-])/g;
+const toAmount=(text:string)=>{const grouping=/^\d+(?:\.\d{1,2})?$/.test(text)||/^\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?$/.test(text)||/^\d{1,2}(?:,\d{2})*,\d{3}(?:\.\d{1,2})?$/.test(text);const amount=Number(text.replace(/,/g,''));return grouping&&Number.isFinite(amount)&&amount>=1&&amount<=1e8?amount:null;};
+// Deterministic, on-device: pull "reason + rupee amount" candidates out of extracted or pasted settlement text.
+// Totals, paid amounts and identifiers are skipped; bare numbers count only on lines that read like a deduction
+// or inside a "Deductions" section. Every candidate is still shown to the user for correction before review.
+export function suggestLinesFromText(text:string):SuggestedLine[] {
+ const out:SuggestedLine[]=[],seen=new Set<string>();let inSection=false;
+ for(const raw of text.split(/\r?\n/)){
+  const line=raw.replace(/\s+/g,' ').trim();if(!line)continue;
+  const hasFigure=/\d/.test(line);
+  if(!hasFigure){if(/deduct|disallow|not payable|non[- ]?payable/i.test(line))inSection=true;else if(/^(?:amount payable|net payable|total|summary|note|remarks|terms)/i.test(line))inSection=false;continue;}
+  if(SUGGEST_SKIP.test(line)){if(/^\s*(?:[-•*]\s*)?total|amount payable|net payable/i.test(line))inSection=false;continue;}
+  let amountText:string|null=null,token='';
+  for(const match of line.matchAll(CURRENCY_AMOUNT)){amountText=match[1];token=match[0];}
+  if(!amountText&&(inSection||SUGGEST_HINT.test(line)))for(const match of line.matchAll(BARE_AMOUNT)){amountText=match[1];token=match[0];}
+  if(!amountText)continue;const amount=toAmount(amountText);if(amount===null)continue;
+  const description=line.replace(token,' ').replace(/^(?:\d{1,2}[.)]|[-•*])\s+/,'').replace(/[\s:–—|,-]+$/,'').replace(/\s+/g,' ').trim().slice(0,120);
+  if(!/[A-Za-z\u0900-\u097F]{3}/.test(description))continue;
+  const key=`${description.toLowerCase()}|${amount}`;if(seen.has(key))continue;seen.add(key);out.push({description,amount});if(out.length===30)break;
+ }
+ return out;
+}
+export const formatSuggestedLines=(lines:SuggestedLine[])=>lines.map(l=>`${l.description} | ${l.amount}`).join('\n');
 export function parseManualLines(value:string):{inputs:DeductionInput[];errors:number[]} {
  const inputs:DeductionInput[]=[],errors:number[]=[];
  value.split(/\r?\n/).forEach((line,i)=>{if(!line.trim())return;const match=line.match(/^(.+?)\s*(?:\||\t|\s{2,})\s*(?:₹|Rs\.?|INR)?\s*([\d,]+(?:\.\d{1,2})?)\s*$/i);if(!match){errors.push(i+1);return;}

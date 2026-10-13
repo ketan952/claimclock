@@ -1,6 +1,6 @@
 import contactsRaw from '../../data/contacts.json';import rulesRaw from '../../data/rules.json';
 import consumables from '../../data/consumables.json';
-import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,type Deduction,type DeductionInput} from './deductions';
+import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines,type Deduction,type DeductionInput} from './deductions';
 import {knownIdentifiers,redact} from './redact';import {lang,t,setMessage} from './i18n';import {makeDeductionLetter} from './deduction-letter';
 import {setupLetterDialog} from './letter-dialog';import {download,listCases,saveDeductions,storageIssue} from './storage';import type {CaseBackup} from './backup';import {reminders} from './reminders';import {getTurnstileToken} from './turnstile';
 
@@ -13,9 +13,22 @@ function append(parent:HTMLElement,tag:string,text:string,className=''){const n=
 const normalized=(s:string)=>s.toUpperCase().replace(/\s+/g,' ').trim();
 async function read(file:File){
  if(processing){setMessage(el('extract-status'),'deductions.wait');return;}processing=true;
- try{const {extractFile}=await import('./extract');const text=await extractFile(file,(key,fields)=>setMessage(el('extract-status'),key,fields));const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+text;el<HTMLDetailsElement>('extracted-details').open=true;setMessage(el('extract-status'),'deductions.readDone');}
+ try{const {extractFile}=await import('./extract');const text=await extractFile(file,(key,fields)=>setMessage(el('extract-status'),key,fields));const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+text;el<HTMLDetailsElement>('extracted-details').open=true;setMessage(el('extract-status'),'deductions.readDone');suggestLines();}
  catch(e){setMessage(el('extract-status'),e instanceof Error&&'translationKey' in e&&String(e.translationKey).startsWith('extract.')?String(e.translationKey):'deductions.readFailed');}finally{processing=false;}
 }
+// On-device only: propose "reason | amount" lines from the extracted or pasted text so the user corrects
+// instead of retyping. Existing lines are kept; identical candidates are not added twice.
+function suggestLines(){
+ const text=el<HTMLTextAreaElement>('extracted-text').value,status=el('suggest-status');
+ if(!text.trim()){setMessage(status,'deductions.suggestEmpty');return;}
+ const box=el<HTMLTextAreaElement>('deduction-lines');
+ const existing=new Set(parseManualLines(box.value).inputs.map(d=>`${d.description.toLowerCase()}|${d.amount}`));
+ const fresh=suggestLinesFromText(text).filter(l=>!existing.has(`${l.description.toLowerCase()}|${l.amount}`));
+ if(!fresh.length){setMessage(status,'deductions.suggestNone');return;}
+ box.value=(box.value.trim()?`${box.value.trimEnd()}\n`:'')+formatSuggestedLines(fresh);
+ setMessage(status,'deductions.suggested',{count:fresh.length});
+}
+el('suggest-lines').addEventListener('click',()=>{suggestLines();el('deduction-lines').scrollIntoView({block:'center'});});
 for(const id of ['settlement-file','bill-file','policy-file'])el<HTMLInputElement>(id).addEventListener('change',()=>{const file=el<HTMLInputElement>(id).files?.[0];if(file)void read(file);});
 function render(preserveControls=false){
  deductions=inputs.map(classify);el('deduction-results').hidden=!deductions.length;const cards=el('deduction-cards');const reuse=preserveControls&&cards.childElementCount===deductions.length;if(!reuse)cards.replaceChildren();
