@@ -190,5 +190,30 @@
     "plain_en": "The 2024 Customer Information Sheet requires disclosure of policy financial limits, including room/ICU sub-limits, co-payment and deductibles. Verify the actual policy limit and calculation; the form does not impose one universal cap.",
     "plain_hi": "2024 की ग्राहक सूचना शीट में कमरे/ICU की उप-सीमा, सह-भुगतान और डिडक्टिबल सहित पॉलिसी की वित्तीय सीमाएँ बतानी हैं। अपनी पॉलिसी की सीमा और हिसाब जाँचें; यह प्रारूप कोई एक समान सीमा लागू नहीं करता।",
     "caveat": "This is the prescribed disclosure format, not a universal room-rent cap or a ban on proportionate deductions. Associated-expense reductions need the actual policy wording and hospital tariff; the 2020 circular was superseded."
+  },
+  {
+    "id": "moratorium-60-months",
+    "title": "60-month moratorium on non-disclosure",
+    "paragraph": "Health Master Circular, 29 May 2024, Chapter I 13, p.22",
+    "quote": "No policy and claim of health insurance shall be contestable on any grounds of non-disclosure and/or misrepresentation except for established fraud, after the completion of the Moratorium Period, i.e. 60 months of continuous coverage",
+    "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+    "verified_on": "2026-10-10",
+    "scope": "non-disclosure-after-60-months",
+    "plain_en": "After 60 months (5 years) of continuous coverage, including credits from ported and migrated policies, a policy or claim cannot be contested for non-disclosure or misrepresentation, except for established fraud.",
+    "plain_hi": "60 महीने (5 साल) के लगातार कवरेज के बाद, जिसमें पोर्ट और माइग्रेट की गई पॉलिसियों की अवधि भी जुड़ती है, स्थापित धोखाधड़ी को छोड़कर गैर-प्रकटीकरण या गलत जानकारी के आधार पर पॉलिसी या दावे पर आपत्ति नहीं की जा सकती।",
+    "pdf_url": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular+on+Health+Insurance+Business+29052024.pdf/5e707a91-b5de-1ec1-cf18-b66273a6839d?version=2.1&t=1719834812962&download=true",
+    "caveat": "Established fraud remains an exception, and increases in sum insured may have separate continuous-coverage clocks. Keep all renewal and portability records."
+  },
+  {
+    "id": "multiple-policies",
+    "title": "Claiming across multiple policies (Corporate + Personal)",
+    "paragraph": "Health Master Circular, 29 May 2024, Chapter I 18(a), p.24",
+    "quote": "the primary Insurer shall seek the details of other available policies of the policyholder and shall coordinate with other Insurers to ensure settlement of the balance amount as per the policy conditions, without causing any hassles to the policyholder.",
+    "source_url": "https://irdai.gov.in/document-detail?documentId=4942918",
+    "verified_on": "2026-10-10",
+    "scope": "multiple-indemnity-policies",
+    "plain_en": "If you hold more than one health policy (such as corporate plus personal), you may choose which policy to claim under first. If the admissible claim exceeds that policy's cover, the primary insurer must coordinate with your other insurer(s) to settle the balance under policy terms.",
+    "plain_hi": "यदि आपके पास एक से अधिक स्वास्थ्य पॉलिसी (जैसे ऑफिस और व्यक्तिगत) हैं, तो आप चुन सकते हैं कि पहले किस पॉलिसी में दावा करना है। यदि अनुमन्य राशि उस पॉलिसी के कवर से अधिक है, तो प्राथमिक बीमा कंपनी को शेष राशि के निपटान के लिए दूसरी बीमा कंपनी से समन्वय करना है।",
+    "pdf_url": "https://irdai.gov.in/documents/37343/365525/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AC%E0%A5%80%E0%A4%AE%E0%A4%BE+%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%B8%E0%A4%BE%E0%A4%AF+%E0%A4%AA%E0%A4%B0+%E0%A4%AE%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%AA%E0%A4%A4%E0%A5%8D%E0%A4%B0+_+Master+Circular+on+Health+Insurance+Business+29052024.pdf/5e707a91-b5de-1ec1-cf18-b66273a6839d?version=2.1&t=1719834812962&download=true"
   }
 ]

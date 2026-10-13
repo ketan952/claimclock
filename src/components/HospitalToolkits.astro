@@ -1,0 +1,41 @@
+---
+import contacts from '../../data/contacts.json';
+import rules from '../../data/rules.json';
+const insurers=contacts.filter(c=>c.kind==='insurer').sort((a,b)=>a.name.localeCompare(b.name));
+const multiRule=rules.find(r=>r.id==='multiple-policies')!;
+---
+<section class="card" id="reimbursement-checklist">
+ <details id="reimbursement-details">
+  <summary data-i18n="reimb.title">Cashless denied? Collect these 7 papers before leaving the hospital</summary>
+  <p class="fine-print" style="margin-top:12px" data-i18n="reimb.intro">A cashless denial is not a final claim rejection. It only means the insurer did not approve direct payment to the hospital right now. You can pay, collect these original documents before leaving, and file a reimbursement claim.</p>
+  <ul class="checklist" id="reimb-items" style="list-style:none;padding:0;margin:14px 0;display:grid;gap:10px">
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="denial" /><span data-i18n="reimb.item1">1. Written cashless denial / query note and the cashless reference number</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="bill" /><span data-i18n="reimb.item2">2. Final itemised hospital bill and numbered payment receipts reconciling any deposit</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="discharge" /><span data-i18n="reimb.item3">3. Final discharge summary signed and stamped</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="icp" /><span data-i18n="reimb.item4">4. Certified Indoor Case Papers (ICP), daily doctor notes, vital/IV charts and OT notes</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="doctor" /><span data-i18n="reimb.item5">5. Treating doctor’s signed note explaining why inpatient admission was clinically necessary</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="reports" /><span data-i18n="reimb.item6">6. All original lab/imaging reports, prescriptions and pharmacy invoices</span></label></li>
+   <li><label class="checkbox-label"><input type="checkbox" data-reimb-item="implant" /><span data-i18n="reimb.item7">7. Implant / stent / lens invoice and original barcode sticker (if any device was used)</span></label></li>
+  </ul>
+  <div class="button-row"><button type="button" class="button-secondary" id="prepare-reimbursement-desk" data-i18n="reimb.button">Prepare request to hospital desk for these papers</button></div>
+ </details>
+</section>
+<section class="card" id="two-policies-card">
+ <details id="two-policies-details">
+  <summary data-i18n="multi.title">Using two policies (Corporate + Personal)?</summary>
+  <p class="fine-print" style="margin-top:12px" data-i18n="multi.intro">If one policy (such as an office group policy) covers only part of your hospital bill, you can claim the remaining admissible balance from your second policy.</p>
+  <blockquote style="margin:12px 0;font-size:.82rem">“{multiRule.quote}”</blockquote>
+  <p class="fine-print"><a href={multiRule.source_url} target="_blank" rel="noopener noreferrer">{multiRule.paragraph} ↗</a></p>
+  <ol class="fine-print" style="margin:12px 0 14px 18px;display:grid;gap:6px">
+   <li data-i18n="multi.step1">Get the Claim Settlement Letter from the first insurer/TPA showing total bill, paid amount and unpaid balance.</li>
+   <li data-i18n="multi.step2">Before leaving the hospital, take hospital-attested (stamped) copies of the final itemised bill, discharge summary and reports (since the first insurer keeps originals).</li>
+   <li data-i18n="multi.step3">Submit the balance claim to the second insurer and askboth insurers to coordinate under Chapter I paragraph 18(a).</li>
+  </ol>
+  <form id="two-policies-form" class="form-grid">
+   <label><span data-i18n="multi.primary">First policy insurer (used first)</span><select name="primaryInsurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.name}>{c.name}</option>)}</select></label>
+   <label><span data-i18n="multi.secondary">Second policy insurer (for balance)</span><select name="secondaryInsurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id}>{c.name}</option>)}</select></label>
+   <label class="full"><span data-i18n="multi.balance">Remaining unpaid balance (₹)</span><input name="balanceAmount" type="number" min="1" max="100000000" step="1" required /></label>
+   <button type="submit" class="button-secondary full" data-i18n="multi.button">Prepare balance-claim letter for 2nd insurer</button>
+  </form>
+ </details>
+</section>

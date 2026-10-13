@@ -13,6 +13,7 @@ import {getTurnstileToken} from './turnstile';
 import {saveReceipt} from './receipts';
 import {lang,t,setMessage,interpolate} from './i18n';
 import {makeLetter,timelineText,timelineNote} from './letters.ts';
+import {initToolkits} from './toolkits-ui';
 import {setupLetterDialog} from './letter-dialog.ts';
 import {track} from './events.ts';
 import {reportPayload,reportFailure,reportFieldLabels,type ReportField} from './report.ts';
@@ -188,6 +189,7 @@ el<HTMLInputElement>('backup-file').addEventListener('change',async()=>{const fi
 el('backup-paste-preview').addEventListener('click',()=>{try{const backup=parseBackupText(el<HTMLTextAreaElement>('backup-paste').value);setMessage(el('backup-status'),null);previewRestore(backup);}catch{setMessage(el('backup-status'),'backup.invalid');}});
 el('restore-new').addEventListener('click',()=>completeRestore());el('restore-replace').addEventListener('click',()=>completeRestore(true));el('restore-cancel').addEventListener('click',()=>{pendingBackup=null;el<HTMLTextAreaElement>('backup-paste').value='';el<HTMLDialogElement>('restore-dialog').close();});el<HTMLSelectElement>('restore-target').addEventListener('change',()=>{el<HTMLButtonElement>('restore-replace').disabled=!el<HTMLSelectElement>('restore-target').value;});
 setupTransfer({getBackup:currentBackup,previewBackup:previewRestore});
+initToolkits(showLetter,{getInsurerId:()=>timeline?.insurerId||(form('start-form').elements.namedItem('insurer') as HTMLSelectElement).value,getHospital:()=>timeline?.hospital||input(form('start-form'),'hospital').value});
 for(const id of ['case-select','case-new','case-raw-backup','backup-file','backup-paste','backup-paste-preview','restore-new','restore-cancel'])(el(id) as HTMLButtonElement).disabled=false;
 for(const selector of ['#start-form button[type=submit]','#event-form button[type=submit]','#finish-form button[type=submit]','#recovery-form button[type=submit]','#optin-form button[type=submit]'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
 window.addEventListener('languagechange',()=>{render();if(pendingBackup&&el<HTMLDialogElement>('restore-dialog').open){const target=el<HTMLSelectElement>('restore-target').value;previewRestore(pendingBackup);el<HTMLSelectElement>('restore-target').value=target;el<HTMLButtonElement>('restore-replace').disabled=!target;}});setInterval(updateClock,1000);render();

@@ -2,7 +2,7 @@ import contactsRaw from '../../data/contacts.json';import rulesRaw from '../../d
 import consumables from '../../data/consumables.json';
 import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines,detectInsurerFromText,matchConsumables,findPolicyClauseHint,type Deduction,type DeductionInput} from './deductions';
 import {knownIdentifiers,redact} from './redact';import {lang,t,setMessage} from './i18n';import {makeDeductionLetter} from './deduction-letter';
-import {setupLetterDialog} from './letter-dialog';import {download,listCases,saveDeductions,storageIssue} from './storage';import type {CaseBackup} from './backup';import {reminders} from './reminders';import {getTurnstileToken} from './turnstile';
+import {setupLetterDialog} from './letter-dialog';import {download,listCases,saveDeductions,storageIssue} from './storage';import type {CaseBackup} from './backup';import {reminders} from './reminders';import {getTurnstileToken} from './turnstile';import {initToolkits} from './toolkits-ui';
 
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
@@ -97,3 +97,8 @@ el<HTMLFormElement>('reminder-form').addEventListener('submit',e=>{e.preventDefa
 window.addEventListener('languagechange',()=>{render();renderCasePicker();});
 
 for(const selector of ['#ai-form button[type=submit]','#reminder-form button[type=submit]'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
+initToolkits(showLetter,{
+ getInsurerId:()=>insurer||(el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement).value,
+ getDisputedAmount:()=>deductions.filter(d=>d.status!=='likely valid').reduce((sum,d)=>sum+d.amount,0),
+ getSummary:()=>deductions.filter(d=>d.status!=='likely valid').map(d=>`${d.description} (₹${d.amount.toLocaleString('en-IN')})`).join('; '),
+});

@@ -1,0 +1,29 @@
+---
+import contacts from '../../data/contacts.json';
+const insurers=contacts.filter(c=>c.kind==='insurer').sort((a,b)=>a.name.localeCompare(b.name));
+---
+<section class="card" id="ombudsman-section">
+ <details id="ombudsman-details">
+  <summary data-i18n="ombudsman.title">Escalating to the Insurance Ombudsman? Check eligibility & prepare summary</summary>
+  <p class="fine-print" style="margin-top:12px" data-i18n="ombudsman.intro">The Insurance Ombudsman is a free official forum for individual policyholders up to ₹50 lakh. No lawyer or fee is needed. First complain in writing to your insurer’s GRO.</p>
+  <form id="ombudsman-form" class="form-grid" style="margin-top:14px">
+   <label class="full"><span data-i18n="label.insurer">Your insurer</span><select name="ombudsmanInsurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id}>{c.name}</option>)}</select></label>
+   <label><span data-i18n="ombudsman.groDate">Date you complained to the insurer’s GRO</span><input name="groDate" type="date" required /></label>
+   <label><span data-i18n="ombudsman.replyStatus">Insurer’s reply status</span>
+    <select name="replyStatus">
+     <option value="replied" data-i18n="ombudsman.statusReplied">Received an unsatisfactory / rejection reply</option>
+     <option value="no-reply" data-i18n="ombudsman.statusNoReply">No reply received yet</option>
+    </select>
+   </label>
+   <label id="ombudsman-reply-date-wrap"><span data-i18n="ombudsman.replyDate">Date of insurer’s reply (if received)</span><input name="replyDate" type="date" /></label>
+   <label><span data-i18n="ombudsman.amount">Disputed claim / deduction amount (₹)</span><input name="amount" type="number" min="1" max="100000000" step="1" required /></label>
+   <label class="full"><span data-i18n="ombudsman.summaryLabel">Short summary of what was rejected or deducted</span><textarea name="summary" rows="3" maxlength="800"></textarea></label>
+   <label class="checkbox-label full"><input name="notInCourt" type="checkbox" checked required /><span data-i18n="ombudsman.notInCourt">This dispute is not pending or decided before any court, consumer commission or arbitrator.</span></label>
+   <p class="status full" id="ombudsman-check-status" role="status"></p>
+   <div class="button-row full">
+    <button type="button" class="button-secondary" id="ombudsman-check-btn" data-i18n="ombudsman.checkBtn">Check my eligibility</button>
+    <button type="submit" class="button" id="ombudsman-draft-btn" data-i18n="ombudsman.draftBtn">Prepare Ombudsman complaint summary</button>
+   </div>
+  </form>
+ </details>
+</section>
