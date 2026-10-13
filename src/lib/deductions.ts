@@ -40,7 +40,7 @@ export function classify(input:DeductionInput):Deduction {
   category='reasonable-customary';status='challengeable';explanation='Request the exact policy clause, reference tariff or comparable charges, the basis for comparison, and the line-item calculation. The reasonable-and-customary label alone does not explain the amount.';explanation_hi='पॉलिसी की सही शर्त, संदर्भ दर या तुलनीय शुल्क, तुलना का आधार और मदवार हिसाब माँगें। केवल उचित और प्रचलित लिखने से राशि का कारण साफ़ नहीं होता।';
  }else if(/implant|prosthe|stent|pacemaker|intraocular lens|orthop[ae]edic plate/.test(text)){
   category='implant';status='challengeable';explanation='An implant or prosthesis is not automatically an excluded consumable. Check the policy’s device coverage, exclusions and any sub-limit; request the device invoice, applicable clause and calculation. Review a blanket non-medical label against the actual coverage.';explanation_hi='इम्प्लांट या कृत्रिम अंग अपने-आप बाहर की गई उपभोग्य सामग्री नहीं है। पॉलिसी में उपकरण का कवर, अपवर्जन और सीमा जाँचें; उपकरण का बिल, लागू शर्त और हिसाब माँगें। सामान्य गैर-चिकित्सकीय लेबल को वास्तविक कवर से मिलाएँ।';
- }else if(/non[ -]?medical|consumable|gloves|syringe|mask|toiletr|attendant|administrat|registration|admission kit|food|water bottle/.test(text)){
+ }else if(/non[ -]?medical|consumable|disposable|gloves|syringe|mask|toiletr|attendant|administrat|registration|admission kit|food|water bottle|sanitizer|sterillium|betadine|gargle|thermometer|gauze|cotton|bandage|drape|gown|blade|diaper|nebuli[sz]er|\bdiet\b/.test(text)){
   category='consumable';status='challengeable';explanation='Request the exact items, quantities, rates, policy exclusion or consumables rider, and any room/procedure/package inclusion. The historical IRDAI lists are references to check against the policy; they do not establish current coverage or non-payment by themselves.';explanation_hi='सही मदें, मात्रा, दर, पॉलिसी का अपवर्जन या उपभोग्य सामग्री ऐड-ऑन और कमरे/प्रक्रिया/पैकेज में शामिल होने का विवरण माँगें। पुरानी IRDAI सूचियाँ पॉलिसी से मिलाने का संदर्भ हैं; वे अकेले वर्तमान कवर या गैर-भुगतान तय नहीं करतीं।';
  }
  if(['co-pay','sub-limit','room-rent-cap'].includes(category)&&status!=='likely valid'){
@@ -50,33 +50,124 @@ export function classify(input:DeductionInput):Deduction {
  return {...input,category,status,ruleIds,explanation,explanation_hi};
 }
 export type SuggestedLine={description:string;amount:number};
-// Lines that carry a figure but are not deductions: bill totals, approved/paid amounts, identifiers and dates.
-const SUGGEST_SKIP=/total bill|bill amount|gross bill|hospital bill|amount payable|net payable|payable amount|net amount|approved amount|amount approved|claimed amount|claim amount|amount claimed|sum insured|amount paid|paid amount|settled amount|settlement amount|balance|grand total|^\s*(?:[-•*]\s*)?total\b|total deduction|sub-?total|policy (?:no|number)|claim (?:no|number|id)|uhid|member (?:id|no)|mobile|phone|e-?mail|date of|admission|discharge date|dob\b|invoice|receipt|gstin|\bpan\b|ifsc|account (?:no|number)|cheque|utr\b|neft|rtgs|pin ?code|reference/i;
+// Lines that carry a figure but are not individual deductions: bill/claim totals, approved/paid/patient-share amounts, policy limit lines, identifiers and dates.
+const SUGGEST_SKIP=/total bill|bill amount|gross bill|hospital bill|inpatient bill|amount payable|net payable|payable amount|net amount|approved amount|amount approved|claimed amount|claim amount|amount claimed|sum insured|amount paid|paid amount|settled amount|settlement amount|balance|grand total|^\s*(?:[-•*]\s*)?total\b|total deduction|totaldisallow|total disallow|disallowed amount\s*:|sub-?total|payable in full|approved in full|no deduction|nil deduction|patient share|member share|to be collected at|out of pocket|summary\s*:|billed\b.*\bapproved\b.*\b(?:disallowed|deducted)|^\s*(?:room rent limit|consumables rider)\b|policy (?:no|number)|claim (?:no|number|id|reference)|uhid|member (?:id|no)|mobile|phone|helpline|e-?mail|date of|admission date|date of admission|admission no|time of admission|admitted on|discharge date|dob\b|invoice no|bill no|receipt no|gstin|\bpan\b|ifsc|account (?:no|number)|cheque|utr\b|neft|rtgs|pin ?code|reference (?:no|id)/i;
 const SUGGEST_HINT=/deduct|disallow|not payable|non[- ]?payable|non[- ]?medical|non[- ]?admissible|inadmissible|consumable|disposable|proportion|co-?pay|sub-?limit|capping|\bcap\b|reasonable|customary|\bR&C\b|exclu|not covered|implant|room rent|room eligib|package|less\b|short|reduc|adjust/i;
 const CURRENCY_AMOUNT=/(?:₹|rs\.?|inr)\s*:?\s*([\d,]+(?:\.\d{1,2})?)(?:\/-)?/gi;
 const BARE_AMOUNT=/(?<![\d,.\/%-])(\d{1,2}(?:,\d{2})*,\d{3}(?:\.\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{3,8}(?:\.\d{1,2})?)(?:\/-)?(?![\d,.%\/-])/g;
+const RATE_SUFFIX=/^\s*(?:\/|per\b)\s*(?:day|diem|hr|hour|month|year|visit|eye|claim|person|bed|unit)/i;
+const BASE_PREFIX=/(?:admissible amount|bill amount|gross amount|eligible (?:amount|room rent)|chosen room rent(?: was)?|capped at|limit(?:ed to)?|up to|@)\s*$/i;
+const TABULAR_ROW=/^([A-Za-z\u0900-\u097F].*?)\s+(?:(?:₹|rs\.?|inr)\s*)?([\d,]+(?:\.\d{1,2})?)\s+(?:(?:₹|rs\.?|inr)\s*)?([\d,]+(?:\.\d{1,2})?)\s+(?:(?:₹|rs\.?|inr)\s*)?([\d,]+(?:\.\d{1,2})?)(?:\s+(.+))?$/i;
 const toAmount=(text:string)=>{const grouping=/^\d+(?:\.\d{1,2})?$/.test(text)||/^\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?$/.test(text)||/^\d{1,2}(?:,\d{2})*,\d{3}(?:\.\d{1,2})?$/.test(text);const amount=Number(text.replace(/,/g,''));return grouping&&Number.isFinite(amount)&&amount>=1&&amount<=1e8?amount:null;};
+const toAmountOrZero=(text:string)=>text==='0'||text==='0.00'?0:toAmount(text);
+const cleanDesc=(s:string)=>{const trimmed=s.replace(/^(?:\d{1,2}[.)]|[-•*])\s+/,'').replace(/\b(?:₹|rs\.?|inr)\s*$/i,'').replace(/^[\s:–—|,-]+|[\s:–—|,=-]+$/g,'').replace(/\s+/g,' ').trim().slice(0,140);return trimmed?trimmed[0].toUpperCase()+trimmed.slice(1):'';};
 // Deterministic, on-device: pull "reason + rupee amount" candidates out of extracted or pasted settlement text.
-// Totals, paid amounts and identifiers are skipped; bare numbers count only on lines that read like a deduction
-// or inside a "Deductions" section. Every candidate is still shown to the user for correction before review.
+// Supports both narrative lines and 3-column TPA tables (Billed / Approved / Deducted), while skipping hospital-bill
+// and policy-schedule blocks, zero-deduction rows, per-day rates, totals and identifiers.
 export function suggestLinesFromText(text:string):SuggestedLine[] {
- const out:SuggestedLine[]=[],seen=new Set<string>();let inSection=false;
+ const out:SuggestedLine[]=[],seen=new Set<string>();let inSection=false,skipDoc=false;
  for(const raw of text.split(/\r?\n/)){
   const line=raw.replace(/\s+/g,' ').trim();if(!line)continue;
+  if(/^---\s*\[?(bill|policy)\b/i.test(line)){skipDoc=true;inSection=false;continue;}
+  if(/^---\s*/.test(line)){skipDoc=false;continue;}
+  if(/^(?:final inpatient bill|inpatient bill|itemised hospital bill|policy schedule)\b/i.test(line)){skipDoc=true;inSection=false;continue;}
+  if(/^(?:claim settlement|cashless claim settlement|disallowance breakup|deduction details)\b/i.test(line)){skipDoc=false;inSection=true;continue;}
+  if(skipDoc)continue;
+  const tab=line.match(TABULAR_ROW);
+  if(tab){
+   const billed=toAmountOrZero(tab[2]),approved=toAmountOrZero(tab[3]),deducted=toAmountOrZero(tab[4]);
+   if(billed!==null&&approved!==null&&deducted!==null&&billed>0&&billed>=approved&&Math.abs((billed-approved)-deducted)<=1){
+    if(deducted===0)continue;
+    const head=cleanDesc(tab[1]),remark=cleanDesc(tab[5]||'');
+    const description=cleanDesc(remark&&remark.toLowerCase()!==head.toLowerCase()?`${head} — ${remark}`:head);
+    if(/[A-Za-z\u0900-\u097F]{3}/.test(description)){const key=`${description.toLowerCase()}|${deducted}`;if(!seen.has(key)){seen.add(key);out.push({description,amount:deducted});if(out.length===30)break;}}
+    continue;
+   }
+  }
   const hasFigure=/\d/.test(line);
   if(!hasFigure){if(/deduct|disallow|not payable|non[- ]?payable/i.test(line))inSection=true;else if(/^(?:amount payable|net payable|total|summary|note|remarks|terms)/i.test(line))inSection=false;continue;}
   if(SUGGEST_SKIP.test(line)){if(/^\s*(?:[-•*]\s*)?total|amount payable|net payable/i.test(line))inSection=false;continue;}
-  let amountText:string|null=null,token='';
-  for(const match of line.matchAll(CURRENCY_AMOUNT)){amountText=match[1];token=match[0];}
-  if(!amountText&&(inSection||SUGGEST_HINT.test(line)))for(const match of line.matchAll(BARE_AMOUNT)){amountText=match[1];token=match[0];}
+  const stripped=line.replace(/^(?:\d{1,2}[.)]|[-•*])\s+/,'');
+  let amountText:string|null=null,matchIndex=-1,matchLen=0;
+  for(const match of stripped.matchAll(CURRENCY_AMOUNT)){
+   const after=stripped.slice((match.index??0)+match[0].length),before=stripped.slice(0,match.index??0);
+   if(RATE_SUFFIX.test(after)||BASE_PREFIX.test(before))continue;
+   amountText=match[1];matchIndex=match.index??0;matchLen=match[0].length;
+  }
+  if(!amountText&&(inSection||SUGGEST_HINT.test(stripped)))for(const match of stripped.matchAll(BARE_AMOUNT)){
+   const after=stripped.slice((match.index??0)+match[0].length),before=stripped.slice(0,match.index??0);
+   if(RATE_SUFFIX.test(after)||BASE_PREFIX.test(before))continue;
+   amountText=match[1];matchIndex=match.index??0;matchLen=match[0].length;
+  }
   if(!amountText)continue;const amount=toAmount(amountText);if(amount===null)continue;
-  const description=line.replace(token,' ').replace(/^(?:\d{1,2}[.)]|[-•*])\s+/,'').replace(/[\s:–—|,-]+$/,'').replace(/\s+/g,' ').trim().slice(0,120);
+  const description=cleanDesc(stripped.slice(0,matchIndex)+' '+stripped.slice(matchIndex+matchLen));
   if(!/[A-Za-z\u0900-\u097F]{3}/.test(description))continue;
   const key=`${description.toLowerCase()}|${amount}`;if(seen.has(key))continue;seen.add(key);out.push({description,amount});if(out.length===30)break;
  }
  return out;
 }
 export const formatSuggestedLines=(lines:SuggestedLine[])=>lines.map(l=>`${l.description} | ${l.amount}`).join('\n');
+// Match an insurer mentioned in an uploaded settlement, bill or rejection document so the user does not have to hunt through 32 options.
+export function detectInsurerFromText(text:string,insurers:{id:string;name:string;name_hi?:string;kind?:string}[]):string {
+ const hay=text.toLowerCase().replace(/[^a-z0-9\u0900-\u097F]+/g,' ');
+ for(const c of insurers){
+  if(c.kind&&c.kind!=='insurer')continue;
+  const stem=c.name.toLowerCase().replace(/\(.*?\)/g,'').replace(/\b(general|health|insurance|company|limited|co|ltd|the|and|allied|india)\b/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
+  if(stem.length>=3&&new RegExp(`\\b${stem.replace(/\s+/g,'\\s+')}\\b`).test(hay))return c.id;
+  if(c.name_hi&&text.includes(c.name_hi))return c.id;
+ }
+ return '';
+}
+export type ConsumableEntry={list:string;serial_number:number;item:string;list_label_en:string;list_label_hi:string;paragraph:string;source_url:string;caveat_en:string;caveat_hi:string};
+// Match historical IRDAI List I–IV items whether the user typed a single item ("Gloves") or a real multi-item line ("gloves, gauze, surgical blades, gown").
+export function matchConsumables(description:string,entries:ConsumableEntry[]):ConsumableEntry[] {
+ const norm=(s:string)=>s.toUpperCase().replace(/[^A-Z0-9]+/g,' ').replace(/\s+/g,' ').trim();
+ const cleaned=norm(description.replace(/^non[ -]?medical\s*:\s*/i,''));if(!cleaned)return[];
+ const exact=entries.filter(c=>norm(c.item)===cleaned);if(exact.length)return exact;
+ const hay=` ${cleaned} `;const found:ConsumableEntry[]=[];
+ for(const c of entries){
+  const parts=c.item.replace(/\(.*?\)/g,' ').split(/[,/\\-]+/).map(norm).filter(p=>p.length>=4&&!/^(CHARGES|ITEMS|OTHER|WHERE|ANY|TYPE|ETC|COST)$/.test(p));
+  const hit=parts.some(p=>{const singular=p.replace(/S$/,'');return hay.includes(` ${p} `)||hay.includes(` ${singular} `)||hay.includes(` ${singular}S `);});
+  if(hit){found.push(c);if(found.length===5)break;}
+ }
+ return found;
+}
+// Pull a matching policy-schedule or clause line out of the uploaded document text so the user can fill "Exact policy clause" in one tap.
+export function findPolicyClauseHint(category:Category,text:string):string {
+ if(!text.trim()||!['room-rent-cap','co-pay','sub-limit'].includes(category))return'';
+ const matches=(l:string)=>category==='room-rent-cap'?/room\s*(?:rent|category|eligib|limit|cap).*(?:clause|schedule|rs\.?|₹|\d)/i.test(l):category==='co-pay'?/(?:co-?pay(?:ment)?|deductible).*(?:clause|schedule|\d+\s*%|rs\.?|₹)/i.test(l):/(?:sub-?limit|cataract|maternity|implant|stent|prosthe|procedure\s*(?:limit|cap|ceiling)).*(?:clause|schedule|rs\.?|₹|\d)/i.test(l)&&!/^room\s*rent/i.test(l);
+ const policyIdx=text.search(/^---\s*\[policy\]/im);
+ const policyLines=(policyIdx>=0?text.slice(policyIdx):text).split(/\r?\n/).map(l=>l.replace(/\s+/g,' ').trim()).filter(l=>l&&!/^---/.test(l));
+ const allLines=text.split(/\r?\n/).map(l=>l.replace(/\s+/g,' ').trim()).filter(l=>l&&!/^---/.test(l));
+ const numbered=/(?:clause|section|condition|para(?:graph)?)\s*[0-9a-z.()]+/i;
+ const match=policyLines.find(l=>matches(l)&&numbered.test(l))||policyLines.find(l=>matches(l))||allLines.find(l=>matches(l)&&numbered.test(l));
+ return match?match.slice(0,150):'';
+}
+// Extract a date (YYYY-MM-DD) and the stated rejection reason from an uploaded rejection/repudiation letter.
+export function extractRejectionInfo(text:string,now=new Date()):{rejectedOn:string;ground:string} {
+ const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
+ let rejectedOn='';
+ const iso=text.match(/\b(20\d{2})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])\b/);
+ const dmy=text.match(/\b(0?[1-9]|[12]\d|3[01])[\/.-](0?[1-9]|1[0-2])[\/.-](20\d{2})\b/);
+ if(iso){const d=`${iso[1]}-${iso[2]}-${iso[3]}`;if(d<=today)rejectedOn=d;}
+ else if(dmy){const d=`${dmy[3]}-${dmy[2].padStart(2,'0')}-${dmy[1].padStart(2,'0')}`;if(d<=today)rejectedOn=d;}
+ const isHeading=(l:string)=>l===l.toUpperCase()&&l.replace(/[^A-Z]/g,'').length>=6&&!/\d/.test(l);
+ const isMeta=(l:string)=>/^(?:claim|policy|patient|member|uhid|hospital|date|to\b|dear\b|subject\b)\s*(?:no|number|id|name|of|:)/i.test(l);
+ const isFooter=(l:string)=>/^(?:for grievance|yours |sincerely|regards|thank you|authorized signatory|disclaimer)/i.test(l);
+ const trigger=/reject|repudiat|deni(?:ed|al)|unable to (?:approve|process|settle)|not (?:admissible|payable|covered)|regret to inform|ground|reason\s*:|clause|exclusion|waiting period|non[- ]?disclosure|pre[- ]?existing|not medically necessary/i;
+ const lines=text.split(/\r?\n/).map(l=>l.replace(/\s+/g,' ').trim()).filter(l=>l&&!/^---/.test(l)&&!isHeading(l)&&!isMeta(l));
+ const picked:string[]=[];
+ for(let i=0;i<lines.length;i++){
+  if(isFooter(lines[i]))break;
+  if(trigger.test(lines[i])){
+   picked.push(lines[i]);
+   while(i+1<lines.length&&picked.length<5&&!isFooter(lines[i+1])&&!isMeta(lines[i+1])){i++;picked.push(lines[i]);if(/[.!]$/.test(lines[i]))break;}
+   if(picked.length>=4)break;
+  }
+ }
+ const ground=(picked.length?picked.join(' '):lines.slice(0,3).join(' ')).replace(/\s+/g,' ').trim().slice(0,1200);
+ return {rejectedOn,ground};
+}
 export function parseManualLines(value:string):{inputs:DeductionInput[];errors:number[]} {
  const inputs:DeductionInput[]=[],errors:number[]=[];
  value.split(/\r?\n/).forEach((line,i)=>{if(!line.trim())return;const match=line.match(/^(.+?)\s*(?:\||\t|\s{2,})\s*(?:₹|Rs\.?|INR)?\s*([\d,]+(?:\.\d{1,2})?)\s*$/i);if(!match){errors.push(i+1);return;}

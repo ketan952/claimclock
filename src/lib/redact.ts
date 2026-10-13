@@ -14,7 +14,7 @@ export function redact(text:string,identifiers:string[]=[]):string {
   .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,'[EMAIL REDACTED]')
   .replace(/(?:\+91[\s-]?)?[6-9]\d{9}\b/g,'[PHONE REDACTED]')
   .replace(/\b\d{4}[ -]?\d{4}[ -]?\d{4}\b/g,'[ID REDACTED]')
-  .replace(/\b(?=[A-Z0-9/-]{8,}\b)(?=[A-Z0-9/-]*\d)[A-Z0-9][A-Z0-9/-]{7,}\b/gi,'[ID REDACTED]')
+  .replace(/\b(?!\d{1,3}-(?:month|months|day|days|hour|hours|year|years|week|weeks|bed|bedded|page|pages|tier|wheeler)\b)(?=[A-Z0-9/-]{8,}\b)(?=[A-Z0-9/-]*\d)[A-Z0-9][A-Z0-9/-]{7,}\b/gi,'[ID REDACTED]')
   .replace(/\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b/g,'[DATE REDACTED]')
   .slice(0,800);
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines} from '../src/lib/deductions.ts';
+import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines,detectInsurerFromText,matchConsumables,findPolicyClauseHint,extractRejectionInfo} from '../src/lib/deductions.ts';
 import type {Category,DeductionStatus,DeductionInput} from '../src/lib/deductions.ts';
 import {knownIdentifiers,redact} from '../src/lib/redact.ts';
 import {reminders} from '../src/lib/reminders.ts';
@@ -167,4 +167,55 @@ test('suggestLinesFromText ignores bare numbers outside deduction context and de
  const repeated=suggestLinesFromText('Non-medical items disallowed Rs 500\nNon-medical items disallowed Rs 500\nImplant cost not payable 25000');
  assert.deepEqual(repeated,[{description:'Non-medical items disallowed',amount:500},{description:'Implant cost not payable',amount:25000}]);
  assert.deepEqual(suggestLinesFromText(''),[]);
+});
+
+test('suggestLinesFromText parses tabular TPA rows, skips zero-deduction and bill/policy sections, and keeps admission kit',()=>{
+ const combined=[
+  '--- [settlement] medi-assist.pdf ---',
+  'MEDI ASSIST INSURANCE TPA PRIVATE LIMITED',
+  'Cashless Claim Settlement Letter (Final Authorisation)',
+  'Insurer: Star Health and Allied Insurance Co. Ltd.',
+  'Bill Head   Billed (Rs.)   Approved (Rs.)   Deducted (Rs.)   Remarks / Clause',
+  'Room & Nursing   48,000   30,000   18,000   Room rent capped at Rs 7,500/day as per policy schedule',
+  'ICU Charges   35,000   35,000   0   Payable in full',
+  'Surgeon & Anaesth.   90,000   56,250   33,750   Proportionate deduction due to higher room category',
+  'OT & Consumables   42,500   34,120   8,380   Non-payable consumables (gloves, drape, syringe, mask) Annexure I',
+  'Implants / Stent   65,000   45,000   20,000   Implant sub-limit / R&C ceiling applied',
+  'Investigations   18,400   15,900   2,500   Registration, admission kit and diet charges not payable',
+  'Pharmacy   24,100   22,600   1,500   Sanitizer, betadine gargle, thermometer disallowed',
+  'Gross Bill Amount: Rs. 3,23,000   Total Deductions: Rs. 84,130',
+  'Co-payment (10% on admissible amount Rs. 2,38,870): Rs. 23,887',
+  'Net Approved Cashless Amount Payable to Hospital: Rs. 2,14,983',
+  'Patient Share to be collected at Hospital Counter: Rs. 1,08,017',
+  '--- [bill] ruby-hall-bill.pdf ---',
+  'RUBY HALL CLINIC, PUNE - FINAL INPATIENT BILL',
+  'Surgeon Fee (Dr. Kulkarni): Rs. 65,000',
+  'Drug Eluting Stent (1 unit): Rs. 65,000',
+  '--- [policy] star-policy.pdf ---',
+  'STAR HEALTH AND ALLIED INSURANCE CO. LTD. - POLICY SCHEDULE',
+  'Room Rent Limit: Up to Rs. 7,500 per day (Clause 2.1)',
+  'Co-payment: 10% mandatory co-payment for insured aged above 60 years at entry (Clause 4.7)',
+ ].join('\n');
+ const found=suggestLinesFromText(combined);
+ assert.deepEqual(found.map(l=>l.amount),[18000,33750,8380,20000,2500,1500,23887]);
+ assert.ok(found[0].description.includes('Room & Nursing — Room rent capped at Rs 7,500/day'));
+ assert.ok(found[4].description.includes('Registration, admission kit and diet charges not payable'));
+ assert.equal(classify({id:'pharm',description:found[5].description,amount:found[5].amount}).category,'consumable');
+ const contacts=JSON.parse(readFileSync(new URL('../data/contacts.json',import.meta.url),'utf8'));
+ assert.equal(detectInsurerFromText(combined,contacts),'star-health');
+ assert.match(findPolicyClauseHint('room-rent-cap',combined),/Clause 2\.1/);
+ assert.match(findPolicyClauseHint('co-pay',combined),/Clause 4\.7/);
+});
+
+test('matchConsumables identifies IRDAI List I–IV items inside multi-item deduction lines and extractRejectionInfo pulls date and ground',()=>{
+ const entries=JSON.parse(readFileSync(new URL('../data/consumables.json',import.meta.url),'utf8'));
+ const hits=matchConsumables('Non-medical items: gloves, gauze, surgical blades, gown, admission kit',entries);
+ const lists=new Set(hits.map(h=>`${h.list}.${h.serial_number}`));
+ assert.ok(lists.has('I.56'),'must match GLOVES I.56');
+ assert.ok(lists.has('II.9'),'must match GOWN II.9');
+ assert.ok(lists.has('II.27'),'must match ADMISSION KIT II.27');
+ assert.ok(lists.has('III.8'),'must match GAUZE III.8');
+ const info=extractRejectionInfo('CARE HEALTH INSURANCE\nDate: 08/10/2026\nClaim No: 991122\nWe regret to inform you that your claim is rejected under Clause 4.1 (Pre-existing disease waiting period of 24 months).',new Date('2026-10-13T00:00:00Z'));
+ assert.equal(info.rejectedOn,'2026-10-08');
+ assert.match(info.ground,/Clause 4\.1/);
 });

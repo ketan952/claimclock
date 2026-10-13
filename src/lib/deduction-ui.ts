@@ -1,6 +1,6 @@
 import contactsRaw from '../../data/contacts.json';import rulesRaw from '../../data/rules.json';
 import consumables from '../../data/consumables.json';
-import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines,type Deduction,type DeductionInput} from './deductions';
+import type {Contact,Rule,Letter} from './types';import {classify,parseManualLines,verdictTotals,suggestLinesFromText,formatSuggestedLines,detectInsurerFromText,matchConsumables,findPolicyClauseHint,type Deduction,type DeductionInput} from './deductions';
 import {knownIdentifiers,redact} from './redact';import {lang,t,setMessage} from './i18n';import {makeDeductionLetter} from './deduction-letter';
 import {setupLetterDialog} from './letter-dialog';import {download,listCases,saveDeductions,storageIssue} from './storage';import type {CaseBackup} from './backup';import {reminders} from './reminders';import {getTurnstileToken} from './turnstile';
 
@@ -10,17 +10,30 @@ const showLetter=setupLetterDialog();let inputs:DeductionInput[]=[],deductions:D
 let attachmentBaseline:CaseBackup|undefined;
 const statusLabel=(status:string)=>t(`deductions.verdict.${status}`);
 function append(parent:HTMLElement,tag:string,text:string,className=''){const n=document.createElement(tag);n.textContent=text;n.className=className;parent.append(n);return n;}
-const normalized=(s:string)=>s.toUpperCase().replace(/\s+/g,' ').trim();
-async function read(file:File){
+function maybeAutoSelectInsurer(text:string){
+ const select=el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement;
+ if(select.value)return;
+ const detected=detectInsurerFromText(text,contacts);
+ if(detected){select.value=detected;window.dispatchEvent(new Event('pickerrefresh'));}
+}
+async function read(file:File,role:'settlement'|'bill'|'policy'='settlement'){
  if(processing){setMessage(el('extract-status'),'deductions.wait');return;}processing=true;
- try{const {extractFile}=await import('./extract');const text=await extractFile(file,(key,fields)=>setMessage(el('extract-status'),key,fields));const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+text;el<HTMLDetailsElement>('extracted-details').open=true;setMessage(el('extract-status'),'deductions.readDone');suggestLines();}
+ try{
+  const {extractFile}=await import('./extract');const raw=await extractFile(file,(key,fields)=>setMessage(el('extract-status'),key,fields));
+  const tagged=`--- [${role}] ${file.name} ---\n${raw}`;
+  const box=el<HTMLTextAreaElement>('extracted-text');box.value+=(box.value?'\n\n':'')+tagged;el<HTMLDetailsElement>('extracted-details').open=true;
+  maybeAutoSelectInsurer(raw);
+  setMessage(el('extract-status'),'deductions.readDone');
+  if(role==='settlement')suggestLines(raw);else if(inputs.length)render();
+ }
  catch(e){setMessage(el('extract-status'),e instanceof Error&&'translationKey' in e&&String(e.translationKey).startsWith('extract.')?String(e.translationKey):'deductions.readFailed');}finally{processing=false;}
 }
 // On-device only: propose "reason | amount" lines from the extracted or pasted text so the user corrects
 // instead of retyping. Existing lines are kept; identical candidates are not added twice.
-function suggestLines(){
- const text=el<HTMLTextAreaElement>('extracted-text').value,status=el('suggest-status');
+function suggestLines(sourceText?:string){
+ const text=sourceText??el<HTMLTextAreaElement>('extracted-text').value,status=el('suggest-status');
  if(!text.trim()){setMessage(status,'deductions.suggestEmpty');return;}
+ maybeAutoSelectInsurer(text);
  const box=el<HTMLTextAreaElement>('deduction-lines');
  const existing=new Set(parseManualLines(box.value).inputs.map(d=>`${d.description.toLowerCase()}|${d.amount}`));
  const fresh=suggestLinesFromText(text).filter(l=>!existing.has(`${l.description.toLowerCase()}|${l.amount}`));
@@ -29,7 +42,7 @@ function suggestLines(){
  setMessage(status,'deductions.suggested',{count:fresh.length});
 }
 el('suggest-lines').addEventListener('click',()=>{suggestLines();el('deduction-lines').scrollIntoView({block:'center'});});
-for(const id of ['settlement-file','bill-file','policy-file'])el<HTMLInputElement>(id).addEventListener('change',()=>{const file=el<HTMLInputElement>(id).files?.[0];if(file)void read(file);});
+for(const [id,role] of [['settlement-file','settlement'],['bill-file','bill'],['policy-file','policy']] as const)el<HTMLInputElement>(id).addEventListener('change',()=>{const file=el<HTMLInputElement>(id).files?.[0];if(file)void read(file,role);});
 function render(preserveControls=false){
  deductions=inputs.map(classify);el('deduction-results').hidden=!deductions.length;const cards=el('deduction-cards');const reuse=preserveControls&&cards.childElementCount===deductions.length;if(!reuse)cards.replaceChildren();
  deductions.forEach((d,index)=>{
@@ -41,10 +54,12 @@ function render(preserveControls=false){
   const sources=document.createElement('details');append(sources,'summary',t('deductions.sourceBasis'));
   for(const id of d.ruleIds){const rule=rules.find(r=>r.id===id);if(!rule)continue;append(sources,'p',lang()==='hi'?rule.plain_hi||rule.title:rule.plain_en||rule.title,'fine-print');const link=append(sources,'a',rule.paragraph+' ↗','fine-print') as HTMLAnchorElement;link.href=rule.source_url;link.target='_blank';link.rel='noopener noreferrer';}
   if(d.category==='consumable'){const link=append(sources,'a',t('deductions.historicalLink')+' ↗','fine-print') as HTMLAnchorElement;link.href=consumables[0].source_url;link.target='_blank';link.rel='noopener noreferrer';}card.append(sources);
-  const match=consumables.filter(c=>normalized(c.item)===normalized(d.description.replace(/^non[ -]?medical\s*:\s*/i,'')));
-  if(match.length){for(const c of match){append(card,'p',`${t('deductions.historical')} ${c.list} / ${c.serial_number}: ${lang()==='hi'?c.list_label_hi:c.list_label_en}`,'fine-print');const a=append(card,'a',c.paragraph+' ↗','fine-print') as HTMLAnchorElement;a.href=c.source_url;a.target='_blank';a.rel='noopener noreferrer';}append(card,'p',lang()==='hi'?match[0].caveat_hi:match[0].caveat_en,'fine-print');}
+  const match=matchConsumables(d.description,consumables);
+  if(match.length){for(const c of match){append(card,'p',`${t('deductions.historical')} ${c.list} / ${c.serial_number} (${c.item}): ${lang()==='hi'?c.list_label_hi:c.list_label_en}`,'fine-print');const a=append(card,'a',c.paragraph+' ↗','fine-print') as HTMLAnchorElement;a.href=c.source_url;a.target='_blank';a.rel='noopener noreferrer';}append(card,'p',lang()==='hi'?match[0].caveat_hi:match[0].caveat_en,'fine-print');}
   if(['co-pay','sub-limit','room-rent-cap'].includes(d.category)){
    const label=document.createElement('label');label.className='fine-print';append(label,'span',t('deductions.clause'));const field=document.createElement('input');field.value=d.policyClause||'';field.maxLength=150;field.dataset.policyClause='';field.addEventListener('input',()=>{inputs[index].policyClause=field.value;if(field.value.trim())inputs[index].noApplicablePolicyClause=false;render(true);});label.append(field);card.append(label);
+   const hint=findPolicyClauseHint(d.category,el<HTMLTextAreaElement>('extracted-text').value);
+   if(hint){const chip=append(card,'button',`${t('deductions.usePolicyHint')}: ${hint}`,'text-button') as HTMLButtonElement;chip.type='button';chip.dataset.policyHint='';chip.addEventListener('click',()=>{inputs[index].policyClause=hint;inputs[index].noApplicablePolicyClause=false;field.value=hint;render(true);});}
    const checked=document.createElement('label');checked.className='checkbox-label';const check=document.createElement('input');check.type='checkbox';check.dataset.policyArithmetic='';check.checked=!!d.policyCalculationConfirmed;check.disabled=!!d.noApplicablePolicyClause;check.addEventListener('change',()=>{inputs[index].policyCalculationConfirmed=check.checked;render(true);});checked.append(check);append(checked,'span',t('deductions.policyConfirm'));card.append(checked);
    const absentLabel=document.createElement('label');absentLabel.className='checkbox-label';const absent=document.createElement('input');absent.type='checkbox';absent.dataset.policyAbsent='';absent.checked=!!d.noApplicablePolicyClause;absent.addEventListener('change',()=>{inputs[index].noApplicablePolicyClause=absent.checked;if(absent.checked){inputs[index].policyClause='';inputs[index].policyCalculationConfirmed=false;}render(true);});absentLabel.append(absent);append(absentLabel,'span',t('deductions.policyAbsent'));card.append(absentLabel);
   }

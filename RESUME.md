@@ -134,3 +134,13 @@ Screenshots and overflow/tap-target checks at 360, 390, 768, 1024, 1366 and 1440
 ## M17 — use-case run as a user (13 October 2026)
 
 Twenty-seven end-to-end use cases were driven on the public site at phone size: pre-authorisation clock with a TPA, timeline events, backup download, enhancement, second case/switch/delete, delay-charge recovery, Rejected and Partly-approved decisions, opt-in, restore from file and pasted JSON, unlisted insurer, death-case message, rejected-claim flow, real text-PDF and photo uploads with automatic line suggestion, deduction classification, Bima portal action, .ics reminders, insurer share card, offline reload and a Hindi letter. Fixes from that run: after a Rejected or Partly approved decision the clock now links to the rejected-claim or deductions flow in both languages; an unlisted insurer shows "Other / not listed" (never the raw id) in the clock header, fields and print view, and letters use an "[add insurer name]" placeholder; the opt-in report is not offered for an unlisted insurer, because the Index cannot attribute it. The remaining non-passing case in automation is the Turnstile challenge, which headless browsers do not clear; it passed in an interactive browser.
+
+## M18 — realistic PDF user-journey fixes (13 October 2026)
+
+Testing as a user with multi-column TPA settlement PDFs, 2-page letters, scanned image-only PDFs, 3-file uploads (settlement + itemised bill + policy schedule), and rejection PDFs uncovered and fixed five gaps:
+
+- Tabular TPA rows (`Head  Billed  Approved  Deducted  Remarks` where `Billed - Approved == Deducted`) now extract the `Deducted` column (`> 0`), skip `0`-deduction rows (`Payable in full`), strip the Billed/Approved numbers from the description, and ignore per-day rates (`Rs 7,500/day`) and base amounts (`on admissible amount Rs 2,38,870`).
+- Uploading the Itemised Hospital Bill or Policy Schedule into the 2nd/3rd slots tags their sections (`[bill]`, `[policy]`) and no longer pollutes the deduction lines with hospital bill charges or policy schedule limits.
+- Uploading a Policy Schedule (or settlement letter with clause references) now surfaces a one-tap "Use clause found in uploaded document" button on `room-rent-cap`, `co-pay`, and `sub-limit` cards.
+- The insurer is auto-detected on-device from the uploaded PDF when the insurer picker is empty, and `matchConsumables()` now matches IRDAI List I–IV items mentioned inside multi-item lines (`gloves, gauze, surgical blades, gown`, `admission kit`).
+- `/rejected/` now has an optional on-device PDF/photo upload that auto-detects the insurer, rejection date, and redacted rejection reason.
