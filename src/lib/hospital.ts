@@ -144,7 +144,15 @@ start.addEventListener('submit',e=>{
  if(!save(candidate)){if(!baselineCase)render();return;}resetCaseUI();setMessage(el('start-error'),null);render();el('dashboard').scrollIntoView({block:'start'});track('session_started');
 });
 el('edit-details').addEventListener('click',()=>{if(!timeline)return;editingDetails=true;populateDetails();el('start-view').hidden=false;el('dashboard').hidden=true;start.scrollIntoView();});
-document.querySelectorAll<HTMLElement>('[data-letter]').forEach(button=>button.addEventListener('click',()=>{if(timeline)showLetter(()=>makeLetter(button.dataset.letter as LetterKind,timeline!,contacts,rules,lang()),['gro','recovery'].includes(button.dataset.letter||'')?contacts.find(c=>c.id===timeline!.insurerId)?.gro_email||'':'');}));
+// Email recipient per draft: GRO drafts go to the grievance officer; the follow-up goes to the published claims
+// address, or the insurer's first published escalation-level address when no claims email is published.
+function letterRecipient(kind:string):string {
+ const insurer=contacts.find(c=>c.id===timeline?.insurerId);if(!insurer)return'';
+ if(kind==='gro'||kind==='recovery')return insurer.gro_email||'';
+ if(kind==='followup')return insurer.claims_email||insurer.escalation_levels?.find(level=>level.email)?.email||'';
+ return'';
+}
+document.querySelectorAll<HTMLElement>('[data-letter]').forEach(button=>button.addEventListener('click',()=>{if(timeline)showLetter(()=>makeLetter(button.dataset.letter as LetterKind,timeline!,contacts,rules,lang()),letterRecipient(button.dataset.letter||''));}));
 form('event-form').addEventListener('submit',e=>{e.preventDefault();if(!timeline)return;const f=form('event-form'),at=input(f,'at').value;if(timeline.events.length>=500||!validRecordedTime(at)||Date.parse(at)<Date.parse(timeline.submittedAt)){setMessage(el('event-error'),'finished.error');return;}const candidate={...timeline,events:[...timeline.events,{id:crypto.randomUUID(),at:new Date(at).toISOString(),type:input(f,'type').value,note:input(f,'note').value.trim()}]};if(!save(candidate))return;input(f,'note').value='';input(f,'at').value=localInputValue();setMessage(el('event-error'),null);render();});
 el('print-timeline').addEventListener('click',()=>{if(!timeline)return;const p=el('print-root');p.replaceChildren();addText(p,'h1','ClaimClock — '+t('timeline.title'));addText(p,'p',`${contacts.find(c=>c.id===timeline!.insurerId)?.name}\n${timeline.hospital}, ${timeline.city}\n${t('clock.basis')}\n\n${timelineText(timeline,lang())}\n\n${t('footer.disclaimer')}`);window.print();});
 el('export-timeline').addEventListener('click',()=>{const backup=currentBackup();if(backup)download('claimclock-case.json',JSON.stringify(backup,null,2),'application/json');});

@@ -117,3 +117,12 @@ A walk-through as a first-time visitor on a phone found two usability problems a
 - After scanning or pasting a settlement letter the user still had to retype every line as `reason | amount`. `suggestLinesFromText()` (src/lib/deductions.ts, on-device, deterministic) now proposes lines from the extracted text, skipping bill totals, paid amounts, identifiers and dates; it runs automatically after a successful read and from the "Find deduction lines in this text" button, never overwriting existing lines. Unit tests cover extraction, skipping and deduplication in both grouping styles.
 
 Nothing server-side changed. Bilingual strings added for both features.
+
+## M15 — small user-facing corrections (13 October 2026)
+
+- Bima Bharosa drafts now show "Open Bima Bharosa portal" instead of "Open email"; the complaint is filed on the portal, not emailed. Other drafts keep the email action.
+- The follow-up draft is addressed to the published claims email, or, when none is published, to the insurer's first published escalation-level address (`letterRecipient()` in src/lib/hospital.ts). GRO and recovery drafts still go to the GRO.
+- The TPA field carries a one-line plain-language hint in both languages.
+- Care Health's display name reads "Formerly Religare" in contacts.json and filings.json; quoted IRDAI source evidence strings are unchanged.
+- Narrow phones (≤480 px) get a tighter hero and stats strip so the first form field sits within the first screen.
+Lint, type/data checks, 169 unit tests and the core, Hindi, localized-clock, local-cases, picker, deductions, comparison, source-links, export and privacy browser suites pass on the rebuilt site.

@@ -24,7 +24,8 @@ export function setupLetterDialog() {
     catch {body.focus();body.select();setMessage(document.querySelector<HTMLElement>('#letter-status')!,'letter.copyFailed');}
   });
   document.querySelector('#letter-download')!.addEventListener('click',()=>{if(current?.kind==='bima'&&body.value.length>BIMA_DRAFT_LIMIT)return;download(`claimclock-${current?.kind||'letter'}.txt`,`${current?.subject}\n\n${body.value}`);});
-  const render=()=>{if(!current)return;document.querySelector('#letter-subject')!.textContent=current.subject;body.value=current.body;if(current.kind==='bima')body.maxLength=BIMA_DRAFT_LIMIT;else body.removeAttribute('maxlength');setMessage(document.querySelector<HTMLElement>('#letter-status')!,null);(document.querySelector('#bima-instructions') as HTMLElement).hidden=current.kind!=='bima';updateLinks();};
+  const render=()=>{if(!current)return;document.querySelector('#letter-subject')!.textContent=current.subject;body.value=current.body;if(current.kind==='bima')body.maxLength=BIMA_DRAFT_LIMIT;else body.removeAttribute('maxlength');setMessage(document.querySelector<HTMLElement>('#letter-status')!,null);(document.querySelector('#bima-instructions') as HTMLElement).hidden=current.kind!=='bima';// Bima Bharosa complaints are filed on the portal, not emailed: swap the email action for the portal link.
+    (document.querySelector('#letter-email') as HTMLElement).hidden=current.kind==='bima';(document.querySelector('#letter-portal') as HTMLElement).hidden=current.kind!=='bima';updateLinks();};
   window.addEventListener('languagechange',()=>{if(dialog.open&&regenerate&&current){current=regenerate();render();}});
   window.addEventListener('casechange',()=>{
     dialog.close();current=null;regenerate=null;recipient='';body.value='';body.removeAttribute('maxlength');document.querySelector('#letter-subject')!.textContent='';setMessage(document.querySelector<HTMLElement>('#letter-status')!,null);
