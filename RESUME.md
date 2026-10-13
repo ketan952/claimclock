@@ -126,3 +126,7 @@ Nothing server-side changed. Bilingual strings added for both features.
 - Care Health's display name reads "Formerly Religare" in contacts.json and filings.json; quoted IRDAI source evidence strings are unchanged.
 - Narrow phones (≤480 px) get a tighter hero and stats strip so the first form field sits within the first screen.
 Lint, type/data checks, 169 unit tests and the core, Hindi, localized-clock, local-cases, picker, deductions, comparison, source-links, export and privacy browser suites pass on the rebuilt site.
+
+## M16 — responsive audit (13 October 2026)
+
+Screenshots and overflow/tap-target checks at 360, 390, 768, 1024, 1366 and 1440 px across the home page (fresh, active clock, GRO dialog, picker), deductions, Index, insurer page, privacy, death, rejected and about. No page overflows horizontally at any width; the letter dialog fits every viewport. Fixes: header navigation links now have a 40 px tap area (padding with negative margins, layout unchanged); on phones the clock header wraps its two links under the title; the Index comparison keeps the insurer column sticky while the numbers scroll and shows a swipe hint under 800 px; the smallest body text on phones (stats strip, eyebrows, contact scope notes) is at least 11 px. Core, Hindi, comparison, localized-clock, picker and export suites pass on the rebuilt site. Audit scripts lived outside the repository.

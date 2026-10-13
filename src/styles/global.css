@@ -87,3 +87,11 @@
 .update-toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:100;background:var(--ink,#183f35);padding:.5rem;border-radius:.7rem;box-shadow:0 3px 20px #0003}.update-toast button{background:#fff;color:#183f35;border:0;padding:.65rem 1rem;border-radius:.4rem;font:inherit;font-weight:700}
 /* Narrow phones: keep the first field within one scroll by tightening the hero and stats strip. */
 @media(max-width:480px){.hero{padding-top:26px;padding-bottom:18px}.hero h1{font-size:2.45rem}.hero .lead{margin-top:12px;line-height:1.55}.hero .eyebrow{margin-bottom:12px}.privacy-hint{margin-top:12px}.stats-strip{padding:12px 0;margin-bottom:16px}.stat strong{font-size:1.15rem}.stat span{font-size:.62rem;margin-top:2px}}
+/* Touch targets: header links get a ~40px tap area without moving the layout. */
+.header-inner nav a{padding:10px 4px;margin:-10px -4px;display:inline-block}
+/* Index comparison on narrow screens: the insurer column stays put while the numbers scroll. */
+.comparison-table thead th:first-child,.comparison-table tbody th:first-child{position:sticky;left:0;z-index:1;background:#fff;box-shadow:1px 0 0 #e2e7df}.comparison-table thead th:first-child{background:#eaf0e6}
+.swipe-hint{display:none}
+@media(max-width:800px){.swipe-hint{display:block;margin-top:12px}}
+@media(max-width:480px){.dashboard-top{flex-wrap:wrap;gap:8px 18px}.dashboard-top h1{flex-basis:100%}.stat span{font-size:.7rem}.eyebrow{font-size:.7rem}.contact-block small{font-size:.72rem}.comparison-table tbody th{min-width:170px;max-width:200px}}
+

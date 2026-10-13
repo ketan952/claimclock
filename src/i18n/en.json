@@ -414,6 +414,7 @@
   "comparison.sortCount": "Disclosed count · highest first",
   "comparison.sortNote": "Range sorting uses the lower endpoint. Missing values appear last. This sorting does not rank legal compliance.",
   "comparison.tableLabel": "Individual discharge comparison",
+  "comparison.swipe": "Swipe the table sideways to see every column. The insurer name stays in view.",
   "comparison.insurer": "Insurer",
   "comparison.lt1": "<1 hour",
   "comparison.h12": "1–2 hours",
