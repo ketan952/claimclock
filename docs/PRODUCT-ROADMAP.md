@@ -7,7 +7,7 @@
 
 **Core invariants to preserve across all phases:**
 - **Claims-first, never sales-first.** ClaimClock earns nothing when a policy is sold. No insurer commissions, no lead-selling, no affiliate links, no "buy" buttons. Every competitor in India monetises the purchase; we monetise the moment the policy has to pay. This is the moat, not a constraint (§8, §10).
-- **₹0/month infrastructure until first revenue.** Cloudflare Workers Free + D1 + static assets + free-tier OpenAI-compatible LLM and speech APIs (`openai/gpt-oss-120b`, `whisper-large-v3-turbo` on Groq, Web Speech/Web Audio). After first paying customers, infra scales linearly on published prices (§12).
+- **₹0/month for the rollout phase (Phases 1–2, M20–M28).** Cloudflare Workers Free + D1 + static assets + free-tier OpenAI-compatible LLM and speech APIs (`openai/gpt-oss-120b`, `whisper-large-v3-turbo` on Groq, Web Speech/Web Audio). No paid service, subscription or per-message cost may be introduced in Phases 1–2. Paid infrastructure is unlocked only in Phase 3, and only after the first paying customer exists (cost phasing in §12).
 - **User-specific login + emergency guest access.** Full logged-in experience (Profile, Family, Policy Vault, Saved Claims, Voice Agent memory, zero `[placeholder]` letters) while an unauthenticated visitor in a hospital can still run the clock on-device and attach it to an account later.
 - **Privacy & DPDP-first.** Medical and policy PDFs are parsed on-device (`pdfjs-dist` + `tesseract.js`). Vault records in D1 are client-side encrypted (WebCrypto `AES-GCM`). One-click erasure. DPDP Rules 2025 core obligations apply from **13 May 2027** (§11.2).
 - **Open rules, protected people.** `data/rules.json`, `data/contacts.json` and the NL-48 dataset stay open and citable; user data is encrypted and never sold. Aggregated, k-anonymised outcome data is the only data product (§10.6).
@@ -92,7 +92,7 @@ With **Login + User-Specific Profiles**, the app becomes **their personal insura
 ### How Login Works at ₹0/Month (No Paid SMS Gateways)
 - **Primary Login — WebAuthn Passkeys (`navigator.credentials`):** One-tap biometric sign-in (FaceID / TouchID / Android fingerprint / Windows Hello) stored in Cloudflare D1 (`users` & `passkey_credentials` tables). Zero passwords to forget, zero SMS DLT cost.
 - **Secondary Login / Cross-Device Link — Account Code + Recovery Key / QR:** A 1-tap QR or 12-word/short recovery key so the user can log into their laptop from their phone or share their Family Vault with their spouse in 5 seconds.
-- **Later (paid tier only):** WhatsApp authentication templates at ₹0.115 + GST per message (Meta India rate card, 1 Oct 2026) for users who cannot use passkeys.
+- **Later (Phase 3+, Plus/Teams users only):** WhatsApp authentication templates at ₹0.115 + GST per message (Meta India rate card, 1 Oct 2026) for users who cannot use passkeys. Not part of the ₹0 rollout.
 
 ---
 
@@ -414,6 +414,14 @@ Private limited company; DPIIT Startup India recognition (Section 80-IAC, fast-t
 | Data | Opt-in reports; published cells (n ≥ 20) | 2,500 reports |
 | Revenue | Teams lives; Desk beds; Plus families; escalation cases | First ₹ by month 9 |
 
+**Cost phasing — what is allowed when.**
+
+| Phase | Monthly cost | Allowed services | Unlock condition |
+|---|---|---|---|
+| **Phase 1–2 (M20–M28): rollout** | **₹0** | Cloudflare Workers Free, D1 Free, static assets, Turnstile Free, Groq Free tier (no card), browser Web Speech / Web Audio, PWA push, email sent by the user's own client, DigiLocker Requester (free onboarding), GitHub Actions free minutes | None — this is the starting state |
+| **Phase 3 (M29–M31): first revenue** | First paid items only | Workers Paid ($5/month) if free limits are hit; WhatsApp utility templates (₹0.115 + GST) **only for Plus/Teams users**; Razorpay/UPI fees on actual payments | A paying Plus family or Teams pilot exists; the cost is covered by that revenue |
+| **Phase 4 (M23–M24, M32–M36): expansion** | Scales with revenue | Paid Groq / Workers AI tiers behind Plus; D1 overages; partner (AA FIU) fees; professional review fees | Gross margin stays > 80% per paying unit |
+
 **Infra cost curve (published prices, Oct 2026).**
 - Workers Free: 100k requests/day, D1 5M reads / 100k writes per day — sufficient to ~5,000 DAU.
 - Workers Paid: $5/month includes 10M requests and 30M CPU-ms; $0.30 per extra million requests; D1 includes 25B reads and 50M writes per month, then $1 per million writes and $0.75/GB-month; Workers AI $0.011 per 1,000 neurons after 10k/day free.
@@ -426,6 +434,8 @@ Private limited company; DPIIT Startup India recognition (Section 80-IAC, fast-t
 ## 13. Milestone Execution Sequence for the Coding Agent
 
 Execute in this order, committing and updating `RESUME.md` at the end of each milestone. Milestone numbers are stable; the order below is the recommended business sequence (retention and revenue before new insurance lines). Each milestone adds rules to `data/rules.json` with `source_url`, `paragraph`, `quote`, `plain_en`, `plain_hi`, and snapshot tests, following the existing pattern.
+
+**Cost rule for the agent.** Phases 1 and 2 (M20–M28) must ship entirely on the free services listed in §12 "Cost phasing". If a milestone appears to need a paid API, SMS/WhatsApp gateway, paid plan or card-on-file, stop and record the blocker in `RESUME.md` instead of adding the dependency; the free-tier path (deterministic rules engine, browser speech, PWA push, user-sent email) is the required fallback. Paid services are permitted only from Phase 3 onward and only after a paying customer exists.
 
 ### Phase 1 — Core account and intelligence (M20–M22)
 - [ ] **M20 — User Login, Profile & Family Policy Vault:**
