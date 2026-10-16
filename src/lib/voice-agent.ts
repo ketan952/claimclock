@@ -189,6 +189,9 @@ function policyFor(deps:VoiceDeps,relation?:Relation):{vault:Vault|null;policy:P
  return {vault,policy:selectPolicy(vault)||vault.policies.find(p=>p.kind==='health')||null,member};
 }
 const notice=(language:Language,title:string,lines:string[],link?:Card['link']):Card=>({kind:'notice',title,lines,link});
+const QUESTIONS:Record<string,string>={needs_claim_free_year:'Was any claim made in the previous policy year?',needs_sum_insured:'What is the sum insured?',needs_eligible_rate:'What does the hospital charge per day for the eligible room category?',needs_dates:'When did the policy start (and the continuous-cover date, if ported)?',unknown_timing:'When did the policy start?',needs_rule:'What does the policy say about room rent?'};
+/** English status text and, where the status needs more from the user, the one question to ask — so the model relays the status rather than interpreting a code. */
+const explain=(status:string,key:string)=>({statusText:text('en',`${key}.${status}`),...(QUESTIONS[status]?{question:QUESTIONS[status]}:{})});
 const noPolicyOutcome=(language:Language):ToolOutcome=>({result:{status:'no_policy',next:'Add a policy in My Vault (/vault/) or state the plan and sum insured.'},card:notice(language,text(language,'voice.card.noPolicy'),[text(language,'voice.card.noPolicyBody')],{href:'/vault/',label:text(language,'nav.vault')})});
 
 function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
@@ -206,11 +209,11 @@ function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
  switch(topic){
   case 'health_checkup':{
    const rule:CheckupRule|null=plan?.rules.health_checkup??(policy.healthCheckupLimit?{mode:'unknown',eligibility:{from:'policy_year'},limit:{type:'fixed',amount:policy.healthCheckupLimit}}:null);
-   const r=healthCheckup({rule,sumInsured,floater:policy.memberIds.length>1,inceptionDate:policy.inceptionDate,lastClaimedOn:policy.healthCheckupLastClaimedOn,memberAge:member?.birthYear?now.getUTCFullYear()-member.birthYear:null,now});
+   const r=healthCheckup({rule,sumInsured,floater:policy.memberIds.length>1,inceptionDate:policy.inceptionDate,lastClaimedOn:policy.healthCheckupLastClaimedOn,claimFreePreviousYear:argBool(args,'claimFreePreviousYear'),memberAge:member?.birthYear?now.getUTCFullYear()-member.birthYear:null,now});
    lines.push(text(language,`coverage.checkup.${r.status}`));if(r.amount!==null)lines.push(`${text(language,'voice.card.amount')}: ${rupees(r.amount,language)}`);
    if(r.amountBasis)lines.push(text(language,`coverage.checkupBasis.${r.amountBasis}`));if(r.mode&&r.mode!=='unknown')lines.push(text(language,`coverage.checkupMode.${r.mode}`));
    if(r.nextEligibleOn)lines.push(`${text(language,'voice.card.nextEligible')}: ${localDate(r.nextEligibleOn,language)}`);for(const n of r.notes)lines.push(text(language,`coverage.note.${n}`));
-   return {result:{...base,topic,status:r.status,amount:r.amount,amountBasis:r.amountBasis,mode:r.mode,nextEligibleOn:r.nextEligibleOn,policyYear:r.policyYear?.index??null,notes:r.notes,source:sourceOf(plan?.rules.health_checkup)},card:{kind:'benefit',title:text(language,'coverage.checkupTitle'),lines,link,source:sourceOf(plan?.rules.health_checkup)}};
+   return {result:{...base,topic,status:r.status,...explain(r.status,'coverage.checkup'),amount:r.amount,amountBasis:r.amountBasis,mode:r.mode,nextEligibleOn:r.nextEligibleOn,policyYear:r.policyYear?.index??null,notes:r.notes,source:sourceOf(plan?.rules.health_checkup)},card:{kind:'benefit',title:text(language,'coverage.checkupTitle'),lines,link,source:sourceOf(plan?.rules.health_checkup)}};
   }
   case 'room_rent':{
    const rule=plan?.rules.room_rent??null;
@@ -222,7 +225,7 @@ function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
    const r=roomUpgradeImpact({rule,sumInsured,chosenRoomRent:chosen,hospitalEligibleRate:argNumber(args,'hospitalEligibleRate',1,1e7),days:argNumber(args,'days',1,365,true)??1,associatedExpenses:argNumber(args,'associatedExpenses',0,1e9)??0});
    lines.push(text(language,`coverage.room.${r.status}`));if(r.eligiblePerDay!==null)lines.push(text(language,'coverage.roomEligible',{amount:rupees(r.eligiblePerDay,language)}));
    if(r.status==='impact'){lines.push(text(language,'coverage.roomDifference',{amount:rupees(r.roomDifference,language)}));if(r.associatedDeduction)lines.push(text(language,'coverage.roomAssociated',{amount:rupees(r.associatedDeduction,language),percent:Math.round((1-(r.proportion||0))*100)}));lines.push(`${text(language,'voice.card.total')}: ${rupees(r.totalImpact||0,language)}`);for(const n of r.notes)lines.push(text(language,`coverage.note.${n}`));}
-   return {result:{...base,topic,status:r.status,eligiblePerDay:r.eligiblePerDay,roomDifference:r.roomDifference,associatedDeduction:r.associatedDeduction,totalImpact:r.totalImpact,notes:r.status==='impact'?r.notes:[],source:sourceOf(rule)},card:{kind:'benefit',title:text(language,'coverage.roomTitle'),lines,link,source:sourceOf(rule)}};
+   return {result:{...base,topic,status:r.status,...explain(r.status,'coverage.room'),eligiblePerDay:r.eligiblePerDay,roomDifference:r.roomDifference,associatedDeduction:r.associatedDeduction,totalImpact:r.totalImpact,notes:r.status==='impact'?r.notes:[],source:sourceOf(rule)},card:{kind:'benefit',title:text(language,'coverage.roomTitle'),lines,link,source:sourceOf(rule)}};
   }
   case 'waiting_period':{
    const r=waitingPeriods({inceptionDate:policy.inceptionDate,continuityFrom:policy.continuityFrom,pedMonths:plan?.rules.ped_waiting_months?.value??null,specificMonths:plan?.rules.specific_waiting_months?.value??null,initialDays:plan?.rules.initial_waiting_days?.value??null,now});
@@ -230,7 +233,7 @@ function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
    if(r.status!=='ok')lines.push(text(language,`coverage.waiting.${r.status}`));
    else{lines.push(text(language,'coverage.waitingServed',{months:r.servedMonths??0,date:localDate(r.from!,language)}));period(text(language,'compare.row.initial_waiting_days'),r.initial,'days');period(text(language,'compare.row.specific_waiting_months'),r.specific,'months');period(text(language,'compare.row.ped_waiting_months'),r.ped,'months');period(text(language,'voice.card.moratorium'),r.moratorium,'months');}
    const compact=(p:{required:number;done:boolean;remaining:number;endsOn:string}|null)=>p?{required:p.required,done:p.done,remaining:p.remaining,endsOn:p.endsOn}:null;
-   return {result:{...base,topic,status:r.status,from:r.from,servedMonths:r.servedMonths,initial:compact(r.initial),specific:compact(r.specific),ped:compact(r.ped),moratorium60Months:compact(r.moratorium),moratoriumSource:ruleSource('moratorium-60-months'),notes:r.status==='ok'?r.notes:[],source:sourceOf(plan?.rules.ped_waiting_months)},card:{kind:'benefit',title:text(language,'coverage.waitingTitle'),lines,link,source:sourceOf(plan?.rules.ped_waiting_months)||ruleSource('moratorium-60-months')}};
+   return {result:{...base,topic,status:r.status,...(r.status==='ok'?{}:explain(r.status,'coverage.waiting')),from:r.from,servedMonths:r.servedMonths,initial:compact(r.initial),specific:compact(r.specific),ped:compact(r.ped),moratorium60Months:compact(r.moratorium),moratoriumSource:ruleSource('moratorium-60-months'),notes:r.status==='ok'?r.notes:[],source:sourceOf(plan?.rules.ped_waiting_months)},card:{kind:'benefit',title:text(language,'coverage.waitingTitle'),lines,link,source:sourceOf(plan?.rules.ped_waiting_months)||ruleSource('moratorium-60-months')}};
   }
   case 'copay':{
    const rule=plan?.rules.copay??(policy.copayPercent!==undefined?{percent:policy.copayPercent}:null);
@@ -245,7 +248,7 @@ function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
     return {result:{...base,topic,status:'needs_dates',preDays:rule?.pre_days??null,postDays:rule?.post_days??null,note:rule?.note,source:sourceOf(rule)},card:{kind:'benefit',title:text(language,'compare.row.pre_post_hospitalisation'),lines,link,source:sourceOf(rule)}};}
    const r=prePostWindow({rule,admissionDate:admission,dischargeDate:discharge,expenseDate:expense});
    lines.push(text(language,`coverage.prepost.${r.position}`));if(r.position!=='invalid')for(const n of r.notes)lines.push(text(language,`coverage.note.${n}`));
-   return {result:{...base,topic,status:r.position,daysBeforeAdmission:r.daysBeforeAdmission,daysAfterDischarge:r.daysAfterDischarge,preWindowStart:r.preWindowStart,postWindowEnd:r.postWindowEnd,source:sourceOf(rule)},card:{kind:'benefit',title:text(language,'compare.row.pre_post_hospitalisation'),lines,link,source:sourceOf(rule)}};
+   return {result:{...base,topic,status:r.position,...explain(r.position,'coverage.prepost'),daysBeforeAdmission:r.daysBeforeAdmission,daysAfterDischarge:r.daysAfterDischarge,preWindowStart:r.preWindowStart,postWindowEnd:r.postWindowEnd,source:sourceOf(rule)},card:{kind:'benefit',title:text(language,'compare.row.pre_post_hospitalisation'),lines,link,source:sourceOf(rule)}};
   }
   case 'sub_limits':{
    const rule=plan?.rules.sub_limits??null,treatment=argString(args,'treatment',120)?.toLowerCase();

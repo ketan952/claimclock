@@ -120,11 +120,16 @@ test('check_policy_benefit answers from the saved plan’s cited rules and the s
  const checkup=executeTool(call('check_policy_benefit',{topic:'health_checkup',member:'spouse'}),d);
  assert.equal(checkup.result.status,'needs_claim_free_year','Star Comprehensive pays after a claim-free year; year 1 needs that answer');
  assert.equal(checkup.result.member,'spouse');assert.ok(String((checkup.result.source as {url:string}).url).startsWith('https://'));
+ assert.equal(checkup.result.statusText,'Available only after a claim-free year — tell us whether last year had a claim.');assert.equal(checkup.result.question,'Was any claim made in the previous policy year?','a status that needs input tells the model what to ask');
+ const answered=executeTool(call('check_policy_benefit',{topic:'health_checkup',member:'spouse',claimFreePreviousYear:true}),d);
+ assert.equal(answered.result.status,'available');assert.equal(answered.result.amount,3000);assert.equal(answered.result.question,undefined);
+ assert.equal(executeTool(call('check_policy_benefit',{topic:'health_checkup',member:'spouse',claimFreePreviousYear:false}),d).result.status,'claim_made_last_year');
  assert.doesNotMatch(JSON.stringify(checkup.result),identifiers);
  assert.equal(checkup.card?.kind,'benefit');assert.ok(checkup.card?.lines[0].includes('claim-free year'));assert.equal(checkup.card?.link?.href,'/check-coverage/');
  const room=executeTool(call('check_policy_benefit',{topic:'room_rent',chosenRoomRent:9000,hospitalEligibleRate:6000,days:3,associatedExpenses:100000}),d);
  assert.equal(room.result.status,'impact');assert.equal(room.result.totalImpact,42333);assert.equal(room.result.roomDifference,9000);assert.equal(room.result.associatedDeduction,33333);
  assert.ok(room.card?.lines.some(l=>l.includes('₹42,333')));
+ assert.equal(executeTool(call('check_policy_benefit',{topic:'room_rent',chosenRoomRent:9000}),d).result.question,'What does the hospital charge per day for the eligible room category?');
  const eligible=executeTool(call('check_policy_benefit',{topic:'room_rent'}),d);
  assert.equal(eligible.result.status,'eligible_room');assert.equal(eligible.result.category,'single_private_ac');
  const waiting=executeTool(call('check_policy_benefit',{topic:'waiting_period'}),d);
