@@ -132,7 +132,7 @@ test('optional binding absence is graceful and AI config is disabled', async () 
     ['/api/reports', 'POST', report()], ['/api/events', 'POST', { counts: { session_started: 1 } }],
     ['/api/explain', 'POST', { lines: 'Consumables 400', consent: true }], ['/api/aggregates?insurer=star-health', 'GET', undefined],
   ] as const) assert.equal((await request(path, method, body)).status, 503);
-  assert.deepEqual(await (await request('/api/config')).json(), { ai_enabled: false, provider: null, model: null, voice_enabled: false, stt_model: null, turnstile_enabled: false, turnstile_site_key: null });
+  assert.deepEqual(await (await request('/api/config')).json(), { ai_enabled: false, provider: null, model: null, voice_enabled: false, stt_model: null, tts_enabled: false, tts_provider: null, turnstile_enabled: false, turnstile_site_key: null });
 });
 test('report stores only erasure hash and wrong-token deletion is non-enumerating', async () => {
   const db = new SqliteDB();
@@ -277,7 +277,7 @@ const rawRequest = (path: string, body: unknown, env: Bindings, token?: string) 
 test('Turnstile config exposes only the public key and never derives trust from request Host', async () => {
   const env = { ...challengeEnv, DB: new SqliteDB() };
   const config = await (await request('/api/config', 'GET', undefined, env)).json();
-  assert.deepEqual(config, { ai_enabled: false, provider: null, model: null, voice_enabled: false, stt_model: null, turnstile_enabled: true, turnstile_site_key: 'synthetic-public-key' });
+  assert.deepEqual(config, { ai_enabled: false, provider: null, model: null, voice_enabled: false, stt_model: null, tts_enabled: false, tts_provider: null, turnstile_enabled: true, turnstile_site_key: 'synthetic-public-key' });
   assert.doesNotMatch(JSON.stringify(config), /synthetic-secret|TURNSTILE_SECRET|hostname/);
   for (const patch of [{ TURNSTILE_SECRET_KEY: '' }, { TURNSTILE_SITE_KEY: undefined }, { TURNSTILE_HOSTNAME: 'https://evil.example' }]) {
     const disabled = await (await request('/api/config', 'GET', undefined, { ...env, ...patch })).json() as { turnstile_enabled: boolean; turnstile_site_key: null };

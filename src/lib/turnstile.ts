@@ -1,5 +1,5 @@
 /** Loaded only after a visitor chooses an optional server operation. */
-export type TurnstileAction = 'reports' | 'explain' | 'transfer_create' | 'transfer_lookup' | 'auth_register' | 'voice' | 'copilot';
+export type TurnstileAction = 'reports' | 'explain' | 'transfer_create' | 'transfer_lookup' | 'auth_register' | 'voice' | 'copilot' | 'speak';
 type WidgetOptions = {
  sitekey:string; action:TurnstileAction; execution:'execute'; language:'auto';
  'response-field':false; retry:'never'; 'refresh-expired':'never';

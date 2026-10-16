@@ -4,7 +4,7 @@ import { InputError, readJson, sameOrigin, validateReport, sha256, eraseToken, q
 import { turnstileConfig, verifyTurnstile } from './turnstile.ts';
 import { TRANSFER_BODY_LIMIT, validateCiphertext, validateTransferCode, createTransfer, lookupTransfer } from './transfers.ts';
 import { VAULT_BODY_LIMIT, authenticate, completeLogin, completeRegistration, eraseAccount, loginOptions, logout, readVault, registrationOptions, sessionCookie, sessionSummary, setWrappedKey, writeVault, type Session } from './auth.ts';
-import { COPILOT_BODY_LIMIT, complete, readAudio, transcribe, validateCopilot, voiceConfig } from './voice.ts';
+import { COPILOT_BODY_LIMIT, complete, completeStream, readAudio, synthesize, transcribe, ttsConfig, validateCopilot, validateSpeak, voiceConfig } from './voice.ts';
 
 type AppEnv = { Bindings: Bindings; Variables: { session: Session } };
 export const app = new Hono<AppEnv>();
@@ -26,10 +26,11 @@ app.onError((error, c) => error instanceof InputError
 app.notFound(c => c.json({ error: 'Not found.' }, 404));
 
 app.get('/api/config', c => {
-  const config = provider(c.env), turnstile = turnstileConfig(c.env), voice = voiceConfig(c.env);
+  const config = provider(c.env), turnstile = turnstileConfig(c.env), voice = voiceConfig(c.env), tts = ttsConfig(c.env);
   const enabled = Boolean(config && c.env.DB);
   return c.json({ ai_enabled: enabled, provider: enabled ? new URL(config!.endpoint).hostname : null, model: enabled ? config!.model : null,
     voice_enabled: Boolean(enabled && voice), stt_model: enabled && voice ? voice.model : null,
+    tts_enabled: Boolean(enabled && tts), tts_provider: enabled && tts ? tts.provider : null,
     turnstile_enabled: Boolean(turnstile), turnstile_site_key: turnstile?.sitekey ?? null });
 });
 
@@ -156,7 +157,29 @@ app.post('/api/copilot', async c => {
   const verification = await verifyTurnstile(c.req.raw, c.env, 'copilot');
   if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. The tools on each page still work.' }, verification);
   if (!await quota(db, 'copilot')) return c.json({ error: 'The assistant is busy. Try again in a minute.' }, 429);
-  return c.json({ ...await complete(config, request), advisory_only: true });
+  if (!(c.req.header('accept') ?? '').includes('text/event-stream')) return c.json({ ...await complete(config, request), advisory_only: true });
+  // Sentences stream as server-sent events so speech can start before the reply is complete.
+  const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>();
+  const writer = writable.getWriter(), encoder = new TextEncoder();
+  const send = (event: string, data: unknown) => writer.write(encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
+  const task = (async () => {
+    try { await completeStream(config, request, event => event.type === 'sentence' ? send('sentence', { text: event.text }) : send('done', { ...event.result, advisory_only: true })); }
+    catch { await send('error', { error: 'The assistant is unavailable. The tools on each page still work.' }).catch(() => undefined); }
+    finally { await writer.close().catch(() => undefined); }
+  })();
+  try { c.executionCtx.waitUntil(task); } catch { /* no execution context outside Workers (tests); the promise still runs */ }
+  return c.body(readable, 200, { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' });
+});
+app.post('/api/voice/speak', async c => {
+  const input = validateSpeak(await readJson(c.req.raw));
+  const config = ttsConfig(c.env), db = c.env.DB;
+  if (!config || !db || !provider(c.env)) return c.json({ error: 'Premium voice is not enabled. The browser voice is used instead.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'speak');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable.' }, verification);
+  if (!await quota(db, 'voice_speak')) return c.json({ error: 'Premium voice is busy. The browser voice is used instead.' }, 429);
+  const audio = await synthesize(config, input);
+  if (!audio.body) throw new Error('Provider unavailable');
+  return c.body(audio.body, 200, { 'content-type': audio.headers.get('content-type') ?? 'application/octet-stream' });
 });
 
 // --- M20: passkey accounts and client-encrypted vault sync. ---

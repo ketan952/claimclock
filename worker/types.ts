@@ -18,4 +18,11 @@ export interface Bindings {
   TURNSTILE_SECRET_KEY?: string;
   TURNSTILE_SITE_KEY?: string;
   TURNSTILE_HOSTNAME?: string;
+  /** M22.1 optional premium voice (billed). All operator configuration; TTS_API_KEY is a secret. */
+  TTS_PROVIDER?: string;
+  TTS_API_KEY?: string;
+  TTS_MODEL?: string;
+  TTS_VOICE_EN?: string;
+  TTS_VOICE_HI?: string;
+  TTS_PAID_CONFIRMED?: string;
 }

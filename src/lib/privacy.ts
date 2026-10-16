@@ -1,4 +1,4 @@
-import {t} from './i18n';
+import {t,setMessage} from './i18n';
 import {listReceipts,parseReceipt,receiptIssue,removeReceipt} from './receipts.ts';
 const consent=document.querySelector<HTMLInputElement>('#analytics-consent')!;
 try{consent.checked=localStorage.getItem('claimclock:analytics')==='yes';}catch{}
@@ -46,3 +46,15 @@ form.addEventListener('submit',async event=>{
 window.addEventListener('languagechange',()=>renderReceipts());
 window.addEventListener('storage',()=>renderReceipts());
 renderReceipts(true);button.disabled=false;
+// Saathi names its processors here rather than inside the assistant, so the live configuration is always one place.
+void (async()=>{
+ const line=document.querySelector<HTMLElement>('#voice-providers');if(!line)return;
+ try{
+  const response=await fetch('/api/config',{cache:'no-store',signal:AbortSignal.timeout(10000)});if(!response.ok)throw new Error('config');
+  const config=await response.json() as {ai_enabled?:boolean;provider?:string|null;model?:string|null;voice_enabled?:boolean;stt_model?:string|null;tts_enabled?:boolean;tts_provider?:string|null};
+  if(!config.ai_enabled||!config.provider){setMessage(line,'privacy.voiceProvidersOff');return;}
+  const parts=[`${config.provider} (${config.model||''}${config.voice_enabled&&config.stt_model?`; ${config.stt_model}`:''})`];
+  if(config.tts_enabled&&config.tts_provider)parts.push(config.tts_provider==='sarvam'?'api.sarvam.ai (voice)':config.tts_provider==='openai'?'api.openai.com (voice)':config.tts_provider);
+  setMessage(line,'privacy.voiceProviders',{providers:parts.join(' · ')});
+ }catch{setMessage(line,'privacy.voiceProvidersOff');}
+})();
