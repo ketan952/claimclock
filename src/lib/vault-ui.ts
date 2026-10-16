@@ -211,7 +211,9 @@ function describeError(error:unknown):[string,Record<string,string|number>] {
 }
 function renderAccount(){
  const signedIn=Boolean(session?.authenticated),key=loadVaultKey();
- el('account-register').hidden=signedIn;el('account-login').hidden=signedIn;el('account-logout').hidden=!signedIn;el('account-delete').hidden=!signedIn;el('sync-now').hidden=!signedIn;
+ el('account-register').hidden=signedIn;el('account-logout').hidden=!signedIn;el('account-delete').hidden=!signedIn;el('sync-now').hidden=!signedIn;
+ // A signed-in device without the key can re-run the passkey to receive the PRF-wrapped key, or use the recovery link below.
+ const login=el('account-login');login.hidden=signedIn&&Boolean(key);login.dataset.i18n=signedIn?'vault.unlockWithPasskey':'vault.login';login.textContent=t(login.dataset.i18n);
  el('recovery-form-wrap').hidden=!(signedIn&&!key);
  el('recovery-panel').hidden=!key;
  if(!passkeysSupported())status('account-summary','vault.passkeysUnsupported');
@@ -234,7 +236,9 @@ async function syncNow(quiet=false):Promise<void> {
  try{
   const local:Vault={...vault,cases:listCases()};
   const remote=await pullVault(key);
-  const changedLocally=!syncState.syncedAt||vault.updatedAt>syncState.syncedAt;
+  // An untouched local vault (a new device) simply adopts the synced copy; only real local edits can conflict.
+  const emptyLocal=!vault.members.length&&!vault.policies.length&&!vault.profile.name.trim()&&!vault.profile.city.trim();
+  const changedLocally=!emptyLocal&&(!syncState.syncedAt||vault.updatedAt>syncState.syncedAt);
   if(remote&&remote.version>syncState.version){
    if(changedLocally&&JSON.stringify({...remote.vault,updatedAt:'',cases:[]})!==JSON.stringify({...local,updatedAt:'',cases:[]})){pendingConflict={remote:remote.vault,version:remote.version};renderAccount();status('sync-status','vault.conflict');return;}
    adoptRemote(remote.vault,remote.version);status('sync-status','vault.pulled');return;
@@ -269,7 +273,7 @@ el('account-register').addEventListener('click',async()=>{
   session=await getSession();syncState={version:0,syncedAt:null,userId:result.userId};saveSyncState(syncState);
   status('account-status',result.prfWrapped?'vault.registered':'vault.registeredSaveKey');
   el<HTMLDetailsElement>('recovery-panel').open=!result.prfWrapped;
-  await syncNow(true);
+  setBusy(false);await syncNow(true); // The first upload runs after the account exists; busy is released so the sync guard lets it through.
  }catch(error){const [k,f]=describeError(error);status('account-status',k,f);}
  finally{setBusy(false);renderAccount();}
 });
@@ -279,7 +283,7 @@ el('account-login').addEventListener('click',async()=>{
   const result=await loginPasskey();session=await getSession();syncState={...loadSyncState(),userId:result.userId};
   if(syncState.userId!==result.userId)syncState={version:0,syncedAt:null,userId:result.userId};saveSyncState(syncState);
   status('account-status',result.needsRecoveryKey?'vault.needsKey':result.keyRecovered?'vault.keyUnlocked':'vault.signedInShort');
-  if(!result.needsRecoveryKey)await syncNow(true);
+  if(!result.needsRecoveryKey){setBusy(false);await syncNow(true);}
  }catch(error){const [k,f]=describeError(error);status('account-status',k,f);}
  finally{setBusy(false);renderAccount();}
 });

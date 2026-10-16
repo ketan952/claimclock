@@ -795,5 +795,6 @@
   "vault.clearConfirm": "Delete the vault and its key from this device? A synced copy on the server (if any) is not affected.",
   "vault.cleared": "Vault cleared from this device.",
   "privacy.account": "Optional passkey account and synced vault",
-  "privacy.accountBody": "My Vault works without any account. If you create one, you sign in with a passkey (no password, phone number or email). Your vault — name, family members, policies and attached cases — is encrypted in your browser with a key that never leaves your devices; the server stores the encrypted copy, your passkey’s public key, a random account id and a hashed session token. We cannot read the vault or recover its key. Deleting the account removes all of these at once. Sessions expire after 30 days."
+  "privacy.accountBody": "My Vault works without any account. If you create one, you sign in with a passkey (no password, phone number or email). Your vault — name, family members, policies and attached cases — is encrypted in your browser with a key that never leaves your devices; the server stores the encrypted copy, your passkey’s public key, a random account id and a hashed session token. We cannot read the vault or recover its key. Deleting the account removes all of these at once. Sessions expire after 30 days.",
+  "vault.unlockWithPasskey": "Unlock with passkey"
 }
