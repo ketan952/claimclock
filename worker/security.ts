@@ -86,7 +86,9 @@ export async function sha256(value: string): Promise<string> {
 export function eraseToken(): string {
   return [...crypto.getRandomValues(new Uint8Array(32))].map(b => b.toString(16).padStart(2, '0')).join('');
 }
-const budgets = { explain: [100, 3], reports: [100, 5], events: [200, 10], aggregates: [500, 30], erase: [100, 10], transfer_create: [100, 3], transfer_lookup: [500, 10] } as const;
+const budgets = { explain: [100, 3], reports: [100, 5], events: [200, 10], aggregates: [500, 30], erase: [100, 10], transfer_create: [100, 3], transfer_lookup: [500, 10],
+  // M20 accounts: registration is the only unauthenticated write that creates rows; reads are cookie-gated.
+  auth_register: [200, 5], auth_login: [1000, 20], auth_session: [10000, 200], vault_read: [5000, 100], vault_write: [2000, 30], account_erase: [100, 5] } as const;
 export async function quota(db: Database, action: keyof typeof budgets, now = Date.now()): Promise<boolean> {
   const day = new Date(now).toISOString().slice(0, 10), minute = Math.floor(now / 60000);
   const expiry = Math.floor(now / 1000) + 86400;

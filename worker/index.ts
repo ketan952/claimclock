@@ -1,6 +1,7 @@
 import { app } from './app.ts';
 import { aggregate } from './maintenance.ts';
 import { purgeTransfers, scheduledTask } from './transfers.ts';
+import { purgeAuth } from './auth.ts';
 import type { Bindings } from './types.ts';
 export default {
   fetch(request: Request, env: Bindings): Promise<Response> | Response {
@@ -14,7 +15,7 @@ export default {
     try {
       const task = scheduledTask(controller.cron);
       if (task === 'aggregate') await aggregate(env.DB);
-      else if (task === 'purge') await purgeTransfers(env.DB);
+      else if (task === 'purge') { await purgeTransfers(env.DB); await purgeAuth(env.DB); }
     } catch { throw new Error('Scheduled maintenance unavailable'); }
   },
 };

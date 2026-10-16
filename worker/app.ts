@@ -3,9 +3,12 @@ import type { Bindings } from './types.ts';
 import { InputError, readJson, sameOrigin, validateReport, sha256, eraseToken, quota, exactKeys, record, eventNames, insurerIds, provider, redact } from './security.ts';
 import { turnstileConfig, verifyTurnstile } from './turnstile.ts';
 import { TRANSFER_BODY_LIMIT, validateCiphertext, validateTransferCode, createTransfer, lookupTransfer } from './transfers.ts';
+import { VAULT_BODY_LIMIT, authenticate, completeLogin, completeRegistration, eraseAccount, loginOptions, logout, readVault, registrationOptions, sessionCookie, sessionSummary, setWrappedKey, writeVault, type Session } from './auth.ts';
 
-type AppEnv = { Bindings: Bindings };
+type AppEnv = { Bindings: Bindings; Variables: { session: Session } };
 export const app = new Hono<AppEnv>();
+const unavailable = { error: 'Optional service is unavailable. Your local work is unchanged.' } as const;
+const busy = { error: 'Optional service is busy. Try later.' } as const;
 
 app.use('/api/*', async (c, next) => {
   c.header('Cache-Control', 'no-store');
@@ -132,4 +135,96 @@ app.post('/api/explain', async c => {
   const explanation = redact(content.replace(/<think>[\s\S]*?(?:<\/think>|$)/gi, '').trim()).slice(0, 1600);
   if (!explanation) throw new Error('Provider unavailable');
   return c.json({ explanation, advisory_only: true });
+});
+
+// --- M20: passkey accounts and client-encrypted vault sync. ---
+// The relying party is the request's own origin; the same-origin middleware has already
+// rejected foreign origins, and cookies are SameSite=Strict on the /api path only.
+const relyingParty = (url: string) => { const parsed = new URL(url); return { origin: parsed.origin, rpId: parsed.hostname }; };
+app.post('/api/auth/register/options', async c => {
+  const body = await readJson(c.req.raw);
+  if (!exactKeys(body, [])) throw new InputError();
+  const db = c.env.DB;
+  if (!db) return c.json(unavailable, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'auth_register');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Your local work is unchanged.' }, verification);
+  if (!await quota(db, 'auth_register')) return c.json(busy, 429);
+  return c.json(await registrationOptions(db, relyingParty(c.req.url).rpId));
+});
+app.post('/api/auth/register/verify', async c => {
+  const body = await readJson(c.req.raw, 16384), db = c.env.DB;
+  if (!db) return c.json(unavailable, 503);
+  if (!await quota(db, 'auth_register')) return c.json(busy, 429);
+  const { origin, rpId } = relyingParty(c.req.url);
+  const result = await completeRegistration(db, body, origin, rpId);
+  c.header('Set-Cookie', sessionCookie(result.token));
+  return c.json({ authenticated: true, user_id: result.userId, credential_id: result.credentialId, backup_eligible: result.backupEligible }, 201);
+});
+app.post('/api/auth/login/options', async c => {
+  const body = await readJson(c.req.raw);
+  if (!exactKeys(body, [])) throw new InputError();
+  const db = c.env.DB;
+  if (!db) return c.json(unavailable, 503);
+  if (!await quota(db, 'auth_login')) return c.json(busy, 429);
+  return c.json(await loginOptions(db, relyingParty(c.req.url).rpId));
+});
+app.post('/api/auth/login/verify', async c => {
+  const body = await readJson(c.req.raw, 16384), db = c.env.DB;
+  if (!db) return c.json(unavailable, 503);
+  if (!await quota(db, 'auth_login')) return c.json(busy, 429);
+  const { origin, rpId } = relyingParty(c.req.url);
+  const result = await completeLogin(db, body, origin, rpId);
+  c.header('Set-Cookie', sessionCookie(result.token));
+  return c.json({ authenticated: true, user_id: result.userId, credential_id: result.credentialId, wrapped_key: result.wrappedKey, vault_version: result.vaultVersion });
+});
+app.get('/api/auth/session', async c => {
+  const db = c.env.DB;
+  if (!c.req.raw.headers.get('cookie')) return c.json({ authenticated: false });
+  if (!db) return c.json(unavailable, 503);
+  if (!await quota(db, 'auth_session')) return c.json(busy, 429);
+  const session = await authenticate(db, c.req.raw);
+  if (!session) { c.header('Set-Cookie', sessionCookie(null)); return c.json({ authenticated: false }); }
+  return c.json(await sessionSummary(db, session));
+});
+app.post('/api/auth/logout', async c => {
+  const body = await readJson(c.req.raw);
+  if (!exactKeys(body, [])) throw new InputError();
+  if (c.env.DB) await logout(c.env.DB, c.req.raw);
+  c.header('Set-Cookie', sessionCookie(null));
+  return c.json({ authenticated: false });
+});
+// Every route below requires a live session cookie.
+app.use('/api/vault', requireSession); app.use('/api/vault/*', requireSession); app.use('/api/auth/account', requireSession); app.use('/api/auth/wrapped-key', requireSession);
+async function requireSession(c: import('hono').Context<AppEnv>, next: () => Promise<void>) {
+  const db = c.env.DB;
+  if (!db) return c.json(unavailable, 503);
+  const session = await authenticate(db, c.req.raw);
+  if (!session) return c.json({ error: 'Sign in again.' }, 401);
+  c.set('session', session);
+  await next();
+}
+app.put('/api/auth/wrapped-key', async c => {
+  const body = await readJson(c.req.raw), db = c.env.DB!;
+  if (!await quota(db, 'vault_write')) return c.json(busy, 429);
+  return c.json({ saved: await setWrappedKey(db, c.get('session'), body) });
+});
+app.delete('/api/auth/account', async c => {
+  const body = await readJson(c.req.raw), db = c.env.DB!;
+  if (!exactKeys(body, ['confirm']) || body.confirm !== true) throw new InputError();
+  if (!await quota(db, 'account_erase')) return c.json(busy, 429);
+  await eraseAccount(db, c.get('session').userId);
+  c.header('Set-Cookie', sessionCookie(null));
+  return c.json({ erased: true });
+});
+app.get('/api/vault', async c => {
+  const db = c.env.DB!;
+  if (!await quota(db, 'vault_read')) return c.json(busy, 429);
+  const vault = await readVault(db, c.get('session').userId);
+  return c.json(vault ? { version: vault.version, ciphertext: vault.ciphertext, updated_at: vault.updated_at } : { version: 0, ciphertext: null, updated_at: null });
+});
+app.put('/api/vault', async c => {
+  const body = await readJson(c.req.raw, VAULT_BODY_LIMIT), db = c.env.DB!;
+  if (!await quota(db, 'vault_write')) return c.json(busy, 429);
+  const result = await writeVault(db, c.get('session').userId, body);
+  return result === 'conflict' ? c.json({ error: 'The saved copy changed. Reload before saving again.' }, 409) : c.json(result);
 });

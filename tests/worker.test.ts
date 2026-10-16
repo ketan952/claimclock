@@ -12,10 +12,11 @@ import type { Database, Statement, Bindings } from '../worker/types.ts';
 const migration = readFileSync(new NodeURL('../migrations/0001_initial.sql', import.meta.url), 'utf8');
 const optionalCityMigration = readFileSync(new NodeURL('../migrations/0002_optional_report_city.sql', import.meta.url), 'utf8');
 const transferMigration = readFileSync(new NodeURL('../migrations/0003_encrypted_transfers.sql', import.meta.url), 'utf8');
+const vaultMigration = readFileSync(new NodeURL('../migrations/0004_user_vaults.sql', import.meta.url), 'utf8');
 const maintenance = readFileSync(new NodeURL('../worker/aggregate.sql', import.meta.url), 'utf8');
 class SqliteDB implements Database {
   sql = new DatabaseSync(':memory:');
-  constructor() { this.sql.exec(migration); this.sql.exec(optionalCityMigration); this.sql.exec(transferMigration); }
+  constructor() { this.sql.exec(migration); this.sql.exec(optionalCityMigration); this.sql.exec(transferMigration); this.sql.exec(vaultMigration); }
   prepare(sql: string): Statement {
     const database = this.sql;
     let values: (string | number | null)[] = [];

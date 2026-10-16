@@ -1,7 +1,7 @@
 import type { Bindings } from './types.ts';
 import { record } from './security.ts';
 
-export type TurnstileAction = 'reports' | 'explain' | 'transfer_create' | 'transfer_lookup';
+export type TurnstileAction = 'reports' | 'explain' | 'transfer_create' | 'transfer_lookup' | 'auth_register';
 export const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 export function turnstileConfig(env: Bindings) {
   const secret = env.TURNSTILE_SECRET_KEY?.trim(), sitekey = env.TURNSTILE_SITE_KEY?.trim();
