@@ -107,7 +107,9 @@ test('spoken insurers and plans resolve from fragments and aliases, and ambiguit
 
 test('spoken times accept "now" and recent instants and refuse the future or anything older than a year',()=>{
  assert.equal(parseSpokenTime(undefined,NOW),NOW.toISOString());assert.equal(parseSpokenTime('Now',NOW),NOW.toISOString());
- assert.equal(parseSpokenTime('2026-10-17T11:00',NOW).slice(0,4),'2026');
+ const local=parseSpokenTime('2026-10-16T11:00',NOW);
+ assert.equal(Date.parse(local),new Date('2026-10-16T11:00').getTime(),'a zone-less spoken time is read in the device zone, as the user meant it');
+ assert.ok(Date.parse(local)<NOW.getTime(),'the previous day is in the past everywhere from UTC-12 to UTC+14');
  assert.throws(()=>parseSpokenTime('2027-01-01T00:00:00Z',NOW),/time/);
  assert.throws(()=>parseSpokenTime('2025-01-01T00:00:00Z',NOW),/time/);
  assert.throws(()=>parseSpokenTime('yesterday-ish',NOW),/time/);
