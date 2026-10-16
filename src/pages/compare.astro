@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import plans from '../../data/plans.json';
+import contacts from '../../data/contacts.json';
+const insurerName=(id:string)=>contacts.find(c=>c.id===id)?.name||id;
+const catalogue=[...plans].sort((a,b)=>insurerName(a.insurer_id).localeCompare(insurerName(b.insurer_id))||a.name.localeCompare(b.name));
+const rows=['discharge_lt1h','discharge_gt6h','room_rent','copay','ped_waiting_months','specific_waiting_months','initial_waiting_days','consumables','health_checkup','pre_post_hospitalisation','sub_limits'];
+---
+<Base title="Compare health plans on the rules that bite — ClaimClock" description="Side-by-side comparison of published plan rules: room rent, co-payment, waiting periods, consumables, health check-up and real cashless discharge speed. No premiums, no commissions."><div class="wrap">
+ <section class="page-hero"><p class="eyebrow" data-i18n="compare.eyebrow">THE RULES THAT DECIDE A CLAIM</p><h1 data-i18n="compare.title">Compare plans on what matters at the hospital</h1><p class="lead" data-i18n="compare.lead">Not premiums — the clauses that cut a claim: room rent, co-payment, waiting periods, consumables, the check-up benefit, and how fast each insurer actually clears cashless discharge in its own IRDAI disclosures.</p></section>
+ <div class="notice" data-i18n="compare.caution">ClaimClock sells nothing and earns nothing from any insurer. Every cell links to the insurer’s own document and the date we read it; “not verified” means exactly that. This is published-rule comparison, not a recommendation to buy.</div>
+ <section class="card"><p class="section-number" data-i18n="compare.sectionPick">Pick up to three plans</p><h2 data-i18n="compare.pickTitle">Side by side</h2>
+  <form id="compare-form" class="form-grid">
+   {[1,2,3].map(n=><label><span>{n}.</span><select name={`plan${n}`}><option value="" data-i18n="compare.pickNone">— none —</option>{catalogue.map(p=><option value={p.id}>{insurerName(p.insurer_id)} · {p.name}</option>)}</select></label>)}
+  </form>
+  <p class="fine-print swipe-hint" data-i18n="comparison.swipe">Swipe the table sideways to see every column. The insurer name stays in view.</p>
+  <div class="comparison-scroll" tabindex="0" data-i18n-aria-label="compare.tableLabel" aria-label="Plan comparison"><table class="comparison-table compare-table" id="compare-table"><thead><tr id="compare-head"><th data-i18n="compare.rule">Rule</th></tr></thead><tbody id="compare-body">{rows.map(key=><tr data-row={key}><th scope="row" data-i18n={`compare.row.${key}`}>{key}</th></tr>)}</tbody></table></div>
+  <p class="fine-print" data-i18n="compare.dischargeNote">Discharge rows use each insurer’s latest IRDAI NL-48 individual-policy disclosure, counted from the TPA receiving the discharge bill. A 2–6 hour bucket cannot show whether the 3-hour rule was met; see the Delay Index methodology.</p>
+  <p id="compare-status" class="status" role="status"></p>
+ </section>
+ <div class="index-columns"><div class="stack">
+  <section class="card" id="family-card"><p class="section-number" data-i18n="compare.sectionFamily">Family structure</p><h2 data-i18n="compare.familyTitle">How should a family be covered?</h2><p data-i18n="compare.familyBody">Enter ages and whether anyone has a diagnosed condition. The advice is about structure — floater or separate policies, top-ups, waiting periods — never about a brand.</p>
+   <div id="family-members"></div>
+   <div class="button-row"><button type="button" class="button-secondary" id="family-add" disabled data-i18n="compare.addMember">Add a member</button><button type="button" class="text-button" id="family-clear" disabled data-i18n="compare.clearMembers">Clear</button></div>
+   <div id="family-advice" class="result" role="status" aria-live="polite"></div>
+  </section>
+ </div><aside class="stack">
+  <section class="card rights-card"><h2 data-i18n="compare.whyTitle">Why these seven rules</h2><p data-i18n="compare.whyBody">In ClaimClock’s own deduction reviews, room-rent proportionate cuts and consumables are the two most common reductions; co-payments and waiting periods are the two most common reasons a claim is reduced or refused outright. Premiums matter, but these decide what is paid.</p><a class="death-link" href="/check-coverage/" data-i18n="compare.coverageLink">Check a specific benefit against your policy →</a><a class="death-link" href="/index/" data-i18n="compare.indexLink">Open the full Discharge Delay Index →</a></section>
+ </aside></div>
+</div><script>import '../lib/compare-ui';</script></Base>
+<style is:global>
+ .comparison-table.compare-table{width:max(100%,720px)}.comparison-table.compare-table td{white-space:normal;vertical-align:top;font-size:.82rem;line-height:1.5;overflow-wrap:anywhere;min-width:200px;max-width:280px}.comparison-table.compare-table tbody th{white-space:normal;min-width:160px;max-width:200px;font-size:.8rem}.compare-table td.unknown{color:var(--muted);font-style:italic}.compare-table td a{display:block;font-size:.68rem;margin-top:6px}.compare-table thead th{white-space:normal}.compare-table thead th small{display:block;font-weight:400;margin-top:4px;color:#53655d}#compare-form label span{font-weight:600}#family-members .member-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:end;margin-top:12px}#family-members .member-row label{margin:0}#family-members .checkbox-label{min-height:52px;align-items:center}.result:empty{display:none}#family-advice{margin-top:18px}#family-advice li{font-size:.88rem;margin-top:10px}#family-advice li.final{color:var(--muted);font-size:.8rem}
+ @media(max-width:480px){#family-members .member-row{grid-template-columns:1fr 1fr}#family-members .member-row .text-button{grid-column:1/-1;text-align:left}.comparison-table.compare-table tbody th{min-width:118px;max-width:132px;font-size:.72rem;padding:12px 8px;line-height:1.4}.comparison-table.compare-table td{min-width:200px;font-size:.8rem}.comparison-table.compare-table thead th{font-size:.8rem}}
+</style>

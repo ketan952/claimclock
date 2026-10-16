@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import plans from '../../data/plans.json';
+import contacts from '../../data/contacts.json';
+const insurerName=(id:string)=>contacts.find(c=>c.id===id)?.name||id;
+const catalogue=[...plans].sort((a,b)=>insurerName(a.insurer_id).localeCompare(insurerName(b.insurer_id))||a.name.localeCompare(b.name));
+---
+<Base title="Is this covered? — ClaimClock" description="Check a health check-up, room upgrade, waiting period or pre/post-hospitalisation expense against your policy's published rules before you book."><div class="wrap">
+ <section class="page-hero"><p class="eyebrow" data-i18n="coverage.eyebrow">BEFORE YOU BOOK</p><h1 data-i18n="coverage.title">Is this covered?</h1><p class="lead" data-i18n="coverage.lead">Check everyday questions against your policy’s own published rules — the annual health check-up, a better room, a waiting period, a test before or after admission. Everything runs on this device; nothing is sent anywhere.</p></section>
+ <div class="notice" data-i18n="coverage.caution">This shows what the published rules imply. Your policy schedule, optional covers and the insurer’s claim assessment decide the actual payout. Use it to ask the right question, not as a promise.</div>
+ <div class="index-columns"><div class="stack">
+  <section class="card" id="source-card"><p class="section-number" data-i18n="coverage.sectionPolicy">Your policy</p><h2 data-i18n="coverage.sourceTitle">Which policy are we checking?</h2><p data-i18n="coverage.sourceBody">Pick a saved policy from My Vault or a plan from the catalogue. Fill the blanks the rules need.</p>
+   <form id="source-form" class="form-grid">
+    <label class="full" id="vault-policy-field" hidden><span data-i18n="coverage.vaultPolicy">Saved policy</span><select name="vaultPolicy"></select></label>
+    <label class="full"><span data-i18n="coverage.plan">Catalogue plan</span><select name="planId"><option value="" data-i18n="coverage.planNone">Not in the catalogue — I will enter the rules</option>{catalogue.map(p=><option value={p.id}>{insurerName(p.insurer_id)} · {p.name}</option>)}</select></label>
+    <label><span data-i18n="vault.sumInsured">Sum insured (₹)</span><input name="sumInsured" type="number" min="1" max="1000000000" step="1" inputmode="numeric" /></label>
+    <label class="checkbox-label"><input type="checkbox" name="floater" /><span data-i18n="coverage.floater">Family floater (one sum insured shared by all members)</span></label>
+    <label><span data-i18n="vault.inceptionDate">Current policy start date</span><input name="inceptionDate" type="date" /></label>
+    <label><span data-i18n="coverage.continuityShort">Continuous cover since</span><input name="continuityFrom" type="date" /><small data-i18n="coverage.continuityHint">First policy date, including ported or migrated years.</small></label>
+    <label><span data-i18n="coverage.memberAge">Age of the member (years)</span><input name="memberAge" type="number" min="0" max="120" inputmode="numeric" /></label>
+    <label><span data-i18n="coverage.entryAge">Age when first insured</span><input name="entryAge" type="number" min="0" max="120" inputmode="numeric" /><small data-i18n="coverage.entryAgeHint">Some co-payments depend on the age at entry, not today’s age.</small></label>
+   </form>
+   <div id="plan-rules" class="plan-rules"></div>
+   <p class="fine-print"><a href="/vault/" data-i18n="coverage.saveHint">Save this policy in My Vault once and these fields fill themselves next time.</a></p>
+  </section>
+  <section class="card" id="checkup-card"><p class="section-number" data-i18n="coverage.sectionCheckup">Annual health check-up</p><h2 data-i18n="coverage.checkupTitle">Can I book a full-body check-up?</h2><p data-i18n="coverage.checkupBody">Whether the benefit is live this policy year, how much it pays and how to book it so the claim is not refused.</p>
+   <form id="checkup-form" class="form-grid">
+    <label><span data-i18n="vault.healthCheckupLastClaimedOn">Health check-up last used on</span><input name="lastClaimedOn" type="date" /></label>
+    <label id="claim-free-field" hidden><span data-i18n="coverage.claimFree">Was last policy year claim-free?</span><select name="claimFree"><option value="" data-i18n="coverage.claimFreeUnknown">Not sure</option><option value="yes" data-i18n="coverage.yes">Yes</option><option value="no" data-i18n="coverage.no">No</option></select></label>
+    <label class="full" id="manual-checkup-field" hidden><span data-i18n="coverage.manualCheckupLimit">Check-up limit in your schedule (₹ per year)</span><input name="manualCheckupLimit" type="number" min="0" max="10000000" step="1" inputmode="numeric" /></label>
+   </form>
+   <div id="checkup-result" class="result" role="status" aria-live="polite"></div>
+  </section>
+  <section class="card" id="room-card"><p class="section-number" data-i18n="coverage.sectionRoom">Room upgrade</p><h2 data-i18n="coverage.roomTitle">What happens if I take a better room?</h2><p data-i18n="coverage.roomBody">Above your eligible room, insurers reduce the room charge and, in many policies, the surgeon, OT and other associated charges in the same proportion.</p>
+   <form id="room-form" class="form-grid">
+    <label class="full"><span data-i18n="coverage.roomRule">Room rule in your policy</span><select name="roomRule"><option value="catalogue" data-i18n="coverage.roomRuleCatalogue">Use the catalogue plan’s rule</option><option value="any" data-i18n="coverage.roomRuleAny">Any room, no limit</option><option value="category" data-i18n="coverage.roomRuleCategory">Room category (e.g. single private AC)</option><option value="percent" data-i18n="coverage.roomRulePercent">Percentage of sum insured per day</option><option value="cap" data-i18n="coverage.roomRuleCap">Rupee limit per day</option></select></label>
+    <label id="room-percent-field" hidden><span data-i18n="coverage.roomPercent">Percent of sum insured per day</span><input name="roomPercent" type="number" min="0.1" max="10" step="0.1" inputmode="decimal" /></label>
+    <label id="room-cap-field" hidden><span data-i18n="coverage.roomCap">Rupee limit per day</span><input name="roomCap" type="number" min="1" max="1000000" step="1" inputmode="numeric" /></label>
+    <label id="room-eligible-field"><span data-i18n="coverage.hospitalEligibleRate">Hospital’s rate for your eligible room (₹/day)</span><input name="hospitalEligibleRate" type="number" min="1" max="10000000" step="1" inputmode="numeric" /><small data-i18n="coverage.hospitalEligibleHint">Ask the admission desk for the eligible category’s tariff.</small></label>
+    <label><span data-i18n="coverage.chosenRoomRent">Rent of the room you want (₹/day)</span><input name="chosenRoomRent" type="number" min="1" max="10000000" step="1" inputmode="numeric" required /></label>
+    <label><span data-i18n="coverage.days">Expected days in that room</span><input name="days" type="number" min="1" max="365" step="1" inputmode="numeric" value="3" required /></label>
+    <label class="full"><span data-i18n="coverage.associated">Associated charges: surgeon, anaesthetist, OT, consultants, nursing (₹)</span><input name="associatedExpenses" type="number" min="0" max="1000000000" step="1" inputmode="numeric" value="0" /><small data-i18n="coverage.associatedHint">Medicines, implants and diagnostics are usually outside the proportionate cut; ICU is often exempt.</small></label>
+    <button type="submit" class="button-secondary full" disabled data-i18n="coverage.roomCalculate">Estimate the impact</button>
+   </form>
+   <div id="room-result" class="result" role="status" aria-live="polite"></div>
+  </section>
+  <section class="card" id="waiting-card"><p class="section-number" data-i18n="coverage.sectionWaiting">Waiting periods</p><h2 data-i18n="coverage.waitingTitle">Has the waiting period passed?</h2><p data-i18n="coverage.waitingBody">Initial, specific-disease and pre-existing-disease waits counted from your first policy, plus the 60-month moratorium after which non-disclosure cannot be used against a claim.</p>
+   <form id="waiting-form" class="form-grid">
+    <label><span data-i18n="coverage.pedMonths">Pre-existing disease wait (months)</span><input name="pedMonths" type="number" min="0" max="120" step="1" inputmode="numeric" /></label>
+    <label><span data-i18n="coverage.specificMonths">Specific disease wait (months)</span><input name="specificMonths" type="number" min="0" max="120" step="1" inputmode="numeric" /></label>
+    <label><span data-i18n="coverage.initialDays">Initial wait (days)</span><input name="initialDays" type="number" min="0" max="365" step="1" inputmode="numeric" /></label>
+   </form>
+   <div id="waiting-result" class="result" role="status" aria-live="polite"></div>
+  </section>
+  <section class="card" id="prepost-card"><p class="section-number" data-i18n="coverage.sectionPrePost">Tests and consultations around an admission</p><h2 data-i18n="coverage.prePostTitle">Is this OPD bill, scan or test payable?</h2><p data-i18n="coverage.prePostBody">Outpatient costs are usually payable only inside the pre- and post-hospitalisation windows, for the same condition, when the admission claim itself is paid.</p>
+   <form id="prepost-form" class="form-grid">
+    <label><span data-i18n="coverage.preDays">Pre-hospitalisation window (days)</span><input name="preDays" type="number" min="0" max="365" step="1" inputmode="numeric" /></label>
+    <label><span data-i18n="coverage.postDays">Post-hospitalisation window (days)</span><input name="postDays" type="number" min="0" max="365" step="1" inputmode="numeric" /></label>
+    <label><span data-i18n="coverage.admissionDate">Admission date</span><input name="admissionDate" type="date" required /></label>
+    <label><span data-i18n="coverage.dischargeDate">Discharge date</span><input name="dischargeDate" type="date" required /></label>
+    <label class="full"><span data-i18n="coverage.expenseDate">Date of the test, scan or consultation</span><input name="expenseDate" type="date" required /></label>
+    <button type="submit" class="button-secondary full" disabled data-i18n="coverage.prePostCheck">Check the window</button>
+   </form>
+   <div id="prepost-result" class="result" role="status" aria-live="polite"></div>
+  </section>
+ </div><aside class="stack">
+  <section class="card rights-card" id="copay-card"><h2 data-i18n="coverage.copayTitle">Co-payment on a claim</h2><p data-i18n="coverage.copayBody">The share of an admissible claim you pay yourself under the policy’s co-payment clause.</p>
+   <form id="copay-form" class="form-grid"><label class="full"><span data-i18n="coverage.admissible">Admissible claim amount (₹)</span><input name="admissible" type="number" min="0" max="1000000000" step="1" inputmode="numeric" /></label></form>
+   <div id="copay-result" class="result" role="status" aria-live="polite"></div>
+  </section>
+  <section class="card" id="sublimits-card"><h2 data-i18n="coverage.sublimitsTitle">Treatment sub-limits</h2><p data-i18n="coverage.sublimitsBody">Caps on specific procedures in the plan’s published terms.</p><div id="sublimits-result" class="result"></div></section>
+  <section class="card"><h2 data-i18n="coverage.sourcesTitle">Where these rules come from</h2><p data-i18n="coverage.sourcesBody">Each rule links to the insurer’s own document and the date we read it. Nothing here is a premium or a recommendation to buy.</p><div id="coverage-sources" class="fine-print"></div><a class="death-link" href="/compare/" data-i18n="coverage.compareLink">Compare plans side by side →</a></section>
+ </aside></div>
+</div><script>import '../lib/coverage-ui';</script></Base>
+<style is:global>
+ .result{margin-top:16px}.result:empty{display:none}.result .verdict{font-size:1.05rem;font-weight:600;margin-bottom:6px}.result .verdict.ok{color:#2b5747}.result .verdict.warn{color:#8a5a12}.result .verdict.no{color:var(--red)}.result p{font-size:.85rem;margin-top:6px}.result ul{margin-top:8px;font-size:.82rem}.result li+li{margin-top:4px}.result .amount{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;margin:6px 0}.plan-rules:empty{display:none}.plan-rules{background:#f0f2e7;padding:16px;border-radius:10px;margin-top:16px}.plan-rules h3{font-size:.95rem;margin-bottom:8px}.plan-rules p{margin-top:6px}.plan-rules a,#coverage-sources a{font-size:.68rem;margin-left:4px}#coverage-sources p{margin-top:8px}
+</style>

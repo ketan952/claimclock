@@ -443,7 +443,7 @@ Execute in this order, committing and updating `RESUME.md` at the end of each mi
   - Create `data/plans.json` (curated retail health plans across major insurers with verified CIS rules: room cap, co-pay, PED wait, consumables, annual health checkup limit & booking mode, renewal month).
   - Create `src/lib/policy-parser.ts` (on-device PDF/CIS parser) + `src/pages/vault.astro` (My Profile, Family Members, My Policies) + DigiLocker Requester adapter behind `PolicySourceAdapter`.
   - Wire logged-in user profile + selected policy into `/`, `/deductions/`, and `/rejected/` so letters auto-fill `[Your name]`, `[Policy number]`, and `[Claim number]` from the user's saved vault.
-- [ ] **M21 — "Is This Covered?" Simulator & Family Plan Comparison:**
+- [x] **M21 — "Is This Covered?" Simulator & Family Plan Comparison** (shipped 16 Oct 2026; see `RESUME.md` for scope notes — OPD/diagnostics is answered as the pre-/post-hospitalisation window rather than a standalone OPD calculator, and the "recommender" gives structural family advice, never a plan pick):
   - Build `src/pages/check-coverage.astro` + `src/lib/coverage-simulator.ts` (Full-Body Checkup, OPD/Diagnostics, Room Upgrade impact calculator, Surgery sub-limits, Waiting Period & 60-Month Moratorium tracker).
   - Build `src/pages/compare.astro` + `src/lib/plan-compare.ts` (Family profile recommender + side-by-side plan comparison combining CIS trap rules with the NL-48 discharge-speed dataset; no premiums, no quotes, CIS links).
 - [ ] **M22 — Grok-Style Interactive Live Voice Agent ("ClaimClock Voice"):**

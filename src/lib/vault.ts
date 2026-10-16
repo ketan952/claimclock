@@ -26,10 +26,10 @@ export type Policy={
 export type Profile={name:string;city:string;language:Language};
 export type Vault={format:'claimclock-vault';version:1;updatedAt:string;profile:Profile;members:Member[];policies:Policy[];defaultPolicyId:string|null;cases:CaseBackup[]};
 export type SyncState={version:number;syncedAt:string|null;userId:string|null};
-export type Plan={id:string;insurer_id:string;name:string;kind:PolicyKind;rules:Record<string,{value:unknown;source_url:string;verified_on:string;evidence:string}|null>};
+export type Plan={id:string;insurer_id:string;name:string;kind:PolicyKind;rules:Record<string,{value?:unknown;source_url:string;verified_on:string;evidence:string;[key:string]:unknown}|null>};
 
 const insurerIds=new Set([...contacts.filter(c=>c.kind==='insurer').map(c=>c.id),'unlisted']);
-export const plans=plansRaw as Plan[];
+export const plans=plansRaw as unknown as Plan[];
 const planIds=new Set(plans.map(p=>p.id));
 const DATE=/^\d{4}-\d{2}-\d{2}$/;
 function object(value:unknown,keys:string[]):Record<string,unknown>{
