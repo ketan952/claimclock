@@ -21,6 +21,7 @@ test('ten insurers have source-backed contacts and correct preauthorisation para
  }
 });
 test('Index is static and usable offline with source-linked six buckets',async({page,context})=>{
+ if(process.env.QA_BASE_URL)test.setTimeout(90000); // precaching 87 URLs over the public network can exceed the local 30 s budget
  await page.goto('/index/');await expect(page.locator('h1')).toContainText('Discharge Delay Index');await page.goto('/index/hdfc-ergo/');await expect(page.locator('.row-card').first()).toContainText('FY2025-26');await expect(page.locator('.values').first()).toContainText('2–6 h');await page.screenshot({path:'qa/screenshots/mobile-index.png',fullPage:true});
  await page.waitForFunction(()=>navigator.serviceWorker.controller!==null);await context.setOffline(true);await page.reload();await expect(page.locator('h1')).toContainText('HDFC');await expect(page.locator('#offline-status')).toBeVisible();await page.goto('/');await expect(page.locator('#start-form')).toBeVisible();await context.setOffline(false);
 });

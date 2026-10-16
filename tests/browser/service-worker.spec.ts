@@ -46,6 +46,7 @@ test('installed worker preserves online query pages, genuine 404 and network-onl
 });
 
 test('offline unknown page uses offline fallback while a precached page keeps its real content',async({page,context})=>{
+ if(process.env.QA_BASE_URL)test.setTimeout(90000);
  await page.goto('/');await page.waitForFunction(()=>navigator.serviceWorker.controller!==null);
  await context.setOffline(true);await page.goto('/index/star-health/');await expect(page.locator('h1')).toContainText('Star');
  await page.goto('/not-cached-anywhere/');await expect(page.locator('h1')).toHaveText('You are offline');await context.setOffline(false);
