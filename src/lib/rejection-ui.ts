@@ -7,7 +7,7 @@ import {knownIdentifiers,redact} from './redact';
 import {detectRejectionCategory,makeDoctorJustificationNote,makeRejectionLetter,type RejectionCategory} from './rejection';
 import {initToolkits} from './toolkits-ui';
 
-const openLetter=setupLetterDialog();
+const openLetter=setupLetterDialog({insurerId:()=>(form.elements.namedItem('insurer') as HTMLSelectElement).value});
 const form=document.querySelector<HTMLFormElement>('#rejection-form')!;
 const status=document.querySelector<HTMLElement>('#rejection-status')!;
 const extractStatus=document.querySelector<HTMLElement>('#rejection-extract-status')!;

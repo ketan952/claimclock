@@ -6,7 +6,8 @@ import {setupLetterDialog} from './letter-dialog';import {download,listCases,sav
 
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
-const showLetter=setupLetterDialog();let inputs:DeductionInput[]=[],deductions:Deduction[]=[];let insurer='';let processing=false;
+let inputs:DeductionInput[]=[],deductions:Deduction[]=[];let insurer='';let processing=false;
+const showLetter=setupLetterDialog({insurerId:()=>insurer||(el<HTMLFormElement>('deduction-form').elements.namedItem('insurer') as HTMLSelectElement).value});
 let attachmentBaseline:CaseBackup|undefined;
 const statusLabel=(status:string)=>t(`deductions.verdict.${status}`);
 function append(parent:HTMLElement,tag:string,text:string,className=''){const n=document.createElement(tag);n.textContent=text;n.className=className;parent.append(n);return n;}

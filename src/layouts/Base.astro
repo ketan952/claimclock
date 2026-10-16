@@ -21,7 +21,7 @@ const card=Astro.url.pathname==='/index/'?'index':Astro.url.pathname.match(/^\/i
   <a class="skip-link" href="#main">Skip to content / सीधे मुख्य भाग पर जाएँ</a>
   <header class="site-header"><div class="header-inner">
     <a class="brand" href="/"><img src="/icon.svg" width="31" height="31" alt="" />Claim<span>Clock</span><span class="beta">BETA</span></a>
-    <nav aria-label="Main"><a href="/" data-i18n="nav.hospital">At the hospital</a><a href="/deductions/" data-i18n="nav.deductions">Paid less?</a><a href="/index/" data-i18n="nav.index">The Delay Index</a></nav>
+    <nav aria-label="Main"><a href="/" data-i18n="nav.hospital">At the hospital</a><a href="/deductions/" data-i18n="nav.deductions">Paid less?</a><a href="/index/" data-i18n="nav.index">The Delay Index</a><a href="/vault/" data-i18n="nav.vault">My Vault</a></nav>
     <div class="language" aria-label="Language / भाषा"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="hi" aria-pressed="false">हिन्दी</button></div>
   </div></header>
   <div id="offline-status" class="offline-status" role="status" hidden data-i18n="status.offline">You're offline. Your clock and saved messages still work.</div>

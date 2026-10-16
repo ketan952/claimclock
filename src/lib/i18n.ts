@@ -22,7 +22,7 @@ export function setLanguage(next:Language) {
   document.querySelector('.language')?.setAttribute('aria-label',t('common.language'));
   document.querySelectorAll('.beta').forEach(el=>el.textContent=t('common.beta'));
   document.querySelectorAll<HTMLElement>('[data-language]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.language===next)));
-  const titleKeys:Record<string,string>={'/':'hero.title','/privacy/':'privacy.title','/deductions/':'deductions.title','/rejected/':'rejection.title','/death/':'death.title','/index/':'index.title','/methodology/':'method.title','/about/':'about.title','/offline/':'offline.title'};
+  const titleKeys:Record<string,string>={'/':'hero.title','/privacy/':'privacy.title','/deductions/':'deductions.title','/rejected/':'rejection.title','/death/':'death.title','/index/':'index.title','/methodology/':'method.title','/about/':'about.title','/offline/':'offline.title','/vault/':'vault.title'};
   const title=titleKeys[location.pathname]||(document.querySelector('[data-i18n="notfound.title"]')?'notfound.title':undefined);if(title)document.title=`${t(title)} — ClaimClock`;else if(location.pathname.startsWith('/index/'))document.title=`${document.querySelector('h1')?.textContent||''} — ${t('index.title')}`;
   window.dispatchEvent(new CustomEvent('languagechange'));
 }

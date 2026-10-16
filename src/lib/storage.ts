@@ -37,6 +37,17 @@ export function saveDeductions(id:string,inputs:DeductionInput[],expected?:CaseB
 export function restoreCase(value:CaseBackup,replaceId?:string,expected?:CaseBackup):boolean{
  const store=readStore();if(!store)return false;try{const backup=parseBackup(value);if(replaceId){const index=store.cases.findIndex(c=>c.timeline.id===replaceId);if(expected&&!same(caseContents(store.cases[index]),caseContents(expected)))return conflict();if(index<0)return false;backup.timeline.id=replaceId;store.cases[index]=backup;}else {if(store.cases.length>=50)return false;backup.timeline.id=crypto.randomUUID();store.cases.push(backup);}store.selectedId=backup.timeline.id;return writeStore(store);}catch{issue='save';return false;}
 }
+/** Vault sync (M20): adds cases from another device without renaming them; existing ids and the 50-case limit are respected. */
+export function importCases(incoming:CaseBackup[]):{added:number;skipped:number}{
+ const store=readStore();if(!store)return {added:0,skipped:incoming.length};
+ let added=0,skipped=0;
+ for(const value of incoming){
+  try{const backup=parseBackup(value);if(store.cases.some(c=>c.timeline.id===backup.timeline.id)||store.cases.length>=50){skipped++;continue;}store.cases.push(backup);added++;}
+  catch{skipped++;}
+ }
+ if(added&&!writeStore(store))return {added:0,skipped:incoming.length};
+ return {added,skipped};
+}
 export function rawLocalBackup():string{try{return JSON.stringify({cases:localStorage.getItem(CASES_KEY),legacy:localStorage.getItem(LEGACY_KEY)},null,2);}catch{return '';}}
 export function eraseLocal(){const selected=getSelectedBackup();return selected?deleteCase(selected.timeline.id):true;}
 export function download(name:string,content:string,type='text/plain;charset=utf-8'){

@@ -1,6 +1,6 @@
 # ClaimClock design
 
-Updated 10 October 2026. Preserve a user's cashless-request timeline, prepare user-filed representations and explain sourced insurer disclosures. Information, not legal advice. No login, automatic complaint filing, calls or paid fallback. **Live deployment:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/) with personal Cloudflare hosting and migrated D1. Mode C was started after Mode A and the Index went live. The reviewed dependency snapshot passes the AGPL compatibility gate; upstream license terms and notices remain intact.
+Updated 16 October 2026. Preserve a user's cashless-request timeline, prepare user-filed representations and explain sourced insurer disclosures. Information, not legal advice. No login is required; M20 adds an optional passkey account whose vault the server can store but never read. No automatic complaint filing, calls or paid fallback. **Live deployment:** [claimclock.ketan952.workers.dev](https://claimclock.ketan952.workers.dev/) with personal Cloudflare hosting and migrated D1. Mode C was started after Mode A and the Index went live. The reviewed dependency snapshot passes the AGPL compatibility gate; upstream license terms and notices remain intact.
 
 ## Architecture and consent boundaries
 
@@ -26,6 +26,7 @@ D1 stores:
 - `aggregates`: insurer, request type, submission month, count, total minutes, beyond-window count and update time.
 - `aggregate_suppressions`: permanently excluded insurer/type/month keys after erasure.
 - `events`: daily counts of five fixed actions; `quotas`: global action counters and expiry.
+- M20 accounts: `users` (random id, creation time); `passkey_credentials` (credential id, COSE public key, algorithm, signature counter, transports, optional PRF-wrapped vault key the server cannot unwrap); `webauthn_challenges` (hash only, five-minute single use); `sessions` (SHA-256 of the cookie token, 30-day expiry); `vaults` (one AES-GCM envelope per account, ≤256 KiB, optimistic version).
 
 No patient name, hospital, policy number, IP, user agent or persistent analytics identifier is stored by the application. City plus precise timestamps may still enable reidentification; these are minimized reports, not proven anonymous data.
 
@@ -34,6 +35,12 @@ No patient name, hospital, policy number, IP, user agent or persistent analytics
 Submission returns a random 256-bit erasure token; only its SHA-256 hash reaches D1. Successful token-based deletion and a database trigger atomically remove the row, delete its entire public cell and add a suppression marker. Maintenance cannot republish the reduced cell, even if n remains ≥10. Wrong IDs/tokens do not confirm erasure; failures require retry. Already downloaded aggregates cannot be recalled. These measures reduce differencing; they do not provide differential privacy or verify report authenticity.
 
 Scheduled retention targets are reports **365 days**, events **90 days**, and quota keys approximately **two days**. These are not TTL guarantees: failed jobs can exceed targets. Daily Workers Cron and the optional Actions fallback execute identical SQL; monitor failures. Suppression markers persist to prevent republishing. The [privacy runbook](docs/privacy-operations.md) covers deletion, processor review, incident notices without delay and detailed 72-hour reporting where applicable; it is not compliance certification.
+
+## M20 vault and passkey boundary
+
+The vault (profile, family members, policies and attached cases) is validated and stored in plain form in the browser, exactly like cases. Letters keep producing placeholders; `identity.ts` substitutes the vault's name, policy number, claim number and UHID at display time and only for the insurer the letter concerns, so a Star letter never carries an HDFC policy number. The plan catalogue in `data/plans.json` records a published source, date and quoted evidence for every stated rule and `null` for anything unverified; `validate-data.mjs` enforces this. The on-device parser (`policy-parser.ts`) fills blanks only and lists what it could not find.
+
+Accounts use WebAuthn discoverable credentials with user verification; the Worker verifies ES256/RS256 assertions itself (`worker/webauthn.ts`, attestation treated as none), stores only hashes of challenges and session tokens, and never receives a vault key. The browser generates a 256-bit key, encrypts the vault with AES-256-GCM (`vault-crypto.ts`) and uploads ciphertext with an expected version; a mismatch returns 409 and the page asks the user which copy to keep. A new device gets the key from the passkey's PRF output (HKDF-wrapped copy stored per credential) or from a recovery link whose key lives in the URL fragment and is removed before any script loads. Registration needs Turnstile; every account route has its own global quota; sessions are HttpOnly, Secure, SameSite=Strict and scoped to `/api`. Account deletion removes the vault, sessions, credentials and user row together.
 
 ## Budgets and failure behavior
 

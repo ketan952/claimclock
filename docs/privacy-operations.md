@@ -61,16 +61,26 @@ Global atomic D1 counters use no IP or device identifiers:
 | Erasure requests | 100 | 10 |
 | Transfer creation | 100 | 3 |
 | Transfer lookup | 500 | 10 |
+| Passkey registration | 200 | 5 |
+| Passkey login | 1,000 | 20 |
+| Session check | 10,000 | 200 |
+| Vault read | 5,000 | 100 |
+| Vault write / wrapped key | 2,000 | 30 |
+| Account erasure | 100 | 5 |
 
 A rejected minute allocation may still consume a day permit. These deliberately low shared budgets favor no-cost operation; one abusive user can exhaust an optional feature for everyone. They cannot guarantee that the entire Cloudflare account stays below its free ceiling if other applications share it.
 
 At the maximum envelope size, each transfer stores 87,382 base64url characters. With healthy hourly cleanup, conservatively budget 800 rows across partial UTC days: about 69.9 MB of ciphertext plus metadata/indexes, below the 500 MB per-database free ceiling. These application caps supplement account-level monitoring; they do not reserve Cloudflare capacity.
 
-Cron `43 * * * *` purges expired transfers only. Daily cron `17 2 * * *` runs `worker/aggregate.sql`, shared with the GitHub Actions fallback: it purges expired transfers and old raw reports/counts, expires quota keys, and inserts eligible frozen aggregates. The hourly path never publishes aggregates. Quota keys expire after one day and are removed at the next daily run, targeting at most two days. Physical retention is scheduled: a failed/missing job can exceed these targets, although expired transfer lookup still fails immediately. Monitor scheduled invocation status and run the fallback immediately on a failure. The Actions fallback uses `wrangler d1 execute`, not a public admin endpoint; enable repository variable `CLOUDFLARE_AGGREGATE_FALLBACK=true` when needed. Never export raw report or transfer tables to public CI artifacts.
+Cron `43 * * * *` purges expired transfers, expired passkey challenges and expired sessions. Daily cron `17 2 * * *` runs `worker/aggregate.sql`, shared with the GitHub Actions fallback: it purges expired transfers and old raw reports/counts, expires quota keys, and inserts eligible frozen aggregates. The hourly path never publishes aggregates. Quota keys expire after one day and are removed at the next daily run, targeting at most two days. Physical retention is scheduled: a failed/missing job can exceed these targets, although expired transfer lookup still fails immediately. Monitor scheduled invocation status and run the fallback immediately on a failure. The Actions fallback uses `wrangler d1 execute`, not a public admin endpoint; enable repository variable `CLOUDFLARE_AGGREGATE_FALLBACK=true` when needed. Never export raw report or transfer tables to public CI artifacts.
+
+## M20 accounts and vaults
+
+`/api/auth/*` and `/api/vault` hold: `users.id` (random UUID), `passkey_credentials` (public key, algorithm, counter, transports, optional PRF-wrapped vault key — opaque ciphertext), `webauthn_challenges` (SHA-256 only, deleted on use or by the hourly purge), `sessions` (SHA-256 of the cookie token, 30-day expiry) and `vaults` (one AES-256-GCM envelope of at most 256 KiB, plus version and update time). No name, policy number, health detail, key, IP or user agent is stored. The operator cannot decrypt a vault or reset a lost key; the user's recovery link or a PRF-capable synced passkey are the only unlock paths, and the page says so before the account is created. `DELETE /api/auth/account` (session + `{confirm:true}`) removes all five rows in one batch and clears the cookie; a user who has lost the passkey and the recovery key can only clear local data, since no server-side identity exists to authenticate an erasure request. Sign-out deletes the session row. At 256 KiB per vault, 5,000 accounts would need about 1.75 GB — monitor D1 storage against the free ceiling and lower `VAULT_ENVELOPE_LIMIT` before approaching it.
 
 ## Deployment and AI enablement
 
-Use only the personal `ketan952/claimclock` repository and personal Cloudflare account. Bind D1 as `DB` with database name `claimclock`, configure its actual database ID and `migrations_dir:'migrations'`, then apply all pending migrations through Wrangler (`0001` initial tables, `0002` nullable report city, `0003` encrypted transfers). `ASSETS` remains the static asset binding. The SQL import requires Wrangler's Text rule for `**/*.sql`. Keep real development values in ignored `.dev.vars`; `.dev.vars.example` contains placeholders only. Never put secrets in chat or commit them.
+Use only the personal `ketan952/claimclock` repository and personal Cloudflare account. Bind D1 as `DB` with database name `claimclock`, configure its actual database ID and `migrations_dir:'migrations'`, then apply all pending migrations through Wrangler (`0001` initial tables, `0002` nullable report city, `0003` encrypted transfers, `0004` passkey accounts and encrypted vaults). `ASSETS` remains the static asset binding. The SQL import requires Wrangler's Text rule for `**/*.sql`. Keep real development values in ignored `.dev.vars`; `.dev.vars.example` contains placeholders only. Never put secrets in chat or commit them.
 
 The deploy workflow is off until repository variable `CLOUDFLARE_DEPLOY_ENABLED=true`. It runs checks, tests and the reviewed AGPL compatibility/notice gate before any migration or deployment. A failed license audit must block release. Set `CLOUDFLARE_D1_ENABLED=true` only after provisioning the optional database. Secrets are `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`; never print or commit them.
 

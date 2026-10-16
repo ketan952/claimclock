@@ -3,10 +3,14 @@ import { BIMA_DRAFT_LIMIT } from './letter-limits';
 import { setMessage } from './i18n';
 import { download } from './storage.ts';
 import { track } from './events.ts';
-export function setupLetterDialog() {
+import { currentIdentity, hasPlaceholders, personalize } from './identity.ts';
+export type LetterDialogOptions = { insurerId?: () => string | undefined };
+export function setupLetterDialog(options: LetterDialogOptions = {}) {
   const dialog=document.querySelector<HTMLDialogElement>('#letter-dialog')!;
   const body=document.querySelector<HTMLTextAreaElement>('#letter-body')!;
   let current:Letter|null=null;let recipient='';let regenerate:(()=>Letter)|null=null;
+  // Letters are generated with placeholders; the vault (if any) fills them at display time.
+  const fill=(letter:Letter)=>personalize(letter,currentIdentity(options.insurerId?.()||undefined));
   const updateLinks=()=>{
     const text=body.value;const bima=current?.kind==='bima',overBudget=bima&&text.length>BIMA_DRAFT_LIMIT;
     const counter=document.querySelector<HTMLElement>('#bima-character-count')!;counter.hidden=!bima;if(bima)setMessage(counter,overBudget?'bima.overBudget':'bima.characterBudget',{count:text.length,limit:BIMA_DRAFT_LIMIT});
@@ -25,8 +29,11 @@ export function setupLetterDialog() {
   });
   document.querySelector('#letter-download')!.addEventListener('click',()=>{if(current?.kind==='bima'&&body.value.length>BIMA_DRAFT_LIMIT)return;download(`claimclock-${current?.kind||'letter'}.txt`,`${current?.subject}\n\n${body.value}`);});
   const render=()=>{if(!current)return;document.querySelector('#letter-subject')!.textContent=current.subject;body.value=current.body;if(current.kind==='bima')body.maxLength=BIMA_DRAFT_LIMIT;else body.removeAttribute('maxlength');setMessage(document.querySelector<HTMLElement>('#letter-status')!,null);(document.querySelector('#bima-instructions') as HTMLElement).hidden=current.kind!=='bima';// Bima Bharosa complaints are filed on the portal, not emailed: swap the email action for the portal link.
-    (document.querySelector('#letter-email') as HTMLElement).hidden=['bima','ombudsman'].includes(current.kind);(document.querySelector('#letter-portal') as HTMLElement).hidden=current.kind!=='bima';(document.querySelector('#letter-ombudsman-portal') as HTMLElement).hidden=current.kind!=='ombudsman';updateLinks();};
-  window.addEventListener('languagechange',()=>{if(dialog.open&&regenerate&&current){current=regenerate();render();}});
+    (document.querySelector('#letter-email') as HTMLElement).hidden=['bima','ombudsman'].includes(current.kind);(document.querySelector('#letter-portal') as HTMLElement).hidden=current.kind!=='bima';(document.querySelector('#letter-ombudsman-portal') as HTMLElement).hidden=current.kind!=='ombudsman';
+    const pending=hasPlaceholders(current.body);const note=document.querySelector<HTMLElement>('#letter-note');if(note){note.dataset.i18n=pending?'letter.note':'letter.noteFilled';setMessage(note,pending?'letter.note':'letter.noteFilled');}
+    const hint=document.querySelector<HTMLElement>('#letter-vault-hint');if(hint)hint.hidden=!pending;
+    updateLinks();};
+  window.addEventListener('languagechange',()=>{if(dialog.open&&regenerate&&current){current=fill(regenerate());render();}});
   window.addEventListener('casechange',()=>{
     dialog.close();current=null;regenerate=null;recipient='';body.value='';body.removeAttribute('maxlength');document.querySelector('#letter-subject')!.textContent='';setMessage(document.querySelector<HTMLElement>('#letter-status')!,null);
     for(const id of ['letter-copy','letter-download'])(document.getElementById(id) as HTMLButtonElement).disabled=true;
@@ -34,6 +41,6 @@ export function setupLetterDialog() {
     for(const id of ['bima-character-count','bima-instructions'])(document.getElementById(id) as HTMLElement).hidden=true;
   });
   return (source:Letter|(()=>Letter),email='')=>{
-    regenerate=typeof source==='function'?source:null;current=regenerate?regenerate():source as Letter;recipient=email;render();dialog.showModal();
+    regenerate=typeof source==='function'?source:null;current=fill(regenerate?regenerate():source as Letter);recipient=email;render();dialog.showModal();
   };
 }

@@ -1,4 +1,4 @@
-import qrcode from 'qrcode-generator';
+import {drawQr} from './qr.ts';
 import type {CaseBackup} from './backup.ts';
 import {decryptBackup,encryptBackup,parseTransferReference,transferLink,TransferError} from './transfer-crypto.ts';
 import {getTurnstileToken} from './turnstile';
@@ -30,13 +30,6 @@ async function transferRequest(path:string,body:{ciphertext:string}|{code:string
 }
 function expiration(value:unknown):string {
  if(typeof value!=='string'||!Number.isFinite(Date.parse(value)))throw new ApiFailure('transfer.requestFailed');return value;
-}
-function drawQr(canvas:HTMLCanvasElement,text:string):void {
- const qr=qrcode(0,'M');qr.addData(text,'Byte');qr.make();
- const quiet=4,scale=5,modules=qr.getModuleCount(),side=(modules+2*quiet)*scale;
- canvas.width=side;canvas.height=side;const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Canvas unavailable');
- ctx.fillStyle='#fff';ctx.fillRect(0,0,side,side);ctx.fillStyle='#000';
- for(let y=0;y<modules;y++)for(let x=0;x<modules;x++)if(qr.isDark(y,x))ctx.fillRect((x+quiet)*scale,(y+quiet)*scale,scale,scale);
 }
 export function setupTransfer({getBackup,previewBackup}:{getBackup:()=>CaseBackup|null;previewBackup:(backup:CaseBackup)=>void}):void {
  const root=document.querySelector<HTMLElement>('#transfer-card');if(!root||root.dataset.initialized)return;root.dataset.initialized='true';

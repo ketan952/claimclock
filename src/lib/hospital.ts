@@ -17,16 +17,20 @@ import {initToolkits} from './toolkits-ui';
 import {setupLetterDialog} from './letter-dialog.ts';
 import {track} from './events.ts';
 import {reportPayload,reportFailure,reportFieldLabels,type ReportField} from './report.ts';
+import {loadVault,selectPolicy} from './vault.ts';
 const contacts=contactsRaw as Contact[],rules=rulesRaw as Rule[];
 const el=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const form=<T extends HTMLFormElement=HTMLFormElement>(id:string)=>el<T>(id);
-const showLetter=setupLetterDialog();
+const showLetter=setupLetterDialog({insurerId:()=>timeline?.insurerId});
 let baselineCase=getSelectedBackup();let timeline=baselineCase?.timeline||null;let unsavedDraft:Timeline|null=null;let editingDetails=false;let unsavedChanges=false;let reportStatusKey='';let reportErrorField:ReportField|undefined;let deletionSaved=true;let expandedBreach='';
 const start=form('start-form');
 const input=(f:HTMLFormElement,n:string)=>f.elements.namedItem(n) as HTMLInputElement;
 input(start,'submittedAt').value=localInputValue();
 input(form('event-form'),'at').value=localInputValue();
 input(form('finish-form'),'decidedAt').value=localInputValue();
+// A fresh case starts with the vault's default health policy insurer (M20); the user can still change it.
+function prefillInsurerFromVault(){const policy=selectPolicy(loadVault());if(!timeline&&policy&&policy.insurerId!=='unlisted'&&!input(start,'insurer').value&&contacts.some(c=>c.id===policy.insurerId)){input(start,'insurer').value=policy.insurerId;refreshPickers();}}
+prefillInsurerFromVault();
 const deviceTimezone=Intl.DateTimeFormat().resolvedOptions().timeZone;
 function validRecordedTime(value:string){const ms=Date.parse(value);return Number.isFinite(ms)&&ms<=Date.now()+30_000&&localInputValue(new Date(ms))===value.slice(0,16);}
 function showSaveProblem(conflict:boolean){setMessage(el('workflow-status'),conflict?'workflow.conflict':'error.storage');el('workflow-actions').hidden=false;el('workflow-load-latest').hidden=!conflict;setMessage(el('storage-error'),conflict?'workflow.conflict':'error.storage');}
@@ -64,7 +68,7 @@ function resetCaseUI(){
  for(const dialog of document.querySelectorAll<HTMLDialogElement>('dialog[open]'))dialog.close();
  window.dispatchEvent(new Event('casechange'));
 }
-function activateSavedCase(){baselineCase=getSelectedBackup();timeline=baselineCase?.timeline||null;unsavedChanges=false;unsavedDraft=null;setMessage(el('workflow-status'),null);el('workflow-actions').hidden=true;resetCaseUI();start.reset();input(start,'submittedAt').value=localInputValue();render();}
+function activateSavedCase(){baselineCase=getSelectedBackup();timeline=baselineCase?.timeline||null;unsavedChanges=false;unsavedDraft=null;setMessage(el('workflow-status'),null);el('workflow-actions').hidden=true;resetCaseUI();start.reset();input(start,'submittedAt').value=localInputValue();prefillInsurerFromVault();render();}
 function currentBackup():CaseBackup|null{const draft=unsavedDraft||timeline;if(!draft)return null;const saved=listCases().find(c=>c.timeline.id===draft.id);const deductions=saved&&sameCaseIdentity(saved.timeline,draft)?saved.deductions:baselineCase?.timeline.insurerId===draft.insurerId?baselineCase.deductions:[];return makeBackup(draft,deductions);}
 let pendingBackup:CaseBackup|null=null;
 let restoreTargets=new Map<string,CaseBackup>();

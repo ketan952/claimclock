@@ -33,4 +33,24 @@ for(const r of rows) {
     if(vals.slice(3).reduce((n,v)=>n+(v??0),0)>10+1e-9||vals.includes(100)) flagged++;
   }
 }
-console.log(`Validated ${contacts.length} contacts and ${rows.length} disclosure rows; ${incomplete} incomplete sums preserve unknowns; ${flagged} rows trigger manual re-verification flags`);
+// Plan catalog (M20): every stated rule carries its own published source, date and quoted evidence; unknown rules are null.
+const plans=await read('plans');
+const insurerIds=new Set(contacts.filter(c=>c.kind==='insurer').map(c=>c.id));
+const planIds=new Set();
+const ruleKeys=['room_rent','copay','ped_waiting_months','specific_waiting_months','initial_waiting_days','consumables','health_checkup'];
+let statedRules=0;
+for(const p of plans){
+  if(!/^[a-z0-9-]+$/.test(p.id)||planIds.has(p.id)) throw Error(`Invalid or duplicate plan id ${p.id}`); planIds.add(p.id);
+  if(!insurerIds.has(p.insurer_id)) throw Error(`Unknown insurer for plan ${p.id}`);
+  if(!p.name?.trim()||!['health','life','motor'].includes(p.kind)||!['retail','senior','basic','group'].includes(p.segment)) throw Error(`Invalid plan metadata ${p.id}`);
+  if(!p.rules||Object.keys(p.rules).some(k=>!ruleKeys.includes(k))||ruleKeys.some(k=>!(k in p.rules))) throw Error(`Plan ${p.id} must declare exactly ${ruleKeys.join(', ')}`);
+  for(const [key,rule] of Object.entries(p.rules)){
+    if(rule===null) continue; statedRules++;
+    if(!rule.source_url?.startsWith('https://')||!/^\d{4}-\d{2}-\d{2}$/.test(rule.verified_on??'')||!rule.evidence?.trim()) throw Error(`Missing provenance ${p.id}.${key}`);
+    if(/_months$|_days$/.test(key)){ if(!Number.isInteger(rule.value)||rule.value<0||rule.value>120) throw Error(`Bad duration ${p.id}.${key}`); }
+    else if(key==='consumables'){ if(!['included','rider','optional','excluded'].includes(rule.value)) throw Error(`Bad consumables value ${p.id}`); }
+    else if(typeof rule.value!=='string'||!rule.value.trim()) throw Error(`Bad rule text ${p.id}.${key}`);
+    if(key==='health_checkup'&&!['cashless','reimbursement','unknown'].includes(rule.mode)) throw Error(`Bad health check-up mode ${p.id}`);
+  }
+}
+console.log(`Validated ${contacts.length} contacts and ${rows.length} disclosure rows; ${incomplete} incomplete sums preserve unknowns; ${flagged} rows trigger manual re-verification flags; ${plans.length} plans with ${statedRules} sourced rules`);

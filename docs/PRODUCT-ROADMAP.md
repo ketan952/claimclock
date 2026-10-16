@@ -438,7 +438,7 @@ Execute in this order, committing and updating `RESUME.md` at the end of each mi
 **Cost rule for the agent.** Phases 1 and 2 (M20–M28) must ship entirely on the free services listed in §12 "Cost phasing". If a milestone appears to need a paid API, SMS/WhatsApp gateway, paid plan or card-on-file, stop and record the blocker in `RESUME.md` instead of adding the dependency; the free-tier path (deterministic rules engine, browser speech, PWA push, user-sent email) is the required fallback. Paid services are permitted only from Phase 3 onward and only after a paying customer exists.
 
 ### Phase 1 — Core account and intelligence (M20–M22)
-- [ ] **M20 — User Login, Profile & Family Policy Vault:**
+- [x] **M20 — User Login, Profile & Family Policy Vault** (shipped 16 Oct 2026; see `RESUME.md` for scope notes — the cross-device pairing code became a recovery link + PRF unlock, and the DigiLocker adapter is a stub awaiting API Setu partner credentials):
   - Add `migrations/0004_user_vaults.sql` (WebAuthn Passkeys + encrypted Vault sync in D1 + short cross-device pairing code + buddy grants table).
   - Create `data/plans.json` (curated retail health plans across major insurers with verified CIS rules: room cap, co-pay, PED wait, consumables, annual health checkup limit & booking mode, renewal month).
   - Create `src/lib/policy-parser.ts` (on-device PDF/CIS parser) + `src/pages/vault.astro` (My Profile, Family Members, My Policies) + DigiLocker Requester adapter behind `PolicySourceAdapter`.
