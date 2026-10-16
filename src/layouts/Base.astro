@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import {buildId} from '../../scripts/build-info.mjs';
+import VoiceCopilot from '../components/VoiceCopilot.astro';
 const { title = 'ClaimClock — a clock on your side', description = 'Keep a cashless insurance timeline, ask for written acknowledgement, and prepare your next message. Free and private.' } = Astro.props;
 const origin='https://claimclock.ketan952.workers.dev';
 const canonical=new URL(Astro.url.pathname,origin).href;
@@ -28,6 +29,7 @@ const card=Astro.url.pathname==='/index/'?'index':Astro.url.pathname.match(/^\/i
   <div id="update-toast" class="update-toast" role="status" hidden><button type="button" id="update-reload" data-i18n="status.updated">Updated — reload</button></div>
   <main id="main"><slot /></main>
   <footer class="site-footer"><div><a class="brand small" href="/">ClaimClock</a><p data-i18n="footer.built">Made for the wait. Built for your privacy.</p></div><div class="footer-links"><a href="/check-coverage/" data-i18n="footer.coverage">Is this covered?</a><a href="/compare/" data-i18n="footer.compare">Compare plans</a><a href="/about/" data-i18n="nav.about">How it works</a><a href="/privacy/" data-i18n="privacy.link">Privacy & data</a><a href="https://github.com/ketan952/claimclock" data-i18n="footer.source">Open source · AGPL-3.0</a></div><p class="disclaimer" data-i18n="footer.disclaimer">Information, not legal advice. ClaimClock does not file complaints or guarantee a claim outcome.</p></footer>
+  <VoiceCopilot />
   <div id="print-root" aria-hidden="true"></div>
   <script>
     import {initI18n} from '../lib/i18n';
@@ -43,6 +45,9 @@ const card=Astro.url.pathname==='/index/'?'index':Astro.url.pathname.match(/^\/i
       window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
     }
     document.querySelectorAll('nav a').forEach(a=>{if(new URL((a as HTMLAnchorElement).href).pathname===location.pathname)a.setAttribute('aria-current','page')});
+    // ClaimClock Voice (M22) loads on the first tap only; nothing about the microphone runs before then.
+    const voiceLaunch=document.querySelector<HTMLButtonElement>('#voice-launch');
+    voiceLaunch?.addEventListener('click',async()=>{voiceLaunch.disabled=true;try{const voice=await import('../lib/voice-ui');await voice.openVoice();}catch{/* the module could not load (offline, uncached); the button simply re-enables */}finally{voiceLaunch.disabled=false;}});
   </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ import { InputError, readJson, sameOrigin, validateReport, sha256, eraseToken, q
 import { turnstileConfig, verifyTurnstile } from './turnstile.ts';
 import { TRANSFER_BODY_LIMIT, validateCiphertext, validateTransferCode, createTransfer, lookupTransfer } from './transfers.ts';
 import { VAULT_BODY_LIMIT, authenticate, completeLogin, completeRegistration, eraseAccount, loginOptions, logout, readVault, registrationOptions, sessionCookie, sessionSummary, setWrappedKey, writeVault, type Session } from './auth.ts';
+import { COPILOT_BODY_LIMIT, complete, readAudio, transcribe, validateCopilot, voiceConfig } from './voice.ts';
 
 type AppEnv = { Bindings: Bindings; Variables: { session: Session } };
 export const app = new Hono<AppEnv>();
@@ -25,9 +26,10 @@ app.onError((error, c) => error instanceof InputError
 app.notFound(c => c.json({ error: 'Not found.' }, 404));
 
 app.get('/api/config', c => {
-  const config = provider(c.env), turnstile = turnstileConfig(c.env);
+  const config = provider(c.env), turnstile = turnstileConfig(c.env), voice = voiceConfig(c.env);
   const enabled = Boolean(config && c.env.DB);
   return c.json({ ai_enabled: enabled, provider: enabled ? new URL(config!.endpoint).hostname : null, model: enabled ? config!.model : null,
+    voice_enabled: Boolean(enabled && voice), stt_model: enabled && voice ? voice.model : null,
     turnstile_enabled: Boolean(turnstile), turnstile_site_key: turnstile?.sitekey ?? null });
 });
 
@@ -135,6 +137,26 @@ app.post('/api/explain', async c => {
   const explanation = redact(content.replace(/<think>[\s\S]*?(?:<\/think>|$)/gi, '').trim()).slice(0, 1600);
   if (!explanation) throw new Error('Provider unavailable');
   return c.json({ explanation, advisory_only: true });
+});
+
+// --- M22: ClaimClock Voice. Stateless; nothing about an utterance or a conversation is stored. ---
+app.post('/api/voice/transcribe', async c => {
+  const input = await readAudio(c.req.raw);
+  const config = voiceConfig(c.env), db = c.env.DB;
+  if (!config || !db) return c.json({ error: 'Voice is unavailable. Type your question instead.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'voice');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. Type your question instead.' }, verification);
+  if (!await quota(db, 'voice_transcribe')) return c.json({ error: 'Voice is busy. Type your question instead.' }, 429);
+  return c.json({ text: await transcribe(config, input), advisory_only: true });
+});
+app.post('/api/copilot', async c => {
+  const request = validateCopilot(await readJson(c.req.raw, COPILOT_BODY_LIMIT));
+  const config = provider(c.env), db = c.env.DB;
+  if (!config || !db) return c.json({ error: 'The assistant is unavailable. The tools on each page still work.' }, 503);
+  const verification = await verifyTurnstile(c.req.raw, c.env, 'copilot');
+  if (verification) return c.json({ error: verification === 403 ? 'Verification failed. Try again.' : 'Verification is unavailable. The tools on each page still work.' }, verification);
+  if (!await quota(db, 'copilot')) return c.json({ error: 'The assistant is busy. Try again in a minute.' }, 429);
+  return c.json({ ...await complete(config, request), advisory_only: true });
 });
 
 // --- M20: passkey accounts and client-encrypted vault sync. ---

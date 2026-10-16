@@ -65,7 +65,7 @@ function resetCaseUI(){
  el('deletion-receipt').hidden=true;el<HTMLInputElement>('deletion-code').value='';setMessage(el('deletion-copy-status'),null);
  for(const id of ['start-error','event-error','finish-error','storage-error'])setMessage(el(id),null);
  const submit=form('optin-form').querySelector<HTMLButtonElement>('button')!;submit.disabled=false;
- for(const dialog of document.querySelectorAll<HTMLDialogElement>('dialog[open]'))dialog.close();
+ for(const dialog of document.querySelectorAll<HTMLDialogElement>('dialog[open]:not(#voice-dialog)'))dialog.close();
  window.dispatchEvent(new Event('casechange'));
 }
 function activateSavedCase(){baselineCase=getSelectedBackup();timeline=baselineCase?.timeline||null;unsavedChanges=false;unsavedDraft=null;setMessage(el('workflow-status'),null);el('workflow-actions').hidden=true;resetCaseUI();start.reset();input(start,'submittedAt').value=localInputValue();prefillInsurerFromVault();render();}
@@ -196,4 +196,6 @@ setupTransfer({getBackup:currentBackup,previewBackup:previewRestore});
 initToolkits(showLetter,{getInsurerId:()=>timeline?.insurerId||(form('start-form').elements.namedItem('insurer') as HTMLSelectElement).value,getHospital:()=>timeline?.hospital||input(form('start-form'),'hospital').value});
 for(const id of ['case-select','case-new','case-raw-backup','backup-file','backup-paste','backup-paste-preview','restore-new','restore-cancel'])(el(id) as HTMLButtonElement).disabled=false;
 for(const selector of ['#start-form button[type=submit]','#event-form button[type=submit]','#finish-form button[type=submit]','#recovery-form button[type=submit]','#optin-form button[type=submit]'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
+// ClaimClock Voice (M22) writes to the same case store; adopt its change unless this page holds unsaved edits.
+window.addEventListener('claimclock:cases',()=>{if(!unsavedChanges&&!editingDetails)activateSavedCase();});
 window.addEventListener('languagechange',()=>{render();if(pendingBackup&&el<HTMLDialogElement>('restore-dialog').open){const target=el<HTMLSelectElement>('restore-target').value;previewRestore(pendingBackup);el<HTMLSelectElement>('restore-target').value=target;el<HTMLButtonElement>('restore-replace').disabled=!target;}});setInterval(updateClock,1000);render();

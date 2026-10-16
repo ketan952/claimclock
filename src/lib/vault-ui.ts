@@ -325,6 +325,7 @@ el('vault-clear').addEventListener('click',()=>{
 
 function renderAll(){renderProfile();renderMembers();renderPolicies();renderPlanChoices(planSelect.value);renderAccount();const issue=vaultStorageIssue();if(issue)reportStorage('vault-status');}
 window.addEventListener('languagechange',renderAll);
+window.addEventListener('claimclock:vault',()=>{vault=loadVault()||vault;renderAll();});
 for(const selector of ['#profile-form button[type=submit]','#member-form button[type=submit]','#policy-form button[type=submit]','#recovery-form button[type=submit]'])document.querySelector<HTMLButtonElement>(selector)!.disabled=false;
 for(const id of ['account-register','account-login','sync-now','vault-export','vault-clear','recovery-show','recovery-copy','conflict-use-server','conflict-use-mine'])el<HTMLButtonElement>(id).disabled=false;
 el<HTMLInputElement>('policy-file').disabled=false;el<HTMLInputElement>('vault-import-file').disabled=false;

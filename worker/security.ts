@@ -88,7 +88,10 @@ export function eraseToken(): string {
 }
 const budgets = { explain: [100, 3], reports: [100, 5], events: [200, 10], aggregates: [500, 30], erase: [100, 10], transfer_create: [100, 3], transfer_lookup: [500, 10],
   // M20 accounts: registration is the only unauthenticated write that creates rows; reads are cookie-gated.
-  auth_register: [200, 5], auth_login: [1000, 20], auth_session: [10000, 200], vault_read: [5000, 100], vault_write: [2000, 30], account_erase: [100, 5] } as const;
+  auth_register: [200, 5], auth_login: [1000, 20], auth_session: [10000, 200], vault_read: [5000, 100], vault_write: [2000, 30], account_erase: [100, 5],
+  // M22 voice: the free speech tier allows 20 requests/minute and 2,000/day; the chat tier 30/minute, 1,000/day and 8,000 tokens/minute,
+  // so the copilot (≈2,000 tokens per call) is held to four calls a minute and explain + copilot together stay under the daily request cap.
+  voice_transcribe: [300, 10], copilot: [150, 4] } as const;
 export async function quota(db: Database, action: keyof typeof budgets, now = Date.now()): Promise<boolean> {
   const day = new Date(now).toISOString().slice(0, 10), minute = Math.floor(now / 60000);
   const expiry = Math.floor(now / 1000) + 86400;

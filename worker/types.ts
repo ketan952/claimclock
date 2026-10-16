@@ -13,6 +13,8 @@ export interface Bindings {
   LLM_API_KEY?: string;
   LLM_MODEL?: string;
   LLM_FREE_TIER_CONFIRMED?: string;
+  /** M22 speech model on the same free-tier provider; defaults to whisper-large-v3-turbo and is only used when the provider is Groq. */
+  STT_MODEL?: string;
   TURNSTILE_SECRET_KEY?: string;
   TURNSTILE_SITE_KEY?: string;
   TURNSTILE_HOSTNAME?: string;

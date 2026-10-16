@@ -1,0 +1,76 @@
+---
+// ClaimClock Voice (M22). Static markup only; behaviour loads on first tap from src/lib/voice-ui.ts.
+// The mic is never requested before the consent step, and nothing here is wired until that module runs.
+import en from '../i18n/en.json';
+---
+<button type="button" id="voice-launch" class="voice-launch" aria-haspopup="dialog" aria-controls="voice-dialog" data-i18n-aria-label="voice.launch" aria-label={en['voice.launch']}>
+ <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4Zm6-4a1 1 0 1 1 2 0 8 8 0 0 1-7 7.94V21h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.06A8 8 0 0 1 4 11a1 1 0 1 1 2 0 6 6 0 0 0 12 0Z"/></svg>
+ <span data-i18n="voice.launchLabel">{en['voice.launchLabel']}</span>
+</button>
+<dialog id="voice-dialog" class="voice-dialog" aria-labelledby="voice-title">
+ <header class="voice-head">
+  <div><p class="section-number" data-i18n="voice.eyebrow">{en['voice.eyebrow']}</p><h2 id="voice-title" data-i18n="voice.title">{en['voice.title']}</h2><p class="voice-processor fine-print" id="voice-processor" role="status"></p></div>
+  <button type="button" id="voice-close" class="text-button" data-i18n="voice.close">{en['voice.close']}</button>
+ </header>
+ <section id="voice-consent" class="voice-consent">
+  <p class="lead" data-i18n="voice.consentIntro">{en['voice.consentIntro']}</p>
+  <ul class="voice-consent-list">
+   <li data-i18n="voice.consentAudio">{en['voice.consentAudio']}</li>
+   <li data-i18n="voice.consentText">{en['voice.consentText']}</li>
+   <li data-i18n="voice.consentNothingStored">{en['voice.consentNothingStored']}</li>
+   <li data-i18n="voice.consentAdvisory">{en['voice.consentAdvisory']}</li>
+  </ul>
+  <p id="voice-unavailable" class="status error" role="status" hidden></p>
+  <label class="checkbox-label"><input type="checkbox" id="voice-consent-box" /><span data-i18n="voice.consentCheck">{en['voice.consentCheck']}</span></label>
+  <div class="button-row voice-consent-actions">
+   <button type="button" id="voice-start" class="button" disabled data-i18n="voice.start">{en['voice.start']}</button>
+   <button type="button" id="voice-text-only" class="button-secondary" disabled data-i18n="voice.textOnly">{en['voice.textOnly']}</button>
+  </div>
+  <p class="fine-print"><a href="/privacy/#voice" data-i18n="voice.privacyLink">{en['voice.privacyLink']}</a></p>
+ </section>
+ <section id="voice-session" hidden>
+  <div class="voice-orb-wrap">
+   <canvas id="voice-orb" width="176" height="176" aria-hidden="true"></canvas>
+   <p id="voice-state" class="voice-state" role="status" aria-live="polite"></p>
+  </div>
+  <ol id="voice-log" class="voice-log" aria-live="polite" aria-label={en['voice.transcript']} data-i18n-aria-label="voice.transcript"></ol>
+  <div id="voice-cards" class="voice-cards"></div>
+  <div class="voice-controls">
+   <button type="button" id="voice-talk" class="button" data-i18n="voice.talk">{en['voice.talk']}</button>
+   <button type="button" id="voice-stop" class="button-secondary" hidden data-i18n="voice.stopSpeaking">{en['voice.stopSpeaking']}</button>
+   <label class="checkbox-label voice-handsfree"><input type="checkbox" id="voice-handsfree" checked /><span data-i18n="voice.handsFree">{en['voice.handsFree']}</span></label>
+  </div>
+  <form id="voice-text-form" class="voice-text-form"><input name="text" type="text" maxlength="1500" autocomplete="off" placeholder={en['voice.typePlaceholder']} data-i18n-placeholder="voice.typePlaceholder" aria-label={en['voice.typePlaceholder']} data-i18n-aria-label="voice.typePlaceholder" /><button type="submit" class="button-secondary" data-i18n="voice.send">{en['voice.send']}</button></form>
+  <p id="voice-error" class="status error" role="alert"></p>
+  <p class="fine-print" data-i18n="voice.footnote">{en['voice.footnote']}</p>
+ </section>
+</dialog>
+<style is:global>
+ .voice-launch{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:40;display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:var(--green);color:#fff;font-weight:700;font-size:.9rem;box-shadow:0 10px 24px rgb(24 63 53 / .28);border:0}
+ .voice-launch:hover{filter:brightness(1.08)}.voice-launch:focus-visible{outline:3px solid #7e9464;outline-offset:3px}
+ .voice-dialog{width:min(640px,calc(100% - 20px));max-height:92dvh;padding:22px 22px 18px;display:none;flex-direction:column;gap:14px;overflow:auto;overscroll-behavior:contain}
+ .voice-dialog[open]{display:flex}
+ .voice-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.voice-head h2{margin:0 0 4px;font-size:1.5rem}.voice-head .section-number{margin-bottom:6px}.voice-processor{margin:0;min-height:1.2em}
+ .voice-consent-list{margin:0 0 6px;padding-left:20px;font-size:.92rem;line-height:1.55}.voice-consent-list li+li{margin-top:6px}
+ .voice-consent .checkbox-label{margin-top:12px}.voice-consent-actions{margin-top:14px}
+ .voice-orb-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+ #voice-orb{width:176px;height:176px;display:block}
+ .voice-state{margin:0;font-weight:650;color:#365046;min-height:1.4em;text-align:center}
+ .voice-log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:30dvh;overflow:auto;font-size:.95rem;line-height:1.5}
+ .voice-log li{padding:10px 14px;border-radius:14px;max-width:88%;white-space:pre-wrap;overflow-wrap:anywhere}
+ .voice-log li.user{align-self:flex-end;background:#e8eedf;border-bottom-right-radius:4px}
+ .voice-log li.assistant{align-self:flex-start;background:#f3f1ea;border-bottom-left-radius:4px}
+ .voice-cards{display:flex;flex-direction:column;gap:10px}
+ .voice-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fbfaf6}
+ .voice-card h3{margin:0 0 8px;font-size:1rem}.voice-card ul{margin:0;padding-left:18px;font-size:.9rem;line-height:1.5}.voice-card ul li+li{margin-top:4px}
+ .voice-card .voice-card-links{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:10px;font-size:.86rem}
+ .voice-card .voice-letter-subject{display:block;margin:10px 0 6px;font-weight:650}
+ .voice-card pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:.86rem;line-height:1.5;margin:0;padding:12px;background:#fff;border:1px solid var(--line);border-radius:8px;max-height:36dvh;overflow:auto}
+ .voice-card .button-row{margin-top:10px}
+ .voice-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+ .voice-handsfree{margin:0}
+ .voice-text-form{display:flex;gap:8px}.voice-text-form input{flex:1;min-width:0}
+ #voice-error:empty{display:none}
+ @media(max-width:480px){.voice-launch{padding:12px 14px}.voice-launch span{display:none}.voice-dialog{padding:16px 14px 14px}#voice-orb{width:132px;height:132px}.site-footer{padding-bottom:88px}}
+ @media print{.voice-launch,.voice-dialog{display:none !important}}
+</style>
