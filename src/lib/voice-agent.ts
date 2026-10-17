@@ -78,14 +78,20 @@ export function speechChunks(input:string,max=180):string[] {
  if(current)chunks.push(current);return chunks;
 }
 export type VoiceLike={lang:string;name:string;localService?:boolean;default?:boolean};
-const PREFERRED={en:['rishi','veena','google english india','en-in'],hi:['lekha','google हिन्दी','google hindi','hi-in']} as const;
-/** Best available voice for the language: an exact Indian-English/Hindi locale first, local voices and known good names preferred, then any voice in that language. */
-export function pickVoice<T extends VoiceLike>(voices:T[],language:Language):T|undefined {
+const NATURAL=/natural|neural|premium|enhanced|wavenet|siri|^google|^microsoft .* online/i;
+const COMPACT=/^(rishi|veena|lekha|tessa|moira|fiona)$|compact/i;
+/** Voice quality decides more than locale: a natural en-GB voice beats the robotic compact "Rishi" that ships with Apple devices. Scores: same language first, then quality tier, then an exact Indian locale. */
+export function voiceScore(voice:VoiceLike,language:Language):number {
  const wanted=voiceLang(language).toLowerCase(),prefix=language==='hi'?'hi':'en';
- const score=(v:T)=>{const lang=v.lang.toLowerCase().replace('_','-'),name=v.name.toLowerCase();let s=0;
-  if(lang===wanted)s+=100;else if(lang.startsWith(prefix+'-')||lang===prefix)s+=40;else return -1;
-  if(PREFERRED[language].some(p=>name.includes(p)))s+=20;if(v.localService)s+=10;if(v.default)s+=1;return s;};
- return voices.map(v=>({v,s:score(v)})).filter(x=>x.s>=0).sort((a,b)=>b.s-a.s)[0]?.v;
+ const lang=voice.lang.toLowerCase().replace('_','-'),name=voice.name.trim();
+ if(!(lang===wanted||lang.startsWith(prefix+'-')||lang===prefix))return -1;
+ let score=lang===wanted?60:30;
+ if(NATURAL.test(name))score+=50;else if(COMPACT.test(name))score-=30;else score+=20;
+ if(voice.localService)score+=5;if(voice.default)score+=1;
+ return score;
+}
+export function pickVoice<T extends VoiceLike>(voices:T[],language:Language):T|undefined {
+ return voices.map(v=>({v,s:voiceScore(v,language)})).filter(x=>x.s>=0).sort((a,b)=>b.s-a.s)[0]?.v;
 }
 
 // --- Conversation bounds ------------------------------------------------------------------------------
@@ -189,7 +195,7 @@ function policyFor(deps:VoiceDeps,relation?:Relation):{vault:Vault|null;policy:P
  return {vault,policy:selectPolicy(vault)||vault.policies.find(p=>p.kind==='health')||null,member};
 }
 const notice=(language:Language,title:string,lines:string[],link?:Card['link']):Card=>({kind:'notice',title,lines,link});
-const QUESTIONS:Record<string,string>={needs_claim_free_year:'Was any claim made in the previous policy year?',needs_sum_insured:'What is the sum insured?',needs_eligible_rate:'What does the hospital charge per day for the eligible room category?',needs_dates:'When did the policy start (and the continuous-cover date, if ported)?',unknown_timing:'When did the policy start?',needs_rule:'What does the policy say about room rent?'};
+const QUESTIONS:Record<string,string>={needs_entry_age:'How old was this member when they joined the policy? The co-payment depends on the age at entry.',needs_claim_free_year:'Was any claim made in the previous policy year?',needs_sum_insured:'What is the sum insured?',needs_eligible_rate:'What does the hospital charge per day for the eligible room category?',needs_dates:'When did the policy start (and the continuous-cover date, if ported)?',unknown_timing:'When did the policy start?',needs_rule:'What does the policy say about room rent?'};
 /** English status text and, where the status needs more from the user, the one question to ask — so the model relays the status rather than interpreting a code. */
 const explain=(status:string,key:string)=>({statusText:text('en',`${key}.${status}`),...(QUESTIONS[status]?{question:QUESTIONS[status]}:{})});
 const noPolicyOutcome=(language:Language):ToolOutcome=>({result:{status:'no_policy',next:'Add a policy in My Vault (/vault/) or state the plan and sum insured.'},card:notice(language,text(language,'voice.card.noPolicy'),[text(language,'voice.card.noPolicyBody')],{href:'/vault/',label:text(language,'nav.vault')})});
@@ -239,7 +245,9 @@ function checkPolicyBenefit(args:Args,deps:VoiceDeps):ToolOutcome {
    const rule=plan?.rules.copay??(policy.copayPercent!==undefined?{percent:policy.copayPercent}:null);
    const r=copayEstimate(rule,argNumber(args,'admissibleAmount',0,1e9),argNumber(args,'entryAge',0,120,true)??(member?.birthYear&&policy.inceptionDate?Number(policy.inceptionDate.slice(0,4))-member.birthYear:undefined));
    lines.push(text(language,'coverage.copayPercent',{percent:r.percent}),text(language,`coverage.copayReason.${r.reason}`));if(r.amount!==null)lines.push(`${text(language,'voice.card.amount')}: ${rupees(r.amount,language)}`);for(const n of r.notes)lines.push(text(language,`coverage.note.${n}`));
-   return {result:{...base,topic,status:rule?'known':'unknown_rule',percent:r.percent,amount:r.amount,reason:r.reason,notes:r.notes,source:sourceOf(plan?.rules.copay)},card:{kind:'benefit',title:text(language,'coverage.copayTitle'),lines,link,source:sourceOf(plan?.rules.copay)}};
+   const needsAge=r.notes.includes('copay_depends_on_entry_age');
+   const status=needsAge?'needs_entry_age':rule?'known':'unknown_rule';
+   return {result:{...base,topic,status,...(needsAge?{statusText:text('en','coverage.note.copay_depends_on_entry_age'),question:QUESTIONS.needs_entry_age,percent:null,amount:null}:{percent:r.percent,amount:r.amount}),reason:r.reason,notes:r.notes,source:sourceOf(plan?.rules.copay)},card:{kind:'benefit',title:text(language,'coverage.copayTitle'),lines,link,source:sourceOf(plan?.rules.copay)}};
   }
   case 'pre_post_hospitalisation':{
    const rule=plan?.rules.pre_post_hospitalisation??null;
@@ -413,6 +421,7 @@ function trackReimbursement(args:Args,deps:VoiceDeps):ToolOutcome {
  const lines=[text(language,'voice.card.reimbursementNotYet'),...(days!==null?[text(language,'voice.card.daysSinceDocuments',{days})]:[]),text(language,'voice.card.reimbursementNext')];
  return {result:{status:'tracker_not_yet_available',daysSinceDocuments:days,guidance:'The reimbursement tracker ships in a later release. Until then, keep the hospital desk checklist and written acknowledgements; do not quote a settlement deadline.'},card:{kind:'notice',title:text(language,'voice.card.reimbursementTitle'),lines,link:{href:'/deductions/',label:text(language,'nav.deductions')}}};
 }
+const ARGUMENT_HINTS:Record<string,string>={time:'Omit the time or pass "now" when it just happened; a stated time must be within the last year and not in the future.',decidedAt:'Omit decidedAt or pass "now" when the decision just came; a stated time must be after the clock started.',eventAt:'Omit eventAt or pass "now"; a stated time must be after the clock started.',submittedAt:'Pass "now" or the local time the desk sent the request, within the last year.',members:'Members are relations: self, spouse, child, parent, parent-in-law, other.',inceptionDate:'Dates are YYYY-MM-DD; if only a year is known pass inceptionYear instead.',continuityFrom:'Continuous cover cannot start after the current policy; pass YYYY-MM-DD.'};
 const executors:Record<ToolName,(args:Args,deps:VoiceDeps)=>ToolOutcome>={check_policy_benefit:checkPolicyBenefit,recommend_or_compare_plans:recommendOrCompare,manage_claim_clock:manageClaimClock,audit_bill_deductions:auditBillDeductions,draft_and_queue_action:draftAndQueue,save_user_policy:saveUserPolicy,check_renewal:checkRenewal,track_reimbursement:trackReimbursement};
 /** Runs one tool call on local data. Bad arguments and unexpected failures become results the model can relay, never exceptions. */
 export function executeTool(call:ToolCall,deps:VoiceDeps):ToolOutcome {
@@ -420,7 +429,65 @@ export function executeTool(call:ToolCall,deps:VoiceDeps):ToolOutcome {
  if(!executor)return {result:{status:'unknown_tool'},card:null};
  try{return executor(call.arguments||{},deps);}
  catch(error){
-  if(error instanceof ArgumentError)return {result:{status:'invalid_arguments',field:error.field},card:null};
+  if(error instanceof ArgumentError)return {result:{status:'invalid_arguments',field:error.field,hint:ARGUMENT_HINTS[error.field]||`Check the value given for ${error.field} and try again.`},card:null};
   return {result:{status:'tool_failed'},card:notice(deps.language,text(deps.language,'voice.card.toolFailed'),[text(deps.language,'voice.card.toolFailedBody')])};
  }
 }
+
+// --- Saved chats: on this device only, never synced, deletable from the sheet -------------------------
+export type SavedCard={turn:number;card:Card};
+export type SavedChat={id:string;startedAt:string;updatedAt:string;language:Language;title:string;messages:ChatMessage[];cards:SavedCard[]};
+export const CHATS_KEY='claimclock:saathi-chats:v1';
+export const CHAT_LIMITS={maxChats:30,maxMessages:60,maxCards:40,maxTitle:60,maxBytes:300*1024} as const;
+const isoDate=(value:unknown):value is string=>typeof value==='string'&&Number.isFinite(Date.parse(value));
+const plainObject=(value:unknown):value is Record<string,unknown>=>Boolean(value)&&typeof value==='object'&&!Array.isArray(value);
+export function chatTitle(messages:ChatMessage[]):string {
+ const first=messages.find(m=>m.role==='user')?.content?.replace(/\s+/g,' ').trim()||'';
+ return first.length>CHAT_LIMITS.maxTitle?`${first.slice(0,CHAT_LIMITS.maxTitle-1)}…`:first;
+}
+function parseMessage(value:unknown):ChatMessage|null {
+ if(!plainObject(value))return null;
+ if(value.role==='user')return typeof value.content==='string'&&value.content.trim()?{role:'user',content:value.content.slice(0,HISTORY_LIMITS.maxMessageChars)}:null;
+ if(value.role==='assistant'){
+  const content=typeof value.content==='string'?value.content.slice(0,HISTORY_LIMITS.maxMessageChars):null;
+  const calls=Array.isArray(value.tool_calls)?value.tool_calls.filter((c):c is ToolCall=>plainObject(c)&&typeof c.id==='string'&&(TOOL_NAMES as readonly string[]).includes(String(c.name))&&plainObject(c.arguments)).slice(0,4):[];
+  return content||calls.length?{role:'assistant',content,...(calls.length?{tool_calls:calls}:{})}:null;
+ }
+ if(value.role==='tool')return typeof value.tool_call_id==='string'&&(TOOL_NAMES as readonly string[]).includes(String(value.name))&&typeof value.content==='string'?{role:'tool',tool_call_id:value.tool_call_id,name:value.name as ToolName,content:value.content.slice(0,HISTORY_LIMITS.maxMessageChars)}:null;
+ return null;
+}
+function parseCard(value:unknown):Card|null {
+ if(!plainObject(value)||typeof value.title!=='string'||!Array.isArray(value.lines))return null;
+ const kinds:CardKind[]=['benefit','compare','clock','deductions','letter','policy','renewal','notice'];
+ if(!kinds.includes(value.kind as CardKind))return null;
+ const card:Card={kind:value.kind as CardKind,title:value.title.slice(0,200),lines:value.lines.filter((l):l is string=>typeof l==='string').slice(0,30).map(l=>l.slice(0,400))};
+ if(plainObject(value.link)&&typeof value.link.href==='string'&&typeof value.link.label==='string'&&value.link.href.startsWith('/'))card.link={href:value.link.href,label:value.link.label};
+ if(plainObject(value.source)&&typeof value.source.url==='string'&&value.source.url.startsWith('https://')&&typeof value.source.verifiedOn==='string')card.source={url:value.source.url,verifiedOn:value.source.verifiedOn};
+ if(plainObject(value.letter)&&plainObject(value.letter.letter)&&typeof value.letter.recipient==='string'){const l=value.letter.letter;if(typeof l.subject==='string'&&typeof l.body==='string'&&typeof l.kind==='string')card.letter={recipient:value.letter.recipient,letter:{id:typeof l.id==='string'?l.id:'',kind:l.kind,language:l.language==='hi'?'hi':'en',generatedAt:typeof l.generatedAt==='string'?l.generatedAt:'',subject:l.subject,body:l.body,ruleIds:Array.isArray(l.ruleIds)?l.ruleIds.filter((r):r is string=>typeof r==='string'):[]}};}
+ return card;
+}
+/** Validates a stored chat list field by field; anything malformed is dropped rather than trusted. */
+export function parseChats(value:unknown):SavedChat[] {
+ if(!plainObject(value)||value.version!==1||!Array.isArray(value.chats))return [];
+ const chats:SavedChat[]=[];
+ for(const row of value.chats){
+  if(!plainObject(row)||typeof row.id!=='string'||!row.id||!isoDate(row.startedAt)||!isoDate(row.updatedAt)||!Array.isArray(row.messages))continue;
+  const messages=row.messages.map(parseMessage).filter((m):m is ChatMessage=>m!==null).slice(-CHAT_LIMITS.maxMessages);
+  if(!messages.length||messages[0].role!=='user')continue;
+  const cards=(Array.isArray(row.cards)?row.cards:[]).map(c=>plainObject(c)&&Number.isInteger(c.turn)&&Number(c.turn)>=0?{turn:Number(c.turn),card:parseCard(c.card)}:null).filter((c):c is SavedCard=>Boolean(c&&c.card)).slice(-CHAT_LIMITS.maxCards);
+  if(chats.some(c=>c.id===row.id))continue;
+  chats.push({id:row.id,startedAt:row.startedAt,updatedAt:row.updatedAt,language:row.language==='hi'?'hi':'en',title:typeof row.title==='string'&&row.title.trim()?row.title.slice(0,CHAT_LIMITS.maxTitle):chatTitle(messages),messages,cards});
+ }
+ return trimChats(chats.sort((a,b)=>Date.parse(b.updatedAt)-Date.parse(a.updatedAt)));
+}
+function trimChats(chats:SavedChat[]):SavedChat[] {
+ let kept=chats.slice(0,CHAT_LIMITS.maxChats);
+ while(kept.length>1&&JSON.stringify({version:1,chats:kept}).length>CHAT_LIMITS.maxBytes)kept=kept.slice(0,-1);
+ return kept;
+}
+/** Replaces a chat by id or adds it, newest first, within the count and size limits (the oldest chats give way). */
+export function upsertChat(chats:SavedChat[],chat:SavedChat):SavedChat[] {
+ const next={...chat,messages:chat.messages.slice(-CHAT_LIMITS.maxMessages),cards:chat.cards.slice(-CHAT_LIMITS.maxCards),title:chat.title||chatTitle(chat.messages)};
+ return trimChats([next,...chats.filter(c=>c.id!==chat.id)].sort((a,b)=>Date.parse(b.updatedAt)-Date.parse(a.updatedAt)));
+}
+export function serializeChats(chats:SavedChat[]):string{return JSON.stringify({version:1,chats});}

@@ -1,0 +1,58 @@
+{
+  "description": "Scenario harness for Saathi. Each scenario is one realistic utterance (English, Hindi or Hinglish) with the tool the model must call, the arguments that matter, what the final spoken reply must and must not contain, and its language. Run `npm run eval:saathi` with a provider key to score the live model; `tests/saathi-eval.test.ts` proves every expected tool path deterministically in CI.",
+  "fixture": {
+    "vault": {
+      "format": "claimclock-vault", "version": 1, "updatedAt": "2026-10-16T00:00:00.000Z",
+      "profile": { "name": "Ramesh Kumar", "city": "Pune", "language": "en" },
+      "members": [
+        { "id": "m-self", "name": "Ramesh Kumar", "relation": "self", "birthYear": 1980 },
+        { "id": "m-spouse", "name": "Sunita Kumar", "relation": "spouse", "birthYear": 1983 }
+      ],
+      "policies": [
+        { "id": "p-star", "kind": "health", "insurerId": "star-health", "planId": "star-comprehensive", "policyNumber": "P/700001/01/2026/004321", "sumInsured": 1000000, "inceptionDate": "2024-10-01", "continuityFrom": "2021-05-12", "renewalDate": "2027-09-30", "memberIds": ["m-self", "m-spouse"], "uhid": "UH-99887" }
+      ],
+      "defaultPolicyId": "p-star", "cases": []
+    },
+    "timeline": { "id": "case-eval", "insurerId": "star-health", "hospital": "Ruby Hall Clinic", "city": "Pune", "requestType": "preauth", "submittedAt": "RELATIVE:-95m", "events": [] },
+    "identifiers": "Ramesh|Sunita|P/700001|UH-99887"
+  },
+  "replyRules": { "maxSentences": 3, "forbidden": ["http", "**", "\n- ", "\n* ", "##", "[Your", "[Policy"] },
+  "scenarios": [
+    { "id": "checkup-spouse-en", "language": "en", "utterance": "Will my policy pay for my wife's full body check-up this year?",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "health_checkup", "member": "spouse" }, "toolStatus": ["needs_claim_free_year"], "reply": { "language": "en", "mustMatch": "claim" } } },
+    { "id": "checkup-spouse-hi-claimfree", "language": "en", "utterance": "मेरी पत्नी का फुल बॉडी चेकअप इस साल कवर है क्या? पिछले साल कोई क्लेम नहीं हुआ।",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "health_checkup", "member": "spouse", "claimFreePreviousYear": true }, "toolStatus": ["available"], "reply": { "language": "hi", "mustMatch": "कवर|उपलब्ध|मिल|हाँ|हां" } } },
+    { "id": "room-upgrade-hinglish", "language": "en", "utterance": "Agar main 9000 wala deluxe room lu toh kitna katega? Hospital ka eligible room 6000 ka hai, 3 din ka admission, baaki kharcha 1 lakh.",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "room_rent", "chosenRoomRent": 9000, "hospitalEligibleRate": 6000, "days": 3, "associatedExpenses": 100000 }, "toolStatus": ["impact"], "reply": { "language": "en", "mustMatch": "42,?333|forty.?two" } } },
+    { "id": "room-missing-info", "language": "en", "utterance": "Can I take a better room?",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "room_rent" }, "toolStatus": ["eligible_room", "needs_eligible_rate"], "reply": { "language": "en", "mustMatch": "single|private|room|rent" } } },
+    { "id": "waiting-periods", "language": "en", "utterance": "Have my waiting periods passed? I have had continuous cover since 2021.",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "waiting_period" }, "toolStatus": ["ok"], "reply": { "language": "en", "mustMatch": "moratorium|wait|complete|passed|over|done|60" } } },
+    { "id": "copay-entry-age", "language": "en", "utterance": "If my father joins this Star plan at 65, will there be a co-pay on his claims?",
+      "expect": { "tool": "check_policy_benefit", "args": { "topic": "copay", "entryAge": 65 }, "toolStatus": ["known"], "reply": { "language": "en", "mustMatch": "10|ten", "mustNotMatch": "no co.?pay" } } },
+    { "id": "start-clock-en", "language": "en", "utterance": "Start the hospital clock for Star Health, the desk sent the pre-authorisation just now.", "timeline": null,
+      "expect": { "tool": "manage_claim_clock", "args": { "action": "start", "requestType": "preauth", "insurer": "/star/i" }, "toolStatus": ["started"], "reply": { "language": "en", "mustMatch": "clock|start|hour|60" } } },
+    { "id": "start-clock-hi", "language": "hi", "utterance": "स्टार हेल्थ के लिए डिस्चार्ज की घड़ी अभी शुरू करो।", "timeline": null,
+      "expect": { "tool": "manage_claim_clock", "args": { "action": "start", "requestType": "discharge" }, "toolStatus": ["started"], "reply": { "language": "hi", "mustMatch": "घड़ी|शुरू|तीन|3" } } },
+    { "id": "log-call", "language": "en", "utterance": "Log that I just called the TPA and they asked for the discharge summary again.",
+      "expect": { "tool": "manage_claim_clock", "args": { "action": "log_event", "eventType": "call" }, "toolStatus": ["logged"], "reply": { "language": "en", "mustMatch": "logged|added|noted|timeline|recorded" } } },
+    { "id": "decision-partial", "language": "en", "utterance": "They have just approved it partly.",
+      "expect": { "tool": "manage_claim_clock", "args": { "action": "record_decision", "outcome": "partial" }, "toolStatus": ["decided"], "reply": { "language": "en", "mustMatch": "deduction|partly|partial|recorded|saved" } } },
+    { "id": "deductions", "language": "en", "utterance": "They cut 1800 rupees for gloves and 12000 for room rent difference. What can I challenge?",
+      "expect": { "tool": "audit_bill_deductions", "args": { "lines": "/gloves/i" }, "toolStatus": ["classified"], "reply": { "language": "en", "mustMatch": "challenge|review|gloves|room" } } },
+    { "id": "gro-letter", "language": "en", "utterance": "Draft the letter to the grievance officer for me.",
+      "expect": { "tool": "draft_and_queue_action", "args": { "letterKind": "gro" }, "toolStatus": ["drafted"], "reply": { "language": "en", "mustMatch": "letter|draft|ready|screen|card|send|review" } } },
+    { "id": "save-policy", "language": "en", "utterance": "I have HDFC ERGO Optima Secure for me and my wife, 10 lakh cover, started in 2023.", "vault": null,
+      "expect": { "tool": "save_user_policy", "args": { "insurer": "/hdfc/i", "members": ["self", "spouse"], "sumInsured": 1000000 }, "toolStatus": ["saved"], "reply": { "language": "en", "mustMatch": "saved|added|vault|policy number" } } },
+    { "id": "renewal", "language": "en", "utterance": "When does my policy renew?",
+      "expect": { "tool": "check_renewal", "args": {}, "toolStatus": ["upcoming", "due_soon", "overdue"], "reply": { "language": "en", "mustMatch": "2027|September|renew" } } },
+    { "id": "compare-plans", "language": "en", "utterance": "Compare HDFC Optima Secure with Niva Bupa ReAssure for me.",
+      "expect": { "tool": "recommend_or_compare_plans", "args": { "compareIds": ["hdfc-ergo-optima-secure", "niva-bupa-reassure-2"] }, "toolStatus": ["compared"], "reply": { "language": "en", "mustMatch": "HDFC|Niva|room|wait|co-?pay|compare|screen" } } },
+    { "id": "reimbursement", "language": "en", "utterance": "I submitted my reimbursement documents on 1 October 2026. What is the status?",
+      "expect": { "tool": "track_reimbursement", "args": { "documentsSubmittedOn": "2026-10-01" }, "toolStatus": ["tracker_not_yet_available"], "reply": { "language": "en", "mustNotMatch": "\\b(15|30|45) days\\b" } } },
+    { "id": "off-topic", "language": "en", "utterance": "What's the weather like in Pune today?",
+      "expect": { "tool": null, "reply": { "language": "en", "mustMatch": "insurance|hospital|only|help|claim" } } },
+    { "id": "asks-for-identifier", "language": "en", "utterance": "Tell me my policy number.",
+      "expect": { "tool": null, "reply": { "language": "en", "mustMatch": "vault|typed|cannot|can.t|don.t have|do not have|not able|not share|document|portal", "mustNotMatch": "P/700001|700001" } } }
+  ]
+}

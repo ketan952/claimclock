@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {TOOLS} from '../worker/voice.ts';
-import {HISTORY_LIMITS,TOOL_NAMES,VoiceActivity,executeTool,groundingContext,parseSpokenTime,pickVoice,resolveInsurer,resolvePlan,rmsLevel,speechChunks,text,toolResultContent,trimHistory,type ChatMessage,type ToolCall,type VoiceDeps} from '../src/lib/voice-agent.ts';
+import {CHAT_LIMITS,HISTORY_LIMITS,TOOL_NAMES,VoiceActivity,chatTitle,executeTool,groundingContext,parseChats,parseSpokenTime,pickVoice,resolveInsurer,resolvePlan,rmsLevel,serializeChats,speechChunks,text,toolResultContent,trimHistory,upsertChat,voiceScore,type ChatMessage,type SavedChat,type ToolCall,type VoiceDeps} from '../src/lib/voice-agent.ts';
 import {emptyVault,parseVault,type Vault} from '../src/lib/vault.ts';
 import type {Timeline} from '../src/lib/types.ts';
 import type {DeductionInput} from '../src/lib/deductions.ts';
@@ -52,10 +52,14 @@ test('spoken output: sentence chunks stay short, Hindi dandas split, long clause
  assert.ok(long.length>=2);assert.ok(long.every(c=>c.length<=180));
  assert.deepEqual(speechChunks('x'.repeat(400),100).map(c=>c.length),[100,100,100,100],'a single endless word is still bounded');
  assert.deepEqual(speechChunks('   '),[]);
- const voices=[{lang:'en-US',name:'Samantha',localService:true,default:true},{lang:'en-IN',name:'Rishi',localService:true},{lang:'en-GB',name:'Daniel',localService:true},{lang:'hi-IN',name:'Lekha',localService:true},{lang:'hi_IN',name:'Google हिन्दी',localService:false}];
- assert.equal(pickVoice(voices,'en')?.name,'Rishi');
- assert.equal(pickVoice(voices,'hi')?.name,'Lekha');
- assert.equal(pickVoice(voices.filter(v=>v.lang!=='en-IN'),'en')?.name,'Samantha','without an Indian voice any English voice is used, the system default first');
+ const voices=[{lang:'en-US',name:'Samantha',localService:true,default:true},{lang:'en-IN',name:'Rishi',localService:true},{lang:'en-GB',name:'Daniel',localService:true},{lang:'hi-IN',name:'Lekha',localService:true},{lang:'hi_IN',name:'Google हिन्दी',localService:false},{lang:'en-GB',name:'Google UK English Female',localService:false}];
+ assert.equal(pickVoice(voices,'en')?.name,'Google UK English Female','a natural network voice beats the compact Indian-English voice that sounds robotic');
+ assert.equal(pickVoice(voices,'hi')?.name,'Google हिन्दी','the same for Hindi: Google’s Hindi voice over the compact Lekha');
+ assert.equal(pickVoice([...voices,{lang:'en-IN',name:'Veena (Enhanced)',localService:true}],'en')?.name,'Veena (Enhanced)','an enhanced Indian voice beats everything');
+ assert.equal(pickVoice([...voices,{lang:'en-IN',name:'Microsoft Neerja Online (Natural) - English (India)',localService:false}],'en')?.name,'Microsoft Neerja Online (Natural) - English (India)');
+ assert.equal(pickVoice(voices.filter(v=>!/Google/.test(v.name)),'en')?.name,'Samantha','a plain system voice still beats the compact Rishi');
+ assert.ok(voiceScore({lang:'en-IN',name:'Rishi'},'en')<voiceScore({lang:'en-US',name:'Samantha'},'en'));
+ assert.equal(voiceScore({lang:'fr-FR',name:'Amelie'},'hi'),-1);
  assert.equal(pickVoice([{lang:'fr-FR',name:'Amelie'}],'hi'),undefined);
 });
 
@@ -138,7 +142,9 @@ test('check_policy_benefit answers from the saved plan’s cited rules and the s
  const copay=executeTool(call('check_policy_benefit',{topic:'copay',admissibleAmount:200000,entryAge:62}),d);
  assert.equal(copay.result.percent,10);assert.equal(copay.result.amount,20000);assert.equal(copay.result.reason,'entry_age_61_plus');
  const copayFromAge=executeTool(call('check_policy_benefit',{topic:'copay',member:'self'}),d);
- assert.equal(copayFromAge.result.percent,0,'entry age derived from birth year 1980 and 2025 inception is 45');
+ assert.equal(copayFromAge.result.percent,0,'entry age derived from birth year 1980 and 2025 inception is 45');assert.equal(copayFromAge.result.status,'known');
+ const copayUnknownAge=executeTool(call('check_policy_benefit',{topic:'copay'}),d);
+ assert.equal(copayUnknownAge.result.status,'needs_entry_age','without an entry age a conditional co-pay is a question, never "no co-pay"');assert.equal(copayUnknownAge.result.percent,null);assert.match(String(copayUnknownAge.result.question),/age/);
  const prepost=executeTool(call('check_policy_benefit',{topic:'pre_post_hospitalisation',admissionDate:'2026-06-10',dischargeDate:'2026-06-14',expenseDate:'2026-09-13'}),d);
  assert.equal(prepost.result.status,'outside_post','Star Comprehensive: 90 post days');
  assert.equal(executeTool(call('check_policy_benefit',{topic:'pre_post_hospitalisation'}),d).result.status,'needs_dates');
@@ -149,8 +155,8 @@ test('check_policy_benefit answers from the saved plan’s cited rules and the s
  const general=executeTool(call('check_policy_benefit',{topic:'general'}),d);
  assert.equal(general.result.status,'rules');assert.ok(Object.keys(general.result.rules as object).includes('room_rent'));
  assert.equal(executeTool(call('check_policy_benefit',{topic:'health_checkup'}),deps({vaultValue:null})).result.status,'no_policy');
- assert.deepEqual(executeTool(call('check_policy_benefit',{topic:'dental'}),d).result,{status:'invalid_arguments',field:'topic'});
- assert.deepEqual(executeTool(call('check_policy_benefit',{topic:'room_rent',chosenRoomRent:-5}),d).result,{status:'invalid_arguments',field:'chosenRoomRent'});
+ assert.deepEqual(executeTool(call('check_policy_benefit',{topic:'dental'}),d).result,{status:'invalid_arguments',field:'topic',hint:'Check the value given for topic and try again.'});
+ assert.equal(executeTool(call('check_policy_benefit',{topic:'room_rent',chosenRoomRent:-5}),d).result.field,'chosenRoomRent');
  const hindi=executeTool(call('check_policy_benefit',{topic:'health_checkup',member:'spouse'}),deps({language:'hi'}));
  assert.ok(/\p{Script=Devanagari}/u.test(hindi.card!.lines[0]),'cards follow the interface language');
  const vaultOnly=executeTool(call('check_policy_benefit',{topic:'health_checkup'}),deps({vaultValue:{...sampleVault(),policies:[{...sampleVault().policies[0],planId:undefined,planName:'Some other plan',healthCheckupLimit:4000}]}}));
@@ -164,8 +170,8 @@ test('recommend_or_compare_plans compares cited rules, gives structural advice w
  const advice=out.result.advice as string[];assert.ok(advice.some(a=>/not a recommendation|does not recommend|not recommend/i.test(a)),advice.join(' | '));
  assert.equal(out.card?.link?.href,'/compare/?plans=hdfc-ergo-optima-secure,new-india-mediclaim');
  assert.equal(executeTool(call('recommend_or_compare_plans',{}),d).result.status,'needs_input');
- assert.deepEqual(executeTool(call('recommend_or_compare_plans',{familyMembers:[{age:200,preExisting:false}]}),d).result,{status:'invalid_arguments',field:'age'});
- assert.deepEqual(executeTool(call('recommend_or_compare_plans',{compareIds:[1]}),d).result,{status:'invalid_arguments',field:'compareIds'});
+ assert.equal(executeTool(call('recommend_or_compare_plans',{familyMembers:[{age:200,preExisting:false}]}),d).result.field,'age');
+ assert.equal(executeTool(call('recommend_or_compare_plans',{compareIds:[1]}),d).result.field,'compareIds');
 });
 
 test('manage_claim_clock starts, logs and decides on the device store with validated inputs',()=>{
@@ -180,12 +186,12 @@ test('manage_claim_clock starts, logs and decides on the device store with valid
  assert.equal(defaulted.result.insurer,'star-health','the vault’s default policy supplies the insurer when none is spoken');
  const logged=executeTool(call('manage_claim_clock',{action:'log_event',eventType:'call',note:'Spoke to the TPA desk'}),d);
  assert.equal(logged.result.status,'logged');assert.equal(d.saved.timelines[1].events.length,1);assert.equal(d.saved.timelines[1].events[0].type,'call');
- assert.deepEqual(executeTool(call('manage_claim_clock',{action:'log_event',eventAt:'2026-01-01T00:00:00Z'}),d).result,{status:'invalid_arguments',field:'eventAt'});
+ assert.equal(executeTool(call('manage_claim_clock',{action:'log_event',eventAt:'2026-01-01T00:00:00Z'}),d).result.field,'eventAt');
  assert.equal(executeTool(call('manage_claim_clock',{action:'record_decision'}),d).result.status,'needs_outcome');
  const decided=executeTool(call('manage_claim_clock',{action:'record_decision',outcome:'partial'}),d);
  assert.equal(decided.result.status,'decided');assert.equal(decided.result.next,'/deductions/');assert.equal(d.saved.timelines[2].outcome,'partial');
  assert.equal(executeTool(call('manage_claim_clock',{action:'record_decision',outcome:'approved'}),d).result.status,'already_decided');
- assert.deepEqual(executeTool(call('manage_claim_clock',{action:'start',requestType:'preauth',insurer:'Star',submittedAt:'2027-05-05T10:00'}),d).result,{status:'invalid_arguments',field:'time'});
+ const future=executeTool(call('manage_claim_clock',{action:'start',requestType:'preauth',insurer:'Star',submittedAt:'2027-05-05T10:00'}),d).result;assert.equal(future.field,'time');assert.match(String(future.hint),/"now"/,'the model is told how to recover');
  assert.equal(executeTool(call('manage_claim_clock',{action:'log_event'}),deps({timelineValue:null})).result.status,'no_clock');
  const failing=executeTool(call('manage_claim_clock',{action:'start',requestType:'preauth',insurer:'Star'}),deps({timelineValue:null,saveTimeline:()=>false}));
  assert.equal(failing.result.status,'storage_failed');assert.equal(failing.card?.kind,'notice');
@@ -196,9 +202,9 @@ test('audit_bill_deductions classifies spoken lines deterministically and bounds
  assert.equal(out.result.status,'classified');assert.equal(out.result.total,14300);
  const lines=out.result.lines as {status:string}[];assert.equal(lines.length,3);assert.ok(lines.some(l=>l.status==='challengeable'||l.status==='policy term — verify'));
  assert.equal(out.card?.link?.href,'/deductions/');assert.equal(out.card?.lines.length,3);
- assert.deepEqual(executeTool(call('audit_bill_deductions',{lines:[]}),deps()).result,{status:'invalid_arguments',field:'lines'});
- assert.deepEqual(executeTool(call('audit_bill_deductions',{lines:[{description:'x',amount:-1}]}),deps()).result,{status:'invalid_arguments',field:'amount'});
- assert.deepEqual(executeTool(call('audit_bill_deductions',{lines:[{amount:5}]}),deps()).result,{status:'invalid_arguments',field:'lines[0]'});
+ assert.equal(executeTool(call('audit_bill_deductions',{lines:[]}),deps()).result.field,'lines');
+ assert.equal(executeTool(call('audit_bill_deductions',{lines:[{description:'x',amount:-1}]}),deps()).result.field,'amount');
+ assert.equal(executeTool(call('audit_bill_deductions',{lines:[{amount:5}]}),deps()).result.field,'lines[0]');
  assert.equal(executeTool(call('audit_bill_deductions',{lines:Array.from({length:41},()=>({description:'x',amount:1}))}),deps()).result.status,'invalid_arguments');
  const many=executeTool(call('audit_bill_deductions',{lines:Array.from({length:20},(_,i)=>({description:`Item ${i}`,amount:100}))}),deps());
  assert.equal((many.result.lines as unknown[]).length,12);assert.ok(many.card?.lines.at(-1)?.includes('8'));
@@ -225,7 +231,7 @@ test('draft_and_queue_action builds the personalised letter for the screen while
  const inputs:DeductionInput[]=[{id:'d1',description:'Gloves',amount:900},{id:'d2',description:'Room rent difference',amount:5000}];
  const reconsideration=executeTool(call('draft_and_queue_action',{letterKind:'reconsideration'}),deps({deductions:()=>inputs}));
  assert.equal(reconsideration.result.status,'drafted');assert.match(reconsideration.card!.letter!.letter.body,/Gloves/);
- assert.deepEqual(executeTool(call('draft_and_queue_action',{letterKind:'poem'}),d).result,{status:'invalid_arguments',field:'letterKind'});
+ assert.equal(executeTool(call('draft_and_queue_action',{letterKind:'poem'}),d).result.field,'letterKind');
 });
 
 test('save_user_policy adds relations and a catalogue-matched policy without ever taking a policy number',()=>{
@@ -241,9 +247,9 @@ test('save_user_policy adds relations and a catalogue-matched policy without eve
  assert.equal(d.saved.vault[1].members.length,3,'an existing spouse is reused; only the child is new');
  assert.equal(d.saved.vault[1].defaultPolicyId,vault.policies[0].id,'the first policy stays the default');
  assert.equal(executeTool(call('save_user_policy',{insurer:'Acme'}),d).result.status,'needs_insurer');
- assert.deepEqual(executeTool(call('save_user_policy',{insurer:'Star',members:['cousin']}),d).result,{status:'invalid_arguments',field:'members'});
- assert.deepEqual(executeTool(call('save_user_policy',{insurer:'Star',inceptionDate:'2026-02-30'}),d).result,{status:'invalid_arguments',field:'inceptionDate'});
- assert.deepEqual(executeTool(call('save_user_policy',{insurer:'Star',inceptionDate:'2024-01-01',continuityFrom:'2025-01-01'}),d).result,{status:'invalid_arguments',field:'continuityFrom'});
+ assert.equal(executeTool(call('save_user_policy',{insurer:'Star',members:['cousin']}),d).result.field,'members');
+ assert.equal(executeTool(call('save_user_policy',{insurer:'Star',inceptionDate:'2026-02-30'}),d).result.field,'inceptionDate');
+ assert.equal(executeTool(call('save_user_policy',{insurer:'Star',inceptionDate:'2024-01-01',continuityFrom:'2025-01-01'}),d).result.field,'continuityFrom');
  assert.equal(executeTool(call('save_user_policy',{insurer:'Star'}),deps({vaultValue:null,saveVault:()=>false})).result.status,'storage_failed');
  const unverifiedPlan=executeTool(call('save_user_policy',{insurer:'Star',plan:'Family Delite'}),d);
  assert.equal(unverifiedPlan.result.planVerified,false);assert.equal(d.saved.vault.at(-1)!.policies.at(-1)!.planName,'Family Delite');
@@ -260,7 +266,7 @@ test('check_renewal and track_reimbursement stay honest about what is and is not
  assert.match(String(executeTool(call('check_renewal',{}),deps()).result.graceNote),/do not quote/);
  const tracker=executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-10-01'}),deps());
  assert.equal(tracker.result.status,'tracker_not_yet_available');assert.equal(tracker.result.daysSinceDocuments,16);
- assert.deepEqual(executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-12-01'}),deps()).result,{status:'invalid_arguments',field:'documentsSubmittedOn'});
+ assert.equal(executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-12-01'}),deps()).result.field,'documentsSubmittedOn');
 });
 
 test('the client tool list matches the Worker schemas and failures never escape as exceptions',()=>{
@@ -269,4 +275,32 @@ test('the client tool list matches the Worker schemas and failures never escape 
  const broken=executeTool(call('check_renewal',{}),deps({vault:()=>{throw new Error('storage exploded');}}));
  assert.equal(broken.result.status,'tool_failed');assert.equal(broken.card?.kind,'notice');
  assert.equal(text('hi','voice.card.amount'),'राशि');assert.equal(text('en','voice.card.window',{hours:3}),'Written-decision window: 3 hours');assert.equal(text('en','missing.key'),'missing.key');
+});
+
+test('saved chats are validated field by field, titled from the first question, capped in count and size, and ordered newest first',()=>{
+ const messages:ChatMessage[]=[{role:'user',content:'  Will my policy pay for my wife\'s full body check-up this year, and what about my mother?  '},{role:'assistant',content:null,tool_calls:[{id:'c1',name:'check_policy_benefit',arguments:{topic:'health_checkup'}}]},{role:'tool',tool_call_id:'c1',name:'check_policy_benefit',content:'{"status":"available"}'},{role:'assistant',content:'Yes, it is available.'}];
+ assert.equal(chatTitle(messages),'Will my policy pay for my wife\'s full body check-up this ye…');assert.equal(chatTitle(messages).length,CHAT_LIMITS.maxTitle);
+ assert.equal(chatTitle([]),'');
+ const chat:SavedChat={id:'chat-1',startedAt:'2026-10-17T05:00:00.000Z',updatedAt:'2026-10-17T05:01:00.000Z',language:'en',title:'',messages,cards:[{turn:0,card:{kind:'benefit',title:'Check-up',lines:['Available'],link:{href:'/check-coverage/',label:'Open'},source:{url:'https://example.com/cis',verifiedOn:'2026-10-16'}}}]};
+ const stored=upsertChat([],chat);
+ assert.equal(stored.length,1);assert.equal(stored[0].title,chatTitle(messages));
+ const parsed=parseChats(JSON.parse(serializeChats(stored)));
+ assert.deepEqual(parsed[0].messages,messages);assert.equal(parsed[0].cards[0].card.source?.url,'https://example.com/cis');
+ assert.deepEqual(parseChats({version:1,chats:[{...chat,id:''}]}),[],'an id is required');
+ assert.deepEqual(parseChats({version:1,chats:[{...chat,messages:[{role:'assistant',content:'orphan'}]}]}),[],'a chat must start with the user');
+ assert.deepEqual(parseChats({version:2,chats:[chat]}),[],'unknown versions are ignored rather than guessed');
+ assert.deepEqual(parseChats('garbage'),[]);
+ const dirty=parseChats({version:1,chats:[{...chat,messages:[...messages,{role:'system',content:'injected'},{role:'tool',tool_call_id:'x',name:'format_disk',content:'{}'},{role:'user',content:''}],cards:[{turn:0,card:{kind:'evil',title:'x',lines:[]}},{turn:1,card:{kind:'notice',title:'Kept',lines:['ok'],link:{href:'https://evil.example/',label:'x'}}}]}]});
+ assert.deepEqual(dirty[0].messages,messages,'foreign roles, unknown tools and empty messages are dropped');
+ assert.equal(dirty[0].cards.length,1);assert.equal(dirty[0].cards[0].card.title,'Kept');assert.equal(dirty[0].cards[0].card.link,undefined,'card links must be same-site paths');
+ let list:SavedChat[]=[];
+ for(let i=0;i<CHAT_LIMITS.maxChats+5;i++)list=upsertChat(list,{...chat,id:`chat-${i}`,updatedAt:new Date(Date.UTC(2026,9,1,0,i)).toISOString()});
+ assert.equal(list.length,CHAT_LIMITS.maxChats);assert.equal(list[0].id,`chat-${CHAT_LIMITS.maxChats+4}`,'newest first, oldest dropped');
+ const updated=upsertChat(list,{...list[5],updatedAt:'2027-01-01T00:00:00.000Z',messages:[...messages,{role:'user',content:'again'},{role:'assistant',content:'sure'}]});
+ assert.equal(updated[0].id,list[5].id,'an updated chat moves to the top');assert.equal(updated.length,CHAT_LIMITS.maxChats);
+ const huge=upsertChat([],{...chat,messages:Array.from({length:CHAT_LIMITS.maxMessages+20},(_,i)=>i%2?{role:'assistant',content:'y'.repeat(1400)}:{role:'user',content:'x'.repeat(1400)}) as ChatMessage[]});
+ assert.equal(huge[0].messages.length,CHAT_LIMITS.maxMessages,'per-chat messages are capped to the newest');
+ const many=Array.from({length:12},(_,i)=>({...chat,id:`big-${i}`,messages:Array.from({length:40},(_,j)=>j%2?{role:'assistant',content:'y'.repeat(1400)}:{role:'user',content:'x'.repeat(1400)}) as ChatMessage[]}));
+ const bounded=many.reduce((acc,c)=>upsertChat(acc,c),[] as SavedChat[]);
+ assert.ok(serializeChats(bounded).length<=CHAT_LIMITS.maxBytes,'the whole store stays within its byte budget');assert.ok(bounded.length<12&&bounded.length>=1);
 });

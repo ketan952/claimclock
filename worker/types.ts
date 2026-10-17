@@ -24,5 +24,7 @@ export interface Bindings {
   TTS_MODEL?: string;
   TTS_VOICE_EN?: string;
   TTS_VOICE_HI?: string;
+  /** Azure Speech region, e.g. centralindia; only read when TTS_PROVIDER is azure. */
+  TTS_REGION?: string;
   TTS_PAID_CONFIRMED?: string;
 }

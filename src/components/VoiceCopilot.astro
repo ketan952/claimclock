@@ -11,6 +11,8 @@ import en from '../i18n/en.json';
  <header class="saathi-head">
   <span class="saathi-avatar" aria-hidden="true"></span>
   <div class="saathi-head-text"><h2 id="voice-title" data-i18n="voice.title">{en['voice.title']}</h2><p data-i18n="voice.subtitle">{en['voice.subtitle']}</p></div>
+  <button type="button" id="voice-new" class="saathi-icon" hidden data-i18n-aria-label="voice.newChat" aria-label={en['voice.newChat']} data-i18n-title="voice.newChat" title={en['voice.newChat']}><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 4a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H5a1 1 0 1 1 0-2h6V5a1 1 0 0 1 1-1Z"/></svg></button>
+  <button type="button" id="voice-chats" class="saathi-icon" hidden data-i18n-aria-label="voice.chats" aria-label={en['voice.chats']} data-i18n-title="voice.chats" title={en['voice.chats']}><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-4.3 3.4A1 1 0 0 1 3 18.6V5Zm3 3a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H7Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H7Z"/></svg></button>
   <button type="button" id="voice-close" class="saathi-close" data-i18n-aria-label="voice.close" aria-label={en['voice.close']}><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4l4.9 4.9-4.9 4.9a1 1 0 1 0 1.4 1.4l4.9-4.9 4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4Z"/></svg></button>
  </header>
  <section id="voice-consent" class="saathi-consent">
@@ -32,6 +34,12 @@ import en from '../i18n/en.json';
    <button type="button" id="voice-text-only" class="button-secondary" disabled data-i18n="voice.textOnly">{en['voice.textOnly']}</button>
   </div>
  </section>
+ <section id="voice-history" class="saathi-history" hidden>
+  <div class="saathi-history-head"><button type="button" id="voice-history-back" class="text-button" data-i18n="voice.back">{en['voice.back']}</button><h3 data-i18n="voice.chats">{en['voice.chats']}</h3><button type="button" id="voice-history-clear" class="text-button" data-i18n="voice.clearChats">{en['voice.clearChats']}</button></div>
+  <ul id="voice-history-list" class="saathi-history-list"></ul>
+  <p id="voice-history-empty" class="status" data-i18n="voice.noChats" hidden>{en['voice.noChats']}</p>
+  <p class="fine-print" data-i18n="voice.historyNote">{en['voice.historyNote']}</p>
+ </section>
  <section id="voice-session" hidden>
   <div class="saathi-scroll">
   <div class="saathi-stage">
@@ -51,9 +59,9 @@ import en from '../i18n/en.json';
   </div>
   <div class="saathi-dock">
   <div class="saathi-controls">
-   <label class="saathi-switch"><input type="checkbox" id="voice-handsfree" checked /><span class="saathi-switch-track" aria-hidden="true"></span><span data-i18n="voice.handsFree">{en['voice.handsFree']}</span></label>
+   <label class="saathi-switch" title={en['voice.handsFreeTitle']} data-i18n-title="voice.handsFreeTitle"><input type="checkbox" id="voice-handsfree" /><span class="saathi-switch-track" aria-hidden="true"></span><span data-i18n="voice.handsFree">{en['voice.handsFree']}</span></label>
    <button type="button" id="voice-talk" class="saathi-mic" data-i18n-aria-label="voice.talk" aria-label={en['voice.talk']}><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 15a4 4 0 0 0 4-4V6a4 4 0 1 0-8 0v5a4 4 0 0 0 4 4Zm6-4a1 1 0 1 1 2 0 8 8 0 0 1-7 7.94V21h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.06A8 8 0 0 1 4 11a1 1 0 1 1 2 0 6 6 0 0 0 12 0Z"/></svg></button>
-   <button type="button" id="voice-stop" class="button-secondary saathi-stop" hidden data-i18n="voice.stopSpeaking">{en['voice.stopSpeaking']}</button>
+   <button type="button" id="voice-stop" class="button-secondary saathi-stop" hidden data-i18n="voice.stopAll">{en['voice.stopAll']}</button>
   </div>
   <p id="voice-talk-label" class="saathi-mic-label" aria-hidden="true"></p>
   <form id="voice-text-form" class="saathi-text"><input name="text" type="text" maxlength="1500" autocomplete="off" placeholder={en['voice.typePlaceholder']} data-i18n-placeholder="voice.typePlaceholder" aria-label={en['voice.typePlaceholder']} data-i18n-aria-label="voice.typePlaceholder" /><button type="submit" class="saathi-send" data-i18n-aria-label="voice.send" aria-label={en['voice.send']}><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3.4 20.4 21 12 3.4 3.6 3.4 10l12 2-12 2z"/></svg></button></form>
@@ -76,7 +84,15 @@ import en from '../i18n/en.json';
  .saathi-head{display:flex;align-items:center;gap:12px;padding:16px 16px 12px 20px;background:linear-gradient(180deg,#eef2e6,#fbfaf6)}
  .saathi-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 35% 30%,#fff9 0,#fff0 42%),conic-gradient(from 200deg,var(--saathi-c),var(--saathi-b),var(--saathi-a),var(--saathi-c));box-shadow:0 6px 16px rgb(31 107 87 / .3)}
  .saathi-head-text{flex:1;min-width:0}.saathi-head-text h2{margin:0;font-size:1.25rem;line-height:1.2}.saathi-head-text p{margin:2px 0 0;font-size:.82rem;color:#5d6b54}
- .saathi-close{width:40px;height:40px;border-radius:50%;background:#ffffffaa;color:var(--saathi-ink);display:grid;place-items:center;padding:0;border:0}.saathi-close:hover{background:#fff}
+ .saathi-close,.saathi-icon{width:40px;height:40px;border-radius:50%;background:#ffffffaa;color:var(--saathi-ink);display:grid;place-items:center;padding:0;border:0;flex-shrink:0}.saathi-close:hover,.saathi-icon:hover{background:#fff}.saathi-icon[hidden]{display:none}
+ .saathi-history{padding:4px 20px 18px;overflow:auto;display:flex;flex-direction:column;gap:12px;flex:1;min-height:0}
+ .saathi-history-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.saathi-history-head h3{margin:0;font-size:1rem}
+ .saathi-history-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ .saathi-history-list li{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:#fff}
+ .saathi-history-list li.current{border-color:var(--saathi-b);box-shadow:inset 3px 0 0 var(--saathi-b)}
+ .saathi-history-open{flex:1;min-width:0;text-align:left;background:none;border:0;padding:12px 14px;color:var(--ink);font:inherit;cursor:pointer}
+ .saathi-history-open strong{display:block;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.saathi-history-open span{display:block;font-size:.78rem;color:#5d6b54;margin-top:2px}
+ .saathi-history-delete{width:36px;height:36px;margin-right:6px;border-radius:50%;border:0;background:none;color:#7a4a40;display:grid;place-items:center;padding:0;flex-shrink:0}.saathi-history-delete:hover{background:#f6e9e6}
  .saathi-consent{padding:4px 20px 18px;overflow:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:12px}
  #voice-session{display:flex;flex-direction:column;min-height:0;flex:1}
  .saathi-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:4px 20px 10px;display:flex;flex-direction:column;gap:12px}
@@ -125,7 +141,7 @@ import en from '../i18n/en.json';
  .saathi-send{width:46px;height:46px;border-radius:50%;border:0;padding:0;display:grid;place-items:center;background:#eef2e6;color:var(--saathi-ink);flex-shrink:0}.saathi-send:hover{background:#dfe6d3}
  #voice-error:empty{display:none}
  .saathi-foot{margin:0;text-align:center}
- @media(max-width:759px){dialog.saathi{position:fixed;inset:auto 0 0 0;margin:0;width:100%;max-width:none;border-radius:24px 24px 0 0;max-height:94dvh}dialog.saathi.in-session{height:94dvh}dialog.saathi[open]{animation:saathiUp .34s cubic-bezier(.2,.8,.2,1)}@keyframes saathiUp{from{transform:translateY(100%)}to{transform:none}}.saathi-consent{padding:4px 16px calc(14px + env(safe-area-inset-bottom))}.saathi-scroll{padding:4px 16px 10px}.saathi-dock{padding:10px 16px calc(12px + env(safe-area-inset-bottom))}#voice-orb{width:128px;height:128px}.site-footer{padding-bottom:88px}}
+ @media(max-width:759px){dialog.saathi{position:fixed;inset:auto 0 0 0;margin:0;width:100%;max-width:none;border-radius:24px 24px 0 0;max-height:94dvh}dialog.saathi.in-session{height:94dvh}dialog.saathi[open]{animation:saathiUp .34s cubic-bezier(.2,.8,.2,1)}@keyframes saathiUp{from{transform:translateY(100%)}to{transform:none}}.saathi-consent,.saathi-history{padding:4px 16px calc(14px + env(safe-area-inset-bottom))}.saathi-scroll{padding:4px 16px 10px}.saathi-dock{padding:10px 16px calc(12px + env(safe-area-inset-bottom))}#voice-orb{width:128px;height:128px}.saathi-head-text p{display:none}.site-footer{padding-bottom:88px}}
  @media(max-width:480px){.saathi-launch span:last-child{display:none}.saathi-launch{padding:12px}}
  @media(prefers-reduced-motion:reduce){.saathi-dot::after,.saathi-log li.assistant.live::after,dialog.saathi[data-voice-state=recording] .saathi-mic{animation:none}dialog.saathi[open]{animation:none}}
  @media print{.saathi-launch,dialog.saathi{display:none !important}}

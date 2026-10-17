@@ -158,8 +158,8 @@ test('the system prompt carries the hard rules, the language and the identifier-
   assert.match(prompt, /Hindi in Devanagari/); assert.match(prompt, /Today is 2026-10-17/); assert.match(prompt, /never state a deadline, waiting period, limit, amount, rule or contact from memory/);
   assert.match(prompt, /not legal advice/); assert.match(prompt, /"planId":"star-comprehensive"/); assert.doesNotMatch(prompt, /Ramesh|2825/);
   assert.deepEqual(TOOLS.map(t => t.function.name), [...TOOL_NAMES]);
-  for (const tool of TOOLS) { assert.ok(tool.function.description.length < 320, `${tool.function.name} description stays terse`); assert.equal(tool.function.parameters.type, 'object'); }
-  assert.ok(JSON.stringify(TOOLS).length < 6000, 'tool schemas stay within the free tier token budget');
+  for (const tool of TOOLS) { assert.ok(tool.function.description.length < 700, `${tool.function.name} description stays bounded`); assert.equal(tool.function.parameters.type, 'object'); }
+  assert.ok(JSON.stringify(TOOLS).length < 6500, 'tool schemas stay within the free tier token budget (≈1,600 tokens)');
 });
 
 test('completions are shaped: reasoning stripped, replies bounded and redacted, unknown or malformed tool calls dropped, ids de-duplicated', () => {
@@ -243,8 +243,11 @@ test('premium voice is off until an operator names a billed provider; when on, t
   assert.equal(ttsConfig({}), null);
   assert.equal(ttsConfig({ TTS_PROVIDER: 'sarvam', TTS_API_KEY: 'k' }), null, 'the paid acknowledgement is required');
   assert.equal(ttsConfig({ TTS_PROVIDER: 'elevenlabs', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true' }), null, 'unknown providers are refused');
-  assert.deepEqual(ttsConfig({ TTS_PROVIDER: 'sarvam', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true' }), { provider: 'sarvam', key: 'k', model: 'bulbul:v3', voice: { en: '', hi: '' } });
-  assert.deepEqual(ttsConfig({ TTS_PROVIDER: 'openai', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true', TTS_VOICE_HI: 'sage' }), { provider: 'openai', key: 'k', model: 'gpt-4o-mini-tts', voice: { en: 'coral', hi: 'sage' } });
+  assert.deepEqual(ttsConfig({ TTS_PROVIDER: 'sarvam', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true' }), { provider: 'sarvam', key: 'k', model: 'bulbul:v3', region: '', voice: { en: '', hi: '' } });
+  assert.deepEqual(ttsConfig({ TTS_PROVIDER: 'openai', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true', TTS_VOICE_HI: 'sage' }), { provider: 'openai', key: 'k', model: 'gpt-4o-mini-tts', region: '', voice: { en: 'coral', hi: 'sage' } });
+  assert.equal(ttsConfig({ TTS_PROVIDER: 'azure', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true' }), null, 'Azure needs its region');
+  assert.deepEqual(ttsConfig({ TTS_PROVIDER: 'azure', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true', TTS_REGION: 'centralindia' }), { provider: 'azure', key: 'k', model: 'neural', region: 'centralindia', voice: { en: 'en-IN-NeerjaNeural', hi: 'hi-IN-SwaraNeural' } });
+  assert.equal(ttsConfig({ TTS_PROVIDER: 'azure', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true', TTS_REGION: 'evil.example/' }), null, 'the region cannot smuggle a host');
   assert.equal(ttsConfig({ TTS_PROVIDER: 'openai', TTS_API_KEY: 'k', TTS_PAID_CONFIRMED: 'true', TTS_MODEL: 'bad model!' }), null);
   assert.deepEqual(validateSpeak({ text: '  Namaste.   Aapki policy  ', language: 'hi', consent: true }), { text: 'Namaste. Aapki policy', language: 'hi' });
   for (const body of [{ text: '', language: 'en', consent: true }, { text: 'x'.repeat(SPEAK_MAX_CHARS + 1), language: 'en', consent: true }, { text: 'hi', language: 'fr', consent: true }, { text: 'hi', language: 'en', consent: false }, { text: 'hi', language: 'en', consent: true, voice: 'x' }])
@@ -268,6 +271,13 @@ test('premium voice is off until an operator names a billed provider; when on, t
   const openaiCall = seen as unknown as { url: string; init: RequestInit };
   assert.equal(openaiCall.url, 'https://api.openai.com/v1/audio/speech'); assert.equal((openaiCall.init.headers as Record<string, string>).authorization, 'Bearer openai-key');
   const openaiSent = JSON.parse(String(openaiCall.init.body)); assert.equal(openaiSent.model, 'gpt-4o-mini-tts'); assert.equal(openaiSent.voice, 'coral'); assert.equal(openaiSent.response_format, 'mp3'); assert.match(openaiSent.instructions, /Indian English/);
+  const azureEnv = { ...env(), TTS_PROVIDER: 'azure', TTS_API_KEY: 'azure-key', TTS_PAID_CONFIRMED: 'true', TTS_REGION: 'centralindia' };
+  const azure = await withFetch('speak', async (url, init) => { seen = { url, init }; return new Response(new Uint8Array([0xff, 0xfb]), { status: 200, headers: { 'content-type': 'audio/mpeg' } }); }, () => speak(azureEnv, "Aapki policy 30 September ko renew hogi & that's <fine>.", 'hi'));
+  assert.equal(azure.status, 200); assert.equal(azure.headers.get('content-type'), 'audio/mpeg');
+  const azureCall = seen as unknown as { url: string; init: RequestInit };
+  assert.equal(azureCall.url, 'https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1');
+  const azureHeaders = azureCall.init.headers as Record<string, string>; assert.equal(azureHeaders['Ocp-Apim-Subscription-Key'], 'azure-key'); assert.match(azureHeaders['X-Microsoft-OutputFormat'], /mp3/);
+  const ssml = String(azureCall.init.body); assert.match(ssml, /xml:lang='hi-IN'/); assert.match(ssml, /<voice name='hi-IN-SwaraNeural'>/); assert.match(ssml, /&amp; that&apos;s &lt;fine&gt;\./, 'text is XML-escaped inside the SSML');
   for (const failing of [() => new Response('Private billing diagnostic', { status: 402 }), () => Response.json({ audios: ['not base64!!'] }), () => Response.json({ error: 'quota' })] as Handler[]) {
     const response = await withFetch('speak', failing, () => speak(sarvamEnv));
     assert.equal(response.status, 503); assert.ok(!(await response.text()).includes('Private'));

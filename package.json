@@ -20,6 +20,7 @@
     "test:browser": "playwright test",
     "data:check": "python3 scripts/parse-nl48.py --check",
     "lint": "node scripts/lint.mjs",
+    "eval:saathi": "node --experimental-strip-types scripts/eval-saathi.mjs",
     "qa:performance": "node scripts/run-lighthouse.mjs",
     "licenses:strict": "node scripts/audit-licenses.mjs"
   },
