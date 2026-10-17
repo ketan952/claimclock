@@ -1111,5 +1111,7 @@
   "voice.autoStopped": "मैंने सुनना बंद कर दिया। तैयार हों तो माइक टैप करें।",
   "voice.stopAll": "रोकें",
   "voice.chatMeta": "{date} · {count} संदेश",
-  "voice.handsFreeTitle": "हर जवाब के बाद माइक चालू रखें और अगला सवाल सुनें"
+  "voice.handsFreeTitle": "हर जवाब के बाद माइक चालू रखें और अगला सवाल सुनें",
+  "hero.ctaStart": "मेरी घड़ी शुरू करें",
+  "hero.ctaCoverage": "क्या मेरा इलाज कवर है?"
 }

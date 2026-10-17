@@ -1111,5 +1111,7 @@
   "voice.autoStopped": "I stopped listening. Tap the mic when you’re ready.",
   "voice.stopAll": "Stop",
   "voice.chatMeta": "{date} · {count} messages",
-  "voice.handsFreeTitle": "After each answer, keep the microphone on and listen for your next question"
+  "voice.handsFreeTitle": "After each answer, keep the microphone on and listen for your next question",
+  "hero.ctaStart": "Start my clock",
+  "hero.ctaCoverage": "Is my treatment covered?"
 }

@@ -1,219 +1,237 @@
 {
-  "collected_on": "2026-10-10",
-  "scope": "Known bundled runtime notices; not a complete binary provenance certification.",
-  "core_tag": "https://github.com/naptha/tesseract.js-core/tree/v7.0.0",
-  "core_tree_sha": "acffef2b66eb44a31df297e11d905f4b39001068",
-  "submodule_evidence": "https://api.github.com/repos/naptha/tesseract.js-core/git/trees/v7.0.0?recursive=1",
-  "entries": [
-    {
-      "component": "giflib",
-      "revision": "fa37672085ce4b3d62c51627ab3c8cf2dda8009a",
-      "source": "https://raw.githubusercontent.com/mirrorer/giflib/fa37672085ce4b3d62c51627ab3c8cf2dda8009a/COPYING",
-      "file": "ocr/giflib/COPYING",
-      "sha256": "0c9b7990ecdca88b676db232c226548ac408b279f550d424d996f0d83591dd8e"
-    },
-    {
-      "component": "leptonica",
-      "revision": "4af068b56a9674da915debea4ed7e1b9885b17e8",
-      "source": "https://raw.githubusercontent.com/DanBloomberg/leptonica/4af068b56a9674da915debea4ed7e1b9885b17e8/leptonica-license.txt",
-      "file": "ocr/leptonica/leptonica-license.txt",
-      "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806"
-    },
-    {
-      "component": "libjpeg",
-      "revision": "6c0fcb8ddee365e7abc4d332662b06900612e923",
-      "source": "https://raw.githubusercontent.com/LuaDist/libjpeg/6c0fcb8ddee365e7abc4d332662b06900612e923/README",
-      "file": "ocr/libjpeg/README",
-      "sha256": "c791da525733040e622ed257c7b096b8f5191b332604ead0c6bc2b54cbd8e0d1"
-    },
-    {
-      "component": "libpng",
-      "revision": "a37d4836519517bdce6cb9d956092321eca3e73b",
-      "source": "https://raw.githubusercontent.com/glennrp/libpng/a37d4836519517bdce6cb9d956092321eca3e73b/LICENSE",
-      "file": "ocr/libpng/LICENSE",
-      "sha256": "33ba4e187d8b0c8d7ab2bc2e522bb095219e03089e9aa0122b4fb9eb2b7de82b"
-    },
-    {
-      "component": "libwebp",
-      "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
-      "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/COPYING",
-      "file": "ocr/libwebp/COPYING",
-      "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf"
-    },
-    {
-      "component": "libwebp",
-      "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
-      "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/PATENTS",
-      "file": "ocr/libwebp/PATENTS",
-      "sha256": "cc3273e0694ea5896145e0677699b53471b03ea43021ddc50e7923fbb9f5023c"
-    },
-    {
-      "component": "libwebp",
-      "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
-      "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/AUTHORS",
-      "file": "ocr/libwebp/AUTHORS",
-      "sha256": "f6399f3a0574412944d3a6c5910b62c6f9c4ec58728ca8eccd3a2cfe3e665fdb"
-    },
-    {
-      "component": "openlibm",
-      "revision": "ae2d91698508701c83cab83714d42a1146dccf85",
-      "source": "https://raw.githubusercontent.com/JuliaMath/openlibm/ae2d91698508701c83cab83714d42a1146dccf85/LICENSE.md",
-      "file": "ocr/openlibm/LICENSE.md",
-      "sha256": "b1843fbf5b03f519a5f0a44fce751bdd1022ae7148614923f9d6293e17a18b17"
-    },
-    {
-      "component": "tesseract",
-      "revision": "2a9c1c49c360462733c386d2a44fcd22c4e21411",
-      "source": "https://raw.githubusercontent.com/Balearica/tesseract/2a9c1c49c360462733c386d2a44fcd22c4e21411/LICENSE",
-      "file": "ocr/tesseract/LICENSE",
-      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
-    },
-    {
-      "component": "zlib",
-      "revision": "21767c654d31d2dccdde4330529775c6c5fd5389",
-      "source": "https://raw.githubusercontent.com/madler/zlib/21767c654d31d2dccdde4330529775c6c5fd5389/README",
-      "file": "ocr/zlib/README",
-      "sha256": "fc2c3368901700f0acdeb1d8afeaca5923296768ec6824ecdf627aac396001fd"
-    },
-    {
-      "component": "libtiff",
-      "revision": "b51bb157123264e26d34c09cc673d213aea61fc7",
-      "source": "https://gitlab.com/libtiff/libtiff/-/raw/b51bb157123264e26d34c09cc673d213aea61fc7/COPYRIGHT",
-      "file": "ocr/libtiff/COPYRIGHT",
-      "sha256": "fbd6fed7938541d2c809c0826225fc85e551fdbfa8732b10f0c87e0847acafd7"
-    },
-    {
-      "component": "workbox-core",
-      "version": "7.4.1",
-      "source": "node_modules/workbox-core/LICENSE",
-      "file": "service-worker/workbox-core-LICENSE",
-      "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
-    },
-    {
-      "component": "workbox-expiration",
-      "version": "7.4.1",
-      "source": "node_modules/workbox-expiration/LICENSE",
-      "file": "service-worker/workbox-expiration-LICENSE",
-      "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
-    },
-    {
-      "component": "workbox-precaching",
-      "version": "7.4.1",
-      "source": "node_modules/workbox-precaching/LICENSE",
-      "file": "service-worker/workbox-precaching-LICENSE",
-      "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
-    },
-    {
-      "component": "workbox-routing",
-      "version": "7.4.1",
-      "source": "node_modules/workbox-routing/LICENSE",
-      "file": "service-worker/workbox-routing-LICENSE",
-      "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
-    },
-    {
-      "component": "workbox-strategies",
-      "version": "7.4.1",
-      "source": "node_modules/workbox-strategies/LICENSE",
-      "file": "service-worker/workbox-strategies-LICENSE",
-      "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
-    },
-    {
-      "component": "idb",
-      "version": "7.1.1",
-      "source": "node_modules/idb/LICENSE",
-      "file": "service-worker/idb-LICENSE",
-      "sha256": "873a2f333fda393ec3464f4579209b019d98e97c3bf498b10e85f630162fd708"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_OPENJPEG",
-      "file": "pdfjs/LICENSE_OPENJPEG",
-      "sha256": "a6af136f3e15038a666b61f376612a07d9a4e48cb7c01adbf3e33b3f14ab49b6"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_OPENJPEG",
-      "file": "pdfjs/LICENSE_PDFJS_OPENJPEG",
-      "sha256": "717fc62da03292dbb4dd0c8280bd4ce7bb8550dcf31d772bc93455fb50313425"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_JBIG2",
-      "file": "pdfjs/LICENSE_JBIG2",
-      "sha256": "9e66b7f1b934a28b37f3bc4dac97915de1674271e79a0a88182a18ed9731b4d1"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_JBIG2",
-      "file": "pdfjs/LICENSE_PDFJS_JBIG2",
-      "sha256": "aad3cce09842e00e9e11ad5e8fef8cc02fbc3a3768fe2f007443b9cee37aaee5"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_QCMS",
-      "file": "pdfjs/LICENSE_QCMS",
-      "sha256": "36d847ae882f6574ebc72f56a4f354e4f104fde4a584373496482e97d52d31bc"
-    },
-    {
-      "component": "pdfjs-dist",
-      "version": "6.4.299",
-      "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_QCMS",
-      "file": "pdfjs/LICENSE_PDFJS_QCMS",
-      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
-    },
-    {
-      "component": "emscripten-runtime",
-      "version": "4.0.15",
-      "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
-      "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/LICENSE",
-      "file": "ocr/emscripten/LICENSE",
-      "sha256": "620a78084fc7ca97c0b5dea9abf891f3ffcadfdbf305276f099c9c4e12fc1d86"
-    },
-    {
-      "component": "emscripten-runtime",
-      "version": "4.0.15",
-      "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
-      "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libc/musl/COPYRIGHT",
-      "file": "ocr/emscripten/system/lib/libc/musl/COPYRIGHT",
-      "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
-    },
-    {
-      "component": "emscripten-runtime",
-      "version": "4.0.15",
-      "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
-      "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libcxx/LICENSE.TXT",
-      "file": "ocr/emscripten/system/lib/libcxx/LICENSE.TXT",
-      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
-    },
-    {
-      "component": "emscripten-runtime",
-      "version": "4.0.15",
-      "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
-      "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libcxxabi/LICENSE.TXT",
-      "file": "ocr/emscripten/system/lib/libcxxabi/LICENSE.TXT",
-      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
-    },
-    {
-      "component": "emscripten-runtime",
-      "version": "4.0.15",
-      "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
-      "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/compiler-rt/LICENSE.TXT",
-      "file": "ocr/emscripten/system/lib/compiler-rt/LICENSE.TXT",
-      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
-    },
-    {
-      "component": "qrcode-generator",
-      "version": "2.0.4",
-      "revision": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
-      "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
-      "file": "qrcode-generator/LICENSE",
-      "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
-    }
-  ],
-  "emscripten_evidence": "https://github.com/naptha/tesseract.js-core/blob/v7.0.0/build-with-docker.sh"
+ "collected_on": "2026-10-10",
+ "scope": "Known bundled runtime notices; not a complete binary provenance certification.",
+ "core_tag": "https://github.com/naptha/tesseract.js-core/tree/v7.0.0",
+ "core_tree_sha": "acffef2b66eb44a31df297e11d905f4b39001068",
+ "submodule_evidence": "https://api.github.com/repos/naptha/tesseract.js-core/git/trees/v7.0.0?recursive=1",
+ "entries": [
+  {
+   "component": "giflib",
+   "revision": "fa37672085ce4b3d62c51627ab3c8cf2dda8009a",
+   "source": "https://raw.githubusercontent.com/mirrorer/giflib/fa37672085ce4b3d62c51627ab3c8cf2dda8009a/COPYING",
+   "file": "ocr/giflib/COPYING",
+   "sha256": "0c9b7990ecdca88b676db232c226548ac408b279f550d424d996f0d83591dd8e"
+  },
+  {
+   "component": "leptonica",
+   "revision": "4af068b56a9674da915debea4ed7e1b9885b17e8",
+   "source": "https://raw.githubusercontent.com/DanBloomberg/leptonica/4af068b56a9674da915debea4ed7e1b9885b17e8/leptonica-license.txt",
+   "file": "ocr/leptonica/leptonica-license.txt",
+   "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806"
+  },
+  {
+   "component": "libjpeg",
+   "revision": "6c0fcb8ddee365e7abc4d332662b06900612e923",
+   "source": "https://raw.githubusercontent.com/LuaDist/libjpeg/6c0fcb8ddee365e7abc4d332662b06900612e923/README",
+   "file": "ocr/libjpeg/README",
+   "sha256": "c791da525733040e622ed257c7b096b8f5191b332604ead0c6bc2b54cbd8e0d1"
+  },
+  {
+   "component": "libpng",
+   "revision": "a37d4836519517bdce6cb9d956092321eca3e73b",
+   "source": "https://raw.githubusercontent.com/glennrp/libpng/a37d4836519517bdce6cb9d956092321eca3e73b/LICENSE",
+   "file": "ocr/libpng/LICENSE",
+   "sha256": "33ba4e187d8b0c8d7ab2bc2e522bb095219e03089e9aa0122b4fb9eb2b7de82b"
+  },
+  {
+   "component": "libwebp",
+   "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
+   "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/COPYING",
+   "file": "ocr/libwebp/COPYING",
+   "sha256": "5aec868f669e384a22372a4e8a1a6cd7d44c64cd451f960ca69cc170d1e13acf"
+  },
+  {
+   "component": "libwebp",
+   "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
+   "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/PATENTS",
+   "file": "ocr/libwebp/PATENTS",
+   "sha256": "cc3273e0694ea5896145e0677699b53471b03ea43021ddc50e7923fbb9f5023c"
+  },
+  {
+   "component": "libwebp",
+   "revision": "20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c",
+   "source": "https://raw.githubusercontent.com/webmproject/libwebp/20ef03ee351d4ff03fc5ff3ec4804a879d1b9d5c/AUTHORS",
+   "file": "ocr/libwebp/AUTHORS",
+   "sha256": "f6399f3a0574412944d3a6c5910b62c6f9c4ec58728ca8eccd3a2cfe3e665fdb"
+  },
+  {
+   "component": "openlibm",
+   "revision": "ae2d91698508701c83cab83714d42a1146dccf85",
+   "source": "https://raw.githubusercontent.com/JuliaMath/openlibm/ae2d91698508701c83cab83714d42a1146dccf85/LICENSE.md",
+   "file": "ocr/openlibm/LICENSE.md",
+   "sha256": "b1843fbf5b03f519a5f0a44fce751bdd1022ae7148614923f9d6293e17a18b17"
+  },
+  {
+   "component": "tesseract",
+   "revision": "2a9c1c49c360462733c386d2a44fcd22c4e21411",
+   "source": "https://raw.githubusercontent.com/Balearica/tesseract/2a9c1c49c360462733c386d2a44fcd22c4e21411/LICENSE",
+   "file": "ocr/tesseract/LICENSE",
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+   "component": "zlib",
+   "revision": "21767c654d31d2dccdde4330529775c6c5fd5389",
+   "source": "https://raw.githubusercontent.com/madler/zlib/21767c654d31d2dccdde4330529775c6c5fd5389/README",
+   "file": "ocr/zlib/README",
+   "sha256": "fc2c3368901700f0acdeb1d8afeaca5923296768ec6824ecdf627aac396001fd"
+  },
+  {
+   "component": "libtiff",
+   "revision": "b51bb157123264e26d34c09cc673d213aea61fc7",
+   "source": "https://gitlab.com/libtiff/libtiff/-/raw/b51bb157123264e26d34c09cc673d213aea61fc7/COPYRIGHT",
+   "file": "ocr/libtiff/COPYRIGHT",
+   "sha256": "fbd6fed7938541d2c809c0826225fc85e551fdbfa8732b10f0c87e0847acafd7"
+  },
+  {
+   "component": "workbox-core",
+   "version": "7.4.1",
+   "source": "node_modules/workbox-core/LICENSE",
+   "file": "service-worker/workbox-core-LICENSE",
+   "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
+  },
+  {
+   "component": "workbox-expiration",
+   "version": "7.4.1",
+   "source": "node_modules/workbox-expiration/LICENSE",
+   "file": "service-worker/workbox-expiration-LICENSE",
+   "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
+  },
+  {
+   "component": "workbox-precaching",
+   "version": "7.4.1",
+   "source": "node_modules/workbox-precaching/LICENSE",
+   "file": "service-worker/workbox-precaching-LICENSE",
+   "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
+  },
+  {
+   "component": "workbox-routing",
+   "version": "7.4.1",
+   "source": "node_modules/workbox-routing/LICENSE",
+   "file": "service-worker/workbox-routing-LICENSE",
+   "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
+  },
+  {
+   "component": "workbox-strategies",
+   "version": "7.4.1",
+   "source": "node_modules/workbox-strategies/LICENSE",
+   "file": "service-worker/workbox-strategies-LICENSE",
+   "sha256": "aee9670e09b75ca8a2a1fe62d545ae38a6797970caf0335628e3a4dd15bc9b6c"
+  },
+  {
+   "component": "idb",
+   "version": "7.1.1",
+   "source": "node_modules/idb/LICENSE",
+   "file": "service-worker/idb-LICENSE",
+   "sha256": "873a2f333fda393ec3464f4579209b019d98e97c3bf498b10e85f630162fd708"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_OPENJPEG",
+   "file": "pdfjs/LICENSE_OPENJPEG",
+   "sha256": "a6af136f3e15038a666b61f376612a07d9a4e48cb7c01adbf3e33b3f14ab49b6"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_OPENJPEG",
+   "file": "pdfjs/LICENSE_PDFJS_OPENJPEG",
+   "sha256": "717fc62da03292dbb4dd0c8280bd4ce7bb8550dcf31d772bc93455fb50313425"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_JBIG2",
+   "file": "pdfjs/LICENSE_JBIG2",
+   "sha256": "9e66b7f1b934a28b37f3bc4dac97915de1674271e79a0a88182a18ed9731b4d1"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_JBIG2",
+   "file": "pdfjs/LICENSE_PDFJS_JBIG2",
+   "sha256": "aad3cce09842e00e9e11ad5e8fef8cc02fbc3a3768fe2f007443b9cee37aaee5"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_QCMS",
+   "file": "pdfjs/LICENSE_QCMS",
+   "sha256": "36d847ae882f6574ebc72f56a4f354e4f104fde4a584373496482e97d52d31bc"
+  },
+  {
+   "component": "pdfjs-dist",
+   "version": "6.4.299",
+   "source": "node_modules/pdfjs-dist/wasm/LICENSE_PDFJS_QCMS",
+   "file": "pdfjs/LICENSE_PDFJS_QCMS",
+   "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+  },
+  {
+   "component": "emscripten-runtime",
+   "version": "4.0.15",
+   "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
+   "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/LICENSE",
+   "file": "ocr/emscripten/LICENSE",
+   "sha256": "620a78084fc7ca97c0b5dea9abf891f3ffcadfdbf305276f099c9c4e12fc1d86"
+  },
+  {
+   "component": "emscripten-runtime",
+   "version": "4.0.15",
+   "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
+   "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libc/musl/COPYRIGHT",
+   "file": "ocr/emscripten/system/lib/libc/musl/COPYRIGHT",
+   "sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+  },
+  {
+   "component": "emscripten-runtime",
+   "version": "4.0.15",
+   "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
+   "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libcxx/LICENSE.TXT",
+   "file": "ocr/emscripten/system/lib/libcxx/LICENSE.TXT",
+   "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+  },
+  {
+   "component": "emscripten-runtime",
+   "version": "4.0.15",
+   "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
+   "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/libcxxabi/LICENSE.TXT",
+   "file": "ocr/emscripten/system/lib/libcxxabi/LICENSE.TXT",
+   "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+  },
+  {
+   "component": "emscripten-runtime",
+   "version": "4.0.15",
+   "revision": "09f52557f0d48b65b8c724853ed8f4e8bf80e669",
+   "source": "https://raw.githubusercontent.com/emscripten-core/emscripten/09f52557f0d48b65b8c724853ed8f4e8bf80e669/system/lib/compiler-rt/LICENSE.TXT",
+   "file": "ocr/emscripten/system/lib/compiler-rt/LICENSE.TXT",
+   "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+  },
+  {
+   "component": "qrcode-generator",
+   "version": "2.0.4",
+   "revision": "83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8",
+   "source": "https://raw.githubusercontent.com/kazuhikoarase/qrcode-generator/83b7e8fe3fddd3b0368dbafd6ce56995bd25e3c8/LICENSE",
+   "file": "qrcode-generator/LICENSE",
+   "sha256": "3a850fa5f08101db6f40676c2786e10bd2cd5fff7b12ffdf1e0c434d4e49d90c"
+  },
+  {
+   "component": "Inter (web font, latin subset)",
+   "revision": "Google Fonts static build; license text from google/fonts ofl/inter",
+   "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+   "file": "fonts/inter/OFL.txt",
+   "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+   "shipped_as": "public/fonts/inter-latin.woff2",
+   "license": "OFL-1.1"
+  },
+  {
+   "component": "Manrope (web font, latin subset)",
+   "revision": "Google Fonts static build; license text from google/fonts ofl/manrope",
+   "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+   "file": "fonts/manrope/OFL.txt",
+   "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+   "shipped_as": "public/fonts/manrope-latin.woff2",
+   "license": "OFL-1.1"
+  }
+ ],
+ "emscripten_evidence": "https://github.com/naptha/tesseract.js-core/blob/v7.0.0/build-with-docker.sh"
 }

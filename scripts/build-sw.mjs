@@ -3,7 +3,7 @@ import {build} from 'esbuild';
 import {readFile,writeFile} from 'node:fs/promises';
 import {buildId} from './build-info.mjs';
 await writeFile('dist/build.json',JSON.stringify({buildId})+'\n');
-const {manifestEntries,warnings}=await getManifest({globDirectory:'dist',globPatterns:['**/*.{html,js,css,json,svg,webmanifest}'],globIgnores:['sw.js','workbox-*.js','vendor/**','_astro/pdf.*','_astro/extract.*','_astro/preprocess.worker-*','_astro/src.*'],maximumFileSizeToCacheInBytes:2*1024*1024});
+const {manifestEntries,warnings}=await getManifest({globDirectory:'dist',globPatterns:['**/*.{html,js,css,json,svg,webmanifest,woff2}'],globIgnores:['sw.js','workbox-*.js','vendor/**','_astro/pdf.*','_astro/extract.*','_astro/preprocess.worker-*','_astro/src.*'],maximumFileSizeToCacheInBytes:2*1024*1024});
 if(warnings.length)throw Error(warnings.join('\n'));
 const source=(await readFile('scripts/service-worker.js','utf8')).replace('self.__WB_MANIFEST',JSON.stringify(manifestEntries));
 await build({stdin:{contents:source,resolveDir:process.cwd()},bundle:true,minify:true,outfile:'dist/sw.js',define:{'process.env.NODE_ENV':'"production"',__BUILD_ID__:JSON.stringify(buildId)}});
