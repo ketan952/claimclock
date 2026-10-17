@@ -1,0 +1,27 @@
+---
+// Duotone spot illustrations for the three steps. Brand colours come from the theme tokens so they follow dark mode.
+interface Props { name: 'time' | 'writing' | 'send' }
+const { name } = Astro.props;
+---
+<svg viewBox="0 0 96 96" width="72" height="72" class="spot" aria-hidden="true" focusable="false">
+ {name === 'time' && <>
+  <circle cx="46" cy="50" r="30" fill="var(--lime)" />
+  <circle cx="46" cy="50" r="30" fill="none" stroke="var(--brand)" stroke-width="3" />
+  <path d="M46 50V31" stroke="var(--brand)" stroke-width="4" stroke-linecap="round" />
+  <path d="M46 50l14 9" stroke="var(--brand)" stroke-width="4" stroke-linecap="round" />
+  <circle cx="46" cy="50" r="4" fill="var(--accent)" stroke="var(--brand)" stroke-width="2.5" />
+  <rect x="58" y="12" width="30" height="16" rx="4" fill="var(--surface)" stroke="var(--brand)" stroke-width="2.5" transform="rotate(-8 73 20)" />
+  <path d="M64 20h18" stroke="var(--brand)" stroke-width="2.5" stroke-linecap="round" transform="rotate(-8 73 20)" />
+ </>}
+ {name === 'writing' && <>
+  <rect x="22" y="12" width="48" height="64" rx="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="3" />
+  <path d="M32 28h28M32 38h28M32 48h18" stroke="var(--line-strong)" stroke-width="3" stroke-linecap="round" />
+  <circle cx="64" cy="62" r="14" fill="var(--lime)" stroke="var(--brand)" stroke-width="3" />
+  <path d="M57.5 62.5l4.5 4.5 9-9.5" fill="none" stroke="var(--brand)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+ </>}
+ {name === 'send' && <>
+  <path d="M14 46l64-26-20 60-12-24-32-10z" fill="var(--lime)" stroke="var(--brand)" stroke-width="3" stroke-linejoin="round" />
+  <path d="M46 56l32-36" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" />
+  <path d="M20 72c8-6 14-6 22 0" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" />
+ </>}
+</svg>

@@ -1113,5 +1113,13 @@
   "voice.chatMeta": "{date} · {count} messages",
   "voice.handsFreeTitle": "After each answer, keep the microphone on and listen for your next question",
   "hero.ctaStart": "Start my clock",
-  "hero.ctaCoverage": "Is my treatment covered?"
+  "hero.ctaCoverage": "Is my treatment covered?",
+  "home.storyEyebrow": "How it works",
+  "home.storyLead": "Everything runs on your phone. Nothing is filed for you, and nothing leaves the device unless you send it.",
+  "home.tool.deductions": "Read a settlement letter on this device, check every deduction line against the rules and draft the review letter.",
+  "home.tool.index": "Published cashless-discharge disclosures for 32 insurers, with every source linked.",
+  "home.tool.vault": "Save your family and policies once; every letter and check fills itself. Optional passkey sync.",
+  "home.tool.coverage": "Check-up limits, room upgrades, waiting periods and co-pay from your plan’s cited rules.",
+  "home.tool.compare": "Up to three plans side by side on the rules that bite at the hospital — no premiums, no sales pitch.",
+  "home.tool.saathi": "Ask in English or Hindi. Saathi checks your policy, starts the clock or drafts the letter — by voice."
 }

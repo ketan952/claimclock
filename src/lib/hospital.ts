@@ -116,7 +116,7 @@ function updateClock(){
 function render(){
  renderCases();
  el('input-timezone').textContent=`${t('common.timezone')}: ${new Intl.DateTimeFormat(lang()==='hi'?'hi-IN':'en-IN',{timeZone:deviceTimezone,timeZoneName:'long'}).formatToParts(new Date()).find(part=>part.type==='timeZoneName')?.value||deviceTimezone}`;el('optin-status').textContent=reportStatusKey?interpolate(reportStatusKey,{field:reportErrorField?t(reportFieldLabels[reportErrorField]):''}):'';el('deletion-saved').textContent=t(deletionSaved?'optin.saved':'optin.notSaved');
- el('intro').hidden=!!timeline;el('start-view').hidden=!!timeline&&!editingDetails;el('dashboard').hidden=!timeline||editingDetails;
+ el('intro').hidden=!!timeline;el('story').hidden=!!timeline;el('start-view').hidden=!!timeline&&!editingDetails;el('dashboard').hidden=!timeline||editingDetails;
  document.querySelectorAll<HTMLElement>('[data-rule-plain]').forEach(node=>{const rule=rules.find(r=>r.id===node.dataset.rulePlain);if(rule)node.textContent=(lang()==='hi'?rule.plain_hi:rule.plain_en)||rule.title;});
  if(!timeline)return;
  const insurer=contacts.find(c=>c.id===timeline!.insurerId);

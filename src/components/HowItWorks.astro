@@ -1,0 +1,28 @@
+---
+// Home page story for first-time visitors: the three steps (shared with /about/) and the other tools,
+// each with an icon. Hidden by hospital.ts once a case is running, so the clock stays the focus.
+import en from '../i18n/en.json';
+import Icon from './Icon.astro';
+import Spot from './Spot.astro';
+const steps = [['one', 'time'], ['two', 'writing'], ['three', 'send']] as const;
+const tools: { href: string; icon: 'receipt' | 'chart' | 'shield' | 'check' | 'columns'; title: keyof typeof en; body: keyof typeof en }[] = [
+  { href: '/deductions/', icon: 'receipt', title: 'nav.deductions', body: 'home.tool.deductions' },
+  { href: '/index/', icon: 'chart', title: 'nav.index', body: 'home.tool.index' },
+  { href: '/vault/', icon: 'shield', title: 'nav.vault', body: 'home.tool.vault' },
+  { href: '/check-coverage/', icon: 'check', title: 'footer.coverage', body: 'home.tool.coverage' },
+  { href: '/compare/', icon: 'columns', title: 'footer.compare', body: 'home.tool.compare' },
+];
+---
+<section id="story" class="story" aria-labelledby="story-title">
+ <div class="story-head"><p class="section-number" data-i18n="home.storyEyebrow">{en['home.storyEyebrow']}</p><h2 id="story-title" data-i18n="about.title">{en['about.title']}</h2><p data-i18n="home.storyLead">{en['home.storyLead']}</p></div>
+ <ol class="story-steps">
+  {steps.map(([key, spot], i) => <li class="card story-step"><Spot name={spot} /><span class="story-index" aria-hidden="true">{i + 1}</span><h3 data-i18n={`about.${key}`}>{en[`about.${key}`]}</h3><p data-i18n={`about.${key}Body`}>{en[`about.${key}Body`]}</p></li>)}
+ </ol>
+ <div class="story-tools">
+  {tools.map(tool => <a class="tool-card" href={tool.href}><Icon name={tool.icon} /><strong data-i18n={tool.title}>{en[tool.title]}</strong><span data-i18n={tool.body}>{en[tool.body]}</span></a>)}
+  <button type="button" class="tool-card tool-saathi" id="story-saathi"><Icon name="mic" /><strong data-i18n="voice.title">{en['voice.title']}</strong><span data-i18n="home.tool.saathi">{en['home.tool.saathi']}</span></button>
+ </div>
+</section>
+<script>
+ document.getElementById('story-saathi')?.addEventListener('click', () => document.getElementById('voice-launch')?.click());
+</script>

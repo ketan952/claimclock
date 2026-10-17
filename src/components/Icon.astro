@@ -1,0 +1,17 @@
+---
+// Inline line icons in the brand stroke. Decorative: always aria-hidden, colour from currentColor.
+interface Props { name: 'clock' | 'receipt' | 'chart' | 'shield' | 'check' | 'columns' | 'mic' | 'letter' | 'book'; size?: number; class?: string }
+const { name, size = 24, class: className } = Astro.props;
+const paths: Record<Props['name'], string> = {
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>',
+  receipt: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+  chart: '<path d="M4 20h16"/><rect x="6" y="11" width="3" height="6" rx=".8"/><rect x="11" y="6" width="3" height="11" rx=".8"/><rect x="16" y="13" width="3" height="4" rx=".8"/>',
+  shield: '<path d="M12 3l7 3v5.5c0 4.5-3 8.1-7 9.5-4-1.4-7-5-7-9.5V6l7-3z"/><path d="M12 10.5v3.5"/><circle cx="12" cy="9.5" r="1.1" fill="currentColor" stroke="none"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.4 4.8-5"/>',
+  columns: '<rect x="3.5" y="5" width="7.5" height="14" rx="1.6"/><rect x="13" y="5" width="7.5" height="14" rx="1.6"/><path d="M6 9h2.5M6 12h2.5M15.5 9H18M15.5 12H18"/>',
+  mic: '<rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M6 11.5a6 6 0 0 0 12 0M12 17.5V21M9.5 21h5"/>',
+  letter: '<rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M4 7.5l8 5.5 8-5.5"/>',
+  book: '<path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v15H7.5A2.5 2.5 0 0 0 5 20.5v-15z"/><path d="M5 20.5A2.5 2.5 0 0 1 7.5 18H19"/><path d="M9 8h6"/>',
+};
+---
+<svg viewBox="0 0 24 24" width={size} height={size} class={className} aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={paths[name]} />

@@ -4,6 +4,7 @@ import en from '../i18n/en.json';
 import LetterDialog from '../components/LetterDialog.astro';
 import HospitalToolkits from '../components/HospitalToolkits.astro';
 import Transfer from '../components/Transfer.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 import contacts from '../../data/contacts.json';
 import rules from '../../data/rules.json';
 const insurers=contacts.filter(c=>c.kind==='insurer').sort((a,b)=>a.name.localeCompare(b.name));
@@ -30,6 +31,7 @@ const rights=['cashless-preauth','cashless-discharge','no-discharge-wait','delay
   </section>
   <aside><section class="card rights-card"><p class="section-number" data-i18n="rights.eyebrow">Know your rights</p><h2 data-i18n="rights.title">What the rule says</h2><ol class="rights-list">{rights.map(r=><li><span data-rule-plain={r!.id}>{r!.plain_en}</span><blockquote>“{r!.quote}”</blockquote><a href={r!.source_url} target="_blank" rel="noopener noreferrer">{r!.paragraph} ↗</a></li>)}</ol></section><a class="death-link" href="/death/" data-i18n="death.link">A patient has died — help with release</a></aside>
  </div>
+ <HowItWorks />
  <section id="dashboard" class="dashboard" hidden>
   <div class="dashboard-top"><h1 data-i18n="clock.title">Your cashless clock</h1><button class="text-button" id="edit-details" data-i18n="clock.edit">Correct details</button><a class="text-button" href="#local-cases" data-i18n="clock.cases">Saved cases &amp; backup</a></div>
   <p id="storage-error" class="error" role="alert"></p>
