@@ -12,7 +12,7 @@ const properNames=[...contacts.map(c=>c.name),...plans.map(p=>p.name),'English',
 const sourceTexts=new Set(rules.flatMap(r=>[r.quote,r.paragraph]).map(normalize));
 const remainingEnglish=(text:string)=>{
  if(sourceTexts.has(normalize(text)))return '';
- let remaining=text.replace(/https?:\/\/\S+|\b[^\s@]+@[^\s@]+\.[^\s@]+\b|\/s\/[a-z0-9-]+|\brules\.json\b|\.ics\b|\.txt\b/g,'');
+ let remaining=text.replace(/https?:\/\/\S+|\b[^\s@]+@[^\s@]+\.[^\s@]+\b|\/s\/[a-z0-9-]+|\brules\.json\b|\.ics\b|\.txt\b|\b[\w-]+(?:\.[\w-]+)+\.(?:com|in|org|ai)\b|\b[\w.-]+\/[\w.:-]+\b|\b[a-z]+(?:-[a-z0-9]+)+-v\d[\w-]*\b/g,'');
  for(const name of [...properNames].sort((a,b)=>b.length-a.length))remaining=remaining.split(name).join('');
  remaining=remaining.replace(/\b(?:NL-48|CSV|JSON|GRO|TPA|IRDAI|IIB|GST|CGHS|RBI|NABH|NABL|III|EN|IST|AI|OCR|PDF|PNG|JPEG|DPDP|API|IP|UHID|CIS|PIN|OPD|OT|MC|ICU|HTTP|HTTPS|MB|SHA256|FY\d{4}|D1)\b/g,'');
  return remaining.match(/[A-Za-z]{3,}(?:[ -]+[A-Za-z]{3,})*/g)?.join(' ')||'';
