@@ -3,7 +3,7 @@ import sources from '../../data/source-links.json' with {type:'json'};
 import contacts from '../../data/contacts.json' with {type:'json'};
 import {auditHtml} from '../../scripts/check-static-csp.mjs';
 test('all public pages contain external scripts only and no inline event handlers',async({request})=>{
- const routes=['/','/privacy/','/death/','/deductions/','/rejected/','/index/','/about/','/methodology/','/offline/','/vault/','/check-coverage/','/compare/','/renewal/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
+ const routes=['/','/privacy/','/death/','/deductions/','/rejected/','/index/','/about/','/methodology/','/offline/','/vault/','/check-coverage/','/compare/','/renewal/','/reimbursement/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
  for(const route of routes){const response=await request.get(route);expect(response.ok(),route).toBe(true);expect(auditHtml(await response.text()),route).toEqual([]);}
 });
 test('short citation links return a 302 to the exact primary source',async({request})=>{

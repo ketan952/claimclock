@@ -269,9 +269,15 @@ test('check_renewal and track_reimbursement stay honest about what is and is not
  assert.deepEqual((sourced.result.porting as Record<string,string>).applyFrom,'2026-08-01');assert.equal((sourced.result.porting as Record<string,string>).applyBy,'2026-08-31');assert.equal((sourced.result.porting as Record<string,string>).graceEndsOn,'2026-10-30');
  assert.equal(sourced.card?.link?.href,'/renewal/?policy=p-star');assert.ok(sourced.card?.lines.some(l=>/1 August 2026/.test(l)&&/31 August 2026/.test(l)));assert.ok(sourced.card?.lines.some(l=>/15 days/.test(l)&&/30 days/.test(l)));
  assert.doesNotMatch(JSON.stringify(sourced.result),/P\/700001|UH-99887|CLM-77/);
+ // M26: a spoken submission date gives a provisional 15-day clock; a saved claim is the record and carries the interest with its sources.
  const tracker=executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-10-01'}),deps());
- assert.equal(tracker.result.status,'tracker_not_yet_available');assert.equal(tracker.result.daysSinceDocuments,16);
+ assert.equal(tracker.result.status,'overdue');assert.equal(tracker.result.deadline,'2026-10-16');assert.equal(tracker.result.daysOverdue,1);assert.equal(tracker.result.provisional,true);assert.equal(tracker.card?.link?.href,'/reimbursement/');
  assert.equal(executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-12-01'}),deps()).result.field,'documentsSubmittedOn');
+ const none=executeTool(call('track_reimbursement',{}),deps());assert.equal(none.result.status,'no_claim');assert.ok(none.card?.lines.some(l=>/15 days/.test(l)));
+ const savedClaim={id:'r1',insurerId:'star-health',hospital:'',intimatedOn:'2026-09-20',submittedOn:'2026-09-25',claimedAmount:120000,queries:[],settledOn:null,settledAmount:null,interestPaid:null,documents:{},notes:'',updatedAt:'2026-10-01T00:00:00.000Z'};
+ const withClaim=executeTool(call('track_reimbursement',{}),deps({claims:()=>[savedClaim]}));
+ assert.equal(withClaim.result.status,'overdue');assert.equal(withClaim.result.provisional,false);assert.deepEqual(withClaim.result.interest,{amount:Math.round(120000*7.5/100*27/365),ratePercent:7.5,days:27,bankRatePercent:5.5,financialYear:'2026-27'});
+ assert.ok(withClaim.card?.lines.some(l=>/₹/.test(l)));assert.doesNotMatch(JSON.stringify(withClaim.result),/star-health|Example/);
 });
 
 test('the client tool list matches the Worker schemas and failures never escape as exceptions',()=>{

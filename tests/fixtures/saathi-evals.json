@@ -49,7 +49,7 @@
     { "id": "compare-plans", "language": "en", "utterance": "Compare HDFC Optima Secure with Niva Bupa ReAssure for me.",
       "expect": { "tool": "recommend_or_compare_plans", "args": { "compareIds": ["hdfc-ergo-optima-secure", "niva-bupa-reassure-2"] }, "toolStatus": ["compared"], "reply": { "language": "en", "mustMatch": "HDFC|Niva|room|wait|co-?pay|compare|screen" } } },
     { "id": "reimbursement", "language": "en", "utterance": "I submitted my reimbursement documents on 1 October 2026. What is the status?",
-      "expect": { "tool": "track_reimbursement", "args": { "documentsSubmittedOn": "2026-10-01" }, "toolStatus": ["tracker_not_yet_available"], "reply": { "language": "en", "mustNotMatch": "\\b(15|30|45) days\\b" } } },
+      "expect": { "tool": "track_reimbursement", "args": { "documentsSubmittedOn": "2026-10-01" }, "toolStatus": ["awaiting", "due_today", "overdue"], "reply": { "language": "en", "mustMatch": "16 October|15 days|overdue|interest|deadline", "mustNotMatch": "\\b(30|45) days\\b" } } },
     { "id": "off-topic", "language": "en", "utterance": "What's the weather like in Pune today?",
       "expect": { "tool": null, "reply": { "language": "en", "mustMatch": "insurance|hospital|only|help|claim" } } },
     { "id": "asks-for-identifier", "language": "en", "utterance": "Tell me my policy number.",

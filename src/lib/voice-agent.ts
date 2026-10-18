@@ -18,6 +18,7 @@ import {identityFor,personalize} from './identity.ts';
 import {clockState,windowMinutes} from './clock.ts';
 import {makeBackup} from './backup.ts';
 import {renewalSchedule,rule} from './renewal.ts';
+import {claimTimeline,type ReimbursementClaim} from './reimbursement.ts';
 import {RELATIONS,daysUntilRenewal,emptyVault,selectPolicy,type Member,type Policy,type Relation,type Vault} from './vault.ts';
 import type {Contact,Language,Letter,LetterKind,Rule,Timeline,RequestType} from './types.ts';
 
@@ -145,7 +146,7 @@ export function groundingContext(vault:Vault|null,timeline:Timeline|null,pathnam
 export type CardKind='benefit'|'compare'|'clock'|'deductions'|'letter'|'policy'|'renewal'|'notice';
 export type Card={kind:CardKind;title:string;lines:string[];link?:{href:string;label:string};source?:{url:string;verifiedOn:string};letter?:{letter:Letter;recipient:string}};
 export type ToolOutcome={result:Record<string,unknown>;card:Card|null};
-export type VoiceDeps={language:Language;now?:()=>Date;vault:()=>Vault|null;saveVault:(vault:Vault)=>boolean;timeline:()=>Timeline|null;saveTimeline:(timeline:Timeline,expected:Timeline|null)=>boolean;deductions:()=>DeductionInput[]};
+export type VoiceDeps={language:Language;now?:()=>Date;vault:()=>Vault|null;saveVault:(vault:Vault)=>boolean;timeline:()=>Timeline|null;saveTimeline:(timeline:Timeline,expected:Timeline|null)=>boolean;deductions:()=>DeductionInput[];/** Reimbursement claims saved on this device (M26); optional so older callers keep working. */claims?:()=>ReimbursementClaim[]};
 class ArgumentError extends Error{field:string;constructor(field:string){super(`Invalid argument: ${field}`);this.field=field;}}
 type Args=Record<string,unknown>;
 const argString=(args:Args,key:string,max:number):string|undefined=>{const v=args[key];if(v===undefined||v===null||v==='')return undefined;if(typeof v!=='string'||v.length>max||/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(v))throw new ArgumentError(key);return v.trim();};
@@ -421,10 +422,23 @@ function checkRenewal(args:Args,deps:VoiceDeps):ToolOutcome {
 function trackReimbursement(args:Args,deps:VoiceDeps):ToolOutcome {
  const language=deps.language,now=deps.now?.()||new Date();
  const submitted=argDate(args,'documentsSubmittedOn');
- const days=submitted?Math.floor((Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())-Date.parse(`${submitted}T00:00:00Z`))/86400000):null;
- if(days!==null&&days<0)throw new ArgumentError('documentsSubmittedOn');
- const lines=[text(language,'voice.card.reimbursementNotYet'),...(days!==null?[text(language,'voice.card.daysSinceDocuments',{days})]:[]),text(language,'voice.card.reimbursementNext')];
- return {result:{status:'tracker_not_yet_available',daysSinceDocuments:days,guidance:'The reimbursement tracker ships in a later release. Until then, keep the hospital desk checklist and written acknowledgements; do not quote a settlement deadline.'},card:{kind:'notice',title:text(language,'voice.card.reimbursementTitle'),lines,link:{href:'/deductions/',label:text(language,'nav.deductions')}}};
+ const todayIso=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate())).toISOString().slice(0,10);
+ if(submitted&&submitted>todayIso)throw new ArgumentError('documentsSubmittedOn');
+ const link={href:'/reimbursement/',label:text(language,'footer.reimbursement')};
+ const title=text(language,'voice.card.reimbursementTitle');
+ const saved=(deps.claims?.()||[]).slice().sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt));
+ // A saved claim is the record; a spoken submission date gives a provisional clock with interest counted from that date, since the intimation date is unknown.
+ const claim=saved[0]||(submitted?{intimatedOn:submitted,submittedOn:submitted,claimedAmount:null,settledOn:null,settledAmount:null}:null);
+ const settlement=rule('reimbursement-15-days'),interest=rule('penal-interest-bank-rate-plus-2');
+ const sources={settlement:{source_url:settlement.source_url,verified_on:settlement.verified_on},interest:{source_url:interest.source_url,verified_on:interest.verified_on}};
+ if(!claim)return {result:{status:'no_claim',rule:'Reimbursement claims are settled within 15 days of submission; late settlement earns Bank Rate + 2% from intimation, paid suo-moto.',sources,next:'Ask for the date the documents were submitted, or point to the Reimbursement Tracker.'},card:{kind:'notice',title,lines:[text(language,'voice.card.reimbursementNoClaim'),text(language,'voice.card.reimbursementRule')],link}};
+ const timeline=claimTimeline(claim,now);
+ if(timeline.status==='invalid')throw new ArgumentError('documentsSubmittedOn');
+ const days=timeline.status==='awaiting'?timeline.daysLeft:timeline.daysOverdue;
+ const lines=[text(language,`voice.card.reimbursementStatus_${timeline.status}`,{days,deadline:localDate(timeline.deadline,language)}),...(timeline.interest?[`${text(language,'tracker.pack.interest')}: ${rupees(timeline.interest.amount,language)}`]:[]),text(language,'voice.card.reimbursementRule')];
+ const result:Record<string,unknown>={status:timeline.status,deadline:timeline.deadline,daysLeft:timeline.daysLeft,daysOverdue:timeline.daysOverdue,provisional:!saved[0],sources,note:'Fifteen days from submission; interest at Bank Rate + 2% from intimation. Quote only these figures.'};
+ if(timeline.interest&&timeline.bankRate)result.interest={amount:timeline.interest.amount,ratePercent:timeline.interest.ratePercent,days:timeline.interest.days,bankRatePercent:timeline.bankRate.percent,financialYear:timeline.bankRate.fy};
+ return {result,card:{kind:'notice',title,lines,link}};
 }
 const ARGUMENT_HINTS:Record<string,string>={time:'Omit the time or pass "now" when it just happened; a stated time must be within the last year and not in the future.',decidedAt:'Omit decidedAt or pass "now" when the decision just came; a stated time must be after the clock started.',eventAt:'Omit eventAt or pass "now"; a stated time must be after the clock started.',submittedAt:'Pass "now" or the local time the desk sent the request, within the last year.',members:'Members are relations: self, spouse, child, parent, parent-in-law, other.',inceptionDate:'Dates are YYYY-MM-DD; if only a year is known pass inceptionYear instead.',continuityFrom:'Continuous cover cannot start after the current policy; pass YYYY-MM-DD.'};
 const executors:Record<ToolName,(args:Args,deps:VoiceDeps)=>ToolOutcome>={check_policy_benefit:checkPolicyBenefit,recommend_or_compare_plans:recommendOrCompare,manage_claim_clock:manageClaimClock,audit_bill_deductions:auditBillDeductions,draft_and_queue_action:draftAndQueue,save_user_policy:saveUserPolicy,check_renewal:checkRenewal,track_reimbursement:trackReimbursement};

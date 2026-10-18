@@ -14,7 +14,7 @@ for(const entry of [{id:'default',name:'A clock on your side',subtitle:'Keep you
 const icon=await readFile('public/icon.svg');
 for(const [name,size]of[['icon-192.png',192],['icon-512.png',512],['apple-touch-icon.png',180]])await sharp(icon).resize(size,size).png().toFile(`public/${name}`);
 const png=await sharp(icon).resize(32,32).png().toBuffer();const ico=Buffer.alloc(22);ico.writeUInt16LE(1,2);ico.writeUInt16LE(1,4);ico[6]=32;ico[7]=32;ico.writeUInt16LE(1,10);ico.writeUInt16LE(32,12);ico.writeUInt32LE(png.length,14);ico.writeUInt32LE(22,18);await writeFile('public/favicon.ico',Buffer.concat([ico,png]));
-const paths=['/','/about/','/privacy/','/methodology/','/deductions/','/rejected/','/death/','/vault/','/check-coverage/','/compare/','/renewal/','/index/',...contacts.map(c=>`/index/${c.id}/`)];
+const paths=['/','/about/','/privacy/','/methodology/','/deductions/','/rejected/','/death/','/vault/','/check-coverage/','/compare/','/renewal/','/reimbursement/','/index/',...contacts.map(c=>`/index/${c.id}/`)];
 await writeFile('public/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map(p=>`<url><loc>${origin}${p}</loc></url>`).join('')}</urlset>\n`);
 await writeFile('public/robots.txt',`User-agent: *\nAllow: /\nDisallow: /api/\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Sharing assets: ${contacts.length+2} PNG cards; install icons; sitemap.`);

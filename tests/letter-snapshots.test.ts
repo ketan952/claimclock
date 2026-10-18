@@ -9,6 +9,9 @@ import {makeDeductionLetter} from '../src/lib/deduction-letter.ts';
 import {makeRejectionLetter} from '../src/lib/rejection.ts';
 import {makeRenewalLetter} from '../src/lib/renewal-letters.ts';
 import {freeLookDiff,premiumHike} from '../src/lib/renewal.ts';
+import {makeReimbursementLetter} from '../src/lib/reimbursement-letters.ts';
+import {compareLine,itemByCode} from '../src/lib/fair-bill.ts';
+import type {ReimbursementClaim} from '../src/lib/reimbursement.ts';
 import {classify} from '../src/lib/deductions.ts';
 import type {Contact,Rule,Timeline,Letter,LetterKind} from '../src/lib/types.ts';
 const contacts:Contact[]=JSON.parse(readFileSync(new URL('../data/contacts.json',import.meta.url),'utf8'));
@@ -31,6 +34,12 @@ for(const language of ['en','hi'] as const){
  letters[`renewal-porting-existing-${language}`]=makeRenewalLetter({kind:'porting-delay',insurerId:timeline.insurerId,role:'existing',otherInsurer:'Niva Bupa',requestDate:'2026-10-05',renewalDate:'2026-11-20'},contacts,rules,language,now);
  letters[`renewal-porting-acquiring-${language}`]=makeRenewalLetter({kind:'porting-delay',insurerId:timeline.insurerId,role:'acquiring',otherInsurer:'Star Health',requestDate:'2026-10-05'},contacts,rules,language,now);
  letters[`renewal-migration-${language}`]=makeRenewalLetter({kind:'migration-request',insurerId:timeline.insurerId,target:'my:Optima Secure',effectiveDate:'2026-12-01',groupExit:true,continuousMonths:null},contacts,rules,language,now);
+ // Reimbursement Tracker (M26): an overdue claim with accrued interest, two piecemeal queries, a late partial settlement without interest, and the hospital rate-card request.
+ const claim:ReimbursementClaim={id:'snap',insurerId:timeline.insurerId,hospital:'Example Hospital',intimatedOn:'2026-09-01',submittedOn:'2026-09-05',claimedAmount:120000,queries:[{id:'q1',at:'2026-09-10',note:'Indoor case papers',repliedOn:'2026-09-11'},{id:'q2',at:'2026-09-20',note:'Treating doctor’s note'}],settledOn:null,settledAmount:null,interestPaid:null,documents:{},notes:'',updatedAt:'2026-10-10T00:00:00.000Z'};
+ letters[`reimbursement-delay-${language}`]=makeReimbursementLetter({kind:'reimbursement-delay',claim},contacts,rules,language,now);
+ letters[`reimbursement-piecemeal-${language}`]=makeReimbursementLetter({kind:'piecemeal-objection',claim},contacts,rules,language,now);
+ letters[`reimbursement-interest-${language}`]=makeReimbursementLetter({kind:'settlement-interest',claim:{...claim,settledOn:'2026-10-01',settledAmount:100000}},contacts,rules,language,now);
+ letters[`reimbursement-rate-card-${language}`]=makeReimbursementLetter({kind:'rate-card-request',hospital:'Example Hospital',lines:[{description:'ICU charges (3 days)',amount:30000,comparison:compareLine(itemByCode('CC001')!,30000,'I','nabh','semi_private',3),itemName:'ICU/CCU/PICU/MICU/HDU'},{description:'Nursing charges',amount:4000,comparison:null,itemName:null}]},contacts,rules,language,now);
 }
 const snapshotUrl=new URL('./snapshots/letters.json',import.meta.url);
 const actual=Object.fromEntries(Object.entries(letters).map(([key,{subject,body,ruleIds}])=>[key,{subject,body,ruleIds}]));

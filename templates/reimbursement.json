@@ -1,0 +1,47 @@
+{
+  "version": "2026-10-18-m26",
+  "reimbursement-delay": {
+    "rules": ["reimbursement-15-days", "penal-interest-bank-rate-plus-2", "claim-not-closed-for-documents", "grievance-14-days"],
+    "en": {
+      "subject": "Grievance: reimbursement claim pending beyond 15 days — {insurer}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI intimated this reimbursement claim on {intimatedOn} and submitted the claim{hospitalLine} on {submittedOn}. The fifteen-day settlement period ended on {deadline}; {overdueLine}\n\n1. Settle the claim now and communicate the decision in writing with the computation.\n2. Pay interest at Bank Rate plus 2 percent from {intimatedOn} to the date of payment, without a further request from me.{interestLine}\n3. If any document is still required, list every requirement in one communication; the claim cannot be closed for want of documents.\n\nPlease acknowledge this grievance with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [acknowledgement of submission]; [claim form and bill summary]; [correspondence].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "शिकायत: प्रतिपूर्ति दावा 15 दिनों से अधिक लंबित — {insurer}",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nमैंने यह प्रतिपूर्ति दावा {intimatedOn} को सूचित किया और {submittedOn} को दावा{hospitalLine} जमा किया। पंद्रह दिन की निपटान अवधि {deadline} को समाप्त हो गई; {overdueLine}\n\n1. दावे का अब निपटान करें और गणना सहित निर्णय लिखित में बताएँ।\n2. {intimatedOn} से भुगतान की तारीख तक बैंक दर + 2 प्रतिशत की दर से ब्याज दें, मेरी ओर से बिना किसी और अनुरोध के।{interestLine}\n3. यदि कोई दस्तावेज़ अब भी चाहिए, तो हर आवश्यकता एक ही संदेश में बताएँ; दस्तावेज़ों की कमी के कारण दावा बंद नहीं किया जा सकता।\n\nकृपया संदर्भ संख्या सहित इस शिकायत की पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [जमा करने की पावती]; [दावा फॉर्म और बिल सारांश]; [पत्राचार]।\n\n{citations}"
+    }
+  },
+  "piecemeal-objection": {
+    "rules": ["documents-at-one-go", "documents-from-hospital", "claim-not-closed-for-documents", "reimbursement-15-days", "grievance-14-days"],
+    "en": {
+      "subject": "Grievance: documents sought piecemeal on my reimbursement claim — {insurer}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nI submitted this reimbursement claim on {submittedOn}. Since then documents have been called for on {count} separate occasions:\n{queryList}\n\n1. Regulation 23(4) requires every necessary document to be called for at one go. Issue one consolidated list of anything still required, or confirm that nothing further is needed.\n2. Hospital records — indoor case papers, bills and discharge documents — are to be collected by the insurer or TPA from the hospital; do not seek them from me.\n3. Confirm in writing that the fifteen-day settlement period runs from {submittedOn} and has not been restarted by these queries, and settle the claim with interest at Bank Rate plus 2 percent from the date of intimation.\n\nPlease acknowledge this grievance with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [each query and my reply with proof of sending]; [acknowledgement of submission].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "शिकायत: प्रतिपूर्ति दावे पर दस्तावेज़ टुकड़ों में माँगे गए — {insurer}",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\nमैंने यह प्रतिपूर्ति दावा {submittedOn} को जमा किया। उसके बाद {count} अलग-अलग मौकों पर दस्तावेज़ माँगे गए:\n{queryList}\n\n1. विनियम 23(4) के अनुसार हर ज़रूरी दस्तावेज़ एक ही बार में माँगा जाना है। जो कुछ अब भी चाहिए उसकी एक समेकित सूची दें, या पुष्टि करें कि और कुछ नहीं चाहिए।\n2. अस्पताल के रिकॉर्ड — इंडोर केस पेपर, बिल और डिस्चार्ज दस्तावेज़ — बीमा कंपनी या TPA को अस्पताल से लेने हैं; उन्हें मुझसे न माँगें।\n3. लिखित में पुष्टि करें कि पंद्रह दिन की निपटान अवधि {submittedOn} से चल रही है और इन सवालों से दोबारा शुरू नहीं हुई है, और सूचना की तारीख से बैंक दर + 2 प्रतिशत ब्याज सहित दावे का निपटान करें।\n\nकृपया संदर्भ संख्या सहित इस शिकायत की पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [हर सवाल और भेजने के प्रमाण सहित मेरा जवाब]; [जमा करने की पावती]।\n\n{citations}"
+    }
+  },
+  "settlement-interest": {
+    "rules": ["penal-interest-bank-rate-plus-2", "bank-rate-fy", "reimbursement-15-days", "grievance-14-days"],
+    "en": {
+      "subject": "Grievance: interest due on late settlement — {insurer}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\nClaim number: [Claim number]\n\nMy reimbursement claim submitted on {submittedOn} was settled on {settledOn}, {daysLate} days after the fifteen-day period ended on {deadline}.{paidLine} {interestPaidLine}\n\n1. Pay interest at Bank Rate plus 2 percent — {ratePercent}% a year, the Bank Rate being {bankRatePercent}% as on 1 April of {fy} — from the intimation date {intimatedOn} to {settledOn}: {interestDays} days on {interestBase}, which is {interestDue}.{shortfallLine} The circular requires this interest to be paid suo-moto.\n2. Provide the computation of the amount settled{partialLine}\n\nPlease acknowledge this grievance with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [settlement letter]; [acknowledgement of submission]; [claim intimation].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "शिकायत: देर से निपटान पर देय ब्याज — {insurer}",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nदावा संख्या: [दावा संख्या]\n\n{submittedOn} को जमा किया गया मेरा प्रतिपूर्ति दावा {settledOn} को निपटाया गया, पंद्रह दिन की अवधि {deadline} को समाप्त होने के {daysLate} दिन बाद।{paidLine} {interestPaidLine}\n\n1. बैंक दर + 2 प्रतिशत — {ratePercent}% सालाना, {fy} की 1 अप्रैल को बैंक दर {bankRatePercent}% थी — की दर से सूचना की तारीख {intimatedOn} से {settledOn} तक ब्याज दें: {interestBase} पर {interestDays} दिन, यानी {interestDue}।{shortfallLine} परिपत्र के अनुसार यह ब्याज स्वतः देय है।\n2. निपटाई गई राशि की गणना दें{partialLine}\n\nकृपया संदर्भ संख्या सहित इस शिकायत की पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [निपटान पत्र]; [जमा करने की पावती]; [दावा सूचना]।\n\n{citations}"
+    }
+  },
+  "rate-card-request": {
+    "rules": ["rate-display-rule-9"],
+    "en": {
+      "subject": "Request for the displayed rate card and package break-up — {hospital}",
+      "body": "To the billing department, {hospital}\n\nName: [Your name]\nPatient name: [Patient name]\nUHID: [UHID]\nBill number: [Bill number]\n\nUnder Rule 9(i) of the Clinical Establishments (Central Government) Rules, 2012, the rates charged for each service are to be displayed for patients. For the following lines of my bill, please provide the rate card entry that applied on the date of service and the break-up of each package or charge:\n{lines}\n\nFor context, the Central Government Health Scheme publishes reference package rates for the same services; the CGHS reference for these lines is noted above. I understand that private tariffs are set by the hospital; I am asking only for the displayed rate and the basis of the charge so that the bill can be reconciled with my insurer.\n\nPlease reply in writing within 7 days.\n\n{citations}"
+    },
+    "hi": {
+      "subject": "प्रदर्शित दर-सूची और पैकेज-विवरण का अनुरोध — {hospital}",
+      "body": "प्रति: बिलिंग विभाग, {hospital}\n\nनाम: [आपका नाम]\nमरीज़ का नाम: [मरीज़ का नाम]\nUHID: [UHID]\nबिल संख्या: [बिल संख्या]\n\nक्लिनिकल एस्टैब्लिशमेंट्स (केंद्र सरकार) नियम, 2012 के नियम 9(i) के अनुसार हर सेवा की दरें मरीज़ों के लिए प्रदर्शित की जानी हैं। मेरे बिल की नीचे दी गई पंक्तियों के लिए कृपया सेवा की तारीख पर लागू दर-सूची की प्रविष्टि और हर पैकेज या शुल्क का विवरण दें:\n{lines}\n\nसंदर्भ के लिए, केंद्रीय सरकार स्वास्थ्य योजना इन्हीं सेवाओं के लिए संदर्भ पैकेज दरें प्रकाशित करती है; इन पंक्तियों का CGHS संदर्भ ऊपर दिया गया है। मैं समझता/समझती हूँ कि निजी दरें अस्पताल तय करता है; मैं केवल प्रदर्शित दर और शुल्क का आधार माँग रहा/रही हूँ ताकि बिल का मिलान मेरी बीमा कंपनी से किया जा सके।\n\nकृपया 7 दिनों के भीतर लिखित जवाब दें।\n\n{citations}"
+    }
+  }
+}

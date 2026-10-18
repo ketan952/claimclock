@@ -6,6 +6,7 @@
 // and never before the user taps the mic.
 import {getTurnstileToken,type TurnstileAction} from './turnstile';
 import {lang,setMessage,interpolate,t} from './i18n';
+import {loadClaims} from './reimbursement.ts';
 import {loadVault,saveVault} from './vault.ts';
 import {getSelectedBackup,saveTimeline} from './storage.ts';
 import {CHATS_KEY,VoiceActivity,chatTitle,executeTool,groundingContext,parseChats,pickVoice,rmsLevel,serializeChats,speechChunks,toolResultContent,trimHistory,upsertChat,voiceLang,type Card,type ChatMessage,type SavedChat,type ToolCall,type VoiceDeps} from './voice-agent.ts';
@@ -128,7 +129,7 @@ const reducedMotion=()=>window.matchMedia?.('(prefers-reduced-motion: reduce)').
 const canRecord=()=>typeof navigator.mediaDevices?.getUserMedia==='function'&&typeof MediaRecorder!=='undefined';
 const handsFree=()=>el<HTMLInputElement>('voice-handsfree').checked;
 const currentTimeline=()=>getSelectedBackup()?.timeline||null;
-const deps=():VoiceDeps=>({language:lang(),vault:loadVault,
+const deps=():VoiceDeps=>({language:lang(),vault:loadVault,claims:loadClaims,
  saveVault:vault=>{const ok=saveVault(vault);if(ok)window.dispatchEvent(new CustomEvent('claimclock:vault'));return ok;},
  timeline:currentTimeline,
  saveTimeline:(timeline,expected)=>{const ok=saveTimeline(timeline,expected);if(ok)window.dispatchEvent(new CustomEvent('claimclock:cases'));return ok;},

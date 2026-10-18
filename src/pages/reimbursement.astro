@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import LetterDialog from '../components/LetterDialog.astro';
+import contacts from '../../data/contacts.json';
+import rules from '../../data/rules.json';
+import cghs from '../../data/cghs-rates.json';
+const insurers=contacts.filter(c=>c.kind==='insurer').sort((a,b)=>a.name.localeCompare(b.name));
+const rightsRules=rules.filter(r=>['reimbursement-15-days','penal-interest-bank-rate-plus-2','documents-at-one-go','claim-not-closed-for-documents'].includes(r.id));
+const bankRule=rules.find(r=>r.id==='bank-rate-fy')!;
+const displayRule=rules.find(r=>r.id==='rate-display-rule-9')!;
+const groups=['consultation','critical_care','blood','laboratory','radiology','cardiology','gastro_pulmo','general_procedures','abdomen','ent','ophthalmology','obgyn','urology','orthopaedics','neurosurgery','oncology','physiotherapy','dental','plastic'];
+---
+<Base title="Reimbursement Tracker — ClaimClock" description="Track a reimbursement claim against the 15-day settlement rule, compute the interest the insurer owes, object to piecemeal document queries, build a Claim-Ready Pack, and compare hospital bill lines with CGHS reference rates."><div class="wrap">
+ <section class="page-hero"><p class="eyebrow" data-i18n="tracker.eyebrow">REIMBURSEMENT TRACKER</p><h1 data-i18n="tracker.title">Paid the hospital yourself? Make the 15 days count.</h1><p class="lead" data-i18n="tracker.lead">A reimbursement claim must be settled within 15 days of submission, and a late one earns interest the insurer has to add on its own. Track the clock, log every document query, keep the seven papers together, audit the settlement, and check the bill against CGHS reference rates. Everything stays on this device.</p></section>
+ <div class="notice" data-i18n="tracker.caution">Dates and interest here are computed from the rules cited below and the dates you enter; the insurer’s acknowledgements are the record. CGHS rates are a public reference for asking questions, not a cap on what a private hospital may charge.</div>
+ <div class="index-columns"><div class="stack">
+  <section class="card" id="claims-card"><p class="section-number" data-i18n="tracker.sectionClock">The 15-day clock</p><h2 data-i18n="tracker.clockTitle">Where does my claim stand?</h2><p data-i18n="tracker.clockBody">Enter the day you intimated the claim and the day you submitted the documents. The deadline, the days left or over, and the interest accruing are counted from them.</p>
+   <form id="claim-form" class="form-grid">
+    <label class="full" id="claim-picker-field" hidden><span data-i18n="tracker.savedClaims">Saved claims on this device</span><select name="claimId"></select></label>
+    <label class="full"><span data-i18n="label.insurer">Your insurer</span><select data-searchable name="insurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id} data-search={c.name_hi}>{c.name}</option>)}</select></label>
+    <label><span data-i18n="tracker.intimatedOn">Claim intimated on</span><input name="intimatedOn" type="date" required /><small data-i18n="tracker.intimatedHint">The day you first told the insurer or TPA — interest runs from here.</small></label>
+    <label><span data-i18n="tracker.submittedOn">Documents submitted on</span><input name="submittedOn" type="date" required /><small data-i18n="tracker.submittedHint">The acknowledged submission date — the 15 days run from here.</small></label>
+    <label><span data-i18n="tracker.claimedAmount">Amount claimed (₹)</span><input name="claimedAmount" type="number" min="0" max="1000000000" step="1" inputmode="numeric" /></label>
+    <label><span data-i18n="label.hospital">Hospital (optional)</span><input name="hospital" type="text" maxlength="100" autocomplete="off" /></label>
+    <div class="button-row full"><button type="submit" class="button" data-i18n="tracker.saveClaim">Save and track</button><button type="button" class="button-secondary" id="claim-new" hidden data-i18n="tracker.newClaim">New claim</button><button type="button" class="text-button" id="claim-delete" hidden data-i18n="tracker.deleteClaim">Delete this claim</button></div>
+    <p class="status full" id="claim-status" role="status"></p>
+   </form>
+   <div id="clock-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button-secondary" id="claim-calendar" disabled data-i18n="tracker.calendarButton">Add the deadline to my calendar (.ics)</button><button type="button" class="button" id="delay-letter" disabled data-i18n="tracker.delayLetter">Draft the grievance: claim pending</button></div>
+  </section>
+  <section class="card" id="queries-card"><p class="section-number" data-i18n="tracker.sectionQueries">Document queries</p><h2 data-i18n="tracker.queriesTitle">Every query, time-stamped</h2><p data-i18n="tracker.queriesBody">The insurer must list everything it needs at one go. Log each query and your reply; a second query on another date is the piecemeal pattern the rules forbid — and it does not restart the 15 days.</p>
+   <form id="query-form" class="form-grid">
+    <label><span data-i18n="tracker.queryDate">Query received on</span><input name="at" type="date" required /></label>
+    <label><span data-i18n="tracker.queryReplied">Replied on (optional)</span><input name="repliedOn" type="date" /></label>
+    <label class="full"><span data-i18n="tracker.queryNote">What was asked for</span><input name="note" type="text" maxlength="300" autocomplete="off" /><small data-i18n="tracker.queryNoteHint">Describe the documents — no names or numbers needed.</small></label>
+    <button type="submit" class="button-secondary full" disabled data-i18n="tracker.addQuery">Log this query</button>
+    <p class="error full" id="query-status" role="alert"></p>
+   </form>
+   <ol id="query-list" class="checklist"></ol>
+   <div id="query-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button-secondary" id="piecemeal-letter" disabled data-i18n="tracker.piecemealLetter">Draft the objection to piecemeal queries</button></div>
+  </section>
+  <section class="card" id="documents-card"><p class="section-number" data-i18n="tracker.sectionDocuments">Claim-Ready Pack</p><h2 data-i18n="tracker.documentsTitle">The seven papers, in one place</h2><p data-i18n="tracker.documentsBody">Tick each document as you collect it, add a photo if you like, and print or download the pack to send with the claim or a grievance. Photos stay in this page until you close it; the ticks are saved on this device.</p>
+   <ul id="document-list" class="doc-list"></ul>
+   <p class="fine-print" id="document-progress"></p>
+   <div class="button-row"><button type="button" class="button-secondary" id="pack-print" disabled data-i18n="tracker.packPrint">Print the Claim-Ready Pack</button><button type="button" class="button-secondary" id="pack-download" disabled data-i18n="tracker.packDownload">Download the pack (.txt)</button></div>
+   <p class="status" id="pack-status" role="status"></p>
+  </section>
+  <section class="card" id="settlement-card"><p class="section-number" data-i18n="tracker.sectionSettlement">Settlement audit</p><h2 data-i18n="tracker.settlementTitle">Was the settlement complete — and did it include interest?</h2><p data-i18n="tracker.settlementBody">Enter what the settlement letter says. A late settlement must carry interest at Bank Rate + 2%; a short one must come with the specific policy terms relied on.</p>
+   <form id="settlement-form" class="form-grid">
+    <label><span data-i18n="tracker.settledOn">Settled on</span><input name="settledOn" type="date" /></label>
+    <label><span data-i18n="tracker.settledAmount">Amount paid (₹)</span><input name="settledAmount" type="number" min="0" max="1000000000" step="1" inputmode="numeric" /></label>
+    <label class="full"><span data-i18n="tracker.interestPaid">Interest shown in the settlement letter (₹, 0 if none)</span><input name="interestPaid" type="number" min="0" max="1000000000" step="1" inputmode="numeric" /></label>
+    <button type="submit" class="button-secondary full" disabled data-i18n="tracker.saveSettlement">Save the settlement</button>
+    <p class="error full" id="settlement-status" role="alert"></p>
+   </form>
+   <div id="settlement-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button" id="interest-letter" disabled data-i18n="tracker.interestLetter">Draft the interest demand</button><a href="/deductions/" data-i18n="tracker.deductionsLink">Review the deductions in the settlement →</a></div>
+  </section>
+  <section class="card" id="fairbill-card"><p class="section-number" data-i18n="tracker.sectionFairBill">Fair-Bill check</p><h2 data-i18n="tracker.fairBillTitle">Is this bill line far above the public reference?</h2><p data-i18n="tracker.fairBillBody">The Central Government Health Scheme publishes package rates for 2,000 services, by city tier and hospital type. Match a bill line to a CGHS item and see the reference range for your city. Lines far above it are the ones to ask about — with the hospital’s own displayed rate card in hand.</p>
+   <form id="fairbill-form" class="form-grid">
+    <label><span data-i18n="tracker.city">City of the hospital</span><input name="city" type="text" maxlength="60" autocomplete="off" list="tier-cities" /><datalist id="tier-cities">{[...cghs.tiers.I.cities,...cghs.tiers.II.cities].map(c=><option value={c} />)}</datalist></label>
+    <label><span data-i18n="tracker.tier">CGHS city tier</span><select name="tier"><option value="I" data-i18n="tracker.tier.I">Tier I — the eight metros</option><option value="II" data-i18n="tracker.tier.II">Tier II — other large cities, NE, J&K, Ladakh</option><option value="III" data-i18n="tracker.tier.III">Tier III — everywhere else</option></select></label>
+    <label><span data-i18n="tracker.hospitalType">Hospital type</span><select name="hospital"><option value="nabh" data-i18n="tracker.hospital.nabh">NABH-accredited</option><option value="non_nabh" data-i18n="tracker.hospital.non_nabh">Not NABH-accredited</option><option value="super_speciality" data-i18n="tracker.hospital.super_speciality">Super-speciality hospital</option></select></label>
+    <label><span data-i18n="tracker.ward">Ward</span><select name="ward"><option value="semi_private" data-i18n="tracker.ward.semi_private">Semi-private</option><option value="general" data-i18n="tracker.ward.general">General ward</option><option value="private" data-i18n="tracker.ward.private">Private room</option></select></label>
+    <label class="full"><span data-i18n="tracker.hospitalName">Hospital name (for the letter)</span><input name="hospitalName" type="text" maxlength="100" autocomplete="off" /></label>
+   </form>
+   <div id="bill-lines" class="bill-lines"></div>
+   <div class="button-row"><button type="button" class="button-secondary" id="line-add" data-i18n="tracker.addLine">Add a bill line</button><button type="button" class="button" id="ratecard-letter" disabled data-i18n="tracker.rateCardLetter">Draft the rate-card request to the hospital</button></div>
+   <p class="error" id="fairbill-status" role="alert"></p>
+   <p class="fine-print" data-i18n="tracker.fairBillNote">Reference rates: CGHS Office Memorandum of 3 October 2025, Annexure-I (semi-private ward, Tier I, with the Non-NABH, NABH and Super-speciality columns); Tier II and III at 90% and 80%; general ward −5%, private ward +5% on inpatient packages only. Implants, stents, lenses and some consumables are priced separately in the OM.</p>
+  </section>
+ </div><aside class="stack">
+  <section class="card rights-card" id="rights-card"><h2 data-i18n="tracker.rightsTitle">Your reimbursement rights</h2><ol>{rightsRules.map(r=><li><p data-i18n={`tracker.rule.${r.id}`}>{r.plain_en}</p><a href={r.source_url} target="_blank" rel="noopener noreferrer" class="fine-print">{r.paragraph} ↗</a></li>)}</ol></section>
+  <section class="card" id="bankrate-card"><h2 data-i18n="tracker.bankRateTitle">Bank Rate this year</h2><div id="bankrate-result" class="result"></div><p class="fine-print"><a href={bankRule.source_url} target="_blank" rel="noopener noreferrer" data-i18n="sources.pphi-regs-2024">IRDAI (Protection of Policyholders’ Interests, Operations and Allied Matters of Insurers) Regulations, 2024</a></p></section>
+  <section class="card" id="ratecard-card"><h2 data-i18n="tracker.rateDisplayTitle">Hospitals must display their rates</h2><p data-i18n="tracker.rule.rate-display-rule-9">{displayRule.plain_en}</p><p class="fine-print"><a href={displayRule.source_url} target="_blank" rel="noopener noreferrer">{displayRule.paragraph} ↗</a></p></section>
+  <section class="card"><h2 data-i18n="coverage.sourcesTitle">Where these rules come from</h2><p data-i18n="tracker.sourcesBody">Each deadline, rate and reference on this page comes from one of these documents; the quotation travels with every letter.</p><div id="reimb-sources" class="fine-print"></div></section>
+ </aside></div>
+ <p class="fine-print" data-i18n="rejection.filing">You review, sign and send every complaint yourself. ClaimClock does not contact the insurer or file a case for you.</p>
+</div>
+<section id="pack-print-area" class="pack-print" hidden aria-hidden="true"></section>
+<LetterDialog/><script>import '../lib/reimbursement-ui';</script></Base>
+<style is:global>
+ .result{margin-top:16px}.result:empty{display:none}.result .verdict{font-size:1.05rem;font-weight:600;margin-bottom:6px}.result .verdict.ok{color:var(--brand-deep)}.result .verdict.warn{color:var(--amber-ink)}.result .verdict.no{color:var(--red)}.result p{font-size:.85rem;margin-top:6px}.result ul,.result ol{margin-top:8px;font-size:.82rem}.result li+li{margin-top:4px}.result .amount{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;margin:6px 0}.result li.warn{color:var(--amber-ink)}.result li.no{color:var(--red)}
+ .checklist{margin-top:12px;padding-left:22px;font-size:.88rem}.checklist li{margin-top:10px}.checklist strong{display:block}.checklist .fine-print{margin-top:2px}.checklist a{font-size:.68rem;margin-left:4px}.checklist .text-button{margin-left:8px}
+ .doc-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}.doc-list li{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}.doc-list li.done{border-color:var(--brand)}.doc-list .checkbox-label{margin:0}.doc-list .doc-photo{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.doc-list .doc-photo img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}.doc-list .doc-photo input{font-size:.75rem;max-width:100%}
+ .bill-lines{display:grid;gap:12px;margin-top:16px}.bill-line{border:1px solid var(--line);border-radius:14px;background:var(--surface-2);padding:14px}.bill-line .form-grid{margin-top:0;gap:12px}.bill-line .line-result{margin-top:10px;font-size:.85rem}.bill-line .line-result strong{display:block}.bill-line .suggestions{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.bill-line .suggestions .text-button{font-size:.75rem;padding:4px 8px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:var(--surface)}.bill-line .line-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+ .verdict-pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.75rem;font-weight:600;background:var(--surface-3);color:var(--ink)}.verdict-pill.within,.verdict-pill.below{background:var(--lime);color:var(--brand-deep)}.verdict-pill.above{background:var(--amber-bg);color:var(--amber-ink)}.verdict-pill.far_above{background:var(--danger-bg);color:var(--red)}
+ #reimb-sources p{margin-top:8px}#reimb-sources a{font-size:.68rem;margin-left:4px}
+ .pack-print{display:none}
+ @media print{body.print-pack>*:not(main){display:none!important}body.print-pack main>*:not(#pack-print-area){display:none!important}body.print-pack #pack-print-area{display:block!important;padding:20px;font:12pt/1.5 Inter,system-ui,sans-serif;color:#000}.pack-print pre{white-space:pre-wrap;font:11pt/1.5 Inter,system-ui,sans-serif}.pack-print img{max-width:100%;max-height:900px;page-break-inside:avoid;margin:12px 0}.pack-print h2{font-size:14pt;margin:16px 0 6px}}
+</style>
