@@ -1,19 +1,35 @@
 import templates from '../../templates/messages.json' with { type: 'json' };
+import sourceLinks from '../../data/source-links.json' with { type: 'json' };
 import type { Contact, Language, Letter, LetterKind, Rule, Timeline } from './types.ts';
 import { proseDuration, formatTime, windowMinutes } from './clock.ts';
 const sourceBase='https://claimclock.ketan952.workers.dev';
+const LEGACY_IDS=['grievance-14-days','financial-limits-2024'];
+/** The clause label printed before a quotation: the rule's own `clause`, else the Chapter I paragraph parsed from `paragraph`. */
+const clauseLabel=(rule:Rule)=>typeof rule.clause==='string'?rule.clause:(rule.paragraph.match(/Chapter I ([^,;]+)/)?.[1]||rule.paragraph);
+const quotationLines=(entries:Rule[])=>entries.map(r=>`${clauseLabel(r)}: “${r.quote}”`).join('\n');
+/**
+ * Groups cited rules by source document. Rules without `source_slug` are the original Health
+ * Master Circular set (plus the two legacy ids); newer rules name their document explicitly and
+ * take their heading from data/source-links.json, so one short link per document reaches the letter.
+ */
 export function ruleCitations(ids:string[], rules:Rule[], language:Language) {
  const entries=ids.map(id=>rules.find(r=>r.id===id)).filter((r):r is Rule=>Boolean(r));
- const health=entries.filter(r=>!['grievance-14-days','financial-limits-2024'].includes(r.id));
+ const bySlug=new Map<string,Rule[]>();
+ for(const rule of entries){const slug=typeof rule.source_slug==='string'?rule.source_slug:LEGACY_IDS.includes(rule.id)?null:'health-mc-2024';if(!slug)continue;bySlug.set(slug,[...(bySlug.get(slug)||[]),rule]);}
  const result:string[]=[];
- if(health.length){
-  const quotations=health.map(r=>`${r.paragraph.match(/Chapter I ([^,;]+)/)?.[1]||r.paragraph}: “${r.quote}”`).join('\n');
-  result.push(`${language==='hi'?'स्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024':'Health Insurance Master Circular, 29 May 2024'}\n${quotations}\n${sourceBase}/s/health-mc-2024`);
- }
+ const health=bySlug.get('health-mc-2024');
+ if(health?.length)result.push(`${language==='hi'?'स्वास्थ्य बीमा मास्टर परिपत्र, 29 मई 2024':'Health Insurance Master Circular, 29 May 2024'}\n${quotationLines(health)}\n${sourceBase}/s/health-mc-2024`);
  const financial=entries.find(r=>r.id==='financial-limits-2024');
  if(financial)result.push(`${language==='hi'?'स्वास्थ्य बीमा परिपत्र के अनुबंध, 29 मई 2024':'Annexures to Health Insurance Circular, 29 May 2024'} — ${financial.paragraph}\n“${financial.quote}”\n${sourceBase}/s/health-annexures-2024`);
- const grievance=entries.find(r=>r.id==='grievance-14-days');
- if(grievance)result.push(`${language==='hi'?'पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024':'PPHI Master Circular, 5 September 2024'} — Part B VI.2(i)\n“${grievance.quote}”\n${sourceBase}/s/pphi-mc-2024`);
+ const grievance=entries.find(r=>r.id==='grievance-14-days'),pphi=bySlug.get('pphi-mc-2024')||[];
+ const pphiTitle=language==='hi'?'पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, 5 सितंबर 2024':'PPHI Master Circular, 5 September 2024';
+ if(grievance&&!pphi.length)result.push(`${pphiTitle} — Part B VI.2(i)\n“${grievance.quote}”\n${sourceBase}/s/pphi-mc-2024`);
+ else if(pphi.length)result.push(`${pphiTitle}\n${quotationLines([...(grievance?[{...grievance,clause:'Section 1 Part B VI.2(i)'}]:[]),...pphi])}\n${sourceBase}/s/pphi-mc-2024`);
+ for(const [slug,group] of bySlug){
+  if(slug==='health-mc-2024'||slug==='pphi-mc-2024')continue;
+  const link=sourceLinks.find(l=>l.slug===slug);
+  result.push(`${link?(language==='hi'?link.title_hi:link.title_en):slug}\n${quotationLines(group)}\n${sourceBase}/s/${slug}`);
+ }
  return result.join('\n\n');
 }
 export function timingDemand(timeline:Timeline,language:Language,now=new Date()):string {

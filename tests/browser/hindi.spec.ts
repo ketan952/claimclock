@@ -14,14 +14,14 @@ const remainingEnglish=(text:string)=>{
  if(sourceTexts.has(normalize(text)))return '';
  let remaining=text.replace(/https?:\/\/\S+|\b[^\s@]+@[^\s@]+\.[^\s@]+\b|\/s\/[a-z0-9-]+|\brules\.json\b|\.ics\b/g,'');
  for(const name of [...properNames].sort((a,b)=>b.length-a.length))remaining=remaining.split(name).join('');
- remaining=remaining.replace(/\b(?:NL-48|CSV|JSON|GRO|TPA|IRDAI|EN|IST|AI|OCR|PDF|PNG|JPEG|DPDP|API|IP|UHID|CIS|PIN|OPD|OT|MC|ICU|HTTP|HTTPS|MB|SHA256|FY\d{4}|D1)\b/g,'');
+ remaining=remaining.replace(/\b(?:NL-48|CSV|JSON|GRO|TPA|IRDAI|IIB|GST|EN|IST|AI|OCR|PDF|PNG|JPEG|DPDP|API|IP|UHID|CIS|PIN|OPD|OT|MC|ICU|HTTP|HTTPS|MB|SHA256|FY\d{4}|D1)\b/g,'');
  return remaining.match(/[A-Za-z]{3,}(?:[ -]+[A-Za-z]{3,})*/g)?.join(' ')||'';
 };
 test('Hindi mode translates visible interface text and accessible labels without broad chrome exemptions',async({page})=>{
  expect(Object.keys(hi).sort()).toEqual(Object.keys(en).sort());
  const leaks:{route:string;text:string;remaining:string}[]=[];
  await page.addInitScript(()=>localStorage.setItem('claimclock:language','hi'));
- const routes=['/','/404.html','/privacy/','/deductions/','/rejected/','/death/','/index/','/methodology/','/about/','/offline/','/vault/','/check-coverage/','/compare/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
+ const routes=['/','/404.html','/privacy/','/deductions/','/rejected/','/death/','/index/','/methodology/','/about/','/offline/','/vault/','/check-coverage/','/compare/','/renewal/',...contacts.filter(c=>c.kind==='insurer').map(c=>`/index/${c.id}/`)];
  for(const route of routes){
   await page.goto(route);await expect(page.locator('html')).toHaveAttribute('lang','hi');await page.locator('details').evaluateAll(nodes=>nodes.forEach(node=>(node as HTMLDetailsElement).open=true));
   const texts=await page.evaluate(()=>{

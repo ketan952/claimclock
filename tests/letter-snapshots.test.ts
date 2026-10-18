@@ -7,6 +7,8 @@ import {makeLetter,timingDemand} from '../src/lib/letters.ts';
 import {BIMA_DRAFT_LIMIT} from '../src/lib/letter-limits.ts';
 import {makeDeductionLetter} from '../src/lib/deduction-letter.ts';
 import {makeRejectionLetter} from '../src/lib/rejection.ts';
+import {makeRenewalLetter} from '../src/lib/renewal-letters.ts';
+import {freeLookDiff,premiumHike} from '../src/lib/renewal.ts';
 import {classify} from '../src/lib/deductions.ts';
 import type {Contact,Rule,Timeline,Letter,LetterKind} from '../src/lib/types.ts';
 const contacts:Contact[]=JSON.parse(readFileSync(new URL('../data/contacts.json',import.meta.url),'utf8'));
@@ -21,6 +23,14 @@ for(const language of ['en','hi'] as const){
  letters[`rejection-${language}`]=makeRejectionLetter({insurerId:timeline.insurerId,rejectedOn:'2026-10-01',ground:language==='hi'?'प्रतीक्षा अवधि का अपवर्जन':'Waiting-period exclusion'},contacts,rules,language,now);
  for(const requestType of ['preauth','enhancement'] as const)letters[`gro-${requestType}-${language}`]=makeLetter('gro',{...timeline,requestType},contacts,rules,language,{},now);
  letters[`gro-before-window-${language}`]=makeLetter('gro',{...timeline,submittedAt:'2026-10-10T08:00:00.000Z',events:[]},contacts,rules,language,{},now);
+ // Renewal Guardian (M25): the senior-citizen hike with GST removed, its Bima draft, a free-look cancellation, both porting-delay recipients and a group-exit migration.
+ const seniorHike=premiumHike({oldPremium:47200,newPremium:48000,oldIncludesGst:true,newIncludesGst:false,seniorCitizen:true,ageBandChanged:false});
+ letters[`renewal-hike-${language}`]=makeRenewalLetter({kind:'premium-hike',insurerId:timeline.insurerId,renewalDate:'2026-12-01',oldPremium:47200,newPremium:48000,hike:seniorHike},contacts,rules,language,now);
+ letters[`renewal-hike-bima-${language}`]=makeRenewalLetter({kind:'premium-hike-bima',insurerId:timeline.insurerId,renewalDate:'2026-12-01',oldPremium:47200,newPremium:48000,hike:seniorHike},contacts,rules,language,now);
+ letters[`renewal-free-look-${language}`]=makeRenewalLetter({kind:'free-look-cancel',insurerId:timeline.insurerId,receivedOn:'2026-10-01',mismatches:freeLookDiff({sumInsured:1000000,copayPercent:0},{sumInsured:500000,copayPercent:20}).mismatches},contacts,rules,language,now);
+ letters[`renewal-porting-existing-${language}`]=makeRenewalLetter({kind:'porting-delay',insurerId:timeline.insurerId,role:'existing',otherInsurer:'Niva Bupa',requestDate:'2026-10-05',renewalDate:'2026-11-20'},contacts,rules,language,now);
+ letters[`renewal-porting-acquiring-${language}`]=makeRenewalLetter({kind:'porting-delay',insurerId:timeline.insurerId,role:'acquiring',otherInsurer:'Star Health',requestDate:'2026-10-05'},contacts,rules,language,now);
+ letters[`renewal-migration-${language}`]=makeRenewalLetter({kind:'migration-request',insurerId:timeline.insurerId,target:'my:Optima Secure',effectiveDate:'2026-12-01',groupExit:true,continuousMonths:null},contacts,rules,language,now);
 }
 const snapshotUrl=new URL('./snapshots/letters.json',import.meta.url);
 const actual=Object.fromEntries(Object.entries(letters).map(([key,{subject,body,ruleIds}])=>[key,{subject,body,ruleIds}]));

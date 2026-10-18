@@ -131,6 +131,7 @@ function renderPolicies(){
   const meta=[members,policy.sumInsured?rupees(policy.sumInsured):'',policy.inceptionDate?`${t('vault.since')} ${dateLabel(policy.inceptionDate)}`:'',policy.corporate?t('vault.corporate'):''].filter(Boolean).join(' · ');
   if(meta)addText(card,'p',meta,'meta');
   for(const fact of policyFacts(policy))addText(card,'p',fact,'fine-print');
+  if(policy.kind==='health'&&policy.renewalDate){const guardian=addText(card,'a',t('vault.factRenewalGuardian'),'fine-print block-link') as HTMLAnchorElement;guardian.href=`/renewal/?policy=${encodeURIComponent(policy.id)}`;}
   const row=document.createElement('div');row.className='button-row';
   button(row,t('vault.edit'),'text-button',()=>editPolicy(policy));
   if(policy.id!==vault.defaultPolicyId)button(row,t('vault.makeDefault'),'text-button',()=>{persist({...vault,defaultPolicyId:policy.id},'policy-status')&&status('policy-status','vault.saved');});

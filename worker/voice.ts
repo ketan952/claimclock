@@ -18,7 +18,7 @@ export const PROVIDER_RESPONSE_LIMIT = 32_000;
 export const TOOL_NAMES = ['check_policy_benefit', 'recommend_or_compare_plans', 'manage_claim_clock', 'audit_bill_deductions', 'draft_and_queue_action', 'save_user_policy', 'check_renewal', 'track_reimbursement'] as const;
 export type ToolName = typeof TOOL_NAMES[number];
 export const RELATIONS = ['self', 'spouse', 'child', 'parent', 'parent-in-law', 'other'] as const;
-const PAGES = ['/', '/deductions/', '/rejected/', '/death/', '/index/', '/vault/', '/check-coverage/', '/compare/', '/privacy/', '/about/', '/methodology/', 'other'] as const;
+const PAGES = ['/', '/deductions/', '/rejected/', '/death/', '/index/', '/vault/', '/check-coverage/', '/compare/', '/renewal/', '/privacy/', '/about/', '/methodology/', 'other'] as const;
 const REQUEST_TYPES = ['preauth', 'enhancement', 'discharge'] as const, OUTCOMES = ['approved', 'partial', 'rejected', 'paid-and-left'] as const, STAGES = ['running', 'halfway', 'beyond', 'tracking', 'decided'] as const;
 const planIds = (plans as { id: string }[]).map(p => p.id);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -218,7 +218,7 @@ export const TOOLS = [
     parameters: { type: 'object', properties: { letterKind: { type: 'string', enum: ['lock', 'followup', 'gro', 'recovery', 'rejection', 'reimbursement_desk', 'reconsideration'] }, insurer: { type: 'string' }, amount: { type: 'number' }, hours: { type: 'number' }, ground: { type: 'string' }, hospital: { type: 'string' } }, required: ['letterKind'] } } },
   { type: 'function', function: { name: 'save_user_policy', description: 'Save a health policy to My Vault. Call it whenever the user tells you about a policy they hold (insurer, plan, sum insured, members, start), even without being asked to save. Policy numbers are never taken by voice.',
     parameters: { type: 'object', properties: { insurer: { type: 'string' }, plan: { type: 'string' }, sumInsured: { type: 'number' }, inceptionDate: { type: 'string', description: 'YYYY-MM-DD if known' }, inceptionYear: { type: 'integer' }, continuityFrom: { type: 'string' }, renewalDate: { type: 'string' }, members: { type: 'array', items: relationEnum }, corporate: { type: 'boolean' } }, required: ['insurer'] } } },
-  { type: 'function', function: { name: 'check_renewal', description: 'Days to the saved policy renewal date.', parameters: { type: 'object', properties: { policyId: { type: 'string' } } } } },
+  { type: 'function', function: { name: 'check_renewal', description: 'Days to the saved policy renewal date, the porting window (apply 60 to 30 days before) and the grace period, each with its source.', parameters: { type: 'object', properties: { policyId: { type: 'string' } } } } },
   { type: 'function', function: { name: 'track_reimbursement', description: 'Status of a reimbursement claim after documents were submitted.', parameters: { type: 'object', properties: { documentsSubmittedOn: { type: 'string', description: 'YYYY-MM-DD' } } } } },
 ] as const;
 /** A user who speaks or types in Devanagari is answered in Hindi even on the English interface; otherwise the interface language wins. */

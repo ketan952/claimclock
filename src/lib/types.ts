@@ -27,6 +27,6 @@ export type Contact = {
   irdai_baseline?: { gro_email: string | null; gro_phone: string | null; raw_phone?: string | null; source_url: string; verified_on: string | null; evidence: string; field_sources?: Record<string, ContactFieldSource | undefined> };
   notes?: string[];
 };
-export type Rule = { id: string; title: string; paragraph: string; quote: string; source_url: string; plain_en?: string; plain_hi?: string; [key:string]:unknown };
+export type Rule = { id: string; title: string; paragraph: string; quote: string; source_url: string; plain_en?: string; plain_hi?: string; source_slug?: string; clause?: string; title_hi?: string; additional_quote?: string; verified_on?: string; [key:string]:unknown };
 export type LetterKind = 'lock' | 'followup' | 'gro' | 'bima' | 'billing' | 'protest' | 'recovery' | 'death';
 export type Letter = { id: string; kind: string; language: Language; generatedAt: string; subject: string; body: string; ruleIds: string[] };

@@ -17,6 +17,7 @@ import {makeDeductionLetter} from './deduction-letter.ts';
 import {identityFor,personalize} from './identity.ts';
 import {clockState,windowMinutes} from './clock.ts';
 import {makeBackup} from './backup.ts';
+import {renewalSchedule,rule} from './renewal.ts';
 import {RELATIONS,daysUntilRenewal,emptyVault,selectPolicy,type Member,type Policy,type Relation,type Vault} from './vault.ts';
 import type {Contact,Language,Letter,LetterKind,Rule,Timeline,RequestType} from './types.ts';
 
@@ -405,13 +406,17 @@ function checkRenewal(args:Args,deps:VoiceDeps):ToolOutcome {
  const id=argString(args,'policyId',128);
  const policy=(id?vault?.policies.find(p=>p.id===id):undefined)||selectPolicy(vault)||vault?.policies[0]||null;
  if(!policy)return noPolicyOutcome(language);
- const link={href:'/vault/',label:text(language,'nav.vault')};
  const title=text(language,'voice.card.renewalTitle');
- if(!policy.renewalDate)return {result:{status:'no_date',insurer:insurerName(policy.insurerId,'en')},card:{kind:'renewal',title,lines:[text(language,'voice.card.renewalNoDate')],link}};
+ if(!policy.renewalDate)return {result:{status:'no_date',insurer:insurerName(policy.insurerId,'en')},card:{kind:'renewal',title,lines:[text(language,'voice.card.renewalNoDate')],link:{href:'/vault/',label:text(language,'nav.vault')}}};
+ const link={href:`/renewal/?policy=${encodeURIComponent(policy.id)}`,label:text(language,'footer.renewal')};
  const days=daysUntilRenewal(policy,now)!;
  const status=days<0?'overdue':days<=30?'due_soon':'upcoming';
- const lines=[`${text(language,'vault.renewalDate')}: ${localDate(policy.renewalDate,language)}`,text(language,`voice.card.renewal_${status}`,{days:Math.abs(days)}),text(language,'voice.card.renewalGrace')];
- return {result:{status,renewalDate:policy.renewalDate,days,insurer:insurerName(policy.insurerId,'en'),graceNote:'The grace period is stated in the policy wording; ClaimClock has not yet verified a general rule, so do not quote one.'},card:{kind:'renewal',title,lines,link}};
+ const schedule=renewalSchedule(policy.renewalDate,'annual',now);
+ const grace=rule('grace-period-15-30-days'),porting=rule('porting-window-30-60-days');
+ const lines=[`${text(language,'vault.renewalDate')}: ${localDate(policy.renewalDate,language)}`,text(language,`voice.card.renewal_${status}`,{days:Math.abs(days)}),...(schedule.status!=='invalid'?[text(language,'voice.card.renewalPorting',{open:localDate(schedule.portingOpensOn,language),close:localDate(schedule.portingClosesOn,language)})]:[]),text(language,'voice.card.renewalGrace')];
+ const result:Record<string,unknown>={status,renewalDate:policy.renewalDate,days,insurer:insurerName(policy.insurerId,'en'),gracePeriod:{monthlyDays:15,otherModesDays:30,creditsProtectedIfRenewedInGrace:true,source_url:grace.source_url,verified_on:grace.verified_on},note:'Quote only these sourced figures. The grace period is 15 days for monthly premiums and 30 days otherwise; porting must be applied for 60 to 30 days before renewal.'};
+ if(schedule.status!=='invalid')result.porting={applyFrom:schedule.portingOpensOn,applyBy:schedule.portingClosesOn,insurerDiscretionUntil:schedule.portingDiscretionUntil,migrationBy:schedule.migrationBy,graceEndsOn:schedule.graceEndsOn,source_url:porting.source_url,verified_on:porting.verified_on};
+ return {result,card:{kind:'renewal',title,lines,link}};
 }
 function trackReimbursement(args:Args,deps:VoiceDeps):ToolOutcome {
  const language=deps.language,now=deps.now?.()||new Date();

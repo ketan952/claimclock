@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-13T16:37:32.930Z",
+  "checked_at": "2026-10-18T08:57:39.991Z",
   "mode": "mocked-api-and-challenge",
   "base_url": "http://127.0.0.1:4322",
   "independent_contexts": 2,
-  "request_count": 172,
+  "request_count": 260,
   "transfer_posts": 2,
   "replayed_token_status": null,
   "plaintext_or_key_sent": false,

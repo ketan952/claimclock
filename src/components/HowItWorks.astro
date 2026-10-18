@@ -5,12 +5,13 @@ import en from '../i18n/en.json';
 import Icon from './Icon.astro';
 import Spot from './Spot.astro';
 const steps = [['one', 'time'], ['two', 'writing'], ['three', 'send']] as const;
-const tools: { href: string; icon: 'receipt' | 'chart' | 'shield' | 'check' | 'columns'; title: keyof typeof en; body: keyof typeof en }[] = [
+const tools: { href: string; icon: 'receipt' | 'chart' | 'shield' | 'check' | 'columns' | 'calendar'; title: keyof typeof en; body: keyof typeof en }[] = [
   { href: '/deductions/', icon: 'receipt', title: 'nav.deductions', body: 'home.tool.deductions' },
   { href: '/index/', icon: 'chart', title: 'nav.index', body: 'home.tool.index' },
   { href: '/vault/', icon: 'shield', title: 'nav.vault', body: 'home.tool.vault' },
   { href: '/check-coverage/', icon: 'check', title: 'footer.coverage', body: 'home.tool.coverage' },
   { href: '/compare/', icon: 'columns', title: 'footer.compare', body: 'home.tool.compare' },
+  { href: '/renewal/', icon: 'calendar', title: 'footer.renewal', body: 'home.tool.renewal' },
 ];
 ---
 <section id="story" class="story" aria-labelledby="story-title">

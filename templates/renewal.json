@@ -1,0 +1,58 @@
+{
+  "version": "2026-10-18-m25",
+  "premium-hike": {
+    "rules": ["renewal-loading-portfolio-only", "renewal-not-denied-for-claims", "grievance-14-days"],
+    "en": {
+      "subject": "Grievance: renewal premium increase — {insurer}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\n\nMy renewal notice for {renewalDate} quotes a premium of {newPremium} against {oldPremium} last year: {totalChange} overall{gstLine}, an increase of {baseChange} in the premium before tax.\n\n1. State the basis of this increase, separating (a) any revision of the product’s premium rates, with the date it took effect and its approval reference, (b) any change of age band, and (c) any change in sum insured or plan, with the amount attributable to each.\n2. Confirm that no part of the increase is a loading based on my own claim experience; for individual products, renewal loadings must be at portfolio level.\n{seniorDemand}{nextNumber}. Confirm that renewal is available on the existing terms without fresh underwriting, and that renewal cannot be denied on the ground of claims made in earlier policy years.\n\nPlease acknowledge this grievance with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [renewal notice]; [last year’s premium receipt]; [policy schedule].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "शिकायत: नवीनीकरण प्रीमियम में बढ़ोतरी — {insurer}",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\n\n{renewalDate} के नवीनीकरण नोटिस में प्रीमियम {newPremium} बताया गया है, जबकि पिछले साल {oldPremium} था: कुल {totalChange}{gstLine}, यानी कर-पूर्व प्रीमियम में {baseChange} की बढ़ोतरी।\n\n1. इस बढ़ोतरी का आधार बताएँ और अलग-अलग करें: (क) उत्पाद की प्रीमियम दरों में कोई संशोधन, उसकी प्रभावी तारीख और अनुमोदन संदर्भ सहित, (ख) आयु-वर्ग में कोई बदलाव, और (ग) बीमित राशि या योजना में कोई बदलाव — हर एक की राशि सहित।\n2. पुष्टि करें कि बढ़ोतरी का कोई हिस्सा मेरे अपने दावा-इतिहास के आधार पर लोडिंग नहीं है; व्यक्तिगत उत्पादों में नवीनीकरण लोडिंग पोर्टफोलियो स्तर पर होनी चाहिए।\n{seniorDemand}{nextNumber}. पुष्टि करें कि मौजूदा शर्तों पर, बिना नई अंडरराइटिंग के, नवीनीकरण उपलब्ध है और पिछले वर्षों के दावों के आधार पर नवीनीकरण से मना नहीं किया जा सकता।\n\nकृपया संदर्भ संख्या सहित इस शिकायत की पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [नवीनीकरण नोटिस]; [पिछले साल की प्रीमियम रसीद]; [पॉलिसी अनुसूची]।\n\n{citations}"
+    }
+  },
+  "premium-hike-bima": {
+    "rules": [],
+    "en": {
+      "subject": "Renewal premium increase — {insurer}",
+      "body": "Name: [Your name]\nPolicy number: [Policy number]\nInsurer: {insurer}.\n\nRenewal premium increase: {oldPremium} last year to {newPremium} for renewal on {renewalDate} ({baseChange} before tax). {seniorLine}\n\nInsurer grievance reference/date: [Reference and date]. Response: [Response or pending]. I request a written break-up of the increase (rate revision, age band, sum insured), confirmation that no claim-based loading applies, and resolution within 14 days under the PPHI Master Circular.\n\nDocuments I will attach: renewal notice, last year’s receipt, policy schedule, grievance and reply."
+    },
+    "hi": {
+      "subject": "नवीनीकरण प्रीमियम में बढ़ोतरी — {insurer}",
+      "body": "नाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\nबीमा कंपनी: {insurer}।\n\nनवीनीकरण प्रीमियम में बढ़ोतरी: पिछले साल {oldPremium} से {renewalDate} के नवीनीकरण पर {newPremium} (कर-पूर्व {baseChange})। {seniorLine}\n\nकंपनी में शिकायत की संख्या/तारीख: [संदर्भ और तारीख]। जवाब: [जवाब या लंबित]। बढ़ोतरी का लिखित विवरण (दर संशोधन, आयु-वर्ग, बीमित राशि), दावे के आधार पर लोडिंग न होने की पुष्टि और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र के अनुसार 14 दिनों में समाधान चाहिए।\n\nमैं ये दस्तावेज़ संलग्न करूँगा/करूँगी: नवीनीकरण नोटिस, पिछले साल की रसीद, पॉलिसी अनुसूची, शिकायत और जवाब।"
+    }
+  },
+  "free-look-cancel": {
+    "rules": ["free-look-30-days", "free-look-refund-7-days"],
+    "en": {
+      "subject": "Free look cancellation request — {insurer}",
+      "body": "To {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\n\nI received the policy document on {receivedOn}. Within the 30-day free look period I request cancellation of this policy and refund of the premium, because the policy issued differs from what was proposed to me:\n{mismatches}\n\nPlease confirm the cancellation in writing and refund the premium, less only the proportionate risk premium for the period of cover, any medical examination expenses and stamp duty, within 7 days of receiving this request. Please also confirm the date on which you received it.\n\nAttachments: [policy document and schedule]; [proposal, illustration or messages from the seller]; [premium receipt].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "फ्री लुक रद्दीकरण अनुरोध — {insurer}",
+      "body": "प्रति: {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\n\nमुझे पॉलिसी दस्तावेज़ {receivedOn} को मिला। 30 दिन की फ्री लुक अवधि के भीतर मैं इस पॉलिसी को रद्द करने और प्रीमियम वापस करने का अनुरोध करता/करती हूँ, क्योंकि जारी पॉलिसी मुझे बताई गई बातों से अलग है:\n{mismatches}\n\nकृपया रद्दीकरण की लिखित पुष्टि दें और यह अनुरोध मिलने के 7 दिनों के अंदर प्रीमियम वापस करें; केवल कवर की अवधि का आनुपातिक जोखिम प्रीमियम, मेडिकल जाँच का खर्च और स्टाम्प शुल्क काटा जा सकता है। अनुरोध मिलने की तारीख की भी पुष्टि करें।\n\nसंलग्नक: [पॉलिसी दस्तावेज़ और अनुसूची]; [प्रस्ताव, इलस्ट्रेशन या विक्रेता के संदेश]; [प्रीमियम रसीद]।\n\n{citations}"
+    }
+  },
+  "porting-delay": {
+    "rules": ["porting-credits-no-charges", "grievance-14-days"],
+    "en": {
+      "subject": "Grievance: pending portability request — {insurer}",
+      "body": "To the Grievance Redressal Officer, {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\n\n{situation}\n\n{demand} Please also confirm in writing the credits that transfer with the policy: sum insured, no-claim bonus, specific and pre-existing-disease waiting periods served, and moratorium months. No charge may be levied for porting in or out.\n\nPlease acknowledge this grievance with a reference number and resolve it within 14 days under the PPHI Master Circular, Part B VI.2(i).\n\nAttachments: [portability and proposal forms]; [acknowledgement of the request]; [current policy schedule].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "शिकायत: लंबित पोर्टेबिलिटी अनुरोध — {insurer}",
+      "body": "प्रति: शिकायत निवारण अधिकारी, {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\n\n{situation}\n\n{demand} पॉलिसी के साथ जाने वाले क्रेडिट की लिखित पुष्टि भी करें: बीमित राशि, नो-क्लेम बोनस, पूरी हो चुकी विशिष्ट और पूर्व-मौजूदा बीमारी की प्रतीक्षा अवधि, और मोरेटोरियम के महीने। पोर्ट-इन या पोर्ट-आउट के लिए कोई शुल्क नहीं लिया जा सकता।\n\nकृपया संदर्भ संख्या सहित इस शिकायत की पावती दें और पॉलिसीधारकों के हितों की सुरक्षा संबंधी मास्टर परिपत्र, भाग B VI.2(i) के अनुसार 14 दिनों में समाधान दें।\n\nसंलग्नक: [पोर्टेबिलिटी और प्रस्ताव फॉर्म]; [अनुरोध की पावती]; [मौजूदा पॉलिसी अनुसूची]।\n\n{citations}"
+    }
+  },
+  "migration-request": {
+    "rules": ["migration-credits-36-months", "proposal-decision-7-days"],
+    "en": {
+      "subject": "Migration request — {insurer}",
+      "body": "To {insurer}\n\nName: [Your name]\nPolicy number: [Policy number]\n\nI request migration of this policy, with all insured members, to {target} with effect from {effectiveDate}{groupLine}.\n\n1. Transfer the credits accrued under the existing policy — sum insured, no-claim bonus, specific and pre-existing-disease waiting periods served, and moratorium months — and confirm them in writing on the new schedule.\n2. {underwritingLine}\n3. Decide the proposal within 7 days of receiving it or the last document you require, and confirm that no charge is levied for migration.\n\nAttachments: [current policy schedule]; [proposal form for the new product]; [identity and address proof].\n\n{citations}"
+    },
+    "hi": {
+      "subject": "माइग्रेशन अनुरोध — {insurer}",
+      "body": "प्रति: {insurer}\n\nनाम: [आपका नाम]\nपॉलिसी संख्या: [पॉलिसी संख्या]\n\nमैं इस पॉलिसी को, सभी बीमित सदस्यों सहित, {effectiveDate} से {target} में माइग्रेट करने का अनुरोध करता/करती हूँ{groupLine}।\n\n1. मौजूदा पॉलिसी के क्रेडिट — बीमित राशि, नो-क्लेम बोनस, पूरी हो चुकी विशिष्ट और पूर्व-मौजूदा बीमारी की प्रतीक्षा अवधि, और मोरेटोरियम के महीने — नई पॉलिसी में स्थानांतरित करें और नई अनुसूची पर लिखित पुष्टि दें।\n2. {underwritingLine}\n3. प्रस्ताव या आपके माँगे गए आखिरी दस्तावेज़ के मिलने से 7 दिनों के अंदर निर्णय दें और पुष्टि करें कि माइग्रेशन के लिए कोई शुल्क नहीं लिया गया है।\n\nसंलग्नक: [मौजूदा पॉलिसी अनुसूची]; [नए उत्पाद का प्रस्ताव फॉर्म]; [पहचान और पते का प्रमाण]।\n\n{citations}"
+    }
+  }
+}

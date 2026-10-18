@@ -263,7 +263,12 @@ test('check_renewal and track_reimbursement stay honest about what is and is not
  const noDate=executeTool(call('check_renewal',{}),deps({vaultValue:{...sampleVault(),policies:[{...sampleVault().policies[0],renewalDate:undefined}]}}));
  assert.equal(noDate.result.status,'no_date');
  assert.equal(executeTool(call('check_renewal',{}),deps({vaultValue:null})).result.status,'no_policy');
- assert.match(String(executeTool(call('check_renewal',{}),deps()).result.graceNote),/do not quote/);
+ // M25: the grace period and the porting window are sourced rules now, so the tool states them with their sources and points to Renewal Guardian.
+ const sourced=executeTool(call('check_renewal',{}),deps({now:()=>new Date('2026-07-01T00:00:00Z')}));
+ assert.deepEqual(sourced.result.gracePeriod,{monthlyDays:15,otherModesDays:30,creditsProtectedIfRenewedInGrace:true,source_url:'https://irdai.gov.in/document-detail?documentId=4942918',verified_on:'2026-10-18'});
+ assert.deepEqual((sourced.result.porting as Record<string,string>).applyFrom,'2026-08-01');assert.equal((sourced.result.porting as Record<string,string>).applyBy,'2026-08-31');assert.equal((sourced.result.porting as Record<string,string>).graceEndsOn,'2026-10-30');
+ assert.equal(sourced.card?.link?.href,'/renewal/?policy=p-star');assert.ok(sourced.card?.lines.some(l=>/1 August 2026/.test(l)&&/31 August 2026/.test(l)));assert.ok(sourced.card?.lines.some(l=>/15 days/.test(l)&&/30 days/.test(l)));
+ assert.doesNotMatch(JSON.stringify(sourced.result),/P\/700001|UH-99887|CLM-77/);
  const tracker=executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-10-01'}),deps());
  assert.equal(tracker.result.status,'tracker_not_yet_available');assert.equal(tracker.result.daysSinceDocuments,16);
  assert.equal(executeTool(call('track_reimbursement',{documentsSubmittedOn:'2026-12-01'}),deps()).result.field,'documentsSubmittedOn');

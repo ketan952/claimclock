@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import LetterDialog from '../components/LetterDialog.astro';
+import contacts from '../../data/contacts.json';
+import rules from '../../data/rules.json';
+const insurers=contacts.filter(c=>c.kind==='insurer').sort((a,b)=>a.name.localeCompare(b.name));
+const rightsRules=rules.filter(r=>['renewal-not-denied-for-claims','renewal-loading-portfolio-only','senior-premium-cap-10pct','grace-period-15-30-days'].includes(r.id));
+const gst=rules.find(r=>r.id==='gst-exempt-individual-health-2025-09-22')!;
+---
+<Base title="Renewal Guardian — ClaimClock" description="Know your renewal dates, see what really changed in the premium, port or migrate with the credits you earned, and use the 30-day free look if a new policy is not what was promised."><div class="wrap">
+ <section class="page-hero"><p class="eyebrow" data-i18n="renewal.eyebrow">RENEWAL GUARDIAN</p><h1 data-i18n="renewal.title">Renew on your terms</h1><p class="lead" data-i18n="renewal.lead">Your dates, what really changed in the premium, how to port or migrate without losing the credits you earned, and the 30-day free look when a new policy is not what was promised. Everything runs on this device; nothing is sent anywhere.</p></section>
+ <div class="notice" data-i18n="renewal.caution">Dates here are planning aids computed from the rules cited below; your policy schedule and the insurer’s written confirmations decide. No premiums are compared and nothing is a recommendation to buy, port or stay.</div>
+ <div class="index-columns"><div class="stack">
+  <section class="card" id="dates-card"><p class="section-number" data-i18n="renewal.sectionDates">Your dates</p><h2 data-i18n="renewal.datesTitle">When do I need to act?</h2><p data-i18n="renewal.datesBody">The porting window, the last day to apply for migration, the day to pay and the grace period — counted back from your renewal date.</p>
+   <form id="dates-form" class="form-grid">
+    <label class="full" id="vault-policy-field" hidden><span data-i18n="coverage.vaultPolicy">Saved policy</span><select name="vaultPolicy"></select></label>
+    <label><span data-i18n="vault.renewalDate">Renewal / expiry date</span><input name="renewalDate" type="date" required /></label>
+    <label><span data-i18n="renewal.mode">How the premium is paid</span><select name="mode"><option value="annual" data-i18n="renewal.mode.annual">Yearly</option><option value="half_yearly" data-i18n="renewal.mode.half_yearly">Half-yearly</option><option value="quarterly" data-i18n="renewal.mode.quarterly">Quarterly</option><option value="monthly" data-i18n="renewal.mode.monthly">Monthly</option></select></label>
+    <label class="full"><span data-i18n="renewal.policyLabel">Name for the reminder (optional)</span><input name="label" type="text" maxlength="80" autocomplete="off" /><small data-i18n="renewal.policyLabelHint">Shown in the calendar entries, e.g. “Papa’s Star policy”. Leave out numbers.</small></label>
+   </form>
+   <div id="dates-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button-secondary" id="dates-calendar" disabled data-i18n="renewal.calendarButton">Add reminders to my calendar (.ics)</button><a href="/vault/" class="fine-print" data-i18n="renewal.saveHint">Save the renewal date in My Vault to see it here every time</a></div>
+   <p class="status" id="dates-status" role="status"></p>
+  </section>
+  <section class="card" id="hike-card"><p class="section-number" data-i18n="renewal.sectionHike">Premium check</p><h2 data-i18n="renewal.hikeTitle">What really changed in the premium?</h2><p data-i18n="renewal.hikeBody">Separate the GST that disappeared on 22 September 2025 from a real change in the premium, and check the 10% yearly limit for senior citizens.</p>
+   <form id="hike-form" class="form-grid">
+    <label><span data-i18n="renewal.oldPremium">Last year’s premium (₹)</span><input name="oldPremium" type="number" min="1" max="100000000" step="1" inputmode="numeric" required /></label>
+    <label><span data-i18n="renewal.newPremium">Renewal premium quoted (₹)</span><input name="newPremium" type="number" min="0" max="100000000" step="1" inputmode="numeric" required /></label>
+    <label class="checkbox-label full"><input type="checkbox" name="oldIncludesGst" checked /><span data-i18n="renewal.oldIncludesGst">Last year’s amount included 18% GST</span></label>
+    <label class="checkbox-label full"><input type="checkbox" name="newIncludesGst" /><span data-i18n="renewal.newIncludesGst">The new amount still includes GST (group or employer policy)</span></label>
+    <label class="checkbox-label full"><input type="checkbox" name="senior" /><span data-i18n="renewal.senior">The insured is 60 or older</span></label>
+    <label><span data-i18n="renewal.ageBand">Did the insured move into a new age band?</span><select name="ageBandChanged"><option value="" data-i18n="coverage.claimFreeUnknown">Not sure</option><option value="yes" data-i18n="coverage.yes">Yes</option><option value="no" data-i18n="coverage.no">No</option></select></label>
+    <label class="checkbox-label"><input type="checkbox" name="sumInsuredChanged" /><span data-i18n="renewal.sumInsuredChanged">Sum insured or plan changed</span></label>
+    <label class="checkbox-label full"><input type="checkbox" name="claimedLastYear" /><span data-i18n="renewal.claimedLastYear">I made a claim last year</span></label>
+    <label class="full"><span data-i18n="renewal.hikeInsurer">Insurer (for the letter)</span><select data-searchable name="insurer"><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id} data-search={c.name_hi}>{c.name}</option>)}</select></label>
+   </form>
+   <div id="hike-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button" id="hike-letter" disabled data-i18n="renewal.hikeLetter">Draft the grievance letter</button><button type="button" class="button-secondary" id="hike-bima" disabled data-i18n="renewal.hikeBima">Bima Bharosa draft</button></div>
+  </section>
+  <section class="card" id="porting-card"><p class="section-number" data-i18n="renewal.sectionPorting">Porting</p><h2 data-i18n="renewal.portingTitle">Should I port? The checklist, with dates</h2><p data-i18n="renewal.portingBody">Porting moves your waiting periods, moratorium months, no-claim bonus and sum insured to another insurer. Compare structural rules — room rent, co-pay, consumables, waiting periods, restoration — never the premium alone.</p>
+   <ol id="porting-steps" class="checklist"></ol>
+   <p class="fine-print"><a href="/compare/" data-i18n="renewal.compareLink">Compare plans’ published rules side by side →</a></p>
+   <details><summary data-i18n="renewal.portingDelayTitle">A porting request is stuck? Draft the follow-up</summary>
+    <form id="porting-form" class="form-grid">
+     <label class="full"><span data-i18n="renewal.portingRole">Who is late?</span><select name="role"><option value="existing" data-i18n="renewal.role.existing">My current insurer has not shared my records (72 hours)</option><option value="acquiring" data-i18n="renewal.role.acquiring">The new insurer has not decided (5 days)</option></select></label>
+     <label class="full"><span data-i18n="renewal.portingInsurer">Insurer to write to</span><select data-searchable name="insurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id} data-search={c.name_hi}>{c.name}</option>)}</select></label>
+     <label><span data-i18n="renewal.otherInsurer">The other insurer</span><input name="otherInsurer" type="text" maxlength="120" autocomplete="off" /></label>
+     <label><span data-i18n="renewal.requestDate">Date the request was made</span><input name="requestDate" type="date" required /></label>
+     <button type="submit" class="button-secondary full" disabled data-i18n="renewal.portingLetter">Draft the follow-up letter</button>
+     <p class="error full" id="porting-status" role="alert"></p>
+    </form>
+   </details>
+  </section>
+  <section class="card" id="migration-card"><p class="section-number" data-i18n="renewal.sectionMigration">Migration</p><h2 data-i18n="renewal.migrationTitle">Same insurer, another product — or leaving a job</h2><p data-i18n="renewal.migrationBody">Migration keeps your credits inside the same insurer; after 36 months of continuous cover there is no fresh underwriting. Leaving an employer’s group policy also gives you the right to an individual policy from that insurer.</p>
+   <ol id="migration-steps" class="checklist"></ol>
+   <details><summary data-i18n="renewal.migrationRequestTitle">Draft the migration request</summary>
+    <form id="migration-form" class="form-grid">
+     <label class="full"><span data-i18n="label.insurer">Your insurer</span><select data-searchable name="insurer" required><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id} data-search={c.name_hi}>{c.name}</option>)}</select></label>
+     <label><span data-i18n="renewal.target">Product you want to move to</span><input name="target" type="text" maxlength="120" autocomplete="off" /></label>
+     <label><span data-i18n="renewal.effectiveDate">From which date</span><input name="effectiveDate" type="date" required /></label>
+     <label><span data-i18n="renewal.continuousMonths">Months of continuous cover so far</span><input name="continuousMonths" type="number" min="0" max="1200" step="1" inputmode="numeric" /></label>
+     <label class="checkbox-label"><input type="checkbox" name="groupExit" /><span data-i18n="renewal.groupExit">I am leaving an employer’s group policy</span></label>
+     <button type="submit" class="button-secondary full" disabled data-i18n="renewal.migrationLetter">Draft the migration request</button>
+     <p class="error full" id="migration-status" role="alert"></p>
+    </form>
+   </details>
+  </section>
+  <section class="card" id="freelook-card"><p class="section-number" data-i18n="renewal.sectionFreeLook">Free-Look Rescue</p><h2 data-i18n="renewal.freeLookTitle">New policy not what was promised?</h2><p data-i18n="renewal.freeLookBody">You have 30 days from receiving the policy document to cancel it for a refund. Enter what you were promised and what the schedule actually says — or let this device read the schedule — and we list every difference.</p>
+   <form id="freelook-form" class="form-grid">
+    <label><span data-i18n="renewal.receivedOn">Policy document received on</span><input name="receivedOn" type="date" /></label>
+    <label><span data-i18n="renewal.requestedOn">Cancellation requested on (if already sent)</span><input name="requestedOn" type="date" /></label>
+    <label class="full"><span data-i18n="label.insurer">Your insurer</span><select data-searchable name="insurer"><option value="" data-i18n="label.choose">Choose your insurer</option>{insurers.map(c=><option value={c.id} data-search={c.name_hi}>{c.name}</option>)}</select></label>
+    <label class="full"><span data-i18n="renewal.scheduleUpload">Policy schedule or CIS (optional PDF or photo — read on this device)</span><input type="file" name="schedule" accept="application/pdf,image/png,image/jpeg,image/webp" /><small class="status" id="freelook-extract-status" role="status"></small></label>
+   </form>
+   <div id="freelook-window" class="result" role="status" aria-live="polite"></div>
+   <div class="diff-grid" id="freelook-diff">
+    <p class="diff-head"></p><p class="diff-head" data-i18n="renewal.promised">What was promised</p><p class="diff-head" data-i18n="renewal.actual">What the schedule says</p>
+    <label for="p-sumInsured" data-i18n="vault.sumInsured">Sum insured (₹)</label><input id="p-sumInsured" data-side="promised" data-field="sumInsured" type="number" min="1" max="1000000000" inputmode="numeric" /><input data-side="actual" data-field="sumInsured" type="number" min="1" max="1000000000" inputmode="numeric" aria-label="Sum insured in the schedule" data-i18n-aria-label="renewal.aria.sumInsured" />
+    <label for="p-roomRent" data-i18n="vault.rule.roomRent">Room rent</label><input id="p-roomRent" data-side="promised" data-field="roomRent" type="text" maxlength="120" /><input data-side="actual" data-field="roomRent" type="text" maxlength="120" aria-label="Room rent rule in the schedule" data-i18n-aria-label="renewal.aria.roomRent" />
+    <label for="p-copayPercent" data-i18n="vault.rule.copay">Co-payment</label><input id="p-copayPercent" data-side="promised" data-field="copayPercent" type="number" min="0" max="100" inputmode="numeric" /><input data-side="actual" data-field="copayPercent" type="number" min="0" max="100" inputmode="numeric" aria-label="Co-payment in the schedule" data-i18n-aria-label="renewal.aria.copayPercent" />
+    <label for="p-pedMonths" data-i18n="coverage.pedMonths">Pre-existing disease wait (months)</label><input id="p-pedMonths" data-side="promised" data-field="pedMonths" type="number" min="0" max="120" inputmode="numeric" /><input data-side="actual" data-field="pedMonths" type="number" min="0" max="120" inputmode="numeric" aria-label="Pre-existing disease wait in the schedule" data-i18n-aria-label="renewal.aria.pedMonths" />
+    <label for="p-members" data-i18n="renewal.membersCount">Insured members</label><input id="p-members" data-side="promised" data-field="members" type="number" min="1" max="20" inputmode="numeric" /><input data-side="actual" data-field="members" type="number" min="1" max="20" inputmode="numeric" aria-label="Insured members in the schedule" data-i18n-aria-label="renewal.aria.members" />
+    <label for="p-planName" data-i18n="vault.plan">Plan</label><input id="p-planName" data-side="promised" data-field="planName" type="text" maxlength="120" /><input data-side="actual" data-field="planName" type="text" maxlength="120" aria-label="Plan name in the schedule" data-i18n-aria-label="renewal.aria.planName" />
+   </div>
+   <div id="freelook-result" class="result" role="status" aria-live="polite"></div>
+   <div class="button-row"><button type="button" class="button" id="freelook-letter" disabled data-i18n="renewal.freeLookLetter">Draft the free-look cancellation</button></div>
+   <p class="error" id="freelook-status" role="alert"></p>
+  </section>
+ </div><aside class="stack">
+  <section class="card rights-card" id="rights-card"><h2 data-i18n="renewal.rightsTitle">Your renewal rights</h2><ol>{rightsRules.map(r=><li><p data-i18n={`renewal.rule.${r.id}`}>{r.plain_en}</p><a href={r.source_url} target="_blank" rel="noopener noreferrer" class="fine-print">{r.paragraph} ↗</a></li>)}</ol></section>
+  <section class="card" id="gst-card"><h2 data-i18n="renewal.gstTitle">GST: what changed on 22 September 2025</h2><p data-i18n="renewal.rule.gst-exempt-individual-health-2025-09-22">{gst.plain_en}</p><p class="fine-print"><a href={gst.source_url} target="_blank" rel="noopener noreferrer" data-i18n="sources.gst-individual-health-2025">Ministry of Finance explainer: GST exemption on individual health insurance, 22 September 2025</a></p></section>
+  <section class="card"><h2 data-i18n="coverage.sourcesTitle">Where these rules come from</h2><p data-i18n="renewal.sourcesBody">Each date and limit on this page comes from one of these documents; the quotation and the page number travel with every letter.</p><div id="renewal-sources" class="fine-print"></div></section>
+ </aside></div>
+ <p class="fine-print" data-i18n="rejection.filing">You review, sign and send every complaint yourself. ClaimClock does not contact the insurer or file a case for you.</p>
+</div><LetterDialog/><script>import '../lib/renewal-ui';</script></Base>
+<style is:global>
+ .result{margin-top:16px}.result:empty{display:none}.result .verdict{font-size:1.05rem;font-weight:600;margin-bottom:6px}.result .verdict.ok{color:var(--brand-deep)}.result .verdict.warn{color:var(--amber-ink)}.result .verdict.no{color:var(--red)}.result p{font-size:.85rem;margin-top:6px}.result ul,.result ol{margin-top:8px;font-size:.82rem}.result li+li{margin-top:4px}.result .amount{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;margin:6px 0}
+ .timeline{list-style:none;padding:0;margin-top:12px;display:grid;gap:6px}.timeline li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:8px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2)}.timeline li.passed{opacity:.62}.timeline li.next{border-color:var(--brand);box-shadow:inset 3px 0 0 var(--brand)}.timeline time{font-family:var(--font-display);font-weight:600;font-size:.82rem;white-space:nowrap}.timeline span{font-size:.82rem}.timeline small{display:block;color:var(--muted);font-size:.72rem}
+ .checklist{margin-top:12px;padding-left:22px;font-size:.88rem}.checklist li{margin-top:10px}.checklist li.done{opacity:.6}.checklist strong{display:block}.checklist .fine-print{margin-top:2px}.checklist a{font-size:.68rem;margin-left:4px}
+ .diff-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:8px 10px;align-items:center;margin-top:16px}.diff-grid .diff-head{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0}.diff-grid label{font-size:.82rem;font-weight:500}.diff-grid input{min-width:0;width:100%}
+ @media (max-width:520px){.diff-grid{grid-template-columns:1fr 1fr}.diff-grid label,.diff-grid .diff-head:first-child{grid-column:1/-1}.diff-grid .diff-head:first-child{display:none}}
+ .result ul.mismatches{list-style:none;padding-left:0}.mismatch{border-left:3px solid var(--red);padding:2px 0 2px 10px}.mismatch.medium{border-color:var(--amber-ink)}
+ #renewal-sources p{margin-top:8px}#renewal-sources a{font-size:.68rem;margin-left:4px}
+</style>
